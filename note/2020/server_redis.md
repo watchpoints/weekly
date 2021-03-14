@@ -1460,12 +1460,7 @@ ziplist
 skiplist
 ```
 
-| 编码                      | 对象                                 |
-| :------------------------ | :----------------------------------- |
-| `REDIS_ENCODING_INTSET`   | 使用整数集合实现的集合对象。         |
-| `REDIS_ENCODING_HT`       | 使用字典实现的集合对象。             |
-| `REDIS_ENCODING_ZIPLIST`  | 使用压缩列表实现的有序集合对象。     |
-| `REDIS_ENCODING_SKIPLIST` | 使用跳跃表和字典实现的有序集合对象。 |
+
 
 
 
@@ -1503,13 +1498,7 @@ http://redisbook.com/preview/object/set.html
 
 有序集合的编码可以是 `ziplist` 或者 `skiplist` 。
 
-| 类型常量     | 对象的名称 |
-| ------------ | ---------- |
-| REDIS_STRING | 字符串对象 |
-| REDIS_LIST   | 列表对象   |
-| REDIS_HASH   | 哈希对象   |
-| REDIS_SET    | 集合对象   |
-| REDIS_ZSET   | 有序集合对 |
+
 
 # 第八天： save
 
