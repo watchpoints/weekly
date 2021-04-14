@@ -4,99 +4,63 @@
  * [54] 螺旋矩阵
  */
 // @lc code=start
-struct Point
-{
-    int x;
-    int y;
-    Point(int a, int b)
-    {
-        x = a;
-        y = b;
-    }
-};
 
-class Solution
-{
+class Solution {
 public:
-    //采取深度优先搜索：递归回溯
-    //这里重点是如何回溯
-    //因为路径只有一个，采取非递归实现
-    //定义三个位置
-    //当前位置，下一个位置，下个位置包括（错误需要回溯，正确位置）
-    //约束条件：
-    vector<int> spiralOrder(vector<vector<int>> &matrix)
+    //模型：1节点和任何节点都有关系，并且顺时针 因此这是有向图
+    vector<int> spiralOrder(vector<vector<int>>& matrix)
     {
-        //01 定义数据结构
-        vector<int> path;
+        //1 定义图的数据结构
+        //顺时针 虽然是4个方向，但是只有2个方向移动，其中一个合法的。
+        int direction = 0;
+        vector<vector<int>> directions = { { 0, 1 }, { 1, 0 }, { 0, -1 }, { -1, 0 } };
 
+        //约束条件:障碍物 没有可访问的节点, 边界
         int rows = matrix.size();
-        if (0 == rows)
-        {
-            return path;
-        }
-        int cols = matrix[0].size();
+        int cols = matrix.size();
         int total = rows * cols;
-        path.resize(total);
-        
-        vector<vector<bool>> visited(rows, vector<bool>(cols, false)); //!!!
+        vector<vector<bool>> visited(rows, vector<bool>(cols, false));
 
+        vecotr<int> path(total);
 
-        //02 开始位置 0,0,结束位置 ,全部元素遍历一遍（不重复遍历）结束
+        // 02 遍历有向图 开始位置(0,0)
         int x = 0;
         int y = 0;
-        int position = 0; // 0 right  down 1 left 2 up 3
+        //邻居节点
+        int nx = 0;
+        int ny = 0;
 
-        for (int i = 0; i < total; i++)
-        {
-            //step01
+        //03 循环迭代(x,y)
+        // 根据这个题目你可以看出，矩阵特点 跟具体数字没关系，跟位置有关系，变化的是位置
+
+        for (int index = 0; index < total; total++) {
+
+            //enter
             visited[x][y] = true;
-            path[i] = matrix[x][y];
+            path[index] = matrix[x][y];
 
-            //规律：一个节点 最多2个方向
-            Point wrongNext = move(position, x, y);
-            //!!!
-            if (wrongNext.x < 0 || wrongNext.x >= rows || wrongNext.y < 0 || wrongNext.y <= cols || visited[x][y] == true)
-            {
-                position = (position + 1) % 4;
+            //寻找下一个邻居节点，
+            //链表 tree无法获取下一个节点怎么遍历，图也是如此
+
+            nx = x + directions[direction][0];
+            ny = y + directions[direction][1];
+            //(0,2) -->(0,3) 不合法
+            //(1,0) --->(0,0) 被访问过一次
+            //(1,0)--->(1,1) OK
+            //思考与行动： 外圈约束条件是边界，内圈约束是什么，这个边界不好计算 !!!!
+            //围墙在第一圈完毕后才会出现
+            if (nx < 0 || nx >= rows || ny < 0 || ny >= cosl || visited[nx][ny] == ture) {
+
+                direction = (direction + 1) % 4;
             }
 
-            Point rightNext = move(position, x, y);
-            x = rightNext.x;
-            y = rightNext.y;
-        }
+            x = x + directions[direction][0];
+            y = y + directions[direction][1];
+            //这里需要重重新计算一次，这个函数调动浪费是值得的，不靠重复这样写就不妙。
+
+        } //手工对着case1进行模拟一遍
 
         return path;
-
-        //规律：一个坐标其实只有2个方向
-        //一个是合法的，一个非法的。
-    }
-
-    //right ,down ,left ,up
-    // static constexpr int directions[4][2] = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
-    Point move(int direction, int x, int y)
-    {
-        Point next(x, y);
-        switch (direction)
-        {
-        case 0:
-            /* code */
-            next.y++;
-            break;
-
-        case 1:
-            /* code */
-            next.x++;
-            break;
-        case 2:
-            /* code */
-            next.y--;
-            break;
-        case 3:
-            next.x--;
-            break;
-        }
-
-        return next;
     }
 };
 // @lc code=end
