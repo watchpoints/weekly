@@ -99,6 +99,19 @@ void test_ref()
 	cout << "sizeof(a._base)=" <<sizeof(a.m_base) <<endl; //16
 }
 
+void test_pointer()
+{
+	int a = 3;
+	int &ra = a;
+	ra++;
+
+	int b = 4;
+	int *pa = &b;
+	pa++;
+	
+	(*pa)++;
+}
+
 int main()
 {    
     //test_a();
