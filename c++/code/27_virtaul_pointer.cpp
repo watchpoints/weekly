@@ -1,29 +1,32 @@
 #include <iostream>
 #include <string.h>
-
 using namespace std;
+
 class Base
 {
 public:
 	virtual  ~Base(){}
 private:
    int data;
-};
-
-class Test
+}; //sizeof(Base) =16
+class Test 
 {
 public:
 	Test( Base& base):m_base(base),m_ptr(&base)
 	{ 
-	  cout<< &m_ptr<<endl;
 	  cout<< m_ptr<<endl;
 	  cout<< &m_base<<endl;
 	  //Test( Base &base):m_base(&base),m_ptr(&base)
 	  //invalid initialization of non-const reference of type ‘Base&’ from a temporary of type ‘Base*’
 	}
 	Base* m_ptr;
-	Base &m_base;
-};
+	Base &m_base; 
+	//证明 m_base存储是是地址，但是这个地址无法通过m_base访问，因为你访问是指向对象
+	bool check()
+	{
+		return  m_ptr == *(&m_ptr+8);
+	}
+};//sizeof(Test)=16
 
 ///////////////////////////////////////
 class A
@@ -92,11 +95,14 @@ void test_a()
 void test_ref()
 {
 	Base base;
-	cout << "&base=" <<&base <<endl; //16
 	Test a(base);
 	cout << "sizeof(base)=" <<sizeof(base) <<endl; //16
-	cout << "sizeof(a)=" <<sizeof(a) <<endl;//8
+	cout << "sizeof(a)=" <<sizeof(a) <<endl;//16
 	cout << "sizeof(a._base)=" <<sizeof(a.m_base) <<endl; //16
+	
+	cout<< a.check()<<endl;
+	
+	
 }
 
 void test_pointer()
@@ -109,12 +115,36 @@ void test_pointer()
 	int *pa = &b;
 	pa++;
 	
-	(*pa)++;
+	(*pa)++;	
+}
+
+void modiy_const_pointer()
+{
+	int a= 10;
+	int*ptr = &a;
+	int& b= a;
+	
+	cout << ptr<<endl; //值是地址
+	cout << &b<<endl;//地址
+	
+	cout << *ptr<<endl;//
+	cout << b<<endl;
+	cout << &b<<endl; //对变量a获取地址
+	//int&&c =b; //expected unqualified-id before ‘&&’ token
+
+	int aa = 3;
+	int bb = 4;
+	int &ra = aa;
+	//*(&bb - 3) = (int)&bb;
+	cout<<ra<<endl;
+
+	
 }
 
 int main()
 {    
     //test_a();
 	test_ref();
+	//modiy_const_pointer();
     return 0;
 }
