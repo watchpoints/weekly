@@ -70,9 +70,11 @@ public:
             return head;
 
         //定义辅助空间，并且初始化
-        ListNode* ptail = head; //1
+        ListNode* ptail = head; //1:假设ptail有序节点最后一个元素。
         ListNode* pcur = head->next; //2
         ListNode* ppre = head; //1
+
+        return head;
     }
 };
 // @lc code=end
