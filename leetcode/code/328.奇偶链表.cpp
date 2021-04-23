@@ -57,7 +57,7 @@ public:
      *   单链表特点______，
      *   因此需要三路指针
      * 02: 删除节点：删除节点编号
-     *   对偶数节点采取策略是：遍历变量。
+     *    对偶数节点采取策略是：遍历变量。
      *  
      * 03 插入节点： 在链表位节点插入
      *     1->3->5
@@ -70,9 +70,33 @@ public:
             return head;
 
         //定义辅助空间，并且初始化
-        ListNode* ptail = head; //1:假设ptail有序节点最后一个元素。
+        ListNode* ptail = head; //1:假设ptail有序节点最后一个元素。应当保持奇数节点和偶数节点的相对顺序
         ListNode* pcur = head->next; //2
         ListNode* ppre = head; //1
+        int index = 0;
+
+        //04 链表遍历 和翻转结合在一起了。 难度升级
+        while (pcur) {
+
+            //偶数移动
+            if ((index & 1) == 0) {
+                ppre = pcur;
+                pcur = pcur->next;
+            } else if ((index & 1) == 1) {
+                //1(ptail)--2(ppre)--3(pcur)--4
+
+                //在链表位节点插入 需要四个步骤
+
+                // 删除 --删除--连接--移动
+                ppre->next = pcur->next;
+                pcur->next = ptail->next;
+                ptail->next = pcur;
+                ptail = pcur;
+
+                pcur = ppre->next; //单链表需要记录下一个元素位置
+            }
+            index++;
+        }
 
         return head;
     }
