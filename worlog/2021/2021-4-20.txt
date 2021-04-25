@@ -46,10 +46,48 @@ strings /usr/lib64/libstdc++.so.6 | grep CXXABI
 
 
 ## 塔山
-1. https://www.zhihu.com/question/52193579/answer/156692295
+1. https://www.zhihu.com/question/52193579/answer/156692295 
+  腾讯开源的 libco 号称千万级协程支持，那个共享栈模式原理是什么?
+   https://github.com/tearshark/librf
+   https://github.com/hnes/libaco/blob/master/README_zh.md#name
+   https://www.boost.org/doc/libs/1_75_0/libs/coroutine/doc/html/coroutine/motivation.html
+   http://akira.ruc.dk/~keld/research/COROUTINE/COROUTINE-1.0/DOC/COROUTINE_REPORT.pdf
+   
+
 2. https://www.infoq.cn/article/CplusStyleCorourtine-At-Wechat
 - 异步化改造方案的考量：急需对微信后台进行异步化的改造
 	当时我们有两种选择：
 	A 线程异步化：把所有服务改造成异步模型，等同于从框架到业务逻辑代码的彻底改造
 	B 协程异步化：对业务逻辑非侵入的异步化改造，即只修该少量框架代码
 	B 协程方案不需要显式地维护异步状态,。因此在复杂系统上，协程服务的性能可能比纯异步模型更优
+3.https://shockwave.me/8260120b7806  Stackless Coroutine  Stackless Resumable Functions
+协程可以按照以下 3 个角度进行分类1:
+对称/不对称. 前者提供让出执行权的原语, 后者提供唤起协程和把执行权转交给调用者的原语
+第一类/受限. 协程是不是第一类对象
+有栈/无栈. 协程能在调用栈的任意处挂起, 还是只能在协程的函数体内挂起
+4. https://blog.csdn.net/cchd0001/article/details/50717525
+   
+并发编程的常见实现
+目前，主流的并发编程实现有以下几种方式：
+
+https://laravelacademy.org/post/19883 [这样回答根本不行]
+
+通信顺序进程的概念（communicating sequential processes）
+简写为CSP，一种类似于Actor模型（一种分布式并发编程模型）的概念
+，但有更多的新特性以应对现今的大规模并发需求。这两个并发模型都利用了消息传递的机制，
+
+但是Actor模型在状态容器之间传递消息，而CSP模型在通道之间传递消息 ，
+通道是协程或类协程程序之间的同步和通信形式 
+https://python.freelycode.com/contribution/detail/1822
+5 https://ilily.site/actor-vs-csp/
+
+Goroutine很大程度上降低了并发的开发成本，
+是不是我们所有需要并发的地方直接 go func 就搞定了呢？ 
+Go通过Goroutine的调度解决了CPU利用率的问题。
+但遇到其他的瓶颈资源如何处理？比如带锁的共享资源，比如数据库连接等。
+互联网在线应用场景下，如果每个请求都扔到一个Goroutine里，当资源出现瓶颈的时候，
+会导致大量的Goroutine阻塞，最后用户请求超时。
+这时候就需要用Goroutine池来进行控流，
+同时问题又来了：池子里设置多少个Goroutine合适？
+其消息传递更加符合面向对象的原始意图
+https://ilily.site/actor-model/
