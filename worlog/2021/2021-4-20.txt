@@ -37,10 +37,12 @@ git clone https://github.com/Tencent/libco.git
 make
 cat example_cond.cpp
 strings /usr/lib/libstdc++.so.6.0.13 | grep CXXABI
-cp libstdc++.so.6*   /usr/lib
+cp libstdc++.so.6*   /usr/lib64
 rm -f /usr/lib64/libstdc++.so.6 # 移出旧链接
-ln -s /usr/lib/libstdc++.so.6.0.24 /usr/lib64/libstdc++.so.6 # 创建新链接
-strings /usr/lib/libstdc++.so.6 | grep CXXABI
+ln -s /usr/lib64/libstdc++.so.6.0.22 /usr/lib64/libstdc++.so.6 # 创建新链接
+strings /usr/lib64/libstdc++.so.6 | grep CXXABI
+
+/app/work/libco
 
 
 ## 塔山
