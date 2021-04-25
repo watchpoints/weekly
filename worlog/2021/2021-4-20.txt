@@ -1,0 +1,53 @@
+C++协程库Libco—原理与应用
+
+## 好的提问
+陈咬金的三板斧 
+第一斧：技术本质是什么？
+第二斧：解决了什么问题？
+第三斧：如何使用？
+
+1. 为什么微信多线程模型，业务逻辑的并发能力只有几十到几百,ibco 支撑 8 亿用户?
+把多进程、多线程服务改造成协程服务，并发能力得到百倍提升
+按照道理单线程并发能力和强，但是比多线程强百倍也太夸张了吧？
+存在数据造假还是我理解不了。
+https://maimai.cn/web/gossip_detail?gid=28910888&egid=9b2f6774a56a11ebb4b5e4434b3cb1b0
+
+多进程：nginx
+
+
+2. nginx 信号 是线程的吗
+## 使用场景
+
+
+## 产品
+
+libco的特性
+无需侵入业务逻辑，把多进程、多线程服务改造成协程服务，并发能力得到百倍提升;
+支持CGI框架，轻松构建web服务(New);
+支持gethostbyname、mysqlclient、ssl等常用第三库(New);
+可选的共享栈模式，单机轻松接入千万连接(New);
+完善简洁的协程编程接口
+类pthread接口设计，通过co_create、co_resume等简单清晰接口即可完成协程的创建与恢复；
+__thread的协程私有变量、协程间通信的协程信号量co_signal (New);
+语言级别的lambda实现，结合协程原地编写并执行后台异步任务 (New);
+基于epoll/kqueue实现的小而轻的网络框架，基于时间轮盘实现的高性能定时器;
+
+
+git clone https://github.com/Tencent/libco.git 
+make
+cat example_cond.cpp
+strings /usr/lib/libstdc++.so.6.0.13 | grep CXXABI
+cp libstdc++.so.6*   /usr/lib
+rm -f /usr/lib64/libstdc++.so.6 # 移出旧链接
+ln -s /usr/lib/libstdc++.so.6.0.24 /usr/lib64/libstdc++.so.6 # 创建新链接
+strings /usr/lib/libstdc++.so.6 | grep CXXABI
+
+
+## 塔山
+1. https://www.zhihu.com/question/52193579/answer/156692295
+2. https://www.infoq.cn/article/CplusStyleCorourtine-At-Wechat
+- 异步化改造方案的考量：急需对微信后台进行异步化的改造
+	当时我们有两种选择：
+	A 线程异步化：把所有服务改造成异步模型，等同于从框架到业务逻辑代码的彻底改造
+	B 协程异步化：对业务逻辑非侵入的异步化改造，即只修该少量框架代码
+	B 协程方案不需要显式地维护异步状态,。因此在复杂系统上，协程服务的性能可能比纯异步模型更优

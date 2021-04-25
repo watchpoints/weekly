@@ -1,0 +1,52 @@
+---
+title: "项目用到哪些组价"
+date: 2019-11-18
+description: "学会使用工具"
+draft: false
+categories: ["框架"]
+---
+
+
+
+
+
+# 测试
+
+## 目的
+
+参考Kent Beck的 《Test-Driven Development: By Example》
+
+## 方法-单元测试(Unit Testing )
+
+
+
+### 1 .GTest - Google Testing and Mocking Framework（c++）
+
+
+
+GTest是Google官方团队开发的开源的C++单元测试框架，地址为：https://github.com/google/googletest。该地址下同时有一个名为googlemock的项目
+
+使用Google Test可以实现：
+1、测试应该是独立并且可以重复的。
+2、测试应该组织良好，能够清晰的反应出测试代码的结构。
+3、测试应该是可移植和可利用的。
+4、当测试失败时，Google Test将会提供尽可能多的测试信息，并继续后面的测试而不是结束测试。
+5、Google Test会跟踪所有用户定义的新测试，而不需要用户一一再去调用它们。从而将测试人员从繁杂的测试用例调用中解放出来，将更多的精力关注中测试本身上。
+6、测试实现起来很快，因为Google Test框架能够在测试用例之间共用资源，并且它们之前还不会相互依赖。
+
+> https://www.huaweicloud.com/kunpeng/software/googletest.html
+
+~~~shell
+
+wget https://github.com/google/googletest/archive/release-1.10.0.tar.gz
+cmake ./
+~~~
+
+|      | version | gtest                    |
+| ---- | ------- | ------------------------ |
+| gcc  | 7.4.0   | googletest-release-1.0.0 |
+|      |         |                          |
+
+
+
+### 2. JUnit is a simple framework to write repeatable tests(Java)
