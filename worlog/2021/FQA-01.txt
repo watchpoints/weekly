@@ -1,0 +1,27 @@
+提问的艺术
+
+01 为什么 当rmtp推流结束，kill进程后，造成ts无法播放，mp4文件可以播放
+
+nohup ./ffmpeg -i $rtmp -acodec copy -vcodec copy -movflags faststart -f mp4 ./1.mp4 
+nohup ./ffmpeg -y -i $rtmp -vcodec copy -acodec copy -f mpegts ./2.ts
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+动手回答
+01 
