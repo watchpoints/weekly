@@ -1,0 +1,7 @@
+TS是 transport Stream的缩写通常称为码流文件, TS文件是最原始的音频视频容器
+Container
+container就是指视频的格式，包括.mp4, .mov, .wmv, .m3u8, .flv等等，
+container作为容器主要包含了video数据、audio数据、metadata（用于检索视频payload格式等信息）。
+
+HLS vs. RTMP
+HLS协议的直播视频格式是m3u8，RTMP的是flv
