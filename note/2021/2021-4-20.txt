@@ -15,7 +15,7 @@ https://maimai.cn/web/gossip_detail?gid=28910888&egid=9b2f6774a56a11ebb4b5e4434b
 
 多进程：nginx
 
-
+协程, 即保持现场的可重入函数. 第二次调用的时候会在上次返回的地方继续, 而不是从头开始执行.
 
 2. nginx 信号 是线程的吗
 
@@ -72,13 +72,12 @@ strings /usr/lib64/libstdc++.so.6 | grep CXXABI
 
 ## 塔山
 1. https://www.zhihu.com/question/52193579/answer/156692295 
-  腾讯开源的 libco 号称千万级协程支持，那个共享栈模式原理是什么?
+    腾讯开源的 libco 号称千万级协程支持，那个共享栈模式原理是什么?
    https://github.com/tearshark/librf
    https://github.com/hnes/libaco/blob/master/README_zh.md#name
    https://www.boost.org/doc/libs/1_75_0/libs/coroutine/doc/html/coroutine/motivation.html
    http://akira.ruc.dk/~keld/research/COROUTINE/COROUTINE-1.0/DOC/COROUTINE_REPORT.pdf
    
-
 2. https://www.infoq.cn/article/CplusStyleCorourtine-At-Wechat
 - 异步化改造方案的考量：急需对微信后台进行异步化的改造
 	当时我们有两种选择：
@@ -92,6 +91,7 @@ strings /usr/lib64/libstdc++.so.6 | grep CXXABI
 有栈/无栈. 协程能在调用栈的任意处挂起, 还是只能在协程的函数体内挂起
 4. https://blog.csdn.net/cchd0001/article/details/50717525
    
+
 并发编程的常见实现
 目前，主流的并发编程实现有以下几种方式：
 
@@ -124,7 +124,6 @@ https://gqw.github.io/blog/2020/10/01/%E4%BB%8Ehellowold%E5%BC%80%E5%A7%8B%E6%B7
 协程是能暂停执行以在之后恢复的函数。协程是无栈的：
 协程是能暂停执行以在之后恢复的函数。协程是无栈的：它们通过返回到调用方暂停执行，并且从栈分离存储恢复所要求的数据
 
-
 6 https://juejin.cn/post/6844903715099377672
 C++ 协程
 
@@ -132,26 +131,40 @@ C++ 协程
   线程抢占执行的有栈协程？有阻塞系统调用导致的多核间切换的历史重演！
   https://www.zhihu.com/question/65370268
   如何评价百度开源的 RPC 框架 brpc？
-  
-  
+
+
   看了文章：https://zhuanlan.zhihu.com/p/29900855
   有不明白地方
-  
+
   原句：阻塞IO操作，阻塞系统调用让线程A从核a切换到了核b，
   不明白：线程阻塞了，就是放弃cpu，怎么会线程在核内切换呢？
-  
+
   原句：协程抢占操作：当一个协程在执行无阻塞io read时发现暂时无法执行
   不明白：协程是协作，不是抢占的，单cpu多核，这个也会发生切换呢？
+
   
-  
-  
+
   单核多线程的意义何在？陈硕都说单核开发多线程没有意义。
   1. 网上有说io阻塞，用多线程处理。，这个属于程序设计问题 epoll可以代替，更更好替代方案。这里说不通，不是主要原因
      大多都是致力于解决IO问题，说白了都是怎么样把阻塞变成非阻塞的手段。
   2. 网上有说cpu计算，多线程来回切换，在单核上更没意义了。
-  3 网上有说 单核多线程是开发角度。模块化，功能拆分
-  4 支持：多线程程序在单处理器上运行还是可以改善响应时间和吞吐量 UNIX 环境高级编程 第三版 中文版 383页
-  
+
+    3 网上有说 单核多线程是开发角度。模块化，功能拆分
+    4 支持：多线程程序在单处理器上运行还是可以改善响应时间和吞吐量 UNIX 环境高级编程 第三版 中文版 383页
+
   单核上能使用多线程，在io阻塞情况下，降低平均响应时间，但是有意义不大，
   这个场景 可以用单线程 异步非阻塞实现。
   https://bbs.avplayer.org/t/asio/771
+
+
+
+#### 第四天
+
+- https://mthli.xyz/stackful-stackless/
+
+- 英文： https://www.chiark.greenend.org.uk/~sgtatham/coroutines.html
+
+- https://mthli.xyz/coroutines-in-c/
+
+
+
