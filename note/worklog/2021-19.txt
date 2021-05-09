@@ -1,4 +1,6 @@
 
+星期天：
+最重要第一个事情：删除远程登录工具 ok
 
 
 星期六：
@@ -28,6 +30,10 @@ https://github.com/chenxuhua/issues-blog/issues/3
 	   这个理解不了，怎么汇总起来
 集群，一致性
 https://maimai.cn/web/gossip_detail?gid=28955689&egid=dcf52a5cafe311eb85aa801844e50190
+
+1 红包是钱，钱怎么拆分呀
+2.红包记录:怎么存储
+https://maimai.cn/web/gossip_detail?gid=23276709&egid=f13af2fac19811e98a38246e96b48088
 ## 好的提问
 陈咬金的三板斧来
 第一斧：为什么这么做，帮助解决了什么问题(Why)，
@@ -35,3 +41,7 @@ https://maimai.cn/web/gossip_detail?gid=28955689&egid=dcf52a5cafe311eb85aa801844
 第三斧：技术场景是什么，发挥优势(how)
 
 
+需求描述
+1. 秒杀时间 更新大于读取。
+2. 一台机器可以吗？单独故障
+https://maimai.cn/web/gossip_detail?gid=27160123&egid=b7fa7a18e8d111ea8ac2801844e50190
