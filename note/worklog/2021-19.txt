@@ -10,10 +10,24 @@
 
 2:00 设计一个红包系统
 
+https://time.geekbang.org/article/188
+难点是可扩展：如何分片
+https://melonshell.github.io/2020/01/23/tech2_wx_red_packet/
+难点是：系统层次，缓存需要缓存吗？
+
 
 https://github.com/chenxuhua/issues-blog/issues/3
 
 
+微信红包系统疑问，
+疑问1
+看网上文档都是采取mysql做存储
+金融系统存储，采用redis做存储可以吗？
+疑问2：红包数量数量是全局数据，
+       mysql拆分多台存储，
+	   这个理解不了，怎么汇总起来
+集群，一致性
+https://maimai.cn/web/gossip_detail?gid=28955689&egid=dcf52a5cafe311eb85aa801844e50190
 ## 好的提问
 陈咬金的三板斧来
 第一斧：为什么这么做，帮助解决了什么问题(Why)，
