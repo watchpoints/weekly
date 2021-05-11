@@ -1,6 +1,28 @@
+星期二：
+最重要第一个事情：复盘
 
-星期天：
-最重要第一个事情：删除远程登录工具 ok
+
+不要痛恨自己，
+你的世界还是靠你拯救。
+除父母没有人真正关系你。
+他们老去，是剩下你自己。
+你像父母一样，用今天行动种下希望种子。
+等未来一天产生果实。
+
+
+
+
+
+
+
+The 8 fallacies of distributed computing
+1. The network is reliable 网络是可靠的 --机器不保障提供24h无故障
+2、 Latency is zero. 延迟为零 --高延迟
+3. The network is secure 网络是安全的
+4. Topology doesn't change. 拓扑不会改变
+5 There is one administrator 没有中心节点。
+6 Transport cost is zero 传输代价为零
+7 Bandwidth is infinite 用网络进行视频和音频服务
 
 
 星期六：
