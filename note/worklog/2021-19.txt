@@ -1,13 +1,71 @@
+2021年5月18日
+
+重新安排行程
+开始:2021年5月19日15:08:35
+结束：
+摘要：专注
+
+
+
+
+我不回复就最好的回复。+1
+
+在看一次，以前看的都忘记了并且没有这种重点。
+
+考勤整理 调休
+17 ok
+
+
 星期二：
+
+ab -c 10 -n 1000 https://api-videoconfer.gomeplus.com/CMServer/getConfConfer
+
+Valgrind: A Framework for Heavyweight Dynamic Binary Instrumentation
+开始:2021年5月12日15:01:00
+结束：
+摘要：
+This paper describes how it works, and how it differs from other
+frameworks.
+they analyse programs at run-time at the level of machine code
+
+There are two fundamental ways for a DBI framework to represent
+code and allow instrumentation.
+
+
+
+Memcheck 是一个内存错误检测器。它帮助你使你的程序，尤其是用C和C++编写的程序更正确。
+Cachegrind 是一个缓存和分支预测分析器。它可以帮助你使你的程序运行得更快。
+Callgrind 是一个调用图生成缓存分析器。它与 Cachegrind 有一些重叠，但也收集了一些 Cachegrind 没有的信息。
+Helgrind 是一种线程错误检测器。它可以帮助你使多线程程序更加正确。
+DRD 也是一个线程错误检测器。它类似于 Helgrind，但使用不同的分析技术，因此可能会发现不同的问题。
+Massif 是一个堆分析器。它有助于减少程序使用的内存。
+DHAT 是另一种堆分析器。它有助于您了解块生命周期、块利用率和布局效率低下的问题。
+BBV 是一种实验性的 SimPoint 基本块矢量生成器。它对从事计算机体系结构研究和开发的人们是有用的。
+
+Valgrind uses disassemble-and-resynthesise (D&R): machine
+code is converted to an IR in which each instruction becomes
+one or more IR operations
+
+Valgrind’s use of D&R is the single feature that most
+distinguishes it from other DBI frameworks.
+
+https://www.valgrind.org/docs/manual/ms-manual.html
+
+Shadow memory lets a tool remember something about the history
+of every memory location and/or value in memory
+https://stackoverflow.com/questions/1656227/how-does-valgrind-work
+
+https://riboseyim.gitbook.io/perf/dtrace_bcc
+http://www.brendangregg.com/blog/2015-06-28/linux-ftrace-uprobe.html
 
 二叉树中的最大路径和
 开始:2021年5月11日17:46:38
 结束：2021年5月11日19:54:02
 耗时：
 
-Leetcode#328OddEvenLinkedList
+Leetcode#328 OddEvenLinkedList
 开始:2021年5月11日19:54:20
-结束：
+结束：2021年5月12日15:00:08
 耗时：
 
 
