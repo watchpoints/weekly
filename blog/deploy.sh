@@ -1,8 +1,8 @@
 
 #!/bin/bash
 # 进入打包文件夹
+hugo
 cd public
-
 git add -A
 
 git commit -m "update"

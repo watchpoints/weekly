@@ -461,3 +461,121 @@ http://blog.sina.com.cn/s/blog_a459dcf50101692b.html
 
 
 > 被重复问过3次 ,1个月之后，回到当初错误理解上，被别人KO ,问题重点是什么不清楚，你牢牢记住过去记忆内容？别人参考和单纯 就是 c++ 课本上基本理论，你扩展操作系统，原理什么概念解释 他们一脸蒙蔽
+
+
+
+
+
+
+
+## Q5:内存问题
+
+
+
+### 第一次回答：只要内心想道死锁，内存泄露内心意识彻底崩溃，尤其是valgrind原理时候。为难呀。--不你已经彻底清除，不要陷入面试官全套。【白银：别人知道的，你也知道】
+
+- 例子【1】
+
+```shell
+sudo apt install valgrind
+valgrind --tool=helgrind ./dead_lock 
+
+
+root@money:~/code/demo# valgrind --tool=helgrind ./deadlock
+==6244== Helgrind, a thread error detector
+==6244== Copyright (C) 2007-2017, and GNU GPL'd, by OpenWorks LLP et al.
+==6244== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==6244== Command: ./deadlock
+==6244== 
+^C==6244== //helgrind执行时，如果发生死锁，需要ctrl+c来终止运行，于是可以得到如下结果
+
+==6244== Process terminating with default action of signal 2 (SIGINT)
+==6244==    at 0x4E4CD2D: __pthread_timedjoin_ex (pthread_join_common.c:89)
+==6244==    by 0x4C35C65: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so) //??? 第三方库
+==6244==    by 0x108C16: main (deadlock.c:99)
+==6244== ---Thread-Announcement------------------------------------------
+==6244== 
+==6244== Thread #2 was created
+==6244==    at 0x518470E: clone (clone.S:71)
+==6244==    by 0x4E4BEC4: create_thread (createthread.c:100)
+==6244==    by 0x4E4BEC4: pthread_create@@GLIBC_2.2.5 (pthread_create.c:797)
+==6244==    by 0x4C38A27: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==6244==    by 0x108B5C: main (deadlock.c:79)
+==6244== 
+==6244== ----------------------------------------------------------------
+==6244== 
+==6244== Thread #2: Exiting thread still holds 1 lock
+==6244==    at 0x4E551FD: __lll_lock_wait (lowlevellock.S:135)
+==6244==    by 0x4E4E024: pthread_mutex_lock (pthread_mutex_lock.c:80)
+==6244==    by 0x4C35FD6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==6244==    by 0x1089DE: func1 (deadlock.c:18)
+==6244==    by 0x108A87: start_routine1 (deadlock.c:43)
+==6244==    by 0x4C38C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==6244==    by 0x4E4B6DA: start_thread (pthread_create.c:463)
+==6244==    by 0x518471E: clone (clone.S:95)
+==6244== 
+==6244== ---Thread-Announcement------------------------------------------
+==6244== 
+==6244== Thread #3 was created
+==6244==    at 0x518470E: clone (clone.S:71)
+==6244==    by 0x4E4BEC4: create_thread (createthread.c:100)
+==6244==    by 0x4E4BEC4: pthread_create@@GLIBC_2.2.5 (pthread_create.c:797)
+==6244==    by 0x4C38A27: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==6244==    by 0x108B8B: main (deadlock.c:83)
+==6244== 
+==6244== ----------------------------------------------------------------
+==6244== 
+==6244== Thread #3: Exiting thread still holds 1 lock
+==6244==    at 0x4E551FD: __lll_lock_wait (lowlevellock.S:135)
+==6244==    by 0x4E4E024: pthread_mutex_lock (pthread_mutex_lock.c:80)
+==6244==    by 0x4C35FD6: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==6244==    by 0x108A42: func2 (deadlock.c:31)
+==6244==    by 0x108AB3: start_routine2 (deadlock.c:56)
+==6244==    by 0x4C38C26: ??? (in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so)
+==6244==    by 0x4E4B6DA: start_thread (pthread_create.c:463)
+==6244==    by 0x518471E: clone (clone.S:95)
+==6244== 
+==6244== 
+==6244== For counts of detected and suppressed errors, rerun with: -v
+==6244== Use --history-level=approx or =none to gain increased speed, at
+==6244== the cost of reduced accuracy of conflicting-access information
+==6244== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 25 from 4)
+```
+
+
+
+### 原理是什么？
+
+https://valgrind.org/docs/pubs.html
+
+
+
+- The macro VALGRIND HG DESTRUCT expands to a sequence of mnemonics that do nothing under normal execution, but are recognized by the interpreter of Helgrind as a special function call.
+
+- ### Interpreting Race Error Messages
+
+- Figure 3: Data flow of the debugging process. All or part of the source code is analyzed and instrumented. The resulting binary is executed on the VM Valgrind with data race detection
+
+
+
+# Q6: 虚函数
+
+- 虚函数也是函数，位于代码段（.text），也就是C++内存模型中的代码区。
+
+- C++中虚函数表位于只读数据段（.rodata），也就是C++内存模型中的常量区；
+
+- vptr：在构造函数执行时会对虚表指针进行初始化，并且存在对象内存布局的最前面。析构函数函数reset
+
+- [c/c++如何打印引用的地址(类似打印指针变量的地址)](https://www.zhihu.com/question/270777868)
+
+- ### 引用类型变量保存的地址是存在哪儿的
+
+
+
+
+
+## 塔山
+
+
+
+[1].https://ivanzz1001.github.io/records/post/cplusplus/2018/11/15/linux-deadlock-detect

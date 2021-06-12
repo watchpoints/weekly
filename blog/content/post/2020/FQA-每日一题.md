@@ -10,18 +10,171 @@ categories: ["FQA"]
 
 | 日期      | 更新内容     | 备注     |
 | --------- | ------------ | -------- |
-| 2020-5-28 | FQ1 | 持续更新 |
+| 2020-5-1:2021-5-27 | FQ1 | 持续更新 |
 
 >如何驱动学习？
 
->考试是对实践经验其中一个片段，进行复盘总结，如同黑客帝国中镜像学习一样反复练习 ，以始为终，去发现 在大棒加胡萝卜奖励驱动下，自己看不到的的错误
+>考试是对实践经验其中一个片段，进行复盘总结，如同黑客帝国中镜像学习一样反复练习 ，以始为终，去发现 
+>
+>在大棒加胡萝卜奖励驱动下，自己看不到的的错误。
 
->下面是我的直觉回答，但是不保证正确
-> 甚至有错别字，语句不通顺，代表我理解有问题，不能更少语言说清楚。
+
 
 
 
 # 每日一题
+
+
+
+## 20201-5-27
+
+
+
+## 面试官提问：
+
+- 如何减少编译依赖？
+- 在c++中利用类的前置声明，能减少编译依赖？但是如何检查 类的定义完整性，
+
+后记：
+
+ 小白：在哪里卡住了，思考很长时间，知道别人不耐烦【他们不会对你提示的，根本不害怕担心他们嘲笑，这都不会，我认真分析我哪里不对，我哪里不对】
+
+## 假如在使用过程中，根本无法访问这个类指针的成员和变量，只能指针本身
+
+## 这个知识点根本无法应用呢？陷入死胡同
+
+
+
+### 我的思考
+
+1. 感觉这个问题无法解决，利用指针 而不是具体类，减少编译依赖，就是这样设计的 因此陷入死胡同。这根本无法检查，我知道sizeof 4
+
+  我使用前置声明，无法访问具体的类和产生，这样做有什么意义，无法是哦你。这样设计，有啥用呢？你这个知识属于废弃知识。根本无法用。
+
+陷阱：你思考一定没问题，你相信你自己，而是对预先声明基本用法和开发过程应用没动手操作过，让你陷入知识片面理解陷阱
+
+这个用法没有问题，是你理解不到位。
+
+- 尽可能地避免使用前置声明。使用 #include 包含需要的头文件即可。 谷歌代码规范也不提倡使用。
+- 前置声明隐藏了依赖关系，头文件改动时，用户的代码会跳过必要的重新编译过程【雷】
+
+1. PIMPL 问什么提倡
+
+请仔细阅读： 。 PIMPL(Pointer to Implementation)
+
+pImpl方法是微软的Herb Sutter提出来的，该方法是为了尽量减小接口和实现之间的耦合，
+
+以避免接口改动对程序重新编译等带来的影响。
+
+简单来说，如果你的大型程序因为复杂的头文件包含关系，使得你对某头文件的某小改动可能引起的巨大编译时间成本望而生畏，
+
+那么你需要用pImpl方法来改善这种处境。
+
+类CSample仅向外界暴露了最小的接口，真正的实现由其内部类CImpl来完成。
+
+这样无论CImpl如何修改，外界对此一无所知，从而保持接口的不变性。
+
+这种方式的另外一个好处是减少了头文件之间的依赖关系。
+
+分类：数据与算法分离，接口与实现分离
+
+# 编译防火墙——C++的Pimpl惯用法解析
+
+https://leehao.blog.csdn.net/article/details/47610309
+
+在类中使用 Pimpl 惯用法，具有如下优点：
+
+- 降低耦合
+- 信息隐藏
+- 降低编译依赖，提高编译速度
+- 接口与实现分离
+
+1. 如果你动手写过代码，你发现 forward declaration根本无法使用，根本无法访问对应成员和函数。这有什么用呢？
+
+遇到谷歌编程规范：https://blog.csdn.net/Hhrock/article/details/82386014
+
+https://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/headers/#forward-declarations
+
+明白优缺点
+
+- 尽可能地避免使用前置声明。使用 #include 包含需要的头文件即可。
+
+
+
+1. 总结 c++中 编程规范前置声明 不提倡使用，但是 PIMPL(Pointer to Implementation)为什么提倡使用呢？这有什么区别
+
+https://blog.csdn.net/caoshangpa/article/details/78590826
+
+- classA的任何改动，对于classB来说都没有影响，除非classB修改了对classA调用的代码。在这里，指针起到了解耦合的作用。
+
+- PIMPL Of course it is used. I use it in my project, in almost every class.
+
+1. 使用范围是 自己类进一步拆分，抽象部分和实现部分。 c++中 编程规范前置声明 不提倡使用
+
+[https://www.gamedev.net/tutorials/_/technical/general-programming/the-c-pimpl-r1794/](https://www.gamedev.net/tutorials/_/technical/general-programming/the-c-pimpl-r1794)
+
+[https://www.gamedev.net/tutorials/_/technical/general-programming/the-c-pimpl-r1794/](https://www.gamedev.net/tutorials/_/technical/general-programming/the-c-pimpl-r1794)
+
+https://leehao.blog.csdn.net/article/details/47610309
+
+https://github.com/haozlee/pimpl/blob/master/public.h
+
+https://stackoverflow.com/questions/8972588/is-the-pimpl-idiom-really-used-in-practice
+
+
+
+
+
+### 我的回答：
+
+- 针对类接口不变（这是电信行业头特点，对我api前期定下来，很少发生变化），类实现发生变化。一个类结构发生变化，引用相关头文件发生改变
+- 变化成员封装成一个指针，这个指针做具体类的成员。然后使用中间层对我提供接口。 桥接模式。
+- 这里b c d可以不使用指针
+
+   c++中 编程规范前置声明 不提倡使用，但是 PIMPL(Pointer to Implementation)提倡使用呢？
+
+~~~
+//Pimpl是对自己类进一步拆分，只要保证自己模块没有问题，就解决MyClassImp依赖问题
+
+//其他的类不需要关系，有没有发生变动
+~~~
+
+![pimpl 大小不变](https://img-blog.csdnimg.cn/2021010716135345.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpaGFvMjE=,size_16,color_FFFFFF,t_70#pic_center)
+
+![](https://img-blog.csdn.net/20171121113924445)
+
+这里是个例子 证明自己写过
+
+https://www.gamedev.net/tutorials/_/technical/general-programming/the-c-pimpl-r1794/
+
+ 
+
+- 在同一个文件里，单文件编译时候，获取完整定义
+
+   class MyClass class MyClassImp;
+
+### 面试官反问：
+
+- 前置声明不足时什么，如何检查【使用类目的，就是使用成员和函数，在定义时候前置声明无法使用，这样编译不过的】
+- pimpl不足时什么？如何预防
+- 你了解设计模式吗？有哪些。
+- https://zhuanlan.zhihu.com/p/106779428
+
+Herb Sutter（C++标准委员会成员）写了一些相关的博客，对其博客做一个翻译记录： 
+
+- [GotW #7a Solution: Minimizing Compile-Time Dependencies, Part 1](https://link.zhihu.com/?target=https%3A//herbsutter.com/2013/08/19/gotw-7a-solution-minimizing-compile-time-dependencies-part-1/)
+- [GotW #7b Solution: Minimizing Compile-Time Dependencies, Part 2](https://link.zhihu.com/?target=https%3A//herbsutter.com/2013/12/31/gotw-7b-solution-minimizing-compile-time-dependencies-part-2/)
+- [GotW #100: Compilation Firewalls](https://link.zhihu.com/?target=https%3A//herbsutter.com/gotw/_100/) 【本篇】
+
+*compile-time dependencie*
+
+
+
+
+
+
+
+
 
 ### 5 
 1000桶水，其中一桶有毒，猪喝毒水后会在15分钟内死去，
