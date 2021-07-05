@@ -1,0 +1,171 @@
+{
+ "host": "0.0.0.0",
+ "advertise-address": "127.0.0.1",
+ "port": 4000,
+ "cors": "",
+ "store": "tikv",
+ "path": "127.0.0.1:2379",
+ "socket": "",
+ "lease": "45s",
+ "run-ddl": true,
+ "split-table": true,
+ "token-limit": 1000,
+ "oom-use-tmp-storage": true,
+ "tmp-storage-path": "/tmp/1000_tidb/MC4wLjAuMDo0MDAwLzAuMC4wLjA6MTAwODA=/tmp-storage",
+ "oom-action": "log",
+ "mem-quota-query": 1073741824,
+ "tmp-storage-quota": -1,
+ "enable-streaming": false,
+ "enable-batch-dml": false,
+ "lower-case-table-names": 2,
+ "server-version": "",
+ "log": {
+  "level": "info",
+  "format": "text",
+  "disable-timestamp": null,
+  "enable-timestamp": null,
+  "disable-error-stack": null,
+  "enable-error-stack": null,
+  "file": {
+   "filename": "/home/tidb/tidb-deploy/tidb-4000/log/tidb.log",
+   "max-size": 300,
+   "max-days": 0,
+   "max-backups": 0
+  },
+  "enable-slow-log": true,
+  "slow-query-file": "log/tidb_slow_query.log",
+  "slow-threshold": 300,
+  "expensive-threshold": 10000,
+  "query-log-max-len": 4096,
+  "record-plan-in-slow-log": 1
+ },
+ "security": {
+  "skip-grant-table": false,
+  "ssl-ca": "",
+  "ssl-cert": "",
+  "ssl-key": "",
+  "require-secure-transport": false,
+  "cluster-ssl-ca": "",
+  "cluster-ssl-cert": "",
+  "cluster-ssl-key": "",
+  "cluster-verify-cn": null
+ },
+ "status": {
+  "status-host": "0.0.0.0",
+  "metrics-addr": "",
+  "status-port": 10080,
+  "metrics-interval": 15,
+  "report-status": true,
+  "record-db-qps": false
+ },
+ "performance": {
+  "max-procs": 0,
+  "max-memory": 0,
+  "stats-lease": "3s",
+  "stmt-count-limit": 5000,
+  "feedback-probability": 0.05,
+  "query-feedback-limit": 1024,
+  "pseudo-estimate-ratio": 0.8,
+  "force-priority": "NO_PRIORITY",
+  "bind-info-lease": "3s",
+  "txn-total-size-limit": 104857600,
+  "tcp-keep-alive": true,
+  "cross-join": true,
+  "run-auto-analyze": true,
+  "agg-push-down-join": false,
+  "committer-concurrency": 16,
+  "max-txn-ttl": 600000
+ },
+ "prepared-plan-cache": {
+  "enabled": false,
+  "capacity": 100,
+  "memory-guard-ratio": 0.1
+ },
+ "opentracing": {
+  "enable": false,
+  "rpc-metrics": false,
+  "sampler": {
+   "type": "const",
+   "param": 1,
+   "sampling-server-url": "",
+   "max-operations": 0,
+   "sampling-refresh-interval": 0
+  },
+  "reporter": {
+   "queue-size": 0,
+   "buffer-flush-interval": 0,
+   "log-spans": false,
+   "local-agent-host-port": ""
+  }
+ },
+ "proxy-protocol": {
+  "networks": "",
+  "header-timeout": 5
+ },
+ "tikv-client": {
+  "grpc-connection-count": 4,
+  "grpc-keepalive-time": 10,
+  "grpc-keepalive-timeout": 3,
+  "commit-timeout": "41s",
+  "max-batch-size": 128,
+  "overload-threshold": 200,
+  "max-batch-wait-time": 0,
+  "batch-wait-size": 8,
+  "enable-chunk-rpc": true,
+  "region-cache-ttl": 600,
+  "store-limit": 0,
+  "store-liveness-timeout": "120s",
+  "copr-cache": {
+   "enable": false,
+   "capacity-mb": 1000,
+   "admission-max-result-mb": 10,
+   "admission-min-process-ms": 5
+  }
+ },
+ "binlog": {
+  "enable": false,
+  "ignore-error": false,
+  "write-timeout": "15s",
+  "binlog-socket": "",
+  "strategy": "range"
+ },
+ "compatible-kill-query": false,
+ "plugin": {
+  "dir": "",
+  "load": ""
+ },
+ "pessimistic-txn": {
+  "enable": true,
+  "max-retry-count": 256
+ },
+ "check-mb4-value-in-utf8": true,
+ "max-index-length": 3072,
+ "alter-primary-key": false,
+ "treat-old-version-utf8-as-utf8mb4": true,
+ "enable-table-lock": false,
+ "delay-clean-table-lock": 0,
+ "split-region-max-num": 1000,
+ "stmt-summary": {
+  "enable": true,
+  "enable-internal-query": false,
+  "max-stmt-count": 200,
+  "max-sql-length": 4096,
+  "refresh-interval": 1800,
+  "history-size": 24
+ },
+ "repair-mode": false,
+ "repair-table-list": [],
+ "isolation-read": {
+  "engines": [
+   "tikv",
+   "tiflash",
+   "tidb"
+  ]
+ },
+ "max-server-connections": 0,
+ "new_collations_enabled_on_first_bootstrap": false,
+ "experimental": {
+  "allow-auto-random": false,
+  "allow-expression-index": false
+ }
+}

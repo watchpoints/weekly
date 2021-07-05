@@ -1,0 +1,1737 @@
+goroutine 271765 [running]:
+runtime/pprof.writeGoroutineStacks(0x3671000, 0xc00129c640, 0xc0014d57a0, 0x0)
+	/usr/local/go/src/runtime/pprof/pprof.go:679 +0x9d
+runtime/pprof.writeGoroutine(0x3671000, 0xc00129c640, 0x2, 0x2a00721, 0x3670fe0)
+	/usr/local/go/src/runtime/pprof/pprof.go:668 +0x44
+runtime/pprof.(*Profile).WriteTo(0x4c91820, 0x3671000, 0xc00129c640, 0x2, 0xc00129c640, 0x0)
+	/usr/local/go/src/runtime/pprof/pprof.go:329 +0x3da
+github.com/pingcap/tidb/server.(*Server).startHTTPServer.func2(0x36bac20, 0xc0009f41c0, 0xc0010b6c00)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/server/http_status.go:208 +0x427
+net/http.HandlerFunc.ServeHTTP(0x3250a00, 0x36bac20, 0xc0009f41c0, 0xc0010b6c00)
+	/usr/local/go/src/net/http/server.go:2007 +0x44
+net/http.(*ServeMux).ServeHTTP(0xc0008f7080, 0x36bac20, 0xc0009f41c0, 0xc0010b6c00)
+	/usr/local/go/src/net/http/server.go:2387 +0x1bd
+github.com/pingcap/tidb/server.CorsHandler.ServeHTTP(0x3675c80, 0xc0008f7080, 0xc000243400, 0x36bac20, 0xc0009f41c0, 0xc0010b6c00)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/server/util.go:384 +0x6b
+net/http.serverHandler.ServeHTTP(0xc0009f40e0, 0x36bac20, 0xc0009f41c0, 0xc0010b6c00)
+	/usr/local/go/src/net/http/server.go:2802 +0xa4
+net/http.(*conn).serve(0xc000d5b5e0, 0x36c5360, 0xc000c29500)
+	/usr/local/go/src/net/http/server.go:1890 +0x875
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:2927 +0x38e
+
+goroutine 1 [IO wait]:
+internal/poll.runtime_pollWait(0x7ffbf9912890, 0x72, 0x0)
+	/usr/local/go/src/runtime/netpoll.go:184 +0x55
+internal/poll.(*pollDesc).wait(0xc0001ae398, 0x72, 0x0, 0x0, 0x316437d)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:92
+internal/poll.(*FD).Accept(0xc0001ae380, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_unix.go:384 +0x1f8
+net.(*netFD).accept(0xc0001ae380, 0x2e9b9e0, 0x1, 0xc0014842b8)
+	/usr/local/go/src/net/fd_unix.go:238 +0x42
+net.(*TCPListener).accept(0xc0008e21c0, 0xc000aabbe0, 0xc000aabbe8, 0x10)
+	/usr/local/go/src/net/tcpsock_posix.go:139 +0x32
+net.(*TCPListener).Accept(0xc0008e21c0, 0x32509f0, 0xc000500000, 0xc000b5b040, 0x0)
+	/usr/local/go/src/net/tcpsock.go:261 +0x47
+github.com/pingcap/tidb/server.(*Server).Run(0xc000500000, 0x369ada0, 0x362c6a8)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/server/server.go:291 +0xd7
+main.runServer()
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/tidb-server/main.go:678 +0x2d
+main.main()
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/tidb-server/main.go:184 +0x1e7
+
+goroutine 24 [select]:
+go.opencensus.io/stats/view.(*worker).start(0xc00032e6e0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.opencensus.io@v0.22.2/stats/view/worker.go:154 +0x100
+created by go.opencensus.io/stats/view.init.0
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.opencensus.io@v0.22.2/stats/view/worker.go:32 +0x57
+
+goroutine 92 [chan receive]:
+go.etcd.io/etcd/pkg/logutil.(*MergeLogger).outputLoop(0xc0002ba1a0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/pkg/logutil/merge_logger.go:173 +0x3a3
+created by go.etcd.io/etcd/pkg/logutil.NewMergeLogger
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/pkg/logutil/merge_logger.go:91 +0x80
+
+goroutine 131 [syscall, 184 minutes]:
+os/signal.signal_recv(0x1163ac6)
+	/usr/local/go/src/runtime/sigqueue.go:147 +0x9c
+os/signal.loop()
+	/usr/local/go/src/os/signal/signal_unix.go:23 +0x22
+created by os/signal.init.0
+	/usr/local/go/src/os/signal/signal_unix.go:29 +0x41
+
+goroutine 113 [select]:
+google.golang.org/grpc/internal/transport.(*controlBuffer).get(0xc00032ebe0, 0x1, 0x0, 0x0, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/controlbuf.go:395 +0x122
+google.golang.org/grpc/internal/transport.(*loopyWriter).run(0xc000098300, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/controlbuf.go:513 +0x1e3
+google.golang.org/grpc/internal/transport.newHTTP2Client.func3(0xc0002b2540)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:346 +0x7b
+created by google.golang.org/grpc/internal/transport.newHTTP2Client
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:344 +0xedb
+
+goroutine 27 [select, 184 minutes]:
+google.golang.org/grpc.newClientStream.func5(0xc000649880, 0xc000560000, 0x36c5420, 0xc0006eeab0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/stream.go:319 +0xd7
+created by google.golang.org/grpc.newClientStream
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/stream.go:318 +0x9a5
+
+goroutine 112 [IO wait]:
+internal/poll.runtime_pollWait(0x7ffbf9912e40, 0x72, 0xffffffffffffffff)
+	/usr/local/go/src/runtime/netpoll.go:184 +0x55
+internal/poll.(*pollDesc).wait(0xc0001aec18, 0x72, 0x8000, 0x8000, 0xffffffffffffffff)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:92
+internal/poll.(*FD).Read(0xc0001aec00, 0xc0005f0000, 0x8000, 0x8000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_unix.go:169 +0x1cf
+net.(*netFD).Read(0xc0001aec00, 0xc0005f0000, 0x8000, 0x8000, 0x0, 0x800010601, 0x0)
+	/usr/local/go/src/net/fd_unix.go:202 +0x4f
+net.(*conn).Read(0xc000012010, 0xc0005f0000, 0x8000, 0x8000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/net/net.go:184 +0x68
+bufio.(*Reader).Read(0xc0000980c0, 0xc00013c118, 0x9, 0x9, 0xc000070700, 0x7ffbf99af460, 0x0)
+	/usr/local/go/src/bufio/bufio.go:226 +0x26a
+io.ReadAtLeast(0x3671040, 0xc0000980c0, 0xc00013c118, 0x9, 0x9, 0x9, 0x15a0175, 0xc000b6a4ac, 0xc00007cde8)
+	/usr/local/go/src/io/io.go:310 +0x87
+io.ReadFull(...)
+	/usr/local/go/src/io/io.go:329
+golang.org/x/net/http2.readFrameHeader(0xc00013c118, 0x9, 0x9, 0x3671040, 0xc0000980c0, 0x0, 0xbfdbd2e400000000, 0xa131dc918f4, 0x5188220)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/golang.org/x/net@v0.0.0-20200324143707-d3edc9973b7e/http2/frame.go:237 +0x87
+golang.org/x/net/http2.(*Framer).ReadFrame(0xc00013c0e0, 0xc000b6a4a0, 0x5188220, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/golang.org/x/net@v0.0.0-20200324143707-d3edc9973b7e/http2/frame.go:492 +0xa1
+google.golang.org/grpc/internal/transport.(*http2Client).reader(0xc0002b2540)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:1264 +0x183
+created by google.golang.org/grpc/internal/transport.newHTTP2Client
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:300 +0xd23
+
+goroutine 240 [chan receive, 184 minutes]:
+gopkg.in/natefinch/lumberjack%2ev2.(*Logger).millRun(0xc00016aba0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/gopkg.in/natefinch/lumberjack.v2@v2.0.0/lumberjack.go:379 +0x58
+created by gopkg.in/natefinch/lumberjack%2ev2.(*Logger).mill.func1
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/gopkg.in/natefinch/lumberjack.v2@v2.0.0/lumberjack.go:390 +0x79
+
+goroutine 241 [chan receive]:
+github.com/pingcap/tidb/util/systimemon.StartMonitor(0x3252bc8, 0x3251fe0, 0xc000304850)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/util/systimemon/systime_mon.go:31 +0x111
+created by main.setupMetrics
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/tidb-server/main.go:661 +0xf6
+
+goroutine 243 [select, 184 minutes]:
+google.golang.org/grpc.(*ccBalancerWrapper).watcher(0xc00055f700)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/balancer_conn_wrappers.go:69 +0xc2
+created by google.golang.org/grpc.newCCBalancerWrapper
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/balancer_conn_wrappers.go:60 +0x16d
+
+goroutine 244 [chan receive, 184 minutes]:
+google.golang.org/grpc.(*addrConn).resetTransport(0xc000149b80)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/clientconn.go:1164 +0x6ea
+created by google.golang.org/grpc.(*addrConn).connect
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/clientconn.go:800 +0x128
+
+goroutine 111 [select]:
+google.golang.org/grpc/internal/transport.(*http2Client).keepalive(0xc0002b2540)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:1330 +0x193
+created by google.golang.org/grpc/internal/transport.newHTTP2Client
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:295 +0x16cd
+
+goroutine 259 [select, 1 minutes]:
+github.com/pingcap/pd/v4/client.(*baseClient).leaderLoop(0xc0006aeb60)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/github.com/pingcap/pd/v4@v4.0.0-rc.2.0.20200520083007-2c251bd8f181/client/base_client.go:122 +0x1cf
+created by github.com/pingcap/pd/v4/client.newBaseClient
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/github.com/pingcap/pd/v4@v4.0.0-rc.2.0.20200520083007-2c251bd8f181/client/base_client.go:95 +0x35d
+
+goroutine 260 [select]:
+github.com/pingcap/pd/v4/client.(*client).tsLoop(0xc00067d3b0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/github.com/pingcap/pd/v4@v4.0.0-rc.2.0.20200520083007-2c251bd8f181/client/client.go:238 +0x56b
+created by github.com/pingcap/pd/v4/client.NewClientWithContext
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/github.com/pingcap/pd/v4@v4.0.0-rc.2.0.20200520083007-2c251bd8f181/client/client.go:161 +0x351
+
+goroutine 261 [select]:
+github.com/pingcap/pd/v4/client.(*client).tsCancelLoop(0xc00067d3b0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/github.com/pingcap/pd/v4@v4.0.0-rc.2.0.20200520083007-2c251bd8f181/client/client.go:184 +0x1b2
+created by github.com/pingcap/pd/v4/client.NewClientWithContext
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/github.com/pingcap/pd/v4@v4.0.0-rc.2.0.20200520083007-2c251bd8f181/client/client.go:162 +0x376
+
+goroutine 262 [select, 184 minutes]:
+google.golang.org/grpc.(*ccBalancerWrapper).watcher(0xc000370680)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/balancer_conn_wrappers.go:69 +0xc2
+created by google.golang.org/grpc.newCCBalancerWrapper
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/balancer_conn_wrappers.go:60 +0x16d
+
+goroutine 264 [select]:
+go.etcd.io/etcd/clientv3.(*Client).autoSync(0xc0002e89c0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/clientv3/client.go:190 +0x100
+created by go.etcd.io/etcd/clientv3.newClient
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/clientv3/client.go:505 +0xc73
+
+goroutine 265 [select]:
+github.com/pingcap/tidb/store/tikv/oracle/oracles.(*pdOracle).updateTS(0xc0000d7020, 0x36c53a0, 0xc0000cc008, 0x77359400)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/store/tikv/oracle/oracles/pd.go:126 +0x109
+created by github.com/pingcap/tidb/store/tikv/oracle/oracles.NewPdOracle
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/store/tikv/oracle/oracles/pd.go:51 +0xca
+
+goroutine 750 [chan receive, 184 minutes]:
+google.golang.org/grpc.(*addrConn).resetTransport(0xc000be62c0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/clientconn.go:1164 +0x6ea
+created by google.golang.org/grpc.(*addrConn).connect
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/clientconn.go:800 +0x128
+
+goroutine 246 [select, 184 minutes]:
+github.com/pingcap/tidb/store/tikv.(*RegionCache).asyncCheckAndResolveLoop(0xc00055d260)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/store/tikv/region_cache.go:255 +0xc4
+created by github.com/pingcap/tidb/store/tikv.NewRegionCache
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/store/tikv/region_cache.go:242 +0x1d7
+
+goroutine 247 [select]:
+github.com/pingcap/tidb/store/tikv.(*tikvStore).runSafePointChecker(0xc0006b6b00)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/store/tikv/kv.go:263 +0xed
+created by github.com/pingcap/tidb/store/tikv.newTikvStore
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/store/tikv/kv.go:223 +0x3e7
+
+goroutine 28 [select, 184 minutes]:
+google.golang.org/grpc.(*ccBalancerWrapper).watcher(0xc00022f900)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/balancer_conn_wrappers.go:69 +0xc2
+created by google.golang.org/grpc.newCCBalancerWrapper
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/balancer_conn_wrappers.go:60 +0x16d
+
+goroutine 29 [chan receive, 184 minutes]:
+google.golang.org/grpc.(*addrConn).resetTransport(0xc0007c62c0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/clientconn.go:1164 +0x6ea
+created by google.golang.org/grpc.(*addrConn).connect
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/clientconn.go:800 +0x128
+
+goroutine 30 [select, 184 minutes]:
+google.golang.org/grpc.(*ccBalancerWrapper).watcher(0xc00022fa80)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/balancer_conn_wrappers.go:69 +0xc2
+created by google.golang.org/grpc.newCCBalancerWrapper
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/balancer_conn_wrappers.go:60 +0x16d
+
+goroutine 31 [chan receive, 184 minutes]:
+google.golang.org/grpc.(*addrConn).resetTransport(0xc0007c6580)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/clientconn.go:1164 +0x6ea
+created by google.golang.org/grpc.(*addrConn).connect
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/clientconn.go:800 +0x128
+
+goroutine 32 [select, 184 minutes]:
+google.golang.org/grpc.(*ccBalancerWrapper).watcher(0xc00022fc80)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/balancer_conn_wrappers.go:69 +0xc2
+created by google.golang.org/grpc.newCCBalancerWrapper
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/balancer_conn_wrappers.go:60 +0x16d
+
+goroutine 33 [chan receive, 184 minutes]:
+google.golang.org/grpc.(*addrConn).resetTransport(0xc0007c6840)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/clientconn.go:1164 +0x6ea
+created by google.golang.org/grpc.(*addrConn).connect
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/clientconn.go:800 +0x128
+
+goroutine 274 [select, 184 minutes]:
+google.golang.org/grpc.(*ccBalancerWrapper).watcher(0xc0007e6000)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/balancer_conn_wrappers.go:69 +0xc2
+created by google.golang.org/grpc.newCCBalancerWrapper
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/balancer_conn_wrappers.go:60 +0x16d
+
+goroutine 275 [chan receive, 184 minutes]:
+google.golang.org/grpc.(*addrConn).resetTransport(0xc0007c6b00)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/clientconn.go:1164 +0x6ea
+created by google.golang.org/grpc.(*addrConn).connect
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/clientconn.go:800 +0x128
+
+goroutine 276 [select]:
+github.com/pingcap/tidb/store/tikv/tikvrpc.CheckStreamTimeoutLoop(0xc0006f4a20, 0xc0005224e0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/store/tikv/tikvrpc/tikvrpc.go:916 +0x1c7
+created by github.com/pingcap/tidb/store/tikv.(*connArray).Init
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/store/tikv/client.go:178 +0x966
+
+goroutine 277 [select]:
+github.com/pingcap/tidb/store/tikv.(*batchConn).fetchAllPendingRequests(0xc0006f4b40, 0x80, 0xc0005edf20, 0xc0005edf08)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/store/tikv/client_batch.go:82 +0xe7
+github.com/pingcap/tidb/store/tikv.(*batchConn).batchSendLoop(0xc0006f4b40, 0x4, 0xa, 0x3, 0x315e8c0, 0x3, 0x80, 0xc8, 0x0, 0x8, ...)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/store/tikv/client_batch.go:446 +0x282
+created by github.com/pingcap/tidb/store/tikv.(*connArray).Init
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/store/tikv/client.go:180 +0xa00
+
+goroutine 288 [select]:
+google.golang.org/grpc/internal/transport.(*http2Client).keepalive(0xc00013e8c0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:1330 +0x193
+created by google.golang.org/grpc/internal/transport.newHTTP2Client
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:295 +0x16cd
+
+goroutine 285 [select]:
+google.golang.org/grpc/internal/transport.(*http2Client).keepalive(0xc00013e700)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:1330 +0x193
+created by google.golang.org/grpc/internal/transport.newHTTP2Client
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:295 +0x16cd
+
+goroutine 53 [select]:
+google.golang.org/grpc/internal/transport.(*http2Client).keepalive(0xc000878000)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:1330 +0x193
+created by google.golang.org/grpc/internal/transport.newHTTP2Client
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:295 +0x16cd
+
+goroutine 282 [select]:
+google.golang.org/grpc/internal/transport.(*http2Client).keepalive(0xc00013e000)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:1330 +0x193
+created by google.golang.org/grpc/internal/transport.newHTTP2Client
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:295 +0x16cd
+
+goroutine 283 [IO wait]:
+internal/poll.runtime_pollWait(0x7ffbf9912a30, 0x72, 0xffffffffffffffff)
+	/usr/local/go/src/runtime/netpoll.go:184 +0x55
+internal/poll.(*pollDesc).wait(0xc000116918, 0x72, 0x8000, 0x8000, 0xffffffffffffffff)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:92
+internal/poll.(*FD).Read(0xc000116900, 0xc000806000, 0x8000, 0x8000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_unix.go:169 +0x1cf
+net.(*netFD).Read(0xc000116900, 0xc000806000, 0x8000, 0x8000, 0xc000000000, 0x400000801, 0x0)
+	/usr/local/go/src/net/fd_unix.go:202 +0x4f
+net.(*conn).Read(0xc0000dc938, 0xc000806000, 0x8000, 0x8000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/net/net.go:184 +0x68
+bufio.(*Reader).Read(0xc0006f5b60, 0xc0007d8118, 0x9, 0x9, 0xc0005e5e5b, 0xe575316b, 0x18)
+	/usr/local/go/src/bufio/bufio.go:226 +0x26a
+io.ReadAtLeast(0x3671040, 0xc0006f5b60, 0xc0007d8118, 0x9, 0x9, 0x9, 0xc0005e5e00, 0x11105b8, 0x20)
+	/usr/local/go/src/io/io.go:310 +0x87
+io.ReadFull(...)
+	/usr/local/go/src/io/io.go:329
+golang.org/x/net/http2.readFrameHeader(0xc0007d8118, 0x9, 0x9, 0x3671040, 0xc0006f5b60, 0x0, 0xc000000000, 0x2dd0180, 0xc000924218)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/golang.org/x/net@v0.0.0-20200324143707-d3edc9973b7e/http2/frame.go:237 +0x87
+golang.org/x/net/http2.(*Framer).ReadFrame(0xc0007d80e0, 0xc000924280, 0x5188220, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/golang.org/x/net@v0.0.0-20200324143707-d3edc9973b7e/http2/frame.go:492 +0xa1
+google.golang.org/grpc/internal/transport.(*http2Client).reader(0xc00013e000)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:1264 +0x183
+created by google.golang.org/grpc/internal/transport.newHTTP2Client
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:300 +0xd23
+
+goroutine 284 [select]:
+google.golang.org/grpc/internal/transport.(*controlBuffer).get(0xc00069ecd0, 0x1, 0x0, 0x0, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/controlbuf.go:395 +0x122
+google.golang.org/grpc/internal/transport.(*loopyWriter).run(0xc0006f5c20, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/controlbuf.go:513 +0x1e3
+google.golang.org/grpc/internal/transport.newHTTP2Client.func3(0xc00013e000)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:346 +0x7b
+created by google.golang.org/grpc/internal/transport.newHTTP2Client
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:344 +0xedb
+
+goroutine 286 [IO wait]:
+internal/poll.runtime_pollWait(0x7ffbf9912bd0, 0x72, 0xffffffffffffffff)
+	/usr/local/go/src/runtime/netpoll.go:184 +0x55
+internal/poll.(*pollDesc).wait(0xc000116618, 0x72, 0x8000, 0x8000, 0xffffffffffffffff)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:92
+internal/poll.(*FD).Read(0xc000116600, 0xc000838000, 0x8000, 0x8000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_unix.go:169 +0x1cf
+net.(*netFD).Read(0xc000116600, 0xc000838000, 0x8000, 0x8000, 0xc000000000, 0x400000801, 0x0)
+	/usr/local/go/src/net/fd_unix.go:202 +0x4f
+net.(*conn).Read(0xc0000dc948, 0xc000838000, 0x8000, 0x8000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/net/net.go:184 +0x68
+bufio.(*Reader).Read(0xc0006f5ec0, 0xc0007d81f8, 0x9, 0x9, 0xc00085de5b, 0xe575316b, 0x18)
+	/usr/local/go/src/bufio/bufio.go:226 +0x26a
+io.ReadAtLeast(0x3671040, 0xc0006f5ec0, 0xc0007d81f8, 0x9, 0x9, 0x9, 0xc00085de00, 0x11105b8, 0x20)
+	/usr/local/go/src/io/io.go:310 +0x87
+io.ReadFull(...)
+	/usr/local/go/src/io/io.go:329
+golang.org/x/net/http2.readFrameHeader(0xc0007d81f8, 0x9, 0x9, 0x3671040, 0xc0006f5ec0, 0x0, 0xc000000000, 0x2dd0180, 0xc0015af1c8)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/golang.org/x/net@v0.0.0-20200324143707-d3edc9973b7e/http2/frame.go:237 +0x87
+golang.org/x/net/http2.(*Framer).ReadFrame(0xc0007d81c0, 0xc0015af1d0, 0x5188220, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/golang.org/x/net@v0.0.0-20200324143707-d3edc9973b7e/http2/frame.go:492 +0xa1
+google.golang.org/grpc/internal/transport.(*http2Client).reader(0xc00013e700)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:1264 +0x183
+created by google.golang.org/grpc/internal/transport.newHTTP2Client
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:300 +0xd23
+
+goroutine 287 [select]:
+google.golang.org/grpc/internal/transport.(*controlBuffer).get(0xc00069ee10, 0x1, 0x0, 0x0, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/controlbuf.go:395 +0x122
+google.golang.org/grpc/internal/transport.(*loopyWriter).run(0xc0006f5f80, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/controlbuf.go:513 +0x1e3
+google.golang.org/grpc/internal/transport.newHTTP2Client.func3(0xc00013e700)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:346 +0x7b
+created by google.golang.org/grpc/internal/transport.newHTTP2Client
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:344 +0xedb
+
+goroutine 289 [IO wait]:
+internal/poll.runtime_pollWait(0x7ffbf9912ca0, 0x72, 0xffffffffffffffff)
+	/usr/local/go/src/runtime/netpoll.go:184 +0x55
+internal/poll.(*pollDesc).wait(0xc000116418, 0x72, 0x8000, 0x8000, 0xffffffffffffffff)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:92
+internal/poll.(*FD).Read(0xc000116400, 0xc00085e000, 0x8000, 0x8000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_unix.go:169 +0x1cf
+net.(*netFD).Read(0xc000116400, 0xc00085e000, 0x8000, 0x8000, 0xc000000000, 0x400000801, 0x0)
+	/usr/local/go/src/net/fd_unix.go:202 +0x4f
+net.(*conn).Read(0xc0000dc958, 0xc00085e000, 0x8000, 0x8000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/net/net.go:184 +0x68
+bufio.(*Reader).Read(0xc000854240, 0xc0007d82d8, 0x9, 0x9, 0xc0005e0e5b, 0xe575316b, 0x18)
+	/usr/local/go/src/bufio/bufio.go:226 +0x26a
+io.ReadAtLeast(0x3671040, 0xc000854240, 0xc0007d82d8, 0x9, 0x9, 0x9, 0xc0005e0e00, 0x11105b8, 0x20)
+	/usr/local/go/src/io/io.go:310 +0x87
+io.ReadFull(...)
+	/usr/local/go/src/io/io.go:329
+golang.org/x/net/http2.readFrameHeader(0xc0007d82d8, 0x9, 0x9, 0x3671040, 0xc000854240, 0x0, 0xc000000000, 0x2dd0180, 0xc0016e4d48)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/golang.org/x/net@v0.0.0-20200324143707-d3edc9973b7e/http2/frame.go:237 +0x87
+golang.org/x/net/http2.(*Framer).ReadFrame(0xc0007d82a0, 0xc0016e4d50, 0x5188220, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/golang.org/x/net@v0.0.0-20200324143707-d3edc9973b7e/http2/frame.go:492 +0xa1
+google.golang.org/grpc/internal/transport.(*http2Client).reader(0xc00013e8c0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:1264 +0x183
+created by google.golang.org/grpc/internal/transport.newHTTP2Client
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:300 +0xd23
+
+goroutine 290 [select]:
+google.golang.org/grpc/internal/transport.(*controlBuffer).get(0xc00069ef50, 0x1, 0x0, 0x0, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/controlbuf.go:395 +0x122
+google.golang.org/grpc/internal/transport.(*loopyWriter).run(0xc000854300, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/controlbuf.go:513 +0x1e3
+google.golang.org/grpc/internal/transport.newHTTP2Client.func3(0xc00013e8c0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:346 +0x7b
+created by google.golang.org/grpc/internal/transport.newHTTP2Client
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:344 +0xedb
+
+goroutine 54 [IO wait]:
+internal/poll.runtime_pollWait(0x7ffbf9912b00, 0x72, 0xffffffffffffffff)
+	/usr/local/go/src/runtime/netpoll.go:184 +0x55
+internal/poll.(*pollDesc).wait(0xc000116798, 0x72, 0x8000, 0x8000, 0xffffffffffffffff)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:92
+internal/poll.(*FD).Read(0xc000116780, 0xc00081e000, 0x8000, 0x8000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_unix.go:169 +0x1cf
+net.(*netFD).Read(0xc000116780, 0xc00081e000, 0x8000, 0x8000, 0xc000000000, 0x400000801, 0x0)
+	/usr/local/go/src/net/fd_unix.go:202 +0x4f
+net.(*conn).Read(0xc000706018, 0xc00081e000, 0x8000, 0x8000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/net/net.go:184 +0x68
+bufio.(*Reader).Read(0xc0006bc180, 0xc000836038, 0x9, 0x9, 0xc000859e5b, 0xe575316b, 0x18)
+	/usr/local/go/src/bufio/bufio.go:226 +0x26a
+io.ReadAtLeast(0x3671040, 0xc0006bc180, 0xc000836038, 0x9, 0x9, 0x9, 0xc000859e00, 0x11105b8, 0x20)
+	/usr/local/go/src/io/io.go:310 +0x87
+io.ReadFull(...)
+	/usr/local/go/src/io/io.go:329
+golang.org/x/net/http2.readFrameHeader(0xc000836038, 0x9, 0x9, 0x3671040, 0xc0006bc180, 0x0, 0xc000000000, 0x2dd0180, 0xc0016e5478)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/golang.org/x/net@v0.0.0-20200324143707-d3edc9973b7e/http2/frame.go:237 +0x87
+golang.org/x/net/http2.(*Framer).ReadFrame(0xc000836000, 0xc0016e5480, 0x5188220, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/golang.org/x/net@v0.0.0-20200324143707-d3edc9973b7e/http2/frame.go:492 +0xa1
+google.golang.org/grpc/internal/transport.(*http2Client).reader(0xc000878000)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:1264 +0x183
+created by google.golang.org/grpc/internal/transport.newHTTP2Client
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:300 +0xd23
+
+goroutine 55 [select]:
+google.golang.org/grpc/internal/transport.(*controlBuffer).get(0xc0007021e0, 0x1, 0x0, 0x0, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/controlbuf.go:395 +0x122
+google.golang.org/grpc/internal/transport.(*loopyWriter).run(0xc0006bc240, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/controlbuf.go:513 +0x1e3
+google.golang.org/grpc/internal/transport.newHTTP2Client.func3(0xc000878000)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:346 +0x7b
+created by google.golang.org/grpc/internal/transport.newHTTP2Client
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:344 +0xedb
+
+goroutine 56 [select, 184 minutes]:
+google.golang.org/grpc.newClientStream.func5(0xc0006a0a80, 0xc0007c0240, 0x36c5420, 0xc0006ba630)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/stream.go:319 +0xd7
+created by google.golang.org/grpc.newClientStream
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/stream.go:318 +0x9a5
+
+goroutine 57 [select]:
+google.golang.org/grpc/internal/transport.(*recvBufferReader).readClient(0xc0007022d0, 0xc0005624d0, 0x5, 0x5, 0x8, 0x8, 0x32529f0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/transport.go:186 +0xd3
+google.golang.org/grpc/internal/transport.(*recvBufferReader).Read(0xc0007022d0, 0xc0005624d0, 0x5, 0x5, 0xc00070bcc0, 0xc000694140, 0xc00070b6e8)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/transport.go:166 +0x195
+google.golang.org/grpc/internal/transport.(*transportReader).Read(0xc0006ba6c0, 0xc0005624d0, 0x5, 0x5, 0x0, 0xc00070b710, 0x15ce6cc)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/transport.go:479 +0x55
+io.ReadAtLeast(0x3675920, 0xc0006ba6c0, 0xc0005624d0, 0x5, 0x5, 0x5, 0x1, 0xc0006ba630, 0x43357)
+	/usr/local/go/src/io/io.go:310 +0x87
+io.ReadFull(...)
+	/usr/local/go/src/io/io.go:329
+google.golang.org/grpc/internal/transport.(*Stream).Read(0xc0007c4100, 0xc0005624d0, 0x5, 0x5, 0xc00003e000, 0x2e0c960, 0x30519e0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/transport.go:463 +0xcd
+google.golang.org/grpc.(*parser).recvMsg(0xc0005624c0, 0x7fffffffffffffff, 0xc001666ea0, 0xc00072ac00, 0x53b, 0x53b, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/rpc_util.go:508 +0x63
+google.golang.org/grpc.recvAndDecompress(0xc0005624c0, 0xc0007c4100, 0x0, 0x0, 0x7fffffffffffffff, 0x0, 0x0, 0x0, 0xc00072ac00, 0x53b, ...)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/rpc_util.go:639 +0x4d
+google.golang.org/grpc.recv(0xc0005624c0, 0x7ffbf98c2400, 0x51a7a48, 0xc0007c4100, 0x0, 0x0, 0x30519e0, 0xc0018966c0, 0x7fffffffffffffff, 0x0, ...)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/rpc_util.go:707 +0x9b
+google.golang.org/grpc.(*csAttempt).recvMsg(0xc0006ec200, 0x30519e0, 0xc0018966c0, 0x0, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/stream.go:885 +0xed
+google.golang.org/grpc.(*clientStream).RecvMsg.func1(0xc0006ec200, 0x203000, 0x203000)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/stream.go:736 +0x46
+google.golang.org/grpc.(*clientStream).withRetry(0xc0007c0240, 0xc00070bba0, 0xc00070bb70, 0xc00070bb30, 0x40)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/stream.go:590 +0x360
+google.golang.org/grpc.(*clientStream).RecvMsg(0xc0007c0240, 0x30519e0, 0xc0018966c0, 0x115d801, 0xc001896600)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/stream.go:735 +0x103
+github.com/pingcap/kvproto/pkg/tikvpb.(*tikvBatchCommandsClient).Recv(0xc000704180, 0xc000705e30, 0x2d05b80, 0xc00070bca0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/github.com/pingcap/kvproto@v0.0.0-20200518112156-d4aeb467de29/pkg/tikvpb/tikvpb.pb.go:3187 +0x62
+github.com/pingcap/tidb/store/tikv.(*batchCommandsClient).recv(0xc0005607e0, 0x2d05b80, 0xc00070bca0, 0x3a)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/store/tikv/client_batch.go:247 +0x34
+github.com/pingcap/tidb/store/tikv.(*batchCommandsClient).batchRecvLoop(0xc0005607e0, 0x4, 0xa, 0x3, 0x315e8c0, 0x3, 0x80, 0xc8, 0x0, 0x8, ...)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/store/tikv/client_batch.go:319 +0x47a
+created by github.com/pingcap/tidb/store/tikv.(*batchCommandsClient).initBatchClient
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/store/tikv/client_batch.go:534 +0x182
+
+goroutine 270 [select, 184 minutes]:
+google.golang.org/grpc.(*ccBalancerWrapper).watcher(0xc000927840)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/balancer_conn_wrappers.go:69 +0xc2
+created by google.golang.org/grpc.newCCBalancerWrapper
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/balancer_conn_wrappers.go:60 +0x16d
+
+goroutine 271 [chan receive, 184 minutes]:
+google.golang.org/grpc.(*addrConn).resetTransport(0xc000930b00)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/clientconn.go:1164 +0x6ea
+created by google.golang.org/grpc.(*addrConn).connect
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/clientconn.go:800 +0x128
+
+goroutine 272 [select]:
+go.etcd.io/etcd/clientv3.(*Client).autoSync(0xc0006b3520)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/clientv3/client.go:190 +0x100
+created by go.etcd.io/etcd/clientv3.newClient
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/clientv3/client.go:505 +0xc73
+
+goroutine 273 [select, 184 minutes]:
+github.com/pingcap/tidb/ddl.(*ddl).limitDDLJobs(0xc00092f500)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/ddl/ddl_worker.go:201 +0x219
+github.com/pingcap/tidb/ddl.(*ddl).start.func1.1()
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/ddl/ddl.go:328 +0x2a
+github.com/pingcap/tidb/util.WithRecovery(0xc0009b27b8, 0xc0009b27a8)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/util/misc.go:93 +0x57
+github.com/pingcap/tidb/ddl.(*ddl).start.func1(0xc00092f500)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/ddl/ddl.go:327 +0xa3
+created by github.com/pingcap/tidb/ddl.(*ddl).start
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/ddl/ddl.go:325 +0x2ba
+
+goroutine 249 [select]:
+google.golang.org/grpc/internal/transport.(*http2Client).keepalive(0xc0009f6000)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:1330 +0x193
+created by google.golang.org/grpc/internal/transport.newHTTP2Client
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:295 +0x16cd
+
+goroutine 250 [IO wait]:
+internal/poll.runtime_pollWait(0x7ffbf9912960, 0x72, 0xffffffffffffffff)
+	/usr/local/go/src/runtime/netpoll.go:184 +0x55
+internal/poll.(*pollDesc).wait(0xc0001aed98, 0x72, 0x8000, 0x8000, 0xffffffffffffffff)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:92
+internal/poll.(*FD).Read(0xc0001aed80, 0xc0009dc000, 0x8000, 0x8000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_unix.go:169 +0x1cf
+net.(*netFD).Read(0xc0001aed80, 0xc0009dc000, 0x8000, 0x8000, 0x0, 0x800010601, 0x0)
+	/usr/local/go/src/net/fd_unix.go:202 +0x4f
+net.(*conn).Read(0xc0001a8600, 0xc0009dc000, 0x8000, 0x8000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/net/net.go:184 +0x68
+bufio.(*Reader).Read(0xc00016bc20, 0xc0009f4038, 0x9, 0x9, 0xc000070700, 0x7ffbf99aed98, 0x0)
+	/usr/local/go/src/bufio/bufio.go:226 +0x26a
+io.ReadAtLeast(0x3671040, 0xc00016bc20, 0xc0009f4038, 0x9, 0x9, 0x9, 0x15a0175, 0xc00000cccc, 0xc00007bde8)
+	/usr/local/go/src/io/io.go:310 +0x87
+io.ReadFull(...)
+	/usr/local/go/src/io/io.go:329
+golang.org/x/net/http2.readFrameHeader(0xc0009f4038, 0x9, 0x9, 0x3671040, 0xc00016bc20, 0x0, 0xbfdbd2e300000000, 0xa12ab9bc372, 0x5188220)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/golang.org/x/net@v0.0.0-20200324143707-d3edc9973b7e/http2/frame.go:237 +0x87
+golang.org/x/net/http2.(*Framer).ReadFrame(0xc0009f4000, 0xc00000ccc0, 0x5188220, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/golang.org/x/net@v0.0.0-20200324143707-d3edc9973b7e/http2/frame.go:492 +0xa1
+google.golang.org/grpc/internal/transport.(*http2Client).reader(0xc0009f6000)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:1264 +0x183
+created by google.golang.org/grpc/internal/transport.newHTTP2Client
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:300 +0xd23
+
+goroutine 251 [select]:
+google.golang.org/grpc/internal/transport.(*controlBuffer).get(0xc0006ade50, 0x1, 0x0, 0x0, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/controlbuf.go:395 +0x122
+google.golang.org/grpc/internal/transport.(*loopyWriter).run(0xc00016bce0, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/controlbuf.go:513 +0x1e3
+google.golang.org/grpc/internal/transport.newHTTP2Client.func3(0xc0009f6000)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:346 +0x7b
+created by google.golang.org/grpc/internal/transport.newHTTP2Client
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:344 +0xedb
+
+goroutine 252 [select, 184 minutes]:
+go.etcd.io/etcd/clientv3.(*lessor).keepAliveCtxCloser(0xc0000537c0, 0x36c5360, 0xc0000b0700, 0x6a6c75454349681e, 0xc0001f83c0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/clientv3/lease.go:330 +0x10f
+created by go.etcd.io/etcd/clientv3.(*lessor).KeepAlive
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/clientv3/lease.go:297 +0x287
+
+goroutine 253 [select]:
+google.golang.org/grpc/internal/transport.(*recvBufferReader).readClient(0xc000538320, 0xc0000108b0, 0x5, 0x5, 0xc0005eb8e8, 0x114478c, 0x32529f0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/transport.go:186 +0xd3
+google.golang.org/grpc/internal/transport.(*recvBufferReader).Read(0xc000538320, 0xc0000108b0, 0x5, 0x5, 0xc0005ebf08, 0xc0001acf20, 0xc0005eb990)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/transport.go:166 +0x195
+google.golang.org/grpc/internal/transport.(*transportReader).Read(0xc00067dc80, 0xc0000108b0, 0x5, 0x5, 0x20, 0xc0005eb9b8, 0x15ce6cc)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/transport.go:479 +0x55
+io.ReadAtLeast(0x3675920, 0xc00067dc80, 0xc0000108b0, 0x5, 0x5, 0x5, 0x2f5c900, 0xc00067db01, 0xc00237d4c0)
+	/usr/local/go/src/io/io.go:310 +0x87
+io.ReadFull(...)
+	/usr/local/go/src/io/io.go:329
+google.golang.org/grpc/internal/transport.(*Stream).Read(0xc0006b6800, 0xc0000108b0, 0x5, 0x5, 0x0, 0x0, 0x2fc54c0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/transport.go:463 +0xcd
+google.golang.org/grpc.(*parser).recvMsg(0xc0000108a0, 0x7fffffff, 0xc0016a9520, 0xc000d6e030, 0x28, 0x28, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/rpc_util.go:508 +0x63
+google.golang.org/grpc.recvAndDecompress(0xc0000108a0, 0xc0006b6800, 0x0, 0x0, 0x7fffffff, 0x0, 0x0, 0x0, 0x1135a5c, 0xc0005ebbc8, ...)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/rpc_util.go:639 +0x4d
+google.golang.org/grpc.recv(0xc0000108a0, 0x7ffbf98c2400, 0x51a7a48, 0xc0006b6800, 0x0, 0x0, 0x2fc54c0, 0xc0047828e0, 0x7fffffff, 0x0, ...)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/rpc_util.go:707 +0x9b
+google.golang.org/grpc.(*csAttempt).recvMsg(0xc00046a380, 0x2fc54c0, 0xc0047828e0, 0x0, 0x8, 0xc0005ebcd8)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/stream.go:885 +0xed
+google.golang.org/grpc.(*clientStream).RecvMsg.func1(0xc00046a380, 0x203001, 0x203001)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/stream.go:736 +0x46
+google.golang.org/grpc.(*clientStream).withRetry(0xc0001d4000, 0xc0005ebe48, 0xc0005ebe18, 0x0, 0x8)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/stream.go:590 +0x360
+google.golang.org/grpc.(*clientStream).RecvMsg(0xc0001d4000, 0x2fc54c0, 0xc0047828e0, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/stream.go:735 +0x103
+go.etcd.io/etcd/etcdserver/etcdserverpb.(*leaseLeaseKeepAliveClient).Recv(0xc00038bed0, 0xc0016a9520, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/etcdserver/etcdserverpb/rpc.pb.go:3833 +0x62
+go.etcd.io/etcd/clientv3.(*lessor).recvKeepAliveLoop(0xc0000537c0, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/clientv3/lease.go:447 +0xb4
+created by go.etcd.io/etcd/clientv3.(*lessor).KeepAlive.func1
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/clientv3/lease.go:299 +0x43
+
+goroutine 254 [select]:
+go.etcd.io/etcd/clientv3.(*lessor).deadlineLoop(0xc0000537c0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/clientv3/lease.go:539 +0x197
+created by go.etcd.io/etcd/clientv3.(*lessor).KeepAlive.func1
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/clientv3/lease.go:300 +0x65
+
+goroutine 255 [chan receive]:
+go.etcd.io/etcd/clientv3/concurrency.NewSession.func1(0xc0001f8420, 0xc000098540)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/clientv3/concurrency/session.go:66 +0x7d
+created by go.etcd.io/etcd/clientv3/concurrency.NewSession
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/clientv3/concurrency/session.go:64 +0x252
+
+goroutine 256 [select, 184 minutes]:
+github.com/pingcap/tidb/owner.(*ownerManager).watchOwner(0xc00032a070, 0x36c5360, 0xc000370500, 0xc00067cf00, 0xc0007cc120, 0x23)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/owner/manager.go:331 +0x4c3
+github.com/pingcap/tidb/owner.(*ownerManager).campaignLoop(0xc00032a070, 0x36c5360, 0xc000370500, 0xc00067cf00)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/owner/manager.go:277 +0xaca
+created by github.com/pingcap/tidb/owner.(*ownerManager).CampaignOwner
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/owner/manager.go:186 +0x1b0
+
+goroutine 257 [select]:
+github.com/pingcap/tidb/ddl.(*worker).start(0xc0000985a0, 0xc000053900)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/ddl/ddl_worker.go:142 +0x219
+github.com/pingcap/tidb/ddl.(*ddl).start.func2()
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/ddl/ddl.go:353 +0x37
+github.com/pingcap/tidb/util.WithRecovery(0xc000010280, 0xc0000102a0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/util/misc.go:93 +0x57
+created by github.com/pingcap/tidb/ddl.(*ddl).start
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/ddl/ddl.go:352 +0x667
+
+goroutine 306 [select]:
+github.com/pingcap/tidb/ddl.(*worker).start(0xc000098780, 0xc000053900)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/ddl/ddl_worker.go:142 +0x219
+github.com/pingcap/tidb/ddl.(*ddl).start.func2()
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/ddl/ddl.go:353 +0x37
+github.com/pingcap/tidb/util.WithRecovery(0xc0000102e0, 0xc000010300)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/util/misc.go:93 +0x57
+created by github.com/pingcap/tidb/ddl.(*ddl).start
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/ddl/ddl.go:352 +0x667
+
+goroutine 307 [select, 184 minutes]:
+github.com/pingcap/tidb/ddl/util.(*schemaVersionSyncer).StartCleanWork(0xc00092f440)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/ddl/util/syncer.go:425 +0x395
+github.com/pingcap/tidb/ddl.(*ddl).start.func4()
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/ddl/ddl.go:368 +0x37
+github.com/pingcap/tidb/util.WithRecovery(0xc00038b9d0, 0xc00038ba10)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/util/misc.go:93 +0x57
+created by github.com/pingcap/tidb/ddl.(*ddl).start
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/ddl/ddl.go:367 +0x887
+
+goroutine 308 [select, 184 minutes]:
+google.golang.org/grpc.newClientStream.func5(0xc0009aa000, 0xc0001d4000, 0x36c5420, 0xc00067db90)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/stream.go:319 +0xd7
+created by google.golang.org/grpc.newClientStream
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/stream.go:318 +0x9a5
+
+goroutine 309 [select]:
+go.etcd.io/etcd/clientv3.(*lessor).sendKeepAliveLoop(0xc0000537c0, 0x36e9d20, 0xc00038bed0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/clientv3/lease.go:579 +0x342
+created by go.etcd.io/etcd/clientv3.(*lessor).resetRecv
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/clientv3/lease.go:489 +0x242
+
+goroutine 291 [select, 184 minutes]:
+go.etcd.io/etcd/clientv3.(*lessor).keepAliveCtxCloser(0xc0000537c0, 0x36c5360, 0xc00022e800, 0x6a6c754543496822, 0xc0005226c0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/clientv3/lease.go:330 +0x10f
+created by go.etcd.io/etcd/clientv3.(*lessor).KeepAlive
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/clientv3/lease.go:297 +0x287
+
+goroutine 292 [chan receive]:
+go.etcd.io/etcd/clientv3/concurrency.NewSession.func1(0xc000522840, 0xc0006f4ba0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/clientv3/concurrency/session.go:66 +0x7d
+created by go.etcd.io/etcd/clientv3/concurrency.NewSession
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/clientv3/concurrency/session.go:64 +0x252
+
+goroutine 293 [select, 184 minutes]:
+context.propagateCancel.func1(0x36c8020, 0xc0002e02d0, 0x3693d20, 0xc00022e8c0)
+	/usr/local/go/src/context/context.go:259 +0xd8
+created by context.propagateCancel
+	/usr/local/go/src/context/context.go:258 +0x1ce
+
+goroutine 294 [select, 183 minutes]:
+go.etcd.io/etcd/clientv3.(*watchGrpcStream).run(0xc000679ba0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/clientv3/watch.go:524 +0x381
+created by go.etcd.io/etcd/clientv3.(*watcher).newWatcherGrpcStream
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/clientv3/watch.go:277 +0x2de
+
+goroutine 297 [select, 183 minutes]:
+google.golang.org/grpc/internal/transport.(*recvBufferReader).readClient(0xc00032fbd0, 0xc0002a47d0, 0x5, 0x5, 0xc00085b8f8, 0x114478c, 0x32529f0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/transport.go:186 +0xd3
+google.golang.org/grpc/internal/transport.(*recvBufferReader).Read(0xc00032fbd0, 0xc0002a47d0, 0x5, 0x5, 0x0, 0xc0002f4c80, 0xc00085b9a0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/transport.go:166 +0x195
+google.golang.org/grpc/internal/transport.(*transportReader).Read(0xc0006efaa0, 0xc0002a47d0, 0x5, 0x5, 0x7ffbf99aed98, 0xc00085b9c8, 0x15ce6cc)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/transport.go:479 +0x55
+io.ReadAtLeast(0x3675920, 0xc0006efaa0, 0xc0002a47d0, 0x5, 0x5, 0x5, 0xc000cdbde0, 0xc000cdbdc2, 0x1a)
+	/usr/local/go/src/io/io.go:310 +0x87
+io.ReadFull(...)
+	/usr/local/go/src/io/io.go:329
+google.golang.org/grpc/internal/transport.(*Stream).Read(0xc00034c500, 0xc0002a47d0, 0x5, 0x5, 0x1c, 0x2e0c960, 0x2)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/transport.go:463 +0xcd
+google.golang.org/grpc.(*parser).recvMsg(0xc0002a47c0, 0x7fffffff, 0xc001112960, 0xc000cdbdc0, 0x20, 0x20, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/rpc_util.go:508 +0x63
+google.golang.org/grpc.recvAndDecompress(0xc0002a47c0, 0xc00034c500, 0x0, 0x0, 0x7fffffff, 0x0, 0x0, 0x0, 0xc000cdbdc0, 0x20, ...)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/rpc_util.go:639 +0x4d
+google.golang.org/grpc.recv(0xc0002a47c0, 0x7ffbf98c2400, 0x51a7a48, 0xc00034c500, 0x0, 0x0, 0x304daa0, 0xc0013a45f0, 0x7fffffff, 0x0, ...)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/rpc_util.go:707 +0x9b
+google.golang.org/grpc.(*csAttempt).recvMsg(0xc0001ae480, 0x304daa0, 0xc0013a45f0, 0x0, 0xc00085bd48, 0x11605c0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/stream.go:885 +0xed
+google.golang.org/grpc.(*clientStream).RecvMsg.func1(0xc0001ae480, 0x203000, 0x203000)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/stream.go:736 +0x46
+google.golang.org/grpc.(*clientStream).withRetry(0xc0001727e0, 0xc00085be58, 0xc00085be28, 0x1, 0x40)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/stream.go:590 +0x360
+google.golang.org/grpc.(*clientStream).RecvMsg(0xc0001727e0, 0x304daa0, 0xc0013a45f0, 0xc00085bef4, 0x2)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/stream.go:735 +0x103
+go.etcd.io/etcd/etcdserver/etcdserverpb.(*watchWatchClient).Recv(0xc0002e0390, 0xc00085bef0, 0x2, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/etcdserver/etcdserverpb/rpc.pb.go:3702 +0x62
+go.etcd.io/etcd/clientv3.(*watchGrpcStream).serveWatchClient(0xc000679ba0, 0x36e9de0, 0xc0002e0390)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/clientv3/watch.go:716 +0x5c
+created by go.etcd.io/etcd/clientv3.(*watchGrpcStream).newWatchClient
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/clientv3/watch.go:871 +0x52a
+
+goroutine 296 [select, 184 minutes]:
+google.golang.org/grpc.newClientStream.func5(0xc0009aa000, 0xc0001727e0, 0x36c5420, 0xc0006ef9b0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/stream.go:319 +0xd7
+created by google.golang.org/grpc.newClientStream
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/stream.go:318 +0x9a5
+
+goroutine 298 [select, 184 minutes]:
+go.etcd.io/etcd/clientv3.(*watchGrpcStream).serveSubstream(0xc000679ba0, 0xc0006dc4d0, 0xc000522c60)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/clientv3/watch.go:762 +0x2be
+created by go.etcd.io/etcd/clientv3.(*watchGrpcStream).run
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/clientv3/watch.go:541 +0x606
+
+goroutine 322 [select, 184 minutes]:
+go.etcd.io/etcd/clientv3.(*watchGrpcStream).serveSubstream(0xc000679ba0, 0xc000500160, 0xc000522c60)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/clientv3/watch.go:762 +0x2be
+created by go.etcd.io/etcd/clientv3.(*watchGrpcStream).run
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/clientv3/watch.go:541 +0x606
+
+goroutine 323 [select, 184 minutes]:
+go.etcd.io/etcd/clientv3.(*lessor).keepAliveCtxCloser(0xc0000537c0, 0x36c5360, 0xc0008b0900, 0x6a6c754543496827, 0xc0007bcd80)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/clientv3/lease.go:330 +0x10f
+created by go.etcd.io/etcd/clientv3.(*lessor).KeepAlive
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/clientv3/lease.go:297 +0x287
+
+goroutine 324 [chan receive, 1 minutes]:
+go.etcd.io/etcd/clientv3/concurrency.NewSession.func1(0xc0007bcde0, 0xc00015ea80)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/clientv3/concurrency/session.go:66 +0x7d
+created by go.etcd.io/etcd/clientv3/concurrency.NewSession
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/clientv3/concurrency/session.go:64 +0x252
+
+goroutine 325 [select, 184 minutes]:
+go.etcd.io/etcd/clientv3.(*lessor).keepAliveCtxCloser(0xc0000537c0, 0x36c5360, 0xc0008b0b40, 0x6a6c75454349682a, 0xc0007bd080)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/clientv3/lease.go:330 +0x10f
+created by go.etcd.io/etcd/clientv3.(*lessor).KeepAlive
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/clientv3/lease.go:297 +0x287
+
+goroutine 326 [chan receive]:
+go.etcd.io/etcd/clientv3/concurrency.NewSession.func1(0xc0007bd0e0, 0xc00015ed80)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/clientv3/concurrency/session.go:66 +0x7d
+created by go.etcd.io/etcd/clientv3/concurrency.NewSession
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/clientv3/concurrency/session.go:64 +0x252
+
+goroutine 327 [select, 184 minutes]:
+google.golang.org/grpc.newClientStream.func5(0xc0006a0e00, 0xc0008d0000, 0x36c5420, 0xc0006ba990)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/stream.go:319 +0xd7
+created by google.golang.org/grpc.newClientStream
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/stream.go:318 +0x9a5
+
+goroutine 328 [select]:
+google.golang.org/grpc/internal/transport.(*recvBufferReader).readClient(0xc0006acbe0, 0xc0001a1e50, 0x5, 0x5, 0x8, 0x8, 0x32529f0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/transport.go:186 +0xd3
+google.golang.org/grpc/internal/transport.(*recvBufferReader).Read(0xc0006acbe0, 0xc0001a1e50, 0x5, 0x5, 0xc0007f3cc0, 0xc000694320, 0xc0007f36e8)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/transport.go:166 +0x195
+google.golang.org/grpc/internal/transport.(*transportReader).Read(0xc0006baa20, 0xc0001a1e50, 0x5, 0x5, 0x0, 0xc0007f3710, 0x15ce6cc)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/transport.go:479 +0x55
+io.ReadAtLeast(0x3675920, 0xc0006baa20, 0xc0001a1e50, 0x5, 0x5, 0x5, 0x1, 0xc0006ba990, 0x43341)
+	/usr/local/go/src/io/io.go:310 +0x87
+io.ReadFull(...)
+	/usr/local/go/src/io/io.go:329
+google.golang.org/grpc/internal/transport.(*Stream).Read(0xc0007c4f00, 0xc0001a1e50, 0x5, 0x5, 0xc00003e000, 0x2e0c960, 0x30519e0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/transport.go:463 +0xcd
+google.golang.org/grpc.(*parser).recvMsg(0xc0001a1e40, 0x7fffffffffffffff, 0xc0018961e0, 0xc0011d53b0, 0x23, 0x23, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/rpc_util.go:508 +0x63
+google.golang.org/grpc.recvAndDecompress(0xc0001a1e40, 0xc0007c4f00, 0x0, 0x0, 0x7fffffffffffffff, 0x0, 0x0, 0x0, 0xc0011d53b0, 0x23, ...)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/rpc_util.go:639 +0x4d
+google.golang.org/grpc.recv(0xc0001a1e40, 0x7ffbf98c2400, 0x51a7a48, 0xc0007c4f00, 0x0, 0x0, 0x30519e0, 0xc00100af00, 0x7fffffffffffffff, 0x0, ...)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/rpc_util.go:707 +0x9b
+google.golang.org/grpc.(*csAttempt).recvMsg(0xc0006ecb80, 0x30519e0, 0xc00100af00, 0x0, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/stream.go:885 +0xed
+google.golang.org/grpc.(*clientStream).RecvMsg.func1(0xc0006ecb80, 0x203000, 0x203000)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/stream.go:736 +0x46
+google.golang.org/grpc.(*clientStream).withRetry(0xc0008d0000, 0xc0007f3ba0, 0xc0007f3b70, 0xc0007f3b30, 0x40)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/stream.go:590 +0x360
+google.golang.org/grpc.(*clientStream).RecvMsg(0xc0008d0000, 0x30519e0, 0xc00100af00, 0x115d801, 0xc00100ae40)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/stream.go:735 +0x103
+github.com/pingcap/kvproto/pkg/tikvpb.(*tikvBatchCommandsClient).Recv(0xc0003049a0, 0xc00152e220, 0x2d05b80, 0xc0007f3ca0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/github.com/pingcap/kvproto@v0.0.0-20200518112156-d4aeb467de29/pkg/tikvpb/tikvpb.pb.go:3187 +0x62
+github.com/pingcap/tidb/store/tikv.(*batchCommandsClient).recv(0xc000560900, 0x2d05b80, 0xc0007f3ca0, 0x3a)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/store/tikv/client_batch.go:247 +0x34
+github.com/pingcap/tidb/store/tikv.(*batchCommandsClient).batchRecvLoop(0xc000560900, 0x4, 0xa, 0x3, 0x315e8c0, 0x3, 0x80, 0xc8, 0x0, 0x8, ...)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/store/tikv/client_batch.go:319 +0x47a
+created by github.com/pingcap/tidb/store/tikv.(*batchCommandsClient).initBatchClient
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/store/tikv/client_batch.go:534 +0x182
+
+goroutine 299 [select, 184 minutes]:
+google.golang.org/grpc.newClientStream.func5(0xc0006a1180, 0xc0004ee7e0, 0x36c5420, 0xc00018aab0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/stream.go:319 +0xd7
+created by google.golang.org/grpc.newClientStream
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/stream.go:318 +0x9a5
+
+goroutine 300 [select]:
+google.golang.org/grpc/internal/transport.(*recvBufferReader).readClient(0xc0007020a0, 0xc0002a53d0, 0x5, 0x5, 0x10, 0x10, 0x32529f0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/transport.go:186 +0xd3
+google.golang.org/grpc/internal/transport.(*recvBufferReader).Read(0xc0007020a0, 0xc0002a53d0, 0x5, 0x5, 0xc00070dcc0, 0xc0002f50a0, 0xc00070d6e8)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/transport.go:166 +0x195
+google.golang.org/grpc/internal/transport.(*transportReader).Read(0xc00018aba0, 0xc0002a53d0, 0x5, 0x5, 0x8, 0xc00070d710, 0x15ce6cc)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/transport.go:479 +0x55
+io.ReadAtLeast(0x3675920, 0xc00018aba0, 0xc0002a53d0, 0x5, 0x5, 0x5, 0x2, 0xc00018aab0, 0x43354)
+	/usr/local/go/src/io/io.go:310 +0x87
+io.ReadFull(...)
+	/usr/local/go/src/io/io.go:329
+google.golang.org/grpc/internal/transport.(*Stream).Read(0xc00034cc00, 0xc0002a53d0, 0x5, 0x5, 0xc00003e000, 0x2e0c960, 0x30519e0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/transport.go:463 +0xcd
+google.golang.org/grpc.(*parser).recvMsg(0xc0002a53c0, 0x7fffffffffffffff, 0xc001896360, 0xc0027cd820, 0x14, 0x14, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/rpc_util.go:508 +0x63
+google.golang.org/grpc.recvAndDecompress(0xc0002a53c0, 0xc00034cc00, 0x0, 0x0, 0x7fffffffffffffff, 0x0, 0x0, 0x0, 0xc0027cd820, 0x14, ...)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/rpc_util.go:639 +0x4d
+google.golang.org/grpc.recv(0xc0002a53c0, 0x7ffbf98c2400, 0x51a7a48, 0xc00034cc00, 0x0, 0x0, 0x30519e0, 0xc0015d9560, 0x7fffffffffffffff, 0x0, ...)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/rpc_util.go:707 +0x9b
+google.golang.org/grpc.(*csAttempt).recvMsg(0xc0001aef00, 0x30519e0, 0xc0015d9560, 0x0, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/stream.go:885 +0xed
+google.golang.org/grpc.(*clientStream).RecvMsg.func1(0xc0001aef00, 0x203000, 0x203000)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/stream.go:736 +0x46
+google.golang.org/grpc.(*clientStream).withRetry(0xc0004ee7e0, 0xc00070dba0, 0xc00070db70, 0xc00070db30, 0x40)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/stream.go:590 +0x360
+google.golang.org/grpc.(*clientStream).RecvMsg(0xc0004ee7e0, 0x30519e0, 0xc0015d9560, 0x115d801, 0xc0015d9440)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/stream.go:735 +0x103
+github.com/pingcap/kvproto/pkg/tikvpb.(*tikvBatchCommandsClient).Recv(0xc0002e06e0, 0xc0013a3dd0, 0x2d05b80, 0xc00070dca0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/github.com/pingcap/kvproto@v0.0.0-20200518112156-d4aeb467de29/pkg/tikvpb/tikvpb.pb.go:3187 +0x62
+github.com/pingcap/tidb/store/tikv.(*batchCommandsClient).recv(0xc000560a20, 0x2d05b80, 0xc00070dca0, 0x3a)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/store/tikv/client_batch.go:247 +0x34
+github.com/pingcap/tidb/store/tikv.(*batchCommandsClient).batchRecvLoop(0xc000560a20, 0x4, 0xa, 0x3, 0x315e8c0, 0x3, 0x80, 0xc8, 0x0, 0x8, ...)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/store/tikv/client_batch.go:319 +0x47a
+created by github.com/pingcap/tidb/store/tikv.(*batchCommandsClient).initBatchClient
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/store/tikv/client_batch.go:534 +0x182
+
+goroutine 310 [select]:
+github.com/pingcap/tidb/domain.(*Domain).loadSchemaInLoop(0xc0004ee360, 0xa7a358200)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/domain/domain.go:494 +0x269
+created by github.com/pingcap/tidb/domain.(*Domain).Init
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/domain/domain.go:721 +0x51d
+
+goroutine 303 [select, 184 minutes]:
+google.golang.org/grpc.newClientStream.func5(0xc0006a0700, 0xc0004ef560, 0x36c5420, 0xc00018b920)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/stream.go:319 +0xd7
+created by google.golang.org/grpc.newClientStream
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/stream.go:318 +0x9a5
+
+goroutine 304 [select]:
+google.golang.org/grpc/internal/transport.(*recvBufferReader).readClient(0xc0007025f0, 0xc0002a59d0, 0x5, 0x5, 0x8, 0x8, 0x32529f0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/transport.go:186 +0xd3
+google.golang.org/grpc/internal/transport.(*recvBufferReader).Read(0xc0007025f0, 0xc0002a59d0, 0x5, 0x5, 0xc00062bcc0, 0xc0002f51e0, 0xc00062b6e8)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/transport.go:166 +0x195
+google.golang.org/grpc/internal/transport.(*transportReader).Read(0xc00018ba70, 0xc0002a59d0, 0x5, 0x5, 0x0, 0xc00062b710, 0x15ce6cc)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/transport.go:479 +0x55
+io.ReadAtLeast(0x3675920, 0xc00018ba70, 0xc0002a59d0, 0x5, 0x5, 0x5, 0x1, 0xc00018b920, 0x4333e)
+	/usr/local/go/src/io/io.go:310 +0x87
+io.ReadFull(...)
+	/usr/local/go/src/io/io.go:329
+google.golang.org/grpc/internal/transport.(*Stream).Read(0xc00034cd00, 0xc0002a59d0, 0x5, 0x5, 0xc00003e000, 0x2e0c960, 0x30519e0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/transport.go:463 +0xcd
+google.golang.org/grpc.(*parser).recvMsg(0xc0002a59c0, 0x7fffffffffffffff, 0xc000c6d6e0, 0xc0011a1ec0, 0x3d, 0x3d, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/rpc_util.go:508 +0x63
+google.golang.org/grpc.recvAndDecompress(0xc0002a59c0, 0xc00034cd00, 0x0, 0x0, 0x7fffffffffffffff, 0x0, 0x0, 0x0, 0xc0011a1ec0, 0x3d, ...)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/rpc_util.go:639 +0x4d
+google.golang.org/grpc.recv(0xc0002a59c0, 0x7ffbf98c2400, 0x51a7a48, 0xc00034cd00, 0x0, 0x0, 0x30519e0, 0xc000c4d020, 0x7fffffffffffffff, 0x0, ...)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/rpc_util.go:707 +0x9b
+google.golang.org/grpc.(*csAttempt).recvMsg(0xc0001af100, 0x30519e0, 0xc000c4d020, 0x0, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/stream.go:885 +0xed
+google.golang.org/grpc.(*clientStream).RecvMsg.func1(0xc0001af100, 0x203000, 0x203000)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/stream.go:736 +0x46
+google.golang.org/grpc.(*clientStream).withRetry(0xc0004ef560, 0xc00062bba0, 0xc00062bb70, 0xc00062bb30, 0x40)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/stream.go:590 +0x360
+google.golang.org/grpc.(*clientStream).RecvMsg(0xc0004ef560, 0x30519e0, 0xc000c4d020, 0x115d801, 0xc000c4cea0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/stream.go:735 +0x103
+github.com/pingcap/kvproto/pkg/tikvpb.(*tikvBatchCommandsClient).Recv(0xc0002e11a0, 0xc001583c30, 0x2d05b80, 0xc00062bca0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/github.com/pingcap/kvproto@v0.0.0-20200518112156-d4aeb467de29/pkg/tikvpb/tikvpb.pb.go:3187 +0x62
+github.com/pingcap/tidb/store/tikv.(*batchCommandsClient).recv(0xc0005606c0, 0x2d05b80, 0xc00062bca0, 0x3a)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/store/tikv/client_batch.go:247 +0x34
+github.com/pingcap/tidb/store/tikv.(*batchCommandsClient).batchRecvLoop(0xc0005606c0, 0x4, 0xa, 0x3, 0x315e8c0, 0x3, 0x80, 0xc8, 0x0, 0x8, ...)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/store/tikv/client_batch.go:319 +0x47a
+created by github.com/pingcap/tidb/store/tikv.(*batchCommandsClient).initBatchClient
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/store/tikv/client_batch.go:534 +0x182
+
+goroutine 311 [select, 5 minutes]:
+github.com/pingcap/tidb/domain.(*Domain).topNSlowQueryLoop(0xc0004ee360)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/domain/domain.go:415 +0x242
+created by github.com/pingcap/tidb/domain.(*Domain).Init
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/domain/domain.go:724 +0x431
+
+goroutine 312 [select]:
+github.com/pingcap/tidb/domain.(*Domain).infoSyncerKeeper(0xc0004ee360)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/domain/domain.go:444 +0x1e4
+created by github.com/pingcap/tidb/domain.(*Domain).Init
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/domain/domain.go:727 +0x470
+
+goroutine 313 [select]:
+github.com/pingcap/tidb/domain.(*Domain).topologySyncerKeeper(0xc0004ee360)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/domain/domain.go:466 +0x1e4
+created by github.com/pingcap/tidb/domain.(*Domain).Init
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/domain/domain.go:730 +0x4af
+
+goroutine 249898 [IO wait, 2 minutes]:
+internal/poll.runtime_pollWait(0x7ffbec2c9768, 0x72, 0xffffffffffffffff)
+	/usr/local/go/src/runtime/netpoll.go:184 +0x55
+internal/poll.(*pollDesc).wait(0xc00046bb98, 0x72, 0x1000, 0x1000, 0xffffffffffffffff)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:92
+internal/poll.(*FD).Read(0xc00046bb80, 0xc0012d6000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_unix.go:169 +0x1cf
+net.(*netFD).Read(0xc00046bb80, 0xc0012d6000, 0x1000, 0x1000, 0x9, 0x3b, 0x0)
+	/usr/local/go/src/net/fd_unix.go:202 +0x4f
+net.(*conn).Read(0xc0001a9670, 0xc0012d6000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/net/net.go:184 +0x68
+github.com/soheilhy/cmux.(*bufferedReader).Read(0xc0011c7740, 0xc0012d6000, 0x1000, 0x1000, 0x10, 0x2d4e280, 0xc000e6e6c8)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/github.com/soheilhy/cmux@v0.1.4/buffer.go:53 +0x12c
+github.com/soheilhy/cmux.(*MuxConn).Read(0xc0011c7730, 0xc0012d6000, 0x1000, 0x1000, 0x2e184e0, 0x3064b60, 0x3675ee0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/github.com/soheilhy/cmux@v0.1.4/cmux.go:260 +0x4f
+net/http.(*connReader).Read(0xc000e6e6c0, 0xc0012d6000, 0x1000, 0x1000, 0x3675ee0, 0xc0005e9930, 0x1500)
+	/usr/local/go/src/net/http/server.go:785 +0xf4
+bufio.(*Reader).fill(0xc00100b380)
+	/usr/local/go/src/bufio/bufio.go:100 +0x103
+bufio.(*Reader).ReadSlice(0xc00100b380, 0x113c00a, 0xc000709200, 0xc0005e99a8, 0x110fd46, 0xc0010b6200, 0x100)
+	/usr/local/go/src/bufio/bufio.go:359 +0x3d
+bufio.(*Reader).ReadLine(0xc00100b380, 0xc0005e99b0, 0xc0000a2000, 0x7ffbf99af460, 0x0, 0x3, 0xc00046bb80)
+	/usr/local/go/src/bufio/bufio.go:388 +0x34
+net/textproto.(*Reader).readLineSlice(0xc000e6e720, 0xc0010b6200, 0x0, 0x0, 0xc0005e9d70, 0xc00046bb80)
+	/usr/local/go/src/net/textproto/reader.go:57 +0x6c
+net/textproto.(*Reader).ReadLine(...)
+	/usr/local/go/src/net/textproto/reader.go:38
+net/http.readRequest(0xc00100b380, 0x0, 0xc0010b6200, 0x0, 0x0)
+	/usr/local/go/src/net/http/request.go:1012 +0x92
+net/http.(*conn).readRequest(0xc000c4eaa0, 0x36c5360, 0xc001108440, 0x0, 0x0, 0x0)
+	/usr/local/go/src/net/http/server.go:965 +0x15f
+net/http.(*conn).serve(0xc000c4eaa0, 0x36c5360, 0xc001108440)
+	/usr/local/go/src/net/http/server.go:1817 +0x6d4
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:2927 +0x38e
+
+goroutine 305 [select]:
+github.com/pingcap/tidb/domain.(*Domain).globalBindHandleWorkerLoop.func1(0xc0004ee360)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/domain/domain.go:888 +0x1c1
+created by github.com/pingcap/tidb/domain.(*Domain).globalBindHandleWorkerLoop
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/domain/domain.go:882 +0x5f
+
+goroutine 354 [select]:
+github.com/pingcap/tidb/domain.(*Domain).handleEvolvePlanTasksLoop.func1(0xc0004ee360, 0x3707560, 0xc00034d800)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/domain/domain.go:913 +0x1c1
+created by github.com/pingcap/tidb/domain.(*Domain).handleEvolvePlanTasksLoop
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/domain/domain.go:908 +0x73
+
+goroutine 161936 [select, 3 minutes]:
+google.golang.org/grpc.(*ccBalancerWrapper).watcher(0xc0014f8e00)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/balancer_conn_wrappers.go:69 +0xc2
+created by google.golang.org/grpc.newCCBalancerWrapper
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/balancer_conn_wrappers.go:60 +0x16d
+
+goroutine 249484 [select]:
+google.golang.org/grpc/internal/transport.(*controlBuffer).get(0xc001387310, 0x1, 0x0, 0x0, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/controlbuf.go:395 +0x122
+google.golang.org/grpc/internal/transport.(*loopyWriter).run(0xc00092e600, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/controlbuf.go:513 +0x1e3
+google.golang.org/grpc/internal/transport.newHTTP2Client.func3(0xc000879340)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:346 +0x7b
+created by google.golang.org/grpc/internal/transport.newHTTP2Client
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:344 +0xedb
+
+goroutine 1164 [select, 183 minutes]:
+go.etcd.io/etcd/clientv3.(*watchGrpcStream).serveSubstream(0xc000679ba0, 0xc000b56000, 0xc000522c60)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/clientv3/watch.go:762 +0x2be
+created by go.etcd.io/etcd/clientv3.(*watchGrpcStream).run
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/clientv3/watch.go:541 +0x606
+
+goroutine 342 [select, 184 minutes]:
+go.etcd.io/etcd/clientv3.(*lessor).keepAliveCtxCloser(0xc0000537c0, 0x36c5360, 0xc0007e65c0, 0x6a6c75454349682f, 0xc0001f9f20)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/clientv3/lease.go:330 +0x10f
+created by go.etcd.io/etcd/clientv3.(*lessor).KeepAlive
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/clientv3/lease.go:297 +0x287
+
+goroutine 343 [chan receive]:
+go.etcd.io/etcd/clientv3/concurrency.NewSession.func1(0xc0001f9f80, 0xc000ac32c0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/clientv3/concurrency/session.go:66 +0x7d
+created by go.etcd.io/etcd/clientv3/concurrency.NewSession
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/clientv3/concurrency/session.go:64 +0x252
+
+goroutine 344 [select, 183 minutes]:
+github.com/pingcap/tidb/owner.(*ownerManager).watchOwner(0xc000af30a0, 0x36c5360, 0xc0007e6600, 0xc000ab3980, 0xc0000cbc80, 0x25)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/owner/manager.go:331 +0x4c3
+github.com/pingcap/tidb/owner.(*ownerManager).campaignLoop(0xc000af30a0, 0x36c5360, 0xc0007e6600, 0xc000ab3980)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/owner/manager.go:277 +0xaca
+created by github.com/pingcap/tidb/owner.(*ownerManager).CampaignOwner
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/owner/manager.go:186 +0x1b0
+
+goroutine 774 [chan receive, 184 minutes]:
+google.golang.org/grpc.(*addrConn).resetTransport(0xc001246000)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/clientconn.go:1164 +0x6ea
+created by google.golang.org/grpc.(*addrConn).connect
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/clientconn.go:800 +0x128
+
+goroutine 162037 [chan receive, 3 minutes]:
+google.golang.org/grpc.(*addrConn).resetTransport(0xc00153db80)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/clientconn.go:1164 +0x6ea
+created by google.golang.org/grpc.(*addrConn).connect
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/clientconn.go:800 +0x128
+
+goroutine 732 [IO wait]:
+internal/poll.runtime_pollWait(0x7ffbf9912d70, 0x72, 0xffffffffffffffff)
+	/usr/local/go/src/runtime/netpoll.go:184 +0x55
+internal/poll.(*pollDesc).wait(0xc000e58f18, 0x72, 0x8000, 0x8000, 0xffffffffffffffff)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:92
+internal/poll.(*FD).Read(0xc000e58f00, 0xc00087a000, 0x8000, 0x8000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_unix.go:169 +0x1cf
+net.(*netFD).Read(0xc000e58f00, 0xc00087a000, 0x8000, 0x8000, 0x0, 0x800010601, 0x0)
+	/usr/local/go/src/net/fd_unix.go:202 +0x4f
+net.(*conn).Read(0xc000012618, 0xc00087a000, 0x8000, 0x8000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/net/net.go:184 +0x68
+bufio.(*Reader).Read(0xc0012a18c0, 0xc00013c818, 0x9, 0x9, 0xc0000b4700, 0x7ffbf99af460, 0x0)
+	/usr/local/go/src/bufio/bufio.go:226 +0x26a
+io.ReadAtLeast(0x3671040, 0xc0012a18c0, 0xc00013c818, 0x9, 0x9, 0x9, 0x15a0175, 0xc006319a4c, 0xc00007ade8)
+	/usr/local/go/src/io/io.go:310 +0x87
+io.ReadFull(...)
+	/usr/local/go/src/io/io.go:329
+golang.org/x/net/http2.readFrameHeader(0xc00013c818, 0x9, 0x9, 0x3671040, 0xc0012a18c0, 0x0, 0xbfdbd2e200000000, 0xa11a6e72e1d, 0x5188220)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/golang.org/x/net@v0.0.0-20200324143707-d3edc9973b7e/http2/frame.go:237 +0x87
+golang.org/x/net/http2.(*Framer).ReadFrame(0xc00013c7e0, 0xc006319a40, 0x5188220, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/golang.org/x/net@v0.0.0-20200324143707-d3edc9973b7e/http2/frame.go:492 +0xa1
+google.golang.org/grpc/internal/transport.(*http2Client).reader(0xc0009f61c0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:1264 +0x183
+created by google.golang.org/grpc/internal/transport.newHTTP2Client
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:300 +0xd23
+
+goroutine 753 [IO wait]:
+internal/poll.runtime_pollWait(0x7ffbf9912550, 0x72, 0xffffffffffffffff)
+	/usr/local/go/src/runtime/netpoll.go:184 +0x55
+internal/poll.(*pollDesc).wait(0xc000117118, 0x72, 0x8000, 0x8000, 0xffffffffffffffff)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:92
+internal/poll.(*FD).Read(0xc000117100, 0xc000c88000, 0x8000, 0x8000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_unix.go:169 +0x1cf
+net.(*netFD).Read(0xc000117100, 0xc000c88000, 0x8000, 0x8000, 0x0, 0x800010601, 0x0)
+	/usr/local/go/src/net/fd_unix.go:202 +0x4f
+net.(*conn).Read(0xc000706e08, 0xc000c88000, 0x8000, 0x8000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/net/net.go:184 +0x68
+bufio.(*Reader).Read(0xc001008ea0, 0xc0009f5618, 0x9, 0x9, 0xc0000a2380, 0x7ffbf99ae008, 0x0)
+	/usr/local/go/src/bufio/bufio.go:226 +0x26a
+io.ReadAtLeast(0x3671040, 0xc001008ea0, 0xc0009f5618, 0x9, 0x9, 0x9, 0x15a0175, 0xc00383118c, 0xc000080de8)
+	/usr/local/go/src/io/io.go:310 +0x87
+io.ReadFull(...)
+	/usr/local/go/src/io/io.go:329
+golang.org/x/net/http2.readFrameHeader(0xc0009f5618, 0x9, 0x9, 0x3671040, 0xc001008ea0, 0x0, 0xbfdbd2e200000000, 0xa1191494422, 0x5188220)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/golang.org/x/net@v0.0.0-20200324143707-d3edc9973b7e/http2/frame.go:237 +0x87
+golang.org/x/net/http2.(*Framer).ReadFrame(0xc0009f55e0, 0xc003831180, 0x5188220, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/golang.org/x/net@v0.0.0-20200324143707-d3edc9973b7e/http2/frame.go:492 +0xa1
+google.golang.org/grpc/internal/transport.(*http2Client).reader(0xc0009f6380)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:1264 +0x183
+created by google.golang.org/grpc/internal/transport.newHTTP2Client
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:300 +0xd23
+
+goroutine 376 [select, 184 minutes]:
+go.etcd.io/etcd/clientv3.(*watchGrpcStream).serveSubstream(0xc000679ba0, 0xc000bff4a0, 0xc000522c60)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/clientv3/watch.go:762 +0x2be
+created by go.etcd.io/etcd/clientv3.(*watchGrpcStream).run
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/clientv3/watch.go:541 +0x606
+
+goroutine 733 [select]:
+google.golang.org/grpc/internal/transport.(*controlBuffer).get(0xc0013d8f00, 0x1, 0x0, 0x0, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/controlbuf.go:395 +0x122
+google.golang.org/grpc/internal/transport.(*loopyWriter).run(0xc0012a1980, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/controlbuf.go:513 +0x1e3
+google.golang.org/grpc/internal/transport.newHTTP2Client.func3(0xc0009f61c0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:346 +0x7b
+created by google.golang.org/grpc/internal/transport.newHTTP2Client
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:344 +0xedb
+
+goroutine 352 [select, 4 minutes]:
+github.com/pingcap/tidb/domain.(*Domain).LoadPrivilegeLoop.func1(0xc0004ee360, 0xc000012c80, 0x8bb2c97000, 0x3707560, 0xc0006b6d00)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/domain/domain.go:827 +0x1af
+created by github.com/pingcap/tidb/domain.(*Domain).LoadPrivilegeLoop
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/domain/domain.go:821 +0x13c
+
+goroutine 378 [select]:
+github.com/pingcap/tidb/store/tikv/gcworker.(*GCWorker).start(0xc000c03420, 0x36c5360, 0xc000c7a140, 0xc000af1f30)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/store/tikv/gcworker/gc_worker.go:181 +0x3d2
+created by github.com/pingcap/tidb/store/tikv/gcworker.(*GCWorker).Start
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/store/tikv/gcworker/gc_worker.go:91 +0xda
+
+goroutine 403 [chan receive, 184 minutes]:
+gopkg.in/natefinch/lumberjack%2ev2.(*Logger).millRun(0xc00016aea0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/gopkg.in/natefinch/lumberjack.v2@v2.0.0/lumberjack.go:379 +0x58
+created by gopkg.in/natefinch/lumberjack%2ev2.(*Logger).mill.func1
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/gopkg.in/natefinch/lumberjack.v2@v2.0.0/lumberjack.go:390 +0x79
+
+goroutine 377 [select]:
+github.com/pingcap/tidb/domain.(*Domain).loadStatsWorker(0xc0004ee360)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/domain/domain.go:1018 +0x446
+created by github.com/pingcap/tidb/domain.(*Domain).UpdateTableStatsLoop
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/domain/domain.go:967 +0x249
+
+goroutine 406 [select, 184 minutes]:
+go.etcd.io/etcd/clientv3.(*lessor).keepAliveCtxCloser(0xc0000537c0, 0x36c5360, 0xc0007e7e80, 0x6a6c754543496833, 0xc0000b3c20)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/clientv3/lease.go:330 +0x10f
+created by go.etcd.io/etcd/clientv3.(*lessor).KeepAlive
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/clientv3/lease.go:297 +0x287
+
+goroutine 407 [chan receive]:
+go.etcd.io/etcd/clientv3/concurrency.NewSession.func1(0xc0000b3c80, 0xc000c4d980)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/clientv3/concurrency/session.go:66 +0x7d
+created by go.etcd.io/etcd/clientv3/concurrency.NewSession
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/clientv3/concurrency/session.go:64 +0x252
+
+goroutine 408 [select, 183 minutes]:
+github.com/pingcap/tidb/owner.(*ownerManager).watchOwner(0xc000c03110, 0x36c5360, 0xc0007e7f40, 0xc000c80870, 0xc000a028d0, 0x22)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/owner/manager.go:331 +0x4c3
+github.com/pingcap/tidb/owner.(*ownerManager).campaignLoop(0xc000c03110, 0x36c5360, 0xc0007e7f40, 0xc000c80870)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/owner/manager.go:277 +0xaca
+created by github.com/pingcap/tidb/owner.(*ownerManager).CampaignOwner
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/owner/manager.go:186 +0x1b0
+
+goroutine 409 [select]:
+github.com/pingcap/tidb/domain.(*Domain).updateStatsWorker(0xc0004ee360, 0x3707560, 0xc00090dc00, 0x36e4920, 0xc000c03110)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/domain/domain.go:1051 +0x36c
+created by github.com/pingcap/tidb/domain.(*Domain).UpdateTableStatsLoop
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/domain/domain.go:975 +0x18c
+
+goroutine 410 [select]:
+github.com/pingcap/tidb/domain.(*Domain).autoAnalyzeWorker(0xc0004ee360, 0x36e4920, 0xc000c03110)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/domain/domain.go:1103 +0x177
+created by github.com/pingcap/tidb/domain.(*Domain).UpdateTableStatsLoop
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/domain/domain.go:978 +0x1f7
+
+goroutine 249491 [IO wait]:
+internal/poll.runtime_pollWait(0x7ffbf99122e0, 0x72, 0xffffffffffffffff)
+	/usr/local/go/src/runtime/netpoll.go:184 +0x55
+internal/poll.(*pollDesc).wait(0xc001452098, 0x72, 0x8000, 0x8000, 0xffffffffffffffff)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:92
+internal/poll.(*FD).Read(0xc001452080, 0xc000e4a000, 0x8000, 0x8000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_unix.go:169 +0x1cf
+net.(*netFD).Read(0xc001452080, 0xc000e4a000, 0x8000, 0x8000, 0x0, 0x800010601, 0x0)
+	/usr/local/go/src/net/fd_unix.go:202 +0x4f
+net.(*conn).Read(0xc000f15f58, 0xc000e4a000, 0x8000, 0x8000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/net/net.go:184 +0x68
+bufio.(*Reader).Read(0xc000c9a000, 0xc00109ddf8, 0x9, 0x9, 0xc0000a2380, 0x7ffbf99af460, 0x0)
+	/usr/local/go/src/bufio/bufio.go:226 +0x26a
+io.ReadAtLeast(0x3671040, 0xc000c9a000, 0xc00109ddf8, 0x9, 0x9, 0x9, 0x15a0175, 0xc000b6a10c, 0xc0015aee58)
+	/usr/local/go/src/io/io.go:310 +0x87
+io.ReadFull(...)
+	/usr/local/go/src/io/io.go:329
+golang.org/x/net/http2.readFrameHeader(0xc00109ddf8, 0x9, 0x9, 0x3671040, 0xc000c9a000, 0x0, 0x0, 0xc000b6a100, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/golang.org/x/net@v0.0.0-20200324143707-d3edc9973b7e/http2/frame.go:237 +0x87
+golang.org/x/net/http2.(*Framer).ReadFrame(0xc00109ddc0, 0xc000b6a100, 0x5188220, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/golang.org/x/net@v0.0.0-20200324143707-d3edc9973b7e/http2/frame.go:492 +0xa1
+google.golang.org/grpc/internal/transport.(*http2Client).reader(0xc0009f6fc0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:1264 +0x183
+created by google.golang.org/grpc/internal/transport.newHTTP2Client
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:300 +0xd23
+
+goroutine 161935 [chan receive, 3 minutes]:
+google.golang.org/grpc.(*addrConn).resetTransport(0xc00153d340)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/clientconn.go:1164 +0x6ea
+created by google.golang.org/grpc.(*addrConn).connect
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/clientconn.go:800 +0x128
+
+goroutine 249446 [IO wait]:
+internal/poll.runtime_pollWait(0x7ffbec2c9838, 0x72, 0xffffffffffffffff)
+	/usr/local/go/src/runtime/netpoll.go:184 +0x55
+internal/poll.(*pollDesc).wait(0xc001452298, 0x72, 0x8000, 0x8000, 0xffffffffffffffff)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:92
+internal/poll.(*FD).Read(0xc001452280, 0xc001126000, 0x8000, 0x8000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_unix.go:169 +0x1cf
+net.(*netFD).Read(0xc001452280, 0xc001126000, 0x8000, 0x8000, 0x11, 0x0, 0x0)
+	/usr/local/go/src/net/fd_unix.go:202 +0x4f
+net.(*conn).Read(0xc000f15f78, 0xc001126000, 0x8000, 0x8000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/net/net.go:184 +0x68
+github.com/soheilhy/cmux.(*bufferedReader).Read(0xc001121510, 0xc001126000, 0x8000, 0x8000, 0x4, 0x110fd46, 0xc000bd2c00)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/github.com/soheilhy/cmux@v0.1.4/buffer.go:53 +0x12c
+github.com/soheilhy/cmux.(*MuxConn).Read(0xc001121500, 0xc001126000, 0x8000, 0x8000, 0x3, 0x0, 0x110fd46)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/github.com/soheilhy/cmux@v0.1.4/cmux.go:260 +0x4f
+bufio.(*Reader).Read(0xc0006bd4a0, 0xc0009f5ed8, 0x9, 0x9, 0x1109bf4, 0xc0012652c0, 0xc001787d37)
+	/usr/local/go/src/bufio/bufio.go:226 +0x26a
+io.ReadAtLeast(0x3671040, 0xc0006bd4a0, 0xc0009f5ed8, 0x9, 0x9, 0x9, 0xc001787dc0, 0xc001787d68, 0xc001787e30)
+	/usr/local/go/src/io/io.go:310 +0x87
+io.ReadFull(...)
+	/usr/local/go/src/io/io.go:329
+golang.org/x/net/http2.readFrameHeader(0xc0009f5ed8, 0x9, 0x9, 0x3671040, 0xc0006bd4a0, 0x0, 0xa0c00000000, 0xc001052680, 0x20)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/golang.org/x/net@v0.0.0-20200324143707-d3edc9973b7e/http2/frame.go:237 +0x87
+golang.org/x/net/http2.(*Framer).ReadFrame(0xc0009f5ea0, 0xc001052680, 0x5188220, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/golang.org/x/net@v0.0.0-20200324143707-d3edc9973b7e/http2/frame.go:492 +0xa1
+google.golang.org/grpc/internal/transport.(*http2Server).HandleStreams(0xc000d7af00, 0xc001383530, 0x3251b90)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_server.go:458 +0xa1
+google.golang.org/grpc.(*Server).serveStreams(0xc000e9aa80, 0x36ee460, 0xc000d7af00)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/server.go:718 +0xf3
+google.golang.org/grpc.(*Server).handleRawConn.func1(0xc000e9aa80, 0x36ee460, 0xc000d7af00)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/server.go:679 +0x3f
+created by google.golang.org/grpc.(*Server).handleRawConn
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/server.go:678 +0x562
+
+goroutine 526 [IO wait]:
+internal/poll.runtime_pollWait(0x7ffbf99126f0, 0x72, 0xffffffffffffffff)
+	/usr/local/go/src/runtime/netpoll.go:184 +0x55
+internal/poll.(*pollDesc).wait(0xc00046b918, 0x72, 0x1000, 0x1000, 0xffffffffffffffff)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:92
+internal/poll.(*FD).Read(0xc00046b900, 0xc000363000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_unix.go:169 +0x1cf
+net.(*netFD).Read(0xc00046b900, 0xc000363000, 0x1000, 0x1000, 0xc0006bcd80, 0xc0001a6260, 0x1)
+	/usr/local/go/src/net/fd_unix.go:202 +0x4f
+net.(*conn).Read(0xc000706ca8, 0xc000363000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/net/net.go:184 +0x68
+github.com/soheilhy/cmux.(*bufferedReader).Read(0xc000cd9d60, 0xc000363000, 0x1000, 0x1000, 0x0, 0x0, 0xc000c3d958)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/github.com/soheilhy/cmux@v0.1.4/buffer.go:53 +0x12c
+github.com/soheilhy/cmux.(*MuxConn).Read(0xc000cd9d50, 0xc000363000, 0x1000, 0x1000, 0x603ec818278d901d, 0xc0011a7708, 0xc0011a7601)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/github.com/soheilhy/cmux@v0.1.4/cmux.go:260 +0x4f
+net/http.(*connReader).Read(0xc000c3d950, 0xc000363000, 0x1000, 0x1000, 0x2ec9e80, 0x2f98040, 0xe0)
+	/usr/local/go/src/net/http/server.go:785 +0xf4
+bufio.(*Reader).fill(0xc000b5e240)
+	/usr/local/go/src/bufio/bufio.go:100 +0x103
+bufio.(*Reader).ReadSlice(0xc000b5e240, 0x113c00a, 0xc000c84f00, 0xc00120b9a8, 0x110fd46, 0xc000e31000, 0x100)
+	/usr/local/go/src/bufio/bufio.go:359 +0x3d
+bufio.(*Reader).ReadLine(0xc000b5e240, 0xc00120b9b0, 0xc000070700, 0x7ffbf99aed98, 0x0, 0x2, 0xc00046b900)
+	/usr/local/go/src/bufio/bufio.go:388 +0x34
+net/textproto.(*Reader).readLineSlice(0xc00067db00, 0xc000e31000, 0x0, 0x0, 0xc00120bd70, 0xc00046b900)
+	/usr/local/go/src/net/textproto/reader.go:57 +0x6c
+net/textproto.(*Reader).ReadLine(...)
+	/usr/local/go/src/net/textproto/reader.go:38
+net/http.readRequest(0xc000b5e240, 0x0, 0xc000e31000, 0x0, 0x0)
+	/usr/local/go/src/net/http/request.go:1012 +0x92
+net/http.(*conn).readRequest(0xc000c4e3c0, 0x36c5360, 0xc000c865c0, 0x0, 0x0, 0x0)
+	/usr/local/go/src/net/http/server.go:965 +0x15f
+net/http.(*conn).serve(0xc000c4e3c0, 0x36c5360, 0xc000c865c0)
+	/usr/local/go/src/net/http/server.go:1817 +0x6d4
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:2927 +0x38e
+
+goroutine 436 [IO wait]:
+internal/poll.runtime_pollWait(0x7ffbf99127c0, 0x72, 0x0)
+	/usr/local/go/src/runtime/netpoll.go:184 +0x55
+internal/poll.(*pollDesc).wait(0xc0001ae698, 0x72, 0x0, 0x0, 0x316437d)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:92
+internal/poll.(*FD).Accept(0xc0001ae680, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_unix.go:384 +0x1f8
+net.(*netFD).accept(0xc0001ae680, 0x37e11d600, 0x0, 0x0)
+	/usr/local/go/src/net/fd_unix.go:238 +0x42
+net.(*TCPListener).accept(0xc0008e2240, 0xc00070fa70, 0xc00070fa78, 0x28)
+	/usr/local/go/src/net/tcpsock_posix.go:139 +0x32
+net.(*TCPListener).Accept(0xc0008e2240, 0x32513c8, 0xc000cbc280, 0x36e9fc0, 0xc000707be8)
+	/usr/local/go/src/net/tcpsock.go:261 +0x47
+github.com/soheilhy/cmux.(*cMux).Serve(0xc000cbc280, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/github.com/soheilhy/cmux@v0.1.4/cmux.go:162 +0xaf
+github.com/pingcap/tidb/server.(*Server).startStatusServerAndRPCServer(0xc000500000, 0xc0008f7080)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/server/http_status.go:319 +0x43e
+github.com/pingcap/tidb/server.(*Server).startHTTPServer(0xc000500000)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/server/http_status.go:296 +0x100b
+created by github.com/pingcap/tidb/server.(*Server).startStatusHTTP
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/server/http_status.go:55 +0x3f
+
+goroutine 440 [chan receive]:
+github.com/soheilhy/cmux.muxListener.Accept(...)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/github.com/soheilhy/cmux@v0.1.4/cmux.go:229
+net/http.(*Server).Serve(0xc0009f40e0, 0x36bbaa0, 0xc0009166a0, 0x0, 0x0)
+	/usr/local/go/src/net/http/server.go:2896 +0x286
+github.com/pingcap/tidb/server.(*Server).startStatusServerAndRPCServer.func2()
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/server/http_status.go:315 +0x58
+github.com/pingcap/tidb/util.WithRecovery(0xc000916760, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/util/misc.go:93 +0x57
+created by github.com/pingcap/tidb/server.(*Server).startStatusServerAndRPCServer
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/server/http_status.go:314 +0x42a
+
+goroutine 439 [chan receive]:
+github.com/soheilhy/cmux.muxListener.Accept(...)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/github.com/soheilhy/cmux@v0.1.4/cmux.go:229
+google.golang.org/grpc.(*Server).Serve(0xc000e9aa80, 0x36bbaa0, 0xc0009166c0, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/server.go:597 +0x22e
+github.com/pingcap/tidb/server.(*Server).startStatusServerAndRPCServer.func1()
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/server/http_status.go:310 +0x58
+github.com/pingcap/tidb/util.WithRecovery(0xc000916740, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/util/misc.go:93 +0x57
+created by github.com/pingcap/tidb/server.(*Server).startStatusServerAndRPCServer
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/server/http_status.go:309 +0x3aa
+
+goroutine 434 [chan receive, 184 minutes]:
+github.com/pingcap/tidb/util/signal.SetupSignalHandler.func1(0xc0006bca20)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/util/signal/signal_posix.go:36 +0x70
+created by github.com/pingcap/tidb/util/signal.SetupSignalHandler
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/util/signal/signal_posix.go:33 +0xb9
+
+goroutine 384 [select]:
+github.com/pingcap/tidb/util/expensivequery.(*Handle).Run(0xc000a68d80)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/util/expensivequery/expensivequery.go:58 +0x2b7
+created by main.createServer
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/tidb-server/main.go:634 +0x1ab
+
+goroutine 435 [chan receive, 184 minutes]:
+github.com/pingcap/tidb/util/signal.SetupSignalHandler.func2(0xc0006bca80, 0x3251fd0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/util/signal/signal_posix.go:52 +0x52
+created by github.com/pingcap/tidb/util/signal.SetupSignalHandler
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/util/signal/signal_posix.go:51 +0x192
+
+goroutine 786 [select]:
+google.golang.org/grpc/internal/transport.(*controlBuffer).get(0xc000b8e0f0, 0x1, 0x0, 0x0, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/controlbuf.go:395 +0x122
+google.golang.org/grpc/internal/transport.(*loopyWriter).run(0xc001009080, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/controlbuf.go:513 +0x1e3
+google.golang.org/grpc/internal/transport.newHTTP2Client.func3(0xc0009f6380)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:346 +0x7b
+created by google.golang.org/grpc/internal/transport.newHTTP2Client
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:344 +0xedb
+
+goroutine 731 [select]:
+google.golang.org/grpc/internal/transport.(*http2Client).keepalive(0xc0009f61c0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:1330 +0x193
+created by google.golang.org/grpc/internal/transport.newHTTP2Client
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:295 +0x16cd
+
+goroutine 249497 [IO wait]:
+internal/poll.runtime_pollWait(0x7ffbec2c9908, 0x72, 0xffffffffffffffff)
+	/usr/local/go/src/runtime/netpoll.go:184 +0x55
+internal/poll.(*pollDesc).wait(0xc001452198, 0x72, 0x8000, 0x8000, 0xffffffffffffffff)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:92
+internal/poll.(*FD).Read(0xc001452180, 0xc001084000, 0x8000, 0x8000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_unix.go:169 +0x1cf
+net.(*netFD).Read(0xc001452180, 0xc001084000, 0x8000, 0x8000, 0x11, 0x0, 0x0)
+	/usr/local/go/src/net/fd_unix.go:202 +0x4f
+net.(*conn).Read(0xc000f15f70, 0xc001084000, 0x8000, 0x8000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/net/net.go:184 +0x68
+github.com/soheilhy/cmux.(*bufferedReader).Read(0xc0011214a0, 0xc001084000, 0x8000, 0x8000, 0x4, 0x110fd46, 0xc001473200)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/github.com/soheilhy/cmux@v0.1.4/buffer.go:53 +0x12c
+github.com/soheilhy/cmux.(*MuxConn).Read(0xc001121490, 0xc001084000, 0x8000, 0x8000, 0x3, 0x0, 0x110fd46)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/github.com/soheilhy/cmux@v0.1.4/cmux.go:260 +0x4f
+bufio.(*Reader).Read(0xc000c9a1e0, 0xc00109ded8, 0x9, 0x9, 0x1109bf4, 0xc000b932c0, 0xc0009fad37)
+	/usr/local/go/src/bufio/bufio.go:226 +0x26a
+io.ReadAtLeast(0x3671040, 0xc000c9a1e0, 0xc00109ded8, 0x9, 0x9, 0x9, 0xc0009fadc0, 0xc0009fad68, 0xc0009fae30)
+	/usr/local/go/src/io/io.go:310 +0x87
+io.ReadFull(...)
+	/usr/local/go/src/io/io.go:329
+golang.org/x/net/http2.readFrameHeader(0xc00109ded8, 0x9, 0x9, 0x3671040, 0xc000c9a1e0, 0x0, 0xa0c00000000, 0xc001052600, 0x20)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/golang.org/x/net@v0.0.0-20200324143707-d3edc9973b7e/http2/frame.go:237 +0x87
+golang.org/x/net/http2.(*Framer).ReadFrame(0xc00109dea0, 0xc001052600, 0x5188220, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/golang.org/x/net@v0.0.0-20200324143707-d3edc9973b7e/http2/frame.go:492 +0xa1
+google.golang.org/grpc/internal/transport.(*http2Server).HandleStreams(0xc000e9b380, 0xc000f5c390, 0x3251b90)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_server.go:458 +0xa1
+google.golang.org/grpc.(*Server).serveStreams(0xc000e9aa80, 0x36ee460, 0xc000e9b380)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/server.go:718 +0xf3
+google.golang.org/grpc.(*Server).handleRawConn.func1(0xc000e9aa80, 0x36ee460, 0xc000e9b380)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/server.go:679 +0x3f
+created by google.golang.org/grpc.(*Server).handleRawConn
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/server.go:678 +0x562
+
+goroutine 752 [select]:
+google.golang.org/grpc/internal/transport.(*http2Client).keepalive(0xc0009f6380)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:1330 +0x193
+created by google.golang.org/grpc/internal/transport.newHTTP2Client
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:295 +0x16cd
+
+goroutine 249510 [IO wait]:
+internal/poll.runtime_pollWait(0x7ffbf99123b0, 0x72, 0xffffffffffffffff)
+	/usr/local/go/src/runtime/netpoll.go:184 +0x55
+internal/poll.(*pollDesc).wait(0xc000e91d98, 0x72, 0x8000, 0x8000, 0xffffffffffffffff)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:92
+internal/poll.(*FD).Read(0xc000e91d80, 0xc0011da000, 0x8000, 0x8000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_unix.go:169 +0x1cf
+net.(*netFD).Read(0xc000e91d80, 0xc0011da000, 0x8000, 0x8000, 0x11, 0x0, 0x0)
+	/usr/local/go/src/net/fd_unix.go:202 +0x4f
+net.(*conn).Read(0xc001216cc8, 0xc0011da000, 0x8000, 0x8000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/net/net.go:184 +0x68
+github.com/soheilhy/cmux.(*bufferedReader).Read(0xc000efae80, 0xc0011da000, 0x8000, 0x8000, 0x4, 0x110fd46, 0xc000e2fc80)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/github.com/soheilhy/cmux@v0.1.4/buffer.go:53 +0x12c
+github.com/soheilhy/cmux.(*MuxConn).Read(0xc000efae70, 0xc0011da000, 0x8000, 0x8000, 0x3, 0x0, 0x110fd46)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/github.com/soheilhy/cmux@v0.1.4/cmux.go:260 +0x4f
+bufio.(*Reader).Read(0xc001296f60, 0xc0013cc498, 0x9, 0x9, 0x1109bf4, 0xc0016c8ba0, 0xc000e70d37)
+	/usr/local/go/src/bufio/bufio.go:226 +0x26a
+io.ReadAtLeast(0x3671040, 0xc001296f60, 0xc0013cc498, 0x9, 0x9, 0x9, 0xc000e70dc0, 0xc000e70d68, 0xc000e70e30)
+	/usr/local/go/src/io/io.go:310 +0x87
+io.ReadFull(...)
+	/usr/local/go/src/io/io.go:329
+golang.org/x/net/http2.readFrameHeader(0xc0013cc498, 0x9, 0x9, 0x3671040, 0xc001296f60, 0x0, 0xa0c00000000, 0xc000b6a120, 0x20)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/golang.org/x/net@v0.0.0-20200324143707-d3edc9973b7e/http2/frame.go:237 +0x87
+golang.org/x/net/http2.(*Framer).ReadFrame(0xc0013cc460, 0xc000b6a120, 0x5188220, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/golang.org/x/net@v0.0.0-20200324143707-d3edc9973b7e/http2/frame.go:492 +0xa1
+google.golang.org/grpc/internal/transport.(*http2Server).HandleStreams(0xc001524d80, 0xc0006eef90, 0x3251b90)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_server.go:458 +0xa1
+google.golang.org/grpc.(*Server).serveStreams(0xc000e9aa80, 0x36ee460, 0xc001524d80)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/server.go:718 +0xf3
+google.golang.org/grpc.(*Server).handleRawConn.func1(0xc000e9aa80, 0x36ee460, 0xc001524d80)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/server.go:679 +0x3f
+created by google.golang.org/grpc.(*Server).handleRawConn
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/server.go:678 +0x562
+
+goroutine 249492 [select]:
+google.golang.org/grpc/internal/transport.(*controlBuffer).get(0xc001116b40, 0x1, 0x0, 0x0, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/controlbuf.go:395 +0x122
+google.golang.org/grpc/internal/transport.(*loopyWriter).run(0xc000c9a180, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/controlbuf.go:513 +0x1e3
+google.golang.org/grpc/internal/transport.newHTTP2Client.func3(0xc0009f6fc0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:346 +0x7b
+created by google.golang.org/grpc/internal/transport.newHTTP2Client
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:344 +0xedb
+
+goroutine 249483 [IO wait]:
+internal/poll.runtime_pollWait(0x7ffbf9912140, 0x72, 0xffffffffffffffff)
+	/usr/local/go/src/runtime/netpoll.go:184 +0x55
+internal/poll.(*pollDesc).wait(0xc000ec3d18, 0x72, 0x8000, 0x8000, 0xffffffffffffffff)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:92
+internal/poll.(*FD).Read(0xc000ec3d00, 0xc001024000, 0x8000, 0x8000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_unix.go:169 +0x1cf
+net.(*netFD).Read(0xc000ec3d00, 0xc001024000, 0x8000, 0x8000, 0x0, 0x800010601, 0x0)
+	/usr/local/go/src/net/fd_unix.go:202 +0x4f
+net.(*conn).Read(0xc000935210, 0xc001024000, 0x8000, 0x8000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/net/net.go:184 +0x68
+bufio.(*Reader).Read(0xc00092e540, 0xc0007d8c78, 0x9, 0x9, 0xc0000a2380, 0x7ffbf99aed98, 0x0)
+	/usr/local/go/src/bufio/bufio.go:226 +0x26a
+io.ReadAtLeast(0x3671040, 0xc00092e540, 0xc0007d8c78, 0x9, 0x9, 0x9, 0x15a0175, 0xc00105264c, 0xc000d92ae8)
+	/usr/local/go/src/io/io.go:310 +0x87
+io.ReadFull(...)
+	/usr/local/go/src/io/io.go:329
+golang.org/x/net/http2.readFrameHeader(0xc0007d8c78, 0x9, 0x9, 0x3671040, 0xc00092e540, 0x0, 0x0, 0xc001052640, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/golang.org/x/net@v0.0.0-20200324143707-d3edc9973b7e/http2/frame.go:237 +0x87
+golang.org/x/net/http2.(*Framer).ReadFrame(0xc0007d8c40, 0xc001052640, 0x5188220, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/golang.org/x/net@v0.0.0-20200324143707-d3edc9973b7e/http2/frame.go:492 +0xa1
+google.golang.org/grpc/internal/transport.(*http2Client).reader(0xc000879340)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:1264 +0x183
+created by google.golang.org/grpc/internal/transport.newHTTP2Client
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:300 +0xd23
+
+goroutine 249500 [IO wait]:
+internal/poll.runtime_pollWait(0x7ffbf9912480, 0x72, 0xffffffffffffffff)
+	/usr/local/go/src/runtime/netpoll.go:184 +0x55
+internal/poll.(*pollDesc).wait(0xc000e58118, 0x72, 0x8000, 0x8000, 0xffffffffffffffff)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:92
+internal/poll.(*FD).Read(0xc000e58100, 0xc0011be000, 0x8000, 0x8000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_unix.go:169 +0x1cf
+net.(*netFD).Read(0xc000e58100, 0xc0011be000, 0x8000, 0x8000, 0x0, 0x800010601, 0x0)
+	/usr/local/go/src/net/fd_unix.go:202 +0x4f
+net.(*conn).Read(0xc000f15f80, 0xc0011be000, 0x8000, 0x8000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/net/net.go:184 +0x68
+bufio.(*Reader).Read(0xc000c9a540, 0xc000836118, 0x9, 0x9, 0xc0000a2380, 0x7ffbf99af460, 0x0)
+	/usr/local/go/src/bufio/bufio.go:226 +0x26a
+io.ReadAtLeast(0x3671040, 0xc000c9a540, 0xc000836118, 0x9, 0x9, 0x9, 0x15a0175, 0xc000b6a16c, 0xc0015aee78)
+	/usr/local/go/src/io/io.go:310 +0x87
+io.ReadFull(...)
+	/usr/local/go/src/io/io.go:329
+golang.org/x/net/http2.readFrameHeader(0xc000836118, 0x9, 0x9, 0x3671040, 0xc000c9a540, 0x0, 0x0, 0xc000b6a160, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/golang.org/x/net@v0.0.0-20200324143707-d3edc9973b7e/http2/frame.go:237 +0x87
+golang.org/x/net/http2.(*Framer).ReadFrame(0xc0008360e0, 0xc000b6a160, 0x5188220, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/golang.org/x/net@v0.0.0-20200324143707-d3edc9973b7e/http2/frame.go:492 +0xa1
+google.golang.org/grpc/internal/transport.(*http2Client).reader(0xc0009f7180)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:1264 +0x183
+created by google.golang.org/grpc/internal/transport.newHTTP2Client
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:300 +0xd23
+
+goroutine 249482 [select]:
+google.golang.org/grpc/internal/transport.(*http2Client).keepalive(0xc000879340)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:1330 +0x193
+created by google.golang.org/grpc/internal/transport.newHTTP2Client
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:295 +0x16cd
+
+goroutine 1193 [select, 183 minutes]:
+go.etcd.io/etcd/clientv3.(*watchGrpcStream).serveSubstream(0xc000679ba0, 0xc000b29810, 0xc000522c60)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/clientv3/watch.go:762 +0x2be
+created by go.etcd.io/etcd/clientv3.(*watchGrpcStream).run
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/go.etcd.io/etcd@v0.5.0-alpha.5.0.20191023171146-3cf2f69b5738/clientv3/watch.go:541 +0x606
+
+goroutine 249445 [select, 3 minutes]:
+google.golang.org/grpc/internal/transport.(*http2Server).keepalive(0xc000d7af00)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_server.go:968 +0x26b
+created by google.golang.org/grpc/internal/transport.newHTTP2Server
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_server.go:302 +0x1082
+
+goroutine 249407 [select]:
+google.golang.org/grpc/internal/transport.(*http2Client).keepalive(0xc00013ee00)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:1330 +0x193
+created by google.golang.org/grpc/internal/transport.newHTTP2Client
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:295 +0x16cd
+
+goroutine 271766 [IO wait]:
+internal/poll.runtime_pollWait(0x7ffbec2c9698, 0x72, 0xffffffffffffffff)
+	/usr/local/go/src/runtime/netpoll.go:184 +0x55
+internal/poll.(*pollDesc).wait(0xc0006edb18, 0x72, 0x0, 0x1, 0xffffffffffffffff)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:92
+internal/poll.(*FD).Read(0xc0006edb00, 0xc001253de1, 0x1, 0x1, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_unix.go:169 +0x1cf
+net.(*netFD).Read(0xc0006edb00, 0xc001253de1, 0x1, 0x1, 0x3056dc0, 0x36c170e, 0x3)
+	/usr/local/go/src/net/fd_unix.go:202 +0x4f
+net.(*conn).Read(0xc000707be8, 0xc001253de1, 0x1, 0x1, 0x0, 0x0, 0x0)
+	/usr/local/go/src/net/net.go:184 +0x68
+github.com/soheilhy/cmux.(*bufferedReader).Read(0xc0006f7510, 0xc001253de1, 0x1, 0x1, 0xc001896538, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/github.com/soheilhy/cmux@v0.1.4/buffer.go:53 +0x12c
+github.com/soheilhy/cmux.(*MuxConn).Read(0xc0006f7500, 0xc001253de1, 0x1, 0x1, 0x113bd26, 0x3252750, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/github.com/soheilhy/cmux@v0.1.4/cmux.go:260 +0x4f
+net/http.(*connReader).backgroundRead(0xc001253dd0)
+	/usr/local/go/src/net/http/server.go:677 +0x58
+created by net/http.(*connReader).startBackgroundRead
+	/usr/local/go/src/net/http/server.go:673 +0xd4
+
+goroutine 162036 [select, 3 minutes]:
+google.golang.org/grpc.(*ccBalancerWrapper).watcher(0xc0014f9100)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/balancer_conn_wrappers.go:69 +0xc2
+created by google.golang.org/grpc.newCCBalancerWrapper
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/balancer_conn_wrappers.go:60 +0x16d
+
+goroutine 173292 [IO wait, 10 minutes]:
+internal/poll.runtime_pollWait(0x7ffbf9912620, 0x72, 0xffffffffffffffff)
+	/usr/local/go/src/runtime/netpoll.go:184 +0x55
+internal/poll.(*pollDesc).wait(0xc0006ec118, 0x72, 0x1000, 0x1000, 0xffffffffffffffff)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:92
+internal/poll.(*FD).Read(0xc0006ec100, 0xc001185000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_unix.go:169 +0x1cf
+net.(*netFD).Read(0xc0006ec100, 0xc001185000, 0x1000, 0x1000, 0x110a075, 0x21af21e, 0x2a03e8e)
+	/usr/local/go/src/net/fd_unix.go:202 +0x4f
+net.(*conn).Read(0xc0001a8e98, 0xc001185000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/net/net.go:184 +0x68
+github.com/soheilhy/cmux.(*bufferedReader).Read(0xc001760240, 0xc001185000, 0x1000, 0x1000, 0xc001805870, 0x110fd46, 0xc000f5c5a8)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/github.com/soheilhy/cmux@v0.1.4/buffer.go:53 +0x12c
+github.com/soheilhy/cmux.(*MuxConn).Read(0xc001760230, 0xc001185000, 0x1000, 0x1000, 0x200, 0xc00062f000, 0x1110819)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/github.com/soheilhy/cmux@v0.1.4/cmux.go:260 +0x4f
+net/http.(*connReader).Read(0xc000f5c5a0, 0xc001185000, 0x1000, 0x1000, 0x114a30c, 0x1106484, 0x203000)
+	/usr/local/go/src/net/http/server.go:785 +0xf4
+bufio.(*Reader).fill(0xc000b5e120)
+	/usr/local/go/src/bufio/bufio.go:100 +0x103
+bufio.(*Reader).ReadSlice(0xc000b5e120, 0xa, 0x28, 0xc0018059a8, 0x110fd46, 0xc001229100, 0x100)
+	/usr/local/go/src/bufio/bufio.go:359 +0x3d
+bufio.(*Reader).ReadLine(0xc000b5e120, 0xc0018059b0, 0xc0000a2000, 0x7ffbf99af460, 0x0, 0x11105b8, 0x30)
+	/usr/local/go/src/bufio/bufio.go:388 +0x34
+net/textproto.(*Reader).readLineSlice(0xc000b95a70, 0xc001229100, 0x0, 0x0, 0xc001805d70, 0xc0006ec100)
+	/usr/local/go/src/net/textproto/reader.go:57 +0x6c
+net/textproto.(*Reader).ReadLine(...)
+	/usr/local/go/src/net/textproto/reader.go:38
+net/http.readRequest(0xc000b5e120, 0x0, 0xc001229100, 0x0, 0x0)
+	/usr/local/go/src/net/http/request.go:1012 +0x92
+net/http.(*conn).readRequest(0xc001139720, 0x36c5360, 0xc00134cd00, 0x0, 0x0, 0x0)
+	/usr/local/go/src/net/http/server.go:965 +0x15f
+net/http.(*conn).serve(0xc001139720, 0x36c5360, 0xc00134cd00)
+	/usr/local/go/src/net/http/server.go:1817 +0x6d4
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:2927 +0x38e
+
+goroutine 249444 [select]:
+google.golang.org/grpc/internal/transport.(*controlBuffer).get(0xc000b8f4a0, 0x1, 0x0, 0x0, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/controlbuf.go:395 +0x122
+google.golang.org/grpc/internal/transport.(*loopyWriter).run(0xc000c9a4e0, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/controlbuf.go:513 +0x1e3
+google.golang.org/grpc/internal/transport.newHTTP2Server.func2(0xc000d7af00)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_server.go:296 +0xcb
+created by google.golang.org/grpc/internal/transport.newHTTP2Server
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_server.go:293 +0x105d
+
+goroutine 162038 [select]:
+github.com/pingcap/tidb/store/tikv/tikvrpc.CheckStreamTimeoutLoop(0xc00171f500, 0xc001265980)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/store/tikv/tikvrpc/tikvrpc.go:916 +0x1c7
+created by github.com/pingcap/tidb/store/tikv.(*connArray).Init
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/src/github.com/pingcap/tidb/store/tikv/client.go:178 +0x966
+
+goroutine 249477 [select]:
+google.golang.org/grpc/internal/transport.(*controlBuffer).get(0xc001386dc0, 0x1, 0x0, 0x0, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/controlbuf.go:395 +0x122
+google.golang.org/grpc/internal/transport.(*loopyWriter).run(0xc00092e360, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/controlbuf.go:513 +0x1e3
+google.golang.org/grpc/internal/transport.newHTTP2Server.func2(0xc000ee4d80)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_server.go:296 +0xcb
+created by google.golang.org/grpc/internal/transport.newHTTP2Server
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_server.go:293 +0x105d
+
+goroutine 249496 [select, 3 minutes]:
+google.golang.org/grpc/internal/transport.(*http2Server).keepalive(0xc000e9b380)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_server.go:968 +0x26b
+created by google.golang.org/grpc/internal/transport.newHTTP2Server
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_server.go:302 +0x1082
+
+goroutine 162034 [select, 3 minutes]:
+google.golang.org/grpc.(*ccBalancerWrapper).watcher(0xc0014f8f80)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/balancer_conn_wrappers.go:69 +0xc2
+created by google.golang.org/grpc.newCCBalancerWrapper
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/balancer_conn_wrappers.go:60 +0x16d
+
+goroutine 249508 [select]:
+google.golang.org/grpc/internal/transport.(*controlBuffer).get(0xc001093770, 0x1, 0x0, 0x0, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/controlbuf.go:395 +0x122
+google.golang.org/grpc/internal/transport.(*loopyWriter).run(0xc001297140, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/controlbuf.go:513 +0x1e3
+google.golang.org/grpc/internal/transport.newHTTP2Server.func2(0xc001524d80)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_server.go:296 +0xcb
+created by google.golang.org/grpc/internal/transport.newHTTP2Server
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_server.go:293 +0x105d
+
+goroutine 249409 [select]:
+google.golang.org/grpc/internal/transport.(*controlBuffer).get(0xc0010934f0, 0x1, 0x0, 0x0, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/controlbuf.go:395 +0x122
+google.golang.org/grpc/internal/transport.(*loopyWriter).run(0xc001296de0, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/controlbuf.go:513 +0x1e3
+google.golang.org/grpc/internal/transport.newHTTP2Client.func3(0xc00013ee00)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:346 +0x7b
+created by google.golang.org/grpc/internal/transport.newHTTP2Client
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:344 +0xedb
+
+goroutine 162035 [chan receive, 3 minutes]:
+google.golang.org/grpc.(*addrConn).resetTransport(0xc00153d8c0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/clientconn.go:1164 +0x6ea
+created by google.golang.org/grpc.(*addrConn).connect
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/clientconn.go:800 +0x128
+
+goroutine 161937 [chan receive, 3 minutes]:
+google.golang.org/grpc.(*addrConn).resetTransport(0xc00153d600)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/clientconn.go:1164 +0x6ea
+created by google.golang.org/grpc.(*addrConn).connect
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/clientconn.go:800 +0x128
+
+goroutine 249490 [select]:
+google.golang.org/grpc/internal/transport.(*http2Client).keepalive(0xc0009f6fc0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:1330 +0x193
+created by google.golang.org/grpc/internal/transport.newHTTP2Client
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:295 +0x16cd
+
+goroutine 249501 [select]:
+google.golang.org/grpc/internal/transport.(*controlBuffer).get(0xc001116eb0, 0x1, 0x0, 0x0, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/controlbuf.go:395 +0x122
+google.golang.org/grpc/internal/transport.(*loopyWriter).run(0xc000c9a600, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/controlbuf.go:513 +0x1e3
+google.golang.org/grpc/internal/transport.newHTTP2Client.func3(0xc0009f7180)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:346 +0x7b
+created by google.golang.org/grpc/internal/transport.newHTTP2Client
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:344 +0xedb
+
+goroutine 161934 [select, 3 minutes]:
+google.golang.org/grpc.(*ccBalancerWrapper).watcher(0xc0014f8c80)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/balancer_conn_wrappers.go:69 +0xc2
+created by google.golang.org/grpc.newCCBalancerWrapper
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/balancer_conn_wrappers.go:60 +0x16d
+
+goroutine 249499 [select]:
+google.golang.org/grpc/internal/transport.(*http2Client).keepalive(0xc0009f7180)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:1330 +0x193
+created by google.golang.org/grpc/internal/transport.newHTTP2Client
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:295 +0x16cd
+
+goroutine 249408 [IO wait]:
+internal/poll.runtime_pollWait(0x7ffbf9912070, 0x72, 0xffffffffffffffff)
+	/usr/local/go/src/runtime/netpoll.go:184 +0x55
+internal/poll.(*pollDesc).wait(0xc000e91c18, 0x72, 0x8000, 0x8000, 0xffffffffffffffff)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:92
+internal/poll.(*FD).Read(0xc000e91c00, 0xc0010bc000, 0x8000, 0x8000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_unix.go:169 +0x1cf
+net.(*netFD).Read(0xc000e91c00, 0xc0010bc000, 0x8000, 0x8000, 0x0, 0x800010601, 0x0)
+	/usr/local/go/src/net/fd_unix.go:202 +0x4f
+net.(*conn).Read(0xc001216cb8, 0xc0010bc000, 0x8000, 0x8000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/net/net.go:184 +0x68
+bufio.(*Reader).Read(0xc001296cc0, 0xc0013cc3b8, 0x9, 0x9, 0xc0000a2000, 0x7ffbf99aed98, 0x0)
+	/usr/local/go/src/bufio/bufio.go:226 +0x26a
+io.ReadAtLeast(0x3671040, 0xc001296cc0, 0xc0013cc3b8, 0x9, 0x9, 0x9, 0x15a0175, 0xc0010526cc, 0xc000d92b08)
+	/usr/local/go/src/io/io.go:310 +0x87
+io.ReadFull(...)
+	/usr/local/go/src/io/io.go:329
+golang.org/x/net/http2.readFrameHeader(0xc0013cc3b8, 0x9, 0x9, 0x3671040, 0xc001296cc0, 0x0, 0x0, 0xc0010526c0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/golang.org/x/net@v0.0.0-20200324143707-d3edc9973b7e/http2/frame.go:237 +0x87
+golang.org/x/net/http2.(*Framer).ReadFrame(0xc0013cc380, 0xc0010526c0, 0x5188220, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/golang.org/x/net@v0.0.0-20200324143707-d3edc9973b7e/http2/frame.go:492 +0xa1
+google.golang.org/grpc/internal/transport.(*http2Client).reader(0xc00013ee00)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:1264 +0x183
+created by google.golang.org/grpc/internal/transport.newHTTP2Client
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_client.go:300 +0xd23
+
+goroutine 249479 [IO wait]:
+internal/poll.runtime_pollWait(0x7ffbf9912210, 0x72, 0xffffffffffffffff)
+	/usr/local/go/src/runtime/netpoll.go:184 +0x55
+internal/poll.(*pollDesc).wait(0xc000e91a98, 0x72, 0x8000, 0x8000, 0xffffffffffffffff)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:92
+internal/poll.(*FD).Read(0xc000e91a80, 0xc000f7e000, 0x8000, 0x8000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_unix.go:169 +0x1cf
+net.(*netFD).Read(0xc000e91a80, 0xc000f7e000, 0x8000, 0x8000, 0x11, 0x0, 0x0)
+	/usr/local/go/src/net/fd_unix.go:202 +0x4f
+net.(*conn).Read(0xc001216ca0, 0xc000f7e000, 0x8000, 0x8000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/net/net.go:184 +0x68
+github.com/soheilhy/cmux.(*bufferedReader).Read(0xc000efada0, 0xc000f7e000, 0x8000, 0x8000, 0x4, 0x110fd46, 0xc001057080)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/github.com/soheilhy/cmux@v0.1.4/buffer.go:53 +0x12c
+github.com/soheilhy/cmux.(*MuxConn).Read(0xc000efad90, 0xc000f7e000, 0x8000, 0x8000, 0x3, 0x0, 0x110fd46)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/github.com/soheilhy/cmux@v0.1.4/cmux.go:260 +0x4f
+bufio.(*Reader).Read(0xc00092e300, 0xc0007d8b98, 0x9, 0x9, 0x1109bf4, 0xc000d730e0, 0xc001807d37)
+	/usr/local/go/src/bufio/bufio.go:226 +0x26a
+io.ReadAtLeast(0x3671040, 0xc00092e300, 0xc0007d8b98, 0x9, 0x9, 0x9, 0xc001807dc0, 0xc001807d68, 0xc001807e30)
+	/usr/local/go/src/io/io.go:310 +0x87
+io.ReadFull(...)
+	/usr/local/go/src/io/io.go:329
+golang.org/x/net/http2.readFrameHeader(0xc0007d8b98, 0x9, 0x9, 0x3671040, 0xc00092e300, 0x0, 0xa0c00000000, 0xc000b6a0c0, 0x20)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/golang.org/x/net@v0.0.0-20200324143707-d3edc9973b7e/http2/frame.go:237 +0x87
+golang.org/x/net/http2.(*Framer).ReadFrame(0xc0007d8b60, 0xc000b6a0c0, 0x5188220, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/golang.org/x/net@v0.0.0-20200324143707-d3edc9973b7e/http2/frame.go:492 +0xa1
+google.golang.org/grpc/internal/transport.(*http2Server).HandleStreams(0xc000ee4d80, 0xc001323e60, 0x3251b90)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_server.go:458 +0xa1
+google.golang.org/grpc.(*Server).serveStreams(0xc000e9aa80, 0x36ee460, 0xc000ee4d80)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/server.go:718 +0xf3
+google.golang.org/grpc.(*Server).handleRawConn.func1(0xc000e9aa80, 0x36ee460, 0xc000ee4d80)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/server.go:679 +0x3f
+created by google.golang.org/grpc.(*Server).handleRawConn
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/server.go:678 +0x562
+
+goroutine 249478 [select, 3 minutes]:
+google.golang.org/grpc/internal/transport.(*http2Server).keepalive(0xc000ee4d80)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_server.go:968 +0x26b
+created by google.golang.org/grpc/internal/transport.newHTTP2Server
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_server.go:302 +0x1082
+
+goroutine 249495 [select]:
+google.golang.org/grpc/internal/transport.(*controlBuffer).get(0xc001116c30, 0x1, 0x0, 0x0, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/controlbuf.go:395 +0x122
+google.golang.org/grpc/internal/transport.(*loopyWriter).run(0xc000c9a240, 0x0, 0x0)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/controlbuf.go:513 +0x1e3
+google.golang.org/grpc/internal/transport.newHTTP2Server.func2(0xc000e9b380)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_server.go:296 +0xcb
+created by google.golang.org/grpc/internal/transport.newHTTP2Server
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_server.go:293 +0x105d
+
+goroutine 249509 [select, 3 minutes]:
+google.golang.org/grpc/internal/transport.(*http2Server).keepalive(0xc001524d80)
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_server.go:968 +0x26b
+created by google.golang.org/grpc/internal/transport.newHTTP2Server
+	/home/jenkins/agent/workspace/tidb_v4.0.0/go/pkg/mod/google.golang.org/grpc@v1.26.0/internal/transport/http2_server.go:302 +0x1082

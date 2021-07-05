@@ -1,0 +1,407 @@
+<?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg version="1.1" width="1200" height="422" onload="init(evt)" viewBox="0 0 1200 422" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><!--Flame graph stack visualization. See https://github.com/brendangregg/FlameGraph for latest version, and http://www.brendangregg.com/flamegraphs.html for examples.--><!--NOTES: --><defs><linearGradient id="background" y1="0" y2="1" x1="0" x2="0"><stop stop-color="#eeeeee" offset="5%"/><stop stop-color="#eeeeb0" offset="95%"/></linearGradient></defs><style type="text/css">
+text { font-family:"Verdana"; font-size:12px; fill:rgb(0,0,0); }
+#title { text-anchor:middle; font-size:17px; }
+#search { opacity:0.1; cursor:pointer; }
+#search:hover, #search.show { opacity:1; }
+#subtitle { text-anchor:middle; font-color:rgb(160,160,160); }
+#unzoom { cursor:pointer; }
+#frames > *:hover { stroke:black; stroke-width:0.5; cursor:pointer; }
+.hide { display:none; }
+.parent { opacity:0.5; }
+</style><script type="text/ecmascript"><![CDATA[var nametype = 'Function:';
+var fontsize = 12;
+var fontwidth = 0.59;
+var xpad = 10;
+var inverted = false;
+var searchcolor = 'rgb(230,0,230)';
+var fluiddrawing = true;]]><![CDATA["use strict";
+var details, searchbtn, unzoombtn, matchedtxt, svg, searching, frames;
+function init(evt) {
+    details = document.getElementById("details").firstChild;
+    searchbtn = document.getElementById("search");
+    unzoombtn = document.getElementById("unzoom");
+    matchedtxt = document.getElementById("matched");
+    svg = document.getElementsByTagName("svg")[0];
+    frames = document.getElementById("frames");
+    searching = 0;
+
+    // Use GET parameters to restore a flamegraph's state.
+    var restore_state = function() {
+        var params = get_params();
+        if (params.x && params.y)
+            zoom(find_group(document.querySelector('[x="' + params.x + '"][y="' + params.y + '"]')));
+        if (params.s)
+            search(params.s);
+    };
+
+    if (fluiddrawing) {
+        // Make width dynamic so the SVG fits its parent's width.
+        svg.removeAttribute("width");
+        // Edge requires us to have a viewBox that gets updated with size changes.
+        var isEdge = /Edge\/\d./i.test(navigator.userAgent);
+        if (!isEdge) {
+          svg.removeAttribute("viewBox");
+        }
+        var update_for_width_change = function() {
+            if (isEdge) {
+                svg.attributes.viewBox.value = "0 0 " + svg.width.baseVal.value + " " + svg.height.baseVal.value;
+            }
+
+            // Keep consistent padding on left and right of frames container.
+            frames.attributes.width.value = svg.width.baseVal.value - xpad * 2;
+
+            // Text truncation needs to be adjusted for the current width.
+            var el = frames.children;
+            for(var i = 0; i < el.length; i++) {
+                update_text(el[i]);
+            }
+
+            // Keep search elements at a fixed distance from right edge.
+            var svgWidth = svg.width.baseVal.value;
+            searchbtn.attributes.x.value = svgWidth - xpad - 100;
+            matchedtxt.attributes.x.value = svgWidth - xpad - 100;
+        };
+        window.addEventListener('resize', function() {
+            update_for_width_change();
+        });
+        // This needs to be done asynchronously for Safari to work.
+        setTimeout(function() {
+            unzoom();
+            update_for_width_change();
+            restore_state();
+        }, 0);
+    } else {
+        restore_state();
+    }
+}
+// event listeners
+window.addEventListener("click", function(e) {
+    var target = find_group(e.target);
+    if (target) {
+        if (target.nodeName == "a") {
+            if (e.ctrlKey === false) return;
+            e.preventDefault();
+        }
+        if (target.classList.contains("parent")) unzoom();
+        zoom(target);
+
+        // set parameters for zoom state
+        var el = target.querySelector("rect");
+        if (el && el.attributes && el.attributes.y && el.attributes._orig_x) {
+            var params = get_params()
+            params.x = el.attributes._orig_x.value;
+            params.y = el.attributes.y.value;
+            history.replaceState(null, null, parse_params(params));
+        }
+    }
+    else if (e.target.id == "unzoom") {
+        unzoom();
+
+        // remove zoom state
+        var params = get_params();
+        if (params.x) delete params.x;
+        if (params.y) delete params.y;
+        history.replaceState(null, null, parse_params(params));
+    }
+    else if (e.target.id == "search") search_prompt();
+}, false)
+// mouse-over for info
+// show
+window.addEventListener("mouseover", function(e) {
+    var target = find_group(e.target);
+    if (target) details.nodeValue = nametype + " " + g_to_text(target);
+}, false)
+// clear
+window.addEventListener("mouseout", function(e) {
+    var target = find_group(e.target);
+    if (target) details.nodeValue = ' ';
+}, false)
+// ctrl-F for search
+window.addEventListener("keydown",function (e) {
+    if (e.keyCode === 114 || (e.ctrlKey && e.keyCode === 70)) {
+        e.preventDefault();
+        search_prompt();
+    }
+}, false)
+// functions
+function get_params() {
+    var params = {};
+    var paramsarr = window.location.search.substr(1).split('&');
+    for (var i = 0; i < paramsarr.length; ++i) {
+        var tmp = paramsarr[i].split("=");
+        if (!tmp[0] || !tmp[1]) continue;
+        params[tmp[0]]  = decodeURIComponent(tmp[1]);
+    }
+    return params;
+}
+function parse_params(params) {
+    var uri = "?";
+    for (var key in params) {
+        uri += key + '=' + encodeURIComponent(params[key]) + '&';
+    }
+    if (uri.slice(-1) == "&")
+        uri = uri.substring(0, uri.length - 1);
+    if (uri == '?')
+        uri = window.location.href.split('?')[0];
+    return uri;
+}
+function find_child(node, selector) {
+    var children = node.querySelectorAll(selector);
+    if (children.length) return children[0];
+    return;
+}
+function find_group(node) {
+    var parent = node.parentElement;
+    if (!parent) return;
+    if (parent.id == "frames") return node;
+    return find_group(parent);
+}
+function orig_save(e, attr, val) {
+    if (e.attributes["_orig_" + attr] != undefined) return;
+    if (e.attributes[attr] == undefined) return;
+    if (val == undefined) val = e.attributes[attr].value;
+    e.setAttribute("_orig_" + attr, val);
+}
+function orig_load(e, attr) {
+    if (e.attributes["_orig_"+attr] == undefined) return;
+    e.attributes[attr].value = e.attributes["_orig_" + attr].value;
+    e.removeAttribute("_orig_" + attr);
+}
+function g_to_text(e) {
+    var text = find_child(e, "title").firstChild.nodeValue;
+    return (text)
+}
+function g_to_func(e) {
+    var func = g_to_text(e);
+    // if there's any manipulation we want to do to the function
+    // name before it's searched, do it here before returning.
+    return (func);
+}
+function update_text(e) {
+    var r = find_child(e, "rect");
+    var t = find_child(e, "text");
+    var w = parseFloat(r.attributes.width.value) * frames.attributes.width.value / 100 - 3;
+    var txt = find_child(e, "title").textContent.replace(/\([^(]*\)$/,"");
+    t.attributes.x.value = format_percent((parseFloat(r.attributes.x.value) + (100 * 3 / frames.attributes.width.value)));
+    // Smaller than this size won't fit anything
+    if (w < 2 * fontsize * fontwidth) {
+        t.textContent = "";
+        return;
+    }
+    t.textContent = txt;
+    // Fit in full text width
+    if (/^ *\$/.test(txt) || t.getComputedTextLength() < w)
+        return;
+    for (var x = txt.length - 2; x > 0; x--) {
+        if (t.getSubStringLength(0, x + 2) <= w) {
+            t.textContent = txt.substring(0, x) + "..";
+            return;
+        }
+    }
+    t.textContent = "";
+}
+// zoom
+function zoom_reset(e) {
+    if (e.attributes != undefined) {
+        orig_load(e, "x");
+        orig_load(e, "width");
+    }
+    if (e.childNodes == undefined) return;
+    for(var i = 0, c = e.childNodes; i < c.length; i++) {
+        zoom_reset(c[i]);
+    }
+}
+function zoom_child(e, x, ratio) {
+    if (e.attributes != undefined) {
+        if (e.attributes.x != undefined) {
+            orig_save(e, "x");
+            e.attributes.x.value = format_percent((parseFloat(e.attributes.x.value) - x) * ratio);
+            if (e.tagName == "text") {
+                e.attributes.x.value = format_percent(parseFloat(find_child(e.parentNode, "rect[x]").attributes.x.value) + (100 * 3 / frames.attributes.width.value));
+            }
+        }
+        if (e.attributes.width != undefined) {
+            orig_save(e, "width");
+            e.attributes.width.value = format_percent(parseFloat(e.attributes.width.value) * ratio);
+        }
+    }
+    if (e.childNodes == undefined) return;
+    for(var i = 0, c = e.childNodes; i < c.length; i++) {
+        zoom_child(c[i], x, ratio);
+    }
+}
+function zoom_parent(e) {
+    if (e.attributes) {
+        if (e.attributes.x != undefined) {
+            orig_save(e, "x");
+            e.attributes.x.value = "0.0%";
+        }
+        if (e.attributes.width != undefined) {
+            orig_save(e, "width");
+            e.attributes.width.value = "100.0%";
+        }
+    }
+    if (e.childNodes == undefined) return;
+    for(var i = 0, c = e.childNodes; i < c.length; i++) {
+        zoom_parent(c[i]);
+    }
+}
+function zoom(node) {
+    var attr = find_child(node, "rect").attributes;
+    var width = parseFloat(attr.width.value);
+    var xmin = parseFloat(attr.x.value);
+    var xmax = xmin + width;
+    var ymin = parseFloat(attr.y.value);
+    var ratio = 100 / width;
+    // XXX: Workaround for JavaScript float issues (fix me)
+    var fudge = 0.001;
+    unzoombtn.classList.remove("hide");
+    var el = frames.children;
+    for (var i = 0; i < el.length; i++) {
+        var e = el[i];
+        var a = find_child(e, "rect").attributes;
+        var ex = parseFloat(a.x.value);
+        var ew = parseFloat(a.width.value);
+        // Is it an ancestor
+        if (!inverted) {
+            var upstack = parseFloat(a.y.value) > ymin;
+        } else {
+            var upstack = parseFloat(a.y.value) < ymin;
+        }
+        if (upstack) {
+            // Direct ancestor
+            if (ex <= xmin && (ex+ew+fudge) >= xmax) {
+                e.classList.add("parent");
+                zoom_parent(e);
+                update_text(e);
+            }
+            // not in current path
+            else
+                e.classList.add("hide");
+        }
+        // Children maybe
+        else {
+            // no common path
+            if (ex < xmin || ex + fudge >= xmax) {
+                e.classList.add("hide");
+            }
+            else {
+                zoom_child(e, xmin, ratio);
+                update_text(e);
+            }
+        }
+    }
+}
+function unzoom() {
+    unzoombtn.classList.add("hide");
+    var el = frames.children;
+    for(var i = 0; i < el.length; i++) {
+        el[i].classList.remove("parent");
+        el[i].classList.remove("hide");
+        zoom_reset(el[i]);
+        update_text(el[i]);
+    }
+}
+// search
+function reset_search() {
+    var el = document.querySelectorAll("#frames rect");
+    for (var i = 0; i < el.length; i++) {
+        orig_load(el[i], "fill")
+    }
+    var params = get_params();
+    delete params.s;
+    history.replaceState(null, null, parse_params(params));
+}
+function search_prompt() {
+    if (!searching) {
+        var term = prompt("Enter a search term (regexp " +
+            "allowed, eg: ^ext4_)", "");
+        if (term != null) {
+            search(term)
+        }
+    } else {
+        reset_search();
+        searching = 0;
+        searchbtn.classList.remove("show");
+        searchbtn.firstChild.nodeValue = "Search"
+        matchedtxt.classList.add("hide");
+        matchedtxt.firstChild.nodeValue = ""
+    }
+}
+function search(term) {
+    var re = new RegExp(term);
+    var el = frames.children;
+    var matches = new Object();
+    var maxwidth = 0;
+    for (var i = 0; i < el.length; i++) {
+        var e = el[i];
+        var func = g_to_func(e);
+        var rect = find_child(e, "rect");
+        if (func == null || rect == null)
+            continue;
+        // Save max width. Only works as we have a root frame
+        var w = parseFloat(rect.attributes.width.value);
+        if (w > maxwidth)
+            maxwidth = w;
+        if (func.match(re)) {
+            // highlight
+            var x = parseFloat(rect.attributes.x.value);
+            orig_save(rect, "fill");
+            rect.attributes.fill.value = searchcolor;
+            // remember matches
+            if (matches[x] == undefined) {
+                matches[x] = w;
+            } else {
+                if (w > matches[x]) {
+                    // overwrite with parent
+                    matches[x] = w;
+                }
+            }
+            searching = 1;
+        }
+    }
+    if (!searching)
+        return;
+    var params = get_params();
+    params.s = term;
+    history.replaceState(null, null, parse_params(params));
+
+    searchbtn.classList.add("show");
+    searchbtn.firstChild.nodeValue = "Reset Search";
+    // calculate percent matched, excluding vertical overlap
+    var count = 0;
+    var lastx = -1;
+    var lastw = 0;
+    var keys = Array();
+    for (k in matches) {
+        if (matches.hasOwnProperty(k))
+            keys.push(k);
+    }
+    // sort the matched frames by their x location
+    // ascending, then width descending
+    keys.sort(function(a, b){
+        return a - b;
+    });
+    // Step through frames saving only the biggest bottom-up frames
+    // thanks to the sort order. This relies on the tree property
+    // where children are always smaller than their parents.
+    var fudge = 0.0001;    // JavaScript floating point
+    for (var k in keys) {
+        var x = parseFloat(keys[k]);
+        var w = matches[keys[k]];
+        if (x >= lastx + lastw - fudge) {
+            count += w;
+            lastx = x;
+            lastw = w;
+        }
+    }
+    // display matched percent
+    matchedtxt.classList.remove("hide");
+    var pct = 100 * count / maxwidth;
+    if (pct != 100) pct = pct.toFixed(1);
+    matchedtxt.firstChild.nodeValue = "Matched: " + pct + "%";
+}
+function format_percent(n) {
+    return n.toFixed(4) + "%";
+}
+]]></script><rect x="0" y="0" width="100%" height="422" fill="url(#background)"/><text id="title" x="50.0000%" y="24.00">Flame Graph</text><text id="details" x="10" y="405.00"> </text><text id="unzoom" class="hide" x="10" y="24.00">Reset Zoom</text><text id="search" x="1090" y="24.00">Search</text><text id="matched" x="1090" y="405.00"> </text><svg id="frames" x="10" width="1180"><g><title>future-poller (1 samples, 2.94%)</title><rect x="0.0000%" y="357" width="2.9412%" height="15" fill="rgb(227,0,7)"/><text x="0.2500%" y="367.50">fu..</text></g><g><title>Unknown (1 samples, 2.94%)</title><rect x="0.0000%" y="341" width="2.9412%" height="15" fill="rgb(217,0,24)"/><text x="0.2500%" y="351.50">Un..</text></g><g><title>__clone (1 samples, 2.94%)</title><rect x="0.0000%" y="325" width="2.9412%" height="15" fill="rgb(221,193,54)"/><text x="0.2500%" y="335.50">__..</text></g><g><title>start_thread (1 samples, 2.94%)</title><rect x="0.0000%" y="309" width="2.9412%" height="15" fill="rgb(248,212,6)"/><text x="0.2500%" y="319.50">st..</text></g><g><title>std::sys::unix::thread::Thread::new::thread_start::h3f42d1616b825de5/std::sys_common::thread::start_thread::h0647e91c8800cb8c/&lt;alloc::boxed::Box&lt;F&gt; as core::ops::function::FnOnce&lt;A&gt;&gt;::call_once::h8471b989095c2da7 (1 samples, 2.94%)</title><rect x="0.0000%" y="293" width="2.9412%" height="15" fill="rgb(208,68,35)"/><text x="0.2500%" y="303.50">st..</text></g><g><title>&lt;alloc::boxed::Box&lt;F&gt; as core::ops::function::FnOnce&lt;A&gt;&gt;::call_once::hbabfae4f70ab9609 (1 samples, 2.94%)</title><rect x="0.0000%" y="277" width="2.9412%" height="15" fill="rgb(232,128,0)"/><text x="0.2500%" y="287.50">&lt;a..</text></g><g><title>core::ops::function::FnOnce::call_once{{vtable.shim}}::hc5888f1257529261/std::thread::Builder::spawn_unchecked::{{closure}}::h388d5d3e59427585/std::panic::catch_unwind::h568812465744b05d/std::panicking::try::h67d4a77b41da8bfe/std::panicking::try::do_call::ha3c184b8152ade0c/&lt;std::panic::AssertUnwindSafe&lt;F&gt; as core::ops::function::FnOnce&lt;()&gt;&gt;::call_once::heb8f6d653820c717/std::thread::Builder::spawn_unchecked::{{closure}}::{{closure}}::h3b18ee99ef2b7d91 (1 samples, 2.94%)</title><rect x="0.0000%" y="261" width="2.9412%" height="15" fill="rgb(207,160,47)"/><text x="0.2500%" y="271.50">co..</text></g><g><title>std::sys_common::backtrace::__rust_begin_short_backtrace::h17f203ef6e8635f8/tokio_threadpool::pool::Pool::spawn_thread::{{closure}}::h2d9c43bf0a9d4e70/tokio_threadpool::worker::Worker::do_run::h14648848330febdd/std::thread::local::LocalKey&lt;T&gt;::with::h406236a3963d0f17/std::thread::local::LocalKey&lt;T&gt;::try_with::hd5732e3778948dbd/tokio_threadpool::worker::Worker::do_run::{{closure}}::h8c62a7e58e4dcad0/tokio_executor::global::with_default::h27bb04a45da11f83/std::thread::local::LocalKey&lt;T&gt;::with::h8837e01f011f715b/std::thread::local::LocalKey&lt;T&gt;::try_with::h3c09342286dba0e9/tokio_executor::global::with_default::{{closure}}::h200f88418d48c01e/tokio_threadpool::worker::Worker::do_run::{{closure}}::{{closure}}::h747469b7fc8fe789 (1 samples, 2.94%)</title><rect x="0.0000%" y="245" width="2.9412%" height="15" fill="rgb(228,23,34)"/><text x="0.2500%" y="255.50">st..</text></g><g><title>tokio_threadpool::worker::Worker::run::h521b8898a30230c1/tokio_threadpool::worker::Worker::sleep::h4b0c5401380ebfec/tokio_threadpool::worker::entry::WorkerEntry::park::h9f631c9e99877021 (1 samples, 2.94%)</title><rect x="0.0000%" y="229" width="2.9412%" height="15" fill="rgb(218,30,26)"/><text x="0.2500%" y="239.50">to..</text></g><g><title>&lt;tokio_threadpool::park::boxed::BoxedPark&lt;T&gt; as tokio_executor::park::Park&gt;::park::h01161c301cc96b4f/&lt;tokio_threadpool::park::default_park::DefaultPark as tokio_executor::park::Park&gt;::park::hd6f4083519af3164 (1 samples, 2.94%)</title><rect x="0.0000%" y="213" width="2.9412%" height="15" fill="rgb(220,122,19)"/><text x="0.2500%" y="223.50">&lt;t..</text></g><g><title>crossbeam_utils::sync::parker::Inner::park::hd4f6a3588068141e/std::sync::condvar::Condvar::wait::hfa9718879b133d37/std::sys_common::condvar::Condvar::wait::h26ad7955d784a750/std::sys::unix::condvar::Condvar::wait::h2342bee8a42610ad (1 samples, 2.94%)</title><rect x="0.0000%" y="197" width="2.9412%" height="15" fill="rgb(250,228,42)"/><text x="0.2500%" y="207.50">cr..</text></g><g><title>pthread_cond_wait@@GLIBC_2.3.2 (1 samples, 2.94%)</title><rect x="0.0000%" y="181" width="2.9412%" height="15" fill="rgb(240,193,28)"/><text x="0.2500%" y="191.50">pt..</text></g><g><title>grpcio::env::poll_queue::hbf7bc01fe48b94c4 (1 samples, 2.94%)</title><rect x="2.9412%" y="245" width="2.9412%" height="15" fill="rgb(216,20,37)"/><text x="3.1912%" y="255.50">gr..</text></g><g><title>_Z24grpc_call_internal_unrefP9grpc_call (1 samples, 2.94%)</title><rect x="8.8235%" y="197" width="2.9412%" height="15" fill="rgb(206,188,39)"/><text x="9.0735%" y="207.50">_Z..</text></g><g><title>_ZN9grpc_core7ExecCtx5FlushEv/exec_ctx_run (1 samples, 2.94%)</title><rect x="11.7647%" y="181" width="2.9412%" height="15" fill="rgb(217,207,13)"/><text x="12.0147%" y="191.50">_Z..</text></g><g><title>tcp_do_read (1 samples, 2.94%)</title><rect x="11.7647%" y="165" width="2.9412%" height="15" fill="rgb(231,73,38)"/><text x="12.0147%" y="175.50">tc..</text></g><g><title>__recvfrom (1 samples, 2.94%)</title><rect x="11.7647%" y="149" width="2.9412%" height="15" fill="rgb(225,20,46)"/><text x="12.0147%" y="159.50">__..</text></g><g><title>grpcio::env::poll_queue::hbf7bc01fe48b94c4/grpcio::cq::CompletionQueue::next::hb961e7a74e749793 (4 samples, 11.76%)</title><rect x="5.8824%" y="245" width="11.7647%" height="15" fill="rgb(210,31,41)"/><text x="6.1324%" y="255.50">grpcio::env::poll..</text></g><g><title>grpc_completion_queue_next (4 samples, 11.76%)</title><rect x="5.8824%" y="229" width="11.7647%" height="15" fill="rgb(221,200,47)"/><text x="6.1324%" y="239.50">grpc_completion_q..</text></g><g><title>cq_next (4 samples, 11.76%)</title><rect x="5.8824%" y="213" width="11.7647%" height="15" fill="rgb(226,26,5)"/><text x="6.1324%" y="223.50">cq_next</text></g><g><title>pollset_work (2 samples, 5.88%)</title><rect x="11.7647%" y="197" width="5.8824%" height="15" fill="rgb(249,33,26)"/><text x="12.0147%" y="207.50">pollset..</text></g><g><title>_ZN9grpc_core7ExecCtx5FlushEv (1 samples, 2.94%)</title><rect x="14.7059%" y="181" width="2.9412%" height="15" fill="rgb(235,183,28)"/><text x="14.9559%" y="191.50">_Z..</text></g><g><title>_Z31grpc_combiner_continue_exec_ctxv (1 samples, 2.94%)</title><rect x="14.7059%" y="165" width="2.9412%" height="15" fill="rgb(221,5,38)"/><text x="14.9559%" y="175.50">_Z..</text></g><g><title>finish_bdp_ping_locked (1 samples, 2.94%)</title><rect x="14.7059%" y="149" width="2.9412%" height="15" fill="rgb(247,18,42)"/><text x="14.9559%" y="159.50">fi..</text></g><g><title>_ZN9grpc_core6chttp220TransportFlowControl14PeriodicUpdateEv (1 samples, 2.94%)</title><rect x="14.7059%" y="133" width="2.9412%" height="15" fill="rgb(241,131,45)"/><text x="14.9559%" y="143.50">_Z..</text></g><g><title>__pow (1 samples, 2.94%)</title><rect x="14.7059%" y="117" width="2.9412%" height="15" fill="rgb(249,31,29)"/><text x="14.9559%" y="127.50">__..</text></g><g><title>__ieee754_pow_sse2 (1 samples, 2.94%)</title><rect x="14.7059%" y="101" width="2.9412%" height="15" fill="rgb(225,111,53)"/><text x="14.9559%" y="111.50">__..</text></g><g><title>&lt;futures::future::map::Map&lt;A,F&gt; as futures::future::Future&gt;::poll::he601007bd6fe8a2c/&lt;futures::future::map_err::MapErr&lt;A,F&gt; as futures::future::Future&gt;::poll::h06913aa9d401b1c0/&lt;futures::future::or_else::OrElse&lt;A,B,F&gt; as futures::future::Future&gt;::poll::h26f16edada0369ff/futures::future::chain::Chain&lt;A,B,C&gt;::poll::ha14678f81de3b57d/&lt;futures::future::then::Then&lt;A,B,F&gt; as futures::future::Future&gt;::poll::h80283fb1b50bf473/futures::future::chain::Chain&lt;A,B,C&gt;::poll::h8f8837ec116b2223/&lt;futures::sink::send_all::SendAll&lt;T,U&gt; as futures::future::Future&gt;::poll::h3763d9221cd2977d/&lt;futures::stream::fuse::Fuse&lt;S&gt; as futures::stream::Stream&gt;::poll::h97519a1f0b220065/&lt;futures::stream::map::Map&lt;S,F&gt; as futures::stream::Stream&gt;::poll::h9e8e65ed1060b2fa (1 samples, 2.94%)</title><rect x="17.6471%" y="213" width="2.9412%" height="15" fill="rgb(238,160,17)"/><text x="17.8971%" y="223.50">&lt;f..</text></g><g><title>&lt;tikv::server::raft_client::Reusable&lt;T&gt; as futures::stream::Stream&gt;::poll::h99620ef869e1947d/&lt;tikv_util::mpsc::batch::BatchReceiver&lt;T,E,I,C&gt; as futures::stream::Stream&gt;::poll::h322e66e098ae9b98/tikv_util::mpsc::batch::Receiver&lt;T&gt;::try_recv::h5f89d59aabef7fad/crossbeam_channel::channel::Receiver&lt;T&gt;::try_recv::h65aeb5708c45bb57 (1 samples, 2.94%)</title><rect x="17.6471%" y="197" width="2.9412%" height="15" fill="rgb(214,148,48)"/><text x="17.8971%" y="207.50">&lt;t..</text></g><g><title>_Z42grpc_slice_buffer_reset_and_unref_internalP17grpc_slice_buffer (1 samples, 2.94%)</title><rect x="20.5882%" y="53" width="2.9412%" height="15" fill="rgb(232,36,49)"/><text x="20.8382%" y="63.50">_Z..</text></g><g><title>grpc-server (8 samples, 23.53%)</title><rect x="2.9412%" y="357" width="23.5294%" height="15" fill="rgb(209,103,24)"/><text x="3.1912%" y="367.50">grpc-server</text></g><g><title>Unknown (8 samples, 23.53%)</title><rect x="2.9412%" y="341" width="23.5294%" height="15" fill="rgb(229,88,8)"/><text x="3.1912%" y="351.50">Unknown</text></g><g><title>__clone (8 samples, 23.53%)</title><rect x="2.9412%" y="325" width="23.5294%" height="15" fill="rgb(213,181,19)"/><text x="3.1912%" y="335.50">__clone</text></g><g><title>start_thread (8 samples, 23.53%)</title><rect x="2.9412%" y="309" width="23.5294%" height="15" fill="rgb(254,191,54)"/><text x="3.1912%" y="319.50">start_thread</text></g><g><title>std::sys::unix::thread::Thread::new::thread_start::h3f42d1616b825de5/std::sys_common::thread::start_thread::h0647e91c8800cb8c/&lt;alloc::boxed::Box&lt;F&gt; as core::ops::function::FnOnce&lt;A&gt;&gt;::call_once::h8471b989095c2da7 (8 samples, 23.53%)</title><rect x="2.9412%" y="293" width="23.5294%" height="15" fill="rgb(241,83,37)"/><text x="3.1912%" y="303.50">std::sys::unix::thread::Thread::new::..</text></g><g><title>&lt;alloc::boxed::Box&lt;F&gt; as core::ops::function::FnOnce&lt;A&gt;&gt;::call_once::hbabfae4f70ab9609 (8 samples, 23.53%)</title><rect x="2.9412%" y="277" width="23.5294%" height="15" fill="rgb(233,36,39)"/><text x="3.1912%" y="287.50">&lt;alloc::boxed::Box&lt;F&gt; as core::ops::f..</text></g><g><title>core::ops::function::FnOnce::call_once{{vtable.shim}}::h388683e83ddad7a9/std::thread::Builder::spawn_unchecked::{{closure}}::h5d2e8730ebcfd3fe/std::panic::catch_unwind::hd5b0ef73d9d0f4ed/std::panicking::try::h0ac3fe62196b743b/std::panicking::try::do_call::h58f5c65f052c58d8/&lt;std::panic::AssertUnwindSafe&lt;F&gt; as core::ops::function::FnOnce&lt;()&gt;&gt;::call_once::hfac60088fa6c6908/std::thread::Builder::spawn_unchecked::{{closure}}::{{closure}}::hdf2f463cbb9543f8 (8 samples, 23.53%)</title><rect x="2.9412%" y="261" width="23.5294%" height="15" fill="rgb(226,3,54)"/><text x="3.1912%" y="271.50">core::ops::function::FnOnce::call_onc..</text></g><g><title>grpcio::env::poll_queue::hbf7bc01fe48b94c4/grpcio::task::CallTag::resolve::hdbefb7b6344c06f4/grpcio::task::executor::resolve::h3a80dcb74e0af6b5 (3 samples, 8.82%)</title><rect x="17.6471%" y="245" width="8.8235%" height="15" fill="rgb(245,192,40)"/><text x="17.8971%" y="255.50">grpcio::env:..</text></g><g><title>grpcio::task::executor::poll::hb0cc437d1ba86261/futures::task_impl::Spawn&lt;T&gt;::poll_future_notify::h999e828a3522831a/futures::task_impl::Spawn&lt;T&gt;::poll_fn_notify::ha808a971b7178637/futures::task_impl::Spawn&lt;T&gt;::enter::h0eedf1d8bbdf6714/futures::task_impl::std::set::hc65596e360c5c273/futures::task_impl::Spawn&lt;T&gt;::enter::{{closure}}::he82217b8607d7407/futures::task_impl::Spawn&lt;T&gt;::poll_future_notify::{{closure}}::ha8306b822c7df875/&lt;alloc::boxed::Box&lt;F&gt; as futures::future::Future&gt;::poll::hedaa9d3d604a1c12 (3 samples, 8.82%)</title><rect x="17.6471%" y="229" width="8.8235%" height="15" fill="rgb(238,167,29)"/><text x="17.8971%" y="239.50">grpcio::task..</text></g><g><title>&lt;futures::future::map::Map&lt;A,F&gt; as futures::future::Future&gt;::poll::he601007bd6fe8a2c/&lt;futures::future::map_err::MapErr&lt;A,F&gt; as futures::future::Future&gt;::poll::h06913aa9d401b1c0/&lt;futures::future::or_else::OrElse&lt;A,B,F&gt; as futures::future::Future&gt;::poll::h26f16edada0369ff/futures::future::chain::Chain&lt;A,B,C&gt;::poll::ha14678f81de3b57d/&lt;futures::future::then::Then&lt;A,B,F&gt; as futures::future::Future&gt;::poll::h80283fb1b50bf473/futures::future::chain::Chain&lt;A,B,C&gt;::poll::h8f8837ec116b2223/&lt;futures::sink::send_all::SendAll&lt;T,U&gt; as futures::future::Future&gt;::poll::h3763d9221cd2977d (2 samples, 5.88%)</title><rect x="20.5882%" y="213" width="5.8824%" height="15" fill="rgb(232,182,51)"/><text x="20.8382%" y="223.50">&lt;future..</text></g><g><title>futures::sink::send_all::SendAll&lt;T,U&gt;::try_start_send::h3018d2b471ade19d/&lt;grpcio::call::client::StreamingCallSink&lt;Req&gt; as futures::sink::Sink&gt;::start_send::hc74e1fc277eadc97/grpcio::call::SinkBase::start_send::h92bf29112ce9a857/&lt;alloc::sync::Arc&lt;grpcio::task::lock::SpinLock&lt;grpcio::call::ShareCall&gt;&gt; as grpcio::call::ShareCallHolder&gt;::call::h6f34dfa3311c6e9a/grpcio::call::SinkBase::start_send::{{closure}}::hca673bbb3f174e3a (2 samples, 5.88%)</title><rect x="20.5882%" y="197" width="5.8824%" height="15" fill="rgb(231,60,39)"/><text x="20.8382%" y="207.50">futures..</text></g><g><title>grpcio::call::Call::start_send_message::h5cfe1e77537458c0/grpcio::call::check_run::h445beb8b8584f324/grpcio::call::Call::start_send_message::{{closure}}::h236b67f3e7670425 (2 samples, 5.88%)</title><rect x="20.5882%" y="181" width="5.8824%" height="15" fill="rgb(208,69,12)"/><text x="20.8382%" y="191.50">grpcio:..</text></g><g><title>grpcwrap_call_send_message (2 samples, 5.88%)</title><rect x="20.5882%" y="165" width="5.8824%" height="15" fill="rgb(235,93,37)"/><text x="20.8382%" y="175.50">grpcwra..</text></g><g><title>grpc_call_start_batch/~ExecCtx (2 samples, 5.88%)</title><rect x="20.5882%" y="149" width="5.8824%" height="15" fill="rgb(213,116,39)"/><text x="20.8382%" y="159.50">grpc_ca..</text></g><g><title>_ZN9grpc_core7ExecCtx5FlushEv (2 samples, 5.88%)</title><rect x="20.5882%" y="133" width="5.8824%" height="15" fill="rgb(222,207,29)"/><text x="20.8382%" y="143.50">_ZN9grp..</text></g><g><title>_Z31grpc_combiner_continue_exec_ctxv (2 samples, 5.88%)</title><rect x="20.5882%" y="117" width="5.8824%" height="15" fill="rgb(206,96,30)"/><text x="20.8382%" y="127.50">_Z31grp..</text></g><g><title>write_action_begin_locked/write_action (2 samples, 5.88%)</title><rect x="20.5882%" y="101" width="5.8824%" height="15" fill="rgb(218,138,4)"/><text x="20.8382%" y="111.50">write_a..</text></g><g><title>tcp_write (2 samples, 5.88%)</title><rect x="20.5882%" y="85" width="5.8824%" height="15" fill="rgb(250,191,14)"/><text x="20.8382%" y="95.50">tcp_wri..</text></g><g><title>tcp_flush (2 samples, 5.88%)</title><rect x="20.5882%" y="69" width="5.8824%" height="15" fill="rgb(239,60,40)"/><text x="20.8382%" y="79.50">tcp_flu..</text></g><g><title>_Z8tcp_sendiPK6msghdr (1 samples, 2.94%)</title><rect x="23.5294%" y="53" width="2.9412%" height="15" fill="rgb(206,27,48)"/><text x="23.7794%" y="63.50">_Z..</text></g><g><title>__sendmsg (1 samples, 2.94%)</title><rect x="23.5294%" y="37" width="2.9412%" height="15" fill="rgb(225,35,8)"/><text x="23.7794%" y="47.50">__..</text></g><g><title>batch_system::batch::Poller&lt;N,C,Handler&gt;::poll::he4fae091431ded8f/&lt;core::time::Duration as core::cmp::PartialOrd&gt;::ge::h019680b9d8a78123/core::cmp::impls::&lt;impl core::cmp::PartialOrd for u64&gt;::partial_cmp::h0b366349923a99ce/core::cmp::impls::&lt;impl core::cmp::Ord for u64&gt;::cmp::h11abe9d9d1d3de91 (3 samples, 8.82%)</title><rect x="26.4706%" y="229" width="8.8235%" height="15" fill="rgb(250,213,24)"/><text x="26.7206%" y="239.50">batch_system..</text></g><g><title>batch_system::batch::Poller&lt;N,C,Handler&gt;::poll::he4fae091431ded8f/batch_system::batch::Poller&lt;N,C,Handler&gt;::fetch_fsm::hefc0a92ee9036664/&lt;raftstore::store::fsm::store::RaftPoller&lt;T,C&gt; as batch_system::batch::PollHandler&lt;raftstore::store::fsm::peer::PeerFsm&lt;engine_rocks::engine::RocksEngine&gt;,raftstore::store::fsm::store::StoreFsm&gt;&gt;::pause::ha1e96614cfa1921f/&lt;tikv::server::transport::ServerTransport&lt;T,S&gt; as raftstore::store::transport::Transport&gt;::flush::h2c00def97ca2ac8e/tikv::server::transport::ServerTransport&lt;T,S&gt;::flush_raft_client::heb944130ba00908a (1 samples, 2.94%)</title><rect x="35.2941%" y="229" width="2.9412%" height="15" fill="rgb(247,123,22)"/><text x="35.5441%" y="239.50">ba..</text></g><g><title>tikv::server::raft_client::RaftClient&lt;T&gt;::flush::hc737c948ab150f3d/tikv_util::mpsc::batch::Notifier::notify::h6cbc7a64864aaa5f/core::mem::drop::h52e1abe363a383b1 (1 samples, 2.94%)</title><rect x="35.2941%" y="213" width="2.9412%" height="15" fill="rgb(231,138,38)"/><text x="35.5441%" y="223.50">ti..</text></g><g><title>core::ptr::real_drop_in_place::ha4be69fa89657b67/&lt;tikv_util::mpsc::batch::Notifier as core::ops::drop::Drop&gt;::drop::h15f9d5e05aed6e60/tikv_util::mpsc::batch::State::notify::h95c279c2956075a1 (1 samples, 2.94%)</title><rect x="35.2941%" y="197" width="2.9412%" height="15" fill="rgb(231,145,46)"/><text x="35.5441%" y="207.50">co..</text></g><g><title>&lt;futures::task_impl::std::ArcWrapped&lt;T&gt; as futures::task_impl::Notify&gt;::notify::hea687f1fc4539062/grpcio::task::executor::&lt;impl futures::task_impl::Notify for grpcio::cq::WorkQueue&gt;::notify::h69141525aedf2a2e/grpcio::task::executor::Kicker::kick::h59acfd3911cadc43 (1 samples, 2.94%)</title><rect x="35.2941%" y="181" width="2.9412%" height="15" fill="rgb(251,118,11)"/><text x="35.5441%" y="191.50">&lt;f..</text></g><g><title>grpc_call_start_batch (1 samples, 2.94%)</title><rect x="35.2941%" y="165" width="2.9412%" height="15" fill="rgb(217,147,25)"/><text x="35.5441%" y="175.50">gr..</text></g><g><title>call_start_batch (1 samples, 2.94%)</title><rect x="35.2941%" y="149" width="2.9412%" height="15" fill="rgb(247,81,37)"/><text x="35.5441%" y="159.50">ca..</text></g><g><title>cq_end_op_for_next (1 samples, 2.94%)</title><rect x="35.2941%" y="133" width="2.9412%" height="15" fill="rgb(209,12,38)"/><text x="35.5441%" y="143.50">cq..</text></g><g><title>kick_one_worker (1 samples, 2.94%)</title><rect x="35.2941%" y="117" width="2.9412%" height="15" fill="rgb(227,1,9)"/><text x="35.5441%" y="127.50">ki..</text></g><g><title>eventfd_wakeup (1 samples, 2.94%)</title><rect x="35.2941%" y="101" width="2.9412%" height="15" fill="rgb(248,47,43)"/><text x="35.5441%" y="111.50">ev..</text></g><g><title>eventfd_write (1 samples, 2.94%)</title><rect x="35.2941%" y="85" width="2.9412%" height="15" fill="rgb(221,10,30)"/><text x="35.5441%" y="95.50">ev..</text></g><g><title>__GI_write (1 samples, 2.94%)</title><rect x="35.2941%" y="69" width="2.9412%" height="15" fill="rgb(210,229,1)"/><text x="35.5441%" y="79.50">__..</text></g><g><title>batch_system::batch::Poller&lt;N,C,Handler&gt;::poll::he4fae091431ded8f/batch_system::batch::Poller&lt;N,C,Handler&gt;::fetch_fsm::hefc0a92ee9036664/crossbeam_channel::channel::Receiver&lt;T&gt;::recv::h66f9c6415c8ed339/crossbeam_channel::flavors::list::Channel&lt;T&gt;::recv::h183a92ad4c063e2b/crossbeam_channel::context::Context::with::h0f788ea6da4f9126/std::thread::local::LocalKey&lt;T&gt;::try_with::h1fcedd36e4e31057/crossbeam_channel::context::Context::with::{{closure}}::h9266290931021718 (1 samples, 2.94%)</title><rect x="38.2353%" y="229" width="2.9412%" height="15" fill="rgb(222,148,37)"/><text x="38.4853%" y="239.50">ba..</text></g><g><title>crossbeam_channel::context::Context::with::{{closure}}::h19b934154acf7af7/crossbeam_channel::flavors::list::Channel&lt;T&gt;::recv::{{closure}}::h76e3a416a11ceb5e (1 samples, 2.94%)</title><rect x="38.2353%" y="213" width="2.9412%" height="15" fill="rgb(234,67,33)"/><text x="38.4853%" y="223.50">cr..</text></g><g><title>crossbeam_channel::context::Context::wait_until::h8b2048ea7a15043d (1 samples, 2.94%)</title><rect x="38.2353%" y="197" width="2.9412%" height="15" fill="rgb(247,98,35)"/><text x="38.4853%" y="207.50">cr..</text></g><g><title>std::thread::park::hff0b06d77e92b6cb/std::sync::condvar::Condvar::wait::hdcf62d39c496d433/std::sys_common::condvar::Condvar::wait::h26ad7955d784a750/std::sys::unix::condvar::Condvar::wait::h2342bee8a42610ad (1 samples, 2.94%)</title><rect x="38.2353%" y="181" width="2.9412%" height="15" fill="rgb(247,138,52)"/><text x="38.4853%" y="191.50">st..</text></g><g><title>pthread_cond_wait@@GLIBC_2.3.2 (1 samples, 2.94%)</title><rect x="38.2353%" y="165" width="2.9412%" height="15" fill="rgb(213,79,30)"/><text x="38.4853%" y="175.50">pt..</text></g><g><title>__pthread_mutex_unlock_usercnt (1 samples, 2.94%)</title><rect x="38.2353%" y="149" width="2.9412%" height="15" fill="rgb(246,177,23)"/><text x="38.4853%" y="159.50">__..</text></g><g><title>rallocx/iralloct (1 samples, 2.94%)</title><rect x="41.1765%" y="197" width="2.9412%" height="15" fill="rgb(230,62,27)"/><text x="41.4265%" y="207.50">ra..</text></g><g><title>_rjem_je_arena_ralloc/isdalloct/arena_sdalloc/tcache_dalloc_small (1 samples, 2.94%)</title><rect x="41.1765%" y="181" width="2.9412%" height="15" fill="rgb(216,154,8)"/><text x="41.4265%" y="191.50">_r..</text></g><g><title>&lt;raftstore::store::fsm::store::RaftPoller&lt;T,C&gt; as batch_system::batch::PollHandler&lt;raftstore::store::fsm::peer::PeerFsm&lt;engine_rocks::engine::RocksEngine&gt;,raftstore::store::fsm::store::StoreFsm&gt;&gt;::handle_normal::h3475e494473d09a3/raftstore::store::fsm::peer::PeerFsmDelegate&lt;T,C&gt;::collect_ready::hfaba23f3c5159a16/alloc::vec::Vec&lt;T&gt;::push::h8acd1c6df3fd3ea6/alloc::vec::Vec&lt;T&gt;::reserve::h48e91eadfa4a2bac/alloc::raw_vec::RawVec&lt;T,A&gt;::reserve::hee0a5e397dea98e5/alloc::raw_vec::RawVec&lt;T,A&gt;::reserve_internal::h7b77eec218ba5a51/&lt;alloc::alloc::Global as core::alloc::Alloc&gt;::realloc::h05fee8a4c2cf58a5/alloc::alloc::realloc::h92728317ba1acf1b (2 samples, 5.88%)</title><rect x="41.1765%" y="213" width="5.8824%" height="15" fill="rgb(244,35,45)"/><text x="41.4265%" y="223.50">&lt;raftst..</text></g><g><title>rallocx/rtree_szind_slab_read/rtree_leaf_elm_bits_read/atomic_load_p (1 samples, 2.94%)</title><rect x="44.1176%" y="197" width="2.9412%" height="15" fill="rgb(251,115,12)"/><text x="44.3676%" y="207.50">ra..</text></g><g><title>Unknown (8 samples, 23.53%)</title><rect x="26.4706%" y="341" width="23.5294%" height="15" fill="rgb(240,54,50)"/><text x="26.7206%" y="351.50">Unknown</text></g><g><title>__clone (8 samples, 23.53%)</title><rect x="26.4706%" y="325" width="23.5294%" height="15" fill="rgb(233,84,52)"/><text x="26.7206%" y="335.50">__clone</text></g><g><title>start_thread (8 samples, 23.53%)</title><rect x="26.4706%" y="309" width="23.5294%" height="15" fill="rgb(207,117,47)"/><text x="26.7206%" y="319.50">start_thread</text></g><g><title>std::sys::unix::thread::Thread::new::thread_start::h3f42d1616b825de5/std::sys_common::thread::start_thread::h0647e91c8800cb8c/&lt;alloc::boxed::Box&lt;F&gt; as core::ops::function::FnOnce&lt;A&gt;&gt;::call_once::h8471b989095c2da7 (8 samples, 23.53%)</title><rect x="26.4706%" y="293" width="23.5294%" height="15" fill="rgb(249,43,39)"/><text x="26.7206%" y="303.50">std::sys::unix::thread::Thread::new::..</text></g><g><title>&lt;alloc::boxed::Box&lt;F&gt; as core::ops::function::FnOnce&lt;A&gt;&gt;::call_once::hbabfae4f70ab9609 (8 samples, 23.53%)</title><rect x="26.4706%" y="277" width="23.5294%" height="15" fill="rgb(209,38,44)"/><text x="26.7206%" y="287.50">&lt;alloc::boxed::Box&lt;F&gt; as core::ops::f..</text></g><g><title>core::ops::function::FnOnce::call_once{{vtable.shim}}::h44d867114a7b31c2/std::thread::Builder::spawn_unchecked::{{closure}}::ha4f3255ba0349fca/std::panic::catch_unwind::h3260d3fea3d9ce1b/std::panicking::try::h2d7c59bac7a9b8eb/std::panicking::try::do_call::h82e064302da3baa7/&lt;std::panic::AssertUnwindSafe&lt;F&gt; as core::ops::function::FnOnce&lt;()&gt;&gt;::call_once::h9b690459d5f5a04f/std::thread::Builder::spawn_unchecked::{{closure}}::{{closure}}::h7193b409bd619dec (8 samples, 23.53%)</title><rect x="26.4706%" y="261" width="23.5294%" height="15" fill="rgb(236,212,23)"/><text x="26.7206%" y="271.50">core::ops::function::FnOnce::call_onc..</text></g><g><title>std::sys_common::backtrace::__rust_begin_short_backtrace::h028dd9bee952397c/batch_system::batch::BatchSystem&lt;N,C&gt;::spawn::{{closure}}::h8831dd45c0474dcd (8 samples, 23.53%)</title><rect x="26.4706%" y="245" width="23.5294%" height="15" fill="rgb(242,79,21)"/><text x="26.7206%" y="255.50">std::sys_common::backtrace::__rust_be..</text></g><g><title>batch_system::batch::Poller&lt;N,C,Handler&gt;::poll::he4fae091431ded8f (3 samples, 8.82%)</title><rect x="41.1765%" y="229" width="8.8235%" height="15" fill="rgb(211,96,35)"/><text x="41.4265%" y="239.50">batch_system..</text></g><g><title>&lt;raftstore::store::fsm::store::RaftPoller&lt;T,C&gt; as batch_system::batch::PollHandler&lt;raftstore::store::fsm::peer::PeerFsm&lt;engine_rocks::engine::RocksEngine&gt;,raftstore::store::fsm::store::StoreFsm&gt;&gt;::handle_normal::h3475e494473d09a3 (1 samples, 2.94%)</title><rect x="47.0588%" y="213" width="2.9412%" height="15" fill="rgb(253,215,40)"/><text x="47.3088%" y="223.50">&lt;r..</text></g><g><title>raftstore::store::fsm::peer::PeerFsmDelegate&lt;T,C&gt;::handle_msgs::h93f9e358af7810bb (1 samples, 2.94%)</title><rect x="47.0588%" y="197" width="2.9412%" height="15" fill="rgb(211,81,21)"/><text x="47.3088%" y="207.50">ra..</text></g><g><title>raftstore::store::fsm::peer::PeerFsmDelegate&lt;T,C&gt;::on_raft_message::hb680d4da0e90d351/raftstore::store::peer::Peer::step::h4efbc2cc18f8bec7/raft::raw_node::RawNode&lt;T&gt;::step::h518696d3684a6d2e (1 samples, 2.94%)</title><rect x="47.0588%" y="181" width="2.9412%" height="15" fill="rgb(208,190,38)"/><text x="47.3088%" y="191.50">ra..</text></g><g><title>raft::raft::Raft&lt;T&gt;::step::h15d9ddf87dee1a2a/raft::raft::Raft&lt;T&gt;::step_leader::h1d1011f278fad48c/raft::raft::Raft&lt;T&gt;::check_message_with_progress::h0a1c9b76ab024325/raft::raft::Raft&lt;T&gt;::handle_heartbeat_response::hcd19adeac86e92e4 (1 samples, 2.94%)</title><rect x="47.0588%" y="165" width="2.9412%" height="15" fill="rgb(235,213,38)"/><text x="47.3088%" y="175.50">ra..</text></g><g><title>raftstore (9 samples, 26.47%)</title><rect x="26.4706%" y="357" width="26.4706%" height="15" fill="rgb(237,122,38)"/><text x="26.7206%" y="367.50">raftstore</text></g><g><title>pthread_cond_signal@@GLIBC_2.3.2 (1 samples, 2.94%)</title><rect x="50.0000%" y="341" width="2.9412%" height="15" fill="rgb(244,218,35)"/><text x="50.2500%" y="351.50">pt..</text></g><g><title>stats-monitor (1 samples, 2.94%)</title><rect x="52.9412%" y="357" width="2.9412%" height="15" fill="rgb(240,68,47)"/><text x="53.1912%" y="367.50">st..</text></g><g><title>Unknown (1 samples, 2.94%)</title><rect x="52.9412%" y="341" width="2.9412%" height="15" fill="rgb(210,16,53)"/><text x="53.1912%" y="351.50">Un..</text></g><g><title>__clone (1 samples, 2.94%)</title><rect x="52.9412%" y="325" width="2.9412%" height="15" fill="rgb(235,124,12)"/><text x="53.1912%" y="335.50">__..</text></g><g><title>start_thread (1 samples, 2.94%)</title><rect x="52.9412%" y="309" width="2.9412%" height="15" fill="rgb(224,169,11)"/><text x="53.1912%" y="319.50">st..</text></g><g><title>std::sys::unix::thread::Thread::new::thread_start::h3f42d1616b825de5/std::sys_common::thread::start_thread::h0647e91c8800cb8c/&lt;alloc::boxed::Box&lt;F&gt; as core::ops::function::FnOnce&lt;A&gt;&gt;::call_once::h8471b989095c2da7 (1 samples, 2.94%)</title><rect x="52.9412%" y="293" width="2.9412%" height="15" fill="rgb(250,166,2)"/><text x="53.1912%" y="303.50">st..</text></g><g><title>&lt;alloc::boxed::Box&lt;F&gt; as core::ops::function::FnOnce&lt;A&gt;&gt;::call_once::hbabfae4f70ab9609 (1 samples, 2.94%)</title><rect x="52.9412%" y="277" width="2.9412%" height="15" fill="rgb(242,216,29)"/><text x="53.1912%" y="287.50">&lt;a..</text></g><g><title>core::ops::function::FnOnce::call_once{{vtable.shim}}::hefa828f2313ddc8e/std::thread::Builder::spawn_unchecked::{{closure}}::h01c1af728b22c927/std::panic::catch_unwind::ha3ad4eb928175731/std::panicking::try::ha0781d84b936e7f3/std::panicking::try::do_call::h48c286ebc5d4a3ee/&lt;std::panic::AssertUnwindSafe&lt;F&gt; as core::ops::function::FnOnce&lt;()&gt;&gt;::call_once::h0b88d09b1535565f/std::thread::Builder::spawn_unchecked::{{closure}}::{{closure}}::h6df675bcdfafd614 (1 samples, 2.94%)</title><rect x="52.9412%" y="261" width="2.9412%" height="15" fill="rgb(230,116,27)"/><text x="53.1912%" y="271.50">co..</text></g><g><title>std::sys_common::backtrace::__rust_begin_short_backtrace::h7705258d9617446c/raftstore::store::worker::pd::StatsMonitor::start::{{closure}}::h3d723209789e1d1b (1 samples, 2.94%)</title><rect x="52.9412%" y="245" width="2.9412%" height="15" fill="rgb(228,99,48)"/><text x="53.1912%" y="255.50">st..</text></g><g><title>tikv_util::metrics::threads_linux::ThreadInfoStatistics::record::h7ae5e911005494f7 (1 samples, 2.94%)</title><rect x="52.9412%" y="229" width="2.9412%" height="15" fill="rgb(253,11,6)"/><text x="53.1912%" y="239.50">ti..</text></g><g><title>procinfo::pid::stat::stat_task::h6dc9eae82fe93c08/procinfo::pid::stat::stat_file::h24220d3d1264f724 (1 samples, 2.94%)</title><rect x="52.9412%" y="213" width="2.9412%" height="15" fill="rgb(247,143,39)"/><text x="53.1912%" y="223.50">pr..</text></g><g><title>procinfo::parsers::read_to_end::hba3ce21b0dc10808 (1 samples, 2.94%)</title><rect x="52.9412%" y="197" width="2.9412%" height="15" fill="rgb(236,97,10)"/><text x="53.1912%" y="207.50">pr..</text></g><g><title>__read (1 samples, 2.94%)</title><rect x="52.9412%" y="181" width="2.9412%" height="15" fill="rgb(233,208,19)"/><text x="53.1912%" y="191.50">__..</text></g><g><title>tikv_util::metrics::dump::hcccf22ab57f1d826/&lt;prometheus::encoder::text::TextEncoder as prometheus::encoder::Encoder&gt;::encode::h70d10a06650cc32c (1 samples, 2.94%)</title><rect x="55.8824%" y="101" width="2.9412%" height="15" fill="rgb(216,164,2)"/><text x="56.1324%" y="111.50">ti..</text></g><g><title>prometheus::encoder::text::write_sample::h3288d39ca13f7174/prometheus::encoder::text::label_pairs_to_text::h93e0d73a1f86a3c8 (1 samples, 2.94%)</title><rect x="55.8824%" y="85" width="2.9412%" height="15" fill="rgb(220,129,5)"/><text x="56.1324%" y="95.50">pr..</text></g><g><title>std::io::Write::write_fmt::hbe26b14ae635a10c (1 samples, 2.94%)</title><rect x="55.8824%" y="69" width="2.9412%" height="15" fill="rgb(242,17,10)"/><text x="56.1324%" y="79.50">st..</text></g><g><title>status-server (2 samples, 5.88%)</title><rect x="55.8824%" y="357" width="5.8824%" height="15" fill="rgb(242,107,0)"/><text x="56.1324%" y="367.50">status-..</text></g><g><title>Unknown (2 samples, 5.88%)</title><rect x="55.8824%" y="341" width="5.8824%" height="15" fill="rgb(251,28,31)"/><text x="56.1324%" y="351.50">Unknown</text></g><g><title>__clone (2 samples, 5.88%)</title><rect x="55.8824%" y="325" width="5.8824%" height="15" fill="rgb(233,223,10)"/><text x="56.1324%" y="335.50">__clone</text></g><g><title>start_thread (2 samples, 5.88%)</title><rect x="55.8824%" y="309" width="5.8824%" height="15" fill="rgb(215,21,27)"/><text x="56.1324%" y="319.50">start_t..</text></g><g><title>std::sys::unix::thread::Thread::new::thread_start::h3f42d1616b825de5/std::sys_common::thread::start_thread::h0647e91c8800cb8c/&lt;alloc::boxed::Box&lt;F&gt; as core::ops::function::FnOnce&lt;A&gt;&gt;::call_once::h8471b989095c2da7 (2 samples, 5.88%)</title><rect x="55.8824%" y="293" width="5.8824%" height="15" fill="rgb(232,23,21)"/><text x="56.1324%" y="303.50">std::sy..</text></g><g><title>&lt;alloc::boxed::Box&lt;F&gt; as core::ops::function::FnOnce&lt;A&gt;&gt;::call_once::hbabfae4f70ab9609 (2 samples, 5.88%)</title><rect x="55.8824%" y="277" width="5.8824%" height="15" fill="rgb(244,5,23)"/><text x="56.1324%" y="287.50">&lt;alloc:..</text></g><g><title>core::ops::function::FnOnce::call_once{{vtable.shim}}::hc5888f1257529261/std::thread::Builder::spawn_unchecked::{{closure}}::h388d5d3e59427585/std::panic::catch_unwind::h568812465744b05d/std::panicking::try::h67d4a77b41da8bfe/std::panicking::try::do_call::ha3c184b8152ade0c/&lt;std::panic::AssertUnwindSafe&lt;F&gt; as core::ops::function::FnOnce&lt;()&gt;&gt;::call_once::heb8f6d653820c717/std::thread::Builder::spawn_unchecked::{{closure}}::{{closure}}::h3b18ee99ef2b7d91 (2 samples, 5.88%)</title><rect x="55.8824%" y="261" width="5.8824%" height="15" fill="rgb(226,81,46)"/><text x="56.1324%" y="271.50">core::o..</text></g><g><title>std::sys_common::backtrace::__rust_begin_short_backtrace::h17f203ef6e8635f8/tokio_threadpool::pool::Pool::spawn_thread::{{closure}}::h2d9c43bf0a9d4e70/tokio_threadpool::worker::Worker::do_run::h14648848330febdd/std::thread::local::LocalKey&lt;T&gt;::with::h406236a3963d0f17/std::thread::local::LocalKey&lt;T&gt;::try_with::hd5732e3778948dbd/tokio_threadpool::worker::Worker::do_run::{{closure}}::h8c62a7e58e4dcad0/tokio_executor::global::with_default::h27bb04a45da11f83/std::thread::local::LocalKey&lt;T&gt;::with::h8837e01f011f715b/std::thread::local::LocalKey&lt;T&gt;::try_with::h3c09342286dba0e9/tokio_executor::global::with_default::{{closure}}::h200f88418d48c01e/tokio_threadpool::worker::Worker::do_run::{{closure}}::{{closure}}::h747469b7fc8fe789 (2 samples, 5.88%)</title><rect x="55.8824%" y="245" width="5.8824%" height="15" fill="rgb(247,70,30)"/><text x="56.1324%" y="255.50">std::sy..</text></g><g><title>tokio_threadpool::worker::Worker::run::h521b8898a30230c1/tokio_threadpool::worker::Worker::try_run_task::hcc80bebc91dcf46f/tokio_threadpool::worker::Worker::try_run_owned_task::hafeae1282988fcd4 (2 samples, 5.88%)</title><rect x="55.8824%" y="229" width="5.8824%" height="15" fill="rgb(212,68,19)"/><text x="56.1324%" y="239.50">tokio_t..</text></g><g><title>tokio_threadpool::worker::Worker::run_task::h53a922c6874186c1/tokio_threadpool::worker::Worker::run_task2::hf1a8aa22987ad6b7/tokio_threadpool::task::Task::run::h74809930135bed07/std::panic::catch_unwind::h516f9c250d8b1628/std::panicking::try::h1ace0013474bc494/std::panicking::try::do_call::hacb06146667ec22b/&lt;std::panic::AssertUnwindSafe&lt;F&gt; as core::ops::function::FnOnce&lt;()&gt;&gt;::call_once::haaef7f40048e1e74/core::ops::function::FnOnce::call_once::hba38129af4349aaf/tokio_threadpool::task::Task::run::{{closure}}::h8216b7379ef412d8/futures::task_impl::Spawn&lt;T&gt;::poll_future_notify::hfc841ec3625e01d1/futures::task_impl::Spawn&lt;T&gt;::poll_fn_notify::h66f8b38ddb2542ac/futures::task_impl::Spawn&lt;T&gt;::enter::h45ec864c729dc7e0/futures::task_impl::std::set::h562a34086a690639/futures::task_impl::Spawn&lt;T&gt;::enter::{{closure}}::hf62823867da02a48/futures::task_impl::Spawn&lt;T&gt;::poll_future_notify::{{closure}}::hbbf637f05a29ac80/&lt;alloc::boxed::Box&lt;F&gt; as futures::future::Future&gt;::poll::hc61bb95229ddbbb3 (2 samples, 5.88%)</title><rect x="55.8824%" y="213" width="5.8824%" height="15" fill="rgb(240,187,13)"/><text x="56.1324%" y="223.50">tokio_t..</text></g><g><title>&lt;hyper::server::conn::spawn_all::NewSvcTask&lt;I,N,S,E,W&gt; as futures::future::Future&gt;::poll::h29dde50f5383d2ad/&lt;hyper::common::drain::Watching&lt;F,FN&gt; as futures::future::Future&gt;::poll::he7f8e2a66db0bc3a (2 samples, 5.88%)</title><rect x="55.8824%" y="197" width="5.8824%" height="15" fill="rgb(223,113,26)"/><text x="56.1324%" y="207.50">&lt;hyper:..</text></g><g><title>&lt;hyper::server::conn::upgrades::UpgradeableConnection&lt;I,S,E&gt; as futures::future::Future&gt;::poll::h9a613a51485d9d10/futures::future::option::&lt;impl futures::future::Future for core::option::Option&lt;F&gt;&gt;::poll::hb0b1e1d38fa10bad (2 samples, 5.88%)</title><rect x="55.8824%" y="181" width="5.8824%" height="15" fill="rgb(206,192,2)"/><text x="56.1324%" y="191.50">&lt;hyper:..</text></g><g><title>&lt;futures::future::either::Either&lt;A,B&gt; as futures::future::Future&gt;::poll::h19f821f263adb258/&lt;hyper::proto::h1::dispatch::Dispatcher&lt;D,Bs,I,T&gt; as futures::future::Future&gt;::poll::hf263c6fc3ff08258/hyper::proto::h1::dispatch::Dispatcher&lt;D,Bs,I,T&gt;::poll_catch::he2727ed287d53ff0/hyper::proto::h1::dispatch::Dispatcher&lt;D,Bs,I,T&gt;::poll_inner::hb2cbf47d4cf1a67d/hyper::proto::h1::dispatch::Dispatcher&lt;D,Bs,I,T&gt;::poll_loop::h32a1b08662fd38cd (2 samples, 5.88%)</title><rect x="55.8824%" y="165" width="5.8824%" height="15" fill="rgb(241,108,4)"/><text x="56.1324%" y="175.50">&lt;future..</text></g><g><title>hyper::proto::h1::dispatch::Dispatcher&lt;D,Bs,I,T&gt;::poll_read::h7b65e1b400774ec9/hyper::proto::h1::dispatch::Dispatcher&lt;D,Bs,I,T&gt;::poll_read_head::h0dc66ab8a24a4c0c (2 samples, 5.88%)</title><rect x="55.8824%" y="149" width="5.8824%" height="15" fill="rgb(247,173,49)"/><text x="56.1324%" y="159.50">hyper::..</text></g><g><title>&lt;hyper::proto::h1::dispatch::Server&lt;S&gt; as hyper::proto::h1::dispatch::Dispatch&gt;::recv_msg::ha7b02c2d47f39d70 (2 samples, 5.88%)</title><rect x="55.8824%" y="133" width="5.8824%" height="15" fill="rgb(224,114,35)"/><text x="56.1324%" y="143.50">&lt;hyper:..</text></g><g><title>&lt;hyper::service::service::ServiceFn&lt;F,ReqBody&gt; as hyper::service::service::Service&gt;::call::h4c5a07e31f848bdd/tikv::server::status_server::StatusServer::start_serve::{{closure}}::{{closure}}::h9629d2f871c9e3a0 (2 samples, 5.88%)</title><rect x="55.8824%" y="117" width="5.8824%" height="15" fill="rgb(245,159,27)"/><text x="56.1324%" y="127.50">&lt;hyper:..</text></g><g><title>tikv_util::metrics::dump::hcccf22ab57f1d826 (1 samples, 2.94%)</title><rect x="58.8235%" y="101" width="2.9412%" height="15" fill="rgb(245,172,44)"/><text x="59.0735%" y="111.50">ti..</text></g><g><title>prometheus::registry::gather::hb413b4b006d41225/prometheus::registry::Registry::gather::h8ff8db70b387e907/prometheus::registry::RegistryCore::gather::hfd9a21c6b7f79328 (1 samples, 2.94%)</title><rect x="58.8235%" y="85" width="2.9412%" height="15" fill="rgb(236,23,11)"/><text x="59.0735%" y="95.50">pr..</text></g><g><title>&lt;tikv_util::metrics::threads_linux::ThreadsCollector as prometheus::metrics::Collector&gt;::collect::hfb13d3075d2892f7 (1 samples, 2.94%)</title><rect x="58.8235%" y="69" width="2.9412%" height="15" fill="rgb(205,117,38)"/><text x="59.0735%" y="79.50">&lt;t..</text></g><g><title>procinfo::pid::status::parse_status::hdf5f942fb3757255/procinfo::pid::status::parse_vm_hwm::h954ae036dcd4a770/&lt;&amp;[u8] as nom::traits::Compare&lt;&amp;str&gt;&gt;::compare::h55fa26da21f50cf7/&lt;&amp;[u8] as nom::traits::Compare&lt;&amp;[u8]&gt;&gt;::compare::hf2af8bb18d9b9281/core::cmp::impls::&lt;impl core::cmp::PartialEq&lt;&amp;B&gt; for &amp;A&gt;::ne::h44c8b9e97866a598/core::slice::&lt;impl core::cmp::PartialEq&lt;[B]&gt; for [A]&gt;::ne::h364c65058f69bf3a/core::slice::SlicePartialEq::not_equal::h382b8e0da92268fd/&lt;[A] as core::slice::SlicePartialEq&lt;A&gt;&gt;::equal::hcab5e0d9799d1fa4 (1 samples, 2.94%)</title><rect x="58.8235%" y="53" width="2.9412%" height="15" fill="rgb(237,72,25)"/><text x="59.0735%" y="63.50">pr..</text></g><g><title>Unknown (1 samples, 2.94%)</title><rect x="58.8235%" y="37" width="2.9412%" height="15" fill="rgb(244,70,9)"/><text x="59.0735%" y="47.50">Un..</text></g><g><title>steady-timer (1 samples, 2.94%)</title><rect x="61.7647%" y="357" width="2.9412%" height="15" fill="rgb(217,125,39)"/><text x="62.0147%" y="367.50">st..</text></g><g><title>Unknown (1 samples, 2.94%)</title><rect x="61.7647%" y="341" width="2.9412%" height="15" fill="rgb(235,36,10)"/><text x="62.0147%" y="351.50">Un..</text></g><g><title>__clone (1 samples, 2.94%)</title><rect x="61.7647%" y="325" width="2.9412%" height="15" fill="rgb(251,123,47)"/><text x="62.0147%" y="335.50">__..</text></g><g><title>start_thread (1 samples, 2.94%)</title><rect x="61.7647%" y="309" width="2.9412%" height="15" fill="rgb(221,13,13)"/><text x="62.0147%" y="319.50">st..</text></g><g><title>std::sys::unix::thread::Thread::new::thread_start::h3f42d1616b825de5/std::sys_common::thread::start_thread::h0647e91c8800cb8c/&lt;alloc::boxed::Box&lt;F&gt; as core::ops::function::FnOnce&lt;A&gt;&gt;::call_once::h8471b989095c2da7 (1 samples, 2.94%)</title><rect x="61.7647%" y="293" width="2.9412%" height="15" fill="rgb(238,131,9)"/><text x="62.0147%" y="303.50">st..</text></g><g><title>&lt;alloc::boxed::Box&lt;F&gt; as core::ops::function::FnOnce&lt;A&gt;&gt;::call_once::hbabfae4f70ab9609 (1 samples, 2.94%)</title><rect x="61.7647%" y="277" width="2.9412%" height="15" fill="rgb(211,50,8)"/><text x="62.0147%" y="287.50">&lt;a..</text></g><g><title>core::ops::function::FnOnce::call_once{{vtable.shim}}::hdbe319bbb26c2a79/std::thread::Builder::spawn_unchecked::{{closure}}::hb0d337b4c10619e2/std::panic::catch_unwind::h49aa569fdbda2cc3/std::panicking::try::h258ad0fd1ebab411/std::panicking::try::do_call::h458cb8ee9bb8342c (1 samples, 2.94%)</title><rect x="61.7647%" y="261" width="2.9412%" height="15" fill="rgb(245,182,24)"/><text x="62.0147%" y="271.50">co..</text></g><g><title>&lt;std::panic::AssertUnwindSafe&lt;F&gt; as core::ops::function::FnOnce&lt;()&gt;&gt;::call_once::hf1354b930bbf5af9 (1 samples, 2.94%)</title><rect x="61.7647%" y="245" width="2.9412%" height="15" fill="rgb(242,14,37)"/><text x="62.0147%" y="255.50">&lt;s..</text></g><g><title>std::thread::Builder::spawn_unchecked::{{closure}}::{{closure}}::h7604753f889a871c (1 samples, 2.94%)</title><rect x="61.7647%" y="229" width="2.9412%" height="15" fill="rgb(246,228,12)"/><text x="62.0147%" y="239.50">st..</text></g><g><title>std::sys_common::backtrace::__rust_begin_short_backtrace::h4d5dac77f046f1dc (1 samples, 2.94%)</title><rect x="61.7647%" y="213" width="2.9412%" height="15" fill="rgb(213,55,15)"/><text x="62.0147%" y="223.50">st..</text></g><g><title>tikv_util::timer::start_global_steady_timer::{{closure}}::hb7abe8e60d7f6b92 (1 samples, 2.94%)</title><rect x="61.7647%" y="197" width="2.9412%" height="15" fill="rgb(209,9,3)"/><text x="62.0147%" y="207.50">ti..</text></g><g><title>tokio_timer::timer::Timer&lt;T,N&gt;::turn::h2f4867ac437ffb32 (1 samples, 2.94%)</title><rect x="61.7647%" y="181" width="2.9412%" height="15" fill="rgb(230,59,30)"/><text x="62.0147%" y="191.50">to..</text></g><g><title>crossbeam_utils::sync::parker::Inner::park::hd4f6a3588068141e/std::sync::condvar::Condvar::wait_timeout::hecfee836f32876ca/std::sys_common::condvar::Condvar::wait_timeout::hae07ae909023fe8a (1 samples, 2.94%)</title><rect x="61.7647%" y="165" width="2.9412%" height="15" fill="rgb(209,121,21)"/><text x="62.0147%" y="175.50">cr..</text></g><g><title>std::sys::unix::condvar::Condvar::wait_timeout::h7b294607c904192e (1 samples, 2.94%)</title><rect x="61.7647%" y="149" width="2.9412%" height="15" fill="rgb(220,109,13)"/><text x="62.0147%" y="159.50">st..</text></g><g><title>&lt;futures::stream::for_each::ForEach&lt;S,F,U&gt; as futures::future::Future&gt;::poll::h7a58d819c09e5de6/&lt;futures::stream::map_err::MapErr&lt;S,F&gt; as futures::stream::Stream&gt;::poll::hd716c821c42a6d7c (1 samples, 2.94%)</title><rect x="64.7059%" y="197" width="2.9412%" height="15" fill="rgb(232,18,1)"/><text x="64.9559%" y="207.50">&lt;f..</text></g><g><title>&lt;tokio_timer::delay::Delay as futures::future::Future&gt;::poll::hadb1b5de0ade0fa0/tokio_timer::delay::Delay::register::hd45844d71459f9ed/tokio_timer::timer::registration::Registration::register::h50df23237702fa10/tokio_timer::timer::entry::Entry::is_registered::hadfa2c7bd165ec89/core::option::Option&lt;T&gt;::is_some::h8a3b77b64599f716 (1 samples, 2.94%)</title><rect x="64.7059%" y="181" width="2.9412%" height="15" fill="rgb(215,41,42)"/><text x="64.9559%" y="191.50">&lt;t..</text></g><g><title>procinfo::parsers::read_to_end::hba3ce21b0dc10808 (5 samples, 14.71%)</title><rect x="67.6471%" y="149" width="14.7059%" height="15" fill="rgb(224,123,36)"/><text x="67.8971%" y="159.50">procinfo::parsers::rea..</text></g><g><title>__read (5 samples, 14.71%)</title><rect x="67.6471%" y="133" width="14.7059%" height="15" fill="rgb(240,125,3)"/><text x="67.8971%" y="143.50">__read</text></g><g><title>procinfo::parsers::parse_u32::hb3fbce6fe81e2fbc (1 samples, 2.94%)</title><rect x="88.2353%" y="133" width="2.9412%" height="15" fill="rgb(205,98,50)"/><text x="88.4853%" y="143.50">pr..</text></g><g><title>transport-stats (11 samples, 32.35%)</title><rect x="64.7059%" y="357" width="32.3529%" height="15" fill="rgb(205,185,37)"/><text x="64.9559%" y="367.50">transport-stats</text></g><g><title>Unknown (11 samples, 32.35%)</title><rect x="64.7059%" y="341" width="32.3529%" height="15" fill="rgb(238,207,15)"/><text x="64.9559%" y="351.50">Unknown</text></g><g><title>__clone (11 samples, 32.35%)</title><rect x="64.7059%" y="325" width="32.3529%" height="15" fill="rgb(213,199,42)"/><text x="64.9559%" y="335.50">__clone</text></g><g><title>start_thread (11 samples, 32.35%)</title><rect x="64.7059%" y="309" width="32.3529%" height="15" fill="rgb(235,201,11)"/><text x="64.9559%" y="319.50">start_thread</text></g><g><title>std::sys::unix::thread::Thread::new::thread_start::h3f42d1616b825de5/std::sys_common::thread::start_thread::h0647e91c8800cb8c/&lt;alloc::boxed::Box&lt;F&gt; as core::ops::function::FnOnce&lt;A&gt;&gt;::call_once::h8471b989095c2da7 (11 samples, 32.35%)</title><rect x="64.7059%" y="293" width="32.3529%" height="15" fill="rgb(207,46,11)"/><text x="64.9559%" y="303.50">std::sys::unix::thread::Thread::new::thread_start::h..</text></g><g><title>&lt;alloc::boxed::Box&lt;F&gt; as core::ops::function::FnOnce&lt;A&gt;&gt;::call_once::hbabfae4f70ab9609 (11 samples, 32.35%)</title><rect x="64.7059%" y="277" width="32.3529%" height="15" fill="rgb(241,35,35)"/><text x="64.9559%" y="287.50">&lt;alloc::boxed::Box&lt;F&gt; as core::ops::function::FnOnce..</text></g><g><title>core::ops::function::FnOnce::call_once{{vtable.shim}}::hc5888f1257529261/std::thread::Builder::spawn_unchecked::{{closure}}::h388d5d3e59427585/std::panic::catch_unwind::h568812465744b05d/std::panicking::try::h67d4a77b41da8bfe/std::panicking::try::do_call::ha3c184b8152ade0c/&lt;std::panic::AssertUnwindSafe&lt;F&gt; as core::ops::function::FnOnce&lt;()&gt;&gt;::call_once::heb8f6d653820c717/std::thread::Builder::spawn_unchecked::{{closure}}::{{closure}}::h3b18ee99ef2b7d91 (11 samples, 32.35%)</title><rect x="64.7059%" y="261" width="32.3529%" height="15" fill="rgb(243,32,47)"/><text x="64.9559%" y="271.50">core::ops::function::FnOnce::call_once{{vtable.shim}..</text></g><g><title>std::sys_common::backtrace::__rust_begin_short_backtrace::h17f203ef6e8635f8/tokio_threadpool::pool::Pool::spawn_thread::{{closure}}::h2d9c43bf0a9d4e70/tokio_threadpool::worker::Worker::do_run::h14648848330febdd/std::thread::local::LocalKey&lt;T&gt;::with::h406236a3963d0f17/std::thread::local::LocalKey&lt;T&gt;::try_with::hd5732e3778948dbd/tokio_threadpool::worker::Worker::do_run::{{closure}}::h8c62a7e58e4dcad0/tokio_executor::global::with_default::h27bb04a45da11f83/std::thread::local::LocalKey&lt;T&gt;::with::h8837e01f011f715b/std::thread::local::LocalKey&lt;T&gt;::try_with::h3c09342286dba0e9/tokio_executor::global::with_default::{{closure}}::h200f88418d48c01e/tokio_threadpool::worker::Worker::do_run::{{closure}}::{{closure}}::h747469b7fc8fe789 (11 samples, 32.35%)</title><rect x="64.7059%" y="245" width="32.3529%" height="15" fill="rgb(247,202,23)"/><text x="64.9559%" y="255.50">std::sys_common::backtrace::__rust_begin_short_backt..</text></g><g><title>tokio_threadpool::worker::Worker::run::h521b8898a30230c1/tokio_threadpool::worker::Worker::try_run_task::hcc80bebc91dcf46f/tokio_threadpool::worker::Worker::try_run_owned_task::hafeae1282988fcd4 (11 samples, 32.35%)</title><rect x="64.7059%" y="229" width="32.3529%" height="15" fill="rgb(219,102,11)"/><text x="64.9559%" y="239.50">tokio_threadpool::worker::Worker::run::h521b8898a302..</text></g><g><title>tokio_threadpool::worker::Worker::run_task::h53a922c6874186c1/tokio_threadpool::worker::Worker::run_task2::hf1a8aa22987ad6b7/tokio_threadpool::task::Task::run::h74809930135bed07/std::panic::catch_unwind::h516f9c250d8b1628/std::panicking::try::h1ace0013474bc494/std::panicking::try::do_call::hacb06146667ec22b/&lt;std::panic::AssertUnwindSafe&lt;F&gt; as core::ops::function::FnOnce&lt;()&gt;&gt;::call_once::haaef7f40048e1e74/core::ops::function::FnOnce::call_once::hba38129af4349aaf/tokio_threadpool::task::Task::run::{{closure}}::h8216b7379ef412d8/futures::task_impl::Spawn&lt;T&gt;::poll_future_notify::hfc841ec3625e01d1/futures::task_impl::Spawn&lt;T&gt;::poll_fn_notify::h66f8b38ddb2542ac/futures::task_impl::Spawn&lt;T&gt;::enter::h45ec864c729dc7e0/futures::task_impl::std::set::h562a34086a690639/futures::task_impl::Spawn&lt;T&gt;::enter::{{closure}}::hf62823867da02a48/futures::task_impl::Spawn&lt;T&gt;::poll_future_notify::{{closure}}::hbbf637f05a29ac80/&lt;alloc::boxed::Box&lt;F&gt; as futures::future::Future&gt;::poll::hc61bb95229ddbbb3 (11 samples, 32.35%)</title><rect x="64.7059%" y="213" width="32.3529%" height="15" fill="rgb(243,110,44)"/><text x="64.9559%" y="223.50">tokio_threadpool::worker::Worker::run_task::h53a922c..</text></g><g><title>&lt;futures::stream::for_each::ForEach&lt;S,F,U&gt; as futures::future::Future&gt;::poll::h7a58d819c09e5de6/tikv::server::server::Server&lt;T,S&gt;::start::{{closure}}::h8177aab5630441c6 (10 samples, 29.41%)</title><rect x="67.6471%" y="197" width="29.4118%" height="15" fill="rgb(222,74,54)"/><text x="67.8971%" y="207.50">&lt;futures::stream::for_each::ForEach&lt;S,F,U&gt; as f..</text></g><g><title>tikv::server::load_statistics::linux::ThreadLoadStatistics::record::h015854ad6cf3385c (10 samples, 29.41%)</title><rect x="67.6471%" y="181" width="29.4118%" height="15" fill="rgb(216,99,12)"/><text x="67.8971%" y="191.50">tikv::server::load_statistics::linux::ThreadLoa..</text></g><g><title>procinfo::pid::stat::stat_task::h6dc9eae82fe93c08/procinfo::pid::stat::stat_file::h24220d3d1264f724 (10 samples, 29.41%)</title><rect x="67.6471%" y="165" width="29.4118%" height="15" fill="rgb(226,22,26)"/><text x="67.8971%" y="175.50">procinfo::pid::stat::stat_task::h6dc9eae82fe93c..</text></g><g><title>procinfo::pid::stat::parse_stat::hcd6d651a7eccb036 (5 samples, 14.71%)</title><rect x="82.3529%" y="149" width="14.7059%" height="15" fill="rgb(217,163,10)"/><text x="82.6029%" y="159.50">procinfo::pid::stat::p..</text></g><g><title>procinfo::parsers::parse_usize::h248ab5119f96a616 (2 samples, 5.88%)</title><rect x="91.1765%" y="133" width="5.8824%" height="15" fill="rgb(213,25,53)"/><text x="91.4265%" y="143.50">procinf..</text></g><g><title>core::str::run_utf8_validation::h97e7df6de8a2d699 (1 samples, 2.94%)</title><rect x="94.1176%" y="117" width="2.9412%" height="15" fill="rgb(252,105,26)"/><text x="94.3676%" y="127.50">co..</text></g><g><title>all (34 samples, 100%)</title><rect x="0.0000%" y="373" width="100.0000%" height="15" fill="rgb(220,39,43)"/><text x="0.2500%" y="383.50"></text></g><g><title>tso (1 samples, 2.94%)</title><rect x="97.0588%" y="357" width="2.9412%" height="15" fill="rgb(229,68,48)"/><text x="97.3088%" y="367.50">tso</text></g><g><title>Unknown (1 samples, 2.94%)</title><rect x="97.0588%" y="341" width="2.9412%" height="15" fill="rgb(252,8,32)"/><text x="97.3088%" y="351.50">Un..</text></g><g><title>__clone (1 samples, 2.94%)</title><rect x="97.0588%" y="325" width="2.9412%" height="15" fill="rgb(223,20,43)"/><text x="97.3088%" y="335.50">__..</text></g><g><title>start_thread (1 samples, 2.94%)</title><rect x="97.0588%" y="309" width="2.9412%" height="15" fill="rgb(229,81,49)"/><text x="97.3088%" y="319.50">st..</text></g><g><title>std::sys::unix::thread::Thread::new::thread_start::h3f42d1616b825de5/std::sys_common::thread::start_thread::h0647e91c8800cb8c/&lt;alloc::boxed::Box&lt;F&gt; as core::ops::function::FnOnce&lt;A&gt;&gt;::call_once::h8471b989095c2da7 (1 samples, 2.94%)</title><rect x="97.0588%" y="293" width="2.9412%" height="15" fill="rgb(236,28,36)"/><text x="97.3088%" y="303.50">st..</text></g><g><title>&lt;alloc::boxed::Box&lt;F&gt; as core::ops::function::FnOnce&lt;A&gt;&gt;::call_once::hbabfae4f70ab9609 (1 samples, 2.94%)</title><rect x="97.0588%" y="277" width="2.9412%" height="15" fill="rgb(249,185,26)"/><text x="97.3088%" y="287.50">&lt;a..</text></g><g><title>core::ops::function::FnOnce::call_once{{vtable.shim}}::hc5888f1257529261/std::thread::Builder::spawn_unchecked::{{closure}}::h388d5d3e59427585/std::panic::catch_unwind::h568812465744b05d/std::panicking::try::h67d4a77b41da8bfe/std::panicking::try::do_call::ha3c184b8152ade0c/&lt;std::panic::AssertUnwindSafe&lt;F&gt; as core::ops::function::FnOnce&lt;()&gt;&gt;::call_once::heb8f6d653820c717/std::thread::Builder::spawn_unchecked::{{closure}}::{{closure}}::h3b18ee99ef2b7d91 (1 samples, 2.94%)</title><rect x="97.0588%" y="261" width="2.9412%" height="15" fill="rgb(249,174,33)"/><text x="97.3088%" y="271.50">co..</text></g><g><title>std::sys_common::backtrace::__rust_begin_short_backtrace::h17f203ef6e8635f8/tokio_threadpool::pool::Pool::spawn_thread::{{closure}}::h2d9c43bf0a9d4e70/tokio_threadpool::worker::Worker::do_run::h14648848330febdd/std::thread::local::LocalKey&lt;T&gt;::with::h406236a3963d0f17/std::thread::local::LocalKey&lt;T&gt;::try_with::hd5732e3778948dbd/tokio_threadpool::worker::Worker::do_run::{{closure}}::h8c62a7e58e4dcad0/tokio_executor::global::with_default::h27bb04a45da11f83/std::thread::local::LocalKey&lt;T&gt;::with::h8837e01f011f715b/std::thread::local::LocalKey&lt;T&gt;::try_with::h3c09342286dba0e9/tokio_executor::global::with_default::{{closure}}::h200f88418d48c01e/tokio_threadpool::worker::Worker::do_run::{{closure}}::{{closure}}::h747469b7fc8fe789 (1 samples, 2.94%)</title><rect x="97.0588%" y="245" width="2.9412%" height="15" fill="rgb(233,201,37)"/><text x="97.3088%" y="255.50">st..</text></g><g><title>tokio_threadpool::worker::Worker::run::h521b8898a30230c1/tokio_threadpool::worker::Worker::try_run_task::hcc80bebc91dcf46f/tokio_threadpool::worker::Worker::try_run_owned_task::hafeae1282988fcd4 (1 samples, 2.94%)</title><rect x="97.0588%" y="229" width="2.9412%" height="15" fill="rgb(221,78,26)"/><text x="97.3088%" y="239.50">to..</text></g><g><title>tokio_threadpool::worker::Worker::run_task::h53a922c6874186c1/tokio_threadpool::worker::Worker::run_task2::hf1a8aa22987ad6b7/tokio_threadpool::task::Task::run::h74809930135bed07/std::panic::catch_unwind::h516f9c250d8b1628/std::panicking::try::h1ace0013474bc494/std::panicking::try::do_call::hacb06146667ec22b/&lt;std::panic::AssertUnwindSafe&lt;F&gt; as core::ops::function::FnOnce&lt;()&gt;&gt;::call_once::haaef7f40048e1e74/core::ops::function::FnOnce::call_once::hba38129af4349aaf/tokio_threadpool::task::Task::run::{{closure}}::h8216b7379ef412d8/futures::task_impl::Spawn&lt;T&gt;::poll_future_notify::hfc841ec3625e01d1/futures::task_impl::Spawn&lt;T&gt;::poll_fn_notify::h66f8b38ddb2542ac/futures::task_impl::Spawn&lt;T&gt;::enter::h45ec864c729dc7e0/futures::task_impl::std::set::h562a34086a690639/futures::task_impl::Spawn&lt;T&gt;::enter::{{closure}}::hf62823867da02a48/futures::task_impl::Spawn&lt;T&gt;::poll_future_notify::{{closure}}::hbbf637f05a29ac80/&lt;alloc::boxed::Box&lt;F&gt; as futures::future::Future&gt;::poll::hc61bb95229ddbbb3 (1 samples, 2.94%)</title><rect x="97.0588%" y="213" width="2.9412%" height="15" fill="rgb(250,127,30)"/><text x="97.3088%" y="223.50">to..</text></g><g><title>&lt;futures::future::then::Then&lt;A,B,F&gt; as futures::future::Future&gt;::poll::hf9d2e63e29a33a0c/futures::future::chain::Chain&lt;A,B,C&gt;::poll::hf67165655f06431c/&lt;futures::future::then::Then&lt;A,B,F&gt; as futures::future::Future&gt;::poll::{{closure}}::h4727793b6c695712/cdc::endpoint::Endpoint&lt;T&gt;::register_min_ts_event::{{closure}}::ha3117e0dd4f4effd/core::ptr::real_drop_in_place::hda0f6081b3831d06 (1 samples, 2.94%)</title><rect x="97.0588%" y="197" width="2.9412%" height="15" fill="rgb(230,49,44)"/><text x="97.3088%" y="207.50">&lt;f..</text></g><g><title>core::ptr::real_drop_in_place::hb1ef5a51c7079053/core::ptr::real_drop_in_place::h2df3c956db9e8147/&lt;alloc::sync::Arc&lt;T&gt; as core::ops::drop::Drop&gt;::drop::hc2cbf4a463e14b86/core::sync::atomic::AtomicUsize::fetch_sub::h94b98f199b5c978f/core::sync::atomic::atomic_sub::h8cb1ed8fda1c15f3 (1 samples, 2.94%)</title><rect x="97.0588%" y="181" width="2.9412%" height="15" fill="rgb(229,67,23)"/><text x="97.3088%" y="191.50">co..</text></g></svg></svg>
