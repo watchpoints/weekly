@@ -17,7 +17,7 @@ categories: ["code_reading"]
 
 
 
-OceanBase Deploy （简称 OBD）是 OceanBase 开源软件的安装部署工具
+OceanBase Deploy （简称 OBD）是 OceanBase 开源软件的安装部署工具÷÷
 
 ### 步骤1 源码编译OceanBase：
 
