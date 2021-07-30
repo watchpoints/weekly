@@ -36,3 +36,28 @@ Once you get things done, you’ll realize you are getting closer to your goals
 -  Concentrate all your thoughts upon the work at hand. The sun's rays do not burn until brought to a focus.
 
 ​      将你所有的思想集中在手头的工作上。 太阳光线在聚焦之前不会燃烧。
+
+
+
+
+
+- Disciplining yourself to do what you know is right and important, although difficult, is the high road to pride, self-esteem and personal satisfaction.
+
+  Margaret Thatcher
+
+  
+
+  约束自己去做你认为正确和重要的事情，尽管困难重重，但这是通往骄傲、自尊和个人满足的捷径 – Margaret Thatcher 撒切尔夫人
+
+  
+
+  https://philosiblog.com/2011/04/18/disciplining-yourself-to-do/
+
+
+
+- Thanks for your response.
+
+We will fix this issue in this release or the next release.
+
+In our plan, we will release one version per month.
+
