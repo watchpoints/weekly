@@ -1,4 +1,5 @@
 ---
+
 title: "SRS官方文档和学习路径"
 date: 2021-06-06
 description: "高性能可扩展服务"
@@ -347,9 +348,47 @@ https://github.com/ossrs/srs/issues/1607#issuecomment-586543387
 
 
 
-## 第三天
+## 第三天 
 
 # SRS之启用webrtc播放
 
 
+
+
+
+## todo 跟踪issue去学习
+
+- [ ]  https://github.com/ossrs/srs/issues/2449 SRS webrtc 播放出现灰屏现象 #2449
+
+webrtc不支持B帧，看看是不是这个原因。[#2439 (comment)](https://github.com/ossrs/srs/issues/2439#issuecomment-868208452)
+
+您好，通过 ffmpeg 推 RTMP 时已经去除了 B 帧
+
+https://github.com/ossrs/srs/issues/2439
+
+
+
+- "设置"-> "输出" -> 高级 -> profile 选"baseline", webrtc不支持B帧
+
+H.264有四种画质级别,分别是baseline, extended, main, high：
+
+1、Baseline Profile：基本画质。支持I/P 帧，只支持无交错（Progressive）和CAVLC；
+
+从压缩比例来说，baseline< main < high ，对于带宽比较局限的在线视频，可能会选择high，
+
+- ```
+  ffmpeg -i input.mp4 -c:v libx264 -preset fast -profile:v baseline out.mov
+  ```
+
+
+
+~~~
+H.264有四种画质级别,分别是baseline, extended, main, high：
+
+1、Baseline Profile：基本画质。支持I/P 帧，只支持无交错（Progressive）和CAVLC；
+2、Extended profile：进阶画质。支持I/P/B/SP/SI 帧，只支持无交错（Progressive）和CAVLC；(用的少)
+3、Main profile：主流画质。提供I/P/B 帧，支持无交错（Progressive）和交错（Interlaced）， 也支持CAVLC 和CABAC 的支持；
+4、High profile：高级画质。在main Profile 的基础上增加了8x8内部预测、自定义量化、 无损视频编码和更多的YUV 格式；
+　　H.264 Baseline profile、Extended profile和Main profile都是针对8位样本数据、4:2:0格式(YUV)的视频序列。在相同配置情况下，High profile（HP）可以比Main profile（MP）降低10%的码率。 根据应用领域的不同，Baseline profile多应用于实时通信领域，Main profile多应用于流媒体领域，High profile则多应用于广电和存储领域。
+~~~
 

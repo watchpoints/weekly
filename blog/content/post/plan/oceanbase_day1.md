@@ -93,14 +93,28 @@ sysctl -p
 - 启动
 
   ~~~shell
+  参考：https://gitee.com/oceanbase/obdeploy
+  
   hostname oceanbase
+  obd cluster deploy obtest -c mini-local-example.yaml
+  
   obd cluster edit-config obtest
   obd cluster redeploy obtest
   obd cluster start obtest
-  ~~~
-
+  obd cluster stop obtest
   
-
+  
+  # 参看obd管理的集群列表
+  obd cluster list
+  # 查看 lo 集群状态
+  obd cluster display obtest
+  
+  obd cluster destroy obtest
+  
+  ~~~
+  
+  
+  
   
 
 
@@ -208,7 +222,38 @@ void wait() override;//
 ~~~
 ~~~
 
+## Thread 495 日志模块
 
+~~~c++
+Thread 495 (Thread 0x7fdc587dc700 (LWP 31402)):
+
+\#0 0x00007fdc669c2a82 in pthread_cond_timedwait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+
+\#1 0x0000000008ffbe65 in oceanbase::common::ObBaseLogWriter::flush_log() ()
+
+\#2 0x0000000008ffb855 in oceanbase::common::ObBaseLogWriter::flush_log_thread(void*) ()
+
+\#3 0x00007fdc669bedc5 in start_thread () from /lib64/libpthread.so.0
+
+\#4 0x00007fdc663eb76d in clone () from /lib64/libc.so.6
+
+Thread 494 (Thread 0x7fdc0b9f3700 (LWP 31524)):
+
+\#0 0x00007fdc669c2a82 in pthread_cond_timedwait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+
+\#1 0x0000000008ffbe65 in oceanbase::common::ObBaseLogWriter::flush_log() ()
+
+\#2 0x0000000008ffb855 in oceanbase::common::ObBaseLogWriter::flush_log_thread(void*) ()
+
+\#3 0x00007fdc669bedc5 in start_thread () from /lib64/libpthread.so.0
+
+\#4 0x00007fdc663eb76d in clone () from /lib64/libc.so.6
+~~~
+
+
+
+~~~
+~~~
 
 ## 暂停 没看懂
 
@@ -412,6 +457,92 @@ https://blog.csdn.net/qq910894904/article/details/32322909?spm=1001.2014.3001.55
 
  TiDB 源码阅读系列文章（四）Insert 语句概览
  https://pingcap.com/blog-cn/tidb-source-code-reading-4/
+
+
+
+# 开源数据库OceanBase代码导读
+
+
+
+### sql 执行过程
+
+
+
+split_multiple_stmt
+
+首先通过ObParser的一个快速解析入口split_multiple_stmt把每条语句拆分出来，对每条语句process_single_stmt
+
+
+
+~~~c++
+int ObMPQuery::process_single_stmt(const ObMultiStmtItem& multi_stmt_item, ObSQLSessionInfo& session,
+
+  bool has_more_result, bool force_sync_resp, bool& async_resp_used, bool& need_disconnect)
+~~~
+
+
+
+
+
+
+
+
+
+开源数据库OceanBase代码导读（1）
+
+https://zhuanlan.zhihu.com/p/379437192
+
+
+
+
+
+### 开源数据库OceanBase代码导读（11）
+
+（8）分布式事务
+
+https://zhuanlan.zhihu.com/p/385944563
+
+
+
+
+
+
+
+- 开源数据库OceanBase代码导读（13）（10）事务日志的提交和回放
+
+  
+
+  https://zhuanlan.zhihu.com/p/389202627
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+# 社区问题
+
+
+
+## 第一题：在线ddl操作 【开始--】
+
+https://open.oceanbase.com/answer/detail?id=340 
+
+https://zhuanlan.zhihu.com/p/48370599
+
+- OceanBase v2.2.50 官方教程
+
+https://www.bookstack.cn/read/oceanbase-2.2.50-zh/%e4%ba%86%e8%a7%a3OceanBase%e6%95%b0%e6%8d%ae%e5%ba%93.md
+
+
+
+
 
 
 

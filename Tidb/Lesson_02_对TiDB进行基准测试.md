@@ -241,7 +241,6 @@ Tidb： 部分截图
 > 采用默认脚本：/usr/local/share/sysbench
 >
 > sysbench-thread-1.cfg 执行 :%s/^M//g　来去掉^M ^M是使用 "CTRL-V CTRL-M"
->
 
 
 
@@ -289,7 +288,6 @@ Tidb： 部分截图
 - 小白提问 
 
   1. 什么是workload负载类型  ？就是测试用例
-  
 ~~~shell
   root@money:/data/tidb/src/github.com/pingcap/go-ycsb/workloads# ls
   minio  workloada  workloadb  workloadc  workloadd  workloade  workloadf  workload_template
@@ -699,6 +697,16 @@ curl http://127.0.0.1:10080/debug/zip --output tidb_debug.zip
 
 
 
+ tiup cluster stop tidb-test
+
+
+
+
+
+
+
+
+
 ### 参考
 
 - [性能排查手册](https://asktug.com/_/tidb-performance-map)
@@ -722,6 +730,10 @@ curl http://127.0.0.1:10080/debug/zip --output tidb_debug.zip
 - [1.3.1 基于 TiUP cluster 的集群扩缩容](https://book.tidb.io/session2/chapter1/tiup-cluster-scale.html)
 
 - https://docs.pingcap.com/zh/tidb/stable/scale-tidb-using-tiup
+
+- 
+
+- 
 
   
 

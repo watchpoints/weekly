@@ -1,174 +1,126 @@
 
 ---
-title: "字符串总结"
-date: 2020-06-02
+title: "leetcode 题目分类"
+date: 2021-07-28
 description: ""
 draft: false
 tags: ["Interview Question"]
+
 categories: ["Leetcode"]
 ---
-# 第一题 387. 字符串中的第一个唯一字符
+# 
+
+## 如何刷题
+
+Happy coding! Enjoy Algorithms.
+
+Happy coding! Enjoy Algorithms.
+
+Happy coding! Enjoy Algorithms.
+
+
+
+1. 关于具体刷题，我只说第一遍，我是怎么刷的。
+
+前500题：抄。就是直接看答案抄！完美解决没基础看不懂，
+
+
+
+不会做，做题枯燥等种种问题。
+
+
+
+
+
+2. 个人感觉： 熟练度 >>>>> （远重要于）抖小聪明。
+
+ 
+
+>  流畅的表达，简介明了的思路远好于在白板上磨磨蹭蹭的推导。
+>
+> 这也回到第一点，反复刷同样的题非常重要。
+
+
+
+> 其实，8-10遍高频效果是最好的，这基本就是到另一个境界了。
+
+当然，大家没有那么多时间，3-5遍也可以去面试了。
+
+
+
+3. Talk out loud，这个不仅仅是说在面试的时候你要说出你的思路。
+
+> 刷题的时候也是！你第一遍可以不开口，但后面几遍，一定要开口说话！！
+
+刷题是为了面试，面试第一看的是communication skill! 
+
+不在刷题的时候开口，到面试的时候才意识到沟通不畅就太晚了。
+
+其实，我觉得，在刚开始的时候完全没必要思考，做题。因为初学者啥也不会。
+
+自己拼命想，写两题就被劝退不想再做了。
+
+
+
+1. https://afteracademy.com/tech-interview/ds-algo-concepts 题目总结和这个对比起来。
+
+[https://leetcode-cn.com/problemset/all/](https://leetcode-cn.com/problemset/all)
+
+
+
+## 数组
+
+
+
+## 字符串
+
+
+
+
+
+1. 字符串相加
+
+\- https://www.nowcoder.com/questionTerminal/c850773943af4f45a7a5fddc9eef4852?orderByHotValue=0&mutiTagIds=5050&page=1&onlyReference=false
+
+\- https://leetcode-cn.com/problems/add-strings/
+
+
+
+## 单链表
+
+
+
+1. **NC23** **划分链表** 
+
+https://www.nowcoder.com/practice/1dc1036be38f45f19000e48abe00b12f?tpId=188&&tqId=38668&rp=1&ru=/activity/oj&qru=/ta/job-code-high-week/question-ranking
+
+https://leetcode-cn.com/problems/partition-list/
+
+
+
+## 二叉树
+
+
+
+## 图
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+----------------------
 
 ### 一、**题目信息**
-
-今天来做这个题目，自己注意力完全被 第一次 这个约束困扰了，回顾常见的数据结构,map,hash,都不具备维持原有输入顺序,
-map做排序的，hash是无序的。怎么办，马上想到数组,vector这样结果，
-因此我自己构造了一个数组为位置每个字符的出现顺序。
-
-缺没想到 输入条件 就是数组，顺序遍历 就获取第一次。只不过这个有重复元素的。
-自己反复思索，根本无法想到这一点。这个题目不容易。
-
-> 更没体会到unorder_map 精髓就是无序的，因此需要你通过遍历原始数据。必须制定查询条件。
-
-387. 字符串中的第一个唯一字符
- https://leetcode.com/problems/first-unique-character-in-a-string/
-
-
-### 二、**题目描述**
-> 算法是问题求解过程的一种描述，看看这个题目是怎么描述的吧。
-
-### 三、**算法描述**
-> 能说出基本思想即可,实在不行动手画个流程图把。
-
-
-
-### 四、**参考代码**
-> 放轻松，虽然是c++实现，我们一贯宗旨是拒绝奇技淫巧，不懂代码一看就明白
-
-~~~
-class Solution {
-public:
-     /**
-      * 1  统计字符出现次数，你马上想到就是key/value，就是散列表。
-      *  为什么不是map呢因为我不太清楚，https://www.youtube.com/watch?v=ncHmEUmJZf4 C++性能优化指南.pdf 大约消耗4个小时阅读。
-      * 
-      * 2. 返回第一个唯一字符索引,马上想到顺序遍历string，下标从0开始，这个是连续的。注意遍历不是hash表
-      * 3. 为什么不用排序，排序后原始位置发送改变。
-      */
-    int firstUniqChar(string s) {
-
-      //01 n=26 数据量很少,此时数组性能高于hashmap
-      int hash[26]={0}; 
-      for(auto temp:s)
-      {
-          hash[temp-'a']++; //假如当前是'a'-'a'=0, 第一个字母放到第一个位置
-      }
-
-      //02 遍历hash遇到第一个不是期望的结果
-      for(int i=0;i<s.size();i++)
-      {
-           if( hash[s[i]-'a'] == 1)
-           {
-               return i;
-           }
-      }
-     return -1;
-    }
-};
-~~~
-
-
-### 五、举一反三
-> 别人最佳答案并不重要，关键是自己理解。
-
-
-
-# 第二题 [389] 找不同
-
- [389] 找不同
- * https://leetcode-cn.com/problems/find-the-difference/description/
-
-### 二、**题目描述**
-> 看看这个题目是怎么描述的吧。
-
-今天来做这个题目，自己注意力完全被 给2个字符串限制住了，
-和hash有什么关系，开始想的为每个字符串 建立各自hash。来避免单个字符o(n)查找。
-最后做不下去来了。给我2个hash，我无法比较呀，只能从第一个位置开始比较.
-你有，我也有，你有我没有，这个不知道如何描述了。
-过去经验比较字符串大小 是否相等 忘记了 返回值 三个情况。
-这是数学问题。
-
-### 三、**算法描述**
-> 能说出基本思想即可,实在不行动手画个流程图把。
-
-1. 字符串无论多长，均有26个字符组成，定义全局遍历数组hash,下标代表 位置，内容表示个数
-2. 因为t比s多一个字符,有限统计t hash[t[i] - 'a']++; 
-3. 遍历s, s出现一次，在t中减去一次。  hash[s[i] - 'a']--;
-  最后结果二个情况 等于0 ，等于1
-4. 判断hash中等于1的位置。
-
-### 四、**参考代码**
-> 放轻松，虽然是c++实现，我们一贯宗旨是拒绝奇技淫巧，不懂代码一看就明白
-
-~~~
-// @lc code=start
-class Solution
-{
-public:
-    /***
-     *  随机重排，然后在随机位置添加一个字母 说明跟顺序无关系，采用hash存储
-     * */
-    char findTheDifference(string s, string t)
-    {
-
-        int hash[26] = {0}; //用数组替代哈希表,一般来说元素位置和规模无关系。
-
-        //统计字符s出现次数
-        for (int i = 0; i < s.size(); i++)
-        {
-            hash[s[i] - 'a']++;
-        }
-
-        //减去字符t出现的次数，三个情况 都不存在 0-0=0 ，都存在 i-i=0,t比s多一个单词 0-1=-1
-        for (int i = 0; i < t.size(); i++)
-        {
-
-            hash[t[i] - 'a']--;
-            if (-1 == hash[t[i] - 'a'])
-            {
-                return t[i]; //这个可以马上返回，无需遍历全部。理想情况[b c] [a b c ]
-            }
-        }
-
-        return -1;
-    }
-};
-~~~
-
-### 五、举一反三
-> 别人最佳答案并不重要，关键是自己理解。
-
-
-
-# 第三题  distribute-candies
-
-### 一、**题目信息**
-
-今天来做这个题目
-[575] 分糖果 https://leetcode-cn.com/problems/distribute-candies/description/
-
-~~~
- 输入: candies = [1,1,2,2,3,3]
- * 输出: 3
- * 解析: 一共有三种种类的糖果，每一种都有两个。
- * ⁠    最优分配方案：妹妹获得[1,2,3],弟弟也获得[1,2,3]。这样使妹妹获得糖果的种类数最多。
- * 
- * 
- * 示例 2 :
- * 
- * 
- * 输入: candies = [1,1,2,3]
- * 输出: 2
- * 解析: 妹妹获得糖果[2,3],弟弟获得糖果[1,1]，妹妹有两种不同的糖果，弟弟只有一种。这样使得妹妹可以获得的糖果种类数最多。
- * 
- * 
- * 注意:
- * 
- * 
- * 数组的长度为[2, 10,000]，并且确定为偶数。
- * 数组中数字的大小在范围[-100,000, 100,000]内。
- * 
-~~~
 
 ### 二、**题目描述**
 > 算法是问题求解过程的一种描述，看看这个题目是怎么描述的吧。
