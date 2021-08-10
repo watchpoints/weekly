@@ -1,14 +1,9 @@
 
 #include <iostream>
 #include <vector>
+#include "list_odd.h"
+#include "base.h"
 using namespace std;
-struct ListNode {
-      int val;
-      ListNode *next;
-      ListNode() : val(0), next(nullptr) {}
-      ListNode(int x) : val(x), next(nullptr) {}
-      ListNode(int x, ListNode *next) : val(x), next(next) {}
-};
 //206. 反转链表
 class Solution {
 public:
@@ -173,28 +168,47 @@ public:
 
 void show(vector<int>& input)
 {  
-  cout << "the right :";
   for(int i =0;i<input.size();i++)
   {
       cout<< input[i] << " ";
   }
+  cout <<endl;
+}
+
+void test10()
+{    
+    vector<int> test={1,2,3,4,5};
+    vector<int> right={1,3,5,2,4};
+
+    ListNode* pInput= createList(test);
+    cout<< "input: " <<endl;
+    show(pInput);
+    cout<< "right output: "  <<endl;
+    show(right);
+
+    Solution10 s10;
+    ListNode* pOnput=s10.oddEvenList(pInput);
+    cout<< "my output: " <<endl;
+    show(pOnput);
 }
 //g++ -std=c++11 tag_list_01.cpp
 int main()
-{   
+{   /**
     //vector<int> test={1,2,3,4,5};
     vector<int> test={5,4,3,2,1};
     vector<int> right={2,1,5,4,3};
 
     ListNode* pInput= createList(test);
-    cout<< "input: " ;
+    cout<< "input: " <<endl;
     show(pInput);
-    
-   Solution3 s3;
-   ListNode* pOnput=s3.partition(pInput,3);
-    cout<< "outut: " ;
-    show(pOnput);
+    cout<< "right output: "  <<endl;
+    show(right);
 
+    Solution3 s3;
+    ListNode* pOnput=s3.partition(pInput,3);
+    cout<< "my outut: " <<endl;
+    show(pOnput);**/
+    test10();
     return 0; 
 }
 

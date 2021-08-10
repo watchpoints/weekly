@@ -8,7 +8,7 @@ tags: ["Interview Question"]
 
 categories: ["Leetcode"]
 ---
-# 
+
 
 ## 如何刷题
 
@@ -17,6 +17,85 @@ Happy coding! Enjoy Algorithms.
 Happy coding! Enjoy Algorithms.
 
 Happy coding! Enjoy Algorithms.
+
+https://leetcode-cn.com/problemset/all)
+
+
+
+solution
+
+
+
+1. 思路
+2. 细节
+3. 时间复杂度：
+
+# plan 
+
+
+
+任务：leetcode 哪些0-50 题目 看 5遍。预计1个月  开始日期：2021-8-7号。-2021-9-7
+
+
+
+任务：leetcode 哪些50-100 题目 看 5遍。预计1个月  开始日期：9-7号。
+
+
+
+任务：leetcode 哪些100-150 题目 看 5遍。预计1个月  开始日期：10-7号。
+
+
+
+
+
+## 数组
+
+
+
+## 字符串
+
+
+
+- 求一个字符串的最长回文子串。
+- 无重复字符的最长子串 3 
+
+https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/solution/ru-he-mo-hu-wen-ti-ju-ti-hua-fu-za-wen-t-m3zd/
+
+
+
+
+
+
+
+
+
+## 单链表 [ok]
+
+
+
+1. **NC23** **划分链表** 
+
+https://www.nowcoder.com/practice/1dc1036be38f45f19000e48abe00b12f?tpId=188&&tqId=38668&rp=1&ru=/activity/oj&qru=/ta/job-code-high-week/question-ranking
+
+https://leetcode-cn.com/problems/partition-list/
+
+
+
+2. https://afteracademy.com/tech-interview/ds-algo-concepts/array-and-linked-list [12个题目都很经典]
+
+
+
+
+
+## 二叉树
+
+
+
+
+
+## 图
+
+
 
 
 
@@ -42,7 +121,7 @@ Happy coding! Enjoy Algorithms.
 
 >  流畅的表达，简介明了的思路远好于在白板上磨磨蹭蹭的推导。
 >
-> 这也回到第一点，反复刷同样的题非常重要。
+>  这也回到第一点，反复刷同样的题非常重要。
 
 
 
@@ -66,112 +145,41 @@ Happy coding! Enjoy Algorithms.
 
 
 
-1. https://afteracademy.com/tech-interview/ds-algo-concepts 题目总结和这个对比起来。
+https://afteracademy.com/tech-interview/ds-algo-concepts 
 
-[https://leetcode-cn.com/problemset/all/](https://leetcode-cn.com/problemset/all)
+题目总结和这个对比起来。
 
+[https://leetcode-cn.com/problemset/all/](
 
 
-## 数组
 
+## 这个总结超级棒
 
+https://afteracademy.com/tech-interview/ds-algo-concepts
 
-## 字符串
 
 
+### 第一章节：Complexity Analysis [背后考察是数学知识]
 
+- 必须掌握时间复杂度计算 Big O notation example of Algorithms
 
+​	solution  ***O(1)\***
 
-1. 字符串相加
+https://mp.weixin.qq.com/s/A-GbSWvbB5TvXJUAXfxFyA
 
-\- https://www.nowcoder.com/questionTerminal/c850773943af4f45a7a5fddc9eef4852?orderByHotValue=0&mutiTagIds=5050&page=1&onlyReference=false
+https://afteracademy.com/blog/time-and-space-complexity-analysis-of-algorithm
 
-\- https://leetcode-cn.com/problems/add-strings/
+https://stackoverflow.com/questions/8185079/how-to-calculate-binary-search-complexity
 
+- 大话数据结构。p54 p60 p61  p63
 
+![image-20210807163137506](image/image-20210807163137506.png)
 
-2. 最长不重复子串。
-
-   给定一个字符串 `s` ，请你找出其中不含有重复字符的 **最长子串** 的长度。
-
-   https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/
-
-   
-
-## 单链表
-
-
-
-1. **NC23** **划分链表** 
-
-https://www.nowcoder.com/practice/1dc1036be38f45f19000e48abe00b12f?tpId=188&&tqId=38668&rp=1&ru=/activity/oj&qru=/ta/job-code-high-week/question-ranking
-
-https://leetcode-cn.com/problems/partition-list/
-
-
-
-## 二叉树
-
-
-
-## 图
-
-
-
-
-
-
-
-
-
-### 一、思路
->  能说出基本实现步骤,实在不行动手画个流程图
-
-用一个 hashmap 来建立字符和其出现位置之间的映射。
-
-
-
-维护一个滑动窗口，窗口内的都是没有重复的字符，去尽可能的扩大窗口的大小，窗口不停的向右滑动。
-
-（1）如果当前遍历到的字符从未出现过，那么直接扩大右边界；
-
-（2）如果当前遍历到的字符出现过，则缩小窗口（左边索引向右移动??），然后继续观察当前遍历到的字符；
-
-（3）重复（1）（2），直到左边索引无法再移动；
-
-（4）维护一个结果 res，每次用出现过的窗口大小来更新结果 res，最后返回 res 获取结果。
-
-### 二、关键点
-
-
-
-用一个 mapper 记录出现过并且没有被删除的字符
-
-用一个滑动窗口记录当前 index 开始的最大的不重复的字符序列
-
-用 res 去记录目前位置最大的长度，每次滑动窗口更新就去决定是否需要更新 res
-
-
-
-
-
-
-
-### 三、 代码
-
-> 放轻松，虽然是c++实现，我们一贯宗旨是拒绝奇技淫巧，不懂代码一看就明白
-
-
-
-
-
-### 四、举一反三
-
-> 别人最佳答案并不重要，关键是自己理解。 
-
-
-
-​	
+![image-20210807163150210](image/image-20210807163150210.png)
 
 ----------------------
+
+
+
+## Dynamic Programming
 
