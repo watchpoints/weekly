@@ -1,0 +1,13 @@
+https://github.com/wangcy6/Design-Patterns-GoF/tree/master/Behavioral_Patterns/Strategy
+
+http://www.c-jump.com/CIS75/Week11/
+
+https://www.infoq.com/presentations/gof-patterns-c-plus-plus-boost/
+https://github.com/Waleon/DesignPatterns
+https://waleon.blog.csdn.net/article/details/66974516
+1 https://github.com/wangyang135/DesignPatterns/tree/master/src/cn/design
+2 https://github.com/Siricee/Design_Patterns
+3 https://github.com/micooz/DesignPattern
+
+///
+https://blog.csdn.net/gx864102252/article/details/80739885?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.control

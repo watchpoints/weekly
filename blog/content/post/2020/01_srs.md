@@ -15,6 +15,12 @@ https://mp.weixin.qq.com/s/AZhSQbCMBlaZv-0-myc1zg
 
 https://ossrs.net/releases/
 
+Introduction 
+
+Problem
+
+solucction
+
 
 
 ## 第一天：快速预览
@@ -391,4 +397,40 @@ H.264有四种画质级别,分别是baseline, extended, main, high：
 4、High profile：高级画质。在main Profile 的基础上增加了8x8内部预测、自定义量化、 无损视频编码和更多的YUV 格式；
 　　H.264 Baseline profile、Extended profile和Main profile都是针对8位样本数据、4:2:0格式(YUV)的视频序列。在相同配置情况下，High profile（HP）可以比Main profile（MP）降低10%的码率。 根据应用领域的不同，Baseline profile多应用于实时通信领域，Main profile多应用于流媒体领域，High profile则多应用于广电和存储领域。
 ~~~
+
+
+
+
+
+## 启动
+
+1、首先分析RTMP连接 
+
+```html
+int SrsServer::listen_rtmp()
+int SrsConnection::cycle()
+```
+
+https://www.jianshu.com/p/324f3c18807b
+
+https://blog.csdn.net/ManagerUser/article/details/73840130
+
+Introduction 
+
+Problem
+
+solucction
+
+
+
+
+
+王兴才
+济南 历城区  兴港路 天齐·奥东花园 4号楼 2单元 802 
+
+居住时间：2019年5月至今
+
+第一针 2021年3月25
+
+第二针 2021年05月16
 
