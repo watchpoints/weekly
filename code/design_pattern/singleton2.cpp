@@ -104,3 +104,6 @@ int main()
 //https://stackoverflow.com/questions/48780550/why-make-unique-fails-with-private-constructor
 //https://en.cppreference.com/w/cpp/language/pimpl
 //https://stackoverflow.com/questions/24095071/incomplete-type-in-nested-name-specifiers
+//https://www.cnblogs.com/novice-dxx/p/7094690.html
+//深入理解函数内静态局部变量初始化
+//函数内部的静态局部变量的初始化是在函数第一次调用时执行; 在之后的调用中不会对其初始化
