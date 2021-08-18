@@ -97,6 +97,48 @@ https://leetcode-cn.com/problems/partition-list/
 
 
 
+1. LeetCode：访问所有节点的最短路径【847】
+
+​    https://leetcode-cn.com/problems/shortest-path-visiting-all-nodes/
+
+   https://www.programminghunter.com/article/3610285945/
+
+
+
+#### Graph questions
+
+- [Is Graph Bipartite?](https://afteracademy.com/problems/is-graph-bipartite)
+- [Number of Islands](https://afteracademy.com/problems/number-of-islands)
+- [Word Ladder Problem](https://afteracademy.com/problems/word-ladder-problem)
+- [Smallest Multiple with 0 and 1](https://afteracademy.com/problems/smallest-multiple-with-0-and-1)
+- [Course Schedule](https://afteracademy.com/problems/course-schedule)
+
+https://leetcode-cn.com/problems/course-schedule/
+
+https://leetcode-cn.com/problems/course-schedule/solution/course-schedule-tuo-bu-pai-xu-bfsdfsliang-chong-fa/
+
+
+
+https://leetcode-cn.com/problems/course-schedule-ii/
+
+
+
+- [Knight on Chessboard](https://afteracademy.com/problems/knight-on-chessboard)
+
+
+
+
+
+2. 79. Word Search
+
+   https://leetcode.com/problems/word-search/
+
+   longest-increasing-path-in-a-matrix
+
+   https://leetcode-cn.com/problems/longest-increasing-path-in-a-matrix/
+
+   
+
 
 
 1. 关于具体刷题，我只说第一遍，我是怎么刷的。
@@ -183,3 +225,6 @@ https://stackoverflow.com/questions/8185079/how-to-calculate-binary-search-compl
 
 ## Dynamic Programming
 
+1. [（动态规划）机器人走迷宫问题](https://www.cnblogs.com/Kobe10/p/6357526.html) 【ok ？】
+
+https://www.nowcoder.com/practice/166eaff8439d4cd898e3ba933fbc6358?tpId=46&tqId=29117&tPage=1&rp=1&ru=/ta/leetcode&qru=/ta/leetcode/question-ranking

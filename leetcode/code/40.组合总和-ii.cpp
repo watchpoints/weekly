@@ -36,32 +36,35 @@ public:
 
     void dfs(vector<int> &candidates, int target,int index, 
              vector<int> &path, vector<vector<int>> &result)
-    {
-        //退出条件
-        if (index >= candidates.size() ||  target < 0)
-        {
-            return ;
-        }
-        // find 
+    {   
+         // find  必须在前面，最后一个元素。
         if ( target == 0)
         {
             result.push_back(path);
         }
 
+        //退出条件
+        if (index >= candidates.size() ||  target < 0)
+        {
+            return ;
+        }
+       
+
         for(int i =index;i < candidates.size();i++)
         {  
-            /**
+           
             if ( i >index && candidates[i] == candidates[i - 1])
             {
                 continue;
-            }//解集不能包含重复的组合**/
+            }//解集不能包含重复的组合
 
            path.push_back(candidates[i]);
-           dfs(candidates,target-candidates[i],i+1,path,res);
+           dfs(candidates,target-candidates[i],i+1,path,result);
            path.pop_back();
 
         }
+    }
 
-};
+};//https://leetcode-cn.com/problems/combination-sum-ii/solution/dai-ma-sui-xiang-lu-dai-ni-xue-tou-hui-s-ig29/
 // @lc code=end
 >>>>>>> 48e533a1d75b62c6be4e956fb6759123788a80c6
