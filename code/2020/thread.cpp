@@ -117,3 +117,28 @@ int main(void)
 		test->chreat_pthread();
         return 0;
 }
+
+#include<stdio.h>
+#include<pthread.h>
+void run() {
+   pthread_exit(0);
+}
+
+int main () {
+   pthread_t thread;
+   int rc;
+   long count = 0;
+   while(1) {
+      if(rc = pthread_create(&thread, 0, run, 0) ) {
+         printf("ERROR, rc is %d, so far %ld threads created\n", rc, count);
+         perror("Fail:");
+         return ‑1;
+		 
+ //A  thread  may either be joinable or detached.  If a thread is joinable, then another thread can call pthread_join(3) to wait for the thread to terminate and fetch its exit status. 
+ 
+一个高度为3的B+树大概可以存放：1170*1170*16=21902400行数据。
+所以在InnoDB中B+树高度一般为1-3层，它就能满足千万级的数据存储。
+在查找数据时一次页的查找代表一次IO，所以通过主键索引查询通常只需要1-3次逻辑IO操作即可查找到数据。
+
+ls /proc/4095/task | wc -l
+cat /proc/4095/maps |grep stack

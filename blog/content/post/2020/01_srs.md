@@ -21,7 +21,7 @@ Problem
 
 solucction
 
-
+https://gitee.com/ossrs/srs/wikis/v4_CN_Home
 
 ## 第一天：快速预览
 
@@ -38,6 +38,9 @@ cd srs/trunk && ./configure && make && ./objs/srs -c conf/srs.conf
 /root/code/c++/srs/trunk
 
 nohup ./objs/srs -c conf/srs.conf &
+10.112.179.21
+/usr/local/srs 
+rtmp://10.112.179.21:1935/live/wangchuanyi
 ```
 
 - 本地obs/FFMEG
