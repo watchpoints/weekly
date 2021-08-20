@@ -546,6 +546,85 @@ https://www.bookstack.cn/read/oceanbase-2.2.50-zh/%e4%ba%86%e8%a7%a3OceanBase%e6
 
 
 
+# 第三部分：issue
+
+
+
+## 第一题：The LSM-tree storage engine into OceanBase #66
+
+
+
+### 小白提问1：
+
+https://github.com/oceanbase/oceanbase/discussions/66
+
+https://hub.fastgit.org/oceanbase/oceanbase/discussions/66
+
+
+
+ LSM-tree：
+
+ 平时写代码都是写缓存，写磁盘。着就是常规的os的文件系统。
+
+这个和 LSM-tree有区别？
+
+
+
+### 青铜理解
+
+
+
+一个文件（inode） 数据内部分为很多block，这些block 分散不同地方，然后通用block快 也合并多个请求，最后batch 操作！
+
+
+
+
+
+- mysql inno的delete比insert慢得多[ 删除操作啥东东？？？]
+
+
+
+
+
+
+
+资料：
+
+- the Log structured Merge-Tree（LSM-Tree
+
+​    https://kernelmaker.github.io/lsm-tree
+
+- **LSM Tree 架构**
+
+  https://www.oceanbase.com/docs/oceanbase-database/oceanbase-database/V3.1.2/lsm-tree-architecture
+
+  https://www.zhihu.com/question/20545708
+
+  
+
+
+
+## tak
+
+- OS 有自己的内存管理策略。 page cache 利用率到了一定程度也会刷脏。另外也有定时（秒级）刷脏策略。  OS 的策略是通用的策略，它并不熟悉 具体是什么样的程序在写文件。是代码还是办公应用，或者数据库。
+
+数据库是特殊的应用，特殊在数据的价值、重要性，普通的文件不满足数据库的需求。所以数据库软件会有自己的内存管理策略和读写模型。  LSM-Tree 就是一种读写模型，传统的关系数据库读写模型是 BTree 那种。 oB的 LSM-Tree 创新之处还在于 level 不会很高，并且增量会尽可能的在内存，延迟刷脏。OB的刷脏有 转储（类比oracle的checkpoint，ob叫 minor freeze）以及默认每天一次的 合并（merge，major freeze）
+
+
+
+- 操作系统的文件缓存 只能说有一定的相似度, 但算法是有很大区别
+
+
+
+- https://www.zhihu.com/question/20545708
+  02-17
+
+  请问我这样理解对吗？红黑树相比AVL主要优点是旋转次数少了，在并发情形下，AVL和红黑树的旋转操作都需要加锁，而红黑树的重染色过程不需加锁，所以在并发情形下红黑树的旋转操作少导致其并发性能比AVL高？
+
+  https://github.com/torvalds/linux/blob/master/Documentation/core-api/rbtree.rst
+
+  
+
 
 
 
