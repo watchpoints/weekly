@@ -4,45 +4,6 @@
 #include "list_odd.h"
 #include "base.h"
 using namespace std;
-//206. 反转链表
-class Solution {
-public:
-    /**
-            输入：head ->[1,2,3,4,5]
-            输出：head->[5,4,3,2,1]
-            https://leetcode-cn.com/problems/reverse-linked-list/solution/san-lu-zhi-zhen-wan-cheng-yuan-di-fan-zh-ij5x/
-     **/ 
-    ListNode* reverseList(ListNode* head) {
-      
-      if (head == nullptr || head->next == nullptr)
-      {
-          return head;
-      } //目的 单链表原地反转 ,默认第一个元素反转完毕，从第二个开始。【初始化条件】
-       //01 
-      //ListNode myhead(-1); //头节点插入
-      //myhead.next = head;
-      ListNode* phead =head; //      ListNode myhead(-1); //头节点插入
-      
-      //02 
-      ListNode* pcur =head->next; //从第二个元素开始
-      ListNode* ppre = head; //一定存在
-
-      while(pcur)
-      {
-          //head ->[1,2（pcur）,3,4,5]
-          ppre->next = pcur->next;
-
-          pcur->next = phead;// phead 是个指针 不是ListNode myhead(-1);
-          phead = pcur; //
-
-          pcur = ppre->next;
-      }
-
-      return phead;
-
-    }
-};
-
 class Solution1 {
 public:
     ListNode* reverseList(ListNode* head) {
@@ -96,6 +57,7 @@ ListNode* createList( vector<int>& input)
     return head.next;
 
 }
+
 void show(ListNode* phead )
 {
     while(phead)
@@ -106,6 +68,7 @@ void show(ListNode* phead )
     cout <<endl;
 
 }
+
 //86. 分隔链表
 class Solution3 {
 public:
@@ -191,9 +154,10 @@ void test10()
     cout<< "my output: " <<endl;
     show(pOnput);
 }
-//g++ -std=c++11 tag_list_01.cpp
-int main()
-{   /**
+
+//分割链表
+void test12()
+{
     //vector<int> test={1,2,3,4,5};
     vector<int> test={5,4,3,2,1};
     vector<int> right={2,1,5,4,3};
@@ -207,8 +171,15 @@ int main()
     Solution3 s3;
     ListNode* pOnput=s3.partition(pInput,3);
     cout<< "my outut: " <<endl;
-    show(pOnput);**/
+    show(pOnput);
+}
+
+
+//g++ -std=c++11 tag_list_01.cpp
+int main()
+{   
     test10();
     return 0; 
 }
+
 

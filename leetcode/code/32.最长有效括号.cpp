@@ -5,6 +5,7 @@
  */
 
 // @lc code=start
+<<<<<<< HEAD
 class Solution
 {
 public:
@@ -54,3 +55,13 @@ public:
 }
 ;
 // @lc code=end
+=======
+class Solution {
+public:
+    int longestValidParentheses(string s) {
+
+    }
+};
+// @lc code=end
+
+>>>>>>> 7905712e42b8bf7118adadbf8f2d0729f9b54df0

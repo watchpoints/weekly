@@ -10,6 +10,35 @@ categories: ["Leetcode"]
 ---
 
 
+
+
+
+## 方法：架构评审 &&日常沟通
+
+1. 准备好一个ppt，在写代码之前演示最终目标 和架构设计 就是如何去实现的 【不要说公司部门环境不对 着就是最终结果，不要试着看看，一定是可以完全上线的项目，非demo和一个知识点。自己认为真的 不是闹着玩的。。】
+
+   一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题
+
+   二、这个技术的优势和劣势分别是什么
+
+   三、这个技术适用的场景。任何技术都有其适用的场景，离开了这个场景
+
+   四、技术的组成部分和关键点。
+
+   五、技术的底层原理和关键实现
+
+   六、已有的实现和它之间的对比
+
+   
+
+2. 经过领导，专家 进行鸡蛋里挑骨头。【自己做好了别人路了胡扯，不会对别人产生任何影响，做事和做人一样，无论熟悉人，还是老师，领导，不相关人 反对 他们反馈信号，接受质疑，经过九九八十一难考验，并且你还在坚持认为对的。】
+
+3. 最后融合别人建议，然后完善你项目。【不听老人言，吃亏在眼前，不敢接受别人批评，说明自己完全没有把握，才去否定 愤怒方式】
+
+
+
+
+
 ## 如何刷题
 
 Happy coding! Enjoy Algorithms.
@@ -34,15 +63,41 @@ solution
 
 
 
+任务：简单的题目全部刷一遍
+
 任务：leetcode 哪些0-50 题目 看 5遍。预计1个月  开始日期：2021-8-7号。-2021-9-7
 
 
 
-任务：leetcode 哪些50-100 题目 看 5遍。预计1个月  开始日期：9-7号。
+
+
+# 简单
+
+#### [20. 有效的括号](https://leetcode-cn.com/problems/valid-parentheses/)
+
+#### [58. 最后一个单词的长度](https://leetcode-cn.com/problems/length-of-last-word/)
+
+#### [剑指 Offer 58 - I. 翻转单词顺序](https://leetcode-cn.com/problems/fan-zhuan-dan-ci-shun-xu-lcof/) 
+
+#### [151. 翻转字符串里的单词](https://leetcode-cn.com/problems/reverse-words-in-a-string/)
+
+# [左旋转字符串](https://www.cnblogs.com/edisonchou/p/4823706.html)
 
 
 
-任务：leetcode 哪些100-150 题目 看 5遍。预计1个月  开始日期：10-7号。
+- 第五题 剑指 Offer 58 - I. 翻转单词顺序
+
+  核心思想： (A⁻¹B⁻¹) ⁻¹ = BA
+
+
+
+## - 字符串面试题系列之五：删除字符串空格
+
+
+
+# 中等
+
+
 
 
 
@@ -52,14 +107,29 @@ solution
 
 
 
+
+
 ## 字符串
 
 
 
+- 第五题 剑指 Offer 58 - I. 翻转单词顺序
+
+  核心思想： (A⁻¹B⁻¹) ⁻¹ = BA
+
+
+
 - 求一个字符串的最长回文子串。
+
+  
+
 - 无重复字符的最长子串 3 
 
 https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/solution/ru-he-mo-hu-wen-ti-ju-ti-hua-fu-za-wen-t-m3zd/
+
+
+
+ ret =max(ret,end-start+1);//思考60秒：执行条件是什么？
 
 
 
@@ -137,7 +207,7 @@ https://leetcode-cn.com/problems/course-schedule-ii/
 
    https://leetcode-cn.com/problems/longest-increasing-path-in-a-matrix/
 
-   
+   [拓扑排序，和dfs 记忆优化]
 
 
 
