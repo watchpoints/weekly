@@ -530,15 +530,19 @@ https://zhuanlan.zhihu.com/p/385944563
 
 
 
+
+
+
+
 ## 第一题：在线ddl操作 【开始--】
 
-https://open.oceanbase.com/answer/detail?id=340 
 
-https://zhuanlan.zhihu.com/p/48370599
 
-- OceanBase v2.2.50 官方教程
 
-https://www.bookstack.cn/read/oceanbase-2.2.50-zh/%e4%ba%86%e8%a7%a3OceanBase%e6%95%b0%e6%8d%ae%e5%ba%93.md
+
+1. 数据结构在内存可以通过引用关联，那么在磁盘如何关联了？
+
+
 
 
 

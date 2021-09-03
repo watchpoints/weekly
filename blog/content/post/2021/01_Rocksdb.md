@@ -30,12 +30,56 @@ tags: ["book"]
 
 
 
-# # leveldb
+# # leveldb 学习方法
+
+
+
+
+
+https://github.com/google/leveldb
+
+git@github.com:watchpoints/leveldb.git
+
+
+
+### 1. 查看别人的文档 
+
+
+
+~~~
+git clone git@github.com:watchpoints/leveldb.git
+mkdir -p build && cd build
+cmake -DCMAKE_BUILD_TYPE=Release .. && cmake --build .
+~~~
 
 
 
 - 代码位置：/Users/wangchuanyi/doc/daily_read_coding/leveldb
+
 - [Leveldb之Put实现](https://kernelmaker.github.io/Leveldb_Put)
+
+- https://www.cnblogs.com/xueqiuqiu/p/8296324.html
+
+- # [LevelDB的源码阅读（一）](https://www.cnblogs.com/xueqiuqiu/p/8287008.html)
+
+- # [LevelDB的源码阅读（二） Open操作](https://www.cnblogs.com/xueqiuqiu/p/8289046.html)
+
+- https://www.cnblogs.com/xueqiuqiu/p/8268814.html
+
+
+
+~~~
+
+项目结构
+db/, 数据库逻辑
+doc/, MD文档
+helpers/, LevelDB内存版, 通过namespace覆盖
+port/, 平台相关代码
+table/, LSM有关的
+LevelDB选择用跳跃表（skiplist）实现memtable和immemtable, 用有序行组来实现SSTable。
+~~~
+
+
 
 
 
@@ -58,6 +102,9 @@ DBImpl::Put -> DB::Put -> DBImpl::Write
 
 /Users/wangchuanyi/doc/daily_read_coding/leveldb/db/db_impl.cc
 
+Status DBImpl::Write(
+
+
 ```
 
 
@@ -78,10 +125,40 @@ https://zouzls.github.io/2016/11/23/LevelDB%E4%B9%8BLSM-Tree/
 
 
 
+1. 问：结构是什么？
+
+
+
+- memtable 的核心结构就是用了跳表
+
+  elasticsearch 的高速搜索就是基于跳表,
+
+- sstable 全名 sort-string table, bigtable 使用的存储技术. 顾名思义, sstable 中的数据都是有序的
+
+  
+
+  
+
+
+
 ## ref
 
 - https://kernelmaker.github.io/
 - 
+
+
+
+
+
+## 第一天输出：
+
+
+
+
+
+
+
+
 
 
 

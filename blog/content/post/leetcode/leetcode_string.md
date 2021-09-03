@@ -71,32 +71,6 @@ solution
 
 
 
-# 简单
-
-#### [20. 有效的括号](https://leetcode-cn.com/problems/valid-parentheses/)
-
-#### [58. 最后一个单词的长度](https://leetcode-cn.com/problems/length-of-last-word/)
-
-#### [剑指 Offer 58 - I. 翻转单词顺序](https://leetcode-cn.com/problems/fan-zhuan-dan-ci-shun-xu-lcof/) 
-
-#### [151. 翻转字符串里的单词](https://leetcode-cn.com/problems/reverse-words-in-a-string/)
-
-# [左旋转字符串](https://www.cnblogs.com/edisonchou/p/4823706.html)
-
-
-
-- 第五题 剑指 Offer 58 - I. 翻转单词顺序
-
-  核心思想： (A⁻¹B⁻¹) ⁻¹ = BA
-
-
-
-## - 字符串面试题系列之五：删除字符串空格
-
-
-
-# 中等
-
 
 
 
@@ -106,6 +80,8 @@ solution
 ## 数组
 
 
+
+- #### [121. 买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/)
 
 
 
@@ -298,3 +274,108 @@ https://stackoverflow.com/questions/8185079/how-to-calculate-binary-search-compl
 1. [（动态规划）机器人走迷宫问题](https://www.cnblogs.com/Kobe10/p/6357526.html) 【ok ？】
 
 https://www.nowcoder.com/practice/166eaff8439d4cd898e3ba933fbc6358?tpId=46&tqId=29117&tPage=1&rp=1&ru=/ta/leetcode&qru=/ta/leetcode/question-ranking
+
+
+
+
+
+
+
+# 简单
+
+#### [20. 有效的括号](https://leetcode-cn.com/problems/valid-parentheses/)
+
+#### [58. 最后一个单词的长度](https://leetcode-cn.com/problems/length-of-last-word/)
+
+#### [剑指 Offer 58 - I. 翻转单词顺序](https://leetcode-cn.com/problems/fan-zhuan-dan-ci-shun-xu-lcof/) 
+
+#### [151. 翻转字符串里的单词](https://leetcode-cn.com/problems/reverse-words-in-a-string/)
+
+# [左旋转字符串](https://www.cnblogs.com/edisonchou/p/4823706.html)
+
+# 最长回文子串
+
+
+
+[20] 有效的括号 ok
+
+
+
+
+
+
+
+- 第五题 剑指 Offer 58 - I. 翻转单词顺序
+
+  核心思想： (A⁻¹B⁻¹) ⁻¹ = BA
+
+
+
+
+
+- [121] 买卖股票的最佳时机  ok
+
+- #### [125. 验证回文串](https://leetcode-cn.com/problems/valid-palindrome/) ok
+
+
+
+
+
+#### [234. 回文链表](https://leetcode-cn.com/problems/palindrome-linked-list/)
+
+
+
+- [1260] 二维网格迁移
+
+
+
+- [1380. 矩阵中的幸运数](https://leetcode-cn.com/problems/lucky-numbers-in-a-matrix/) ok
+
+
+
+
+
+
+
+#### [剑指 Offer II 027. 回文链表](https://leetcode-cn.com/problems/aMhZSa/) 
+
+https://leetcode-cn.com/problems/palindrome-linked-list/solution/shou-hua-tu-jie-hui-wen-lian-biao-kuai-man-zhi-zhe/
+
+
+
+
+
+# 中等
+
+
+
+
+
+# 难
+
+#### [84. 柱状图中最大的矩形](https://leetcode-cn.com/problems/largest-rectangle-in-histogram/) [不会写不出来]
+
+
+
+#### [1312. 让字符串成为回文串的最少插入次数](https://leetcode-cn.com/problems/minimum-insertion-steps-to-make-a-string-palindrome/)
+
+#### [剑指 Offer II 094. 最少回文分割](https://leetcode-cn.com/problems/omKAoA/)
+
+
+
+# 题号：
+
+#### [20. 有效的括号](https://leetcode-cn.com/problems/valid-parentheses/) ok
+
+#### [84. 柱状图中最大的矩形](https://leetcode-cn.com/problems/largest-rectangle-in-histogram/)
+
+#### [121. 买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/) ok
+
+#### [122. 买卖股票的最佳时机 II](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/)
+
+https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/solution/tan-xin-suan-fa-by-liweiwei1419-2/
+
+
+
+#### [1380. 矩阵中的幸运数](https://leetcode-cn.com/problems/lucky-numbers-in-a-matrix/)
+

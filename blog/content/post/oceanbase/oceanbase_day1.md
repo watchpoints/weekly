@@ -455,7 +455,11 @@ OceanBase 数据库的 SQL 引擎是整个数据库的数据计算中枢，和�
 
 ~~~
 
-## 代码：
+## 
+
+# 第一部分：源码阅读
+
+
 
   
 
@@ -525,6 +529,8 @@ https://zhuanlan.zhihu.com/p/379437192
 
 
 
+
+
 ### 开源数据库OceanBase代码导读（11）
 
 （8）分布式事务
@@ -533,41 +539,11 @@ https://zhuanlan.zhihu.com/p/385944563
 
 
 
+（10）事务日志的提交和回放
 
+https://www.zhihu.com/people/yang-zhi-feng-79/posts
 
-
-
-- 开源数据库OceanBase代码导读（13）（10）事务日志的提交和回放
-
-  
-
-  https://zhuanlan.zhihu.com/p/389202627
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-# 社区问题
-
-
-
-## 第一题：在线ddl操作 【开始--】
-
-https://open.oceanbase.com/answer/detail?id=340 
-
-https://zhuanlan.zhihu.com/p/48370599
-
-- OceanBase v2.2.50 官方教程
-
-https://www.bookstack.cn/read/oceanbase-2.2.50-zh/%e4%ba%86%e8%a7%a3OceanBase%e6%95%b0%e6%8d%ae%e5%ba%93.md
+https://zhuanlan.zhihu.com/p/389202627
 
 
 
@@ -575,7 +551,80 @@ https://www.bookstack.cn/read/oceanbase-2.2.50-zh/%e4%ba%86%e8%a7%a3OceanBase%e6
 
 
 
-# 第三部分：issue
+（14）索引构建
+
+https://www.zhihu.com/people/yang-zhi-feng-79/posts
+
+https://zhuanlan.zhihu.com/p/400934816
+
+https://zhuanlan.zhihu.com/p/400934816
+
+
+
+create index i1 on t1(c2) -->parser和resolver-->ObRootService::create_index
+
+
+
+void TestDDL::do_load_sql -->
+
+nt ObIndexBuilder::create_index
+
+
+
+int ObRootService::create_index
+
+
+
+
+
+
+
+
+
+# 第一部分：代码阅读
+
+
+
+1. OceanBase原理与实现分析
+
+https://yang.observer/2020/04/19/oceanbase/
+
+https://docs.huihoo.com/big-data/hic2011/taobao-oceanbase.pdf
+
+- OceanBase架构
+
+
+
+
+
+
+
+# 第二部分：pr
+
+
+
+
+
+1. https://github.com/oceanbase/oceanbase/issues/316
+
+~~~c#
+pop_back() in ObSEArrayImpl may need to call destructor of T #316
+
+
+The first pop_back() function in `ObSEArrayImpl` may need to call destructor of T like the second function, or there may be risk of memory leaks.
+
+
+Thanks for your contribution.
+Right, it is a bug and we create a bug task.
+~~~
+
+
+
+
+
+
+
+# 第三部分：讨论
 
 
 
@@ -617,7 +666,7 @@ https://hub.fastgit.org/oceanbase/oceanbase/discussions/66
 
 
 
-资料：
+为了理解这个问题 我阅读了 资料：
 
 - the Log structured Merge-Tree（LSM-Tree
 
@@ -631,7 +680,15 @@ https://hub.fastgit.org/oceanbase/oceanbase/discussions/66
 
   
 
+- 为了理解这个问题 我阅读了**redo 日志管理控制** https://open.oceanbase.com/docs/community/oceanbase-database/V3.1.0/redo-log-management-and-control
 
+- 为了理解这个问题 我阅读了 内存表 MemTable https://www.bookstack.cn/read/oceanbase-2.2.30-zh/30085c9e2371ac1c.md
+
+  https://www.oceanbase.com/community/articles/200130
+
+  https://www.oceanbase.com/docs/oceanbase-database/oceanbase-database/V3.1.2/memory-table
+
+  
 
 ## tak
 
@@ -657,4 +714,6 @@ https://hub.fastgit.org/oceanbase/oceanbase/discussions/66
 
 
 
+
+### 第二题：一次性说清楚 Paxos、Raft 等算法的区别
 
