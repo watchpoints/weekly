@@ -23,6 +23,12 @@ solucction
 
 https://gitee.com/ossrs/srs/wikis/v4_CN_Home
 
+https://github.com/ossrs/srs
+
+https://hub.fastgit.org/ossrs/srs
+
+
+
 ## 第一天：快速预览
 
 环境：2g+Ubuntu 
@@ -32,6 +38,7 @@ https://gitee.com/ossrs/srs/wikis/v4_CN_Home
 - 在vpn环境完成搭建(docker安装不上)
 
 ```
+
 git clone -b 4.0release https://gitee.com/ossrs/srs.git &&
 cd srs/trunk && ./configure && make && ./objs/srs -c conf/srs.conf
 
@@ -41,6 +48,8 @@ nohup ./objs/srs -c conf/srs.conf &
 10.112.179.21
 /usr/local/srs 
 rtmp://10.112.179.21:1935/live/wangchuanyi
+
+
 ```
 
 - 本地obs/FFMEG
@@ -55,6 +64,9 @@ cd /root/code/c++/srs/trunk/objs
 tail -f srs.log  //目前看不懂 
 
 https://gitee.com/ossrs/srs/wikis/v4_CN_SampleRTMP?sort_id=3957465
+
+
+
 ~~~
 
 
@@ -75,6 +87,27 @@ http://74.120.174.137:8080/console/ng_index.html#/streams?port=1985&schema=http&
 
 ~~~
 
+### 4.0
+
+~~~
+cd /app/work
+git clone -b 4.0release https://gitee.com/ossrs/srs.git
+srs-4.0release.zip
+rm -rf  srs-4.0release\ \(1\).zip
+./configure 
+make
+cat conf/srs.conf
+nohup ./objs/srs -c conf/srs.conf &
+
+:10.112.179.21
+https://gitee.com/ossrs/srs/wikis/v4_CN_HTTPApi?sort_id=3957392
+
+./objs/srs -c http-api.conf
+cat ./conf/http-api.conf
+http://10.112.179.21:1985/api/v1
+
+http://10.112.179.21:1985/api/v1/streams
+~~~
 
 
 ![image-20210531211418617](C:\Users\wangchuanyi\AppData\Roaming\Typora\typora-user-images\image-20210531211418617.png)
@@ -399,41 +432,213 @@ H.264有四种画质级别,分别是baseline, extended, main, high：
 3、Main profile：主流画质。提供I/P/B 帧，支持无交错（Progressive）和交错（Interlaced）， 也支持CAVLC 和CABAC 的支持；
 4、High profile：高级画质。在main Profile 的基础上增加了8x8内部预测、自定义量化、 无损视频编码和更多的YUV 格式；
 　　H.264 Baseline profile、Extended profile和Main profile都是针对8位样本数据、4:2:0格式(YUV)的视频序列。在相同配置情况下，High profile（HP）可以比Main profile（MP）降低10%的码率。 根据应用领域的不同，Baseline profile多应用于实时通信领域，Main profile多应用于流媒体领域，High profile则多应用于广电和存储领域。
+　　
+　　
+　　nt SrsRtmpConn::acquire_publish(SrsSource* source, bool is_edge)
+{
+int ret = ERROR_SUCCESS;
+
+if (!source->can_publish(is_edge)) {
+ret = ERROR_SYSTEM_STREAM_BUSY;
+srs_warn("stream %s is already publishing. ret=%d",
+req->get_stream_url().c_str(), ret);
+return ret;
+}
+
+// when edge, ignore the publish event, directly proxy it.
+if (is_edge) {
+if ((ret = source->on_edge_start_publish()) != ERROR_SUCCESS) {
+srs_error("notice edge start publish stream failed. ret=%d", ret);
+return ret;
+}
+} else {
+if ((ret = source->on_publish()) != ERROR_SUCCESS) {
+srs_error("notify publish failed. ret=%d", ret);
+return ret;
+}
+}
+
+return ret;
+}
+
+清者自清:
+int SrsRtmpConn::process_publish_message(SrsSource* source, SrsCommonMessage* msg, bool vhost_is_edge)
+
+清者自清:
+int SrsSource::on_audio(SrsCommonMessage* shared_audio)
+
+清者自清:
+int SrsPublishRecvThread::handle(SrsCommonMessage* msg)
+
+清者自清:
+SrsSource
+
+清者自清:
+SrsRtmpConn
+
+清者自清:
+SrsPublishRecvThread
+
+清者自清:
+SrsPlayEdge
+
+清者自清:
+SrsPublishEdge
+
+清者自清:
+http_hooks_on_policy_publish
+
+清者自清:
+http_hooks_on_policy_unpublish
+
+清者自清:
+[图片]
+
+清者自清:
+SrsGoApiRaw::SrsGoApiRaw(SrsServer *svr)
 ~~~
 
+![img](http://wiki.intra.gomeplus.com/download/attachments/75367792/image2021-8-26%2017%3A16%3A59.png?version=1&modificationDate=1629969420000&api=v2)
 
+![img](http://wiki.intra.gomeplus.com/download/attachments/75367792/image2021-8-26%2017%3A17%3A49.png?version=1&modificationDate=1629969470000&api=v2)
 
-
-
-## 启动
+## 推送
 
 1、首先分析RTMP连接 
 
-```html
+```c++
 int SrsServer::listen_rtmp()
 int SrsConnection::cycle()
+
+int SrsRecvThread::cycle()
+    ret = rtmp->recv_message(&msg);
+            if (ret == ERROR_SUCCESS) {
+                ret = handler->handle(msg);
+            }
+10.112.179.21 
+10.115.37.56
+rtmp://zhibo.xx.com.cn/live/lyl
+/usr/local/srs/objs/srs.log
+gome
+ tail -f /usr/local/srs/objs/srs.log |grep trace
+
+ 
+int SrsPublishRecvThread::handle(SrsCommonMessage* msg)
+
+    
+SrsRtmpConn::handle_publish_message
+    
+    
+int SrsRtmpConn::handle_publish_message(SrsSource *source, SrsCommonMessage *msg, bool is_fmle, bool vhost_is_edge)
+        // for edge, directly proxy message to origin.
+         // process audio packet
+         // process video packet
+         // process onMetaData
+
+    
+    int SrsSource::on_video(SrsCommonMessage* shared_video)
 ```
 
-https://www.jianshu.com/p/324f3c18807b
-
-https://blog.csdn.net/ManagerUser/article/details/73840130
-
-Introduction 
-
-Problem
-
-solucction
 
 
 
 
+![https://www.cnblogs.com/jimodetiantang/p/9087775.html](https://images2018.cnblogs.com/blog/1382048/201805/1382048-20180525172300209-859246016.png)
 
-王兴才
-济南 历城区  兴港路 天齐·奥东花园 4号楼 2单元 802 
+https://www.cnblogs.com/jimodetiantang/p/9087775.html
 
-居住时间：2019年5月至今
+~~~c++
+SrsRtmpConn::stream_service_cycle()
+    
+    virtual int http_hooks_on_connect();
+    virtual void http_hooks_on_close();
+    virtual int http_hooks_on_publish();
+    virtual void http_hooks_on_unpublish();
+    virtual int http_hooks_on_play();
+    virtual void http_hooks_on_stop();
+    virtual int http_hooks_on_publish_receiveaudio(bool flag);	
+    virtual int http_hooks_on_publish_receivevideo(bool flag);
+	virtual int http_hooks_on_policy_publish();
+	virtual void http_hooks_on_policy_unpublish();
+int SrsRtmpConn::publishing(SrsSource* source)
+{
+关于SRS3配置文件参数说明
+    https://www.itbkz.com/12548.html
+    https://gitee.com/winlinvip/srs.oschina/wikis/v3_CN_HTTPCallback
+~~~
 
-第一针 2021年3月25
 
-第二针 2021年05月16
+2. 播放回调：https://gitee.com/ossrs/srs/wikis/v4_CN_HTTPCallback?sort_id=3957393
 
+virtual int http_hooks_on_play();
+
+~~~
+#define URL_SRS_POST "/api/v1/streams"
+
+else if (0 == strncasecmp(url, URL_SRS_POST, strlen(url)))
+
+void dns_down_httpserver::deal_srs_msg(char* data)
+  virtual void publish_msg(char *msg) = 0;
+
+  //{"action":"on_play","client_id":6120,"ip":"121.69.49.32","vhost":"gomeplus","server_ip":"127.0.0.1",
+//"server_port":"19360","app":"live/162020008_188800160","stream":1887608896,"play_stream":"liveAV-162020008",
+//"tcUrl":"rtmp://124.250.75.41:19360/live/162020008_188800160?vhost=gomeplus","pageUrl":""
+
+:srs_redis get new data {
+        "streamid":     "73523459629",
+        "video":        "1",
+        "audio":        "0",
+        "confer":       "73523459629_73546364519"
+}
+
+http_hooks {
+        on_publish_receivevideo http://10.112.179.22/api/v1/streams;
+        on_publish_receiveaudio http://10.112.179.22/api/v1/streams;
+        on_publish http://10.112.179.22/api/v1/streams;
+        on_stop http://10.112.179.22/api/v1/sessions;
+        on_unpublish http://10.112.179.22/api/v1/streams;
+        on_play http://10.112.179.22/api/v1/sessions;
+        enabled on;
+    }
+
+~~~
+
+
+3. 扩展架构阅读：rpc无法跟踪
+
+- gRPC + Zipkin 分布式链路追踪
+https://blog.csdn.net/EDDYCJY/article/details/102426281
+- 基于 Thrift RPC 的调用链跟踪
+
+###  查看文档
+
+- https://gitee.com/ossrs/srs/wikis/v4_CN_SrsLog
+
+  
+
+https://hub.fastgit.org/ossrs/srs
+
+https://gitee.com/ossrs/srs/wikis/v4_CN_DeliveryMethod
+
+
+
+1. 获取在线人数 
+https://gitee.com/ossrs/srs/wikis/v2_CN_HTTPApi?sort_id=3957020
+
+srs的http API控制相关接口
+https://blog.csdn.net/weixin_36270623/article/details/104411595
+
+curl -v -X GET http://10.1.0.222:1985/api/v1/streams/
+
+curl -v -X GET http://10.1.0.222:1985/api/v1/streams/24420
+
+# 第二部分：参与开发
+
+
+
+- rtmp转码后有没有办法再推到srs服务器上 有大佬知道吗？
+
+- 断过网重新推流都会重新调用on_publish
+
+  
+http://ossrs.net/srs.release/releases/

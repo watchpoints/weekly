@@ -55,7 +55,27 @@ License: Apache 2.0
 Location: d:\local\python3\lib\site-packages 【第三方包的按照路径】
 
 
+2. centos7升级python3
 
+wget https://www.python.org/ftp/python/3.9.7/Python-3.9.7.tgz
+tar xzvf Python-3.9.7.tgz
+mkdir /usr/local/python3/
+./configure --prefix=/usr/local/python3
+make install
+mv /usr/bin/python /usr/bin/python.bak
+mv /usr/bin/pip /usr/bin/pip.bak
+ln -s /usr/local/python3/bin/python3.8 /usr/bin/python
+ln -s /usr/local/python3/bin/pip3 /usr/bin/pip
+python -V
+vim /usr/bin/yum
+把最顶部的#!/usr/bin/python改为：#!/usr/bin/python2.7
+
+
+centos 下 yum安装python3
+yum install -y python36
+python3 -V
+pip3 install selenium
+python3 ./toutiao1.0.py
 # 项目
 
 
