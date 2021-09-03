@@ -48,12 +48,13 @@ categories: ["ARTS"]
 
 
 
-| 题目 | 思路 |
-| ---- | ---- |
-| 71-简化路径    |  为什么用stack这个结构，课本上例子输入的 int 这里变成字符串 我不会了 ，类型()问题   |
-| 72-Edit Distance    |  题目没理解  |
+| 题目 | 分类 | 日期 |
+| ---- | ---- | ---- |
+|      |      |      |
 
+![image.png](https://i.loli.net/2020/03/31/mPYDE7TnzBJOLwe.png)
 
+http://feihu.me/blog/2014/sgi-std-sort/
 
 ### 2. Review 
 
@@ -247,11 +248,19 @@ https://static.app.yinxiang.com/embedded-web/profile/#/join?guid=0d8ca4b7-2a2b-4
 
 ### 执行结果（统计）
 
-游戏升级：
+### Week 5, 2020
 
-> 晚上下班后：具体来说 8点 9点 11点 12点 之间不打开电脑继续学习。
+| week      | Put down your phone | Keep     | Give a stretch | Dressing clothes | Reading                                 |
+| --------- | ------------------- | :------- | -------------- | ---------------- | --------------------------------------- |
+| Friday    | 02： 00             | no       | 10： 00        | 10： 00          | no                                      |
+| Saturday  | 05： 00             | no       | 10： 00        | 11： 00          | no                                      |
+| Sunday    |                     |          |                |                  |                                         |
+| Monday    | 22: 00              | no       | 09： 00        | 09： 00          | 6点起床失败，开启闹钟。晚上太多原因了。 |
+| Tuesday   | 22： 30  手机       | 没有执行 | 21：00         | 09： 30          | 早起计划没有执行                        |
+| Wednesday | 22： 30  看小说了   | 没有执行 | 09： 00        | 09： 30          | 来不及                                  |
+| Thursday  |                     |          |                |                  |                                         |
 
-![image.png](https://i.loli.net/2020/05/07/SaGzKelrZkp5Cbq.png)
+
 
 
 
@@ -490,26 +499,9 @@ https://static.app.yinxiang.com/embedded-web/profile/#/join?guid=0d8ca4b7-2a2b-4
 
 ​	
 
-
-
-
-
 ### C-执行结果（看到变化）
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+![image.png](https://i.loli.net/2020/03/27/QnZckT475HKyaOI.png)
 

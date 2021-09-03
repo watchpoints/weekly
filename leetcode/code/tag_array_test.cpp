@@ -24,6 +24,13 @@ void test_string()
     string input3="hello";
     s1.myreverse(input3,0,input3.size());
     cout<<"right:olleh mycode ="<<input3<<endl;
+     
+
+    Solution1 s12;
+    string input12="  hello world  ";
+    cout<<"mycode ="<<s12.reverseWords(input12)<<endl;
+
+
 
 }
 //g++ -std=c++11 tag_array_test.cpp

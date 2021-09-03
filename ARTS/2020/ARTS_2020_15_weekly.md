@@ -223,11 +223,7 @@ categories: ["ARTS"]
 
   
 
-  游戏升级：
   
-  > 晚上下班后：具体来说 8点 9点 11点 12点 之间不打开电脑继续学习。
-  
-  ![image.png](https://i.loli.net/2020/05/07/SaGzKelrZkp5Cbq.png)
 
 
 

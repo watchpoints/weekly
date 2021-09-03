@@ -5,12 +5,11 @@
  */
 
 // @lc code=start
-<<<<<<< HEAD
 
 class Solution
 {
 public:
-    string longestPalindrome(string s)
+    string longestPalindrome1(string s)
     {   
         //思路： 遍历n*(n+1)/2 子串
         int startIndex = 0; //longestPalindrome
@@ -59,6 +58,59 @@ public:
         }
         return s.substr(startIndex, endIndex - startIndex + 1);
     }
+
+    //5. 最长回文子串
+    string longestPalindrome(string s) 
+    {
+      //双指针：确定每个子串位置
+      int startIndex =0;
+      int endIndex =0;  
+
+      vector<vector<bool>> dp(s.size(),vector<bool>(s.size(),false));
+      //dp[start][end] end >=start
+      
+      //if s[end] ！=s[begin]  dp[start][end] =false
+
+      //if s[end] ==s[begin]
+      //dp[start][end] =dp[start+1][end-1]
+      //end -start >=2 
+      //end -start <2
+      ///dp[start][end] =true
+
+      for(int end =0;end <s.size();end++)
+      {
+        for(int start =0;start <=end;start++)
+        {
+
+            //最后的大 boss
+            
+            if(s[start] == s[end])
+            {
+              //[a] [aa] , [aba]
+              if(end-start >=2)
+              {
+                  dp[start][end] =dp[start+1][end-1];
+                  //end-1 >=start+1
+              }else
+              {  
+                   dp[start][end] =true;
+              }
+              
+            }
+
+            if( dp[start][end] == true && (end-start > endIndex -startIndex))
+            {
+                endIndex =end;
+                startIndex =start;
+
+            }
+
+        }
+      }
+
+      return s.substr(startIndex,endIndex-startIndex+1); //[start ,end)
+    }
+
 };
 
 
@@ -196,57 +248,3 @@ int main()
   }
 }
 */
-=======
-class Solution {
-public:
-    string longestPalindrome(string s) {
-       //思路： 最长的回文子串 -->是回文--->[start,end] end>=start
-
-       //细节：f(i) =
-       // if s[start] ==s[end]
-       //dp[start][end] =dp[start+1][end-1]; end-1 >=start+1 
-        
-        // if (end-start <=2) dp[start][end] = true
-
-        int n =s.size();
-        int lstart =0;
-        int lend =0;
-       vector<vector<bool>>  dp(n,vector<bool>(n,false));//
-       
-       //dp[start][end] = true  Palindrome end >=start >=0
-       //dp[start][end] =dp[start+1][end-1]; Palindrome end-1 >=start+1  
-
-       //01 n(n-1)/2 遍历无法优化
-       for (int end = 0; end < n; end++)
-       {
-           for(int start =0;start <=end;start++)
-           {
-              //02 here her her 
-              
-              if (s[start] == s[end])
-              {   //[a] [aa] 
-                  if (end -start <2)
-                  {
-                       dp[start][end] =true;
-                  }else
-                  {
-                      dp[start][end]= dp[start+1][end-1];
-                  } //[aba] end-1>=start+1
-                  
-              }
-
-              if(dp[start][end] ==true && end -start >lend -lstart)
-              {
-                  lend =end;
-                  lstart =start;
-              }
-           }
-       }
-
-       return s.substr(lstart,lend-lstart+1);
-    }
-};
-
-// @lc code=end
-
->>>>>>> 48e533a1d75b62c6be4e956fb6759123788a80c6
