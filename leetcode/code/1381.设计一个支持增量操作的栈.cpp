@@ -8,7 +8,7 @@
 // @lc code=start
 class CustomStack {
 private:
-
+    vector
 public:
     CustomStack(int maxSize) {
     }
