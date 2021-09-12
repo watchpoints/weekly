@@ -8,9 +8,14 @@
 // @lc code=start
 class CustomStack {
 private:
-    vector
-public:
+    vector<int> m_data;//随机读写
+    int m_maxlen;
+    int m_top ;
+ public:
     CustomStack(int maxSize) {
+        m_maxlen = maxSize;
+        m_data.resize(maxSize);
+        m_top =0;
     }
     
     void push(int x) {
