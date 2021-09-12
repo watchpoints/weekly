@@ -6,6 +6,12 @@ draft: false
 categories: ["code_reading"]
 ---
 
+
+
+> 慢慢来，多看、多问、多总结，肯定是可以攻克的。
+
+
+
 ### 沟通步骤
 
 1. 准备好一个ppt，在写代码之前演示最终目标 和架构设计 就是如何去实现的 【不要说公司部门环境不对 着就是最终结果，不要试着看看，一定是可以完全上线的项目，非demo和一个知识点。自己认为真的 不是闹着玩的。。】
@@ -595,7 +601,9 @@ https://docs.huihoo.com/big-data/hic2011/taobao-oceanbase.pdf
 
 
 
+# OceanBase 源码解读（三）：分区的一生
 
+https://mp.weixin.qq.com/s/JFizlbnZMawk19exN-yOqA
 
 
 

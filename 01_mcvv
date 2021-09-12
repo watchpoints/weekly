@@ -1,0 +1,6 @@
+
+# 多版本并发控制
+
+## MySQL innodb
+- MVCC(Multi Version Concurrency Control)的机制，使得不用锁也可以获取一致性的版本
+https://cloud.tencent.com/developer/article/1196165

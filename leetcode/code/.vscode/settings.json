@@ -60,7 +60,11 @@
     "system_error": "cpp",
     "tuple": "cpp",
     "type_traits": "cpp",
-    "typeinfo": "cpp"
+    "typeinfo": "cpp",
+    "__tree": "cpp",
+    "deque": "cpp",
+    "map": "cpp",
+    "stack": "cpp"
   },
   "C_Cpp_Runner.warnings": [
     "-Wall",
