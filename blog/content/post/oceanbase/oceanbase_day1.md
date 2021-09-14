@@ -57,9 +57,15 @@ OceanBase Deploy （简称 OBD）是 OceanBase 开源软件的安装部署工具
 ### 步骤1 源码编译OceanBase：
 
 ~~~
-bash build.sh debug --init --make
+//编译
+bash build.sh debug --init --make 
 cd /app/data/oceanbase/build_debug
 make install 
+//单元测试
+cd unittest
+sh run_tests.sh
+
+
 ~~~
 
 
