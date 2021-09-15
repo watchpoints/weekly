@@ -81,6 +81,9 @@ version: 3.1.0
 release:3.1.0
 arch: x86_64
 md5: 33af3cb189d73116e8d629147bc4d530、
+
+
+
 ~~~
 
 
@@ -152,6 +155,10 @@ sysctl -p
   
   obd cluster destroy obtest
   
+  cd /app/data
+  10.115.37.60
+  
+  alias cdob="obclient -u root -h 127.0.0.1 -P2881"
   ~~~
   
   
@@ -610,6 +617,8 @@ https://docs.huihoo.com/big-data/hic2011/taobao-oceanbase.pdf
 # OceanBase 源码解读（三）：分区的一生
 
 https://mp.weixin.qq.com/s/JFizlbnZMawk19exN-yOqA
+
+table_scan
 
 
 
