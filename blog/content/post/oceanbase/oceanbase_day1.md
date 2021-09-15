@@ -159,6 +159,17 @@ sysctl -p
   10.115.37.60
   
   alias cdob="obclient -u root -h 127.0.0.1 -P2881"
+  
+  
+  10.115.37.60
+  alias cdob="obclient -u root -h 127.0.0.1 -P2881"
+  use OceanBase
+  select * from __all_server \G; //服务器的状态
+  select * from __all_virtual_server_stat \G; //资源分配情况
+  select * from __all_unit_config \G; //资源定义情况
+  
+  select * from __all_unit \G; //资源分配情况
+  select * from __all_resource_pool \G; //资源分配情况
   ~~~
   
   
