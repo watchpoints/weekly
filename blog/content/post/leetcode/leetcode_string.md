@@ -381,7 +381,7 @@ https://leetcode-cn.com/problems/shift-2d-grid/solution/shuang-zhi-zhen-huo-qu-l
 
 #### [21. 合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/)【0k】
 
-#### [22. 括号生成](https://leetcode-cn.com/problems/generate-parentheses/)
+#### [22. 括号生成](https://leetcode-cn.com/problems/generate-parentheses/) [ok]
 
 https://leetcode-cn.com/problems/generate-parentheses/solution/hui-su-suan-fa-by-liweiwei1419/
 
@@ -389,7 +389,7 @@ https://github.com/liweiwei1419/LeetCode-Solution-PPT/blob/master/backtracking/L
 
 
 
-
+#### [23. 合并K个升序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists/)
 
 
 
