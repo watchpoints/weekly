@@ -389,7 +389,11 @@ https://github.com/liweiwei1419/LeetCode-Solution-PPT/blob/master/backtracking/L
 
 
 
-#### [23. 合并K个升序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists/)
+#### [23. 合并K个升序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists/)【ok】
+
+#### [24. 两两交换链表中的节点](https://leetcode-cn.com/problems/swap-nodes-in-pairs/)
+
+https://www.yuque.com/docs/share/7c61b6bc-48a0-4fd2-8678-6db713d511d8?# 《24. 两两交换链表中的节点》
 
 
 
