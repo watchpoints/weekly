@@ -55,6 +55,10 @@ Happy coding! Enjoy Algorithms.
 
 https://github.com/leetcode-pp/91alg-5-daily-check
 
+
+
+https://github.com/liweiwei1419/LeetCode-Solution-PPT
+
  leetcode-solution.cn/91
 
 
@@ -377,11 +381,19 @@ https://leetcode-cn.com/problems/shift-2d-grid/solution/shuang-zhi-zhen-huo-qu-l
 
 #### [21. 合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/)【0k】
 
-#### [22. 括号生成](https://leetcode-cn.com/problems/generate-parentheses/)
+#### [22. 括号生成](https://leetcode-cn.com/problems/generate-parentheses/) [ok]
 
 https://leetcode-cn.com/problems/generate-parentheses/solution/hui-su-suan-fa-by-liweiwei1419/
 
+https://github.com/liweiwei1419/LeetCode-Solution-PPT/blob/master/backtracking/LeetCode%20%E7%AC%AC%2022%20%E9%A2%98%EF%BC%9A%E2%80%9C%E6%8B%AC%E5%8F%B7%E7%94%9F%E5%87%BA%E2%80%9D%E9%A2%98%E8%A7%A3%E9%85%8D%E5%9B%BE.pptx
 
+
+
+#### [23. 合并K个升序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists/)【ok】
+
+#### [24. 两两交换链表中的节点](https://leetcode-cn.com/problems/swap-nodes-in-pairs/)
+
+https://www.yuque.com/docs/share/7c61b6bc-48a0-4fd2-8678-6db713d511d8?# 《24. 两两交换链表中的节点》
 
 
 
