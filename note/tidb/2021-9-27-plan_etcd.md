@@ -32,7 +32,7 @@ etcd etcd 说白了就是是 kv 存储，只不过这个 kv 存储是分布式�
 
 https://github.com/wangcy6/readcode-etcd-v3.4.10
 
-
+Cd
 
 
 
@@ -238,6 +238,178 @@ rraft.Node 模块，实现都在 raft/node.go 文件中。另外不得不提的�
 
 
 
+# Go Etcd 源码学习【4】raftexample 中 Storage 是什么
+
+https://articles.zsxq.com/id_vzi5tr44re0f.html
+
+raft.Node 是纯状态机的实现。
+
+raft.MemoryStorage 是存储的实现。
+
+wal.WAL 是持久化 log 的实现。
+
+这三个是业务 raftNode 组装功能的核心，今天专门学习下 Storage 这个重要组件。
+
+
+
+## Storage
+
+
+
+这是一个重要的 interface ，是抽象出来，用于检索 log entries 的存储器。
+
+Storage 任何方法的报错，都会导致 raft 实例停服，并且拒绝参加选举。业务应用来负责清理和恢复这个场景。
+
+![img](https://article-images.zsxq.com/FpgAx-xEOcRcVaYSpJouecnxQGG7)
+
+
+
+而 raft.MemoryStorage 是 Storage interface 的一种实现而已。在 raftexmaple 中，直接使用了 raft.MemoryStorage 作为 Storage 存储器 ，当然 Storage 也可以由业务自己实现，只要实现对应的接口，从底层存储介质中取回日志对象（log entries）。
+
+
+
+### raft.MemoryStorage
+
+
+
+这个是 Storage 的具体实现，我们看下这个实现的方法，借以感受下这个的作用。
+
+来看下 MemoryStorage 的结构：
+
+![img](https://article-images.zsxq.com/FvdB27U8fC1QF8x-VijhzFM5R4sv)
+
+
+
+能看到，最关键的其实就是一个 Entry 数组。
+
+
+
+#### InitialState
+
+![img](https://article-images.zsxq.com/FsSOGLoBHgVIFv3Kl9elarC65xL6)
+
+
+
+而这个 ms.hardState 则是在 raftexample/raft.go 文件，raftNode.replayWAL 函数中，调用 SetHardState 方法进行赋值。
+
+![img](https://article-images.zsxq.com/Fg5D80hkbE2A3HPWmwlb2nQg7zMC)
+
+
+
+#### Entries
+
+
+
+这个方法用于获取 [ lo, hi ] 这一个区间的日志记录。
+
+![img](https://article-images.zsxq.com/FjGUOPjgJw5RNYZ55KIzwrOKEcuA)
+
+
+
+那么对于 MemoryStorage 来说，ms.ents 又是哪里来的呢？
+
+对于 raftexample 来说，是在 raftNode.replayWAL 中，调用 Append 置入的。
+
+![img](https://article-images.zsxq.com/FrHQiEKcP-yoRQkQH0ReDwM7Ny0o)
+
+
+
+#### Term
+
+![img](https://article-images.zsxq.com/FjCewanHcB4dCiqAWi287XwEJLB2)
+
+
+
+可以看到，这个就是获取到指定位置的 log entry ，需要处理截断和越界的两种情况。
+
+
+
+#### LastIndex
+
+
+
+返回最后一个 日志的 index 。
+
+![img](https://article-images.zsxq.com/FldqhxZfF507RDlPM4y_Dachuanj)
+
+
+
+思考：有这种计算方式，是不是代表 index 一定是连续的？
+
+
+
+#### FirstIndex
+
+
+
+返回第一个日志的 index 。
+
+![img](https://article-images.zsxq.com/FjHAJwJybkS8OouoCmVNtqAX-k3H)
+
+
+
+#### Snapshot
+
+
+
+![img](https://article-images.zsxq.com/Fjt4rYgq_ZKJW6ZGdqMEk3i5mWlt)
+
+
+
+这个主要是返回 MemoryStorage 的 snapshot ，而这个 snapshot 也是在 replayWAL 里面设置上的。
+
+![img](https://article-images.zsxq.com/Fgl25MCSUB-pje9IB23zR4fKKa9z)
+
+
+
+#### 小结下
+
+
+
+小结下 MemoryStorage 的功能，这是一个日志全在内存里，实现了日志索引的功能的一个存储。
+
+Storage 是给 raft 状态机用的，是 raft 状态机内部的 raftlog 。
+
+
+
+我们知道 raft 算法中，log 是最重要的核心之一。raft 算法三大核心：
+
+\1. leader 选举；
+
+\2. 日志复制；
+
+\3. 选举的正确性保证；
+
+
+
+这个日志在 etcd 的 raft 核心模块里则非常巧妙的抽象了出来。
+
+
+
+etcd 把 raft 算法和 log 完全拆开，日志抽象成了一个 Storage 的接口，而算法则只对这几个特定语义的接口进行逻辑判断，合力工作则能保证数据的一致性。
+
+
+
+这样保证了 raft 算法的最小化，有可以让业务自定义日志的具体实现，很灵活。
+
+Ready 里面的 commit entries 将从这个里面出来。
+
+对于 raft 状态机来讲，我们就可以认为 Storage 的数据是已经持久化了的（这个也是业务要保证的语义），那么在 raft 算法内部就可以完全按照一致性算法来判断。
+
+
+
+同学们可能会疑惑？
+
+
+
+Storage 如果是 MemoryStorage 的话，明明是个内存数据，怎么说是持久化了的呢？业务怎么来保证？
+
+
+
+其实在 etcd 中实现很简单，所有 log entries 添加到 Storage 之前，一定要走 wal 先持久化。
+
+
+
 
 
 # 网络文章
@@ -257,3 +429,16 @@ tree -d -L 1 .
 - [etcd源码阅读与分析（三）：wal](https://jiajunhuang.com/articles/2018_11_24-etcd_source_code_analysis_wal.md.html)
 - [etcd源码阅读与分析（四）：lease](https://jiajunhuang.com/articles/2018_11_27-etcd_source_code_analysis_lease.md.html)
 - [etcd源码阅读与分析（五）：mvcc](https://jiajunhuang.com/articles/2018_11_28-etcd_source_code_analysis_mvvc.md.html)
+
+
+
+
+
+# [etcd学习(6)-etcd实现raft源码解读](https://www.cnblogs.com/ricklz/p/15155095.html)
+
+
+
+# ETCD 源码分析 #38
+
+https://github.com/loadlj/blog/issues/38
+
