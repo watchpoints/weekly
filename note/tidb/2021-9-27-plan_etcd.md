@@ -442,3 +442,21 @@ tree -d -L 1 .
 
 https://github.com/loadlj/blog/issues/38
 
+
+
+# 流程图：https://github.com/etcd-io/etcd.git
+
+
+
+
+
+~~~flow
+func (s *kvstore) Propose(k string, v string) 
+
+  start=>start: 接收到消息
+  info=>operation: Propose
+  setCache=>operation: Propose：s.proposeC 
+  end=>end: 处理结束
+  start->info->setCache->end
+~~~
+
