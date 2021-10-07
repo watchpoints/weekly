@@ -7,7 +7,7 @@ using namespace std;
 template <typename T>
 void f(T& param) {
     //T t;
-    //cout<<typeid(t).name()<<endl;
+    cout<<typeid(T).name()<<endl;
     //std::cout << "decltype(i) is " << type_name<decltype(i)>() << '\n';
 } // param is a reference
 
@@ -29,8 +29,35 @@ void test1()
         f(rx);
 }
 
+void test02()
+{
+
+    cout<<"test02"<<endl;
+    auto x =5;
+    const auto*v =&x;
+    const auto u =6;
+    cout<<typeid(v).name()<<endl;
+    cout<<typeid(u).name()<<endl;
+
+
+    int x1=10;
+    auto *a =&x1;
+    cout<<typeid(a).name()<<endl;
+    auto b =&x1;
+    cout<<typeid(b).name()<<endl;
+    auto &c =x;
+     cout<<typeid(c).name()<<endl;
+    
+    auto d =c;
+     cout<<typeid(d).name()<<endl;
+
+
+
+}
+
 //g++ -std=c++11 4_type_point.cpp
 int main() 
 {
-      
+      test1();
+      test02();
 }
