@@ -5,7 +5,7 @@
  */
 // @lc code=start
 
-class Solution {
+class Solution1 {
 public:
     //模型：1节点和任何节点都有关系，并且顺时针 因此这是有向图
     vector<int> spiralOrder1(vector<vector<int>>& matrix)
@@ -118,4 +118,31 @@ public:
       return path;
     }
 };
+
+
+class Solution {
+public:
+    vector<int> spiralOrder(vector<vector<int>>& matrix) {
+      
+      vector<int> output;
+      int rows =matrix.size();
+      if(0 == rows)
+      {
+          return output;
+      }
+      int cols =matrix[0].size(); //数据结构：图 
+      int total =rows*cols;
+      output.resize(output);
+
+      //螺旋遍历图的条件
+      vector<vector<bool>> visited(rows,vector<bool>(cosl,false)); //是否重复访问
+      int direction =0;
+      
+      //顺指针
+      vector<vector<int>>
+
+    }
+};
 // @lc code=end
+
+

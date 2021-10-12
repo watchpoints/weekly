@@ -135,3 +135,27 @@ select * from __all_resource_pool \G; //资源分配情况
 
 
 
+
+
+
+
+## sql
+
+
+
+~~~sql
+MySQL [OceanBase]> desc __all_core_table;
++--------------+----------------+------+-----+----------------------+-----------------------------+
+| Field        | Type           | Null | Key | Default              | Extra                       |
++--------------+----------------+------+-----+----------------------+-----------------------------+
+| gmt_create   | timestamp(6)   | YES  |     | CURRENT_TIMESTAMP(6) |                             |
+| gmt_modified | timestamp(6)   | YES  |     | CURRENT_TIMESTAMP(6) | ON UPDATE CURRENT_TIMESTAMP |
+| table_name   | varchar(128)   | NO   | PRI | NULL                 |                             |
+| row_id       | bigint(20)     | NO   | PRI | NULL                 |                             |
+| column_name  | varchar(128)   | NO   | PRI | NULL                 |                             |
+| column_value | varchar(65536) | YES  |     | NULL                 |                             |
++--------------+----------------+------+-----+----------------------+-----------------------------+
+~~~
+
+
+
