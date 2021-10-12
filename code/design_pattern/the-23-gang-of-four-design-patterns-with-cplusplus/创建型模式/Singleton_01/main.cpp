@@ -1,9 +1,17 @@
-#include "Singleton.h"
-#include <iostream>
 
-using namespace std;
 
-int main(int argc, char* argv[]) {
-  Singleton* sgn = Singleton::Instance();
-  return 0;
+#include "Singleton2.h"
+
+class A : public Singleton<A>
+{
+protected:
+  A() 
+  {
+    cout << "class A : public Singleton<A> A()" << endl;
+  }
+};
+
+int main()
+{
+  auto &x = Singleton<A>::get_instance();
 }
