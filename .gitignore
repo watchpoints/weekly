@@ -31,3 +31,8 @@
 *.out
 *.app
 .git
+build
+pkg
+*.a
+.class
+
