@@ -13,6 +13,14 @@ categories: ["Leetcode"]
 
 
 
+# 刷题技巧，一个题刷三遍，第一次对， 第二次，第三次不一定写对。
+
+地址：
+
+https://wangcy6.github.io/post/leetcode/01_all/
+
+
+
 ## 方法：架构评审 &&日常沟通
 
 1. 准备好一个ppt，在写代码之前演示最终目标 和架构设计 就是如何去实现的 【不要说公司部门环境不对 着就是最终结果，不要试着看看，一定是可以完全上线的项目，非demo和一个知识点。自己认为真的 不是闹着玩的。。】
@@ -43,7 +51,15 @@ categories: ["Leetcode"]
 
 
 
-## 如何刷题
+## 如何刷题[别解释，动手 动手 动手 ，动手 ，三遍 然后总结一下 ]
+
+## 如何刷题[别解释，动手 动手 动手 ，动手 ，三遍 然后总结一下 ]
+
+## 如何刷题[别解释，动手 动手 动手 ，动手 ，三遍 然后总结一下 ]
+
+
+
+
 
 Happy coding! Enjoy Algorithms.
 
@@ -214,6 +230,9 @@ https://leetcode-cn.com/problems/partition-list/
 
 
 2. https://afteracademy.com/tech-interview/ds-algo-concepts/array-and-linked-list [12个题目都很经典]
+3. k个链表翻转
+
+
 
 
 
@@ -297,7 +316,9 @@ https://afteracademy.com/blog/what-are-greedy-algorithms
 
 
 
-# 简单
+# 简单  简单 简单  题目
+
+
 
 #### [20. 有效的括号](https://leetcode-cn.com/problems/valid-parentheses/)
 
@@ -306,6 +327,15 @@ https://afteracademy.com/blog/what-are-greedy-algorithms
 #### [剑指 Offer 58 - I. 翻转单词顺序](https://leetcode-cn.com/problems/fan-zhuan-dan-ci-shun-xu-lcof/) 
 
 #### [151. 翻转字符串里的单词](https://leetcode-cn.com/problems/reverse-words-in-a-string/)
+
+- 每次单词计算 重制count =0
+- 前缀的空格怎么判断，end ==0;
+
+https://www.yuque.com/yiyezhou/btbolx/uw9x0g/edit
+
+
+
+
 
 # [左旋转字符串](https://www.cnblogs.com/edisonchou/p/4823706.html)
 
@@ -321,25 +351,23 @@ https://afteracademy.com/blog/what-are-greedy-algorithms
 
   
 
-#### [234. 回文链表](https://leetcode-cn.com/problems/palindrome-linked-list/)
+#### [234. 回文链表](https://leetcode-cn.com/problems/palindrome-linked-list/) 【开始】
 
 
 
+#### [409. 最长回文串](https://leetcode-cn.com/problems/longest-palindrome/)
+
+#### [415. 字符串相加](https://leetcode-cn.com/problems/add-strings/) 【中心开始 ok】
+
+#### [434. 字符串中的单词数](https://leetcode-cn.com/problems/number-of-segments-in-a-string/)
 
 
-#### [1217. 玩筹码](https://leetcode-cn.com/problems/minimum-cost-to-move-chips-to-the-same-position/) []
 
-#### [1221. 分割平衡字符串](https://leetcode-cn.com/problems/split-a-string-in-balanced-strings/)【ok,这里没有对称】
+#### [234. 回文链表](https://leetcode-cn.com/problems/palindrome-linked-list/) [从这里开始]
 
-https://leetcode-cn.com/problems/split-a-string-in-balanced-strings/solution/gong-shui-san-xie-noxiang-xin-ke-xue-xi-wumnk/
+[409. 最长回文串](https://leetcode-cn.com/problems/longest-palindrome/)
 
-#### [1232. 缀点成线](https://leetcode-cn.com/problems/check-if-it-is-a-straight-line/) 【矩阵-ok】
-
-#### [1252. 奇数值单元格的数目](https://leetcode-cn.com/problems/cells-with-odd-values-in-a-matrix/)（矩阵 -停止）
-
-- [1260] 二维网格迁移
-
-https://leetcode-cn.com/problems/shift-2d-grid/solution/shuang-zhi-zhen-huo-qu-lastjie-dian-by-a-rae5/
+#### [5. 最长回文子串](https://leetcode-cn.com/problems/longest-palindromic-substring/)
 
 
 
@@ -358,6 +386,12 @@ https://leetcode-cn.com/problems/shift-2d-grid/solution/shuang-zhi-zhen-huo-qu-l
 
 
 #### [54. 螺旋矩阵](https://github.com/watchpoints/daily-interview/blob/main/leetcode/code/54.%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5.cpp) [完成]
+
+#### [55. 跳跃游戏](https://leetcode-cn.com/problems/jump-game/solution/ru-he-biao-shi-duo-ge-ren-zou-dao-wo-zhe-xpen/) [ok]
+
+#### [56. 合并区间](https://leetcode-cn.com/problems/merge-intervals/)
+
+
 
 
 

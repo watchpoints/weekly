@@ -1,5 +1,6 @@
 {
     "files.associations": {
+<<<<<<< HEAD
         "list": "cpp",
         "vector": "cpp",
         "xstring": "cpp",
@@ -73,4 +74,16 @@
         "compare": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled"
+=======
+        "ostream": "cpp",
+        "iostream": "cpp",
+        "*.tcc": "cpp",
+        "string": "cpp",
+        "array": "cpp",
+        "functional": "cpp",
+        "tuple": "cpp",
+        "type_traits": "cpp",
+        "utility": "cpp"
+    }
+>>>>>>> 8cc37855707694b8d2228a66a8d160f115a08a5e
 }
