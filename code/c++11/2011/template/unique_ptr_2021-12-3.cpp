@@ -3,17 +3,19 @@
 
 int main () {
 
-  std::unique_ptr<int> foo ;
-  std::unique_ptr<int> bar;
+  std::unique_ptr<int> foo ; // lvalue
+  std::unique_ptr<int> bar; //  lvalue
   
   //为什么这个成立呢
   foo = std::unique_ptr<int>(new int (101));  // rvalue
   
   //bar = foo; 
   // unique_ptr& operator=(const unique_ptr&) = delete;
-  bar = std::move(foo);                       // using std::move
-
+  //universal references
+  bar = std::move(foo); //  lvalue
+  bar = std::move(std::unique_ptr<int>(new int (11))); //rvalue
   std::unique_ptr<int> up3 = std::make_unique<int>(3);
+  //
 
   
 
@@ -47,7 +49,7 @@ int main () {
   if (bar2) std::cout << *bar2 << '\n'; else std::cout << "empty\n";
    
 
-  std::unique_ptr<int> up3 = std::make_unique<int>(3);
+  std::unique_ptr<int> up4 = std::make_unique<int>(3);
 
   return 0;
 }

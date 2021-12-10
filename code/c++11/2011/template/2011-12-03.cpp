@@ -30,3 +30,5 @@ int main () {
 
   return 0;
 }
+
+//https://stackoverflow.com/questions/17000179/stdremove-reference-explained

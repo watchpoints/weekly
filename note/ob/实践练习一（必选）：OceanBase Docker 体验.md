@@ -150,6 +150,7 @@ service docker status
 - 直接执行命令 
 
 ~~~
+https://open.oceanbase.com/articles/8600142
 
 docker search oceanbase
 
@@ -158,7 +159,21 @@ docker pull oceanbase/obce-mini
 docker run -p 2881:2881 --name obce-mini -d -e OB_HOME_PATH="/app/data/docker" -e OB_TENANT_NAME="test" oceanbase/obce-mini
 
 查看容器启动日志
-docker logs obce-mini
+docker logs obce-mini | tail -1
+
+Start observer ok
+observer program health check ok
+Connect to observer ok
+Initialize cluster
+Cluster bootstrap ok
+Wait for observer init ok
+
+分析上面日志可以看出几点信息：
+
+会安装两个软件包：oceanbase-ce-lib 和 oceanbase-ce-3.1.0 。
+先初始化集群目录。
+然后初始化集群（bootstrap）。
+再初始化业务租户（tenant）。
 
 进入容器
 
@@ -170,6 +185,8 @@ yum -y install tree
 tree /root/ob
 
 mysql -uroot -h127.1 -P2881
+
+
 ~~~
 
 - 参数说明
@@ -185,3 +202,40 @@ mysql -uroot -h127.1 -P2881
 
  OB_TENANT_NAME 默认租户名称
 
+ ### 查看默认启动 obd 
+
+~~~
+ obd cluster list
++--------------------------------------------------------+
+|                      Cluster List                      |
++---------+----------------------------+-----------------+
+| Name    | Configuration Path         | Status (Cached) |
++---------+----------------------------+-----------------+
+| mini-ce | /root/.obd/cluster/mini-ce | running         |
++---------+----------------------------+-----------------+
+
+##obd cluster start
+
+obclient -uroot -h127.1 -P2881(没有启动代理)
+
+docker ps -a
+docker stop obce-mini
+
+~~~
+
+### 相关问题
+
+- 问题1  Docker容器启动报WARNING: IPv4 forwarding is disabled. Networking will not work
+~~~
+vi /etc/sysctl.conf
+net.ipv4.ip_forward=1
+systemctl restart network
+sysctl net.ipv4.ip_forward
+~~~
+
+
+
+### 四、 obd 部署集群 
+
+
+### 五、创建业务租户、数据库、表

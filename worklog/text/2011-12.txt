@@ -1,7 +1,126 @@
-1 群直播会控服务：
-  完成与IM交互协议
-  完成与app,ios交互协议
-2. 群直播会控服务：
-   支持集群模式，避免单点故障
-3. 群直播会控服务监控：
-   流量
+4. tidb代码延迟
+5.ob代码检查
+
+advice in my opinion: the caller of get_compression_file_name allocate and free the memory itself. get_compression_file_name do not allocate the memory, it only checks whether the capacity of the input buffer is enough
+
+
+1.srs开发环境单测正常。
+2. srs 压测脚本实现完成
+3. srs4.0 新特性研究
+4. srs延迟优化定位40%
+1638436056460
+1638436057
+3. 刷题废墟
+4. tidb代码延迟
+5.ob代码检查
+1638848495987
+1638848495
+
+1638848706150
+1638848721162
+
+get_compression_file_name 
+
+it only checks whether the capacity of the input buffer is
+template <class _Ty>
+struct remove_reference {
+    using type                 = _Ty;
+    using _Const_thru_ref_type = const _Ty;
+	
+	
+};
+
+
+看公开课流程
+1 不快进 
+
+
+
+
+type Raft struct {
+	id uint64
+	// 任期编号
+	Term uint64
+	// 选举了谁当 leader（投票给了谁）
+	Vote uint64
+
+	// the log
+	RaftLog *RaftLog
+
+	// log replication progress of each peers
+	Prs map[uint64]*Progress
+
+	// this peer's role
+	State StateType
+
+	// votes records
+	votes map[uint64]bool
+
+	// msgs need to send
+	msgs []pb.Message
+
+	// the leader id
+	Lead uint64
+
+	// heartbeat interval, should send
+	heartbeatTimeout int
+	// baseline of election interval
+	electionTimeout int
+	// number of ticks since it reached last heartbeatTimeout.
+	// only leader keeps heartbeatElapsed.
+	heartbeatElapsed int
+	// Ticks since it reached last electionTimeout when it is leader or candidate.
+	// Number of ticks since it reached last electionTimeout or received a
+	// valid message from current leader when it is a follower.
+	electionElapsed int
+
+	// leadTransferee is id of the leader transfer target when its value is not zero.
+	// Follow the procedure defined in section 3.10 of Raft phd thesis.
+	// (https://web.stanford.edu/~ouster/cgi-bin/papers/OngaroPhD.pdf)
+	// (Used in 3A leader transfer)
+	leadTransferee uint64
+
+	// Only one conf change may be pending (in the log, but not yet
+	// applied) at a time. This is enforced via PendingConfIndex, which
+	// is set to a value >= the log index of the latest pending
+	// configuration change (if any). Config changes are only allowed to
+	// be proposed if the leader's applied index is greater than this
+	// value.
+	// (Used in 3A conf change)
+	PendingConfIndex uint64
+}
+
+看视频流程：
+1 关闭微信 done
+2 不吉利 不吉利done
+
+
+看视频流程
+1 全屏
+2 自己站起来
+
+
+/////////////////////////
+
+你选择记事本代替印象笔记。这决定消耗你3年时间。
+笔记本+github 自动同步 可以老。
+
+
+打开印象笔记消耗巨大能力 因此 痛苦事情不长久
+因此你选择记事本代替印象笔记。
+fork done
+
+
+刷题：
+忘记过去的答案
+
+
+停留在内心痛苦中，根本没有去分析题目，完全乱了 题目是什么我根本不知道。
+
+1 完全停留内心懂痛苦，不行事，完全停留内心痛苦不去心动。
+1 停留你给感觉不分析题目，自己想很难，想想玩去停留过程中。
+
+3 我感到刷题要问题，思路不后果装，因此你大脑让你做做其他事情， 发哦吧不，我就在这里 时间 时间不够问题吗？
+
+
+购买元旦的票
