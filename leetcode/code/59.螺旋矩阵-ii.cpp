@@ -44,7 +44,41 @@
 // @lc code=start
 class Solution {
 public:
+    //time o(n) space o(n2)
     vector<vector<int>> generateMatrix(int n) {
+
+        vector<vector<int>> path(n,vector<int>(n,0));
+        int steps =n*n;
+        //start 
+        int x =0;
+        int y =0;
+        
+        int direction =0;
+        vector<vector<int>> directions ={{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+        vector<vector<bool>> visited(n, vector<bool>(n,false));
+
+
+        for(int i =1;i<=steps;i++)
+        {
+            path[x][y] =i;
+            visited[x][y] =true;//why 
+
+            //i++
+            int nx =x+directions[direction][0];
+            int ny =y+directions[direction][1];
+             //i<=steps
+            if (nx < 0 || nx >=n || ny <0  || ny >= n || true == visited[nx][ny] )
+            {    
+                 direction = (direction + 1) % 4;
+                 nx =x+directions[direction][0];
+                 ny =y+directions[direction][1];
+            }
+
+            x = nx;
+            y = ny ;
+        }
+
+        return path;
 
     }
 };
