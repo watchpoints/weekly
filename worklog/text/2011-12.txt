@@ -181,7 +181,240 @@ issue09 在app崩溃状态下，无法发送离开通知
 Fear can be expelled with knowledge.
 用知识战胜恐惧。
 
+{"serverip":"10.115.90.104","serverpport":"1935","serverdomain":"bj","serverrole":"edge"}
+
+
+
+{"serverip":"120.133.69.81","serverpport":"1935","serverdomain":"bj","serverrole":"edge"}
+{"serverip":"120.133.69.82","serverpport":"1935","serverdomain":"bj","serverrole":"edge"}
+{"serverip":"120.133.69.83","serverpport":"1935","serverdomain":"bj","serverrole":"edge"}
+
+
+你想想你可以的。开始。
+你想想你可以的，开始。
+你想想你可以的。开始。
+你线性可以关闭的，我行动关闭这董伟
+
+你已经知道李，并且觉醒，但是拖延5分钟执行，还是马上执行，马上执行 我采取甘比
+
+你已经知道辽，并湿疹准备，但是米行动不执行，你姐姐问行动上执行，虽然难受，但是这个正确的事情。
+没事无聊你打开也没吗？没事无聊你打开qq吗不有狠毒偶申请但是你去做
+
+
  
  
  
+ http://wiki.intra.gomeplus.com/pages/viewpage.action?pageId=105649003
+ ob开源学习：
  
+关闭微信 --看到桌面--点击退出微信 ok
+
+你转账刷一题，你转账刷同一天
+你打开聊天工具需要5分钟恢复才可以。
+你打开了聊天工具，需要5分钟恢复才可以。
+你打开了聊天工具，需要5分钟恢复才可以的。
+你鼓秋刷无数题目，你现在忘记了，你需要恢复，会议这些题目
+你过去Shaun无数个题目，你现在忘记了，你现在需要的是恢复这些题目。你已经忘记了。这些题目是什么。
+会问疑问。你忘记很多会问疑问题目。
+很简单题目，你忘记了，负载的践踏的题目，你忘记了。
+
+你过去忘记你做很多题目-你怎么做你想想坑，慢看恢复，你先根本不清楚状态，说结果根本不行的。
+
+你过去做很多题目，你现在会议起来这些题目，你现在做的就是想起来，并且吧把他们作对，做好，
+你现在状态不好-》 2 你行为停留装个5年不愁 3 继续昨天。
+当状态不好时候，你做继续做题
+当主动提不好时候，你需要做继续做题。
+你想想你过去刷无数题目不会白刷，你现在忘记，你重新捡起来，过去怎么做的，你牵起来来。
+
+学习从0开始，之前做多少题全部忘记，从0开始刷题。+1
+思想：很痛苦和难受--行为：继续从思路开始，你从分析思路开始，分析问题解锁---继续分析做题
+
+
+
+1 你打开了微信信息，内心痛苦这个无法改变 ，继续带里面继续痛苦
+2. 止损。你选择关闭微信不在聊天继续痛苦。
+3 最后转换点击x按钮，x按钮就是痛苦不痛苦开关。。
+
+
+4 任务不完成不打开聊天工具，这就希望 5秒行动
+
+5  这个没看完，不看其他的图标
+6 题目做不出可以理解，但是打开微信u对的，因此刷题 就是不打开微信，刷题就是不打开微信 这个可以做到。
+7 加入你之前多很多次，现在还还能做处理吗？还能继续完成你认为吗？不能不说感觉，从0开始学习，你注意过去看过，不是有没有想并不这个问题事情本身
+
+
+----
+
+1. 考勤整理 马上去做 done
+2. 
+1 会控服务：定义清晰的3个接口和实现，输出 流程图
+2 媒体服务：提供集群设计图和srs配置上线完成。
+3 会控服务与app完成测试通过：
+4.会控服务与：定义清晰的接口，并且联调通过。
+5。提供可观察的统计报表和流量预警
+
+1 会控消息覆盖进展：重新讨论流程完成。在开发中，预计本周可以测试
+2.与app完成联调。优化细节中。
+3. 生产部署架构评审与网络流量预测完成。遗留需要提供压测数据。
+4. 运营监控系统 完成100%,数据采集到kafa，并且可以访问界面查看。
+
+
+1.
+2 压测srs，发现历史core问题。
+3.了解srs代码
+5.srs 运营：切换vip服务。
+
+
+
+1 限流方案完成。后续进行压测。
+ min(机房分配，srs最大带宽，业务评估在线人数)
+2.srs vip地址变更切换完成。
+3 扩展功能：利用srs群直播对视频监控，录制 研究60
+4 srs已经部署完成。默认采用大族机房。
+
+
+
+
+1. 解决公司升级网络造成域名无法网络问题。
+2. 解决负载均衡入口升级需要平滑迁移问题。
+3. 讨论部分机型偶尔失败的方案
+4. 增加负载测试从主从模式升级负载模式. 80%。
+
+
+app断网重连
+
+方法1. app检查断网，马上关闭（不调用离开会议），然后重新手入会。服务器保证。
+
+方法2. 处理好 tcp自动重新连接情况。
+  服务器不发送，或者客户端不处理 ，需要测试才知道
+
+1 休息5分钟
+2 算法一题
+3 看一次微信 休息15分钟，看10次就可不管不问了吗？
+3 看一次微信 休息15分钟
+3 看一次微信 休息15分钟
+3 看一次微信 休息15分钟
+
+4 用10分钟看基础知识 然后20分看算法。
+
+5 
+
+
+1. 保证正常入会接通率99.99%
+2. 保证srs服务运行正常99.99%
+3. 提供监控，运营和告警入口。
+4. 提供负载均衡等架构调整方案。
+
+
+半年复盘。
+1. 解决公司升级网络造成域名无法网络问题。
+2. 解决负载均衡入口升级需要平滑迁移问题。
+3. 讨论部分机型偶尔失败的方案
+4. 增加负载测试从主从模式升级负载模式. 80%。
+
+
+1. 解决公司网络域名等问题
+
+1. 完成从网络域名,避免单点故障从提高用户接通率。
+2. 保证节假日值班，单测保证服务可用性
+3. 解决讨论部分机型偶尔失败的故障。
+4. 增加负载测试从主从模式升级负载模式.
+
+
+
+1.群直播支持最大群 例如300人同时在线直播观看。
+2.群直播满足延时控制在60秒
+3.完成app测试
+4. 提供直播 人数，时长直播分析。
+5。保证服务稳定性和扩展性。
+
+
+吃饭+1
+留言 +1
+融合+
+录音目录 dealy
+
+
+生产环境部署
+\SecureCRT
+重新登录查看 是否生效：ulimit -a
+open files                      (-n) 655360
+cat /etc/security/limits.conf  //修改直接生效，不需要刷新
+
+*       soft    core    0
+*       hard    core    0
+*       soft    nofile          655360
+*       hard    nofile          655360
+*   soft nproc           655360
+*   hard nproc           655360
+
+查看系统配置：vi  /etc/sysctl.conf
+sysctl -p
+sysctl -a 显示当前的所有参数
+
+net.ipv4.ip_forward = 0
+net.ipv4.conf.default.rp_filter = 1
+net.ipv4.conf.default.accept_source_route = 0
+kernel.sysrq = 0
+kernel.core_uses_pid = 1
+kernel.threads-max=65535
+kernel.msgmni = 16384
+kernel.msgmnb = 65535
+kernel.msgmax = 65535
+kernel.shmmax = 68719476736
+kernel.shmall = 4294967296
+kernel.shmmni = 4096
+kernel.sem = 5010 641280 5010 128
+net.ipv4.tcp_max_tw_buckets = 600000
+net.ipv4.tcp_sack = 1
+net.ipv4.tcp_window_scaling = 1
+net.ipv4.tcp_rmem = 4096 87380 16777216
+net.ipv4.tcp_wmem = 4096 65536 16777216
+net.core.wmem_default = 8388608
+net.core.rmem_default = 8388608
+net.core.rmem_max = 16777216
+net.core.wmem_max = 16777216
+net.core.netdev_max_backlog = 32768
+net.ipv4.tcp_no_metrics_save = 1
+net.core.somaxconn = 32768
+net.core.optmem_max = 10000000
+net.ipv4.tcp_max_orphans = 32768
+net.ipv4.tcp_max_syn_backlog = 65536
+net.ipv4.tcp_syncookies = 1
+net.ipv4.tcp_timestamps = 0
+net.ipv4.tcp_synack_retries = 2
+net.ipv4.tcp_syn_retries = 2
+net.ipv4.tcp_tw_recycle = 1
+net.ipv4.tcp_tw_reuse = 1
+net.ipv4.tcp_mem = 94500000 915000000 927000000
+net.ipv4.tcp_fin_timeout = 10
+net.ipv4.tcp_keepalive_time = 300
+net.ipv4.tcp_keepalive_probes=10
+net.ipv4.tcp_keepalive_intvl=2
+net.ipv4.ip_local_port_range = 10000 65535
+net.ipv4.route.gc_timeout = 100
+net.ipv4.tcp_congestion_control=cubic
+net.ipv4.conf.lo.arp_ignore = 1
+net.ipv4.conf.lo.arp_announce = 2
+net.ipv4.conf.all.arp_ignore = 1
+net.ipv4.conf.all.arp_announce = 2
+fs.aio-max-nr = 1024000
+vm.overcommit_memory = 1
+vm.drop_caches = 3
+vm.swappiness = 1
+
+fs.file-max = 655360
+
+生产环境部署
+
+
+*/5 * * * * sh /home/gome_guest/dns_zhibo_8448/startDns.sh
+
+10.106.84.145:8448;10.106.4.113:8448
+;
+
+ok.
+
+
+休息 5分钟。
+

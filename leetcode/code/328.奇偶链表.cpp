@@ -48,7 +48,7 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
-class Solution {
+class Solution1 {
 public:
     /**
      * 观察特点：翻转奇数后，剩下的就是偶数 
@@ -99,6 +99,51 @@ public:
         }
 
         return head;
+    }
+};
+
+class Solution {
+public:
+    ListNode* oddEvenList(ListNode* head) {
+        if (head == NULL || head->next == NULL) {
+            return head;
+        } 
+       
+       int index =1;
+       // step01- var 
+       ListNode* ptail = head;
+
+       ListNode* pcur = head->next;
+
+       ListNode* ppre =head;
+
+       while(pcur)
+       {
+          //基本操作2 遍历 
+          if (0  == index % 2){
+            ppre = pcur;
+            pcur = pcur->next;
+          }else if{
+              //奇数  基本操作 3 翻转 删除 插入
+
+              ppre->next = pcur->next ; 
+              
+              pcur->next  = ptail->next; 
+
+              ptail->next = pcur;
+
+              ptail = pcur;
+
+              pcur = ppre->next; //单链表需要记录下一个元素位置
+
+          }
+
+          index++;
+       }
+
+       return head; //相对顺序不变，head是第一个，翻转后还是第一个。基本操作1：在链表尾节点插入一个元素。
+
+
     }
 };
 // @lc code=end
