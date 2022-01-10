@@ -102,14 +102,14 @@ public:
     }
 };
 
-class Solution {
+class Solution3 {
 public:
     ListNode* oddEvenList(ListNode* head) {
         if (head == NULL || head->next == NULL) {
             return head;
         } 
        
-       int index =1;
+       int index =2;
        // step01- var 
        ListNode* ptail = head;
 
@@ -123,7 +123,7 @@ public:
           if (0  == index % 2){
             ppre = pcur;
             pcur = pcur->next;
-          }else if{
+          }else {
               //奇数  基本操作 3 翻转 删除 插入
 
               ppre->next = pcur->next ; 
@@ -146,4 +146,36 @@ public:
 
     }
 };
+
+//Go
+/****************************
+func oddEvenList(head *ListNode) *ListNode {
+    if head == nil  || head.Next == nil {
+        return head
+    }
+     
+    //space:
+    index :=2
+    pcur :=head.Next
+    ppre :=head
+    ptail:=head
+    //for condition { } while
+    for pcur !=nil {
+        if index%2 == 0 {
+            ppre = pcur
+            pcur =pcur.Next
+        }else {
+            ppre.Next = pcur.Next
+            pcur.Next = ptail.Next
+            ptail.Next = pcur
+            ptail = pcur
+
+            pcur = ppre.Next
+        }
+        index ++
+    }
+    return head
+
+}
+**/
 // @lc code=end

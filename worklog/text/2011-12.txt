@@ -418,3 +418,24 @@ ok.
 
 休息 5分钟。
 
+dns_down_getredis_time *ptr = dynamic_cast<dns_down_getredis_time *>(m_RedisConnect);
+    if ("-1" != m_strConfID)
+    {
+        long long endTime = get_time_microseconds();
+
+        if ("2" == m_strWatch)
+        {
+            //主播正常离开 20020：主播结束直播 完成
+            // liveid|groupid| userid|type| 时间戳 |starttime|endtime|时常
+            // 20020：主播结束直播
+            if (ptr && 1 == ptr->m_MapConferInfo.count(m_strConfID))
+			
+
+ dns_down_getredis_time *ptr = dynamic_cast<dns_down_getredis_time *>(m_RedisConnect);
+            if (ptr && msgId.size() > 0)
+            {
+                ptr->m_MapMsgId[stConInfo.m_strConfID]=msgId;
+            }
+			
+1 取出货币的钱 OK
+2 .自行微信客服

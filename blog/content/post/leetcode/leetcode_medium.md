@@ -30,6 +30,8 @@ http://localhost:1313/post/leetcode/leetcode_medium/
 
  1. 328. 奇偶链表
  https://leetcode-cn.com/problems/odd-even-linked-list/
+ 2. 面试题 02.04. 分割链表
+ https://leetcode-cn.com/problems/partition-list-lcci/
 
 - 62. 不同路径
 https://leetcode-cn.com/problems/unique-paths/description/
