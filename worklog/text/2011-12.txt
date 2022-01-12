@@ -439,3 +439,24 @@ dns_down_getredis_time *ptr = dynamic_cast<dns_down_getredis_time *>(m_RedisConn
 			
 1 取出货币的钱 OK
 2 .自行微信客服
+
+
+三星手机 提示 微信低版本无法登陆
+导致里面重要的订单，客户资料无法读取。
+因为三星手机版本太低无法自动更新
+微信同样无法更新
+如何微信聊天记录导入其他手机呢？
+着急
+
+1.12日早上九点半，海量数据产品分享及南京一进制备份软件分享
+腾讯会议：658-5516-0859
+会议密码：090227
+
+如何理解 rtmp 通过 flv 格式推送音视频流(h264/aac)
+https://zhuanlan.zhihu.com/p/83454344
+
+FLV视频流编解码知识
+https://www.cnblogs.com/happyhotty/articles/2161052.html
+
+ffmpeg -re -i /app/ffmeg/srs-bench-master/doc/source.200kbps.768x320.flv -c copy -f flv rtmp://10.115.90.104:1935/live/test
+

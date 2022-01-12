@@ -149,18 +149,74 @@ sysctl -p
   
   
   # 参看obd管理的集群列表
-  obd cluster list
+  
+  - obd cluster list
+~~~
+cd /app/data
+
+obd cluster list
++--------------------------------------------------+
+|                   Cluster List                   |
++------+-------------------------+-----------------+
+| Name | Configuration Path      | Status (Cached) |
++------+-------------------------+-----------------+
+| test | /root/.obd/cluster/test | stopped         |
++------+-------------------------+-----------------+
+~~~
+  - obd cluster start  test
+~~~
+Wait for observer init ok
++---------------------------------------------+
+|                   observer                  |
++-----------+---------+------+-------+--------+
+| ip        | version | port | zone  | status |
++-----------+---------+------+-------+--------+
+| 127.0.0.1 | 3.1.1   | 2881 | zone1 | active |
++-----------+---------+------+-------+--------+
+
+obd cluster start  test
+Get local repositories and plugins ok
+Open ssh connection ok
+Cluster param config check ok
+Deploy "test" is running
+
+
+~~~
+
+-  obd cluster display test
+
+~~~
+ obd cluster display test
+Get local repositories and plugins ok
+Open ssh connection ok
+Cluster status check ok
+Connect to observer ok
+Wait for observer init ok
++---------------------------------------------+
+|                   observer                  |
++-----------+---------+------+-------+--------+
+| ip        | version | port | zone  | status |
++-----------+---------+------+-------+--------+
+| 127.0.0.1 | 3.1.1   | 2881 | zone1 | active |
++-----------+---------+------+-------+--------+
+
+~~~
   # 查看 lo 集群状态
   obd cluster display obtest
-  
+
   obd cluster destroy obtest
   
   cd /app/data
   10.115.37.60
   
   alias cdob="obclient -u root -h 127.0.0.1 -P2881"
-  
-  
+~~~
+ - MySQL 租户的管理员用户名默认是root
+-  默认租户 sys
+- 数据库名 oceanbase
+
+obclient -uroot@sys -h127.0.0.1 -P2881 oceanbase
+
   10.115.37.60
   alias cdob="obclient -u root -h 127.0.0.1 -P2881"
   use OceanBase
@@ -170,10 +226,30 @@ sysctl -p
   
   select * from __all_unit \G; //资源分配情况
   select * from __all_resource_pool \G; //资源分配情况
+
+
+  ~~~
+  
+-   select * from __all_server \G;
+  ~~~
+  select zone,svr_ip,svr_port,inner_port,usec_to_time(start_service_time),usec_to_time(stop_time) from oceanbase.__all_server;
   ~~~
   
   
-  
+- 资源占用情况
+
+  ~~~
+select a.zone,concat(a.svr_ip,':',a.svr_port) observer, cpu_total, cpu_assigned, (cpu_total-cpu_assigned) cpu_free, mem_total/1024/1024/1024 mem_total_gb, mem_assigned/1024/1024/1024 mem_assign_gb, (mem_total-mem_assigned)/1024/1024/1024 mem_free_gb  from __all_virtual_server_stat a join __all_server b on (a.svr_ip=b.svr_ip and a.svr_port=b.svr_port) order by a.zone, a.svr_ip;
+
+
+   select t1.name resource_pool_name, t2.`name` unit_config_name, t2.max_cpu, t2.min_cpu, t2.max_memory/1024/1024/1024 max_mem_gb, t2.min_memory/1024/1024/1024 min_mem_gb, t3.unit_id, t3.zone, concat(t3.svr_ip,':',t3.`svr_port`) observer,t4.tenant_id, t4.tenant_name
+    from __all_resource_pool t1 join __all_unit_config t2 on (t1.unit_config_id=t2.unit_config_id)
+   join __all_unit t3 on (t1.`resource_pool_id` = t3.`resource_pool_id`)
+     left join __all_tenant t4 on (t1.tenant_id=t4.tenant_id)
+    order by t1.`resource_pool_id`, t2.`unit_config_id`, t3.unit_id ;
+
+
+  ~~~
   
 
 
@@ -746,8 +822,14 @@ https://hub.fastgit.org/oceanbase/oceanbase/discussions/66
   
 
 
+obd cluster display obtest
+
+### obdeploy 文档
+- https://github.com/oceanbase/obdeploy/blob/master/docs/docs-cn/Q%26A.md
 
 
+## 第二题：一次性说清楚 Paxos、Raft 等算法的区别
 
-### 第二题：一次性说清楚 Paxos、Raft 等算法的区别
 
+## 使用 OBD 扩容
+https://open.oceanbase.com/docs/videoCenter/5900009
