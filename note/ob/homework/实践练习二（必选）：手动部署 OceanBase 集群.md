@@ -45,6 +45,20 @@ https://open.oceanbase.com/answer/detail?id=13700696
 
 
 
+### 创建 admin用户
+
+OceanBase建议使用admin进行维护，创建admin用户。
+
+[root ~] # useradd admin
+[root ~] # passwd admin # 修改admin用户密码
+
+给予admin用户sudo root权限：
+
+[root ~] # cd /etc/sudoers.d/
+# 创建admin(文件可随意),并写入如下内容：
+[root ~] # more admin
+%admin ALL=(ALL) NOPASSWD: AL
+
 
 
 
@@ -190,6 +204,8 @@ cd /data/observer01/
 - https://open.oceanbase.com/answer/detail?id=13700373
 - 2-4-如何手动部署OceanBase三副本集群
 - https://open.oceanbase.com/docs/tutorials/quickstart/V1.0.0/2-11-advanced-how-to-manually-deploy-an-oceanbase-cluster
+
+【3】 https://open.oceanbase.com/answer/detail?id=13700373
 
 
 

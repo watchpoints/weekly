@@ -460,3 +460,262 @@ https://www.cnblogs.com/happyhotty/articles/2161052.html
 
 ffmpeg -re -i /app/ffmeg/srs-bench-master/doc/source.200kbps.768x320.flv -c copy -f flv rtmp://10.115.90.104:1935/live/test
 
+
+看视频流程 0k
+
+创建admin用户
+
+OceanBase建议使用admin进行维护，创建admin用户。
+
+[root ~] # useradd admin
+[root ~] # passwd admin # 修改admin用户密码
+
+给予admin用户sudo root权限：
+
+[root ~] # cd /etc/sudoers.d/
+# 创建admin(文件可随意),并写入如下内容：
+[root ~] # more admin
+%admin ALL=(ALL) NOPASSWD: ALL
+
+ssh admin@192.168.75.128 -p 22
+ulimit -a
+service sshd restart
+https://bbs.csdn.net/topics/394186728
+
+ssh -V
+OpenSSH_8.7p1, OpenSSL 3.0.0 7 sep 2021
+
+[admin@localhost root]$ ssh -V
+OpenSSH_8.7p1, OpenSSL 3.0.0 7 sep 2021
+ssh admin@192.168.75.128 -p 22
+
+建议客户重新编译openssh版本，编译时带上–with-pam参数。客户操作后问题解决。
+
+
+telnet admin@192.168.75.128  22
+ 
+wget https://cdn.openbsd.org/pub/OpenBSD/OpenSSH/openssh-8.8.tar.gz
+
+
+
+ssh root@1.117.98.225 -p 22
+E9}qkXu,r+Q6*dy
+
+
+1.117.98.225
+
+ssh admin@1.117.98.225 -p 22
+
+ssh
+
+ssh -V
+
+做了对比测试 默认的系统安装ssh
+OpenSSH7.0 普通用户登陆 ulimt显示正常
+OpenSSH_8 不行
+
+ssh -V
+OpenSSH_7.4p1, OpenSSL 1.0.2k-fips  26 Jan 2017
+
+ssh -V
+OpenSSH_8.7p1, OpenSSL 3.0.0 7 sep 2021
+
+
+注意：默认情况下，sshd_config中不会启用AuthorizedKeysCommand 和 AuthorizedPrincipalsCommand。
+
+
+告诉别人解决办法 和原因 而不是说我不会，这现象。
+
+
+
+192.168.75.131
+
+ssh root@192.168.75.131 -p 22
+ssh admin@192.168.75.131 -p 22
+
+ssh @192.168.75.131 -p 22
+
+微信低版本无法登陆导致里面聊天记录记录无法导出
+明明信息都在我手机上，我还知道用户名和密码
+却无法查看。有各位大佬，有相关解决办法吗？
+连接模拟器端口：adb connect 127.0.0.1:7555（MuMu自带：adb_server.exe connect 127.0.0.1:7555）
+
+列出已连接的设备：adb devices（MuMu自带：adb_server.exe devices），正常会显示MuMu的设备已连接，则可以进行下一步的操作了、、、
+
+adb kill-server
+adb connect 127.0.0.1:7555
+adb devices
+adb install -d D:\\money\\bak\\weixin6513android1080.apk
+D:\money\bak
+18660398115
+grep "\[98463\]" ./objs/srs.log
+
+公司：国美云平台大数据部门
+项目名称：美办群直播
+负责人：王传义
+
+服务器地址：
+tcp 长连接方式
+
+10.106.84.145:8448
+10.106.4.113:8448
+
+依赖：
+zhibo.gome.com.cn （已经上线，已经限流） 端口1935 
+
+1 考勤  ok
+2. redis停机 ok
+3. 消息融合
+4 rtmp bzhan 
+
+http://code.gome.inc/gitlab/media/meetctl
+
+1.第一个季度 完
+ 成中间件30多个redis代理机房迁移和线上20个php应用程序 平滑升级。
+
+2.多人音视频-群直播项目
+ 完成 会控接口文档 测试用例和代码实现。
+ 完成 srs流媒体从单机到集群架构升级。
+ 完成 流量压测和低延迟优化。
+
+3.音视频中台
+ 初步完成日志监控。
+ srs/ffmeg对直播等视频存储
+ 线上项目维护。
+ 
+
+--
+1.redis代理机迁移完成，迁移前 需要对服务器配置进行调优和压测提前发现故障
+
+2.多人音视频-群直播项目，
+ 在公司新规范下，新的应用程序在设计上符合码安全，网络安全 和架构评审要求。
+ 功能上和app ios 美办多部门合作。
+ 
+3.数据统一管理，功能代码复用产生雏形。
+  对真快乐app,美办等不同产生日志，视频数据 监控，后续同一个跟踪处理。
+  
+擅长：
+ 
+优势
+
+1.
+
+快速落实公司各项政策措施
+和积极配合不同部门对项目架构，扩展和安全要求。
+
+2. 
+
+擅长对服务器高并发，低延时，对c++,golang语言深入研究。
+
+
+待改进
+3. 专业方向： 
+对编解码和srs rtmp协议 webrtc等市场成熟技术和产品进行研究
+
+4. 视野方向：
+从公司战略，需求出发
+听取不同部门,客户意见。
+
+curl -H "Content-Type: application/json"  http://10.110.185.115:3215/public/app/groups/message/firstSendMessage
+
+curl -H "Content-Type: application/json"  -X POST -d '{"busType":1,"data":"{\"liveTitle\":\"李云龙的直播\",\"liveState\":\"2\",\"extra\":{\"group_id\":\"6050283e6207470991de8a3311d8fd8a\",\"confer\":\"6050283e6207470991de8a3311d8fd8a_4717148099838422\",\"streamid\":\"4717148099838422\",\"watch\":\"2\",\"cur_count\":\"0\",\"total_count\":\"1\",\"start_time\":\"1642148476\",\"server\":\"rtmp://zhibo.gome.com.cn:1935/live/4717148099838422_1642148476\",\"end_time\":\"1642148569\",\"name\":\"李云龙\",\"state\":\"2\"}}","groupId":"6050283e6207470991de8a3311d8fd8a","senderUid":4717148099838422}' http://10.110.185.115:3215/public/app/groups/message/firstSendMessage
+
+
+curl "http://10.2.185.115:3215/public/app/groups/message/firstSendMessage" -I 
+
+10.2.185.115 
+
+curl  -v  -H "Content-Type: application/json" -X POST -d '{"busType":1,"data":"{\"liveTitle\":\"李云龙的直播\",\"liveState\":\"2\",\"extra\":{\"group_id\":\"6050283e6207470991de8a3311d8fd8a\",\"confer\":\"6050283e6207470991de8a3311d8fd8a_4717148099838422\",\"streamid\":\"4717148099838422\",\"watch\":\"2\",\"cur_count\":\"0\",\"total_count\":\"1\",\"start_time\":\"1642148476\",\"server\":\"rtmp://zhibo.gome.com.cn:1935/live/4717148099838422_1642148476\",\"end_time\":\"1642148569\",\"name\":\"李云龙\",\"state\":\"2\"}}","groupId":"6050283e6207470991de8a3311d8fd8a","senderUid":4717148099838422}' "http://10.2.185.115:3215/public/app/groups/message/firstSendMessage"
+
+
+
+
+//
+
+
+curl  -v  -H "Content-Type: application/json" -X POST -d '{"busType":1,"data":"{\"liveTitle\":\"李云龙的直播\",\"liveState\":\"2\",\"extra\":{\"group_id\":\"6050283e6207470991de8a3311d8fd8a\",\"confer\":\"6050283e6207470991de8a3311d8fd8a_4717148099838422\",\"streamid\":\"4717148099838422\",\"watch\":\"2\",\"cur_count\":\"0\",\"total_count\":\"1\",\"start_time\":\"1642148476\",\"server\":\"rtmp://zhibo.gome.com.cn:1935/live/4717148099838422_1642148476\",\"end_time\":\"1642148569\",\"name\":\"李云龙\",\"state\":\"2\"}}","groupId":"6050283e6207470991de8a3311d8fd8a","senderUid":4717148099838422}' "http://10.2.185.115:3215/public/app/groups/message/firstSendMessage"
+
+
+10.110.185.115
+curl -H "Content-Type: application/json" -X POST -d '{"busType":1,"data":"{\"liveTitle\":\"李云龙的直播\",\"liveState\":\"2\",\"extra\":{\"group_id\":\"6050283e6207470991de8a3311d8fd8a\",\"confer\":\"6050283e6207470991de8a3311d8fd8a_4717148099838422\",\"streamid\":\"4717148099838422\",\"watch\":\"2\",\"cur_count\":\"0\",\"total_count\":\"1\",\"start_time\":\"1642148476\",\"server\":\"rtmp://zhibo.gome.com.cn:1935/live/4717148099838422_1642148476\",\"end_time\":\"1642148569\",\"name\":\"李云龙\",\"state\":\"2\"}}","groupId":"6050283e6207470991de8a3311d8fd8a","senderUid":4717148099838422}' "http://10.115.92.52:3215/public/app/groups/message/firstSendMessage"
+
+curl  -v  -H "Content-Type: application/json" -X POST -d '{"busType":1,"data":"{\"liveTitle\":\"李云龙的直播\",\"liveState\":\"2\",\"extra\":{\"group_id\":\"6050283e6207470991de8a3311d8fd8a\",\"confer\":\"6050283e6207470991de8a3311d8fd8a_4717148099838422\",\"streamid\":\"4717148099838422\",\"watch\":\"2\",\"cur_count\":\"0\",\"total_count\":\"1\",\"start_time\":\"1642148476\",\"server\":\"rtmp://zhibo.gome.com.cn:1935/live/4717148099838422_1642148476\",\"end_time\":\"1642148569\",\"name\":\"李云龙\",\"state\":\"2\"}}","groupId":"6050283e6207470991de8a3311d8fd8a","senderUid":4717148099838422}' "http://10.115.92.52:3215/public/app/groups/message/firstSendMessage"
+
+
+4717148099838422 get a register req body: 
+62
+{"code":0,"message":"success","data":"deba2be9c2de4f3687376500621f23a3","timestamp":1642160869121}
+0
+
+4717148099838422 get a register req body: 62
+{"code":0,"message":"success","data":"deba2be9c2de4f3687376500621f23a3","timestamp":1642160869121}
+0
+
+size_t pos = m_strConfID.find("_");
+string groupid = m_strConfID.substr(0, pos);
+m_strGroupID = groupid;
+
+1. 恢复电脑定时重启功能
+2  msg】、、、
+
+
+ sub_confrence = cJSON_GetObjectItem(root, JSON_SERVER_SERVEREPORT);
+        if (sub_confrence && sub_confrence->valuestring)
+        {
+            _stServerinfo.port = sub_confrence->valuestring;
+        }
+        sub_confrence = cJSON_GetObjectItem(root, JSON_SERVER_SERVEREDOMAIN);
+        if (sub_confrence && sub_confrence->valuestring)
+        {
+            _stServerinfo.domain = sub_confrence->valuestring;
+        }
+        sub_confrence = cJSON_GetObjectItem(root, JSON_SERVER_SERVEREPAYLOAD);
+        if (sub_confrence && sub_confrence->valuestring)
+        {
+            _stServerinfo.payload = atol((sub_confrence->valuestring));
+        }
+完成。
+adb shell
+chmod -R 777 /data/  
+
+0c5f25e8c00eba410a4e43ac47673e44
+
+/data/data/com.tencent.mm/MicroMsg/0c5f25e8c00eba410a4e43ac47673e44
+/data/data/com.tencent.mm/MicroMsg/0c5f25e8c00eba410a4e43ac47673e44
+
+adb pull /data/data/com.tencent.mm  D:\money\wechat\mumu1\com.tencent.mm
+
+/storage/emulated/tencent/MicroMsg/WeiXin/
+/sdcard/Android/data/com.tencent.mm
+Android
+
+adb pull /sdcard/Android/data/com.tencent.mm 
+D:\money\wechat\mumu1\data\com.tencent.mm
+
+com.tencent.mm
+
+adb pull /sdcard/Android/data/com.tencent.mm/MicroMsg D:\money\wechat\mumu1\data\com.tencent.mm\MicroMsg
+adb pull /sdcard/Android/data/com.tencent.mm/cache D:\money\wechat\mumu1\data\com.tencent.mm\cache
+adb pull /sdcard/Android/data/com.tencent.mm/files D:\money\wechat\mumu1\data\com.tencent.mm\files
+
+adb uninstall [-k] <package>
+ - EN remove this app package from the device
+- CHS 从设备删除程序包
+('-k' means keep the data and cache directories) #不删除程序运行所产生的数据和缓存目录(如软件的数据库文件)
+
+adb uninstall -k /com.tencent.mm
+
+
+
+    例：卸载微信
+    adb uninstall com.tencent.mm
+
+
+    例：卸载微信
+    adb uninstall com.tencent.mm
+	adb uninstall -k com.tencent.mm(保留数据)
+
+adb push D:\money\wechat\mumu1\data\com.tencent.mm  /sdcard/Android/data/com.tencent.mm
+adb push D:\money\wechat\mumu1\com.tencent.mm /data/data/com.tencent.mm
+
+18660398115
