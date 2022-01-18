@@ -719,3 +719,15 @@ adb push D:\money\wechat\mumu1\data\com.tencent.mm  /sdcard/Android/data/com.ten
 adb push D:\money\wechat\mumu1\com.tencent.mm /data/data/com.tencent.mm
 
 18660398115
+
+adb push D:\money\wechat\mumu1\com.tencent.mm\MicroMsg\0c5f25e8c00eba410a4e43ac47673e44 /data/data/com.tencent.mm/MicroMsg/0c5f25e8c00eba410a4e43ac47673e44
+
+购买火车票 ok
+"114164cc82d64317ad624903d92158a2"
+"114164cc82d64317ad624903d92158a2"
+"0c712eb1d60a4b349966cd254ad133d4"
+"0c712eb1d60a4b349966cd254ad133d4"
+ok
+
+
+提交单子 ok
