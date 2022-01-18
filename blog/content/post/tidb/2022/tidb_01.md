@@ -98,4 +98,8 @@ TableReader_5
 CREATE TABLE t14(a INT PRIMARY KEY, b INT, c INT, d INT, e INT, INDEX idx_b(b), INDEX idx_b_c(b, c), INDEX idx_e(e));
 
 EXPLAIN  SELECT * FROM t14 WHERE b = 2 AND c > 4;
+
+create table t15(id int primary key, a int not null);
+
+EXPLAIN ANALYZE SELECT * FROM t USE INDEX(a);
 ~~~
