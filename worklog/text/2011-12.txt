@@ -731,3 +731,16 @@ ok
 
 
 提交单子 ok
+下载资料
+视频不要全部听，听一般就可以来哦。
+
+adb push D:\money\wechat\哥哥\com.tencent.mm /data/data/com.tencent.mm
+
+adb push D:\money\wechat\哥哥\MicroMsg_sdk\MicroMsg /sdcard/tencent/MicroMsg
+imei编码357071051421147
+D:\money\wechat\哥哥\com.tencent.mm
+
+adb push D:\money\wechat\哥哥\com.tencent.mm /data/data/com.tencent.mm
+
+
+1 天半调休
