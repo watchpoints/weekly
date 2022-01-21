@@ -1,0 +1,68 @@
+template <class _Ty>
+class _Ref_count : public _Ref_count_base { // handle reference counting for pointer without deleter
+public:
+    explicit _Ref_count(_Ty* _Px) : _Ref_count_base(), _Ptr(_Px) {}
+
+private:
+    void _Destroy() noexcept override { // destroy managed resource
+        delete _Ptr;
+    }
+
+    void _Delete_this() noexcept override { // destroy self
+        delete this;
+    }
+
+    _Ty* _Ptr;
+};
+
+_Set_ptr_rep_and_enable_shared
+
+  make_shared(_Types&&... _Args) { // make a shared_ptr to non-array object
+    const auto _Rx = new _Ref_count_obj2<_Ty>(_STD forward<_Types>(_Args)...);
+    shared_ptr<_Ty> _Ret;
+    _Ret._Set_ptr_rep_and_enable_shared(_STD addressof(_Rx->_Storage._Value), _Rx);
+	
+ template <class _Ux>
+    void _Set_ptr_rep_and_enable_shared(_Ux* const _Px, _Ref_count_base* const _Rx) noexcept { // take ownership of _Px
+        this->_Ptr = _Px;
+        this->_Rep = _Rx;
+        if constexpr (conjunction_v<negation<is_array<_Ty>>, negation<is_volatile<_Ux>>, _Can_enable_shared<_Ux>>) {
+            if (_Px && _Px->_Wptr.expired()) {
+                _Px->_Wptr = shared_ptr<remove_cv_t<_Ux>>(*this, const_cast<remove_cv_t<_Ux>*>(_Px));
+            }
+        }
+    }
+	
+
+template <class _Ux>
+    void _Set_ptr_rep_and_enable_shared(_Ux* const _Px, _Ref_count_base* const _Rx) noexcept { // take ownership of _Px
+        this->_Ptr = _Px;
+        this->_Rep = _Rx;
+        if constexpr (conjunction_v<negation<is_array<_Ty>>, negation<is_volatile<_Ux>>, _Can_enable_shared<_Ux>>) {
+            if (_Px && _Px->_Wptr.expired()) {
+                _Px->_Wptr = shared_ptr<remove_cv_t<_Ux>>(*this, const_cast<remove_cv_t<_Ux>*>(_Px));
+            }
+        }
+    }
+	
+	
+make_shared(_Types&&... _Args) { // make a shared_ptr to non-array object
+    const auto _Rx = new _Ref_count_obj2<_Ty>(_STD forward<_Types>(_Args)...);
+    shared_ptr<_Ty> _Ret;
+    _Ret._Set_ptr_rep_and_enable_shared(_STD addressof(_Rx->_Storage._Value), _Rx);
+    return _Ret;
+	
+	
+template <class _Ty>
+class _Ref_count_obj2 : public _Ref_count_base { // handle reference counting for object in control block, no allocator
+public:
+    //????
+    template <class... _Types>
+    explicit _Ref_count_obj2(_Types&&... _Args) : _Ref_count_base() {
+
+            _Construct_in_place(_Storage._Value, _STD forward<_Types>(_Args)...);
+        }
+    }
+	//？？？？？
+
+};

@@ -812,3 +812,21 @@ umount
 解决办法：
 java_sdk_17降为java_sdk_8
 Android Gradle plugin requires Java 11 to run. You are currently using Java 1.8.
+Class referenced in the manifest, `com.zhayh.weixinhookdemo.MainActivity`, was not found in the project or the libraries
+
+ template <class _Ux>
+    void _Set_ptr_rep_and_enable_shared(_Ux* const _Px, _Ref_count_base* const _Rx) noexcept { // take ownership of _Px
+        this->_Ptr = _Px;
+        this->_Rep = _Rx;
+        if constexpr (conjunction_v<negation<is_array<_Ty>>, negation<is_volatile<_Ux>>, _Can_enable_shared<_Ux>>) {
+            if (_Px && _Px->_Wptr.expired()) {
+                _Px->_Wptr = shared_ptr<remove_cv_t<_Ux>>(*this, const_cast<remove_cv_t<_Ux>*>(_Px));
+            }
+        }
+    }
+
+    void _Set_ptr_rep_and_enable_shared(nullptr_t, _Ref_count_base* const _Rx) noexcept { // take ownership of nullptr
+        this->_Ptr = nullptr;
+        this->_Rep = _Rx;
+    }
+	shared_ptr 是一个模板，它并不知道 Widget 类是否继承 自 enable_shared_from_this，所以 w->SetSharedPtr(this) 这一句的调用不完全正确 。boost 中解决这个问题使用了一个非常巧妙的方法——重载，通过重载我们可以让编译器自 动选择是否调用 SetSharedPtr。

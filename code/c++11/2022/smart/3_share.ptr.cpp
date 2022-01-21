@@ -1,8 +1,8 @@
-#include <iostream>
 #include <cassert>
+#include <iostream>
 #include <memory>
 using namespace std;
- 
+
 class Parent;
 typedef std::shared_ptr<Parent> ParentPtr;
 typedef std::weak_ptr<Parent> WeakParentPtr;
@@ -10,36 +10,40 @@ typedef std::weak_ptr<Parent> WeakParentPtr;
 class Child
 {
 public:
-    WeakParentPtr father;                 // 只有一环换成 weak_ptr, 即可打破环 
-    Child() {
+    WeakParentPtr father; // 只有一环换成 weak_ptr, 即可打破环
+    Child()
+    {
         cout << "hello Child" << endl;
     }
-    ~Child() {
+    ~Child()
+    {
         cout << "bye Child\n";
     }
 };
- 
+
 typedef std::shared_ptr<Child> ChildPtr;
 typedef std::weak_ptr<Child> WeakChildPtr;
 
-class Parent {
+class Parent
+{
 public:
-    ChildPtr son;                 
-    Parent() {
+    ChildPtr son;
+    Parent()
+    {
         cout << "hello parent\n";
     }
-    ~Parent() {
+    ~Parent()
+    {
         cout << "bye Parent\n";
     }
 };
-
 
 void testParentAndChild()
 {
     ChildPtr c(new Child());
     ParentPtr p(new Parent());
-    p->son = c;            
-    c->father = p;        
+    p->son = c;
+    c->father = p;
     cout << (c->father).use_count() << endl;
     cout << (p->son).use_count() << endl;
 }
