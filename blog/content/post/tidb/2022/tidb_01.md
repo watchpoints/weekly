@@ -8,7 +8,10 @@ tags: ["Tidb"]
 文章地址
 
 - http://localhost:1313/post/tidb/2022/tidb_01/
-- http://74.120.174.137:2379/dashboard/#/overview
+
+- https://wangcy6.github.io/post/tidb/2022/tidb_01/
+
+  
 
 
 ## 管理配置
@@ -18,6 +21,8 @@ tags: ["Tidb"]
 - 拓扑结构
 
 https://docs.pingcap.com/zh/tidb/stable/minimal-deployment-topology/
+
+http://74.120.174.137:2379/dashboard/#/overview
 
 - tiup cluster list
 
@@ -79,10 +84,35 @@ explain select * from t12 where a < 1;
 
 ~~~
 
-### 物理优化
-1.  https://docs.pingcap.com/zh/tidb/stable/sql-physical-optimization
+### 逻辑优化
 
- 优化器会为逻辑执行计划中的每个算子选择具体的物理实现 
+
+
+阅读资料 
+
+
+
+~~~
+Max/Min 函数消除规则
+https://docs.pingcap.com/zh/tidb/stable/max-min-eliminate
+explain select max(a) from t12; TopN_19
+
+https://docs.pingcap.com/zh/tidb/stable/predicate-push-down
+
+~~~
+
+
+
+
+
+### 物理优化
+
+1.     优化器会为逻辑执行计划中的每个算子选择具体的物理实现 
+
+​       https://docs.pingcap.com/zh/tidb/stable/sql-physical-optimization
+
+
+
 - 索引的选择
 ~~~
 
@@ -101,5 +131,69 @@ EXPLAIN  SELECT * FROM t14 WHERE b = 2 AND c > 4;
 
 create table t15(id int primary key, a int not null);
 
+//执行
 EXPLAIN ANALYZE SELECT * FROM t USE INDEX(a);
+
+CREATE TABLE t16 (id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, c1 INT NOT NULL);
+INSERT INTO t16 (c1) VALUES (1), (2), (3);
+EXPLAIN ANALYZE SELECT * FROM t16 WHERE id = 1 \G;
+
 ~~~
+
+
+
+
+
+同城两中心
+
+Data Replication Auto Synchronous，简称 DR Auto-Sync。
+
+
+
+
+
+![](https://lh3.googleusercontent.com/xJ3HeTecqs8ZdC76aYMZJRdN9C2_Vy6Wzx_iP3Pr3K-qjWezzOkUFVHsTHNREPuPMqqX0w6fj4EFfpzHml_9vYP4fdYcOv3JkBe5YLmpS4mgYKJNb8IcSiQZcgD0FrQSclSERSnB=s1600)
+
+
+
+
+
+
+
+### Q2同城两中心 采用raft 复制存在的问题是？
+
+
+
+~~~~gas
+5副本：
+[replication-mode]
+replication-mode = "dr-auto-sync"
+[replication-mode.dr-auto-sync]
+label-key = "zone"
+primary = "east"
+dr = "west"
+primary-replicas = 2
+
+dr-replicas = 1
+wait-store-timeout = "1m"
+wait-sync-timeout = "1m"
+
+https://asktug.com/t/topic/212812
+同步切异步
+https://docs.pingcap.com/zh/tidb/dev/two-data-centers-in-one-city-deployment/
+
+DR（Disaster Recovery），代指同城容灾数据中心
+
+sync：同步复制，此时 DR 与 Primary 至少有一个节点与 Primary 同步，Raft 保证每条 log 按 label 同步复制到 DR
+
+async：
+异步复制，此时不保证 DR 与 Primary 完全同步，
+Raft 使用经典的 majority 方式复制 log
+
+sync-recover：恢复同步，此时不保证 DR 与 Primary 完全同步，Raft 逐步切换成 label 复制，切换成功后汇报给 PD
+
+
+~~~~
+
+
+
