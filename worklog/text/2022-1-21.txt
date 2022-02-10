@@ -66,3 +66,28 @@ public:
 	//？？？？？
 
 };
+
+git reset --hard HEAD^
+
+
+如何下载哔哩哔哩的视频
+1. 哔哩下载姬
+https://github.com/leiurayer/downkyi
+
+2 pip install you-get
+3. Python+tkinter
+https://www.52pojie.cn/thread-1203083-1-1.html
+
+http://127.0.0.1:8080/readmp4?path=D:\mp4\2022\bb\手把手深度剖析leveldb源码(第三部分)\leveldb SST数据结构讲解_高清 1080P.mp4
+
+python -V
+github密码
+Qwer@13578
+
+
+1.引流:不同平台一键推广
+2、视频录制与存储。
+
+1 禅道 ok
+2 考勤
+3 李岚16
