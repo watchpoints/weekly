@@ -197,3 +197,18 @@ sync-recover：恢复同步，此时不保证 DR 与 Primary 完全同步，Raft
 
 
 
+
+
+- [tidb server 异常OOM](https://asktug.com/t/topic/153778)
+
+  
+
+  go tool pprof -http 127.0.0.1:4008 heap2021-09-23T02:56:34Z
+
+  
+
+- [DM 升级到 v2.0.7 后占用 CPU 非常高](https://asktug.com/t/topic/275264)
+
+
+
+- [tikv节点cpu高IO高OOM排查](https://asktug.com/t/topic/513121)

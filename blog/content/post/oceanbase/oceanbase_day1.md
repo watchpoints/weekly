@@ -205,10 +205,10 @@ Wait for observer init ok
   obd cluster display obtest
 
   obd cluster destroy obtest
-  
+
   cd /app/data
   10.115.37.60
-  
+
   alias cdob="obclient -u root -h 127.0.0.1 -P2881"
 ~~~
  - MySQL 租户的管理员用户名默认是root
@@ -228,13 +228,12 @@ obclient -uroot@sys -h127.0.0.1 -P2881 oceanbase
   select * from __all_resource_pool \G; //资源分配情况
 
 
-  ~~~
-  
+~~~
+
 -   select * from __all_server \G;
   ~~~
   select zone,svr_ip,svr_port,inner_port,usec_to_time(start_service_time),usec_to_time(stop_time) from oceanbase.__all_server;
   ~~~
-  
   
 - 资源占用情况
 
@@ -262,7 +261,7 @@ Thread 1 (Thread 0x7f292e84a340 (LWP 59)):
 #2  0x000000000870f998 in oceanbase::observer::ObServer::wait() ()
 #3  0x00000000024c1443 in main ()
 
-~~~
+  ~~~
 
 
 
@@ -833,3 +832,41 @@ obd cluster display obtest
 
 ## 使用 OBD 扩容
 https://open.oceanbase.com/docs/videoCenter/5900009
+
+
+
+# OB社区版（单服务器3副本）
+
+
+
+
+
+obd cluster list
+
+~~~
+obd cluster list
+obd cluster start test
+obd cluster display test
+obclient -uroot@sys -h127.0.0.1 -P2881 oceanbase
+~~~
+
+
+
+问：数据文件大小不是 datafile_size控制的吗？datafile_disk_percentage 这个2个参数优先使用那个呀？
+
+答：
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
