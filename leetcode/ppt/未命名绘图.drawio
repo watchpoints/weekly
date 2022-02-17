@@ -1,0 +1,42 @@
+<mxfile host="app.diagrams.net" modified="2022-01-16T09:07:50.049Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36" etag="JFwZ8lPIUhmsJ6q3H-dm" version="15.5.1" type="github">
+  <diagram id="6X_F68VVUrb3boVa3f8b" name="第 1 页">
+    <mxGraphModel dx="701" dy="414" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="fllYiq5xDvkJnY3daCnH-1" value="&lt;pre style=&quot;box-sizing: border-box ; font-size: 13px ; font-family: , &amp;#34;consolas&amp;#34; , &amp;#34;liberation mono&amp;#34; , &amp;#34;menlo&amp;#34; , &amp;#34;courier&amp;#34; , monospace ; margin-top: 0px ; margin-bottom: 1em ; overflow: auto ; background: rgba() ; padding: 10px 15px ; color: rgba(, 1) ; line-height: 1.6 ; border-radius: 3px&quot;&gt;Hello World&lt;/pre&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;shadow=0;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="50" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="fllYiq5xDvkJnY3daCnH-2" value="&lt;pre style=&quot;box-sizing: border-box ; font-size: 13px ; font-family: , &amp;#34;consolas&amp;#34; , &amp;#34;liberation mono&amp;#34; , &amp;#34;menlo&amp;#34; , &amp;#34;courier&amp;#34; , monospace ; margin-top: 0px ; margin-bottom: 1em ; overflow: auto ; background: rgba() ; padding: 10px 15px ; color: rgba(, 1) ; line-height: 1.6 ; border-radius: 3px&quot;&gt;&quot;   fly me   to   the moon  &quot;&lt;/pre&gt;" style="rounded=0;whiteSpace=wrap;html=1;shadow=0;dashed=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="50" y="160" width="290" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="fllYiq5xDvkJnY3daCnH-7" value="&lt;pre style=&quot;box-sizing: border-box ; font-size: 13px ; font-family: , &amp;#34;consolas&amp;#34; , &amp;#34;liberation mono&amp;#34; , &amp;#34;menlo&amp;#34; , &amp;#34;courier&amp;#34; , monospace ; margin-top: 0px ; margin-bottom: 1em ; overflow: auto ; background: rgba() ; padding: 10px 15px ; color: rgba(, 1) ; line-height: 1.6 ; border-radius: 3px&quot;&gt;&lt;span style=&quot;box-sizing: border-box ; font-weight: bolder&quot;&gt;输入：&lt;/span&gt;s = &quot;&lt;code style=&quot;box-sizing: border-box ; font-family: , &amp;#34;consolas&amp;#34; , &amp;#34;liberation mono&amp;#34; , &amp;#34;menlo&amp;#34; , &amp;#34;courier&amp;#34; , monospace ; background-color: transparent ; color: inherit ; padding: 0px ; border-radius: 3px&quot;&gt;the sky is blue&lt;/code&gt;&quot;&lt;br/&gt;&lt;span style=&quot;box-sizing: border-box ; font-weight: bolder&quot;&gt;输出：&lt;/span&gt;&quot;&lt;code style=&quot;box-sizing: border-box ; font-family: , &amp;#34;consolas&amp;#34; , &amp;#34;liberation mono&amp;#34; , &amp;#34;menlo&amp;#34; , &amp;#34;courier&amp;#34; , monospace ; background-color: transparent ; color: inherit ; padding: 0px ; border-radius: 3px&quot;&gt;blue is sky the&lt;/code&gt;&quot;&lt;/pre&gt;" style="rounded=0;whiteSpace=wrap;html=1;shadow=0;dashed=1;fontSize=15;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="50" y="270" width="220" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="fllYiq5xDvkJnY3daCnH-10" value="&lt;pre style=&quot;box-sizing: border-box ; font-size: 13px ; font-family: , &amp;#34;consolas&amp;#34; , &amp;#34;liberation mono&amp;#34; , &amp;#34;menlo&amp;#34; , &amp;#34;courier&amp;#34; , monospace ; margin-top: 0px ; margin-bottom: 1em ; overflow: auto ; background: rgba() ; padding: 10px 15px ; color: rgba(, 1) ; line-height: 1.6 ; border-radius: 3px&quot;&gt;Hello World&lt;/pre&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;shadow=0;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="90" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="fllYiq5xDvkJnY3daCnH-11" value="" style="endArrow=classic;html=1;rounded=0;fontSize=15;entryX=0.15;entryY=1.044;entryDx=0;entryDy=0;entryPerimeter=0;fillColor=#f8cecc;strokeColor=#b85450;" edge="1" parent="1" target="fllYiq5xDvkJnY3daCnH-10">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="448" y="230" as="sourcePoint" />
+            <mxPoint x="464" y="165" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="448" y="210" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fllYiq5xDvkJnY3daCnH-12" value="begin" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=15;" vertex="1" connectable="0" parent="fllYiq5xDvkJnY3daCnH-11">
+          <mxGeometry x="-0.0348" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fllYiq5xDvkJnY3daCnH-15" value="end" style="endArrow=classic;html=1;rounded=0;fontSize=15;fillColor=#fff2cc;strokeColor=#d6b656;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="480" y="10" as="sourcePoint" />
+            <mxPoint x="480" y="80" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

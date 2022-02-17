@@ -1,0 +1,832 @@
+4. tidb代码延迟
+5.ob代码检查
+
+advice in my opinion: the caller of get_compression_file_name allocate and free the memory itself. get_compression_file_name do not allocate the memory, it only checks whether the capacity of the input buffer is enough
+
+
+1.srs开发环境单测正常。
+2. srs 压测脚本实现完成
+3. srs4.0 新特性研究
+4. srs延迟优化定位40%
+1638436056460
+1638436057
+3. 刷题废墟
+4. tidb代码延迟
+5.ob代码检查
+1638848495987
+1638848495
+
+1638848706150
+1638848721162
+
+get_compression_file_name 
+
+it only checks whether the capacity of the input buffer is
+template <class _Ty>
+struct remove_reference {
+    using type                 = _Ty;
+    using _Const_thru_ref_type = const _Ty;
+	
+	
+};
+
+
+看公开课流程
+1 不快进 
+
+
+
+
+type Raft struct {
+	id uint64
+	// 任期编号
+	Term uint64
+	// 选举了谁当 leader（投票给了谁）
+	Vote uint64
+
+	// the log
+	RaftLog *RaftLog
+
+	// log replication progress of each peers
+	Prs map[uint64]*Progress
+
+	// this peer's role
+	State StateType
+
+	// votes records
+	votes map[uint64]bool
+
+	// msgs need to send
+	msgs []pb.Message
+
+	// the leader id
+	Lead uint64
+
+	// heartbeat interval, should send
+	heartbeatTimeout int
+	// baseline of election interval
+	electionTimeout int
+	// number of ticks since it reached last heartbeatTimeout.
+	// only leader keeps heartbeatElapsed.
+	heartbeatElapsed int
+	// Ticks since it reached last electionTimeout when it is leader or candidate.
+	// Number of ticks since it reached last electionTimeout or received a
+	// valid message from current leader when it is a follower.
+	electionElapsed int
+
+	// leadTransferee is id of the leader transfer target when its value is not zero.
+	// Follow the procedure defined in section 3.10 of Raft phd thesis.
+	// (https://web.stanford.edu/~ouster/cgi-bin/papers/OngaroPhD.pdf)
+	// (Used in 3A leader transfer)
+	leadTransferee uint64
+
+	// Only one conf change may be pending (in the log, but not yet
+	// applied) at a time. This is enforced via PendingConfIndex, which
+	// is set to a value >= the log index of the latest pending
+	// configuration change (if any). Config changes are only allowed to
+	// be proposed if the leader's applied index is greater than this
+	// value.
+	// (Used in 3A conf change)
+	PendingConfIndex uint64
+}
+
+看视频流程：
+1 关闭微信 done
+2 不吉利 不吉利done
+
+
+会控：
+124.250.120.86 	120.133.69.86
+124.250.120.75 	120.133.69.75
+srs
+124.250.120.81	120.133.69.81
+124.250.120.82	120.133.69.82
+124.250.120.83	120.133.69.83
+
+下周lvs变更计划
+
+
+步骤1：修改会控 dns_down_config.ini配置 字段 重启服务
+ OUTIP
+124.250.120.86 	120.133.69.86
+124.250.120.75 	120.133.69.75
+
+步骤2：修改srs.conf配置 重启服务
+
+external_ip 124.250.120.83:1935;
+
+124.250.120.81	120.133.69.81
+124.250.120.82	120.133.69.82
+124.250.120.83	120.133.69.83
+
+
+
+看视频流程
+1 全屏
+2 自己站起来
+
+
+/////////////////////////
+
+你选择记事本代替印象笔记。这决定消耗你3年时间。
+笔记本+github 自动同步 可以老。
+
+
+打开印象笔记消耗巨大能力 因此 痛苦事情不长久
+因此你选择记事本代替印象笔记。
+fork done
+
+
+刷题：
+忘记过去的答案
+
+
+停留在内心痛苦中，根本没有去分析题目，完全乱了 题目是什么我根本不知道。
+
+1 完全停留内心懂痛苦，不行事，完全停留内心痛苦不去心动。
+1 停留你给感觉不分析题目，自己想很难，想想玩去停留过程中。
+
+3 我感到刷题要问题，思路不后果装，因此你大脑让你做做其他事情， 发哦吧不，我就在这里 时间 时间不够问题吗？
+
+
+购买元旦的票
+
+	StateFollower StateType = iota
+	StateCandidate
+	StateLeader
+	
+电子科技大学分布式存储与计算实验室新生训练计划
+https://github.com/CDDSCLab/training-plan
+
+这个学校真好，用过的tinykv，我怎么没遇到过
+
+
+TiDB Hackathon 正在集结战队🤼‍♂️！
+奖金池超 40w，我算了下大概 30 多支队伍有机会获奖，获奖几率超高！
+赛道设置也超开放，任何 Cool idea 都可以来挑战！
+看着身边倒腾内核的、搞大数据的、折腾云的，连产品和前端都找到队友了，我……
+如果你也想报名，队伍还缺一个挂件，请务必带上我！快上车
+https://tidb.io/events/hackathon2021?utm_source=02   要不组队当个炮灰去？
+.gome.com.cn:1935/live/4704934886375444_1640240586870\",\"end_time\":\"1640240592771\",\"name\":\"Wangchuanyi\",\"state\":\"2\"}}","senderId":77070356,"senderType":0,"senderName":"Wangchuanyi","isCounted":0}
+2021-12-23 14:23:13,028: INFO meiban_group_zhibo : meiban_group_zhibo: connect ID: 2 conferInfo: 6050283e6207470991de8a3311d
+
+
+issue09 在app崩溃状态下，无法发送离开通知
+
+ connect to server error
+ 
+ connect to server error. ip 10.115.1.118 port 8081 ret 1018
+ 
+ 
+Fear can be expelled with knowledge.
+用知识战胜恐惧。
+
+{"serverip":"10.115.90.104","serverpport":"1935","serverdomain":"bj","serverrole":"edge"}
+
+
+
+{"serverip":"120.133.69.81","serverpport":"1935","serverdomain":"bj","serverrole":"edge"}
+{"serverip":"120.133.69.82","serverpport":"1935","serverdomain":"bj","serverrole":"edge"}
+{"serverip":"120.133.69.83","serverpport":"1935","serverdomain":"bj","serverrole":"edge"}
+
+
+你想想你可以的。开始。
+你想想你可以的，开始。
+你想想你可以的。开始。
+你线性可以关闭的，我行动关闭这董伟
+
+你已经知道李，并且觉醒，但是拖延5分钟执行，还是马上执行，马上执行 我采取甘比
+
+你已经知道辽，并湿疹准备，但是米行动不执行，你姐姐问行动上执行，虽然难受，但是这个正确的事情。
+没事无聊你打开也没吗？没事无聊你打开qq吗不有狠毒偶申请但是你去做
+
+
+ 
+ 
+ 
+ http://wiki.intra.gomeplus.com/pages/viewpage.action?pageId=105649003
+ ob开源学习：
+ 
+关闭微信 --看到桌面--点击退出微信 ok
+
+你转账刷一题，你转账刷同一天
+你打开聊天工具需要5分钟恢复才可以。
+你打开了聊天工具，需要5分钟恢复才可以。
+你打开了聊天工具，需要5分钟恢复才可以的。
+你鼓秋刷无数题目，你现在忘记了，你需要恢复，会议这些题目
+你过去Shaun无数个题目，你现在忘记了，你现在需要的是恢复这些题目。你已经忘记了。这些题目是什么。
+会问疑问。你忘记很多会问疑问题目。
+很简单题目，你忘记了，负载的践踏的题目，你忘记了。
+
+你过去忘记你做很多题目-你怎么做你想想坑，慢看恢复，你先根本不清楚状态，说结果根本不行的。
+
+你过去做很多题目，你现在会议起来这些题目，你现在做的就是想起来，并且吧把他们作对，做好，
+你现在状态不好-》 2 你行为停留装个5年不愁 3 继续昨天。
+当状态不好时候，你做继续做题
+当主动提不好时候，你需要做继续做题。
+你想想你过去刷无数题目不会白刷，你现在忘记，你重新捡起来，过去怎么做的，你牵起来来。
+
+学习从0开始，之前做多少题全部忘记，从0开始刷题。+1
+思想：很痛苦和难受--行为：继续从思路开始，你从分析思路开始，分析问题解锁---继续分析做题
+
+
+
+1 你打开了微信信息，内心痛苦这个无法改变 ，继续带里面继续痛苦
+2. 止损。你选择关闭微信不在聊天继续痛苦。
+3 最后转换点击x按钮，x按钮就是痛苦不痛苦开关。。
+
+
+4 任务不完成不打开聊天工具，这就希望 5秒行动
+
+5  这个没看完，不看其他的图标
+6 题目做不出可以理解，但是打开微信u对的，因此刷题 就是不打开微信，刷题就是不打开微信 这个可以做到。
+7 加入你之前多很多次，现在还还能做处理吗？还能继续完成你认为吗？不能不说感觉，从0开始学习，你注意过去看过，不是有没有想并不这个问题事情本身
+
+
+----
+
+1. 考勤整理 马上去做 done
+2. 
+1 会控服务：定义清晰的3个接口和实现，输出 流程图
+2 媒体服务：提供集群设计图和srs配置上线完成。
+3 会控服务与app完成测试通过：
+4.会控服务与：定义清晰的接口，并且联调通过。
+5。提供可观察的统计报表和流量预警
+
+1 会控消息覆盖进展：重新讨论流程完成。在开发中，预计本周可以测试
+2.与app完成联调。优化细节中。
+3. 生产部署架构评审与网络流量预测完成。遗留需要提供压测数据。
+4. 运营监控系统 完成100%,数据采集到kafa，并且可以访问界面查看。
+
+
+1.
+2 压测srs，发现历史core问题。
+3.了解srs代码
+5.srs 运营：切换vip服务。
+
+
+
+1 限流方案完成。后续进行压测。
+ min(机房分配，srs最大带宽，业务评估在线人数)
+2.srs vip地址变更切换完成。
+3 扩展功能：利用srs群直播对视频监控，录制 研究60
+4 srs已经部署完成。默认采用大族机房。
+
+
+
+
+1. 解决公司升级网络造成域名无法网络问题。
+2. 解决负载均衡入口升级需要平滑迁移问题。
+3. 讨论部分机型偶尔失败的方案
+4. 增加负载测试从主从模式升级负载模式. 80%。
+
+
+app断网重连
+
+方法1. app检查断网，马上关闭（不调用离开会议），然后重新手入会。服务器保证。
+
+方法2. 处理好 tcp自动重新连接情况。
+  服务器不发送，或者客户端不处理 ，需要测试才知道
+
+1 休息5分钟
+2 算法一题
+3 看一次微信 休息15分钟，看10次就可不管不问了吗？
+3 看一次微信 休息15分钟
+3 看一次微信 休息15分钟
+3 看一次微信 休息15分钟
+
+4 用10分钟看基础知识 然后20分看算法。
+
+5 
+
+
+1. 保证正常入会接通率99.99%
+2. 保证srs服务运行正常99.99%
+3. 提供监控，运营和告警入口。
+4. 提供负载均衡等架构调整方案。
+
+
+半年复盘。
+1. 解决公司升级网络造成域名无法网络问题。
+2. 解决负载均衡入口升级需要平滑迁移问题。
+3. 讨论部分机型偶尔失败的方案
+4. 增加负载测试从主从模式升级负载模式. 80%。
+
+
+1. 解决公司网络域名等问题
+
+1. 完成从网络域名,避免单点故障从提高用户接通率。
+2. 保证节假日值班，单测保证服务可用性
+3. 解决讨论部分机型偶尔失败的故障。
+4. 增加负载测试从主从模式升级负载模式.
+
+
+
+1.群直播支持最大群 例如300人同时在线直播观看。
+2.群直播满足延时控制在60秒
+3.完成app测试
+4. 提供直播 人数，时长直播分析。
+5。保证服务稳定性和扩展性。
+
+
+吃饭+1
+留言 +1
+融合+
+录音目录 dealy
+
+
+生产环境部署
+\SecureCRT
+重新登录查看 是否生效：ulimit -a
+open files                      (-n) 655360
+cat /etc/security/limits.conf  //修改直接生效，不需要刷新
+
+*       soft    core    0
+*       hard    core    0
+*       soft    nofile          655360
+*       hard    nofile          655360
+*   soft nproc           655360
+*   hard nproc           655360
+
+查看系统配置：vi  /etc/sysctl.conf
+sysctl -p
+sysctl -a 显示当前的所有参数
+
+net.ipv4.ip_forward = 0
+net.ipv4.conf.default.rp_filter = 1
+net.ipv4.conf.default.accept_source_route = 0
+kernel.sysrq = 0
+kernel.core_uses_pid = 1
+kernel.threads-max=65535
+kernel.msgmni = 16384
+kernel.msgmnb = 65535
+kernel.msgmax = 65535
+kernel.shmmax = 68719476736
+kernel.shmall = 4294967296
+kernel.shmmni = 4096
+kernel.sem = 5010 641280 5010 128
+net.ipv4.tcp_max_tw_buckets = 600000
+net.ipv4.tcp_sack = 1
+net.ipv4.tcp_window_scaling = 1
+net.ipv4.tcp_rmem = 4096 87380 16777216
+net.ipv4.tcp_wmem = 4096 65536 16777216
+net.core.wmem_default = 8388608
+net.core.rmem_default = 8388608
+net.core.rmem_max = 16777216
+net.core.wmem_max = 16777216
+net.core.netdev_max_backlog = 32768
+net.ipv4.tcp_no_metrics_save = 1
+net.core.somaxconn = 32768
+net.core.optmem_max = 10000000
+net.ipv4.tcp_max_orphans = 32768
+net.ipv4.tcp_max_syn_backlog = 65536
+net.ipv4.tcp_syncookies = 1
+net.ipv4.tcp_timestamps = 0
+net.ipv4.tcp_synack_retries = 2
+net.ipv4.tcp_syn_retries = 2
+net.ipv4.tcp_tw_recycle = 1
+net.ipv4.tcp_tw_reuse = 1
+net.ipv4.tcp_mem = 94500000 915000000 927000000
+net.ipv4.tcp_fin_timeout = 10
+net.ipv4.tcp_keepalive_time = 300
+net.ipv4.tcp_keepalive_probes=10
+net.ipv4.tcp_keepalive_intvl=2
+net.ipv4.ip_local_port_range = 10000 65535
+net.ipv4.route.gc_timeout = 100
+net.ipv4.tcp_congestion_control=cubic
+net.ipv4.conf.lo.arp_ignore = 1
+net.ipv4.conf.lo.arp_announce = 2
+net.ipv4.conf.all.arp_ignore = 1
+net.ipv4.conf.all.arp_announce = 2
+fs.aio-max-nr = 1024000
+vm.overcommit_memory = 1
+vm.drop_caches = 3
+vm.swappiness = 1
+
+fs.file-max = 655360
+
+生产环境部署
+
+
+*/5 * * * * sh /home/gome_guest/dns_zhibo_8448/startDns.sh
+
+10.106.84.145:8448;10.106.4.113:8448
+;
+
+ok.
+
+
+休息 5分钟。
+
+dns_down_getredis_time *ptr = dynamic_cast<dns_down_getredis_time *>(m_RedisConnect);
+    if ("-1" != m_strConfID)
+    {
+        long long endTime = get_time_microseconds();
+
+        if ("2" == m_strWatch)
+        {
+            //主播正常离开 20020：主播结束直播 完成
+            // liveid|groupid| userid|type| 时间戳 |starttime|endtime|时常
+            // 20020：主播结束直播
+            if (ptr && 1 == ptr->m_MapConferInfo.count(m_strConfID))
+			
+
+ dns_down_getredis_time *ptr = dynamic_cast<dns_down_getredis_time *>(m_RedisConnect);
+            if (ptr && msgId.size() > 0)
+            {
+                ptr->m_MapMsgId[stConInfo.m_strConfID]=msgId;
+            }
+			
+1 取出货币的钱 OK
+2 .自行微信客服
+
+
+三星手机 提示 微信低版本无法登陆
+导致里面重要的订单，客户资料无法读取。
+因为三星手机版本太低无法自动更新
+微信同样无法更新
+如何微信聊天记录导入其他手机呢？
+着急
+
+1.12日早上九点半，海量数据产品分享及南京一进制备份软件分享
+腾讯会议：658-5516-0859
+会议密码：090227
+
+如何理解 rtmp 通过 flv 格式推送音视频流(h264/aac)
+https://zhuanlan.zhihu.com/p/83454344
+
+FLV视频流编解码知识
+https://www.cnblogs.com/happyhotty/articles/2161052.html
+
+ffmpeg -re -i /app/ffmeg/srs-bench-master/doc/source.200kbps.768x320.flv -c copy -f flv rtmp://10.115.90.104:1935/live/test
+
+
+看视频流程 0k
+
+创建admin用户
+
+OceanBase建议使用admin进行维护，创建admin用户。
+
+[root ~] # useradd admin
+[root ~] # passwd admin # 修改admin用户密码
+
+给予admin用户sudo root权限：
+
+[root ~] # cd /etc/sudoers.d/
+# 创建admin(文件可随意),并写入如下内容：
+[root ~] # more admin
+%admin ALL=(ALL) NOPASSWD: ALL
+
+ssh admin@192.168.75.128 -p 22
+ulimit -a
+service sshd restart
+https://bbs.csdn.net/topics/394186728
+
+ssh -V
+OpenSSH_8.7p1, OpenSSL 3.0.0 7 sep 2021
+
+[admin@localhost root]$ ssh -V
+OpenSSH_8.7p1, OpenSSL 3.0.0 7 sep 2021
+ssh admin@192.168.75.128 -p 22
+
+建议客户重新编译openssh版本，编译时带上–with-pam参数。客户操作后问题解决。
+
+
+telnet admin@192.168.75.128  22
+ 
+wget https://cdn.openbsd.org/pub/OpenBSD/OpenSSH/openssh-8.8.tar.gz
+
+
+
+ssh root@1.117.98.225 -p 22
+E9}qkXu,r+Q6*dy
+
+
+1.117.98.225
+
+ssh admin@1.117.98.225 -p 22
+
+ssh
+
+ssh -V
+
+做了对比测试 默认的系统安装ssh
+OpenSSH7.0 普通用户登陆 ulimt显示正常
+OpenSSH_8 不行
+
+ssh -V
+OpenSSH_7.4p1, OpenSSL 1.0.2k-fips  26 Jan 2017
+
+ssh -V
+OpenSSH_8.7p1, OpenSSL 3.0.0 7 sep 2021
+
+
+注意：默认情况下，sshd_config中不会启用AuthorizedKeysCommand 和 AuthorizedPrincipalsCommand。
+
+
+告诉别人解决办法 和原因 而不是说我不会，这现象。
+
+
+
+192.168.75.131
+
+ssh root@192.168.75.131 -p 22
+ssh admin@192.168.75.131 -p 22
+
+ssh @192.168.75.131 -p 22
+
+微信低版本无法登陆导致里面聊天记录记录无法导出
+明明信息都在我手机上，我还知道用户名和密码
+却无法查看。有各位大佬，有相关解决办法吗？
+连接模拟器端口：adb connect 127.0.0.1:7555（MuMu自带：adb_server.exe connect 127.0.0.1:7555）
+
+列出已连接的设备：adb devices（MuMu自带：adb_server.exe devices），正常会显示MuMu的设备已连接，则可以进行下一步的操作了、、、
+
+adb kill-server
+adb connect 127.0.0.1:7555
+adb devices
+adb install -d D:\\money\\bak\\weixin6513android1080.apk
+D:\money\bak
+18660398115
+grep "\[98463\]" ./objs/srs.log
+
+公司：国美云平台大数据部门
+项目名称：美办群直播
+负责人：王传义
+
+服务器地址：
+tcp 长连接方式
+
+10.106.84.145:8448
+10.106.4.113:8448
+
+依赖：
+zhibo.gome.com.cn （已经上线，已经限流） 端口1935 
+
+1 考勤  ok
+2. redis停机 ok
+3. 消息融合
+4 rtmp bzhan 
+
+http://code.gome.inc/gitlab/media/meetctl
+
+1.第一个季度 完
+ 成中间件30多个redis代理机房迁移和线上20个php应用程序 平滑升级。
+
+2.多人音视频-群直播项目
+ 完成 会控接口文档 测试用例和代码实现。
+ 完成 srs流媒体从单机到集群架构升级。
+ 完成 流量压测和低延迟优化。
+
+3.音视频中台
+ 初步完成日志监控。
+ srs/ffmeg对直播等视频存储
+ 线上项目维护。
+ 
+
+--
+1.redis代理机迁移完成，迁移前 需要对服务器配置进行调优和压测提前发现故障
+
+2.多人音视频-群直播项目，
+ 在公司新规范下，新的应用程序在设计上符合码安全，网络安全 和架构评审要求。
+ 功能上和app ios 美办多部门合作。
+ 
+3.数据统一管理，功能代码复用产生雏形。
+  对真快乐app,美办等不同产生日志，视频数据 监控，后续同一个跟踪处理。
+  
+擅长：
+ 
+优势
+
+1.
+
+快速落实公司各项政策措施
+和积极配合不同部门对项目架构，扩展和安全要求。
+
+2. 
+
+擅长对服务器高并发，低延时，对c++,golang语言深入研究。
+
+
+待改进
+3. 专业方向： 
+对编解码和srs rtmp协议 webrtc等市场成熟技术和产品进行研究
+
+4. 视野方向：
+从公司战略，需求出发
+听取不同部门,客户意见。
+
+curl -H "Content-Type: application/json"  http://10.110.185.115:3215/public/app/groups/message/firstSendMessage
+
+curl -H "Content-Type: application/json"  -X POST -d '{"busType":1,"data":"{\"liveTitle\":\"李云龙的直播\",\"liveState\":\"2\",\"extra\":{\"group_id\":\"6050283e6207470991de8a3311d8fd8a\",\"confer\":\"6050283e6207470991de8a3311d8fd8a_4717148099838422\",\"streamid\":\"4717148099838422\",\"watch\":\"2\",\"cur_count\":\"0\",\"total_count\":\"1\",\"start_time\":\"1642148476\",\"server\":\"rtmp://zhibo.gome.com.cn:1935/live/4717148099838422_1642148476\",\"end_time\":\"1642148569\",\"name\":\"李云龙\",\"state\":\"2\"}}","groupId":"6050283e6207470991de8a3311d8fd8a","senderUid":4717148099838422}' http://10.110.185.115:3215/public/app/groups/message/firstSendMessage
+
+
+curl "http://10.2.185.115:3215/public/app/groups/message/firstSendMessage" -I 
+
+10.2.185.115 
+
+curl  -v  -H "Content-Type: application/json" -X POST -d '{"busType":1,"data":"{\"liveTitle\":\"李云龙的直播\",\"liveState\":\"2\",\"extra\":{\"group_id\":\"6050283e6207470991de8a3311d8fd8a\",\"confer\":\"6050283e6207470991de8a3311d8fd8a_4717148099838422\",\"streamid\":\"4717148099838422\",\"watch\":\"2\",\"cur_count\":\"0\",\"total_count\":\"1\",\"start_time\":\"1642148476\",\"server\":\"rtmp://zhibo.gome.com.cn:1935/live/4717148099838422_1642148476\",\"end_time\":\"1642148569\",\"name\":\"李云龙\",\"state\":\"2\"}}","groupId":"6050283e6207470991de8a3311d8fd8a","senderUid":4717148099838422}' "http://10.2.185.115:3215/public/app/groups/message/firstSendMessage"
+
+
+
+
+//
+
+
+curl  -v  -H "Content-Type: application/json" -X POST -d '{"busType":1,"data":"{\"liveTitle\":\"李云龙的直播\",\"liveState\":\"2\",\"extra\":{\"group_id\":\"6050283e6207470991de8a3311d8fd8a\",\"confer\":\"6050283e6207470991de8a3311d8fd8a_4717148099838422\",\"streamid\":\"4717148099838422\",\"watch\":\"2\",\"cur_count\":\"0\",\"total_count\":\"1\",\"start_time\":\"1642148476\",\"server\":\"rtmp://zhibo.gome.com.cn:1935/live/4717148099838422_1642148476\",\"end_time\":\"1642148569\",\"name\":\"李云龙\",\"state\":\"2\"}}","groupId":"6050283e6207470991de8a3311d8fd8a","senderUid":4717148099838422}' "http://10.2.185.115:3215/public/app/groups/message/firstSendMessage"
+
+
+10.110.185.115
+curl -H "Content-Type: application/json" -X POST -d '{"busType":1,"data":"{\"liveTitle\":\"李云龙的直播\",\"liveState\":\"2\",\"extra\":{\"group_id\":\"6050283e6207470991de8a3311d8fd8a\",\"confer\":\"6050283e6207470991de8a3311d8fd8a_4717148099838422\",\"streamid\":\"4717148099838422\",\"watch\":\"2\",\"cur_count\":\"0\",\"total_count\":\"1\",\"start_time\":\"1642148476\",\"server\":\"rtmp://zhibo.gome.com.cn:1935/live/4717148099838422_1642148476\",\"end_time\":\"1642148569\",\"name\":\"李云龙\",\"state\":\"2\"}}","groupId":"6050283e6207470991de8a3311d8fd8a","senderUid":4717148099838422}' "http://10.115.92.52:3215/public/app/groups/message/firstSendMessage"
+
+curl  -v  -H "Content-Type: application/json" -X POST -d '{"busType":1,"data":"{\"liveTitle\":\"李云龙的直播\",\"liveState\":\"2\",\"extra\":{\"group_id\":\"6050283e6207470991de8a3311d8fd8a\",\"confer\":\"6050283e6207470991de8a3311d8fd8a_4717148099838422\",\"streamid\":\"4717148099838422\",\"watch\":\"2\",\"cur_count\":\"0\",\"total_count\":\"1\",\"start_time\":\"1642148476\",\"server\":\"rtmp://zhibo.gome.com.cn:1935/live/4717148099838422_1642148476\",\"end_time\":\"1642148569\",\"name\":\"李云龙\",\"state\":\"2\"}}","groupId":"6050283e6207470991de8a3311d8fd8a","senderUid":4717148099838422}' "http://10.115.92.52:3215/public/app/groups/message/firstSendMessage"
+
+
+4717148099838422 get a register req body: 
+62
+{"code":0,"message":"success","data":"deba2be9c2de4f3687376500621f23a3","timestamp":1642160869121}
+0
+
+4717148099838422 get a register req body: 62
+{"code":0,"message":"success","data":"deba2be9c2de4f3687376500621f23a3","timestamp":1642160869121}
+0
+
+size_t pos = m_strConfID.find("_");
+string groupid = m_strConfID.substr(0, pos);
+m_strGroupID = groupid;
+
+1. 恢复电脑定时重启功能
+2  msg】、、、
+
+
+ sub_confrence = cJSON_GetObjectItem(root, JSON_SERVER_SERVEREPORT);
+        if (sub_confrence && sub_confrence->valuestring)
+        {
+            _stServerinfo.port = sub_confrence->valuestring;
+        }
+        sub_confrence = cJSON_GetObjectItem(root, JSON_SERVER_SERVEREDOMAIN);
+        if (sub_confrence && sub_confrence->valuestring)
+        {
+            _stServerinfo.domain = sub_confrence->valuestring;
+        }
+        sub_confrence = cJSON_GetObjectItem(root, JSON_SERVER_SERVEREPAYLOAD);
+        if (sub_confrence && sub_confrence->valuestring)
+        {
+            _stServerinfo.payload = atol((sub_confrence->valuestring));
+        }
+完成。
+adb shell
+chmod -R 777 /data/  
+
+0c5f25e8c00eba410a4e43ac47673e44
+
+/data/data/com.tencent.mm/MicroMsg/0c5f25e8c00eba410a4e43ac47673e44
+/data/data/com.tencent.mm/MicroMsg/0c5f25e8c00eba410a4e43ac47673e44
+
+adb pull /data/data/com.tencent.mm  D:\money\wechat\mumu1\com.tencent.mm
+
+/storage/emulated/tencent/MicroMsg/WeiXin/
+/sdcard/Android/data/com.tencent.mm
+Android
+
+adb pull /sdcard/Android/data/com.tencent.mm 
+D:\money\wechat\mumu1\data\com.tencent.mm
+
+com.tencent.mm
+
+adb pull /sdcard/Android/data/com.tencent.mm/MicroMsg D:\money\wechat\mumu1\data\com.tencent.mm\MicroMsg
+adb pull /sdcard/Android/data/com.tencent.mm/cache D:\money\wechat\mumu1\data\com.tencent.mm\cache
+adb pull /sdcard/Android/data/com.tencent.mm/files D:\money\wechat\mumu1\data\com.tencent.mm\files
+
+adb uninstall [-k] <package>
+ - EN remove this app package from the device
+- CHS 从设备删除程序包
+('-k' means keep the data and cache directories) #不删除程序运行所产生的数据和缓存目录(如软件的数据库文件)
+
+adb uninstall -k /com.tencent.mm
+
+
+
+    例：卸载微信
+    adb uninstall com.tencent.mm
+
+
+    例：卸载微信
+    adb uninstall com.tencent.mm
+	adb uninstall -k com.tencent.mm(保留数据)
+
+adb push D:\money\wechat\mumu1\data\com.tencent.mm  /sdcard/Android/data/com.tencent.mm
+adb push D:\money\wechat\mumu1\com.tencent.mm /data/data/com.tencent.mm
+
+18660398115
+
+adb push D:\money\wechat\mumu1\com.tencent.mm\MicroMsg\0c5f25e8c00eba410a4e43ac47673e44 /data/data/com.tencent.mm/MicroMsg/0c5f25e8c00eba410a4e43ac47673e44
+
+购买火车票 ok
+"114164cc82d64317ad624903d92158a2"
+"114164cc82d64317ad624903d92158a2"
+"0c712eb1d60a4b349966cd254ad133d4"
+"0c712eb1d60a4b349966cd254ad133d4"
+ok
+
+
+提交单子 ok
+下载资料
+视频不要全部听，听一般就可以来哦。
+
+adb push D:\money\wechat\哥哥\com.tencent.mm /data/data/com.tencent.mm
+
+adb push D:\money\wechat\哥哥\MicroMsg_sdk\MicroMsg /sdcard/tencent/MicroMsg
+imei编码357071051421147
+D:\money\wechat\哥哥\com.tencent.mm
+
+adb push D:\money\wechat\哥哥\com.tencent.mm /data/data/com.tencent.mm
+
+
+1 天半调休
+https://github.com/watchpoints/tinykv.git
+
+编译工具Gradle 15分钟入门教程
+
+1. 青铜级-安装
+
+window
+
+JAVA_HOME=D:\local\java_sdk_17
+path=%JAVA_HOME%\bin
+java -version
+java version "17.0.1" 2021-10-19 LTS
+
+wget https://downloads.gradle-dn.com/distributions/gradle-7.3.3-bin.zip
+GRADLE_HOME=D:\local\java\gradle-7.3.3-bin\gradle-7.3.3
+path=%GRADLE_HOME%\bin
+GRADLE_USER_HOME=D:\local\java\.gradle
+gradle -v
+Welcome to Gradle 7.3.3!
+
+checks
+Preferences -> Build, Execution, Deployment -> Gradle
+
+ANDROID_SDK_HOME指向的目录，应该是用来存储avd等用户数据。
+使用ANDROID_SDK_ROOT/ANDROID_HOME变量指向sdk的安装目录
+
+ANDROID_HOME=D:\local\android_sdk
+path=%ANDROID_HOME%\platform-tools
+
+
+
+2 白银级-用法
+
+Gradle将自动创建项目所需要的文件结构。
+src/main/java - 文件夹包含所有java源文件。
+src/test/java - 文件夹包含所有java测试用例。
+build.gradle - 文件包含项目构建所使用的脚本(Maven工程中的pom.xml)
+ettings.gradle - 文件将包含必要的一些设置
+
+安装目录
+APP_HOME=D:\Program Files\Android\Android Studio
+
+JDK11 使用 sdkmanager --update 报错解决
+sdkmanager.bat --licenses
+Caused by: java.lang.ClassNotFoundException: javax.xml.bind.annotation.XmlSchema
+
+;%APP_HOME%\jre\automaton-1.12-1.jar;%APP_HOME%\jre\jaxb-api-2.3.1.jar;%APP_HOME%\jre\jaxb-core-2.3.0.1.jar;%APP_HOME%\jre\jaxb-impl-3.0.0.jar
+
+解决JDK 13和Android SDK不兼容的问题
+
+To build this project, accept the SDK license agreements and install the missing components using the Android Studio SDK Manager.
+
+
+安装目录
+set APP_HOME
+APP_HOME=D:\Program Files\Android\Android Studio
+cd D:\local\android_sdk\tools\bin
+sdkmanager.bat --licenses
+Exception in thread "main" java.lang.NoClassDefFoundError: javax/xml/bind/annotation/XmlSchema
+./sdkmanager --licenses 
+;%APP_HOME%\jre\automaton-1.12-1.jar;%APP_HOME%\jre\jaxb-api-2.3.1.jar;%APP_HOME%\jre\jaxb-core-2.3.0.1.jar;%APP_HOME%\jre\jaxb-impl-3.0.0.jar
+
+fuser -m -v -i -k /mnt/meta/
+umount
+
+解决办法：
+java_sdk_17降为java_sdk_8
+Android Gradle plugin requires Java 11 to run. You are currently using Java 1.8.
+Class referenced in the manifest, `com.zhayh.weixinhookdemo.MainActivity`, was not found in the project or the libraries
+
+ template <class _Ux>
+    void _Set_ptr_rep_and_enable_shared(_Ux* const _Px, _Ref_count_base* const _Rx) noexcept { // take ownership of _Px
+        this->_Ptr = _Px;
+        this->_Rep = _Rx;
+        if constexpr (conjunction_v<negation<is_array<_Ty>>, negation<is_volatile<_Ux>>, _Can_enable_shared<_Ux>>) {
+            if (_Px && _Px->_Wptr.expired()) {
+                _Px->_Wptr = shared_ptr<remove_cv_t<_Ux>>(*this, const_cast<remove_cv_t<_Ux>*>(_Px));
+            }
+        }
+    }
+
+    void _Set_ptr_rep_and_enable_shared(nullptr_t, _Ref_count_base* const _Rx) noexcept { // take ownership of nullptr
+        this->_Ptr = nullptr;
+        this->_Rep = _Rx;
+    }
+	shared_ptr 是一个模板，它并不知道 Widget 类是否继承 自 enable_shared_from_this，所以 w->SetSharedPtr(this) 这一句的调用不完全正确 。boost 中解决这个问题使用了一个非常巧妙的方法——重载，通过重载我们可以让编译器自 动选择是否调用 SetSharedPtr。

@@ -7,6 +7,10 @@ draft: false
 categories: ["code_reading"]
 ---
 
+- 文章路径
+
+http://localhost:1313/post/2020/01_srs/
+
 # 卡片
 
 SRS4.0官方文档和学习路径
@@ -34,7 +38,6 @@ https://hub.fastgit.org/ossrs/srs
 环境：2g+Ubuntu 
 
 
-
 - 在vpn环境完成搭建(docker安装不上)
 
 ```
@@ -43,11 +46,16 @@ git clone -b 4.0release https://gitee.com/ossrs/srs.git &&
 cd srs/trunk && ./configure && make && ./objs/srs -c conf/srs.conf
 
 /root/code/c++/srs/trunk
+/app/work/srs/trunk
+
 
 nohup ./objs/srs -c conf/srs.conf &
 10.112.179.21
+10.112.178.189
+
 /usr/local/srs 
 rtmp://10.112.179.21:1935/live/wangchuanyi
+rtmp://10.112.178.189:1935/live/wangchuanyi
 
 
 ```
@@ -177,14 +185,6 @@ http://10.112.179.21:1985/api/v1/streams
 
 
 
-
-
-### 第三天(6-8) 集群部署配置
-
-### qa
-
-- 问题：srs已经支持Origin Cluster，假如 3个节点做为源节点，客户端在推送时候可以随便选择任意一个节点推送？在Origin Cluster前面添加一个lvs可以了
-- 问题：推流srs单点故障怎么办？
 
 
 
@@ -543,102 +543,27 @@ int SrsRtmpConn::handle_publish_message(SrsSource *source, SrsCommonMessage *msg
 
 
 
-![https://www.cnblogs.com/jimodetiantang/p/9087775.html](https://images2018.cnblogs.com/blog/1382048/201805/1382048-20180525172300209-859246016.png)
-
-https://www.cnblogs.com/jimodetiantang/p/9087775.html
-
-~~~c++
-SrsRtmpConn::stream_service_cycle()
-    
-    virtual int http_hooks_on_connect();
-    virtual void http_hooks_on_close();
-    virtual int http_hooks_on_publish();
-    virtual void http_hooks_on_unpublish();
-    virtual int http_hooks_on_play();
-    virtual void http_hooks_on_stop();
-    virtual int http_hooks_on_publish_receiveaudio(bool flag);	
-    virtual int http_hooks_on_publish_receivevideo(bool flag);
-	virtual int http_hooks_on_policy_publish();
-	virtual void http_hooks_on_policy_unpublish();
-int SrsRtmpConn::publishing(SrsSource* source)
-{
-关于SRS3配置文件参数说明
-    https://www.itbkz.com/12548.html
-    https://gitee.com/winlinvip/srs.oschina/wikis/v3_CN_HTTPCallback
-~~~
-
-
-2. 播放回调：https://gitee.com/ossrs/srs/wikis/v4_CN_HTTPCallback?sort_id=3957393
-
-virtual int http_hooks_on_play();
-
-~~~
-#define URL_SRS_POST "/api/v1/streams"
-
-else if (0 == strncasecmp(url, URL_SRS_POST, strlen(url)))
-
-void dns_down_httpserver::deal_srs_msg(char* data)
-  virtual void publish_msg(char *msg) = 0;
-
-  //{"action":"on_play","client_id":6120,"ip":"121.69.49.32","vhost":"gomeplus","server_ip":"127.0.0.1",
-//"server_port":"19360","app":"live/162020008_188800160","stream":1887608896,"play_stream":"liveAV-162020008",
-//"tcUrl":"rtmp://124.250.75.41:19360/live/162020008_188800160?vhost=gomeplus","pageUrl":""
-
-:srs_redis get new data {
-        "streamid":     "73523459629",
-        "video":        "1",
-        "audio":        "0",
-        "confer":       "73523459629_73546364519"
-}
-
-http_hooks {
-        on_publish_receivevideo http://10.112.179.22/api/v1/streams;
-        on_publish_receiveaudio http://10.112.179.22/api/v1/streams;
-        on_publish http://10.112.179.22/api/v1/streams;
-        on_stop http://10.112.179.22/api/v1/sessions;
-        on_unpublish http://10.112.179.22/api/v1/streams;
-        on_play http://10.112.179.22/api/v1/sessions;
-        enabled on;
-    }
-
-~~~
-
-
-3. 扩展架构阅读：rpc无法跟踪
-
-- gRPC + Zipkin 分布式链路追踪
-https://blog.csdn.net/EDDYCJY/article/details/102426281
-- 基于 Thrift RPC 的调用链跟踪
-
-###  查看文档
-
-- https://gitee.com/ossrs/srs/wikis/v4_CN_SrsLog
-
-  
-
-https://hub.fastgit.org/ossrs/srs
-
-https://gitee.com/ossrs/srs/wikis/v4_CN_DeliveryMethod
-
-
-
-1. 获取在线人数 
-https://gitee.com/ossrs/srs/wikis/v2_CN_HTTPApi?sort_id=3957020
-
-srs的http API控制相关接口
-https://blog.csdn.net/weixin_36270623/article/details/104411595
-
-curl -v -X GET http://10.1.0.222:1985/api/v1/streams/
-
-curl -v -X GET http://10.1.0.222:1985/api/v1/streams/24420
 
 # 第二部分：参与开发
 
 
+## 资料搜集 
 
-- rtmp转码后有没有办法再推到srs服务器上 有大佬知道吗？
 
-- 断过网重新推流都会重新调用on_publish
+- https://gitee.com/ossrs/srs/wikis/v4_CN_SrsLog
 
-  
-http://ossrs.net/srs.release/releases/
+- https://www.bilibili.com/video/BV1Lh411v7kD/
+- https://www.bilibili.com/video/BV1Lh411v7kD/
+- AvStackDocs-master
+
+## 动手
+
+### task1 
+
+https://blog.csdn.net/m0_56595685/article/details/122594797
+
+FFmpeg播放WebRTC的流，全开源的方案来了，没有二进制库和私有协议，全都是开源代码和公开的协议，欢迎一起来搞metaRTC。
+10.112.178.189  
+/app/work/srs/trunk
+nohup ./objs/srs -c conf/srs.conf &
+rtmp://10.112.178.189:1935/live/watchpoints

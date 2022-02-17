@@ -1,0 +1,103 @@
+template <class _Ty>
+class _Ref_count : public _Ref_count_base { // handle reference counting for pointer without deleter
+public:
+    explicit _Ref_count(_Ty* _Px) : _Ref_count_base(), _Ptr(_Px) {}
+
+private:
+    void _Destroy() noexcept override { // destroy managed resource
+        delete _Ptr;
+    }
+
+    void _Delete_this() noexcept override { // destroy self
+        delete this;
+    }
+
+    _Ty* _Ptr;
+};
+
+_Set_ptr_rep_and_enable_shared
+
+  make_shared(_Types&&... _Args) { // make a shared_ptr to non-array object
+    const auto _Rx = new _Ref_count_obj2<_Ty>(_STD forward<_Types>(_Args)...);
+    shared_ptr<_Ty> _Ret;
+    _Ret._Set_ptr_rep_and_enable_shared(_STD addressof(_Rx->_Storage._Value), _Rx);
+	
+ template <class _Ux>
+    void _Set_ptr_rep_and_enable_shared(_Ux* const _Px, _Ref_count_base* const _Rx) noexcept { // take ownership of _Px
+        this->_Ptr = _Px;
+        this->_Rep = _Rx;
+        if constexpr (conjunction_v<negation<is_array<_Ty>>, negation<is_volatile<_Ux>>, _Can_enable_shared<_Ux>>) {
+            if (_Px && _Px->_Wptr.expired()) {
+                _Px->_Wptr = shared_ptr<remove_cv_t<_Ux>>(*this, const_cast<remove_cv_t<_Ux>*>(_Px));
+            }
+        }
+    }
+	
+
+template <class _Ux>
+    void _Set_ptr_rep_and_enable_shared(_Ux* const _Px, _Ref_count_base* const _Rx) noexcept { // take ownership of _Px
+        this->_Ptr = _Px;
+        this->_Rep = _Rx;
+        if constexpr (conjunction_v<negation<is_array<_Ty>>, negation<is_volatile<_Ux>>, _Can_enable_shared<_Ux>>) {
+            if (_Px && _Px->_Wptr.expired()) {
+                _Px->_Wptr = shared_ptr<remove_cv_t<_Ux>>(*this, const_cast<remove_cv_t<_Ux>*>(_Px));
+            }
+        }
+    }
+	
+	
+make_shared(_Types&&... _Args) { // make a shared_ptr to non-array object
+    const auto _Rx = new _Ref_count_obj2<_Ty>(_STD forward<_Types>(_Args)...);
+    shared_ptr<_Ty> _Ret;
+    _Ret._Set_ptr_rep_and_enable_shared(_STD addressof(_Rx->_Storage._Value), _Rx);
+    return _Ret;
+	
+	
+template <class _Ty>
+class _Ref_count_obj2 : public _Ref_count_base { // handle reference counting for object in control block, no allocator
+public:
+    //????
+    template <class... _Types>
+    explicit _Ref_count_obj2(_Types&&... _Args) : _Ref_count_base() {
+
+            _Construct_in_place(_Storage._Value, _STD forward<_Types>(_Args)...);
+        }
+    }
+	//？？？？？
+
+};
+
+git reset --hard HEAD^
+
+
+如何下载哔哩哔哩的视频
+1. 哔哩下载姬
+https://github.com/leiurayer/downkyi
+
+2 pip install you-get
+3. Python+tkinter
+https://www.52pojie.cn/thread-1203083-1-1.html
+
+http://127.0.0.1:8080/readmp4?path=D:\mp4\2022\bb\手把手深度剖析leveldb源码(第三部分)\leveldb SST数据结构讲解_高清 1080P.mp4
+
+python -V
+github密码
+Qwer@13578
+
+
+1.引流:不同平台一键推广
+2、视频录制与存储。
+
+1 禅道 ok
+2 考勤
+3 李岚16
+4 删帖
+5 自我介绍
+
+大家好，我后台开发一枚，拥有6年c++开发调优经验，
+受限于公司业务，想通过开源寻找更多喜欢研究的小伙伴提高视野，
+或者帮助有需要的小伙伴。
+
+6 expl 任务
+
+
