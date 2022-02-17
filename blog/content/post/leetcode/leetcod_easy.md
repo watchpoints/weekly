@@ -5,6 +5,7 @@ date: 2020-6-17
 description: ""
 draft: false
 tags: ["Interview Question"]
+
 categories: ["Leetcode"]
 ---
 
@@ -21,7 +22,9 @@ categories: ["Leetcode"]
 
 - https://app.diagrams.net/#Hwatchpoints%2Fdaily-interview%2Fmain%2Fleetcode%2Fppt%2F%E6%9C%AA%E5%91%BD%E5%90%8D%E7%BB%98%E5%9B%BE.drawio
 
+- http://127.0.0.1:1313/post/leetcode/leetcod_easy/
 
+  
 
 
 
@@ -62,11 +65,12 @@ https://www.nowcoder.com/questionTerminal/200cb07ae99141e488bc15d4c79a6c87?order
 
 ~~~
 
+【day6】3.汽水瓶
 
-- 3.汽水瓶
+
 - 如何在O(n)的时间复杂度内查找一个无序数组中的第K个大元素？
 
-
+【day7】 [405. 数字转换为十六进制数](https://leetcode-cn.com/problems/convert-a-number-to-hexadecimal/)
 
 
 
