@@ -98,6 +98,84 @@ Qwer@13578
 受限于公司业务，想通过开源寻找更多喜欢研究的小伙伴提高视野，
 或者帮助有需要的小伙伴。
 
-6 expl 任务
+6 静态图像转虚拟主播动画
 
 
+stream账号
+redismdb
+xiaowangGo2022
+
+盐值达到 640 分的用户
+https://www.zhihu.com/appview/level-detail
+
+https://www.python.org/downloads/release/python-3102/
+%USERPROFILE%\AppData\Local\Microsoft\WindowsApps
+
+pip 是首选的安装程序。
+从Python 3.4开始，它默认包含在Python二进制安装程序中。
+D:\local\Python\Python310\Scripts
+
+pip 安装第三方库路径：
+D:\local\Python\Python310\Lib\site-packages
+
+ERROR: Cannot install ppgan==0.1.3, ppgan==2.0.0 and ppgan==2.1.0 because these package versions have conflicting dependencies.
+
+  Downloading http://mirrors.aliyun.com/pypi/packages/8a/2d/4ebc291d8fca24d8e766948aa2192f38128f715f645a651e328f46a76f28/ppgan-0.1.1-py3-none-any.whl (3.6 kB)
+ERROR: Cannot install ppgan==0.1.3, ppgan==2.0.0 and ppgan==2.1.0 because these package versions have conflicting dependencies.
+
+The conflict is caused by:
+    ppgan 2.1.0 depends on numba==0.53.1
+    ppgan 2.0.0 depends on numba==0.48
+    ppgan 0.1.3 depends on numba==0.48
+
+To fix this you could try to:
+1. loosen the range of package versions you've specified
+2. remove package versions to allow pip attempt to solve the dependency conflict
+
+ERROR: ResolutionImpossible: for help visit https://pip.pypa.io/en/latest/user_guide/#fixing-conflicting-dependencies
+remove package versions to allow pip attempt to solve the dependency conflict
+
+
+
+
+百度PaddlePaddle
+      WARNING: The repository located at mirrors.aliyun.com is not a trusted or secure host and is being ignored. If this repository is available via HTTPS we recommend you use HTTPS instead, otherwise you may silence this warning and allow it anyway with '--trusted-host mirrors.aliyun.com'.
+      ERROR: Could not find a version that satisfies the requirement numpy>=1.11 (from versions: none)
+      ERROR: No matching distribution found for numpy>=1.11
+Using legacy 'setup.py install' for librosa, since package 'wheel' is not installed.
+Using legacy 'setup.py install' for numba, since package 'wheel' is not installed.
+Using legacy 'setup.py install' for easydict, since package 'wheel' is not installed.
+Using legacy 'setup.py install' for audioread, since package 'wheel' is not installed.
+Using legacy 'setup.py install' for llvmlite, since package 'wheel' is not installed.
+Using legacy 'setup.py install' for resampy, since package 'wheel' is not installed.
+
+pip install wheel
+Successfully installed wheel-0.37.1
+pip install numpy
+Successfully installed numpy-1.22.2
+pip install numba
+
+
+
+pip install ppgan
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+  ERROR: Failed building wheel for numba
+  
+  pip install ppgan
+    ERROR: Failed building wheel for numba
+	
+	   numba/_dispatcher.c(26): error C2039: "use_tracing": 不是 "_ts" 的成员
+      D:\local\Python\Python310\include\cpython/pystate.h(60): note: 参见“_ts”的声明
+      numba/_dispatcher.c(28): error C2039: "use_tracing": 不是 "_ts" 的成员
+      D:\local\Python\Python310\include\cpython/pystate.h(60): note: 参见“_ts”的声明
+      numba/_dispatcher.c(199): warning C4244: “=”: 从“Py_ssize_t”转换到“int”，可能丢失数据
+      numba/_dispatcher.c(301): error C2039: "use_tracing": 不是 "_ts" 的成员
+      D:\local\Python\Python310\include\cpython/pystate.h(60): note: 参见“_ts”的声明
+      numba/_dispatcher.c(507): error C2039: "use_tracing": 不是 "_ts" 的成员
+      D:\local\Python\Python310\include\cpython/pystate.h(60): note: 参见“_ts”的声明
+      numba/_dispatcher.c(517): warning C4244: “=”: 从“Py_ssize_t”转换到“int”，可能丢失数据
+      error: Command "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\bin\HostX86\x64\cl.exe /c /nologo /Ox /W3 /GL /DNDEBUG /MD -ID:\\local\\Python\\Python310\\lib\\site-packages\\numpy\\core\\include -ID:\local\Python\Python310\include -ID:\local\Python\Python310\Include -IC:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\ATLMFC\include -IC:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include -IC:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\ucrt -IC:\Program Files (x86)\Windows Kits\10\\include\10.0.19041.0\\shared -IC:\Program Files (x86)\Windows Kits\10\\include\10.0.19041.0\\um -IC:\Program Files (x86)\Windows Kits\10\\include\10.0.19041.0\\winrt -IC:\Program Files (x86)\Windows Kits\10\\include\10.0.19041.0\\cppwinrt /Tcnumba/_dispatcher.c /Fobuild\temp.win-amd64-3.10\Release\numba/_dispatcher.obj" failed with exit status 2
+      [end of output]
+	 
+	 pip install numba==0.55.0rc1
+百度飞桨PaddleSpeech
