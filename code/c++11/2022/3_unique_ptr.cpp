@@ -14,7 +14,10 @@ void test1(){
     cout << *pInt2 << endl;
     unique_ptr<int> pInt3(std::move(pInt2));
 }
+
+//g++ -std=c++17 3_unique_ptr.cp
 int main()
-{
+{    
+    test1();
     return 0;
 }
