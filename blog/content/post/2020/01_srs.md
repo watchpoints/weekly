@@ -563,7 +563,18 @@ int SrsRtmpConn::handle_publish_message(SrsSource *source, SrsCommonMessage *msg
 https://blog.csdn.net/m0_56595685/article/details/122594797
 
 FFmpeg播放WebRTC的流，全开源的方案来了，没有二进制库和私有协议，全都是开源代码和公开的协议，欢迎一起来搞metaRTC。
+
+
+
+
+
+
+### todo02：AvStackDocs-master
+
+~~~
 10.112.178.189  
 /app/work/srs/trunk
 nohup ./objs/srs -c conf/srs.conf &
-rtmp://10.112.178.189:1935/live/watchpoints
+rtmp://10.112.178.189:1935/live/watchpoint
+~~~
+
