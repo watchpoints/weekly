@@ -72,6 +72,6 @@ https://www.nowcoder.com/questionTerminal/200cb07ae99141e488bc15d4c79a6c87?order
 
 【day7】 [405. 数字转换为十六进制数](https://github.com/watchpoints/daily-interview/blob/main/leetcode/code/405.%E6%95%B0%E5%AD%97%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E6%95%B0.cpp)
 
-- 准备：深入理解计算机系统（CSAPP）第二章，第三章
-- [如何区别二进制32个1表示-1，还是4294967295？](https://www.zhihu.com/question/50098632)
+- 准备：深入理解计算机系统（CSAPP）[第二章，第三章](https://devinkin.github.io/post/csapp/chapter2/)
+- 准备：[如何区别二进制32个1表示-1，还是4294967295？](https://www.zhihu.com/question/50098632)
 
