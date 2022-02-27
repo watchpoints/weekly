@@ -94,23 +94,21 @@ explain select * from t1 order by c1 desc;
 
 
 create table t_p_key (c1 varchar(20),c2 int,c3 varchar(20)) partition by key (c2) partitions 3;
-
+//global index
 create unique index idx_t_p_key_c3_g on t_p_key (c3) global partition by key (c3) partitions 3;
-
 explain extended select c1,c2 from t_p_key where c3='66'; //is_index_back=false
 
 
 create table t_p_key1 (c1 varchar(20),c2 int,c3 varchar(20)) partition by key (c2) partitions 3;
 create index idx_t_p_hash_c11 on t_p_key1 (c1) local;
 create index idx_t_p_hash_c31 on t_p_key1 (c3) local ;
-explain extended select c1,c2 from t_p_key1 where c3='66' ;
+explain extended select c1,c2 from t_p_key1 where c3='66';
 
 create unique index idx_t_p_hash_c3 on t_p_key1 (c3) local ;
-
 ERROR 1503 (HY000): A UNIQUE INDEX must include all columns in the table's partitioning function
-create unique index idx_t_p_hash_c3 on t_p_key1 (c3,c2) local ;
 
-explain extended select c1,c2 from t_p_key where c3='66';
+create unique index idx_t_p_hash_c3 on t_p_key1 (c3,c2) local ;
+explain extended select c1,c2 from t_p_key1 where c3='66';
 
 
 create table h1(c1 int, c2 int, key idx_h1_c1(c1));
@@ -128,13 +126,13 @@ explain select h1.c1,h2.c2 from h1 ,h2 where h1.c1=h2.c1 ;
 explain select /*+index(h2 idx_h2_c1)*/  h1.c1, h2.c2 from h1 ,h2 where h1.c1=h2.c1;
 
 
- create table t5(a int primary key, b int, c int);
+create table t5(a int primary key, b int, c int);
 create outline ol_1 on select/*+max_concurrent(0)*/ * from t5 where b =1 and c = 1;
 select * from t5 where b =1 and c = 1;
 
 
- set ob_enable_trace_log = 1;
- select count(*) from __all_table;
+set ob_enable_trace_log = 1;
+select count(*) from __all_table;
 ~~~
 
 ![image.png](p7_obcp.assets/sfkROuH9bCxjFvp.png)
