@@ -75,3 +75,5 @@ https://www.nowcoder.com/questionTerminal/200cb07ae99141e488bc15d4c79a6c87?order
 - 准备：深入理解计算机系统（CSAPP）[第二章，第三章](https://devinkin.github.io/post/csapp/chapter2/)
 - 准备：[如何区别二进制32个1表示-1，还是4294967295？](https://www.zhihu.com/question/50098632)
 
+【Day 8】547. 省份数量
+

@@ -1,1 +1,62 @@
-报销
+
+
+PyCharm
+pip install selenium
+
+AttributeError: 'TouTiao' object has no attribute 'cookies'
+
+ if os.path.exists(self.cookpath) == True:
+            self.cookies = pickle.load(open(self.cookpath, "rb"))
+			
+toutiao_btc.py
+toutiao_btc.py
+
+ao> [17488:9944:0225/095812.945:ERROR:gl_utils.cc(318)] [.WebGL-00004DF8056EC700]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+
+ao> [17488:9944:0225/095812.945:ERROR:gl_utils.cc(318)] [.WebGL-00004DF8056EC700]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+
+
+ao> [17488:9944:0225/095812.945:ERROR:gl_utils.cc(318)] [.WebGL-00004DF8056EC700]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+
+
+
+PS D:\money\golang\src\gitee\wang_cyi\TryEverything\python\toutiao> [17488:9944:0225/095812.945:ERROR:gl_utils.cc(318)] [.WebGL-00004DF8056EC700]GL Driver Message (OpenGL, Perforer Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+
+evTools listening on ws://127.0.0.1:58747/devtools/browser/17ed04d2-c28c-418c-8b1c-86f4ddffec6f
+postWeiToutiao begin
+[8684:18388:0225/095751.980:ERROR:chrome_browser_main_extra_parts_metrics.cc(227)] START: ReportBluetoothAvailability(). If you don't see the END: message, this is crbug.com/1216328.
+[8684:18388:0225/095751.981:ERROR:chrome_browser_main_extra_parts_metrics.cc(230)] END: ReportBluetoothAvailability()
+[8684:18388:0225/095751.994:ERROR:chrome_browser_main_extra_parts_metrics.cc(235)] START: GetDefaultBrowser(). If you don't see the END: message, this is crbug.com/1216328.
+[8684:18388:0225/095752.001:ERROR:chrome_browser_main_extra_parts_metrics.cc(239)] END: GetDefaultBrowser()
+Traceback (most recent call last):
+  File "D:\money\golang\src\gitee\wang_cyi\TryEverything\python\toutiao\toutiao_btc.py", line 141, in <module>
+    tou_tiao.postWeiToutiao(msg)
+  File "D:\money\golang\src\gitee\wang_cyi\TryEverything\python\toutiao\toutiao_btc.py", line 77, in postWeiToutiao
+    weitoutiao_content = WebDriverWait(self.browser, 10).until(EC.presence_of_element_located(
+  File "D:\local\Python\Python310\lib\site-packages\selenium\webdriver\support\wait.py", line 89, in until
+  
+  发布到服务器上去
+  
+CentOS7安装谷歌浏览器及解决google-chrome无法启动
+
+pip show selenium
+Name: selenium
+Version: 4.1.1
+pip install selenium==4.1.1(失败的话采用下面方式)
+whl格式本质上是一个压缩包，里面包含了py文件
+https://pypi.org/project/selenium/#files
+pip3 install selenium-4.1.2-py3-none-any.whl
+selenium requires Python '~=3.7' but the running Python is 3.6.8
+
+完整路径不输出
+python /root/local/python/toutiao_btc.py
+
+
+你好，我是娱乐化研发中心的李晓拴。受李超总委托，
+
+刘庆 刘欣伟，徐英凤存在诈骗行为
+
+/html/body/div/div[1]/div[2]/div[2]/main/div[1]/div/div/div[1]/div/div[4]/div/button
+html body div#app div.woo-box-flex.woo-box-column.Frame_wrap_3g67Q div.woo-box-flex.Frame_content_3XrxZ div.Frame_main_3Z_V0 main.woo-box-flex.Main_wrap_2GRrG div.Main_full_1dfQX div.Home_home_16VbE div#homeWrap.Home_wrap_XXu6Z div.woo-panel-main.woo-panel-top.woo-panel-right.woo-panel-bottom.woo-panel-left.Card_wrap_2ibWe.Card_bottomGap_2Xjqi div.index_box_MkWee div div.woo-box-flex.woo-box-alignCenter button.woo-button-main.woo-button-flat.woo-button-primary.woo-button-m.woo-button-round.Tool_btn_2Eane
+
+python /root/local/python/weibo_btc.py
