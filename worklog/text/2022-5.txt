@@ -60,3 +60,47 @@ python /root/local/python/toutiao_btc.py
 html body div#app div.woo-box-flex.woo-box-column.Frame_wrap_3g67Q div.woo-box-flex.Frame_content_3XrxZ div.Frame_main_3Z_V0 main.woo-box-flex.Main_wrap_2GRrG div.Main_full_1dfQX div.Home_home_16VbE div#homeWrap.Home_wrap_XXu6Z div.woo-panel-main.woo-panel-top.woo-panel-right.woo-panel-bottom.woo-panel-left.Card_wrap_2ibWe.Card_bottomGap_2Xjqi div.index_box_MkWee div div.woo-box-flex.woo-box-alignCenter button.woo-button-main.woo-button-flat.woo-button-primary.woo-button-m.woo-button-round.Tool_btn_2Eane
 
 python /root/local/python/weibo_btc.py
+
+CREATE TABLE t (b BIT(8));
+INSERT INTO t SET b = b'11111111';
+select bin(b+0) from t;
+select hex(b+0) from t;
+select b+0 from t;
+[2022-02-28 14:54:43.169923] WARN  [SQL] handle_text_query (ob_sql.cpp:1196) [45221][1185][YB427F000001-0005D7B98F27EAC5] [lt=3] [dc=0] fail to handle physical plan(ret=-5178)
+[2022-02-28 14:54:43.169931] WARN  [SQL] stmt_query (ob_sql.cpp:171) [45221][1185][YB427F000001-0005D7B98F27EAC5] [lt=6] [dc=0] fail to handle text query(stmt=create table sex (sex bit(60) primary key,name bit(60))
+
+
+[2022-02-28 14:54:31.757676] WARN  [SERVER] get_network_speed_from_sysfs (ob_server.cpp:1716) [43700][2][Y0-0000000000000000] [lt=4] [dc=0] cannot get Ethernet speed, use default(tmp_ret=0, devname="lo")
+[2022-02-28 14:54:31.757683] WARN  [SERVER] runTimerTask (ob_server.cpp:2193) [43700][2][Y0-0000000000000000] [lt=6] [dc=0] ObRefreshNetworkSpeedTask reload bandwidth throttle limit failed(ret=-4000)
+[2022-02-28 14:54:32.021025] WARN  check_valid_column_for_hash_or_range (ob_resolver_utils.cpp:1496) [45217][1177][YB427F000001-0005D7B98F7F3DE4] [lt=3] [dc=0] Field 'sex' is of a not allowed type for this type of partitioning
+[2022-02-28 14:54:32.021052] WARN  [SQL.RESV] check_valid_column_for_hash_or_range (ob_resolver_utils.cpp:1497) [45217][1177][YB427F000001-0005D7B98F7F3DE4] [lt=23] [dc=0] Field is not a allowed type for this type of partitioning(ret=-5178, type=31)
+[2022-02-28 14:54:32.021060] WARN  [SQL.RESV] check_partition_expr_for_hash_or_range (ob_resolver_utils.cpp:1659) [45217][1177][YB427F000001-0005D7B98F7F3DE4] [lt=8] [dc=0] chck_valid_column_for_hash_func failed(ret=-5178)
+[2022-02-28 14:54:32.021068] WARN  [SQL.RESV] resolve_partition_expr (ob_resolver_utils.cpp:3067) [45217][1177][YB427F000001-0005D7B98F7F3DE4] [lt=7] [dc=0] check_valid_column_for_hash or range func failed(ret=-5178)
+[2022-02-28 14:54:32.021077] WARN  [SQL.RESV] resolve_part_func (ob_ddl_resolver.cpp:3129) [45217][1177][YB427F000001-0005D7B98F7F3DE4] [lt=5] [dc=0] resolve partition expr failed(ret=-5178)
+[2022-02-28 14:54:32.021084] WARN  [SQL.RESV] resolve_hash_or_key_partition_basic_infos (ob_ddl_resolver.cpp:6480) [45217][1177][YB427F000001-0005D7B98F7F3DE4] [lt=6] [dc=0] failed to resolve part func(ret=-5178)
+[2022-02-28 14:54:32.021088] WARN  [SQL.RESV] resolve_partition_hash_or_key (ob_ddl_resolver.cpp:6837) [45217][1177][YB427F000001-0005D7B98F7F3DE4] [lt=3] [dc=0] failed to resolve hash or key parititon basic infos(ret=-5178)
+[2022-02-28 14:54:32.021093] WARN  [SQL.RESV] resolve_partition_option (ob_create_table_resolver.cpp:838) [45217][1177][YB427F000001-0005D7B98F7F3DE4] [lt=5] [dc=0] failed to resolve partition option(ret=-5178)
+[2022-02-28 14:54:32.021120] WARN  [SQL.RESV] resolve (ob_create_table_resolver.cpp:642) [45217][1177][YB427F000001-0005D7B98F7F3DE4] [lt=27] [dc=0] resolve partition option failed(ret=-5178)
+[2022-02-28 14:54:32.021128] WARN  [SQL.RESV] stmt_resolver_func (ob_resolver.cpp:126) [45217][1177][YB427F000001-0005D7B98F7F3DE4] [lt=6] [dc=0] execute stmt_resolver failed(ret=-5178, parse_tree.type_=3094)
+[2022-02-28 14:54:32.021153] WARN  [SQL] generate_stmt (ob_sql.cpp:1414) [45217][1177][YB427F000001-0005D7B98F7F3DE4] [lt=18] [dc=0] failed to resolve(ret=-5178)
+[2022-02-28 14:54:32.021162] WARN  [SQL] generate_physical_plan (ob_sql.cpp:1502) [45217][1177][YB427F000001-0005D7B98F7F3DE4] [lt=7] [dc=0] Failed to generate stmt(ret=-5178, result.get_exec_context().need_disconnect()=false)
+[2022-02-28 14:54:32.021168] WARN  [SQL] handle_physical_plan (ob_sql.cpp:3194) [45217][1177][YB427F000001-0005D7B98F7F3DE4] [lt=5] [dc=0] Failed to generate plan(ret=-5178, result.get_exec_context().need_disconnect()=false)
+[2022-02-28 14:54:32.021175] WARN  [SQL] handle_text_query (ob_sql.cpp:1196) [45217][1177][YB427F000001-0005D7B98F7F3DE4] [lt=6] [dc=0] fail to handle physical plan(ret=-5178)
+[2022-02-28 14:54:32.021181] WARN  [SQL] stmt_query (ob_sql.cpp:171) [45217][1177][YB427F000001-0005D7B98F7F3DE4] [lt=4] [dc=0] fail to handle text query(stmt=create table sex (sex bit(60) primary key,name bit(60)
+
+
+
+
+问：函数 返回值 没有赋值 ret，为什么能获取 ret内容呢？
+if (OB_FAIL(handle_text_query(stmt, context, result))) 
+{
+    if (OB_EAGAIN != ret && OB_ERR_PROXY_REROUTE != ret) 
+	{
+      LOG_WARN("fail to handle text query", K(stmt), K(ret));
+    }
+  } 
+  
+答：
+#define OB_FAIL(statement) (OB_UNLIKELY(::oceanbase::common::OB_SUCCESS != (ret = (statement))))
+
+[oceanbase-ce] 127.0.0.1: DO NOT decrease datafile_disk_percentage after startup

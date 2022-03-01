@@ -167,6 +167,10 @@ grep “<trace_id>” observer.log |sed -e 's/|/\n/g' | more <---() trace_id å�
 https://open.oceanbase.com/blog/1100200?currentPage=undefined
 https://open.oceanbase.com/docs/videoCenter/5900015
 select * from oceanbase.gv$plan_cache_plan_stat；
+
+fgrep '[slow query]' observer.log |sed -e 's/|/\n/g' | more <
+grep “<trace_id>” observer.log |sed -e 's/|/\n/g' | more <---() 
+
 ~~~
 
 ## 第五章 事务
