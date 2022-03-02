@@ -104,3 +104,27 @@ if (OB_FAIL(handle_text_query(stmt, context, result)))
 #define OB_FAIL(statement) (OB_UNLIKELY(::oceanbase::common::OB_SUCCESS != (ret = (statement))))
 
 [oceanbase-ce] 127.0.0.1: DO NOT decrease datafile_disk_percentage after startup
+
+weibo.pkl
+
+step1-------------
+D:\money\golang\src\gitee\wang_cyi\TryEverything\python\toutiao\weibo_btc.py:92: DeprecationWarning: find_element_by_css_selector is deprecated. Please use find_element(by=By.CSS_SELECTOR, value=css_selector) instead
+  weitoutiao_send_btn = self.browser.find_element_by_css_selector(".woo-button-main.woo-button-flat.woo-button-primary.woo-button-m.woo-button-round.Tool_btn_2Eane")  # 双击按钮
+  
+  
+  
+ 
+ 沉浸个人痛苦伤心绝望中不出来然后痛苦过一生毫无意义
+ 沉浸在别人各种限制 然后吧自己隔绝起来 痛苦过一生毫无意义
+ 
+1 你感觉通可难受同步，然后不会不同，就让老师 同学  高中5年大学4年 活动5年，你说他们做一切，时间 空间过去了，你没有任何学校公司让你
+他们离开了，你没有任何进步
+2. 你说不清楚，理解不了，然后做不东。工作10年让领导xxx说安排一切，你雨里雾里过去了。10年发展升值 全部离开 ，你原理不懂未来一切0
+
+然后老师5年天天安排一切活动。被动一切不行
+领导10年安排一切，被动一切不行
+同学表现230年 被动一切不行
+ 
+ 沉浸个人痛苦伤心绝望中不出来然后痛苦过一生毫无意义
+ 沉浸在别人各种限制 然后吧自己隔绝起来 痛苦过一生毫无意义
+ 战 战 战 
