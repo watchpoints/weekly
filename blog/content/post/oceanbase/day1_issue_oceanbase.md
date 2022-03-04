@@ -344,7 +344,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 ###########################
 #  环境变量
 #####################
-export OB_SRC_DIR=/root/oceanbase
+export OB_SRC_DIR=//app//oceanbase
 export IP=127.0.0.1
 
 ###########################
@@ -465,7 +465,7 @@ add-auto-load-safe-path ${OB_SRC_DIR}/.gdbinit
 
 ```
 file build_debug/src/observer/observer
-set args "-r", "127.0.0.1:2882:2881", "-o", "___min_full_resource_pool_memory=268435456,memory_limit=8G,system_memory=4G,stack_size=512K,cpu_count=16,cache_wash_threshold=1G,workers_per_cpu_quota=10,schema_history_expire_time=1d,net_thread_count=4,sys_bkgd_migration_retry_num=3,minor_freeze_times=10,enable_separate_sys_clog=0,enable_merge_by_turn=False,datafile_disk_percentage=20,enable_syslog_wf=False,enable_syslog_recycle=True,max_syslog_file_count=4", "-z", "zone1", "-p", "2881", "-P", "2882", "-n", "obcluster", "-c", 1, "-d", "/root/observer/store", "-i", "em1", "-l", "INFO"
+set args "-r", "127.0.0.1:2882:2881", "-o", "___min_full_resource_pool_memory=268435456,memory_limit=8G,system_memory=4G,stack_size=512K,cpu_count=16,cache_wash_threshold=1G,workers_per_cpu_quota=10,schema_history_expire_time=1d,net_thread_count=4,sys_bkgd_migration_retry_num=3,minor_freeze_times=10,enable_separate_sys_clog=0,enable_merge_by_turn=False,datafile_disk_percentage=20,enable_syslog_wf=False,enable_syslog_recycle=True,max_syslog_file_count=4","-z", "zone1", "-p", "2881", "-P", "2882", "-n", "obcluster", "-c", 1, "-d", "/root/observer/store", "-i", "lo", "-l", "INFO"
 b main
 r
 ```
@@ -495,7 +495,84 @@ r
 1. 在源码目录下, 敲入gdb 即可启动gdb debug
 
 ```
+/root/.obd/repository/oceanbase-ce/3.1.1/f19f8bfb67723712175fb0dfd60579196b3168f1/bin/observer
+
+
 gdb 
+
+gdb进入后，使用命令focus进入tui图形界面，或者使用快捷键：Ctl+x+a (注意按键顺序，记忆：x：focus，a：another)
+在tui中使用相同的快捷键Ctl+x+a返回到gdb原生界面
+
+
+替换：
+obd cluster stop test
+cd /app/oceanbase/build_debug/src/observer
+cp observer /root/.obd/repository/oceanbase-ce/3.1.1/f19f8bfb67723712175fb0dfd60579196b3168f1/bin/observer
+
+
+问：[如何设置断点跟踪](https://open.oceanbase.com/answer/detail?id=20400433)
+
+答：
+
+- gdb Function  not defined. 是因为自己设置符号不存在。
+- 改为thread apply all break obmp_query.cpp:84 解决
+
+
+
+dbgui：基于浏览器的gdb前端（gnu调试器）。 使用C，C ++，Go，Rust和F
+
+obclient -uroot@tpcc -h127.0.0.1 -P2881 -p123456 -Dtpcc
+obclient -uroot@tpcc -h127.0.0.1 -P2881 -p123456 -Dtpcc
+
+
+
+obclient -uroot@tpcc -h127.0.0.1 -P2881 -p123456 -Dtpcc
+gdb设置代码目录
+dir /app/oceanbase/ //No such file or directory.
+
+(gdb) delete
+Delete all breakpoints? (y or n) y
+
+thread apply all break ob_sql.cpp:1139
+
+直接用gdb 本地调试
+
+/app/data/observer/bin/observer -r 127.0.0.1:2882:2881 -o __min_full_resource_pool_memory=268435456,memory_limit=10G,system_memory=4G,stack_size=512K,cpu_count=12,cache_wash_threshold=1G,workers_per_cpu_quota=10,schema_history_expire_time=1d,net_thread_count=4,sys_bkgd_migration_retry_num=3,minor_freeze_times=10,enable_separate_sys_clog=0,enable_merge_by_turn=False,datafile_disk_percentage=20,enable_syslog_recycle=True,max_syslog_file_count=4,clog_disk_utilization_threshold=10 -z zone1 -p 2881 -P 2882 -c 1 -d /app/data/observer/store -i lo -l WARN
+
+
+vi ${OB_SRC_DIR}/.gdbinit
+
+file build_debug/src/observer/observer
+set args "-r", "127.0.0.1:2882:2881", "-o", "__min_full_resource_pool_memory=268435456,memory_limit=10G,system_memory=4G,stack_size=512K,cpu_count=12,cache_wash_threshold=1G,workers_per_cpu_quota=10,schema_history_expire_time=1d,net_thread_count=4,sys_bkgd_migration_retry_num=3,minor_freeze_times=10,enable_separate_sys_clog=0,enable_merge_by_turn=False,datafile_disk_percentage=20,enable_syslog_recycle=True,max_syslog_file_count=4,clog_disk_utilization_threshold=10", "-z","zone1","-p", "2881", "-P", "2882", "-n", "obcluster", "-c", 1, "-d", "/app/data/observer/store", "-i", "lo", "-l", "INFO"
+b main
+r
+add-auto-load-safe-path /app/oceanbase/.gdbinit
+
+export OB_SRC_DIR=//app//oceanbase
+export IP=127.0.0.1
+////测试不通过
+
+build_debug/src/observer/observer -r 127.0.0.1:2882:2881 -o __min_full_resource_pool_memory=268435456,memory_limit=10G,system_memory=4G,stack_size=512K,cpu_count=12,cache_wash_threshold=1G,workers_per_cpu_quota=10,schema_history_expire_time=1d,net_thread_count=4,sys_bkgd_migration_retry_num=3,minor_freeze_times=10,enable_separate_sys_clog=0,enable_merge_by_turn=False,datafile_disk_percentage=20,enable_syslog_recycle=True,max_syslog_file_count=4,clog_disk_utilization_threshold=10 -z zone1 -p 2881 -P 2882 -c 1 -d /app/data/observer/store -i lo -l WARN
+
+
+
+
+## 设置断点
+## PROCESS
+dir /app/oceanbase/ 
+set pagination off
+thread apply all break obmp_query.cpp:100
+
+## handle_physical_plan （(这个断点不能设置)）
+thread apply all break ob_sql.cpp:1200
+//thread apply all break ob_sql.cpp:3160 （(这个断点不能设置)）
+int ObSql::handle_physical_plan
+
+thread apply all break ob_sql.cpp:3217(这个断点不能设置)
+else if (OB_FAIL(generate_physical_plan(parse_result, &pc_ctx, context, result))) {
+
+create table sex (sex bit(60) primary key,name bit(60)) partition by hash(sex) partitions 4;
+
 ```
 
 
@@ -544,3 +621,43 @@ make -j 4
 
 
 
+
+
+gdb 调试 observer
+
+
+
+![image.png](day1_issue_oceanbase.assets/ojGQeLh83bymEr9.png)
+
+~~~shell
+
+## 设置代码目录
+gdb -p xx
+dir /app/oceanbase/ 
+## 设置断点
+## PROCESS
+thread apply all break obmp_query.cpp:100
+
+## handle_physical_plan
+thread apply all break ob_sql.cpp:1200
+thread apply all break ob_sql.cpp:3160
+thread apply all break ob_sql.cpp:3217
+
+
+## tui图形界面
+gdb进入后，使用命令focus进入tui图形界面，
+或者使用快捷键：Ctl+x+a (注意按键顺序，记忆：x：focus，a：another)
+在tui中使用相同的快捷键Ctl+x+a返回到gdb原生界面
+
+## dbgui：基于浏览器的gdb前端（gnu调试器）。 使用C，C ++，Go，Rust和F
+~~~
+
+
+
+![image.png](day1_issue_oceanbase.assets/urDkBXaGmWygw9O.png)
+
+sql 入口为例子
+
+![image.png](day1_issue_oceanbase.assets/KWVP35k29GMyEn1-16462966190124.png)
+
+![image.png](day1_issue_oceanbase.assets/meJgcyHBCQp4SPA.png)
