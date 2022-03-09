@@ -356,8 +356,23 @@ r
 自觉遵守背后道理。
 
 
+global --version
+"gnuGlobal.debugMode": "Enabled",
+"gnuGlobal.globalExecutable": "D:\\tools\\glo668wb\\bin\\global.exe",
+"gnuGlobal.gtagsExecutable": "D:\\tools\\glo668wb\\bin\\gtags.exe
+	
+
+
+1. 公司信息：公司名称，主营业务类型，公司人数及融资规模；
+2. 业务信息：请描述一下想通过超级链数字商品平台做什么业务，如发搭建什么样的发行平台等；
+3. 资源信息：请描述一下想发行nft的资源，包括IP情况，是否有授权，有什么独到的优势等；
+4. 业务规划：请描述一下预计接入的时间，以及应用上线的时间规划；
 
 
 
+1. 公司信息 国美电器有限公司 电商 至少1w人
+2. 业务信息：利用 在购物网站上 出售一个数字商品,想利用百度提供能力。
+3. 资源信息：保密，具体不清楚
+4. 业务规划：调研阶段。越快越好
 
 
