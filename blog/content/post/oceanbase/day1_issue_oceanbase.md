@@ -141,7 +141,9 @@ debug mode
 bash build.sh debug --init --make
 
 # 执行build.sh脚本并传入init参数
-sh build.sh init
+sh build.sh init //更新依赖的第三方库。
+
+
 # 在源码目录下执行debug版的预制构建命令
 yum install m4
 sh build.sh debug
