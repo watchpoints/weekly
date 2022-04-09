@@ -1,6 +1,6 @@
 ---
 title: "OBCP考试2"
-date: 2022-02-20
+date: 2022-04-24
 draft: false
 categories: ["code_reading"]
 ---
@@ -259,6 +259,17 @@ SELECT svr_ip,svr_port,count(*) FROM __all_virtual_clog_stat WHERE is_offline = 
 148M	slog
 404G	sstable
 
+开始回收：reuse clog files
+show parameters like 'clog_disk_utilization_threshold';
+具体是否会瘦查看__all_rootservice_event_history】
+将降低磁盘占用空间。
+
+ALTER SYSTEM SET clog_disk_utilization_threshold=80
+
+ALTER SYSTEM SET clog_disk_utilization_threshold=20
+
+ALTER SYSTEM SET  enable_syslog_recycle=true
+ALTER SYSTEM SET  max_syslog_file_count=20;
 ~~~
 
 - [ ] OceanBase 社区版入门教程第九期 如何快速拿下 OBCA & OBCP 认证
