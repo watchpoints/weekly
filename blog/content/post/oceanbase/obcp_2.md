@@ -1,6 +1,6 @@
 ---
-title: "OBCP考试2"
-date: 2022-04-24
+title: "OBCP准备"
+date: 2022-04-09
 draft: false
 categories: ["code_reading"]
 ---
@@ -11,7 +11,15 @@ categories: ["code_reading"]
 
 
 
-麻烦点评，第8章，甘洛
+文章地址：https://wangcy6.github.io/post/oceanbase/obcp_2/
+
+
+
+
+
+![img](https://gw.alipayobjects.com/zos/oceanbase/06cb789a-b615-43df-9f3f-05b23126b737/image/2022-01-04/5eb552d4-dcfb-4239-892b-7277c9edd400.png)
+
+
 
 ## 环境说明
 
@@ -231,13 +239,33 @@ https://www.cnblogs.com/tureno/articles/6677942.html
 
 
 
+![img](https://gw.alipayobjects.com/zos/oceanbase/06cb789a-b615-43df-9f3f-05b23126b737/image/2022-01-04/5eb552d4-dcfb-4239-892b-7277c9edd400.png)
+
 ### 1. 问题
 
 [问：Clog 盘满问题运维处理方法](https://open.oceanbase.com/ask/detail?id=13200020&search=clog%20slog%20ilog&pageNum=2)
 
 
 
+Commit Log，所有Partition共用，日志可能是乱序的， 记录事务、PartitionService提供的原始日志内容。此目 录下的日志基于Paxos协议在多个副本之间同步
+
+
+
+- 同样是一致性协议，Paxos 和 Raft 的区别是什么?
+
+  
+
+
+
 ### 2. 如何解决的
+
+
+
+
+
+- [x] 实验9。p84 https://gw.alipayobjects.com/os/bmw-prod/d5635d4b-9d2a-46c8-bab3-7527195f8635.pdf
+- [x] 通过/proc查看Linux内核态调用栈来定位问题
+- [x] docs/docs/docs-cn/6.administrator-guide/3.basic-database-management/2.zone-management/1.zone-management-overview.md
 
 
 
@@ -264,17 +292,88 @@ show parameters like 'clog_disk_utilization_threshold';
 具体是否会瘦查看__all_rootservice_event_history】
 将降低磁盘占用空间。
 
-ALTER SYSTEM SET clog_disk_utilization_threshold=80
+show parameters like 'clog_disk_utilization_threshold';
+ALTER SYSTEM SET clog_disk_utilization_threshold=80。
 
 ALTER SYSTEM SET clog_disk_utilization_threshold=20
 
 ALTER SYSTEM SET  enable_syslog_recycle=true
 ALTER SYSTEM SET  max_syslog_file_count=20;
+
+ select * from __all_zone ;
+ 
+ select * from __all_server \G;
+ select * from __all_server_event_history \G;
+ 
+ 服务停止（停机运维）
+ alter system set server_permanent_offline_time = ‘ 86400s‘
+ alter system stop server‘ ip地址:2882’
+ 
+select count(*) from __all_virtual_table t, __all_virtual_meta_table m
+where t.table_id=m.table_id and role=1 and m.svr_ip=' ip地址' ; ）
+
+select * from __all_virtual_table t, __all_virtual_meta_table m where t.table_id=m.table_id and role=1 ;
+
+select * from __all_user \G; 
+alter system start zone zone1;
+
+desc gv$memstore;
+
+磁盘使用情况：
+
+select svr_ip, total_size/1024/1024/1024 total_G,
+free_size/1024/1024/1024 free_G, (total_size - free_size)
+/1024/1024/1024 used_G from __all_virtual_disk_stat; 
+
+desc  __all_virtual_meta_table;
+
+select tenant_id, svr_ip, unit_id, table_id, sum(data_size) /1024/1024/1024 size_G from __all_virtual_meta_table group by 1, 2, 3, 4;
+
+select sql_id, query_sql,count(*), avg(elapsed_time), avg(execute_time), avg(queue_time), avg(user_io_wait_time)
+from gv$sql_audit where tenant_id=1002 group by sql_id having count(*)>1 order by 5 desc limit 10\G;
+
+select sql_id, avg(execute_time) avg_exec_time, count(*) cnt, avg(execute_time-TOTAL_WAIT_TIME_MICRO)
+cpu_time from gv$sql_audit where tenant_id=1002 group by 1 order by avg_exec_time * cnt desc limit 5;
+
+
+select * from __all_rootservice_event_history where module = 'server';
+
+select * from __all_rootservice_event_history order by gmt_create desc limit 10;
+
+show variables like 'recycleb%' ;
+
+show recyclebin;
+
+set global recyclebin = on;
+
+select max(frozen_timestamp) from oceanbase.__all_virtual_freeze_info;
+flashback table t1 to before drop 
+
+show variables like 'resource_soft_limit' ;
+
+
+resource_soft_limit 用于设置是否开启 Unit 均衡。
 ~~~
 
 - [ ] OceanBase 社区版入门教程第九期 如何快速拿下 OBCA & OBCP 认证
 
+https://open.oceanbase.com/blog/10900233?currentPage=2
+
+![img](https://gw.alipayobjects.com/zos/oceanbase/06cb789a-b615-43df-9f3f-05b23126b737/image/2022-01-04/5eb552d4-dcfb-4239-892b-7277c9edd400.png)
+
+
+
+
+
+
+
 摘要：
+
+- Zone 本身是一个逻辑概念，是对物理机进行管理的容器，一般是同一机房的一组机器的组合
+
+- 分区主副本的选择策略由租户的 `primary_zone` 属性决定，在创建租户的命令中可以指定 `primary_zone` 属性，也可以用 `ALTER` 语句来修改。
+
+- 每一份叫做分区的一个副本。每个副本，包括存储在磁盘上的静态数据（SSTable）、存储在内存的增量数据（MEMTable）
 
 - Clog 落盘
 - **强一致**：发生脑裂、网络分区、宕机、磁盘故障等异常时，在 Clog 写入位置上保证数据强一致，不丢失数据。
@@ -291,6 +390,18 @@ ALTER SYSTEM SET  max_syslog_file_count=20;
 - **主从异步复制**是最简单的策略之一, 它很容易实现, 但存在一个问题: 客户端收到一个**数据已经安全**(OK)的信息, 跟**数据真正安全**(数据复制到全部的机器上)在时间上有一个空隙,
 -  **主从同步复制**，缺点就是整个系统中有任何一个机器宕机, 写入就进行不下去了
 - **半同步复制**
+
+
+
+
+
+OceanBase 社区版入门教程第九期 如何快速拿下 OBCA & OBCP 认证
+
+https://open.oceanbase.com/blog/10900233?currentPage=2
+
+
+
+
 
 
 

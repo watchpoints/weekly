@@ -7,7 +7,7 @@ git add -A
 
 git commit -m "update"
 
-git push 
+git push -f  
 
 # 回到原文件夹
 cd ..

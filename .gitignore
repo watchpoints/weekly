@@ -35,4 +35,6 @@ build
 pkg
 *.a
 .class
+public
+blog/public
 
