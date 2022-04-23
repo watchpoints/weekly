@@ -88,6 +88,218 @@ obd cluster display test
 
 
 
+~~~
+alter system set sql_audit_memory_limit = '3G';
+alter system set enable_sql_audit = true;
+desc gv$sql_audit;
+desc oceanbase.gv$plan_cache_plan_stat;
+set ob_enable_trace_log =1
+set ob_enable_trace_log = 1;
+show trace ;
+MySQL [oceanbase]> select * from gv$plan_cache_plan_explain;
+
+select *  from v$plan_cache_plan_stat 
+                          where tenant_id= 1001 
+                                and statement like 'insert into t1 values%'\G
+select * 
+                            from v$plan_cache_plan_explain
+                            where tenant_id = 1001 and plan_id = 7;
+                            
+查看集群 SQL 请求流量是否均衡 
+
+
+第一次执行：
+
+
+MySQL [oceanbase]> select count(*) from t2;
++----------+
+| count(*) |
++----------+
+|        0 |
++----------+
+1 row in set (0.009 sec)
+
+MySQL [oceanbase]> show trace \G;
+*************************** 1. row ***************************
+   Title: process begin
+KeyValue: in_queue_time:46, receive_ts:1650083124563031, enqueue_ts:1650083124563040
+    Time: 0
+*************************** 2. row ***************************
+   Title: query begin
+KeyValue: trace_id:YB427F000001-0005D94DCC13DCFD
+    Time: 4
+*************************** 3. row ***************************
+   Title: parse begin
+KeyValue: stmt:"select count(*) from t2", stmt_len:23
+    Time: 144
+*************************** 4. row ***************************
+   Title: pc get plan begin
+KeyValue: 
+    Time: 12
+*************************** 5. row ***************************
+   Title: pc get plan end
+KeyValue: 
+    Time: 27
+*************************** 6. row ***************************
+   Title: transform_with_outline begin
+KeyValue: 
+    Time: 2
+*************************** 7. row ***************************
+   Title: transform_with_outline end
+KeyValue: 
+    Time: 111
+*************************** 8. row ***************************
+   Title: resolve begin
+KeyValue: 
+    Time: 101
+*************************** 9. row ***************************
+   Title: resolve end
+KeyValue: 
+    Time: 498
+*************************** 10. row ***************************
+   Title: transform begin
+KeyValue: 
+    Time: 167
+*************************** 11. row ***************************
+   Title: transform end
+KeyValue: 
+    Time: 500
+*************************** 12. row ***************************
+   Title: optimizer begin
+KeyValue: 
+    Time: 8
+*************************** 13. row ***************************
+   Title: get location cache begin
+KeyValue: 
+    Time: 592
+*************************** 14. row ***************************
+   Title: get location cache end
+KeyValue: 
+    Time: 91
+*************************** 15. row ***************************
+   Title: optimizer end
+KeyValue: 
+    Time: 1283
+*************************** 16. row ***************************
+   Title: cg begin
+KeyValue: 
+    Time: 0
+*************************** 17. row ***************************
+   Title: cg end
+KeyValue: 
+    Time: 373
+*************************** 18. row ***************************
+   Title: execution begin
+KeyValue: arg1:false, end_trans_cb:false
+    Time: 274
+*************************** 19. row ***************************
+   Title: do open plan begin
+KeyValue: plan_id:8682172
+    Time: 37
+*************************** 20. row ***************************
+   Title: sql start stmt begin
+KeyValue: 
+    Time: 2
+*************************** 21. row ***************************
+   Title: sql start stmt end
+KeyValue: 
+    Time: 617
+*************************** 22. row ***************************
+   Title: execute plan begin
+KeyValue: 
+    Time: 0
+*************************** 23. row ***************************
+   Title: execute plan end
+KeyValue: 
+    Time: 85
+*************************** 24. row ***************************
+   Title: sql start participant begin
+KeyValue: 
+    Time: 0
+*************************** 25. row ***************************
+   Title: sql start participant end
+KeyValue: 
+    Time: 4
+*************************** 26. row ***************************
+   Title: do open plan end
+KeyValue: 
+    Time: 1
+*************************** 27. row ***************************
+   Title: start_close_plan begin
+KeyValue: 
+    Time: 3016
+*************************** 28. row ***************************
+   Title: start_end_participant begin
+KeyValue: 
+    Time: 56
+*************************** 29. row ***************************
+   Title: start_end_participant end
+KeyValue: 
+    Time: 0
+*************************** 30. row ***************************
+   Title: start_close_plan end
+KeyValue: 
+    Time: 42
+*************************** 31. row ***************************
+   Title: start_auto_end_plan begin
+KeyValue: 
+    Time: 2
+*************************** 32. row ***************************
+   Title: start_auto_end_plan end
+KeyValue: 
+    Time: 47
+*************************** 33. row ***************************
+   Title: execution end
+KeyValue: 
+    Time: 9
+*************************** 34. row ***************************
+   Title: query end
+KeyValue: 
+    Time: 178
+*************************** 35. row ***************************
+   Title: NULL
+KeyValue: PHY_SCALAR_AGGREGATE
+    Time: 
+*************************** 36. row ***************************
+   Title: NULL
+KeyValue:  PHY_PX_FIFO_COORD
+    Time: 
+*************************** 37. row ***************************
+   Title: NULL
+KeyValue:   PHY_PX_REDUCE_TRANSMIT
+    Time: 
+*************************** 38. row ***************************
+   Title: NULL
+KeyValue:    PHY_MERGE_GROUP_BY
+    Time: 
+*************************** 39. row ***************************
+   Title: NULL
+KeyValue:     PHY_GRANULE_ITERATOR
+    Time: 
+*************************** 40. row ***************************
+   Title: t2
+KeyValue:      PHY_TABLE_SCAN
+    Time: 
+40 rows in set (0.006 sec)
+
+ERROR: No query specified
+
+MySQL [oceanbase]> show trace \G;
+
+select * from v$plan_cache_plan_stat limit 1 \G
+
+show variables like '%plan_cache%' ;
+
+ select
+unit_id,tenant_id,tenant_name,svr_ip,svr_port,min_memory/(1024*1024*1024),max_memory/(1024*1024*
+1024) from oceanbase.gv$unit ;
+
+select tenant_id,svr_ip,svr_port,sql_num,mem_used/(1024*1024*1024),mem_limit/(1024*1024*1024),
+access_count,hit_count,hit_rate,plan_num from oceanbase.gv$plan_cache_stat;
+~~~
+
+
+
 ### 3.小总
 
 

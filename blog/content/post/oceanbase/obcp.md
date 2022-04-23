@@ -257,5 +257,17 @@ insert into test_account_range values ('tom',188),('jerry',288);
 update test_account_range set money=99 where name='zhangsan';
 commit;
 
+alter system set memory_limit_percentage = 90;    --  OB占系统总内存的比例，提高OB可用的内存量。
+alter system set memstore_limit_percentage = 55;  --  memstore占租户的内存比，尽量增大memstore的空间（但是可能对读操作有负面影响）。
+alter system set freeze_trigger_percentage = 40;  --  启动major/minor freeze的时机，让转储（minor freeze）尽早启动，memstore内存尽早释放。
+
 ~~~
 
+- https://open.oceanbase.com/ask/detail?id=20400080&search=obcp%E6%B5%8B%E8%AF%95&pageNum=1
+- OceanBase 开源教程 OBCP 知识测试参考答案解析
+- 每个资源池仅能绑定给一个租户
+- 一个资源池下只能引用一种规格的unit
+- （全部租户、全部observer、含SSTable），
+- alter system minor freeze
+- 手动触发的转储次数不受参数minor_freeze_times的限制，即手动触发的转储次数即使超过设置的 次数，也不会触发合并（Major Freeze）。
+- 转储：Minor SSTable合并， 产生新的Minor SSTable，所以只包含
