@@ -69,6 +69,18 @@
         "vec3f": "cpp",
         "vec4d": "cpp",
         "vec4f": "cpp",
-        "random": "cpp"
+        "random": "cpp",
+        "array": "cpp",
+        "bit": "cpp",
+        "*.tcc": "cpp",
+        "clocale": "cpp",
+        "compare": "cpp",
+        "complex": "cpp",
+        "cstdarg": "cpp",
+        "cwctype": "cpp",
+        "functional": "cpp",
+        "memory_resource": "cpp",
+        "string_view": "cpp",
+        "numbers": "cpp"
     }
 }
