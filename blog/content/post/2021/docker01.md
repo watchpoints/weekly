@@ -9,6 +9,57 @@ tags: ["code_reading"]
 
 
 
+
+# 目标：  
+
+
+
+> 容器实战高手课 在实战中深入理解容器技术的本质
+
+
+
+- Linux 性能优化实战
+- Linux 内核技术实战课
+- 深入剖析 Kubernetes
+
+
+
+当你不太理解为什么要学习 Kubernetes 项目的时候，
+
+或者，你在学习 Kubernetes 项目感到困难的时候，
+
+不妨想象一下 Kubernetes 就是未来的 Linux 操作系统。
+
+
+
+>之前看到这个东西时候感觉很好，工作不用，然后慢慢学，结果自己忘记了。
+
+# 摘要：
+
+### 容器网络 (4讲)
+
+15 | 容器网络：我修改了/proc/sys/net下的参数，为什么在容器中不起效
+
+- 重要文档  !!! https://www.kernel.org/doc/Documentation/sysctl/net.txt
+
+ls /proc/sys/net/core. busy_poll rmem_max somaxconn
+
+![img](https://static001.geekbang.org/resource/image/ba/61/ba6c9ed0dcccc7f4f46bb19c69946e61.png)
+
+Linux 系统中，常见的动态追踪方法包括 ftrace、perf、eBPF 以及 SystemTap 等。当你已经定位了某个内核函数，但不清楚它的实现原理时，就可以用 ftra[ce 来跟踪它的执行过程。至](https://time.geekbang.org/column/article/87342?utm_source=website&utm_medium=geektime&utm_campaign=322-presell&utm_content=PC0701&utm_term=pc_interstitial_398)
+
+
+
+![img](https://static001.geekbang.org/resource/image/bc/6f/bc04236262f16e0b69842dafd503616f.jpg)
+
+----------------------------------------
+
+strace -T -tt -ff -p pid -o strace.out
+
+https://eli.thegreenplace.net/2011/01/23/how-debuggers-work-part-1/
+
+
+
 # docker 
 
 # 第一天
@@ -130,3 +181,20 @@ Network Namespace 里就只有 loopback 一个网络设备，而没有了 eth0 �
 
 你可以查看一下Docker 网络的文档或者Kubernetes 网络的文档，这些文档里面介绍了很多种容器网络配置的方式。
 
+
+
+
+
+
+
+目标：  
+
+
+
+> 容器实战高手课 在实战中深入理解容器技术的本质
+
+
+
+摘要：
+
+15 | 容器网络：我修改了/proc/sys/net下的参数，为什么在容器中不起效
