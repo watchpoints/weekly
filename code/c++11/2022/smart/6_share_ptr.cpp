@@ -55,10 +55,10 @@ void test_share_ptr()
 {
     std::cout << "---------test_share free base calss --------------\n";
     std::shared_ptr<B> shared_pointer = std::shared_ptr<B>(new D());
-    shared_pointer = nullptr;
+    shared_pointer = nullptr; //~D ~B
 
     std::shared_ptr<B> shared_pointer_use_make_shared = std::make_shared<D>();
-    shared_pointer_use_make_shared = nullptr;
+    shared_pointer_use_make_shared = nullptr; //~D ~B
 }
 int main()
 {

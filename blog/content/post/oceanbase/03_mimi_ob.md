@@ -49,9 +49,27 @@ categories: ["code_reading"]
 
 
 
+## miniob说明
 
 
-# 
+
+### 线程池组件
+
+- 类的关系
+- 函数说明
+
+~~~
+add_event -->event_list_.push_back(event) -->Threadpool::schedule(Stage *stage)
+--->Threadpool::run_thread--> 
+virtual void callback_event(StageEvent *event, CallbackContext *context) = 0;
+
+ int stat = pthread_create(&pthread, &pthread_attrs, Threadpool::run_thread, (void *) this);
+
+~~~
+
+
+
+
 
 
 

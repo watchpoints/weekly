@@ -578,3 +578,126 @@ nohup ./objs/srs -c conf/srs.conf &
 rtmp://10.112.178.189:1935/live/watchpoint
 ~~~
 
+
+
+
+
+
+
+https://github.com/ossrs/srs/issues/2856
+
+https://github.com/ossrs/srs/issues/2891
+
+SRS云服务器是nodejs实现的开源方案，代码在[srs-cloud](https://github.com/ossrs/srs-cloud)，欢迎一起来搞。
+
+SRS云服务器面向鼠标编程，让每个人都能做音视频业务，不懂音视频的可以，懂音视频的也可以，种地的可以，撸网线的可以，剪电影的可以，背摄像机的也可以，跳舞的可以，唱歌的可以，会用电脑有微信就可以，守法公民都可以。
+
+LightHouse是腾讯云的轻量服务器（云服务器），一键就可以购买内置了SRS服务器的云服务器，而且带外网IP可以直接访问。
+使用说明，请参考视频[内置SRS的云服务器](https://www.bilibili.com/video/BV1844y1L7dL/)。
+
+
+
+https://github.com/ossrs/srs-cloud
+
+https://github.com/ossrs/srs-cloud
+
+https://github.com/ossrs/srs-cloud
+
+
+
+A lightweight open-source video cloud based on Nodejs, SRS, FFmpeg, WebRTC, etc.
+
+## Depends
+
+~~~SAS
+The software we depend on:
+
+Docker ok
+
+yum install -y docker ok
+
+Redis ok
+yum install -y redis 
+
+Nginx, ok
+
+yum install -y nginx
+
+SSL: /etc/nginx/ssl
+Certbot, docker --name certbot
+Verify webroot: mgmt/containers/www/.well-known/acme-challenge/
+Cert files: mgmt/containers/etc/letsencrypt/live/
+SRS, docker --name srs-server
+Config: mgmt/containers/conf/srs.conf mount as /usr/local/srs/conf/lighthouse.conf
+Volume: mgmt/containers/objs/nginx/html mount as /usr/local/srs/objs/nginx/html
+srs-hooks, docker --name srs-hooks
+Volume: mgmt/containers/objs/nginx/html mount as /usr/local/mgmt/containers/objs/nginx/html
+tencent-cloud, docker --name tencent-cloud
+CAM Authentication by secretId and secretKey.
+ffmpeg, docker --name ffmpeg
+FFmpeg and ffprobe tools in ossrs/srs:node-av
+Prometheus, docker --name prometheus
+Config: mgmt/containers/conf/prometheus.yml
+Data directory: mgmt/containers/data/prometheus
+NodeExporter, docker --name node-exporter
+~~~
+
+
+
+Develop
+
+~~~shell
+
+Install dependencies:
+cd mgmt && npm install
+Run the mgmt backend:
+
+cd mgmt
+npm start
+Run the mgmt react ui:
+
+cd mgmt/ui
+npm start
+Access the browser: http://localhost:3000
+~~~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

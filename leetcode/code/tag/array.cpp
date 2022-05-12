@@ -52,7 +52,6 @@ int partition(vector<int> &input, int low, int high)
 {    //[1 ,2  3,  4, 5 ]
      // 5 4  3 2 1 
     int pivot = input[low];
-
     while (high > low)
     {
         // 因为默认基准是从左边开始，所以从右边开始比较

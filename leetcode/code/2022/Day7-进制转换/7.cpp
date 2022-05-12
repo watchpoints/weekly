@@ -2,6 +2,7 @@
 #include <map>
 using namespace std;
  
+//题目：将16进制的字符串转化为10进制数字，例如“1A”，则对应26
 int hexTodec( const char* data )
 {//将data表示的16进制字符串转为10进制整数
 	if( data==NULL || *data=='\0' )
@@ -128,3 +129,29 @@ int main()
 	}
 	system("pause");
 }
+
+//一段超长的字符串由16进制字符组成，怎么转换为10进制 面试题
+
+//从JDK源码分析Java进制转换
+//https://blog.csdn.net/diaorenxiang/article/details/24454609?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_title~default-1.pc_relevant_default&spm=1001.2101.3001.4242.2&utm_relevant_index=4
+
+int hex_char_value(char c)  
+{  
+if(c >= '0' && c <= '9')  
+return c - '0';  
+else if(c >= 'a' && c <= 'f')  
+return (c - 'a' + 10);  
+else if(c >= 'A' && c <= 'F')  
+return (c - 'A' + 10);  
+assert(0);  
+return 0;  
+}  
+int hex_to_decimal(const char* szHex, int len)  
+{  
+int result = 0;  
+for(int i = 0; i < len; i++)  
+{  
+result += (int)pow((float)16, (int)len-i-1) * hex_char_value(szHex[i]);  
+}  
+return result;  
+}  

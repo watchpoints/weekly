@@ -179,3 +179,62 @@ pip install ppgan
 	 
 	 pip install numba==0.55.0rc1
 百度飞桨PaddleSpeech
+18
+
+0001 0010
+
+30 22 * * * sh /root/daily-interview/a.sh
+
+C:\Users\wangchuanyi/.ssh/id_rsa1
+
+ssh root@192.168.75.131 -A
+
+sudo yum install epel-release
+sudo yum install snapd
+sudo systemctl enable --now snapd.socket
+sudo ln -s /var/lib/snapd/snap /snap
+sudo snap install massif-visualizer --edge
+go tool pprof -http=":9998" 192.168.75.131:9999/debug/pprof/heap
+http://192.168.75.131:9998/ui
+
+http://192.168.75.131:9999/debug/pprof/heap
+
+
+13780668391,18669816811,13061300659
+
+pstack是/usr/bin/gstack的软链接, 而gstack本身是基于gdb封装的shell脚本
+backtrace="thread apply all bt"
+ 在linux的根目录下存在一个/proc目录，/proc文件系统是一种虚拟文件系统,以文件系统目录和文件形式,提供一个指向内核数据结构的接口
+ 
+ 
+ show parameters like 'trace_log_slow%';
+ 看一个模块
+ 看一个模块
+ 看一个模块
+ 
+ 
+(gdb) disassemble  main
+Dump of assembler code for function main:
+   0x00000000004005f8 <+0>:     push   %rbp
+   0x00000000004005f9 <+1>:     mov    %rsp,%rbp
+   0x00000000004005fc <+4>:     mov    $0x4006fc,%edi
+   0x0000000000400601 <+9>:     callq  0x400468 <puts@plt>
+   0x0000000000400606 <+14>:    mov    $0x0,%eax
+   0x000000000040060b <+19>:    pop    %rbp
+   0x000000000040060c <+20>:    retq
+End of assembler dump.
+(gdb) disassemble 0x400468
+Dump of assembler code for function puts@plt:
+   0x0000000000400468 <+0>:     jmpq   *0x200542(%rip)        # 0x6009b0 <puts@got.plt>
+   0x000000000040046e <+6>:     pushq  $0x0
+   0x0000000000400473 <+11>:    jmpq   0x400458
+End of assembler dump.
+(gdb) x/x 0x400458
+0x400458:       0x054235ff
+(gdb) x/x  0x6009b0
+0x6009b0 <puts@got.plt>:        0x0040046e
+
+如果一个动态库函数是第一次被调用，那么plt表中是不存在该函数的地址的，通过ld库中的函数，
+将这个地址取出来存放到got表中，
+那么当第二次调用该函数时，plt表中就有了这个函数的地址，直接跳转到该地址，
+而不再需要去取地址，也就是动态链接。

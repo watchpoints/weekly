@@ -70,7 +70,25 @@ https://www.nowcoder.com/questionTerminal/200cb07ae99141e488bc15d4c79a6c87?order
 
 - 如何在O(n)的时间复杂度内查找一个无序数组中的第K个大元素？
 
-【day7】 [405. 数字转换为十六进制数](https://leetcode-cn.com/problems/convert-a-number-to-hexadecimal/)
+【day7】 [405. 数字转换为十六进制数](https://github.com/watchpoints/daily-interview/blob/main/leetcode/code/405.%E6%95%B0%E5%AD%97%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E6%95%B0.cpp)
+
+- 准备：深入理解计算机系统（CSAPP）[第二章，第三章](https://devinkin.github.io/post/csapp/chapter2/)
+- 准备：[如何区别二进制32个1表示-1，还是4294967295？](https://www.zhihu.com/question/50098632)
+- [十六进制字符串转换为十进制数值](https://github.com/watchpoints/gcc/blob/master/libiberty/strtol.c)
+
+  strtol的思路是声明unsigned long 这是算法关键。
+
+一个合法很大数字 40000*50000有符号位表示不了
+
+输入 ox -1 和超过 unsigned long（不是long）判断次要的
 
 
+
+负数十六进制与十进制如何相互转换？
+
+
+
+
+
+【Day 8】547. 省份数量
 

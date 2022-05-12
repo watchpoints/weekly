@@ -1,0 +1,331 @@
+desc: --time-unit=B --detailed-freq=1
+cmd: ./test
+time_unit: B
+#-----------
+snapshot=0
+#-----------
+time=0
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=detailed
+n0: 0 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+#-----------
+snapshot=1
+#-----------
+time=1016
+mem_heap_B=1000
+mem_heap_extra_B=16
+mem_stacks_B=0
+heap_tree=detailed
+n1: 1000 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 1000 0x401177: main (test.c:17)
+#-----------
+snapshot=2
+#-----------
+time=2032
+mem_heap_B=2000
+mem_heap_extra_B=32
+mem_stacks_B=0
+heap_tree=detailed
+n1: 2000 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 2000 0x401177: main (test.c:17)
+#-----------
+snapshot=3
+#-----------
+time=3048
+mem_heap_B=3000
+mem_heap_extra_B=48
+mem_stacks_B=0
+heap_tree=detailed
+n1: 3000 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 3000 0x401177: main (test.c:17)
+#-----------
+snapshot=4
+#-----------
+time=4064
+mem_heap_B=4000
+mem_heap_extra_B=64
+mem_stacks_B=0
+heap_tree=detailed
+n1: 4000 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 4000 0x401177: main (test.c:17)
+#-----------
+snapshot=5
+#-----------
+time=5080
+mem_heap_B=5000
+mem_heap_extra_B=80
+mem_stacks_B=0
+heap_tree=detailed
+n1: 5000 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 5000 0x401177: main (test.c:17)
+#-----------
+snapshot=6
+#-----------
+time=6096
+mem_heap_B=6000
+mem_heap_extra_B=96
+mem_stacks_B=0
+heap_tree=detailed
+n1: 6000 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 6000 0x401177: main (test.c:17)
+#-----------
+snapshot=7
+#-----------
+time=7112
+mem_heap_B=7000
+mem_heap_extra_B=112
+mem_stacks_B=0
+heap_tree=detailed
+n1: 7000 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 7000 0x401177: main (test.c:17)
+#-----------
+snapshot=8
+#-----------
+time=8128
+mem_heap_B=8000
+mem_heap_extra_B=128
+mem_stacks_B=0
+heap_tree=detailed
+n1: 8000 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 8000 0x401177: main (test.c:17)
+#-----------
+snapshot=9
+#-----------
+time=9144
+mem_heap_B=9000
+mem_heap_extra_B=144
+mem_stacks_B=0
+heap_tree=detailed
+n1: 9000 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 9000 0x401177: main (test.c:17)
+#-----------
+snapshot=10
+#-----------
+time=10160
+mem_heap_B=10000
+mem_heap_extra_B=160
+mem_stacks_B=0
+heap_tree=detailed
+n1: 10000 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 10000 0x401177: main (test.c:17)
+#-----------
+snapshot=11
+#-----------
+time=12168
+mem_heap_B=12000
+mem_heap_extra_B=168
+mem_stacks_B=0
+heap_tree=detailed
+n2: 12000 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 10000 0x401177: main (test.c:17)
+ n1: 2000 0x401154: f (test.c:8)
+  n0: 2000 0x401193: main (test.c:20)
+#-----------
+snapshot=12
+#-----------
+time=16176
+mem_heap_B=16000
+mem_heap_extra_B=176
+mem_stacks_B=0
+heap_tree=detailed
+n3: 16000 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 10000 0x401177: main (test.c:17)
+ n1: 4000 0x401143: g (test.c:4)
+  n1: 4000 0x401159: f (test.c:9)
+   n0: 4000 0x401193: main (test.c:20)
+ n1: 2000 0x401154: f (test.c:8)
+  n0: 2000 0x401193: main (test.c:20)
+#-----------
+snapshot=13
+#-----------
+time=20184
+mem_heap_B=20000
+mem_heap_extra_B=184
+mem_stacks_B=0
+heap_tree=detailed
+n3: 20000 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 10000 0x401177: main (test.c:17)
+ n2: 8000 0x401143: g (test.c:4)
+  n1: 4000 0x401159: f (test.c:9)
+   n0: 4000 0x401193: main (test.c:20)
+  n0: 4000 0x401198: main (test.c:21)
+ n1: 2000 0x401154: f (test.c:8)
+  n0: 2000 0x401193: main (test.c:20)
+#-----------
+snapshot=14
+#-----------
+time=20184
+mem_heap_B=20000
+mem_heap_extra_B=184
+mem_stacks_B=0
+heap_tree=peak
+n3: 20000 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 10000 0x401177: main (test.c:17)
+ n2: 8000 0x401143: g (test.c:4)
+  n1: 4000 0x401159: f (test.c:9)
+   n0: 4000 0x401193: main (test.c:20)
+  n0: 4000 0x401198: main (test.c:21)
+ n1: 2000 0x401154: f (test.c:8)
+  n0: 2000 0x401193: main (test.c:20)
+#-----------
+snapshot=15
+#-----------
+time=21200
+mem_heap_B=19000
+mem_heap_extra_B=168
+mem_stacks_B=0
+heap_tree=detailed
+n3: 19000 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 9000 0x401177: main (test.c:17)
+ n2: 8000 0x401143: g (test.c:4)
+  n1: 4000 0x401159: f (test.c:9)
+   n0: 4000 0x401193: main (test.c:20)
+  n0: 4000 0x401198: main (test.c:21)
+ n1: 2000 0x401154: f (test.c:8)
+  n0: 2000 0x401193: main (test.c:20)
+#-----------
+snapshot=16
+#-----------
+time=22216
+mem_heap_B=18000
+mem_heap_extra_B=152
+mem_stacks_B=0
+heap_tree=detailed
+n3: 18000 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n2: 8000 0x401143: g (test.c:4)
+  n1: 4000 0x401159: f (test.c:9)
+   n0: 4000 0x401193: main (test.c:20)
+  n0: 4000 0x401198: main (test.c:21)
+ n0: 8000 0x401177: main (test.c:17)
+ n1: 2000 0x401154: f (test.c:8)
+  n0: 2000 0x401193: main (test.c:20)
+#-----------
+snapshot=17
+#-----------
+time=23232
+mem_heap_B=17000
+mem_heap_extra_B=136
+mem_stacks_B=0
+heap_tree=detailed
+n3: 17000 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n2: 8000 0x401143: g (test.c:4)
+  n1: 4000 0x401159: f (test.c:9)
+   n0: 4000 0x401193: main (test.c:20)
+  n0: 4000 0x401198: main (test.c:21)
+ n0: 7000 0x401177: main (test.c:17)
+ n1: 2000 0x401154: f (test.c:8)
+  n0: 2000 0x401193: main (test.c:20)
+#-----------
+snapshot=18
+#-----------
+time=24248
+mem_heap_B=16000
+mem_heap_extra_B=120
+mem_stacks_B=0
+heap_tree=detailed
+n3: 16000 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n2: 8000 0x401143: g (test.c:4)
+  n1: 4000 0x401159: f (test.c:9)
+   n0: 4000 0x401193: main (test.c:20)
+  n0: 4000 0x401198: main (test.c:21)
+ n0: 6000 0x401177: main (test.c:17)
+ n1: 2000 0x401154: f (test.c:8)
+  n0: 2000 0x401193: main (test.c:20)
+#-----------
+snapshot=19
+#-----------
+time=25264
+mem_heap_B=15000
+mem_heap_extra_B=104
+mem_stacks_B=0
+heap_tree=detailed
+n3: 15000 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n2: 8000 0x401143: g (test.c:4)
+  n1: 4000 0x401159: f (test.c:9)
+   n0: 4000 0x401193: main (test.c:20)
+  n0: 4000 0x401198: main (test.c:21)
+ n0: 5000 0x401177: main (test.c:17)
+ n1: 2000 0x401154: f (test.c:8)
+  n0: 2000 0x401193: main (test.c:20)
+#-----------
+snapshot=20
+#-----------
+time=26280
+mem_heap_B=14000
+mem_heap_extra_B=88
+mem_stacks_B=0
+heap_tree=detailed
+n3: 14000 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n2: 8000 0x401143: g (test.c:4)
+  n1: 4000 0x401159: f (test.c:9)
+   n0: 4000 0x401193: main (test.c:20)
+  n0: 4000 0x401198: main (test.c:21)
+ n0: 4000 0x401177: main (test.c:17)
+ n1: 2000 0x401154: f (test.c:8)
+  n0: 2000 0x401193: main (test.c:20)
+#-----------
+snapshot=21
+#-----------
+time=27296
+mem_heap_B=13000
+mem_heap_extra_B=72
+mem_stacks_B=0
+heap_tree=detailed
+n3: 13000 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n2: 8000 0x401143: g (test.c:4)
+  n1: 4000 0x401159: f (test.c:9)
+   n0: 4000 0x401193: main (test.c:20)
+  n0: 4000 0x401198: main (test.c:21)
+ n0: 3000 0x401177: main (test.c:17)
+ n1: 2000 0x401154: f (test.c:8)
+  n0: 2000 0x401193: main (test.c:20)
+#-----------
+snapshot=22
+#-----------
+time=28312
+mem_heap_B=12000
+mem_heap_extra_B=56
+mem_stacks_B=0
+heap_tree=detailed
+n3: 12000 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n2: 8000 0x401143: g (test.c:4)
+  n1: 4000 0x401159: f (test.c:9)
+   n0: 4000 0x401193: main (test.c:20)
+  n0: 4000 0x401198: main (test.c:21)
+ n1: 2000 0x401154: f (test.c:8)
+  n0: 2000 0x401193: main (test.c:20)
+ n0: 2000 0x401177: main (test.c:17)
+#-----------
+snapshot=23
+#-----------
+time=29328
+mem_heap_B=11000
+mem_heap_extra_B=40
+mem_stacks_B=0
+heap_tree=detailed
+n3: 11000 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n2: 8000 0x401143: g (test.c:4)
+  n1: 4000 0x401159: f (test.c:9)
+   n0: 4000 0x401193: main (test.c:20)
+  n0: 4000 0x401198: main (test.c:21)
+ n1: 2000 0x401154: f (test.c:8)
+  n0: 2000 0x401193: main (test.c:20)
+ n0: 1000 0x401177: main (test.c:17)
+#-----------
+snapshot=24
+#-----------
+time=30344
+mem_heap_B=10000
+mem_heap_extra_B=24
+mem_stacks_B=0
+heap_tree=detailed
+n3: 10000 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n2: 8000 0x401143: g (test.c:4)
+  n1: 4000 0x401159: f (test.c:9)
+   n0: 4000 0x401193: main (test.c:20)
+  n0: 4000 0x401198: main (test.c:21)
+ n1: 2000 0x401154: f (test.c:8)
+  n0: 2000 0x401193: main (test.c:20)
+ n0: 0 in 1 place, below massif's threshold (1.00%)

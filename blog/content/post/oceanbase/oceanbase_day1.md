@@ -848,6 +848,21 @@ obd cluster list
 obd cluster start test
 obd cluster display test
 obclient -uroot@sys -h127.0.0.1 -P2881 oceanbase
+obd cluster edit-config test
+
+obd cluster edit-config test
+
+syslog_level: WARN
+
+/app/data/observer/log
+
+clog_disk_utilization_threshold: 10 64M
+obclient -uroot@tpcc -h127.0.0.1 -P2881 -p123456 -Dtpcc
+
+ # datafile_disk_percentage: 20 # The percentage of the data_dir space to the total disk space. This value takes effect only when datafile_size is 0. The default value is 90.
+
+datafile_size: 50G
+    
 ~~~
 
 

@@ -1,0 +1,378 @@
+
+
+PyCharm
+pip install selenium
+
+AttributeError: 'TouTiao' object has no attribute 'cookies'
+
+ if os.path.exists(self.cookpath) == True:
+            self.cookies = pickle.load(open(self.cookpath, "rb"))
+			
+toutiao_btc.py
+toutiao_btc.py
+
+ao> [17488:9944:0225/095812.945:ERROR:gl_utils.cc(318)] [.WebGL-00004DF8056EC700]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+
+ao> [17488:9944:0225/095812.945:ERROR:gl_utils.cc(318)] [.WebGL-00004DF8056EC700]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+
+
+ao> [17488:9944:0225/095812.945:ERROR:gl_utils.cc(318)] [.WebGL-00004DF8056EC700]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+
+
+
+PS D:\money\golang\src\gitee\wang_cyi\TryEverything\python\toutiao> [17488:9944:0225/095812.945:ERROR:gl_utils.cc(318)] [.WebGL-00004DF8056EC700]GL Driver Message (OpenGL, Perforer Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+
+evTools listening on ws://127.0.0.1:58747/devtools/browser/17ed04d2-c28c-418c-8b1c-86f4ddffec6f
+postWeiToutiao begin
+[8684:18388:0225/095751.980:ERROR:chrome_browser_main_extra_parts_metrics.cc(227)] START: ReportBluetoothAvailability(). If you don't see the END: message, this is crbug.com/1216328.
+[8684:18388:0225/095751.981:ERROR:chrome_browser_main_extra_parts_metrics.cc(230)] END: ReportBluetoothAvailability()
+[8684:18388:0225/095751.994:ERROR:chrome_browser_main_extra_parts_metrics.cc(235)] START: GetDefaultBrowser(). If you don't see the END: message, this is crbug.com/1216328.
+[8684:18388:0225/095752.001:ERROR:chrome_browser_main_extra_parts_metrics.cc(239)] END: GetDefaultBrowser()
+Traceback (most recent call last):
+  File "D:\money\golang\src\gitee\wang_cyi\TryEverything\python\toutiao\toutiao_btc.py", line 141, in <module>
+    tou_tiao.postWeiToutiao(msg)
+  File "D:\money\golang\src\gitee\wang_cyi\TryEverything\python\toutiao\toutiao_btc.py", line 77, in postWeiToutiao
+    weitoutiao_content = WebDriverWait(self.browser, 10).until(EC.presence_of_element_located(
+  File "D:\local\Python\Python310\lib\site-packages\selenium\webdriver\support\wait.py", line 89, in until
+  
+  发布到服务器上去
+  
+CentOS7安装谷歌浏览器及解决google-chrome无法启动
+
+pip show selenium
+Name: selenium
+Version: 4.1.1
+pip install selenium==4.1.1(失败的话采用下面方式)
+whl格式本质上是一个压缩包，里面包含了py文件
+https://pypi.org/project/selenium/#files
+pip3 install selenium-4.1.2-py3-none-any.whl
+selenium requires Python '~=3.7' but the running Python is 3.6.8
+
+完整路径不输出
+python /root/local/python/toutiao_btc.py
+
+
+你好，我是娱乐化研发中心的李晓拴。受李超总委托，
+
+刘庆 刘欣伟，徐英凤存在诈骗行为
+
+/html/body/div/div[1]/div[2]/div[2]/main/div[1]/div/div/div[1]/div/div[4]/div/button
+html body div#app div.woo-box-flex.woo-box-column.Frame_wrap_3g67Q div.woo-box-flex.Frame_content_3XrxZ div.Frame_main_3Z_V0 main.woo-box-flex.Main_wrap_2GRrG div.Main_full_1dfQX div.Home_home_16VbE div#homeWrap.Home_wrap_XXu6Z div.woo-panel-main.woo-panel-top.woo-panel-right.woo-panel-bottom.woo-panel-left.Card_wrap_2ibWe.Card_bottomGap_2Xjqi div.index_box_MkWee div div.woo-box-flex.woo-box-alignCenter button.woo-button-main.woo-button-flat.woo-button-primary.woo-button-m.woo-button-round.Tool_btn_2Eane
+
+python /root/local/python/weibo_btc.py
+
+CREATE TABLE t (b BIT(8));
+INSERT INTO t SET b = b'11111111';
+select bin(b+0) from t;
+select hex(b+0) from t;
+select b+0 from t;
+[2022-02-28 14:54:43.169923] WARN  [SQL] handle_text_query (ob_sql.cpp:1196) [45221][1185][YB427F000001-0005D7B98F27EAC5] [lt=3] [dc=0] fail to handle physical plan(ret=-5178)
+[2022-02-28 14:54:43.169931] WARN  [SQL] stmt_query (ob_sql.cpp:171) [45221][1185][YB427F000001-0005D7B98F27EAC5] [lt=6] [dc=0] fail to handle text query(stmt=create table sex (sex bit(60) primary key,name bit(60))
+
+
+[2022-02-28 14:54:31.757676] WARN  [SERVER] get_network_speed_from_sysfs (ob_server.cpp:1716) [43700][2][Y0-0000000000000000] [lt=4] [dc=0] cannot get Ethernet speed, use default(tmp_ret=0, devname="lo")
+[2022-02-28 14:54:31.757683] WARN  [SERVER] runTimerTask (ob_server.cpp:2193) [43700][2][Y0-0000000000000000] [lt=6] [dc=0] ObRefreshNetworkSpeedTask reload bandwidth throttle limit failed(ret=-4000)
+[2022-02-28 14:54:32.021025] WARN  check_valid_column_for_hash_or_range (ob_resolver_utils.cpp:1496) [45217][1177][YB427F000001-0005D7B98F7F3DE4] [lt=3] [dc=0] Field 'sex' is of a not allowed type for this type of partitioning
+[2022-02-28 14:54:32.021052] WARN  [SQL.RESV] check_valid_column_for_hash_or_range (ob_resolver_utils.cpp:1497) [45217][1177][YB427F000001-0005D7B98F7F3DE4] [lt=23] [dc=0] Field is not a allowed type for this type of partitioning(ret=-5178, type=31)
+[2022-02-28 14:54:32.021060] WARN  [SQL.RESV] check_partition_expr_for_hash_or_range (ob_resolver_utils.cpp:1659) [45217][1177][YB427F000001-0005D7B98F7F3DE4] [lt=8] [dc=0] chck_valid_column_for_hash_func failed(ret=-5178)
+[2022-02-28 14:54:32.021068] WARN  [SQL.RESV] resolve_partition_expr (ob_resolver_utils.cpp:3067) [45217][1177][YB427F000001-0005D7B98F7F3DE4] [lt=7] [dc=0] check_valid_column_for_hash or range func failed(ret=-5178)
+[2022-02-28 14:54:32.021077] WARN  [SQL.RESV] resolve_part_func (ob_ddl_resolver.cpp:3129) [45217][1177][YB427F000001-0005D7B98F7F3DE4] [lt=5] [dc=0] resolve partition expr failed(ret=-5178)
+[2022-02-28 14:54:32.021084] WARN  [SQL.RESV] resolve_hash_or_key_partition_basic_infos (ob_ddl_resolver.cpp:6480) [45217][1177][YB427F000001-0005D7B98F7F3DE4] [lt=6] [dc=0] failed to resolve part func(ret=-5178)
+[2022-02-28 14:54:32.021088] WARN  [SQL.RESV] resolve_partition_hash_or_key (ob_ddl_resolver.cpp:6837) [45217][1177][YB427F000001-0005D7B98F7F3DE4] [lt=3] [dc=0] failed to resolve hash or key parititon basic infos(ret=-5178)
+[2022-02-28 14:54:32.021093] WARN  [SQL.RESV] resolve_partition_option (ob_create_table_resolver.cpp:838) [45217][1177][YB427F000001-0005D7B98F7F3DE4] [lt=5] [dc=0] failed to resolve partition option(ret=-5178)
+[2022-02-28 14:54:32.021120] WARN  [SQL.RESV] resolve (ob_create_table_resolver.cpp:642) [45217][1177][YB427F000001-0005D7B98F7F3DE4] [lt=27] [dc=0] resolve partition option failed(ret=-5178)
+[2022-02-28 14:54:32.021128] WARN  [SQL.RESV] stmt_resolver_func (ob_resolver.cpp:126) [45217][1177][YB427F000001-0005D7B98F7F3DE4] [lt=6] [dc=0] execute stmt_resolver failed(ret=-5178, parse_tree.type_=3094)
+[2022-02-28 14:54:32.021153] WARN  [SQL] generate_stmt (ob_sql.cpp:1414) [45217][1177][YB427F000001-0005D7B98F7F3DE4] [lt=18] [dc=0] failed to resolve(ret=-5178)
+[2022-02-28 14:54:32.021162] WARN  [SQL] generate_physical_plan (ob_sql.cpp:1502) [45217][1177][YB427F000001-0005D7B98F7F3DE4] [lt=7] [dc=0] Failed to generate stmt(ret=-5178, result.get_exec_context().need_disconnect()=false)
+[2022-02-28 14:54:32.021168] WARN  [SQL] handle_physical_plan (ob_sql.cpp:3194) [45217][1177][YB427F000001-0005D7B98F7F3DE4] [lt=5] [dc=0] Failed to generate plan(ret=-5178, result.get_exec_context().need_disconnect()=false)
+[2022-02-28 14:54:32.021175] WARN  [SQL] handle_text_query (ob_sql.cpp:1196) [45217][1177][YB427F000001-0005D7B98F7F3DE4] [lt=6] [dc=0] fail to handle physical plan(ret=-5178)
+[2022-02-28 14:54:32.021181] WARN  [SQL] stmt_query (ob_sql.cpp:171) [45217][1177][YB427F000001-0005D7B98F7F3DE4] [lt=4] [dc=0] fail to handle text query(stmt=create table sex (sex bit(60) primary key,name bit(60)
+
+
+
+
+问：函数 返回值 没有赋值 ret，为什么能获取 ret内容呢？
+if (OB_FAIL(handle_text_query(stmt, context, result))) 
+{
+    if (OB_EAGAIN != ret && OB_ERR_PROXY_REROUTE != ret) 
+	{
+      LOG_WARN("fail to handle text query", K(stmt), K(ret));
+    }
+  } 
+  
+答：
+#define OB_FAIL(statement) (OB_UNLIKELY(::oceanbase::common::OB_SUCCESS != (ret = (statement))))
+
+[oceanbase-ce] 127.0.0.1: DO NOT decrease datafile_disk_percentage after startup
+
+weibo.pkl
+
+step1-------------
+D:\money\golang\src\gitee\wang_cyi\TryEverything\python\toutiao\weibo_btc.py:92: DeprecationWarning: find_element_by_css_selector is deprecated. Please use find_element(by=By.CSS_SELECTOR, value=css_selector) instead
+  weitoutiao_send_btn = self.browser.find_element_by_css_selector(".woo-button-main.woo-button-flat.woo-button-primary.woo-button-m.woo-button-round.Tool_btn_2Eane")  # 双击按钮
+  
+  
+  
+ 
+ 沉浸个人痛苦伤心绝望中不出来然后痛苦过一生毫无意义
+ 沉浸在别人各种限制 然后吧自己隔绝起来 痛苦过一生毫无意义
+ 
+1 你感觉通可难受同步，然后不会不同，就让老师 同学  高中5年大学4年 活动5年，你说他们做一切，时间 空间过去了，你没有任何学校公司让你
+他们离开了，你没有任何进步
+2. 你说不清楚，理解不了，然后做不东。工作10年让领导xxx说安排一切，你雨里雾里过去了。10年发展升值 全部离开 ，你原理不懂未来一切0
+
+然后老师5年天天安排一切活动。被动一切不行
+领导10年安排一切，被动一切不行
+同学表现230年 被动一切不行
+ 
+ 沉浸个人痛苦伤心绝望中不出来然后痛苦过一生毫无意义
+ 沉浸在别人各种限制 然后吧自己隔绝起来 痛苦过一生毫无意义
+ 战 战 战 
+ 
+ 
+
+而栈，堆，bss段，数据段均是匿名映射 [ anon ]
+ 
+内存文件映射mmap。
+mmap()  creates  a new mapping in the virtual address space of the calling process. 
+mmap就是将文件映射到内存上，进程直接对内存进行读写，然后就会反映到磁盘上。
+实现文件磁盘地址和进程虚拟地址空间中一段虚拟地址的一一对映关系。实现这样的映射关系后
+进程的代码段来自于镜像，采用文件映射方式；
+
+首先分段和分页都是操作系统发展过程中为了更好的使用内存资源
+分段不定长，分段共享 分页由系统完成。
+
+
+
+替换：
+obd cluster stop test
+cd /app/oceanbase/build_debug/src/observer
+cp observer /root/.obd/repository/oceanbase-ce/3.1.1/f19f8bfb67723712175fb0dfd60579196b3168f1/bin/observer
+
+
+dbgui：基于浏览器的gdb前端（gnu调试器）。 使用C，C ++，Go，Rust和F
+高亮
+CTRL+F   选中的文字,高亮显示 上下跳到下一个或者上一个
+
+gdb 设置断电：
+
+thread apply all break ObSql::handle_physical_plan
+
+
+[2022-02-28 14:54:32.021077] WARN  [SQL.RESV] resolve_part_func (ob_ddl_resolver.cpp:3129) [45217][1177][YB427F000001-0005D7B98F7F3DE4] [lt=5] [dc=0] resolve partition expr failed(ret=-5178)
+[2022-02-28 14:54:32.021084] WARN  [SQL.RESV] resolve_hash_or_key_partition_basic_infos (ob_ddl_resolver.cpp:6480) [45217][1177][YB427F000001-0005D7B98F7F3DE4] [lt=6] [dc=0] failed to resolve part func(ret=-5178)
+[2022-02-28 14:54:32.021088] WARN  [SQL.RESV] resolve_partition_hash_or_key (ob_ddl_resolver.cpp:6837) [45217][1177][YB427F000001-0005D7B98F7F3DE4] [lt=3] [dc=0] failed to resolve hash or key parititon basic infos(ret=-5178)
+[2022-02-28 14:54:32.021093] WARN  [SQL.RESV] resolve_partition_option (ob_create_table_resolver.cpp:838) [45217][1177][YB427F000001-0005D7B98F7F3DE4] [lt=5] [dc=0] failed to resolve partition option(ret=-5178)
+[2022-02-28 14:54:32.021120] WARN  [SQL.RESV] resolve (ob_create_table_resolver.cpp:642) [45217][1177][YB427F000001-0005D7B98F7F3DE4] [lt=27] [dc=0] resolve partition option failed(ret=-5178)
+[2022-02-28 14:54:32.021128] WARN  [SQL.RESV] stmt_resolver_func (ob_resolver.cpp:126) [45217][1177][YB427F000001-0005D7B98F7F3DE4] [lt=6] [dc=0] execute stmt_resolver failed(ret=-5178, parse_tree.type_=3094)
+[2022-02-28 14:54:32.021153] WARN  [SQL] generate_stmt (ob_sql.cpp:1414) [45217][1177][YB427F000001-0005D7B98F7F3DE4] [lt=18] [dc=0] failed to resolve(ret=-5178)
+[2022-02-28 14:54:32.021162] WARN  [SQL] generate_physical_plan (ob_sql.cpp:1502) [45217][1177][YB427F000001-0005D7B98F7F3DE4] [lt=7] [dc=0] Failed to generate stmt(ret=-5178, result.get_exec_context().need_disconnect()=false)
+[2022-02-28 14:54:32.021168] WARN  [SQL] handle_physical_plan (ob_sql.cpp:3194) [45217][1177][YB427F000001-0005D7B98F7F3DE4] [lt=5] [dc=0] Failed to generate plan(ret=-5178, result.get_exec_context().need_disconnect()=false)
+[2022-02-28 14:54:32.021175] WARN  [SQL] handle_text_query (ob_sql.cpp:1196) [45217][1177][YB427F000001-0005D7B98F7F3DE4] [lt=6] [dc=0] fail to handle physical plan(ret=-5178)
+
+
+## handle_physical_plan
+thread apply all break ob_sql.cpp:1200
+thread apply all break ob_sql.cpp:3160
+thread apply all break ob_sql.cpp:3217
+set pagination off
+---Type <return> to continue, or q <return> to quit---
+
+不 不 不 就是去做意思。
+你感觉痛苦 就是权利衣服时候
+你感觉不可能，就是庽
+
+你感觉难受，你是走第过程。
+
+
+你感觉不可能 投入更多时间，不是放弃离开这样状态判断。俩口别人函数以。
+别人的含义。别人状态 不是你状态。
+
+
+
+1 遇到一本强
+2 你装我给
+3 工资效果称分并几个
+4 你从他们 
+不你选择自己更是j
+5 now 你时间这提升地方。这优势地方。
+
+
+ 
+高中5年,大学四年 你根本听不到老师，同学讲何知识，任何活动。安装分析 提供安排 根本解决问题，完成不了事情。
+但是你说百万千万老师，百万千万学习，每天每秒学习一一赶不上。必须做 【【完全不同意】】
+5年痛苦上线绝望 自责全部表现一切，自己交流后悔痛苦
+结果一切大学 一切知识 一切分割线一切没有关系，全部是他么你，他们离开你倒数第一最不吭一个。
+你服从他么和及时。
+
+工作10年，你根本不同意，领导一切安排，完全找死节奏，根本干部任何计划安排
+同时每天忙碌一切活动，根本不可能不行
+但是领导ceo百万千万知识，百万行业 ，百万强公司，每天领航者，迁移计划。
+周同时，提供百万千万世界最正确，最合理 最对的安排。因此你全部
+10年痛苦痛苦上线绝望 自责全部表现一切下瞎子一切。希望结果
+没有 没有哦10Ian过去别人一路什，你一切公司 学校一切微辣全部没有
+
+还这个不行，那个担心焦虑一切的一切古度过。
+别人百万千万知识，百万亲吻行业 变为登喜根本不知道
+满足跟从万亿年做不到记不住 蜻蜓点水思路一条【完全不同意】
+
+你一切渴望，一切规划 一切东西虚无。
+他们只不过吃喝哇嘞 不想努力人吧了
+你一切渴望，一切规划 一切东西虚无。
+他们只不过吃喝哇嘞 不想努力人吧了
+999999.99999999999%根本真心做这个事情
+
+你难地方，
+那些百万千万厉害也难，我们面临同样场景，跨越过去才是进步。
+决不能让步，更退缩。我们同样环境通一个战场。
+你整天感受他 
+一切地位，能力 环境 别人合适，自己不合适去死。
+你找借口 别人厉害 自己不行只能这样 毫无意义。
+
+这是个事实，根本不你说。你千万次如此。
+你万亿时间浪费上毫无价值。
+你创造奇迹才是你做的事情。
+
+
+thread apply all break obmp_query.cpp:84
+
+
+
+
+obclient -uroot@tpcc -h127.0.0.1 -P2881 -p123456 -Dtpcc
+
+./src/observer/mysql/obmp_query.cpp: No such file or directory.
+
+
+obclient -uroot@tpcc -h127.0.0.1 -P2881 -p123456 -Dtpcc
+gdb设置代码目录
+dir /app/oceanbase/ //No such file or directory.
+
+
+thread apply all break obmp_query.cpp:84
+
+ob_sql.cpp 
+on    只有当前被调试程序会执行
+
+set scheduler-locking on
+thread apply all break obmp_query.cpp:84 //process函数
+thread apply all break ob_sql.cpp:1139
+
+add-auto-load-safe-path /app/oceanbase/.gdbinit
+
+dir /app/oceanbase/
+set scheduler-locking on
+
+create table sex (sex bit(60) primary key,name bit(60))partition by hash(sex) partitions 4;
+
+
+D:\local\Python\Python310\python.exe
+python D:\money\golang\src\gitee\wang_cyi\TryEverything\python\toutiao\weibo_btc.py
+'D:\\money\\golang\\src\\gitee.com\\wang_cyi\\TryEverything\\python\\toutiao\\weibo.pkl'
+电脑每天发送一次：
+
+电脑每天发送一次：
+
+pid=$(ps -ex|grep chrome|awk '{print $1}');kill -9 $pid
+
+ps aux | grep chrome |  awk '{print $2}' | xargs kill -9
+
+
+315投诉
+	德宏州龙江电站里面的中晟能源责任有限公司，存在违规供电挖比特币等虚拟货币。去年10月到今年4月龙江电站通过修改发电机远程监控系统，违规给比特币供电3万千瓦时。修改系统后电网调度无法查看电站发电的真实数据。如果比特币机房出现故障或者断网，电量会冲击电网，危害电网安全。希望各位领导查处。盈江变电站晟连网络科技有限公司股东：刘庆 身份证号码：360203197410012033。是一个以盈江变晟连科技，龙江电站的中晟能源责任有限公司为大本营的骗子。买卖机器不给客户机器，也不退款。当地派出所都接到大量报案，但这种经济纠纷无法立案。还欠我40万人民币。及其他人很多钱。
+	
+	
+	学会gdb ob代码
+dir /app/oceanbase/ 
+thread apply all break obmp_query.cpp:100
+
+create table sex (sex bit(60) primary key,name bit(60)) partition by hash(sex) partitions 4;
+
+Switching to Thread 0x7f34c9708700 (LWP 49044)]
+
+
+问题描述：
+
+
+
+
+步骤1：
+gdb attach obd启动的observer单进程()
+对handle_physical_plan设置断点:
+thread apply all break ob_sql.cpp:3160
+
+步骤2：obclient连接 
+
+结果：每个线程打印 handle_physical_plan执行失败
+
+
+(gdb) c
+Continuing.
+[Switching to Thread 0x7f34c5c40700 (LWP 49067)]
+
+(gdb) c
+Continuing.
+[Switching to Thread 0x7f34ac7ec700 (LWP 49120)]
+
+
+步骤3 看日志
+
+
+[2022-03-03 17:11:43.109337] WARN  [STORAGE.TRANS] process_cluster_heartbeat_rpc (ob_weak_read_service.cpp:485) [708][1069][YB427F000001-0005D94CBFAF220D] [lt=15] [dc=0] tenant weak read service process cluster heartbeat RPC fail(ret=-4341, ret="OB_NOT_IN_SERVICE", tenant_id=1002, req={req_server:"127.0.0.1:2882", version:1646298698069432, valid_part_count:15, total_part_count:161, generate_timestamp:1646298703109151}, twrs={inited:true, tenant_id:1002, self:"127.0.0.1:2882", svr_version_mgr:{server_version:{version:1646298698069432, total_part_count:161, valid_inner_part_count:15, valid_user_part_count:0, epoch_tstamp:1646298702258652}, server_version_for_stat:{version:1646298698069579, total_part_count:54, valid_inner_part_count:6, valid_user_part_count:0, epoch_tstamp:1646298702793259}}})
+[2022-03-03 17:11:43.109488] WARN  [CLOG] need_update_leader_ (ob_log_state_mgr.cpp:2499) [913][1113][Y0-0000000000000000] [lt=7] [dc=0] get_elect_leader_ failed, leader_ is valid, need update(ret=-7006, partition_key={tid:1099511627923, partition_id:1, part_cnt:0}, self="127.0.0.1:2882", leader_={server:"127.0.0.1:2882", cluster_id:1}, bool_ret=true)
+[2022-03-03 17:11:43.109515] WARN  [CLOG] need_update_leader_ (ob_log_state_mgr.cpp:2499) [913][1113][Y0-0000000000000000] [lt=12] [dc=0] get_elect_leader_ failed, leader_ is valid, need update(ret=-7006, partition_key={tid:1099511627923, partition_id:1, part_cnt:0}, self="127.0.0.1:2882", leader_={server:"127.0.0.1:2882", cluster_id:1}, bool_ret=true)
+[2022-03-03 17:11:43.109538] WARN  [CLOG] need_update_leader_ (ob_log_state_mgr.cpp:2499) [917][1121][Y0-0000000000000000] [lt=4] [dc=0] get_elect_leader_ failed, leader_ is valid, need update(ret=-7006, partition_key={tid:1099511627957, partition_id:9, part_cnt:0}, self="127.0.0.1:2882", leader_={server:"127.0.0.1:2882", cluster_id:1}, bool_ret=true)
+[2022-03-03 17:11:43.109566] WARN  [CLOG] need_update_leader_ (ob_log_state_mgr.cpp:2499) [917][1121][Y0-0000000000000000] [lt=13] [dc=0] get_elect_leader_ failed, leader_ is valid, need update(ret=-7006, partition_key={tid:1099511627957, partition_id:9, part_cnt:0}, self="127.0.0.1:2882", leader_={server:"127.0.0.1:2882", cluster_id:1}, bool_ret=true)
+[2022-03-03 17:11:43.109615] WARN  [CLOG] need_update_leader_ (ob_log_state_mgr.cpp:2499) [917][1121][Y0-0000000000000000] [lt=12] [dc=0] get_elect_leader_ failed, leader_ is valid, need update(ret=-7006, partition_key={tid:1099511627992, partition_id:11, part_cnt:0}, self="127.0.0.1:2882", leader_={server:"127.0.0.1:2882", cluster_id:1}, bool_ret=true)
+[2022-03-03 17:11:43.109634] WARN  [CLOG] need_update_leader_ (ob_log_state_mgr.cpp:2499) [917][1121][Y0-0000000000000000] [lt=7] [dc=0] get_elect_leader_ failed, leader_ is valid, need update(ret=-7006, partition_key={tid:1099511627992, partition_id:11, part_cnt:0}, self="127.0.0.1:2882", leader_={server:"127.0.0.1:2882", cluster_id:1}, bool_ret=true)
+[2022-03-03 17:11:43.109678] WARN  [RPC.OBRPC] rpc_call (ob_rpc_proxy.ipp:567) [945][1175][Y0-0000000000000000] [lt=5] [dc=0] execute rpc fail(ret=-4638, dst="127.0.0.1:2882")
+[2022-03-03 17:11:43.109688] WARN  log_user_error_and_warn (ob_rpc_proxy.cpp:300) [945][1175][Y0-0000000000000000] [lt=9] [dc=0]
+[2022-03-03 17:11:43.109703] WARN  [SHARE.PT] get (ob_rpc_partition_table.cpp:83) [945][1175][Y0-0000000000000000] [lt=5] [dc=0] fetch root partition through rpc failed(rs_addr="127.0.0.1:2882", ret=-4638)
+[2022-03-03 17:11:43.109920] WARN  [SERVER] get_master_root_server (ob_service.cpp:3373) [397][482][YB427F000001-0005D94CC2AF1E3E] [lt=6] [dc=0] not master rootserver(ret=-4638, master_rs="127.0.0.1:2882")
+[2022-03-03 17:11:43.109930] WARN  [SERVER] process (ob_rpc_processor_simple.cpp:1897) [397][482][YB427F000001-0005D94CC2AF1E3E] [lt=9] [dc=0] failed to get master root server(ret=-4638)
+[2022-03-03 17:11:43.109928] WARN  [SQL.OPT] all_select_leader (ob_phy_table_location_info.cpp:536) [49112][224][YB427F000001-0005D94CC20F1EAF] [lt=5] [dc=0] fail to get leader(ret=-4654, phy_part_loc_info.get_partition_location()={table_id:{value:1099511627778, first:1, second:2}, partition_id:0, partition_cnt:0, pg_key:{tid:1099511627778, partition_id:0, part_cnt:0}, replica_locations:[{server_:"127.0.0.1:2882", role_:2, sql_port_:2881, replica_type_:0, attr_:{pos_type_:4, merge_status_:2, zone_type_:2, zone_status_:3, start_service_time_:0, server_stop_time_:0, server_status_:4}, is_filter_:false, replica_idx_:-1}], renew_time:1646298703108201, is_mark_fail:false})
+[2022-03-03 17:11:43.109953] WARN  [SQL.OPT] strong_select_replicas (ob_log_plan.cpp:2009) [49112][224][YB427F000001-0005D94CC20F1EAF] [lt=10] [dc=0] fail to all select leader(ret=-4654, *phy_tbl_loc_info={table_location_key:1099511627778, ref_table_id:1099511627778, phy_part_loc_info_list:[{partition_location:{table_id:{value:1099511627778, first:1, second:2}, partition_id:0, partition_cnt:0, pg_key:{tid:1099511627778, partition_id:0, part_cnt:0}, replica_locations:[{server_:"127.0.0.1:2882", role_:2, sql_port_:2881, replica_type_:0, attr_:{pos_type_:4, merge_status_:2, zone_type_:2, zone_statu
+
+
+file build_debug/src/observer/observer
+set args "-r", "${IP}:2882:2881", "-o", "__min_full_resource_pool_memory=268435456,memory_limit=10G,system_memory=4G,stack_size=512K,cpu_count=12,cache_wash_threshold=1G,workers_per_cpu_quota=10,schema_history_expire_time=1d,net_thread_count=4,sys_bkgd_migration_retry_num=3,minor_freeze_times=10,enable_separate_sys_clog=0,enable_merge_by_turn=False,datafile_disk_percentage=20,enable_syslog_recycle=True,max_syslog_file_count=4,clog_disk_utilization_threshold=10", "-z", "zone1", "-p", "2881", "-P", "2882", "-n", "obcluster", "-c", 1, "-d", "/app/data/observer/store", "-i", "lo", "-l", "INFO"
+b main
+r
+
+
+
+【轻松】
+只要到公司规定5:30下班时间，
+你要微信开启青少年模式不解锁，手机开启睡眠模式 不解锁
+屏幕读书模式，wifi关闭，禅定模式 forest模式6层防御开启
+创造运动，睡眠 学习良好环境
+
+【困难】
+行动 从座位上起来，打卡 楼梯一下合成
+因为
+需要自己提醒你需要完成意识下班时间，
+公司部门同时，领导 hr 不提醒你
+然后写工作日报，话力气站起来，花力气打卡。
+自觉遵守背后道理。
+
+
+global --version
+"gnuGlobal.debugMode": "Enabled",
+"gnuGlobal.globalExecutable": "D:\\tools\\glo668wb\\bin\\global.exe",
+"gnuGlobal.gtagsExecutable": "D:\\tools\\glo668wb\\bin\\gtags.exe
+	
+
+
+1. 公司信息：公司名称，主营业务类型，公司人数及融资规模；
+2. 业务信息：请描述一下想通过超级链数字商品平台做什么业务，如发搭建什么样的发行平台等；
+3. 资源信息：请描述一下想发行nft的资源，包括IP情况，是否有授权，有什么独到的优势等；
+4. 业务规划：请描述一下预计接入的时间，以及应用上线的时间规划；
+
+
+
+1. 公司信息 国美电器有限公司 电商 至少1w人
+2. 业务信息：利用 在购物网站上 出售一个数字商品,想利用百度提供能力。
+3. 资源信息：保密，具体不清楚
+4. 业务规划：调研阶段。越快越好
+
+
