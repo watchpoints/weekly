@@ -31,8 +31,10 @@ Explanation: One possible longest palindromic subsequence is "bbbb".
  * dp[i][j]: the longest palindromic subsequence's length of substring(i, j),
  * here i, j represent left, right indexes in the string
 State transition:
-dp[i][j] = dp[i+1][j-1] + 2 if s.charAt(i) == s.charAt(j)
-otherwise, dp[i][j] = Math.max(dp[i+1][j], dp[i][j-1])
+if s.charAt(i) == s.charAt(j)
+    dp[i][j] = dp[i+1][j-1] + 2  //j -->j-1 从小到大遍历
+otherwise,
+dp[i][j] = Math.max(dp[i+1][j], dp[i][j-1])//i-->i+1 从大到小遍历
 Initialization: dp[i][i] = 1
  *
  */
@@ -43,7 +45,7 @@ public:
     int longestPalindromeSubseq(string s)
     {
         int rows = s.size();
-        vector<vector<int> > dp(rows, vector<int>(rows, 0)); // length
+        vector<vector<int>> dp(rows, vector<int>(rows, 0)); // length
         for (int i = 0; i < rows; i++)
         {
             dp[i][i] = 1;
@@ -78,20 +80,21 @@ public:
     int longestPalindromeSubseq2(string s)
     {
         int rows = s.size();
-        vector<vector<int> > dp(rows, vector<int>(rows, 0)); // space: n*n //why bool -->jude palindromic
-        
+        vector<vector<int>> dp(rows, vector<int>(rows, 0)); // space: n*n //why bool -->jude palindromic
+
         for (int end = 0; end < rows; end++)
-        {  
-            //for:why  change form big to small
+        {
+            // for:why  change form big to small
             for (int start = end; start >= 0; start--)
             {
                 // State transition 回文判断  Longest Palindromic Substring
                 if (s[start] == s[end])
-                {   // include [a] [aa] [aba]
-                    if(start == end)
-                    {    
-                         dp[start][end] = 1;
-                    }else if (end == start + 1)
+                { // include [a] [aa] [aba]
+                    if (start == end)
+                    {
+                        dp[start][end] = 1;
+                    }
+                    else if (end == start + 1)
                     {
                         dp[start][end] = 2;
                     }
@@ -102,20 +105,57 @@ public:
                 }
                 else
                 {
-                      // State transition
-                      //【abb】
-                    dp[start][end] = max(dp[start][end - 1], dp[start + 1][end]);//why  not 
+                    // State transition
+                    //【abb】
+                    dp[start][end] = max(dp[start][end - 1], dp[start + 1][end]); // why  not
                 }
             }
         }
 
         return dp[0][rows - 1]; // 516. Longest Palindromic Subsequence
     }
-};
+
+    int longestPalindromeSubseq3(string s)
+    {
+        vector<vector<int> > dp(s.size(), vector<int>(s.size(), 0));
+        // dp[start,end]定义:字符串s在[start, end]范围内 多个子序列中 最长回文序列的 长度  //s = "bbbab"
+        //子序列定义为：不改变剩余字符顺序的情况下，删除某些字符或者不删除任何字符形成的一个序列。
+        // d[0][s.size()-1]
+
+        for (int end = 0; end < s.size(); end++)
+        {
+            for (int start = end; start >= 0; start--)
+            {
+                if (s[start] == s[end])
+                {
+                    if (start == end)
+                    {
+                        dp[start][end] = 1; //[a]
+                    }
+                    else if (start + 1 == end) //[aa]
+                    {
+                        dp[start][end] = 2;
+                    }else //[aba]
+                    {
+                        dp[start][end] = dp[start+1][end-1] + 2; //dp[start+1][end-1] 存在
+                        //end-1>=start+1 end -start >=2
+                    }
+                }else
+                {    
+                    //cbb --->bb -> 2 
+                    //cbb --->cb -> 1 
+                    dp[start][end] = max(dp[start+1][end],dp[start][end-1]); //
+                }
+            }
+        }
+        return dp[0][s.size() - 1];
+    }
+};//两个字符串的「公共子序列」是这两个字符串所共同拥有的子序列。
 int main()
 {
     // string input("bbbab");
     string input("cbbd");
     Solution test;
-    cout << "input:"<<input<< " outout: " << test.longestPalindromeSubseq2(input) << endl;
+    cout << "input:" << input << " outout: " << test.longestPalindromeSubseq3(input) << endl;
+    //input:cbbd outout: 2
 }
