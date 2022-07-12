@@ -77,7 +77,7 @@ public:
             {
                ptail = ptail->next;
             }
-
+          
             //在链表中插入一个元素，整个链表是完整的. ptail
 
             //eays case 3   --->10(ptail) ->20(ppre) ->15(pcur) ->30
@@ -89,9 +89,13 @@ public:
 
             pcur->next = ptail->next; // 保证插入一个链表完整性 15->20
 
+            
+
             //ptail 发送变化
 
             ptail->next = pcur; //10->15->20
+
+            
 
         }
         

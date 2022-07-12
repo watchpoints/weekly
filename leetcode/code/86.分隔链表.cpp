@@ -14,6 +14,12 @@
  *     ListNode(int x) : val(x), next(nullptr) {}
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
+ * struct node
+ * {
+ * int val;
+ * node* next;
+ * node(int x,){}node*next
+ * }
  */
 class Solution {
 public:
@@ -62,7 +68,6 @@ public:
     ListNode* partition(ListNode* head, int x) {
 
         //01 定义数据结构 并且初始化 
-
         ListNode fixed(-1,head); //不用判断ppre是否为null
         ListNode* pcur = head;//这里不是排序，默认第一个节点
         ListNode* ppre = &fixed; //自然，前面一个节点 fixed-->head ，不用判断ppre null
@@ -70,7 +75,6 @@ public:
 
 
         //链表原地翻转 不破坏原来结构
-
         while(pcur)
         {
           //easy case1 head->3->4->5
@@ -85,9 +89,7 @@ public:
             //4位置不变，但是前面元素越来越多
 
             // p tail->4(ppre) --3(pcur) --2
-              
             ppre->next = pcur->next ; //move 4——2
-
             pcur->next = ptail->next; // insert 3--4-2
 
             ptail->next = pcur; // 3 is ptail ->3 ->4->2
@@ -106,7 +108,6 @@ public:
             ptail = ptail->next;
             pcur = pcur->next;
             ppre = ppre->next;
-            
           }
           
         }//
