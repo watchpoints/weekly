@@ -1,5 +1,54 @@
-What is the difference between Python's multiprocessing module and MPi4Py?
+问：
+liunx read write buffer大小是 I/O block大小吗 他们之间什么关系？
 
+用FIO工具测试 WRITE: bw=1M 结果 1986MiB/s 
+但是read write程序测试 buffer=32M  iotop看32M/s
+
+结果：read write 性能很慢呀
+
+umount /dev/nvme1n1
+umount /dev/nvme2n1
+umount /dev/nvme3n1
+
+mkfs.ext4 /dev/nvme1n1
+mkfs.ext4 /dev/nvme2n1
+mkfs.ext4 /dev/nvme3n1
+ 
+mount  dev/nvme1n1   /data/beegfs/beegfs_storage301
+mount  /dev/nvme2n1 /data/beegfs/beegfs_storage302
+mount  /dev/nvme3n1 /data/beegfs/beegfs_storage303
+
+
+
+beegfs-ctl --storagebench --alltargets --write --targetids=201 --blocksize=512K --size=10G
+
+
+主要问题是
+fio 测试磁盘性能是1G,但是 代码 read write 很慢
+
+
+fio --name=test2_1G.txt \
+    --directory=/mnt/beegfs/   \
+    --rw=write --refill_buffers \
+    --bs=256K  --size=1G
+
+
+
+
+SSD测试第一神器——FIO
+Performance benchmarking with Fio 
+http://www.ssdfans.com/?p=6087
+
+ob_global_start_proxy.cpp
+dd if=/dev/zero of=wang1.txt  bs=1M count=10
+dd if=/dev/zero of=tmp.10G  bs=1M count=1000
+dd if=/dev/zero of=tmp.1G  bs=1G count=1
+
+
+beegfs-ctl --migrate --storagepoolid=2--destinationpoolid=1 /mnt/beegfs/tmp.10G
+
+What is the difference between Python's multiprocessing module and MPi4Py?
+ 
 hostnamectl set-hostname h12-meta01
 
 管理节点: 10.141.162.40
