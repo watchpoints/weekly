@@ -1,0 +1,31 @@
+2022-8-02
+
+ 595.871s
+
+
+每个文件都有自己的拥有者 ID 和群组 ID，
+stat file
+系统会根据 /etc/passwd 和 /etc/group 文件中的内容，
+分别找到 UID 和 GID 对应的用户名和群组名
+
+cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+
+通常用户标识号的取值范围是0～65535。
+0是超级用户root的标识号，1～99由系统保留
+
+cat /etc/group
+root:x:0:
+
+stat beelive_test.py
+  File: beelive_test.py
+  Size: 531             Blocks: 8          IO Block: 4096   regular file
+Device: 803h/2051d      Inode: 2098651     Links: 1
+Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+
+
+
+
+
+TypeError: '>' not supported between instances of 'str' and 'int'
+tail -f /root/src/beelive/test.log  | grep  -E 'send::|recv::'
