@@ -1,8 +1,8 @@
-@echo off             #从本行开始关闭回显。一般批处理第一行都是这个
+@echo off          
 
-cd /d D:\money\daily-interview\blog
+cd /d D:\db\daily-interview\blog
 start hugo
-cd /d D:\money\daily-interview\blog\public
+cd /d D:\db\daily-interview\blog\public
 echo 当前目录是：%cd%
 
 git add -A .

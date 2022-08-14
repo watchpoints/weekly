@@ -1,7 +1,67 @@
+#说明：不能添加双引号
+#policy=ctime:10
+#policy1=mtime:600,slowpool:1,fastpool:3
+#policy2=name:txt,gsize:10M,slowpool:1,fastpool:3
+#policy3=ctime:1000,slowpool:1,fastpool:3
+#policy=uid:0,gid:0,ctime:1000,name:.file,slowpool:1,fastpool:3,path:/mnt/beegfs/4
+policy=uid:0,gid:0,ctime:10,name:.file,path:/mnt/beegfs,slowpool:1,fastpool:3
+#policy=priority:1,mtime:86400,slowpool:1,fastpool:3;priority:2,gsize:10485761,slowpool:1,fastpool:3
 
-@剑落秋风 1、迁移操作不影响就数据的读写
-2、迁移过程，可以不停止业务，但是可能影响业务带宽3、迁移时不需要停服务
-4、禁止target写入，无法禁用原有数据的修改和写入，这可能迁移完确认下是否有因为文件修改，未迁移走的数据，并多次迁移
+//固定100条
+
+
+
+
+
+1、这个让李永杰明确一下
+2、这个还涉及测试验证
+3、如果合并做，代码最好一套，用不同参数区分
+
+
+1、相同点：功能上只有全量扫描代码可服用。
+2、不同点：中移场景是不同集群迁移，涉及软连接等
+3、新增需求是否需要增加开发人员。对应产品经理
+4、中移动迁移是否加入DiLuV2? (找李永杰明确)
+	 如果合并做，代码最好一套，用不同参数区分
+ 
+5、详细列出中移动需求---赵
+6、评估中移动工作量--赵
+7、UI需求---赵
+
+
+
+
+
+如果合并做，代码最好一套，用不同参数区分
+
+缺失的UI设计等部分
+
+
+
+1. 优先满足客户需求，如果客户需要UI等,需要实现
+2. 目前没有缺少UI设计人员，找xx协议
+ Dilu V2数据分层概要设计
+开发周期待评估
+
+概要缺失部分
+
+
+
+在产品规格，故障处理 和版本规划上 给出具体的改进建议
+功能缺失部门
+
+
+
+给出改进 完善建议
+
+
+改进意见
+
+协助
+
+争议
+
+，未迁移走的数据，并多次迁移
 5、我们当前可以运行如下命令查询下有多少文件是放在坏target上
 find /mnt/beegfs -type f | beegfs-ctl --getentryinfo --verbose - > /tmp/entryinfo.txt
 

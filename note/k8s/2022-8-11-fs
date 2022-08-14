@@ -1,1 +1,26 @@
 xfs现在缓存做的这么好？
+
+xargs占位符
+
+xargs - build and execute command lines from standard input
+
+作用：执行单条指令
+
+-i[replace-str], --replace[=replace-str]
+              This option is a synonym for -Ireplace-str if replace-str is specified.  If the replace-str argument is missing, the effect is the same as -I{}.   This  op‐
+              tion is deprecated; use -I instead.
+			  
+-i 参数将管道的输入存储在{}中，{}可出现在后续指令任意位置，但是只能引用一次。
+echo "/mnt/beegfs/jpg/1659692290.5745119449171.file.0.0" |xargs -i /usr/bin/beegfs-ctl --getentryinfo --verbose {}
+echo "/mnt/beegfs/jpg/1659692290.5745119449171.file.0.0" |xargs -ireplace /usr/bin/beegfs-ctl --getentryinfo --verbose replace echo replace
+
+
+执行多条指令
+
+说明：-I param 将管道的输入存储在变量param中，
+
+ -I replace-str
+              Replace  occurrences  of replace-str in the initial-arguments with names read from standard input
+			  
+复制所有图片文件到 /data/images 目录下：
+ls *.jpg | xargs -n1 -I {} cp {} /data/images
