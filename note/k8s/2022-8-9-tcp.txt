@@ -1,15 +1,19 @@
-#说明：不能添加双引号
-#policy=ctime:10
-#policy1=mtime:600,slowpool:1,fastpool:3
-#policy2=name:txt,gsize:10M,slowpool:1,fastpool:3
-#policy3=ctime:1000,slowpool:1,fastpool:3
-#policy=uid:0,gid:0,ctime:1000,name:.file,slowpool:1,fastpool:3,path:/mnt/beegfs/4
-policy=uid:0,gid:0,ctime:10,name:.file,path:/mnt/beegfs,slowpool:1,fastpool:3
-#policy=priority:1,mtime:86400,slowpool:1,fastpool:3;priority:2,gsize:10485761,slowpool:1,fastpool:3
+问：下面shell
 
-//固定100条
+/usr/bin/sed -e "s:/root/beegfs:/mnt/beegfs:g" /root/beegfs/920016/query.600 >>/root/beegfs/920016/query.600_999
+
+cat  /root/beegfs/920016/query.600_999 |  beegfs-ctl --getentryinfo  -  //报错，不是命令有问题 自己手工插入同样数据就没问题 
 
 
+
+请问下面命令有什么不同 ，getentryinfo 是tcp短连接，命令2 出现很多time_wait ,应该是一个输入 一个进程，命令1不是？
+命令1 cat /root/beegfs/920016/query.600_999 |xargs  -n1 | beegfs-ctl --getentryinfo --verbose -  // TIME_WAIT 0
+命令2 cat /root/beegfs/920016/query.600_999 | xargs -n1 -I {} sh -c "echo {} && /usr/bin/beegfs-ctl --getentryinfo  {}"  //TIME_WAIT 5000
+
+https://maimai.cn/web/gossip_detail?encode_id=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlZ2lkIjoiNmMxMzJhYWE5MzhmNGUzNmE2YjdiZWU5NGM2MTUxNmMiLCJpZCI6MzA4NzYzMzMsInUiOjQ2NjUxfQ.wsKdpE2UUkorjYsQn69IeHyMR7YrHiNI_1z3lwqVQjU&from=list
+ 
+
+tail -f beegfs_migration.log  |grep get_poolId_from_response
 
 
 

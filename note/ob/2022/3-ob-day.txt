@@ -1,0 +1,241 @@
+[root@node1 oceanbase]# find ./ -name "*.h" |xargs grep GetBoolAssertionFailureMessage
+./deps/3rd/usr/local/oceanbase/deps/devel/include/gtest/internal/gtest-internal.h:GTEST_API_ std::string GetBoolAssertionFailureMessage(
+./deps/3rd/usr/local/oceanbase/deps/devel/include/gtest/internal/gtest-internal.h:    fail(::testing::internal::GetBoolAssertionFailureMessage(\
+
+
+
+
+https://blog.csdn.net/qiuyoujie/article/details/90900733
+
+/devel/include/gtest
+/usr/local/lib64/libgtest.a
+/usr/local/lib64/libgtest.a
+export LD_LIBRARY_PATH=${CURRENT_DIR}/../../deps/3rd/usr/local/oceanbase/devtools/lib64:${CURRENT_DIR}/../../deps/3rd/usr/local/oceanbase/deps/devel/lib/mariadb:${CURRENT_DIR}/../../deps/3rd/usr/local/oceanbase/deps/devel/lib
+
+[ 12%] Building CXX object googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o
+[ 25%] Linking CXX static library ../lib/libgtest.a
+[ 25%] Built target gtest
+[ 37%] Building CXX object googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o
+[ 50%] Linking CXX static library ../lib/libgmock.a
+[ 50%] Built target gmock
+[ 62%] Building CXX object googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o
+[ 75%] Linking CXX static library ../lib/libgmock_main.a
+[ 75%] Built target gmock_main
+[ 87%] Building CXX object googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o
+[100%] Linking CXX static library ../lib/libgtest_main.a
+
+
+nm /oceanbase/oceanbase/deps/3rd/usr/local/oceanbase/deps/devel/lib/libgtest.a | c++filt |grep  GetBoolAssertionFailureMessage
+nm /oceanbase/oceanbase/deps/3rd/usr/local/oceanbase/deps/devel/lib/libgtest.a | c++filt |grep  EqFailure
+Linux 动态库 undefined symbol 原因定位与解决方法
+https://blog.csdn.net/qq_38600065/article/details/105012314
+
+
+
+target_link_libraries(${case} PRIVATE oceanbase gtest gmock ${DEP_DIR}/lib/mariadb/libmariadb.so.3 ${DEP_DIR}/lib/libgtest.a ${DEP_DIR}/lib/ibgtest_ma
+ 
+
+nm /oceanbase/oceanbase/deps/3rd/usr/local/oceanbase/deps/devel/lib/libgtest.a | c++filt |grep
+
+ 
+./oceanbase/build_debug/src/observer/liboceanbase.so
+
+
+
+/oceanbase/oceanbase/build_debug/unittest
+/oceanbase/oceanbase/deps/3rd/usr/local/oceanbase/deps/devel/lib/libgtest.a
+../deps/3rd/usr/local/oceanbase/deps/devel/lib/libgtest_main.a
+[100%] Linking CXX static library liboceanbase_static.a
+
+target_link_libraries(${case} PRIVATE oceanbase gtest gmock ${DEP_DIR}/lib/mariadb/libmariadb.so.3)
+${DEP_DIR}/lib/libgtest.a ${DEP_DIR}/lib/ibgtest_main.a
+'../deps/3rd/usr/local/oceanbase/deps/devel/lib/ibgtest_main.a'
+./deps/3rd/usr/local/oceanbase/deps/devel/lib/libgtest.a
+./deps/3rd/usr/local/oceanbase/deps/devel/lib/libgtest.a
+./deps/3rd/usr/local/oceanbase/deps/devel/lib/libgtest.a
+'../deps/3rd/usr/local/oceanbase/deps/devel/lib/libgtest.a
+
+/oceanbase/oceanbase/deps/3rd/usr/local/oceanbase/deps/devel/lib/libgtest.a
+
+/oceanbase/oceanbase/deps/3rd/usr/local/oceanbase/deps/devel/lib
+[root@node1 oceanbase]# find -name "*.c"  |grep GetBoolAssertionFailureMessage
+[root@node1 oceanbase]# find -name "*.c"  | xargs grep GetBoolAssertionFailureMessage
+[root@node1 oceanbase]# find -name "*.cpp"  | xargs grep GetBoolAssertionFailureMessage
+[root@node1 oceanbase]# find -name "*.h"  | xargs grep GetBoolAssertionFailureMessage
+./deps/3rd/usr/local/oceanbase/deps/devel/include/gtest/internal/gtest-internal.h:GTEST_API_ std::string GetBoolAssertionFailureMessage(
+./deps/3rd/usr/local/oceanbase/deps/devel/include/gtest/internal/gtest-internal.h:    fail(::testing::internal::GetBoolAssertionFailureMessage(\
+
+[root@node1 log]# grep "ALTER TABLE v0 DROP COLUMN v2" observer.log
+[2022-08-16 16:28:52.299718] INFO  [SQL] ob_sql.cpp:163 [3318][466][YB427F000001-0005E657606A74FF] [lt=4] [dc=0] Begin to handle text statement(trunc_stmt=ALTER TABLE v0 DROP COLUMN v2, sess_id=3221487623, execution_id=42225)
+[2022-08-16 16:36:28.096289] WARN  [SERVER] process (obmp_query.cpp:291) [3318][466][YB427F000001-0005E657606A74FF] [lt=17] [dc=0] fail execute sql(sql_id="", sql=ALTER TABLE v0 DROP COLUMN v2, sessid=3221487623, ret=-4018, ret="OB_ENTRY_NOT_EXIST", need_disconnect=false)
+[2022-08-16 16:36:28.096499] TRACE [TRACE]obmp_base.cpp:911 [3318][466][YB427F000001-0005E657606A74FF] [lt=6] [dc=0] [slow query](TRACE=begin_ts=1660638532299499 2022-08-16 08:28:52.299499|[process_begin] u=0 in_queue_time:65, receive_ts:1660638532299424, enqueue_ts:1660638532299451|[start_sql] u=1 addr:{ip:"127.0.0.1", port:48926}|[query_begin] u=1 trace_id:YB427F000001-0005E657606A74FF|[before_processor_run] u=51 |[session] u=20 sid:3221487623, tenant_id:1|[parse_begin] u=166 stmt:"ALTER TABLE v0 DROP COLUMN v2", stmt_len:29|[cache_get_plan_begin] u=455684523 |[cache_get_plan_end] u=91 |[transform_with_outline_begin] u=8 |[transform_with_outline_end] u=152 |[resolve_begin] u=29 |[resolve_end] u=1196 |[exec_begin] u=189 arg1:false, end_trans_cb:false|[auto_end_plan_begin] u=109373 |[auto_end_plan_end] u=2 |[result_set_close] u=0 ret:-4018, arg1:-4018, arg2:0, arg3:-4018, async:false|[exec_end] u=703 |[query_end] u=274 |[process_end] u=185 run_ts:1660638532299552|total_timeu=455796964)
+[2022-08-16 16:36:38.046836] INFO  [SQL] ob_sql.cpp:163 [3333][496][YB427F000001-0005E65763EA73D0] [lt=8] [dc=0] Begin to handle text statement(trunc_stmt=ALTER TABLE v0 DROP COLUMN v2, sess_id=3221487623, execution_id=43676)
+[2022-08-16 16:36:38.067833] INFO  [SERVER] ob_query_retry_ctrl.cpp:460 [3333][496][YB427F000001-0005E65763EA73D0] [lt=5] [dc=0] check if need retry(client_ret=-4016, err=-4016, retry_type_=0, retry_times=1, multi_stmt_item={is_part_of_multi_stmt:true, seq_num:0, sql:"ALTER TABLE v0 DROP COLUMN v2"})
+[2022-08-16 16:36:38.068044] WARN  [SERVER] process (obmp_query.cpp:291) [3333][496][YB427F000001-0005E65763EA73D0] [lt=5] [dc=0] fail execute sql(sql_id="", sql=ALTER TABLE v0 DROP COLUMN v2, sessid=3221487623, ret=-4016, ret="OB_ERR_UNEXPECTED", need_disconnect=false)
+[2022-08-16 16:36:38.068129] TRACE [TRACE]obmp_base.cpp:915 [3333][496][YB427F000001-0005E65763EA73D0] [lt=7] [dc=0] [err query](TRACE=begin_ts=1660638998045839 2022-08-16 08:36:38.045839|[process_begin] u=0 in_queue_time:131, receive_ts:1660638998045705, enqueue_ts:1660638998045710|[start_sql] u=1 addr:{ip:"127.0.0.1", port:48926}|[query_begin] u=3 trace_id:YB427F000001-0005E65763EA73D0|[before_processor_run] u=16 |[session] u=8 sid:3221487623, tenant_id:1|[parse_begin] u=980 stmt:"ALTER TABLE v0 DROP COLUMN v2", stmt_len:29|[cache_get_plan_begin] u=12 |[cache_get_plan_end] u=22 |[transform_with_outline_begin] u=1 |[transform_with_outline_end] u=49 |[resolve_begin] u=31 |[resolve_end] u=148 |[exec_begin] u=27 arg1:false, end_trans_cb:false|[auto_end_plan_begin] u=20673 |[auto_end_plan_end] u=1 |[result_set_close] u=0 ret:-4016, arg1:-4016, arg2:0, arg3:-4016, async:false|[exec_end] u=115 |[query_end] u=110 |[process_end] u=53 run_ts:1660638998045859|[process_ret] u=1 process_ret:-4016|total_timeu=22251)
+[root@node1 log]#
+
+
+
+libgtest_main.a
+libgtest.a
+${DEP_DIR}/lib/libgtest.a
+target_link_libraries(${case} PRIVATE oceanbase gtest gmock ${DEP_DIR}/lib/mariadb/libmariadb.so.3)
+
+
+[root@node1 local]# find ./ -name  libmariadb.so.3
+./oceanbase/deps/devel/lib/mariadb/libmariadb.so.3
+./deps/3rd/usr/local/oceanbase/deps/devel/lib/libgtest_main.a
+./deps/3rd/usr/local/oceanbase/deps/devel/lib/libgtest.a
+unittest\tools\ob_error\CMakeLists.txt
+
+
+
+
+
+提问：Type <RET> for more, q to quit, c to continue without paging--
+回答：
+set pagination off
+原因：
+https://stackoverflow.com/questions/28815621/how-to-disable-type-return-to-continue-or-q-return-to-quit-in-gdb
+https://gcc.gnu.org/legacy-ml/gcc-patches/2019-01/msg00135.html
+
+
+enum ObQueryRetryType {
+  RETRY_TYPE_NONE,
+  RETRY_TYPE_LOCAL,
+  RETRY_TYPE_PACKET,
+};
+
+ObModIds::OB_SQL_EXECUTOR
+
+(gdb) p param
+$2 = {properties_ = 8, attr_ = {tenant_id_ = 1, label_ = {{str_ = 0xd60130 <oceanbase::common::ObModIds::OB_SQL_EXECUTOR> "SqlExecutor", mod_id_ = 14025008, v_ = 14025008}, is_str_ = true}, ctx_id_ = 0, prio_ = oceanbase::lib::OB_NORMAL_ALLOC}, page_size_ = 65536, ablock_size_ = 65600, parallel_ = 1}
+
+
+
+ret = do_process(session, has_more_result, force_sync_resp, async_resp_used, need_disconnect);
+ 
+ 
+ sql 执行失败
+ 
+  if (!OB_SUCC(ret) && need_response_error && conn_valid_) {
+    send_error_packet(ret, NULL);
+  } 
+  
+  
+  OB_INLINE int ObMPQuery::do_process
+  
+  
+  ObReqTimeGuard req_timeinfo_guard;
+  ObMySQLResultSet* result = nullptr;
+  ObPhysicalPlan* plan = nullptr;
+  ObQueryExecCtx* query_ctx = nullptr;
+  ObSchemaGetterGuard* schema_guard = nullptr;
+  ObTenantCachedSchemaGuardInfo* cached_schema_info = nullptr;
+  
+  OB_FAIL(gctx_.sql_engine_->stmt_query(sql, ctx_, *result))) 
+  
+  gctx_.sql_engine_->stmt_query(sql, ctx_, *result))
+  
+  // Interface of SQL Engine for OB_MYSQL_COM_QUERY request
+  //
+  // Handle all OB_MYSQL_COM_QUERY request from mysqlclient
+  // There are two kinds of OB_MYSQL_COM_QUERY request
+  // 1. general query such as "select * from table_test"
+  // 2. text prepare such as "prepare stmt from select * from table_test"
+  //
+  // @param stmt[in]       input sql string
+  // @param context[in]    sql context
+  // @param result[out]
+  //
+  // @return oceanbase error code defined in lib/ob_errno.def
+  virtual int stmt_query(const common::ObString& stmt, ObSqlCtx& context, ObResultSet& result);
+  
+  ObSql::stmt_query
+  
+  ObSql::handle_text_query(
+  
+  
+    ObIAllocator &allocator = THIS_WORKER.get_sql_arena_allocator();
+	ObExecContext &ectx = result.get_exec_context();
+	
+	ObPlanCacheCtx *pc_ctx = NULL;
+	
+	
+	
+	  pc_ctx = new (pc_ctx) ObPlanCacheCtx(trimed_stmt,
+        false, /*is_ps_mode*/
+        allocator,
+        context,
+        ectx,
+        tenant_id);
+    uint64_t database_id = OB_INVALID_ID;
+	
+	handle_large_query
+	handle_large_query
+	handle_physical_plan
+	
+	
+ 
+ObMPBase::send_error_packet
+obmp_base.cpp:1237 [2915][466][YB427F000001-0005E645937C9018] [lt=28] [dc=0] send error package.(user_error_code=4016, err=-4016, sql_state="HY000", message=Internal error)
+
+constexpr int OB_ERR_UNEXPECTED = -4016;
+
+ LOG_INFO("sending error packet", K(err), "bt", lbt(), K(extra_err_info));
+[2022-08-15 19:11:22.340236] INFO  [SERVER] obmp_base.cpp:1163 [2915][466][YB427F000001-0005E645937C9018] [lt=4] [dc=0] sending error packet(err=-4016, bt="0xb53f755 0xa886240 0xa9198cd 0xa879575 0xa8b27d1 0xa8ada1b 0xb6c492d 0xa72d190 0xa709949 0xa72af26 0xa70784f 0xa707d1c 0x1e7379c 0x1e7362d 0x1e7766e 0xb4e7e85 0xb4e6625 0xb1f72ff", extra_err_info=NULL)
+
+int ObSyncCmdDriver::response_result(ObMySQLResultSet &result)
+ob_sync_cmd_driver.cpp:64) [2915][466][YB427F000001-0005E645937C9018] [lt=6] [dc=0] result set open failed, check if need retry(ret=-4016, cli_ret=-4016, retry_ctrl_.need_retry()=0)
+
+retry_ctrl_.test_and_save_retry_state(gctx_, ctx_, result, ret, cli_ret);
+void ObQueryRetryCtrl::test_and_save_retry_state
+[2022-08-15 19:11:22.340172] INFO  [SERVER] ob_query_retry_ctrl.cpp:460 [2915][466][YB427F000001-0005E645937C9018] [lt=8] [dc=0] check if need retry(client_ret=-4016, err=-4016, retry_type_=0, retry_times=1, multi_stmt_item={is_part_of_multi_stmt:true, seq_num:0, sql:"ALTER TABLE v0 DROP COLUMN v2"})
+
+[2022-08-15 19:11:22.340155] WARN  [SERVER] test_and_save_retry_state (ob_query_retry_ctrl.cpp:117) [2915][466][YB427F000001-0005E645937C9018] [lt=27] [dc=0] ddl, and errno is not OB_EAGAIN or OB_SNAPSHOT_DISCARDED or OB_ERR_PARALLEL_DDL_CONFLICT, do not need retry(client_ret=-4016, err=-4016, retry_type_=0)
+
+
+int ObResultSet::open_plan()
+[SQL] open_cmd (ob_result_set.cpp:84) [2915][466][YB427F000001-0005E645937C9018] [lt=33] [dc=0] execute cmd failed(ret=-4016)
+
+int ObResultSet::open_cmd()
+int ObExecuteExecutor::execute(ObExecContext &ctx, ObExecuteStmt &stmt)
+ObCmdExecutor::execute(get_exec_context(), *cmd_))
+
+[Server]
+job=/root/src/beemove/mpirun_master_slave.py -c /root/src/beemove/config.ini
+
+[BeeGfs]
+# poolCron 每隔1小时 0 */1 * * *
+# poolCron 每晚的21:30执行  30 21 * * *
+poolCron =*/15 * * * *
+def do_urgent_migration_job(opt_init):
+
+#全量扫描
+scanCron =*/45 * * * *
+beemove.py
+def do_common_migration_job(opt_init):
+
+
+def do_urgent_migration_job(opt_init):
+
+alter_table_rpc_v2
+WARN  [SQL.ENG] execute (ob_table_executor.cpp:838) [2915][466][YB427F000001-0005E645937C9018] [lt=34] [dc=0] Failed to alter table rpc v2(ret=-4016)
+
+obmp_base.cpp:1237 [2915][466][YB427F000001-0005E645937C9018] [lt=28] [dc=0] send error package.(user_error_code=4016, err=-4016, sql_state="HY000", message=Internal error)
+Y0-0000000000000000
+
+
+int ObSql::stmt_query
+
+
+ if opt_init.readconfig() != 0:
+        logging.error("opt_init.readconfig() failed")
+        return -1
+inline int ObSql::handle_text_query
+
+
+
+ObMPQuery::do_process
+
