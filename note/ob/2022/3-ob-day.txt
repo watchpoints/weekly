@@ -1,9 +1,29 @@
-[root@node1 oceanbase]# find ./ -name "*.h" |xargs grep GetBoolAssertionFailureMessage
+
+
+resolver模块的接口类是ObResolver，它的输出是ObStmt。这个模块是面向对象设计的，每种语句类型有一个Resolver和一个Stmt。他们按照语句类型，位于不同的子目录：dml, ddl, tcl等。
+
+对于非select和dml之外的语句，如大多数ddl，解析到这里就可以执行了。这类简单语句类型统称为“命令”，由engine/cmd下的executor直接执行。ddl是通过rootservice（RS）执行的，所以其executor实际是发送RPC。事务控制语句则本机直接调用事务层
+
+
+
+ObAlterTableExecutor::execute
+thread apply all break ob_table_executor.cpp:1021
+
+thread apply all break ob_table_executor.cpp:785
+
+ObAlterTableExecutor::alter_table_rpc_v2
+
+/oceanbase/oceanbase/src/sql/engine/cmd/ob_table_executor.cpp
+/oceanbase/oceanbase/src/sql/engine/cmd/ob_table_executor.cpp
+
+[ro
+ot@node1 oceanbase]# find ./ -name "*.h" |xargs grep GetBoolAssertionFailureMessage
 ./deps/3rd/usr/local/oceanbase/deps/devel/include/gtest/internal/gtest-internal.h:GTEST_API_ std::string GetBoolAssertionFailureMessage(
 ./deps/3rd/usr/local/oceanbase/deps/devel/include/gtest/internal/gtest-internal.h:    fail(::testing::internal::GetBoolAssertionFailureMessage(\
 
 
-
+[2022-08-21 22:06:22.556062] WARN  [SQL.ENG] execute (ob_table_executor.cpp:838) [4808][466][YB427F000001-0005E6C061BADE66] [lt=20] [dc=0] Failed to alter table rpc v2(ret=-4016)
+[2022-08-21 22:06:22.556116] IN
 
 https://blog.csdn.net/qiuyoujie/article/details/90900733
 
@@ -92,6 +112,16 @@ unittest\tools\ob_error\CMakeLists.txt
 
 
 
+SELECT  row_id, column_name, column_value FROM __all_core_table WHERE table_name = '__all_global_stat' ORDER BY row_id, column_name
+
+ob_query_retry_ctrl.cpp
+
+
+ObSql::handle_physical_plan
+thread apply all break ob_sql.cpp:3239 if ret==-4016  
+
+[2022-08-21 22:06:22.556062] WARN  [SQL.ENG] execute (ob_table_executor.cpp:838) [4808][466][YB427F000001-0005E6C061BADE66] [lt=20] [dc=0] Failed to alter table rpc v2(ret=-4016)
+[2022-08-21 22:06:22.556116] IN
 
 提问：Type <RET> for more, q to quit, c to continue without paging--
 回答：

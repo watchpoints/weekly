@@ -155,7 +155,7 @@ ERROR 4016 (HY000): Internal error
 
 
 
-~~~c++
+~~~shell
 ## 设置断点
 ## PROCESS
 dir /oceanbase/oceanbase
@@ -174,11 +174,27 @@ else if (OB_FAIL(generate_physical_plan(parse_result, &pc_ctx, context, result))
 create table sex (sex bit(60) primary key,name bit(60)) partition by hash(sex) partitions 4;
 
     
- inline int ObSql::handle_text_query 不合适太多内部函数
+inline int ObSql::handle_text_query 不合适太多内部函数
  thread apply all break ob_sql.cpp:1144
-      
-c
-     
+## handle_large_query
+thread apply all break ob_sql.cpp:1197 if ret==-4016  
+
+
+##stmt_query
+thread apply all break ob_sql.cpp:628 if ret==-4016  
+
+## handle_physical_plan
+
+## 问题 其他sql 干扰
+thread apply all break ob_sql.cpp:1205 if ret==-4016  
+thread apply all break ob_sql.cpp:1206 if ret==-4016 
+thread apply all break ob_sql.cpp:1217 if ret==-4016  
+d 【6】
+
+ObAlterTableExecutor::execute
+thread apply all break ob_table_executor.cpp:1021
+
+thread apply all break ob_table_executor.cpp:785
 ~~~
 
 
@@ -328,3 +344,5 @@ ld.lld: error: undefined symbol: testing::internal::EqFailure(char
 https://zhuanlan.zhihu.com/p/385240752
 
 https://www.geeksforgeeks.org/sql-ddl-dql-dml-dcl-tcl-commands/
+
+【6】https://sourceware.org/gdb/current/onlinedocs/gdb/Set-Breaks.html#Set-Breaks
