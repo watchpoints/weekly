@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>每日一题 - Troy的网络博客</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Troy" /><meta name="description" content="每日一题" /><meta name="keywords" content="daily-interview-question, Github, c&#43;&#43;, Leetcode 题解, 后端面试" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.101.0 with theme even" />
+
+
+<link rel="canonical" href="https://wangcy6.github.io/post/2020/FQA-%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="每日一题" />
+<meta property="og:description" content="每日一题" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wangcy6.github.io/post/2020/FQA-%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2020-05-29T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-05-29T00:00:00+00:00" />
+
+<meta itemprop="name" content="每日一题">
+<meta itemprop="description" content="每日一题"><meta itemprop="datePublished" content="2020-05-29T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-05-29T00:00:00+00:00" />
+<meta itemprop="wordCount" content="3831">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="每日一题"/>
+<meta name="twitter:description" content="每日一题"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="https://github.com/wangcy6/weekly/tree/master/book">
+        <li class="mobile-menu-item">阅读清单</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于我</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://github.com/wangcy6/weekly/tree/master/book">阅读清单</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于我</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">每日一题</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-05-29 00:00 </span>
+        <div class="post-category">
+            <a href="/categories/FQA/"> FQA </a>
+            </div>
+          <span class="more-meta"> 约 3831 字 </span>
+          <span class="more-meta"> 预计阅读 8 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#20201-5-27">20201-5-27</a></li>
+    <li><a href="#面试官提问">面试官提问：</a></li>
+    <li><a href="#假如在使用过程中根本无法访问这个类指针的成员和变量只能指针本身">假如在使用过程中，根本无法访问这个类指针的成员和变量，只能指针本身</a></li>
+    <li><a href="#这个知识点根本无法应用呢陷入死胡同">这个知识点根本无法应用呢？陷入死胡同</a>
+      <ul>
+        <li><a href="#我的思考">我的思考</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#我的回答">我的回答：</a></li>
+        <li><a href="#面试官反问">面试官反问：</a></li>
+        <li><a href="#5">5</a></li>
+        <li><a href="#字节跳动面试官请你实现一个大文件上传和断点续传httpsjuejinimpost5dff8a26e51d4558105420ed">字节跳动面试官：<a href="https://juejin.im/post/5dff8a26e51d4558105420ed">请你实现一个大文件上传和断点续传</a></a></li>
+        <li><a href="#今天每日一题redis支持的数据类型快手">今天每日一题：Redis支持的数据类型？（快手）</a></li>
+        <li><a href="#假如redis里面有1亿个key其中有10w个key是以某个固定的已知的前缀开头的如何将它们全部找出来">假如Redis里面有1亿个key，其中有10w个key是以某个固定的已知的前缀开头的，如何将它们全部找出来？</a></li>
+        <li><a href="#第二题主从数据库不一致如何解决群员面试题">第二题：主从数据库不一致如何解决?（群员面试题）</a></li>
+        <li><a href="#第一题-redis怎么保证高可用高可用模式有那些对比下优缺点">第一题 redis怎么保证高可用，高可用模式有那些?对比下优缺点?</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+  <div class="post-outdated">
+    <div class="warn">
+      <p>【注意】最后更新于 <span class="timeago" datetime="2020-05-29T00:00:00" title="May 29, 2020">May 29, 2020</span>，文中内容可能已过时，请谨慎使用。</p>
+    </div>
+  </div>
+    <div class="post-content">
+      <h1 id="更新日志">更新日志</h1>
+<table>
+<thead>
+<tr>
+<th>日期</th>
+<th>更新内容</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2020-5-1:2021-5-27</td>
+<td>FQ1</td>
+<td>持续更新</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>如何驱动学习？</p>
+</blockquote>
+<blockquote>
+<p>考试是对实践经验其中一个片段，进行复盘总结，如同黑客帝国中镜像学习一样反复练习 ，以始为终，去发现</p>
+<p>在大棒加胡萝卜奖励驱动下，自己看不到的的错误。</p>
+</blockquote>
+<h1 id="每日一题">每日一题</h1>
+<h2 id="20201-5-27">20201-5-27</h2>
+<h2 id="面试官提问">面试官提问：</h2>
+<ul>
+<li>如何减少编译依赖？</li>
+<li>在c++中利用类的前置声明，能减少编译依赖？但是如何检查 类的定义完整性，</li>
+</ul>
+<p>后记：</p>
+<p>小白：在哪里卡住了，思考很长时间，知道别人不耐烦【他们不会对你提示的，根本不害怕担心他们嘲笑，这都不会，我认真分析我哪里不对，我哪里不对】</p>
+<h2 id="假如在使用过程中根本无法访问这个类指针的成员和变量只能指针本身">假如在使用过程中，根本无法访问这个类指针的成员和变量，只能指针本身</h2>
+<h2 id="这个知识点根本无法应用呢陷入死胡同">这个知识点根本无法应用呢？陷入死胡同</h2>
+<h3 id="我的思考">我的思考</h3>
+<ol>
+<li>感觉这个问题无法解决，利用指针 而不是具体类，减少编译依赖，就是这样设计的 因此陷入死胡同。这根本无法检查，我知道sizeof 4</li>
+</ol>
+<p>我使用前置声明，无法访问具体的类和产生，这样做有什么意义，无法是哦你。这样设计，有啥用呢？你这个知识属于废弃知识。根本无法用。</p>
+<p>陷阱：你思考一定没问题，你相信你自己，而是对预先声明基本用法和开发过程应用没动手操作过，让你陷入知识片面理解陷阱</p>
+<p>这个用法没有问题，是你理解不到位。</p>
+<ul>
+<li>尽可能地避免使用前置声明。使用 #include 包含需要的头文件即可。 谷歌代码规范也不提倡使用。</li>
+<li>前置声明隐藏了依赖关系，头文件改动时，用户的代码会跳过必要的重新编译过程【雷】</li>
+</ul>
+<ol>
+<li>PIMPL 问什么提倡</li>
+</ol>
+<p>请仔细阅读： 。 PIMPL(Pointer to Implementation)</p>
+<p>pImpl方法是微软的Herb Sutter提出来的，该方法是为了尽量减小接口和实现之间的耦合，</p>
+<p>以避免接口改动对程序重新编译等带来的影响。</p>
+<p>简单来说，如果你的大型程序因为复杂的头文件包含关系，使得你对某头文件的某小改动可能引起的巨大编译时间成本望而生畏，</p>
+<p>那么你需要用pImpl方法来改善这种处境。</p>
+<p>类CSample仅向外界暴露了最小的接口，真正的实现由其内部类CImpl来完成。</p>
+<p>这样无论CImpl如何修改，外界对此一无所知，从而保持接口的不变性。</p>
+<p>这种方式的另外一个好处是减少了头文件之间的依赖关系。</p>
+<p>分类：数据与算法分离，接口与实现分离</p>
+<h1 id="编译防火墙c的pimpl惯用法解析">编译防火墙——C++的Pimpl惯用法解析</h1>
+<p><a href="https://leehao.blog.csdn.net/article/details/47610309">https://leehao.blog.csdn.net/article/details/47610309</a></p>
+<p>在类中使用 Pimpl 惯用法，具有如下优点：</p>
+<ul>
+<li>降低耦合</li>
+<li>信息隐藏</li>
+<li>降低编译依赖，提高编译速度</li>
+<li>接口与实现分离</li>
+</ul>
+<ol>
+<li>如果你动手写过代码，你发现 forward declaration根本无法使用，根本无法访问对应成员和函数。这有什么用呢？</li>
+</ol>
+<p>遇到谷歌编程规范：https://blog.csdn.net/Hhrock/article/details/82386014</p>
+<p><a href="https://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/headers/#forward-declarations">https://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/headers/#forward-declarations</a></p>
+<p>明白优缺点</p>
+<ul>
+<li>尽可能地避免使用前置声明。使用 #include 包含需要的头文件即可。</li>
+</ul>
+<ol>
+<li>总结 c++中 编程规范前置声明 不提倡使用，但是 PIMPL(Pointer to Implementation)为什么提倡使用呢？这有什么区别</li>
+</ol>
+<p><a href="https://blog.csdn.net/caoshangpa/article/details/78590826">https://blog.csdn.net/caoshangpa/article/details/78590826</a></p>
+<ul>
+<li>
+<p>classA的任何改动，对于classB来说都没有影响，除非classB修改了对classA调用的代码。在这里，指针起到了解耦合的作用。</p>
+</li>
+<li>
+<p>PIMPL Of course it is used. I use it in my project, in almost every class.</p>
+</li>
+</ul>
+<ol>
+<li>使用范围是 自己类进一步拆分，抽象部分和实现部分。 c++中 编程规范前置声明 不提倡使用</li>
+</ol>
+<p><a href="https://www.gamedev.net/tutorials/_/technical/general-programming/the-c-pimpl-r1794">https://www.gamedev.net/tutorials/_/technical/general-programming/the-c-pimpl-r1794/</a></p>
+<p><a href="https://www.gamedev.net/tutorials/_/technical/general-programming/the-c-pimpl-r1794">https://www.gamedev.net/tutorials/_/technical/general-programming/the-c-pimpl-r1794/</a></p>
+<p><a href="https://leehao.blog.csdn.net/article/details/47610309">https://leehao.blog.csdn.net/article/details/47610309</a></p>
+<p><a href="https://github.com/haozlee/pimpl/blob/master/public.h">https://github.com/haozlee/pimpl/blob/master/public.h</a></p>
+<p><a href="https://stackoverflow.com/questions/8972588/is-the-pimpl-idiom-really-used-in-practice">https://stackoverflow.com/questions/8972588/is-the-pimpl-idiom-really-used-in-practice</a></p>
+<h3 id="我的回答">我的回答：</h3>
+<ul>
+<li>
+<p>针对类接口不变（这是电信行业头特点，对我api前期定下来，很少发生变化），类实现发生变化。一个类结构发生变化，引用相关头文件发生改变</p>
+</li>
+<li>
+<p>变化成员封装成一个指针，这个指针做具体类的成员。然后使用中间层对我提供接口。 桥接模式。</p>
+</li>
+<li>
+<p>这里b c d可以不使用指针</p>
+<p>c++中 编程规范前置声明 不提倡使用，但是 PIMPL(Pointer to Implementation)提倡使用呢？</p>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">//Pimpl是对自己类进一步拆分，只要保证自己模块没有问题，就解决MyClassImp依赖问题
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">//其他的类不需要关系，有没有发生变动
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="https://img-blog.csdnimg.cn/2021010716135345.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpaGFvMjE=,size_16,color_FFFFFF,t_70#pic_center" alt="pimpl 大小不变"></p>
+<p><img src="https://img-blog.csdn.net/20171121113924445" alt=""></p>
+<p>这里是个例子 证明自己写过</p>
+<p><a href="https://www.gamedev.net/tutorials/_/technical/general-programming/the-c-pimpl-r1794/">https://www.gamedev.net/tutorials/_/technical/general-programming/the-c-pimpl-r1794/</a></p>
+<ul>
+<li>
+<p>在同一个文件里，单文件编译时候，获取完整定义</p>
+<p>class MyClass class MyClassImp;</p>
+</li>
+</ul>
+<h3 id="面试官反问">面试官反问：</h3>
+<ul>
+<li>前置声明不足时什么，如何检查【使用类目的，就是使用成员和函数，在定义时候前置声明无法使用，这样编译不过的】</li>
+<li>pimpl不足时什么？如何预防</li>
+<li>你了解设计模式吗？有哪些。</li>
+<li><a href="https://zhuanlan.zhihu.com/p/106779428">https://zhuanlan.zhihu.com/p/106779428</a></li>
+</ul>
+<p>Herb Sutter（C++标准委员会成员）写了一些相关的博客，对其博客做一个翻译记录：</p>
+<ul>
+<li><a href="https://link.zhihu.com/?target=https%3A//herbsutter.com/2013/08/19/gotw-7a-solution-minimizing-compile-time-dependencies-part-1/">GotW #7a Solution: Minimizing Compile-Time Dependencies, Part 1</a></li>
+<li><a href="https://link.zhihu.com/?target=https%3A//herbsutter.com/2013/12/31/gotw-7b-solution-minimizing-compile-time-dependencies-part-2/">GotW #7b Solution: Minimizing Compile-Time Dependencies, Part 2</a></li>
+<li><a href="https://link.zhihu.com/?target=https%3A//herbsutter.com/gotw/_100/">GotW #100: Compilation Firewalls</a> 【本篇】</li>
+</ul>
+<p><em>compile-time dependencie</em></p>
+<h3 id="5">5</h3>
+<p>1000桶水，其中一桶有毒，猪喝毒水后会在15分钟内死去，
+想用一个小时找到这桶毒水，至少需要几头猪？
+<a href="https://www.zhihu.com/question/60227816/answer/1274071217">https://www.zhihu.com/question/60227816/answer/1274071217</a></p>
+<h3 id="字节跳动面试官请你实现一个大文件上传和断点续传httpsjuejinimpost5dff8a26e51d4558105420ed">字节跳动面试官：<a href="https://juejin.im/post/5dff8a26e51d4558105420ed">请你实现一个大文件上传和断点续传</a></h3>
+<h3 id="今天每日一题redis支持的数据类型快手">今天每日一题：Redis支持的数据类型？（快手）</h3>
+<h3 id="假如redis里面有1亿个key其中有10w个key是以某个固定的已知的前缀开头的如何将它们全部找出来">假如Redis里面有1亿个key，其中有10w个key是以某个固定的已知的前缀开头的，如何将它们全部找出来？</h3>
+<p>使用keys指令可以扫出指定模式的key列表。
+对方接着追问：如果这个redis正在给线上的业务提供服务，那使用keys指令会有什么问题？
+这个时候你要回答redis关键的一个特性：
+redis的单线程的。keys指令会导致线程阻塞一段时间，线上服务会停顿，直到指令执行完毕，服务才能恢复。
+这个时候可以使用scan指令，scan指令可以无阻塞的提取出指定模式的key列表，但是会有一定的重复概率，在客户端做一次去重就可以了，
+但是整体所花费的时间会比直接用keys指令长。</p>
+<p><a href="http://doc.redisfans.com/key/scan.html">http://doc.redisfans.com/key/scan.html</a> [游标]</p>
+<h3 id="第二题主从数据库不一致如何解决群员面试题">第二题：主从数据库不一致如何解决?（群员面试题）</h3>
+<ul>
+<li>我的回答：</li>
+</ul>
+<p>这个看似容易 不好回答。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">全部一致（2pc）
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">不确信，主节点是否还能恢复,故障模型，采用失败，踢出集群。
+</span></span><span class="line"><span class="cl">主要解决问题是主从切换期间，新来数据该怎么办？不然引起全量同步。
+</span></span><span class="line"><span class="cl">需要主节点保存新增数据，等挂断主重启时候加载数据，然后同步。
+</span></span><span class="line"><span class="cl">因为全部一致，此时可能阻塞业务。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">大部分一致（raft）
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">部分节点故障不影响业务正常执行，如何解决不一致情况
+</span></span><span class="line"><span class="cl">1 选择一个好的领导，这个很重要。
+</span></span><span class="line"><span class="cl">2. 日志匹配方式 ，修复从节点数据。没有特意去维护保存历史数据。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">最终一致（redis）：
+</span></span><span class="line"><span class="cl">是无法保证数据一致性，有可能丢失数据。如果这样想，肯定不对，
+</span></span><span class="line"><span class="cl">别人问的是 不一直情况下解决参考redis方式 。
+</span></span><span class="line"><span class="cl">1 同步 
+</span></span><span class="line"><span class="cl">  全量同步，从节点获取历史RDB文件+BGSAVE期间产生新命令的缓冲数据 保持一致。
+</span></span><span class="line"><span class="cl">  说明：
+</span></span><span class="line"><span class="cl">       output buffer是Redis为client分配的缓冲区，
+</span></span><span class="line"><span class="cl">       若为某个客户端分配的output buffer超过了预留大小，Redis可能会根据配置策略关闭与该端的连接。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">2  只要主做业务，从出现不一致情况。需要命令传播
+</span></span><span class="line"><span class="cl">   多个从节点共享【主节维护的大小固定复制挤压缓冲区] 解决断线问题。
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>参考答案：</li>
+<li><a href="https://www.zhihu.com/question/357207584/answer/913693915">https://www.zhihu.com/question/357207584/answer/913693915</a></li>
+</ul>
+<h3 id="第一题-redis怎么保证高可用高可用模式有那些对比下优缺点">第一题 redis怎么保证高可用，高可用模式有那些?对比下优缺点?</h3>
+<p>FQA1：</p>
+<p>我的回答：</p>
+<p>redis高可用基础还是数据分片方式，如果没有槽点，任何高可用方案都毫无价值。
+大数据拆分小数据。意思是说集群规模不能超过16384（不可以无限扩张）,
+redis高可用依然采用主从模式，但是在主备切换等方面舍去中心代理，
+依然想其他节点询问。数据同步方面：可以采用同步或者异步方式。redis采用gossip</p>
+<p>raft在这方面做得步骤更加清晰。缺点也是，单个集群规模不能太大。类似2阶段提交
+同步一个记录时间复杂度是o(n)</p>
+<p>参考答案</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span><span class="lnt">86
+</span><span class="lnt">87
+</span><span class="lnt">88
+</span><span class="lnt">89
+</span><span class="lnt">90
+</span><span class="lnt">91
+</span><span class="lnt">92
+</span><span class="lnt">93
+</span><span class="lnt">94
+</span><span class="lnt">95
+</span><span class="lnt">96
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">参考答案如下：
+</span></span><span class="line"><span class="cl">Redis 高可用架构如下：
+</span></span><span class="line"><span class="cl">1.Redis Sentinel 集群 + 内网 DNS + 自定义脚本。
+</span></span><span class="line"><span class="cl">2.Redis Sentinel 集群 + VIP + 自定义脚本。
+</span></span><span class="line"><span class="cl">3.封装客户端直连 Redis Sentinel 端口。
+</span></span><span class="line"><span class="cl">4.JedisSentinelPool，适合 Java。
+</span></span><span class="line"><span class="cl">5.PHP 基于 phpredis 自行封装。
+</span></span><span class="line"><span class="cl">6.Redis Sentinel 集群 + Keepalived/Haproxy。
+</span></span><span class="line"><span class="cl">7.Redis M/S + Keepalived。
+</span></span><span class="line"><span class="cl">8.Redis Cluster。
+</span></span><span class="line"><span class="cl">9.Twemproxy。
+</span></span><span class="line"><span class="cl">10.Codis。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">1.Redis Sentinel 集群 + 内网 DNS + 自定义脚本。
+</span></span><span class="line"><span class="cl">优点：
+</span></span><span class="line"><span class="cl">秒级切换；
+</span></span><span class="line"><span class="cl">脚本自定义，架构可控；
+</span></span><span class="line"><span class="cl">对应用透明。
+</span></span><span class="line"><span class="cl">缺点：
+</span></span><span class="line"><span class="cl">维护成本略高；
+</span></span><span class="line"><span class="cl">依赖 DNS，存在解析延时；
+</span></span><span class="line"><span class="cl">Sentinel 模式存在短时间的服务不可用。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">2.Redis Sentinel 集群 + VIP + 自定义脚本。
+</span></span><span class="line"><span class="cl">优点：
+</span></span><span class="line"><span class="cl">秒级切换；
+</span></span><span class="line"><span class="cl">脚本自定义，架构可控；
+</span></span><span class="line"><span class="cl">对应用透明。
+</span></span><span class="line"><span class="cl">缺点：
+</span></span><span class="line"><span class="cl">维护成本略高；
+</span></span><span class="line"><span class="cl">Sentinel 模式存在短时间的服务不可用。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">3.封装客户端直连 Redis Sentinel 端口。
+</span></span><span class="line"><span class="cl">优点：
+</span></span><span class="line"><span class="cl">服务探测故障及时；
+</span></span><span class="line"><span class="cl">DBA 维护成本低。
+</span></span><span class="line"><span class="cl">缺点：
+</span></span><span class="line"><span class="cl">依赖客户端支持 Sentinel；
+</span></span><span class="line"><span class="cl">Sentinel 服务器需要开放访问权限；
+</span></span><span class="line"><span class="cl">对应用有侵入性。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">4.JedisSentinelPool，适合 Java。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">5.PHP 基于 phpredis 自行封装。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">6.Redis Sentinel 集群 + Keepalived/Haproxy。
+</span></span><span class="line"><span class="cl">优点：
+</span></span><span class="line"><span class="cl">秒级切换；
+</span></span><span class="line"><span class="cl">对应用透明。
+</span></span><span class="line"><span class="cl">缺点：
+</span></span><span class="line"><span class="cl">维护成本高；
+</span></span><span class="line"><span class="cl">存在脑裂；
+</span></span><span class="line"><span class="cl">Sentinel 模式存在短时间的服务不可用。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">7.Redis M/S + Keepalived。
+</span></span><span class="line"><span class="cl">优点：
+</span></span><span class="line"><span class="cl">秒级切换；
+</span></span><span class="line"><span class="cl">对应用透明；
+</span></span><span class="line"><span class="cl">部署简单，维护成本低。
+</span></span><span class="line"><span class="cl">缺点：
+</span></span><span class="line"><span class="cl">需要脚本实现切换功能；
+</span></span><span class="line"><span class="cl">存在脑裂。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">8.Redis Cluster。
+</span></span><span class="line"><span class="cl">优点：
+</span></span><span class="line"><span class="cl">组件 all-in-box，部署简单，节约机器资源；
+</span></span><span class="line"><span class="cl">性能比 proxy 模式好；
+</span></span><span class="line"><span class="cl">自动故障转移、Slot 迁移中数据可用；
+</span></span><span class="line"><span class="cl">官方原生集群方案，更新与支持有保障。
+</span></span><span class="line"><span class="cl">缺点：
+</span></span><span class="line"><span class="cl">架构比较新，最佳实践较少；
+</span></span><span class="line"><span class="cl">多键操作支持有限（驱动可以曲线救国）；
+</span></span><span class="line"><span class="cl">为了性能提升，客户端需要缓存路由表信息；
+</span></span><span class="line"><span class="cl">节点发现、reshard 操作不够自动化。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">9.Twemproxy。
+</span></span><span class="line"><span class="cl">优点：
+</span></span><span class="line"><span class="cl">开发简单，对应用几乎透明；
+</span></span><span class="line"><span class="cl">历史悠久，方案成熟。
+</span></span><span class="line"><span class="cl">缺点：
+</span></span><span class="line"><span class="cl">代理影响性能；
+</span></span><span class="line"><span class="cl">LVS 和 Twemproxy 会有节点性能瓶颈；
+</span></span><span class="line"><span class="cl">Redis 扩容非常麻烦；
+</span></span><span class="line"><span class="cl">Twitter 内部已放弃使用该方案，新使用的架构未开源。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">10.Codis。
+</span></span><span class="line"><span class="cl">优点：
+</span></span><span class="line"><span class="cl">开发简单，对应用几乎透明；
+</span></span><span class="line"><span class="cl">性能比 Twemproxy 好；
+</span></span><span class="line"><span class="cl">有图形化界面，扩容容易，运维方便。
+</span></span><span class="line"><span class="cl">缺点：
+</span></span><span class="line"><span class="cl">代理依旧影响性能；
+</span></span><span class="line"><span class="cl">组件过多，需要很多机器资源；
+</span></span><span class="line"><span class="cl">修改了 Redis 代码，导致和官方无法同步，新特性跟进缓慢；
+</span></span><span class="line"><span class="cl">开发团队准备主推基于 Redis 改造的 reborndb。
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Troy</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-05-29 00:00
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a target="_blank" rel="license noopener" href="https://github.com/nusr/blog/blob/master/LICENSE">MIT</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/ARTS/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%B0%8F%E7%8E%8B%E6%97%A5%E5%B8%B8%E8%A1%8C%E4%B8%BA%E6%B5%81%E7%A8%8B/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">程序员小王的日常规范流程</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/ARTS/month/">
+            <span class="next-text nav-default">每月复盘</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="wangcy6/wangcy6.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:wang_cyi@163.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/wangcy6" class="iconfont icon-github" title="github"></a>
+  <a href="https://wangcy6.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2022
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Troy</span>
+  </span>
+</div>
+<script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
+  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+    var languageCode = "zh-cn".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    timeago().render(document.querySelectorAll('.timeago'), languageCode);
+    timeago.cancel();  
+  </script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-138883536-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>todo on Troy的网络博客</title>
+    <link>https://wangcy6.github.io/tags/todo/</link>
+    <description>Recent content in todo on Troy的网络博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 20 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/tags/todo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>talkgo</title>
+      <link>https://wangcy6.github.io/post/2020/talkgo_todo/</link>
+      <pubDate>Thu, 20 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2020/talkgo_todo/</guid>
+      <description>https://github.com/talkgo/night 2020-08-20 TiDB Operator 架构与实现 &amp;ndash;正在看 TiDB Operator 是 Kubernetes 上的 TiDB 集群自动运维系统，提供包括部署、升级、扩缩容、备份恢复、配置变更的 TiDB 全生命周期管理。 借助</description>
+    </item>
+    
+  </channel>
+</rss>

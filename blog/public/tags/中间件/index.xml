@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>中间件 on Troy的网络博客</title>
+    <link>https://wangcy6.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/</link>
+    <description>Recent content in 中间件 on Troy的网络博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 20 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>从零开始k8s</title>
+      <link>https://wangcy6.github.io/post/2020/kubernetes_base/</link>
+      <pubDate>Sun, 20 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2020/kubernetes_base/</guid>
+      <description>一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题 二、这个技术的优势和劣势分别是什么 三、这个技术适用的场景。任何技术都有</description>
+    </item>
+    
+    <item>
+      <title>从零开始k8s</title>
+      <link>https://wangcy6.github.io/post/2021/kubernetes_01/</link>
+      <pubDate>Sun, 20 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2021/kubernetes_01/</guid>
+      <description>一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题 二、这个技术的优势和劣势分别是什么 三、这个技术适用的场景。任何技术都有</description>
+    </item>
+    
+    <item>
+      <title>zooKeeper</title>
+      <link>https://wangcy6.github.io/post/2020/zooKeeper/</link>
+      <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2020/zooKeeper/</guid>
+      <description>协调者ZooKeeper 一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题 从集中式部署业务架构到 分布式部署，Master</description>
+    </item>
+    
+  </channel>
+</rss>

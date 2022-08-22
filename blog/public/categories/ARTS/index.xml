@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ARTS on Troy的网络博客</title>
+    <link>https://wangcy6.github.io/categories/ARTS/</link>
+    <description>Recent content in ARTS on Troy的网络博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 28 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/categories/ARTS/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>一周精彩内容分享（第12期）</title>
+      <link>https://wangcy6.github.io/post/ARTS/2022/2022-12/</link>
+      <pubDate>Tue, 28 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ARTS/2022/2022-12/</guid>
+      <description>文章地址：进展 20% http://localhost:1313/post/ARTS/2022/2022-7/ https://wangcy6.github.io/post/ARTS/2022/6 本周故事 第一部分：work输出 一、公开课 课程4:MIT 经典课程 《分布式系统》 https://learnku.com/go/wikis/41239 课程3 数据库 sql执行引擎 课程2 分布式协议</description>
+    </item>
+    
+    <item>
+      <title>一周精彩内容分享（第7期）</title>
+      <link>https://wangcy6.github.io/post/ARTS/2022/2022-10/</link>
+      <pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ARTS/2022/2022-10/</guid>
+      <description>文章地址：进展 20% http://localhost:1313/post/ARTS/2022/2022-7/ https://wangcy6.github.io/post/ARTS/2022/6 第一部分：work输出 一、公开课 阅读：200行代码实现基于paxos的kv存储 用paxos实现多副本日志系统&amp;ndash</description>
+    </item>
+    
+    <item>
+      <title>一周精彩内容分享（第7期）</title>
+      <link>https://wangcy6.github.io/post/ARTS/2022/2022-11/</link>
+      <pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ARTS/2022/2022-11/</guid>
+      <description>文章地址：进展 20% http://localhost:1313/post/ARTS/2022/2022-7/ https://wangcy6.github.io/post/ARTS/2022/6 本周故事 数据库内核资深研发工程师 基本条件： 熟悉数据库系统常用算法与基本原理，具有3年以上数据库内核或大数据处理系统开发经</description>
+    </item>
+    
+    <item>
+      <title>一周精彩内容分享（第7期）</title>
+      <link>https://wangcy6.github.io/post/ARTS/2022/2022-7/</link>
+      <pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ARTS/2022/2022-7/</guid>
+      <description>文章地址：进展 20% http://127.0.0.1:1313/post/ARTS/2022/2022-7/ https://wangcy6.github.io/post/ARTS/2022/2022-7/ 今天是： 2022-2-10 号 今天是： 2022年的第 7 周 今天是： 2月份的第 2 周 今天是： 1季度的第 7 周 第一部分：work输出 一、我提交的pr</description>
+    </item>
+    
+    <item>
+      <title>一周精彩内容分享（第7期）</title>
+      <link>https://wangcy6.github.io/post/ARTS/2022/2022-8/</link>
+      <pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ARTS/2022/2022-8/</guid>
+      <description>文章地址：进展 20% http://localhost:1313/post/ARTS/2022/2022-7/ https://wangcy6.github.io/post/ARTS/2022/6 第一部分：work输出 一、我提交的pr 二、 我阅读代码 2022-3-18 阅读文章：TiDB集群恢复之TiKV集群不可用 10% 三 、社区 四、内核 来</description>
+    </item>
+    
+    <item>
+      <title>2021年历史文章</title>
+      <link>https://wangcy6.github.io/post/04_2021-10-10.2021.years/</link>
+      <pubDate>Wed, 09 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/04_2021-10-10.2021.years/</guid>
+      <description>https://wangcy6.github.io/post/04_2021-10-10.2021.years/ 2021 我的历史文章 基础：共3篇 60秒问答：请问下面的程序一共输出多少个&amp;quot;hello,world” 自己看了3遍 整天背诵五种I/O模型/</description>
+    </item>
+    
+    <item>
+      <title>一周精彩内容分享（第六期）</title>
+      <link>https://wangcy6.github.io/post/ARTS/2022/6/</link>
+      <pubDate>Wed, 26 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ARTS/2022/6/</guid>
+      <description>文章地址： http://localhost:1313/post/ARTS/2022/6 https://wangcy6.github.io/post/ARTS/2022/6 第一部分：work输出 一、我提交的pr 什么都没有 二、 我阅读代码 三 、社区 todo1 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 OceanBase</description>
+    </item>
+    
+    <item>
+      <title>一周精彩内容分享（第五期）</title>
+      <link>https://wangcy6.github.io/post/ARTS/2022/1/</link>
+      <pubDate>Thu, 06 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ARTS/2022/1/</guid>
+      <description>文章地址： http://localhost:1313/post/ARTS/2022/1/ https://wangcy6.github.io/post/ARTS/2022/1/ 第一部分：work输出 什么都没有。 一、我提交的pr 什么都没有 二、 我阅读代码 音视频开发入门 https://github.com/wangcy6/simplest_mediadata_test.git 逆向工程demo。 https://gitee.com/wang_cyi/weixinHookDemo code_reading_rocksdb 开始阅读 https://gitee.com/wang_cyi/code_reading_rocksdb-6.0.1 三 、</description>
+    </item>
+    
+    <item>
+      <title>一周精彩内容分享（第四期）</title>
+      <link>https://wangcy6.github.io/post/ARTS/34/</link>
+      <pubDate>Thu, 14 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ARTS/34/</guid>
+      <description>地址： https://wangcy6.github.io/post/ARTS/34/ https://wangcy6.github.io/post/ARTS/34/ 第一部分：work输出 流媒体：http://wiki.intra.gomeplus.com/pages/viewpage.acti</description>
+    </item>
+    
+    <item>
+      <title>2021年历史文章</title>
+      <link>https://wangcy6.github.io/post/2021/04_2021-10-10.2021.years/</link>
+      <pubDate>Sun, 10 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2021/04_2021-10-10.2021.years/</guid>
+      <description>2021 我的历史文章 基础：共3篇 60秒问答：请问下面的程序一共输出多少个&amp;quot;hello,world” 自己看了3遍 整天背诵五种I/O模型/e</description>
+    </item>
+    
+    <item>
+      <title>学习区：专心学习：</title>
+      <link>https://wangcy6.github.io/post/ARTS/day_02_run/</link>
+      <pubDate>Thu, 30 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ARTS/day_02_run/</guid>
+      <description>目的：打造好环境，罪恶环境就罪恶结果 最后一公 学习 运动 睡觉 三小时 起床 运动 学习 三小时 把它变成每天习惯，重复千千万次。 成功才是成功之母， 失败是当时</description>
+    </item>
+    
+    <item>
+      <title>2021-思考与行动：</title>
+      <link>https://wangcy6.github.io/post/ARTS/day_04_sleep/</link>
+      <pubDate>Fri, 23 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ARTS/day_04_sleep/</guid>
+      <description>目的：打造好环境，罪恶环境就罪恶结果 最后一公 学习 运动 睡觉 三小时 起床 运动 学习 三小时 把它变成每天习惯，重复千千万次。 成功才是成功之母， 失败是当时</description>
+    </item>
+    
+    <item>
+      <title>2021-思考与行动：</title>
+      <link>https://wangcy6.github.io/post/ARTS/life_2021_arts/</link>
+      <pubDate>Fri, 23 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ARTS/life_2021_arts/</guid>
+      <description>目的：打造好环境，罪恶环境就罪恶结果 最后一公 学习 运动 睡觉 三小时 起床 运动 学习 三小时 把它变成每天习惯，重复千千万次。 成功才是成功之母， 失败是当时</description>
+    </item>
+    
+    <item>
+      <title>挑战03:第四个解决事情 运动区 打开交流之门：</title>
+      <link>https://wangcy6.github.io/post/ARTS/day_03_run/</link>
+      <pubDate>Fri, 23 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ARTS/day_03_run/</guid>
+      <description>目的：打造好环境，罪恶环境就罪恶结果 最后一公 学习 运动 睡觉 三小时 起床 运动 学习 三小时 把它变成每天习惯，重复千千万次。 成功才是成功之母， 失败是当时</description>
+    </item>
+    
+    <item>
+      <title>02_ARTS_2021_weekly</title>
+      <link>https://wangcy6.github.io/post/ARTS/2_ARTS_2021_18_weekly/</link>
+      <pubDate>Fri, 11 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ARTS/2_ARTS_2021_18_weekly/</guid>
+      <description>GTD践行第2周（2021第9周） 本周视图 一. ARTS的初衷 周一 周二 周三 周四 周五 周六 周日 Algorithm Review Review/Tip Share 1. Algorithm **主要是为了编程训练和学习。**每周至</description>
+    </item>
+    
+    <item>
+      <title>日常生活记录第100周</title>
+      <link>https://wangcy6.github.io/post/ARTS/100_life/</link>
+      <pubDate>Wed, 02 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ARTS/100_life/</guid>
+      <description>记录的目的 如果感觉距离目标 难于上青天，请回头看看你已经走了多少步 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 蜀道难 唐代：李白 噫吁嚱</description>
+    </item>
+    
+    <item>
+      <title>ARTS_2020_weekly_19</title>
+      <link>https://wangcy6.github.io/post/ARTS/ARTS_2020_19_weekly/</link>
+      <pubDate>Wed, 03 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ARTS/ARTS_2020_19_weekly/</guid>
+      <description>GTD践行第19周（2020第19周） 本周视图 一. ARTS的初衷 周一 周二 周三 周四 周五 周六 周日 Algorithm Review Review/Tip Share 1. Algorithm **主要是为了编程训练和学习。**每</description>
+    </item>
+    
+    <item>
+      <title>程序员小王的日常规范流程</title>
+      <link>https://wangcy6.github.io/post/ARTS/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%B0%8F%E7%8E%8B%E6%97%A5%E5%B8%B8%E8%A1%8C%E4%B8%BA%E6%B5%81%E7%A8%8B/</link>
+      <pubDate>Sun, 31 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ARTS/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%B0%8F%E7%8E%8B%E6%97%A5%E5%B8%B8%E8%A1%8C%E4%B8%BA%E6%B5%81%E7%A8%8B/</guid>
+      <description>谁适合阅读 这些事情，同事不会告诉你，领导不会告诉你，公司不告诉你， 因为这些事情很简单，别人天生都会，需要自你必须自己去探索，因你不会。 不过不</description>
+    </item>
+    
+    <item>
+      <title>每月复盘</title>
+      <link>https://wangcy6.github.io/post/ARTS/month/</link>
+      <pubDate>Fri, 29 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ARTS/month/</guid>
+      <description>记录的目的 如果感觉距离目标 难于上青天，请回头看看你已经走了多少步 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 蜀道难 唐代：李白 噫吁嚱</description>
+    </item>
+    
+    <item>
+      <title>ARTS_2012_weekly_5</title>
+      <link>https://wangcy6.github.io/post/ARTS/ARTS_2020_15_weekly/</link>
+      <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ARTS/ARTS_2020_15_weekly/</guid>
+      <description>GTD践行第18周（2020第18周） 一周记录 目标清晰吗？行动果断吗？还是在做白日梦，想想而已，感悟和后悔毫无价值 一. ARTS的初衷 周一 周二</description>
+    </item>
+    
+    <item>
+      <title>ARTS_2020_weekly_18</title>
+      <link>https://wangcy6.github.io/post/ARTS/ARTS_2020_18_weekly/</link>
+      <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ARTS/ARTS_2020_18_weekly/</guid>
+      <description>GTD践行第18周（2020第18周） 一周记录 目标清晰吗？行动果断吗？还是在做白日梦，想想而已，感悟和后悔毫无价值 和别人相比，感觉什么都没做</description>
+    </item>
+    
+    <item>
+      <title>ARTS_2012_weekly_5</title>
+      <link>https://wangcy6.github.io/post/ARTS/ARTS_2020_12_weekly/</link>
+      <pubDate>Wed, 26 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ARTS/ARTS_2020_12_weekly/</guid>
+      <description>GTD践行第13周（2020第5周） 一周记录 目标清晰吗？行动果断吗？还是在做白日梦，想想而已，感悟和后悔毫无价值 一. ARTS的初衷 周一 周二 周</description>
+    </item>
+    
+    <item>
+      <title>ARTS_2012_weekly_5</title>
+      <link>https://wangcy6.github.io/post/ARTS/ARTS_2020_13_weekly/</link>
+      <pubDate>Wed, 26 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ARTS/ARTS_2020_13_weekly/</guid>
+      <description>GTD践行第13周（2020第13周） 一周记录 目标清晰吗？行动果断吗？还是在做白日梦，想想而已，感悟和后悔毫无价值 一. ARTS的初衷 周一 周二</description>
+    </item>
+    
+    <item>
+      <title>ARTS_2012_weekly_2</title>
+      <link>https://wangcy6.github.io/post/ARTS/ARTS_2020_02_weekly/</link>
+      <pubDate>Fri, 10 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ARTS/ARTS_2020_02_weekly/</guid>
+      <description>打卡GTD践行第10周（2020第2周） 一周记录 越少越具体说明有可能做到， 说一大堆，看似很好，自动很懂 其实 一个一个做不到，给你一万年也做不到</description>
+    </item>
+    
+    <item>
+      <title>ARTS_weekly_7</title>
+      <link>https://wangcy6.github.io/post/ARTS/ARTS_weekly-7/</link>
+      <pubDate>Thu, 19 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ARTS/ARTS_weekly-7/</guid>
+      <description>打卡GTD践行第七周（2019-12-11） 一周记录 本周主要问题，没有科学工作和沟通方法，和计划安排。 导致一直在迷茫中 一. ARTS的初衷 周一</description>
+    </item>
+    
+  </channel>
+</rss>

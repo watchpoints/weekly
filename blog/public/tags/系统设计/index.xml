@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>系统设计 on Troy的网络博客</title>
+    <link>https://wangcy6.github.io/tags/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/</link>
+    <description>Recent content in 系统设计 on Troy的网络博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 09 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/tags/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>gperftools</title>
+      <link>https://wangcy6.github.io/post/2022/6-tool-gperftools/</link>
+      <pubDate>Wed, 09 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2022/6-tool-gperftools/</guid>
+      <description>基本用法 Perftools-Specific Install Notes 1 2 3 4 5 6 7 8 9 10 11 12 https://github.com/gperftools/gperftools/blob/master/INSTALL yum install libunwind(否者heap profiler产生的数据文件都会是空的) if you use a 64-bit system, we strongly recommend you install</description>
+    </item>
+    
+    <item>
+      <title>python学习记录</title>
+      <link>https://wangcy6.github.io/post/2022/4_study_python/</link>
+      <pubDate>Tue, 08 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2022/4_study_python/</guid>
+      <description>day1 环境搭建： window： 删除 Microsoft Store 安装python(无法删除 30分钟) 直接删除环境变量：%USERPROFILE%\AppData\Loca</description>
+    </item>
+    
+    <item>
+      <title>视频管理平台</title>
+      <link>https://wangcy6.github.io/post/2022/2022-2-7-go-vue-mp4/</link>
+      <pubDate>Mon, 07 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2022/2022-2-7-go-vue-mp4/</guid>
+      <description>http://127.0.0.1:1313/post/2022/2022-2-7-go-vue-mp4/ 练习06 ：短视频管理平台 练习05 ：直播管理平台 练习04 ：ai 主播 4.1 基础理论 Examples PaddleBoBo: Use PaddleSpeech TTS to generate virtual human voice. 4.2 产品 PaddleBoBo 4.3 使用教程 4.3.1 PaddleBoBo 运行环境 飞桨AIStu</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>nginx - Troy的网络博客</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Troy" /><meta name="description" content="入门" /><meta name="keywords" content="daily-interview-question, Github, c&#43;&#43;, Leetcode 题解, 后端面试" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.101.0 with theme even" />
+
+
+<link rel="canonical" href="https://wangcy6.github.io/post/2020/nginx/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="nginx" />
+<meta property="og:description" content="入门" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wangcy6.github.io/post/2020/nginx/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2019-11-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-11-07T00:00:00+00:00" />
+
+<meta itemprop="name" content="nginx">
+<meta itemprop="description" content="入门"><meta itemprop="datePublished" content="2019-11-07T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-11-07T00:00:00+00:00" />
+<meta itemprop="wordCount" content="3293">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="nginx"/>
+<meta name="twitter:description" content="入门"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="https://github.com/wangcy6/weekly/tree/master/book">
+        <li class="mobile-menu-item">阅读清单</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于我</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://github.com/wangcy6/weekly/tree/master/book">阅读清单</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于我</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">nginx</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-11-07 00:00 </span>
+        <div class="post-category">
+            <a href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F/"> 分布式 </a>
+            </div>
+          <span class="more-meta"> 约 3293 字 </span>
+          <span class="more-meta"> 预计阅读 7 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#负载均衡">负载均衡</a>
+      <ul>
+        <li><a href="#1-负载均衡概念是什么学习过程">1 负载均衡概念是什么学习过程：</a></li>
+        <li><a href="#2-负载均衡策略">2 负载均衡策略</a></li>
+        <li><a href="#3-案例">3. 案例</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+  <div class="post-outdated">
+    <div class="warn">
+      <p>【注意】最后更新于 <span class="timeago" datetime="2019-11-07T00:00:00" title="November 7, 2019">November 7, 2019</span>，文中内容可能已过时，请谨慎使用。</p>
+    </div>
+  </div>
+    <div class="post-content">
+      <h1 id="知识卡">知识卡</h1>
+<p><img src="https://i.loli.net/2019/11/16/LWVMNExPTaFXuyn.png" alt="image.png"></p>
+<h1 id="基本用法">基本用法</h1>
+<h2 id="负载均衡">负载均衡</h2>
+<h3 id="1-负载均衡概念是什么学习过程">1 负载均衡概念是什么学习过程：</h3>
+<ul>
+<li>观看视频 What is Load Balancing?</li>
+</ul>
+<blockquote>
+<p>一句话输出 一致性hash</p>
+</blockquote>
+<ul>
+<li>观看<a href="http://www.haproxy.org/">HAProxy</a>相关视频</li>
+</ul>
+<p><a href="https://www.youtube.com/watch?v=escR-07yVAs">https://www.youtube.com/watch?v=escR-07yVAs</a></p>
+<blockquote>
+<p>一句话输出</p>
+</blockquote>
+<p><img src="https://i.loli.net/2019/11/07/BWiDyafS4YGJeU8.png" alt="image.png"></p>
+<p><img src="https://i.loli.net/2019/11/07/oRQISCGX23OLcwi.png" alt="image.png"></p>
+<ol start="10">
+<li><a href="https://en.wikipedia.org/wiki/Virtual_IP_address">Virtual IP address</a> ok</li>
+</ol>
+<p>A <strong>virtual IP address</strong> (<strong>VIP</strong> or <strong>VIPA</strong>) is an <a href="https://en.wikipedia.org/wiki/IP_address">IP address</a> that doesn&rsquo;t correspond to an actual physical network interface.</p>
+<p>VIP addresses are also used for connection redundancy by providing alternative fail-over options for one machine</p>
+<p>使用 keepalived 设置虚拟 IP 环境</p>
+<ol start="9">
+<li>
+<p><a href="https://blog.envoyproxy.io/introduction-to-modern-network-load-balancing-and-proxying-a57f6ff80236">现代网络负载均衡与代理（下）</a> ok</p>
+</li>
+<li>
+<p>英文： <a href="https://blog.envoyproxy.io/introduction-to-modern-network-load-balancing-and-proxying-a57f6ff80236">https://blog.envoyproxy.io/introduction-to-modern-network-load-balancing-and-proxying-a57f6ff80236</a></p>
+<p>翻译： <a href="https://www.infoq.cn/article/modern-network-load-balancing-and-proxying-1">https://www.infoq.cn/article/modern-network-load-balancing-and-proxying-1</a></p>
+<p>The L4 load balancer is unaware of any application details of the bytes that it is shuffling. The bytes could be HTTP, Redis, MongoDB, or any other application protocol.</p>
+</li>
+<li>
+<p>阅读Istio深度解析与项目实践 文章  <a href="https://zhaohuabing.com/istio-practice/">https://zhaohuabing.com/istio-practice/</a></p>
+</li>
+<li>
+<p><strong>load balancer proxy不能成为单点故障</strong>（single point of failure），因此一般会设计为高可用的主从结构</p>
+</li>
+<li>
+<p>阅读 Nginx七层负载均衡 完毕，</p>
+<p>理解了一句话</p>
+<ul>
+<li>了解存在负载的软件  Nginx 7， Haproxy  LVS</li>
+<li>扩展到 <a href="https://www.youtube.com/watch?v=UPiHkCmprtE">转发和代理</a></li>
+</ul>
+</li>
+<li>
+<p>阅读 知乎文章一篇 <a href="https://zhuanlan.zhihu.com/p/34904010">四层负载均衡和七层负载均衡区别在哪里</a>？</p>
+<p>jump ：</p>
+<ul>
+<li>四层负载均衡工作在OSI模型的传输层，主要工作是转发，它在接收到客户端的流量以<strong>后通过修改数据包的地址信息</strong>将流量转发到应用服务器</li>
+<li>七层负载均衡的主要工作就是代理</li>
+<li>最初美团点评使用的是LVS+Nginx组成的负载均衡结构，LVS做四层负载均衡，Nginx做七层负载均衡</li>
+</ul>
+</li>
+<li>
+<p>阅读 <a href="https://klionsec.github.io/2017/07/27/nginx-lbd/">基于 nginx 的七层负载均衡实现初步</a> 了解nginx基本配置</p>
+</li>
+<li>
+<p>我阅读了<a href="https://www.digitalocean.com/community/tutorials/an-introduction-to-haproxy-and-load-balancing-concepts">An Introduction to HAProxy and Load Balancing Concepts</a></p>
+<p>理解了一句话</p>
+<ul>
+<li>
+<p>Layer 4 Load Balancing ip:port, Layer 7 Load Balancing url</p>
+</li>
+<li>
+<p>HAProxy, which stands for High Availability Proxy, is a popular open source software TCP/HTTP Load Balancer and proxying solution which can be run on Linux, Solaris, and FreeBSD.</p>
+</li>
+<li>
+<p>Floating IPs</p>
+</li>
+</ul>
+</li>
+<li>
+<p>我阅读了 维基百科 定义 <strong>负载均衡</strong> 的<a href="https://zh.wikipedia.org/wiki/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1">解释</a></p>
+<p>理解了一句话</p>
+<ul>
+<li>负载均衡经常被用于实现<a href="https://zh.wikipedia.org/wiki/%E6%95%85%E9%9A%9C%E8%BD%AC%E7%A7%BB">故障转移</a> &ndash;解决单点故障问题</li>
+</ul>
+</li>
+</ol>
+<h3 id="2-负载均衡策略">2 负载均衡策略</h3>
+<blockquote>
+<p>如果你上来说这个肯定是错误的，理解不正确，从架构上设计上来体会 回到#四层负载均衡和七层负载均衡</p>
+</blockquote>
+<ul>
+<li>
+<p>round-robin</p>
+</li>
+<li>
+<p>ip_hash</p>
+</li>
+<li>
+<p>least_conn</p>
+</li>
+</ul>
+<h4 id="http-协议3次腾讯滴滴陌陌">http 协议（3次腾讯，滴滴，陌陌）</h4>
+<h4 id="http协议格式">http协议格式</h4>
+<p>一个HTTP请求报文由请求行（request line）、请求头部（header）、空行和请求数据4个部分组成，下图给出了请求报文的一般格式。</p>
+<p><img src="https://pic002.cnblogs.com/images/2012/426620/2012072810301161.png" alt="img"></p>
+<p><a href="https://my.oschina.net/manmao/blog/549123">https://my.oschina.net/manmao/blog/549123</a></p>
+<p><img src="../../images/image-20191105193926198.png" alt="image-20191105193926198"></p>
+<p><img src="../../images/image-20191105194051987.png" alt="image-20191105194051987"></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">(1)请求方法  URI 协议/版本
+</span></span><span class="line"><span class="cl">  请求的第一行是“方法URL协议版本”：
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">GET/sample.jsp HTTP/1.1
+</span></span><span class="line"><span class="cl"> 以上代码中“GET”代表请求方法，“/sample.jsp”表示URI，“HTTP/1.1代表协议和协议的版本。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  根据HTTP标准，HTTP请求可以使用多种请求方法。例如：HTTP1.1支持7种请求方法：GET、POST、HEAD、OPTIONS、 PUT、DELETE和TARCE。在Internet应用中，最常用的方法是GET和POST。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> URL完整地指定了要访问的网络资源，通常只要给出相对于服务器的根目录的相对目录即可，因此总是以“/”开头，最后，协议版本 声明了通信过程中使用HTTP的版本。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">(2)请求头(Request Header)
+</span></span><span class="line"><span class="cl">请求头包含许多有关的客户端环境和请求正文的有用信息。例如，请求头可以声明浏览器所用的语言，请求正文的长度等。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Accept:image/gif.image/jpeg.*/*
+</span></span><span class="line"><span class="cl">Accept-Language:zh-cn
+</span></span><span class="line"><span class="cl">Connection:Keep-Alive
+</span></span><span class="line"><span class="cl">Host:localhost
+</span></span><span class="line"><span class="cl">User-Agent:Mozila/4.0(compatible:MSIE5.01:Windows NT5.0)
+</span></span><span class="line"><span class="cl">Accept-Encoding:gzip,deflate.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">(3)请求正文
+</span></span><span class="line"><span class="cl">请求头和请求正文之间是一个空行，这个行非常重要，它表示请求头已经结束，接下来的是请求正文。请求正文中可以包含客户提 交的查询字符串信息：
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">username=jinqiao&amp;password=1234
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="../../images/image-20191105194352975.png" alt="image-20191105194352975"></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">HTTP/1.0 200 OK 
+</span></span><span class="line"><span class="cl">Content-Type: text/plain
+</span></span><span class="line"><span class="cl">Content-Length: 137582
+</span></span><span class="line"><span class="cl">Expires: Thu, 05 Dec 1997 16:00:00 GMT
+</span></span><span class="line"><span class="cl">Last-Modified: Wed, 5 August 1996 15:55:28 GMT
+</span></span><span class="line"><span class="cl">Server: Apache 0.84
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&lt;html&gt;
+</span></span><span class="line"><span class="cl">  &lt;body&gt;Hello World&lt;/body&gt;
+</span></span><span class="line"><span class="cl">&lt;/html&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="../../images/image-20191105200334270.png" alt="image-20191105200334270"></p>
+<ul>
+<li>Wireshark：抓取 HTTP 包</li>
+<li><em>tcpdump</em></li>
+</ul>
+<h4 id="http请求方法介绍区别">HTTP请求方法介绍区别</h4>
+<p><a href="http://liufeize.com/2017/11/10/The-difference-between-the-GET-and-POST/">http://liufeize.com/2017/11/10/The-difference-between-the-GET-and-POST/</a></p>
+<h4 id="get和post区别">get和post区别</h4>
+<blockquote>
+<p>错误的回答</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">曾经有一个研读了HTTP协议的人去一家公司面试，面试官问他这个问题时，
+</span></span><span class="line"><span class="cl">他回答“GET是用于获取数据的，POST一般用于将数据发给服务器。其他GET和POST没什么区别”，
+</span></span><span class="line"><span class="cl">于是被刷了。
+</span></span><span class="line"><span class="cl">因为有些面试官心中也只有那一个“标准答案”。
+</span></span><span class="line"><span class="cl">谁说 HTTP GET 就不能通过 Body 来发送数据呢？
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">GET和POST还有一个重大区别，简单的说：
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">GET产生一个TCP数据包；POST产生两个TCP数据包。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> 一个实体由实体报头域和实体正文组成，但并不是说实体报头域和实体正文要在一起发送，
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">可以只发送实体报头域 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">长的说：
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">对于GET方式的请求，浏览器会把http header和data一并发送出去，服务器响应200（返回数据）；
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">而对于POST，浏览器先发送header，服务器响应100 <span class="k">continue</span>，浏览器再发送data，服务器响应200 ok（返回数据）。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">也就是说，GET只需要汽车跑一趟就把货送到了，而POST得跑两趟，第一趟，先去和服务器打个招呼“嗨，我等下要送一批货来，你们打开门迎接我”，然后再回头把货送过去。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">关于『GET 发一个包，POST 发两个包』
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">对于GET方式的请求，浏览器会把http header和data一并发送出去，服务器响应200（返回数据）；
+</span></span><span class="line"><span class="cl">而对于POST，浏览器先发送header，服务器响应100 <span class="k">continue</span>，浏览器再发送data，服务器响应200 ok（返回数据）。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">测试结果如下：
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Chrome 55.0.2883.95，two packets: YES
+</span></span><span class="line"><span class="cl">Safari 10.0.2, two packets: YES
+</span></span><span class="line"><span class="cl">Firefox 49.0, two packets: NO
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>正确回答</p>
+</blockquote>
+<blockquote>
+<p>curl -v -X GET  <a href="https://www.baidu.com">www.baidu.com</a> -d &ldquo;test&rdquo;</p>
+</blockquote>
+<h4 id="如何防范-post-重复提交">如何防范 POST 重复提交</h4>
+<p>编程中，一个幂等操作的特点是其任意多次执行所产生的影响均与一次执行的影响相同</p>
+<p>假设有一个从账户取钱的远程 API（可以是 HTTP 的，也可以不是），我们暂时用类函数的方式记为：</p>
+<p>bool withdraw(account_id, amount)</p>
+<p><img src="https://img3.fanhaobai.com/2017/05/api-idempotence/033718EYW.png" alt="https://img3.fanhaobai.com/2017/05/api-idempotence/033718EYW.png"></p>
+<p>把分布式事务分解为具有幂等性的异步消息处理</p>
+<blockquote>
+<p>利用 Web API 的形式实现前面所提到的取款功能。</p>
+</blockquote>
+<p>1、用 POST /tickets 来实现 create_ticket；
+2、用 PUT /accounts/account_id/ticket_id&amp;amount=xxx 来实现 idempotent_withdraw；</p>
+<p>值得注意的是严格来讲 amount 参数不应该作为 URI 的一部分，真正的 URI 应该是 /accounts/account_id/ticket_id，而 amount 应该放在请求的 body 中。这种模式可以应用于很多场合，比如：论坛网站中防止意外的重复发帖。</p>
+<h3 id="3-案例">3. 案例</h3>
+<p>观止云开源流媒体服务器SRS（Simple RTMP Server）</p>
+<ul>
+<li>master就是主服务器，负责转发流给其他服务器。</li>
+<li>slave：从服务器，主服务器转发流到这个服务器。</li>
+<li>小型集群</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-scheme" data-lang="scheme"><span class="line"><span class="cl">                     <span class="nv">+-------------+</span>    <span class="nv">+---------------+</span>
+</span></span><span class="line"><span class="cl">                               <span class="nv">+--&gt;+</span> <span class="nv">Slave</span><span class="p">(</span><span class="mi">1935</span><span class="p">)</span> <span class="nv">+-&gt;--+</span>  <span class="nv">Player</span><span class="p">(</span><span class="mi">3000</span><span class="p">)</span> <span class="nv">+</span>
+</span></span><span class="line"><span class="cl">                               <span class="nv">|</span>   <span class="nv">+-------------+</span>    <span class="nv">+---------------+</span>
+</span></span><span class="line"><span class="cl">                               <span class="nv">|</span>   <span class="nv">+-------------+</span>    <span class="nv">+---------------+</span>
+</span></span><span class="line"><span class="cl">                               <span class="nv">|--&gt;+</span> <span class="nv">Slave</span><span class="p">(</span><span class="mi">1936</span><span class="p">)</span> <span class="nv">+-&gt;--+</span>  <span class="nv">Player</span><span class="p">(</span><span class="mi">3000</span><span class="p">)</span> <span class="nv">+</span>
+</span></span><span class="line"><span class="cl">         <span class="nv">publish</span>       <span class="nv">forward</span> <span class="nv">|</span>   <span class="nv">+-------------+</span>    <span class="nv">+---------------+</span>
+</span></span><span class="line"><span class="cl"><span class="nv">+-----------+</span>    <span class="nv">+--------+</span>    <span class="nv">|</span>     <span class="mf">192.168</span><span class="o">.</span><span class="mf">1.6</span>                       
+</span></span><span class="line"><span class="cl"><span class="nv">|</span>  <span class="nv">Encoder</span>  <span class="nv">+--&gt;-+</span> <span class="nv">Master</span> <span class="nv">+--&gt;-|</span>                                       
+</span></span><span class="line"><span class="cl"><span class="nv">+-----------+</span>    <span class="nv">+--------+</span>    <span class="nv">|</span>   <span class="nv">+-------------+</span>    <span class="nv">+---------------+</span>
+</span></span><span class="line"><span class="cl"> <span class="mf">192.168</span><span class="o">.</span><span class="mf">1.3</span>    <span class="mf">192.168</span><span class="o">.</span><span class="mf">1.5</span>    <span class="nv">+--&gt;+</span> <span class="nv">Slave</span><span class="p">(</span><span class="mi">1935</span><span class="p">)</span> <span class="nv">+-&gt;--+</span>  <span class="nv">Player</span><span class="p">(</span><span class="mi">3000</span><span class="p">)</span> <span class="nv">+</span>
+</span></span><span class="line"><span class="cl">                               <span class="nv">|</span>   <span class="nv">+-------------+</span>    <span class="nv">+---------------+</span>
+</span></span><span class="line"><span class="cl">                               <span class="nv">|</span>   <span class="nv">+-------------+</span>    <span class="nv">+---------------+</span>
+</span></span><span class="line"><span class="cl">                               <span class="nv">+--&gt;+</span> <span class="nv">Slave</span><span class="p">(</span><span class="mi">1936</span><span class="p">)</span> <span class="nv">+-&gt;--+</span>  <span class="nv">Player</span><span class="p">(</span><span class="mi">3000</span><span class="p">)</span> <span class="nv">+</span>
+</span></span><span class="line"><span class="cl">                                   <span class="nv">+-------------+</span>    <span class="nv">+---------------+</span>
+</span></span><span class="line"><span class="cl">                                     <span class="mf">192.168</span><span class="o">.</span><span class="mf">1.7</span>     
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><a href="https://www.cnblogs.com/yjmyzz/p/srs_study_4_cluster.html">开源流媒体服务器SRS学习笔记(4) - Cluster集群方案</a></p>
+<p>好问题：</p>
+<blockquote>
+<p>如主播推流到源站节点A, 节点A宕机了,  推流到节点B. 此时有一个源站切换, 用户会感知到卡</p>
+<p><a href="https://github.com/ossrs/srs/issues/938">https://github.com/ossrs/srs/issues/938</a></p>
+</blockquote>
+<p>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-华丽分隔符 基本知识补充&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</p>
+<ul>
+<li>
+<p>SRS 边缘(edge) ()实现自动切换</p>
+<p>SRS的Edge提供访问时回源机制</p>
+</li>
+</ul>
+<p>在全国32个省每个省都部署了10台服务器，一共就有320台边缘，假设每个省1台边缘服务器都有 2000用户观看，那么就有64万用户，每秒钟集群发送640Gbps数据；而回源链接只有320个， 实现了大规模分发</p>
+<p>可配置<code>多个</code>源站，在故障时会切换到下一个源站【主挂了edge依然能获取，实现自动切换】</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">vhost</span> <span class="n">__defaultVhost__</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="cp"># the mode of vhost, local or remote.
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>    <span class="cp">#       local: vhost is origin vhost, which provides stream source.
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>    <span class="cp">#       remote: vhost is edge vhost, which pull/push to origin.
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>    <span class="cp"># default: local
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>    <span class="n">mode</span>            <span class="n">remote</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="cp"># for edge(remote mode), user must specifies the origin server
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>    <span class="cp"># format as: &lt;server_name|ip&gt;[:port]
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>    <span class="cp"># @remark user can specifies multiple origin for error backup, by space,
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>    <span class="cp"># for example, 192.168.1.100:1935 192.168.1.101:1935 192.168.1.102:1935
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>    <span class="n">origin</span>          <span class="mf">127.0.0.1</span><span class="o">:</span><span class="mi">1935</span> <span class="nl">localhost</span><span class="p">:</span><span class="mi">1935</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="cp"># for edge, whether open the token traverse mode,
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>    <span class="cp"># if token traverse on, all connections of edge will forward to origin to check(auth),
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>    <span class="cp"># it&#39;s very important for the edge to do the token auth.
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>    <span class="cp"># the better way is use http callback to do the token auth by the edge,
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>    <span class="cp"># but if user prefer origin check(auth), the token_traverse if better solution.
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>    <span class="cp"># default: off
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>    <span class="n">token_traverse</span>  <span class="n">off</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;华丽分隔符 基本知识补充&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</p>
+<p>边缘服务器前置反向代理（比如：nginx），用于提供统一的播放地址，同时解决跨域问题，给客户端拉流播放</p>
+<p>源站前置负载均衡（硬件或软件负载均衡都行），上图中用HA proxy来实现tcp的软负载均衡。</p>
+<h1 id="解析">解析</h1>
+<p><a href="https://www.processon.com/diagraming/5684b37ce4b04beb5eaa42ed">https://www.processon.com/diagraming/5684b37ce4b04beb5eaa42ed</a></p>
+<h1 id="参考">参考</h1>
+<p>[1] 图解HTTP 第三章 第四章节（第一次看发现全部都是解释字段含义，产生没有什么学的感觉。第二次看http协议格式）c</p>
+<p>[2]  <a href="https://zhaohuabing.com/istio-practice/">https://zhaohuabing.com/istio-practice/</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Troy</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2019-11-07 00:00
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a target="_blank" rel="license noopener" href="https://github.com/nusr/blog/blob/master/LICENSE">MIT</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/2020/FQA_Service_Mesh/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">FQA_Service_Mesh</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/2020/book_Algorithms-JeffE-BW/">
+            <span class="next-text nav-default">算法导论</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="wangcy6/wangcy6.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:wang_cyi@163.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/wangcy6" class="iconfont icon-github" title="github"></a>
+  <a href="https://wangcy6.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2022
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Troy</span>
+  </span>
+</div>
+<script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
+  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+    var languageCode = "zh-cn".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    timeago().render(document.querySelectorAll('.timeago'), languageCode);
+    timeago.cancel();  
+  </script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-138883536-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>

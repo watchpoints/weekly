@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tidb on Troy的网络博客</title>
+    <link>https://wangcy6.github.io/tags/Tidb/</link>
+    <description>Recent content in Tidb on Troy的网络博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 12 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/tags/Tidb/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>tikv第一天学习</title>
+      <link>https://wangcy6.github.io/post/tidb/2022/tikv_day1/</link>
+      <pubDate>Wed, 12 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/tidb/2022/tikv_day1/</guid>
+      <description>文章地址 http://localhost:1313/post/tidb/2022/tidb_01/ https://github.com/watchpoints/mylabs High Performance TiDB 课程 环境搭建 1 2 3 4 5 6 cd /Users/wangchuanyi/code/src/github.com/watchpoints/tikv https://github.com/watchpoints/tikv cd tikv &amp;amp;&amp;amp; make &amp;amp;&amp;amp; mkdir -p ./bin &amp;amp;&amp;amp; cp ./target/release/tikv-server bin brew install rust https://senzhangai.github.io/programming/build-tidb-by-source 参考 Raft/Paxos类协议与分布式事务</description>
+    </item>
+    
+    <item>
+      <title>vldb-2021-labs</title>
+      <link>https://wangcy6.github.io/post/tidb/2022/mylabs/</link>
+      <pubDate>Wed, 12 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/tidb/2022/mylabs/</guid>
+      <description>文章地址 http://localhost:1313/post/tidb/2022/tidb_01/ https://github.com/watchpoints/mylabs 实验1 make lab1P0</description>
+    </item>
+    
+    <item>
+      <title>Tidb入门1</title>
+      <link>https://wangcy6.github.io/post/tidb/2022/2022-1-19-Project2/</link>
+      <pubDate>Tue, 11 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/tidb/2022/2022-1-19-Project2/</guid>
+      <description>TinyKV 是PingCAP公司推出的一套开源分布式KV存储实战课程：https://github.com/tidb-incubator/tinykv</description>
+    </item>
+    
+    <item>
+      <title>Tidb入门1</title>
+      <link>https://wangcy6.github.io/post/tidb/2022/tidb_01/</link>
+      <pubDate>Tue, 11 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/tidb/2022/tidb_01/</guid>
+      <description>文章地址 http://localhost:1313/post/tidb/2022/tidb_01/ https://wangcy6.github.io/post/tidb/2022/tidb_01/ 管理配置 tiup 拓扑结构 https://docs.pingcap.com/zh/tidb/stable/minimal-deployment-topology/ http://74.120.174.137:2379/dashboard/#/overview tiup cluster list 1 2 3 4 Name User Version Path PrivateKey ---- ---- ------- ---- ---------- tidb-test tidb v5.0.2 /root/.tiup/storage/cluster/clusters/tidb-test /root/.tiup/storage/cluster/clusters/tidb-test/ssh/id_rsa root@money:~# tiup cluster start tidb-test mysql -h 127.0.0.1 -P 4000 -u root -D test 检查部署的 TiDB 集群情况 tiup cluster display tidb-test 1 2 3</description>
+    </item>
+    
+  </channel>
+</rss>

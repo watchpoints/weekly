@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>book on Troy的网络博客</title>
+    <link>https://wangcy6.github.io/tags/book/</link>
+    <description>Recent content in book on Troy的网络博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 23 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/tags/book/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>操作系统入门知识--网络</title>
+      <link>https://wangcy6.github.io/post/2022/08_2022_4_17_epoll/</link>
+      <pubDate>Sat, 23 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2022/08_2022_4_17_epoll/</guid>
+      <description>day1 :请一定要有自信。你就是一道风景，没必要在别人风景里面仰视。 问题：直觉 为了快速掌握本文所要表达的思想，我们可以带着以下问题阅读。 Busy loop when poll/epoll is</description>
+    </item>
+    
+    <item>
+      <title>git入门</title>
+      <link>https://wangcy6.github.io/post/2022/tool_git_3_26/</link>
+      <pubDate>Sat, 26 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2022/tool_git_3_26/</guid>
+      <description>问：git pull merge git rebase 区别？ 答： 参考资料 https://www.liaoxuefeng.com/wiki/896043488029600/1216289527823648 https://www.yiibai.com/git/git_merge.html https://www.yiibai.com/git/git_rebase.html</description>
+    </item>
+    
+    <item>
+      <title>操作系统入门知识</title>
+      <link>https://wangcy6.github.io/post/2022/2-2022-1-25-os/</link>
+      <pubDate>Tue, 25 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2022/2-2022-1-25-os/</guid>
+      <description>cpu 疑问1 What is NUMA? dmesg|grep -i numa [ 0.000000] No NUMA configuration found 疑问2:网卡软中断都集中在了一个cpu上，导致cpu负载升高，多余网络包被丢弃？ X86系统采用中断机制协同处</description>
+    </item>
+    
+    <item>
+      <title>TDengine</title>
+      <link>https://wangcy6.github.io/post/2021/02_tdb/</link>
+      <pubDate>Mon, 30 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2021/02_tdb/</guid>
+      <description>一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题 二、这个技术的优势和劣势分别是什么 三、这个技术适用的场景。任何技术都有</description>
+    </item>
+    
+    <item>
+      <title>李永乐老师</title>
+      <link>https://wangcy6.github.io/post/class/liyongle/</link>
+      <pubDate>Sat, 07 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/class/liyongle/</guid>
+      <description># 视频 为什么久赌必输？股票加杠杆，风险为啥这么大？李永乐老师讲赌徒输光原理 https://www.youtube.com/watch?v=AadaEc6pJpw 什么是爱情？怎么谈恋爱，才能有效的找到自己的真命天子？李永乐老师</description>
+    </item>
+    
+    <item>
+      <title>跟leveldb学C&#43;&#43;，跟rocksdb学做引擎</title>
+      <link>https://wangcy6.github.io/post/2021/01_Rocksdb/</link>
+      <pubDate>Mon, 02 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2021/01_Rocksdb/</guid>
+      <description>一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题 二、这个技术的优势和劣势分别是什么 三、这个技术适用的场景。任何技术都有</description>
+    </item>
+    
+    <item>
+      <title>MIT 6.824 Distributed Systems 2020 Spring</title>
+      <link>https://wangcy6.github.io/post/class/6.824/</link>
+      <pubDate>Sat, 29 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/class/6.824/</guid>
+      <description>一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题 二、这个技术的优势和劣势分别是什么 三、这个技术适用的场景。任何技术都有</description>
+    </item>
+    
+    <item>
+      <title>多进程多线程篇</title>
+      <link>https://wangcy6.github.io/post/2020/thread/</link>
+      <pubDate>Fri, 29 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2020/thread/</guid>
+      <description>这里主要记录学习和探索过程。来验证正确方法才能有正确的结果。 走神一会 你所寻找的东西正在寻找你。-鲁米 What you seek is seeking you. 你生来就有一对翅膀。为什么更</description>
+    </item>
+    
+    <item>
+      <title>设计之禅</title>
+      <link>https://wangcy6.github.io/post/2020/%E6%A8%A1%E6%9D%BF/</link>
+      <pubDate>Wed, 27 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2020/%E6%A8%A1%E6%9D%BF/</guid>
+      <description>陈咬金的三板斧 第一斧：技术本质是什么？ 第二斧：解决了什么问题？ 第三斧：如何使用？</description>
+    </item>
+    
+    <item>
+      <title>设计之禅</title>
+      <link>https://wangcy6.github.io/post/book/book_04_%E8%AE%BE%E8%AE%A1%E4%B9%8B%E7%A6%85/</link>
+      <pubDate>Wed, 27 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/book/book_04_%E8%AE%BE%E8%AE%A1%E4%B9%8B%E7%A6%85/</guid>
+      <description>书籍 设计模式：可复用面向对象软件的基础 领域驱动设计 重构&amp;ndash;改善既有代码的设计 设计模式精解－GoF 23 种设计模式解析附 C++实现源码 代</description>
+    </item>
+    
+    <item>
+      <title>FQA_Service_Mesh</title>
+      <link>https://wangcy6.github.io/post/2020/FQA_Service_Mesh/</link>
+      <pubDate>Wed, 13 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2020/FQA_Service_Mesh/</guid>
+      <description>book 未来架构：从服务化到云原生 分布式缓存，从原理到实践 分布式系统：从概念到设计 第五版 深入理解Linux内核中文第三版 第五章 内核同步 distributed-systems-theory-for-the-distributed-systems-engineer 业务场景 衡</description>
+    </item>
+    
+    <item>
+      <title>[每周阅读一本书]被讨厌的勇气</title>
+      <link>https://wangcy6.github.io/post/2020/2019-10-10-%E8%A2%AB%E8%AE%A8%E5%8E%8C%E7%9A%84%E5%8B%87%E6%B0%94/</link>
+      <pubDate>Thu, 10 Oct 2019 17:02:43 +0800</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2020/2019-10-10-%E8%A2%AB%E8%AE%A8%E5%8E%8C%E7%9A%84%E5%8B%87%E6%B0%94/</guid>
+      <description>阅读推荐 &amp;mdash;被讨厌的勇气 书封 被讨厌的勇气 豆瓣 评分 8.6 万维钢 专栏 解读 本书以“青年”和“哲人”对话的形式，将阿德勒的哲学逐渐渗透于话语之</description>
+    </item>
+    
+  </channel>
+</rss>

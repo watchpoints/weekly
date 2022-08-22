@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>ARTS_2012_weekly_2 - Troy的网络博客</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Troy" /><meta name="description" content="GTD践行第七周" /><meta name="keywords" content="daily-interview-question, Github, c&#43;&#43;, Leetcode 题解, 后端面试" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.101.0 with theme even" />
+
+
+<link rel="canonical" href="https://wangcy6.github.io/post/ARTS/ARTS_2020_02_weekly/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="ARTS_2012_weekly_2" />
+<meta property="og:description" content="GTD践行第七周" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wangcy6.github.io/post/ARTS/ARTS_2020_02_weekly/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2020-01-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-01-10T00:00:00+00:00" />
+
+<meta itemprop="name" content="ARTS_2012_weekly_2">
+<meta itemprop="description" content="GTD践行第七周"><meta itemprop="datePublished" content="2020-01-10T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-01-10T00:00:00+00:00" />
+<meta itemprop="wordCount" content="3352">
+<meta itemprop="keywords" content="GTD,work," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ARTS_2012_weekly_2"/>
+<meta name="twitter:description" content="GTD践行第七周"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="https://github.com/wangcy6/weekly/tree/master/book">
+        <li class="mobile-menu-item">阅读清单</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于我</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://github.com/wangcy6/weekly/tree/master/book">阅读清单</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于我</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">ARTS_2012_weekly_2</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-01-10 00:00 </span>
+        <div class="post-category">
+            <a href="/categories/ARTS/"> ARTS </a>
+            </div>
+          <span class="more-meta"> 约 3352 字 </span>
+          <span class="more-meta"> 预计阅读 7 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1algorithm">1.Algorithm</a></li>
+        <li><a href="#2review">2.Review</a></li>
+        <li><a href="#3-tip">3. Tip</a></li>
+        <li><a href="#4--share">4.  Share</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#意志力实验">意志力实验</a>
+      <ul>
+        <li><a href="#step1-思想准备">step1 思想准备：</a></li>
+        <li><a href="#step2-具体行动">step2 具体行动：</a></li>
+        <li><a href="#step3-预期结果">step3 预期结果：</a></li>
+      </ul>
+    </li>
+    <li><a href="#1-起床--没有记录就没有进步">1. 起床&ndash;没有记录就没有进步</a>
+      <ul>
+        <li><a href="#a-早睡早起床">A-早睡早起床：</a></li>
+        <li><a href="#目前现状">目前现状</a></li>
+        <li><a href="#期望结果">期望结果</a></li>
+        <li><a href="#执行结果变化">执行结果（变化）</a></li>
+        <li><a href="#b-防沉迷不解锁手机-电脑也是">B-防沉迷不解锁手机 ，电脑也是</a></li>
+        <li><a href="#目前现状-1">目前现状</a></li>
+        <li><a href="#期望结果日志跟踪记录">期望结果：日志跟踪记录</a></li>
+        <li><a href="#执行结果原因是什么">执行结果(原因是什么)</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-运动----掌控跑步你掌控生活">2. 运动&mdash;-掌控跑步，你掌控生活</a>
+      <ul>
+        <li><a href="#目前现状-2">目前现状</a></li>
+        <li><a href="#期望结果-1">期望结果：</a></li>
+        <li><a href="#执行结果">执行结果</a></li>
+      </ul>
+    </li>
+    <li><a href="#3--阅读----科学合理方法">3.  阅读 &mdash;科学合理方法</a>
+      <ul>
+        <li><a href="#a-计划">A-计划</a></li>
+        <li><a href="#b-行动">B-行动</a></li>
+        <li><a href="#c-执行结果0记录">C-执行结果（0记录）</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#1-沟通--深入剖析">1. 沟通&ndash;深入剖析</a>
+      <ul>
+        <li><a href="#目前现状-3">目前现状：</a></li>
+        <li><a href="#期望结果-2">期望结果：</a></li>
+      </ul>
+    </li>
+    <li><a href="#2--切换频率鼠标">2 -切换频率鼠标</a>
+      <ul>
+        <li><a href="#目前现状-4">目前现状：</a></li>
+        <li><a href="#期望结果一次只做一件事按照计划做事情繁忙">期望结果:一次只做一件事，按照计划做事情（繁忙）</a></li>
+        <li><a href="#执行结果没有变化">执行结果（没有变化）</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-意志力实验">3. 意志力实验</a>
+      <ul>
+        <li><a href="#a-目前现状">A-目前现状：</a></li>
+        <li><a href="#b-期望结果">B-期望结果</a></li>
+        <li><a href="#c-执行结果看到变化">C-执行结果（看到变化）</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+  <div class="post-outdated">
+    <div class="warn">
+      <p>【注意】最后更新于 <span class="timeago" datetime="2020-01-10T00:00:00" title="January 10, 2020">January 10, 2020</span>，文中内容可能已过时，请谨慎使用。</p>
+    </div>
+  </div>
+    <div class="post-content">
+      <h1 id="打卡gtd践行第10周2020第2周">打卡GTD践行第10周（2020第2周）</h1>
+<h1 id="一周记录">一周记录</h1>
+<blockquote>
+<p>越少越具体说明有可能做到，</p>
+<p>说一大堆，看似很好，自动很懂</p>
+<p>其实 一个一个做不到，给你一万年也做不到。</p>
+<p>计划中的，想法和观点统统都不要</p>
+</blockquote>
+<p>今天是2020年的第 2 周
+你已经做过事情如下</p>
+<p>工作：</p>
+<ol>
+<li>
+<p>为了提高自控力，你pc端，app端 结合ffmpeg ，你建立一个 自我监控，每日复盘工具（符合条件，不过表述有点混乱。）</p>
+<p><a href="https://gitee.com/wang_cyi/TryEverything">https://gitee.com/wang_cyi/TryEverything</a></p>
+</li>
+</ol>
+<p>沟通：</p>
+<ol>
+<li>
+<p>记住对方名字，形成一句话化，主动打招呼，在1秒完成，</p>
+<p>这对最大的挑战。对大脑最大挑战。</p>
+<p>焦虑 ，压力，陷入是是非非让你100年都无法完成。</p>
+<p>你舍去我完成和别人沟通过程，我就做训练1秒，我说不出来我也在后悔</p>
+<blockquote>
+<p>1秒做不到，后面2秒，1000秒呢，你从来没有考虑这个问题，</p>
+<p>责骂100000秒，改为我重进经历这样的焦虑 ，压力，陷入是是非非100000次</p>
+</blockquote>
+</li>
+</ol>
+<p>（字数太多，说明根本无法做到，别看你说这么坚决）</p>
+<p>休息：</p>
+<ol>
+<li>晚上21 ：00关闭电脑最合适。（符合条件，将来一定能做到）</li>
+<li>早晨最后一个公里从地铁改为跑步。（符合条件，已经做到）</li>
+</ol>
+<h1 id="一-arts的初衷">一. <strong>ARTS的初衷</strong></h1>
+<p><img src="https://cdn.nlark.com/yuque/0/2018/png/98009/1543218806927-7f502f95-8bd0-4c24-bf11-df765683689d.png" alt="img"></p>
+<table>
+<thead>
+<tr>
+<th>周一</th>
+<th>周二</th>
+<th>周三</th>
+<th>周四</th>
+<th>周五</th>
+<th>周六</th>
+<th>周日</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><strong>Algorithm</strong></td>
+<td></td>
+<td><strong>Review</strong></td>
+<td></td>
+<td><strong>Review/Tip</strong></td>
+<td><strong>Share</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="1algorithm">1.Algorithm</h3>
+<blockquote>
+<p>**主要是为了编程训练和学习。**每周至少做一个 leetcode 的算法题（先从Easy开始，然后再Medium，最后才Hard）。进行编程训练，如果不训练你看再多的算法书，你依然不会做算法题，看完书后，你需要训练。。</p>
+</blockquote>
+<p>[LeetCode 329. Longest Increasing Path in a Matrix ](<a href="https://github.com/wangcy6/leetcode/blob/master/problems/329">https://github.com/wangcy6/leetcode/blob/master/problems/329</a>. Longest Increasing Path in a Matrix.md)</p>
+<p>具体答案看链接</p>
+<h3 id="2review">2.Review</h3>
+<blockquote>
+<p>主要是为了学习英文，如果你的英文不行，你基本上无缘技术高手。所以，需要你阅读并点评至少一篇英文技术文章，我个人最喜欢去的地方是<a href="https://link.zhihu.com/?target=http%3A//Medium.com">http://Medium.com</a></p>
+</blockquote>
+<h3 id="3-tip">3. Tip</h3>
+<blockquote>
+<p>主要是为了总结和归纳你在是常工作中所遇到的知识点。学习至少一个技术技巧。你在工作中遇到的问题，踩过的坑，学习的点滴知识。</p>
+</blockquote>
+<p>读写锁：</p>
+<p><img src="https://i.loli.net/2020/01/15/fP1RCKEqAnvsm3N.png" alt="image.png"></p>
+<h3 id="4--share">4.  Share</h3>
+<blockquote>
+<p>主要是为了建立你的影响力，能够输出价值观。分享一篇有观点和思考的技术文章。</p>
+</blockquote>
+<h1 id="二--起床-运动-阅读">二 . 起床-运动-阅读</h1>
+<h2 id="意志力实验">意志力实验</h2>
+<h3 id="step1-思想准备">step1 思想准备：</h3>
+<ul>
+<li>为了不在收外界诱惑，你彻底放下对电视剧，综艺节目，电影，动漫</li>
+</ul>
+<p>热爱，无论在好明星演员，在好剧情，在好制作。多少亿点击，</p>
+<p>你统统说不，还有60秒短视频更加厉害，让几个月无法走出，你说不</p>
+<p>因为看一秒，一天一夜无法方向，一个月一个星期堕落，就10年不进步</p>
+<blockquote>
+<p>给你1万年你解决不了这个问题。你必须方向你喜好</p>
+</blockquote>
+<ul>
+<li>为了不在收外界诱惑，你彻底放下对电视剧对腾讯小程序说不，无聊背后多大企业 一年挣多少亿 无聊背后多少运营商，商家 ad统统说不。他们千亿背后都是吃人血馒头</li>
+</ul>
+<blockquote>
+<p>在不想看时候他们各种方式影响你看， 看</p>
+<p>就为了几分钱广告费。这不是上帝，是恶魔</p>
+<p>天底下嘴虚伪产品。在看看他们不在是高高在上。</p>
+<p>无论他们在好，你不会任何羡慕</p>
+<p>我就是普普通通的</p>
+</blockquote>
+<h3 id="step2-具体行动">step2 具体行动：</h3>
+<p>吃饭时候去吃饭（盯着手机不吃饭）</p>
+<p>活动时候去活动（喜爱节目不活动）</p>
+<p>睡觉去睡觉（拿着手机不睡觉）</p>
+<p>重点：</p>
+<ol>
+<li>吃饭时候流程是什么</li>
+<li>睡觉流程是什么</li>
+</ol>
+<h3 id="step3-预期结果">step3 预期结果：</h3>
+<p>你完全隔离手机不行的，你上下班，你在工作，你任何地方看到各种印象 这在方面必然失败。</p>
+<p>你自己录制短视频，不看别人短视频，他们有什么你跟踪做什么。</p>
+<p>自己录制电影，综艺界面，动漫 做自己的导演</p>
+<p>自己编写各种故事小说。演绎自己生活。</p>
+<p>这个才是你要做事情。</p>
+<p>这个才是你要做事情。</p>
+<h2 id="1-起床--没有记录就没有进步">1. 起床&ndash;没有记录就没有进步</h2>
+<h3 id="a-早睡早起床">A-早睡早起床：</h3>
+<h3 id="目前现状">目前现状</h3>
+<blockquote>
+<p>晚上21 ：00关闭电脑最合适。</p>
+<p>你为了学习调整21： 30 22： 00，23 ：00 ，</p>
+<p>多么伟大呀</p>
+<p>结果</p>
+<p>因为拖延30分钟，结果白天忙碌根本无法支撑下去，心情低落，</p>
+<p>然后思考想入非非，自控力下降，你不在运动，调整，睡前准备</p>
+<p>耽误了，更让你之间被诱惑驱动。上床看手机解锁。</p>
+<p>一直凌晨2点 3点，第二天早晨后悔，不起床，</p>
+<p>舍去30分钟，换24小时平安 ，值得 21：00必须关键</p>
+<p>更多焦虑担心。</p>
+</blockquote>
+<h3 id="期望结果">期望结果</h3>
+<p>闹钟再次调整：6：30 和 7：30 各2个（以前是间隔15分钟一个 累计10个）</p>
+<p><img src="https://i.loli.net/2019/11/04/FsyLTB9XYCHGdAk.png" alt="image.png"></p>
+<p>具体方法请看</p>
+<ul>
+<li>R90 睡眠革命</li>
+</ul>
+<p><img src="https://i.loli.net/2019/11/04/gHYuPvMOGwUyoQV.png" alt="image.png"></p>
+<ul>
+<li>
+<p>放松练习 神奇的睡眠</p>
+<p><img src="https://i.loli.net/2019/11/04/ICiXmrThvDxojH2.png" alt="image.png"></p>
+</li>
+<li>
+<p>四点钟起床，最养生和高效的时间管</p>
+</li>
+</ul>
+<p><img src="https://upload-images.jianshu.io/upload_images/1766206-0ff284fc8c851075?imageMogr2/auto-orient/strip%7CimageView2/2/w/640/format/webp" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1766206-8a51a71e35464d0e?imageMogr2/auto-orient/strip%7CimageView2/2/w/640/format/webp" alt="img"></p>
+<h3 id="执行结果变化">执行结果（变化）</h3>
+<p><img src="../images/172905_c3c53871_116887.png" alt="起床" title="屏幕截图.png"></p>
+<h3 id="b-防沉迷不解锁手机-电脑也是">B-防沉迷不解锁手机 ，电脑也是</h3>
+<h3 id="目前现状-1">目前现状</h3>
+<ul>
+<li>
+<p>做了什么事情，让你无法控制</p>
+<p>我救赎-手机&ndash;腾讯视频 晚上8-凌晨3点 8个小时  (严重超时呀！！)</p>
+</li>
+</ul>
+<blockquote>
+<p>吃饭看腾讯视频，地铁看腾讯视频，走路看腾讯视频，</p>
+<p>学习时候看腾讯视频，手机解锁上床看腾讯视频，</p>
+<p>然后从晚上7点看到8点 9点 10点 11点 12点凌晨1点 2点。</p>
+</blockquote>
+<p><img src="https://i.loli.net/2019/11/04/hgasVrMyud3AHvo.png" alt="image.png"></p>
+<ul>
+<li>在什么地方</li>
+</ul>
+<p>沙发 床+手机+电视 致命诱惑</p>
+<h3 id="期望结果日志跟踪记录">期望结果：日志跟踪记录</h3>
+<ul>
+<li>防沉迷-不解锁</li>
+</ul>
+<blockquote>
+<p>无论任何情况都监督时候都不解锁，这底线，这你重点要做事情</p>
+</blockquote>
+<p><a href="https://mp.weixin.qq.com/s/Bg-a2W5_4OyR9hhy3Y6ptQ">意志力实验：直面自身欲望，但是不要付诸行定</a>接下来一周里可以用以下 4个步骤来应对自己强烈的欲望</p>
+<p>这些欲望可以是巧克力 、卡布奇诺咖啡或不停查收电子邮件 。</p>
+<p>1 ．承认自己脑海中的欲望 ，以及渴望某种事物的感觉 。</p>
+<p>2 ．不要马上试着转移注意力或与之争论 。接受这种想法或感觉 ，提醒自己 “白熊 ”现象和 “反弹 ”理论 。</p>
+<p>3 ．退一步考虑 ，意识到这种想法和感觉并不受你控制 ，但你可以选择是否将这些想法付诸实践 。</p>
+<p>4 ．记住你的目标 ，提醒自己预先作出的承诺 。正如那些学生会提醒自己 ，他们答应过不偷吃巧克力 。这个需要反复练习</p>
+<p>具体</p>
+<ul>
+<li>手机不解锁</li>
+<li>21点关闭电脑</li>
+<li>21点离开手机</li>
+</ul>
+<h3 id="执行结果原因是什么">执行结果(原因是什么)</h3>
+<blockquote>
+<p>没有连续坚持3天，没有坚持超过7天，没有坚持14天。坚持21天</p>
+</blockquote>
+<p>星期六晚上 在床上看全部动漫 累加13小时，计划彻底失败。还更加严重</p>
+<p>星期天 晚上在床上 有解锁看小说 2个小时，昨天问题忘记一干二净，</p>
+<h2 id="2-运动----掌控跑步你掌控生活">2. 运动&mdash;-掌控跑步，你掌控生活</h2>
+<h3 id="目前现状-2">目前现状</h3>
+<ul>
+<li>自己每次都妥协，吃饭看手机上床问题，这个根本无法执行。</li>
+</ul>
+<blockquote>
+<p>发现驼背 ，高低肩 长时间坐姿不正确，不运动导致的  。这谁责任。</p>
+<p>说根本时间，平时没时间，周末么总有时间吧。</p>
+</blockquote>
+<ul>
+<li>
+<p>大脑可以屏蔽痛苦，让感受不到这 最可怕的失去</p>
+<blockquote>
+<p>当你走出公司，你才感觉 说不出来疲惫，为什么 自己身心暴躁焦虑，工作没有计划。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="期望结果-1">期望结果：</h3>
+<ul>
+<li>
+<p>每天最后地铁一公里 跑步</p>
+</li>
+<li>
+<p>每周跑步三次 3公里  5 公里 8公里</p>
+<p>时间 周三 周六和周天</p>
+</li>
+<li>
+<p>上班时间在盘起时间内 运动5分钟</p>
+</li>
+<li>
+<p>中午 晚上 爬楼梯。</p>
+</li>
+</ul>
+<h3 id="执行结果">执行结果</h3>
+<p><img src="../images/174055_63bd7ef7_116887.png" alt="输入图片说明" title="屏幕截图.png"></p>
+<h2 id="3--阅读----科学合理方法">3.  阅读 &mdash;科学合理方法</h2>
+<h3 id="a-计划">A-计划</h3>
+<blockquote>
+<p>你发现这个book很用，认证看，3个月后彻底忘记，有别人批判什么都不会。什么都不会</p>
+</blockquote>
+<p><img src="../images/174226_6bc1986c_116887.png" alt="book" title="屏幕截图.png"></p>
+<h3 id="b-行动">B-行动</h3>
+<ul>
+<li>如何证明你看了？&ndash;阅读记录app跟踪</li>
+<li>什么时候开始分享？&ndash;周末</li>
+<li>如何分享？&ndash;ppt记录分享到抖音上</li>
+</ul>
+<h3 id="c-执行结果0记录">C-执行结果（0记录）</h3>
+<ul>
+<li>
+<p>自己感觉自己发音不好，中断了</p>
+</li>
+<li>
+<p>继续看12月的计划。</p>
+<p><a href="https://github.com/wangcy6/weekly/blob/master/%E5%91%A8%E8%AF%BB_%E6%8A%80%E6%9C%AF%E7%B1%BB.README.md">https://github.com/wangcy6/weekly/blob/master/%E5%91%A8%E8%AF%BB_%E6%8A%80%E6%9C%AF%E7%B1%BB.README.md</a></p>
+</li>
+</ul>
+<h1 id="三-工作--吃饭的饭碗">三 .工作 -吃饭的饭碗</h1>
+<h2 id="1-沟通--深入剖析">1. 沟通&ndash;深入剖析</h2>
+<h3 id="目前现状-3">目前现状：</h3>
+<blockquote>
+<p>自己说的别人都听不懂，紧张，焦虑 ；</p>
+<p>经常打断别人说话，自己听不进去</p>
+</blockquote>
+<h3 id="期望结果-2">期望结果：</h3>
+<ul>
+<li>
+<p>说给自己听，让自己听清楚慢慢会说，用更多时间耐心说出来</p>
+<blockquote>
+<p>不害怕尴尬，大脑思路空白</p>
+</blockquote>
+</li>
+<li>
+<p>仔细听别人讲话结果是什么，逻辑是什么，最终目的是什么</p>
+<blockquote>
+<p>你说都是废话，没有目的，没有结果 没有执行，放弃一切想说的，都是这个大脑受当时环境引起的。非自己想说的</p>
+</blockquote>
+</li>
+<li>
+<p>上面2个并不矛盾</p>
+</li>
+</ul>
+<h2 id="2--切换频率鼠标">2 -切换频率鼠标</h2>
+<h3 id="目前现状-4">目前现状：</h3>
+<p>鼠标统计:平均每天点击鼠标6167次 39秒点击1次</p>
+<ul>
+<li>画外音（完全被别人驱动后果）</li>
+</ul>
+<blockquote>
+<p>从外人看来，你像傻子一样，打开软件，关闭软件，打开网页关闭网页， 跟小白鼠没区别。</p>
+<p>这说明注意力很容易被其事情吸引走，并且你自己发没有发现 已经偏离轨道，很危险</p>
+<p>没有人提醒你</p>
+</blockquote>
+<ul>
+<li>潜意识（太容易了，不需要思考完全错误的思考方式）</li>
+</ul>
+<blockquote>
+<p>完全靠自己感觉，不从 公司角度和规划角度做失去，这最大问题.</p>
+<p>不停点击鼠标，处理问题没有规则流程，去分析业务，架构，技术是什么</p>
+<p>纯把自己当成重复地下劳动力呀</p>
+<p>一切忙碌，在10分钟，1小时，一天，一星期去没有取得任何进步</p>
+</blockquote>
+<h3 id="期望结果一次只做一件事按照计划做事情繁忙">期望结果:一次只做一件事，按照计划做事情（繁忙）</h3>
+<ul>
+<li>
+<p>盘茄时间 25分钟工作+5分钟 这个必须严格执行。</p>
+</li>
+<li>
+<p>这个不要公司去规定，更不害怕别人嘲笑，站起来活动5分钟</p>
+</li>
+<li>
+<p>我自己很清楚，很容易其他事情走神。别人厉害不需要那是他们事情。</p>
+</li>
+</ul>
+<h3 id="执行结果没有变化">执行结果（没有变化）</h3>
+<ul>
+<li>自己根本没有按照盘茄时间 25分钟工作+5分钟执行，不然不会出现这样结果</li>
+</ul>
+<p><img src="https://i.loli.net/2020/01/03/RVCrbtWE3AkYXHq.png" alt="8413"></p>
+<p><img src="https://i.loli.net/2019/10/17/8Whlt51RLArsI39.png" alt="上周"></p>
+<h2 id="3-意志力实验">3. 意志力实验</h2>
+<h3 id="a-目前现状">A-目前现状：</h3>
+<blockquote>
+<p>注意力高度不集中，一个点击8千次鼠标，</p>
+<p>然不停看打开网页，关闭网页。打开聊天软件关闭聊天软件</p>
+</blockquote>
+<p>这就是疯子，闪灵中 不停打字的疯子</p>
+<p><img src="https://i.loli.net/2019/11/04/K6ygNbfeYQMpFVn.png" alt="image.png"></p>
+<h3 id="b-期望结果">B-期望结果</h3>
+<blockquote>
+<p>心流状态</p>
+</blockquote>
+<p><img src="https://i.loli.net/2019/11/04/DzC4NBEtuiYgKn3.png" alt="image.png"></p>
+<p>最高学习效率=15.87%，并却经过机器学习训练得出的这个比例15.87%</p>
+<p>​	意思就说：</p>
+<blockquote>
+<p>舒适区的内容对你来说太容易</p>
+</blockquote>
+<blockquote>
+<p>恐慌区的内容太难，</p>
+</blockquote>
+<blockquote>
+<p>刻意练习要求你始终在二者中间一个特别小的学习区里学习 —— 这里的难度对你恰到好处。</p>
+</blockquote>
+<p><img src="https://i.loli.net/2019/11/04/Ro4wSLnXVHQICjb.png" alt="image.png"></p>
+<h3 id="c-执行结果看到变化">C-执行结果（看到变化）</h3>
+<p><a href="https://app.yinxiang.com/client/web#?n=671a47c7-fccd-457d-9fc8-69c980997b6a&amp;s=s39&amp;swm=true&amp;">https://app.yinxiang.com/client/web#?n=671a47c7-fccd-457d-9fc8-69c980997b6a&amp;s=s39&amp;swm=true&amp;</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Troy</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-01-10 00:00
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a target="_blank" rel="license noopener" href="https://github.com/nusr/blog/blob/master/LICENSE">MIT</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/GTD/">GTD</a>
+          <a href="/tags/work/">work</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/ARTS/ARTS_2020_13_weekly/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">ARTS_2012_weekly_5</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/ARTS/ARTS_weekly-7/">
+            <span class="next-text nav-default">ARTS_weekly_7</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="wangcy6/wangcy6.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:wang_cyi@163.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/wangcy6" class="iconfont icon-github" title="github"></a>
+  <a href="https://wangcy6.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2022
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Troy</span>
+  </span>
+</div>
+<script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
+  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+    var languageCode = "zh-cn".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    timeago().render(document.querySelectorAll('.timeago'), languageCode);
+    timeago.cancel();  
+  </script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-138883536-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>

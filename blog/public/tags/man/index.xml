@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>man on Troy的网络博客</title>
+    <link>https://wangcy6.github.io/tags/man/</link>
+    <description>Recent content in man on Troy的网络博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 10 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/tags/man/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2021-读书清单</title>
+      <link>https://wangcy6.github.io/post/book/2021_book/</link>
+      <pubDate>Sat, 10 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/book/2021_book/</guid>
+      <description>2021年 第一本：单核工作法图解：事多到事少,拖延变高效 高 帮助你解决问题：提供行动指南，非理论一本书 百度网盘：https://pan.bai</description>
+    </item>
+    
+    <item>
+      <title>man</title>
+      <link>https://wangcy6.github.io/post/book/man/</link>
+      <pubDate>Mon, 02 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/book/man/</guid>
+      <description>帮助文档 内存管理 1 man malloc http://man7.org/linux/man-pages/man3/malloc.3.html Thread safety （多个线程可以同时执行） arena 1 2 3 4 5 To scalably handle memory allocation in multithreaded applications, glibc creates additional memory allocation arenas if mutex contention is detected. Each arena is a large region of memory that is internally allocated by the system (using brk(2) or mmap(2)),</description>
+    </item>
+    
+  </channel>
+</rss>

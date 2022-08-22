@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>OceanBase on Troy的网络博客</title>
+    <link>https://wangcy6.github.io/tags/OceanBase/</link>
+    <description>Recent content in OceanBase on Troy的网络博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 23 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/tags/OceanBase/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OceanBase开发者手册</title>
+      <link>https://wangcy6.github.io/post/oceanbase/2011/day1_issue_oceanbase/</link>
+      <pubDate>Wed, 23 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/oceanbase/2011/day1_issue_oceanbase/</guid>
+      <description>多看、多问、多总结 日期 内容 版本 2022-2-23 day1: v1 勉强可以用。 blog地址：https://wangcy6.github.io/post/oceanbas</description>
+    </item>
+    
+  </channel>
+</rss>

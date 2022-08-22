@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Leetcode on Troy的网络博客</title>
+    <link>https://wangcy6.github.io/tags/Leetcode/</link>
+    <description>Recent content in Leetcode on Troy的网络博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 11 Oct 2019 17:02:43 +0800</lastBuildDate><atom:link href="https://wangcy6.github.io/tags/Leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>算法导论</title>
+      <link>https://wangcy6.github.io/post/2020/book_Algorithms-JeffE-BW/</link>
+      <pubDate>Fri, 11 Oct 2019 17:02:43 +0800</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2020/book_Algorithms-JeffE-BW/</guid>
+      <description>这里没有告诉答案是什么？问题就这些 可以j 回溯法 题目1 把皇后问题 &amp;ndash;已经解决 题目 2 Subset Sum &amp;ndash;正在解决 Let’s consider a more complicated problem, called SubsetSum:</description>
+    </item>
+    
+    <item>
+      <title>算法导论</title>
+      <link>https://wangcy6.github.io/post/book/book_Algorithms-JeffE/</link>
+      <pubDate>Thu, 10 Oct 2019 17:02:43 +0800</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/book/book_Algorithms-JeffE/</guid>
+      <description>算法导论 递归 题目1 sort 题目2 Recursion Trees 回溯法 题目1 八皇后问题 &amp;ndash;已经解决 来源： 题目 2 Subset Sum &amp;ndash;正在解决 Let’s consider a more complicated problem, called SubsetSum : Given</description>
+    </item>
+    
+  </channel>
+</rss>

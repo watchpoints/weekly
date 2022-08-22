@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>FQA_Service_Mesh - Troy的网络博客</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Troy" /><meta name="description" content="Service Mesh" /><meta name="keywords" content="daily-interview-question, Github, c&#43;&#43;, Leetcode 题解, 后端面试" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.101.0 with theme even" />
+
+
+<link rel="canonical" href="https://wangcy6.github.io/post/2020/FQA_Service_Mesh/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="FQA_Service_Mesh" />
+<meta property="og:description" content="Service Mesh" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wangcy6.github.io/post/2020/FQA_Service_Mesh/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2019-11-13T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-11-13T00:00:00+00:00" />
+
+<meta itemprop="name" content="FQA_Service_Mesh">
+<meta itemprop="description" content="Service Mesh"><meta itemprop="datePublished" content="2019-11-13T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-11-13T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2877">
+<meta itemprop="keywords" content="book,reading," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="FQA_Service_Mesh"/>
+<meta name="twitter:description" content="Service Mesh"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="https://github.com/wangcy6/weekly/tree/master/book">
+        <li class="mobile-menu-item">阅读清单</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于我</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://github.com/wangcy6/weekly/tree/master/book">阅读清单</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于我</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">FQA_Service_Mesh</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-11-13 00:00 </span>
+        <div class="post-category">
+            <a href="/categories/FQA/"> FQA </a>
+            </div>
+          <span class="more-meta"> 约 2877 字 </span>
+          <span class="more-meta"> 预计阅读 6 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#衡量指标">衡量指标</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#高可用问题">高可用问题</a></li>
+    <li><a href="#主从-数据不一致性问题">主从 数据不一致性问题</a>
+      <ul>
+        <li><a href="#不切换-2pc">不切换 2pc</a></li>
+        <li><a href="#全部一致--pacifica">全部一致  PacificA</a></li>
+        <li><a href="#过半一致-raft">过半一致 raft</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#弱一致gossip">弱一致（gossip）</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#rocksdb">rocksDB</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#一-kubernetes">一. Kubernetes</a>
+      <ul>
+        <li><a href="#kubernetes-autoscalin">Kubernetes Autoscalin</a></li>
+      </ul>
+    </li>
+    <li><a href="#二服务网格istio">二、服务网格Istio</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+  <div class="post-outdated">
+    <div class="warn">
+      <p>【注意】最后更新于 <span class="timeago" datetime="2019-11-13T00:00:00" title="November 13, 2019">November 13, 2019</span>，文中内容可能已过时，请谨慎使用。</p>
+    </div>
+  </div>
+    <div class="post-content">
+      <h1 id="book">book</h1>
+<ul>
+<li><strong>未来架构：从服务化到云原生</strong></li>
+<li>分布式缓存，从原理到实践</li>
+<li>分布式系统：从概念到设计 第五版</li>
+<li>深入理解Linux内核中文第三版  第五章 内核同步</li>
+<li><a href="https://www.the-paper-trail.org/post/2014-08-09-distributed-systems-theory-for-the-distributed-systems-engineer/">distributed-systems-theory-for-the-distributed-systems-engineer</a></li>
+</ul>
+<h1 id="业务场景">业务场景</h1>
+<h2 id="衡量指标">衡量指标</h2>
+<p>分布式系统涵盖的面非常广，具体来说涵盖如下几方面：</p>
+<ul>
+<li><strong>服务调度</strong>，涉及服务发现、配置管理、弹性伸缩、故障恢复等。</li>
+<li><strong>资源调度</strong>，涉及对底层资源的调度使用，如计算资源、网络资源和存储资源等。</li>
+<li><strong>流量调度</strong>，涉及路由、负载均衡、流控、熔断等。</li>
+<li><strong>数据调度</strong>，涉及数据复本、数据一致性、分布式事务、分库、分表等。</li>
+<li><strong>容错处理</strong>，涉及隔离、幂等、重试、业务补偿、异步、降级等。</li>
+<li><strong>自动化运维</strong>，涉及持续集成、持续部署、全栈监控、调用链跟踪等。</li>
+</ul>
+<h4 id="高可用">高可用:</h4>
+<p><img src="https://static001.infoq.cn/resource/image/b5/2f/b5da20611e2d62ead9f1e54cfff7cb2f.png" alt="单点故障问题"></p>
+<h4 id="可扩展">可扩展</h4>
+<p><img src="https://i.loli.net/2019/11/05/j3Jleq58YwO1ZBR.png" alt="image.png"></p>
+<h4 id="稳定性">稳定性</h4>
+<h2 id="高可用问题">高可用问题</h2>
+<p>Q1 假如无法出现单点故障了，该怎么办？</p>
+<blockquote>
+<p>例如 接受主播推流的srs，redis，还有proxy，还有普通的无法</p>
+</blockquote>
+<p>回答：</p>
+<ul>
+<li>有状态的无法，需要HA模式，或者多副本 2中集群模式</li>
+<li>无状态，通过tb/ts方式，消息调度是一个集群，消息分发也是一个集群。</li>
+</ul>
+<p>Redis集群方案应该怎么做？</p>
+<p><strong>1.Redis官方集群方案 Redis Cluster</strong></p>
+<p><strong>2.Redis Sharding集群</strong></p>
+<h2 id="主从-数据不一致性问题">主从 数据不一致性问题</h2>
+<blockquote>
+<p>重点，超级重点</p>
+</blockquote>
+<h3 id="不切换-2pc">不切换 2pc</h3>
+<p>大王提问：</p>
+<ul>
+<li>
+<p>2阶段提交的缺点是什么?</p>
+<blockquote>
+<p>小王回答：阻塞 然后xxxxx</p>
+</blockquote>
+</li>
+<li>
+<p>3pc直接有什么区别？</p>
+<blockquote>
+<p>小王回答：不阻塞了被，然后xxxxx</p>
+</blockquote>
+</li>
+</ul>
+<p>大王批注：</p>
+<blockquote>
+<p>你这是记忆，一看没做过项目，大家都直达，百度一下全都有，我看看</p>
+</blockquote>
+<blockquote>
+<p>它 回滚失败怎办？</p>
+<p>回去等消息吧</p>
+</blockquote>
+<p>老王：那2pc优点是什么，大家都批评他，其他在2pc是怎么改进的？</p>
+<table>
+<thead>
+<tr>
+<th>协议</th>
+<th>优点</th>
+<th>缺点</th>
+<th>代码库</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2PC</td>
+<td>强一致性，只要节点或者网络最终恢复正常，协议就能保证顺利结束</td>
+<td>两阶段提交协议的容错能力较差，比如在节点宕机或者超时的情况下，无法确定流程的状态，只能不断重试</td>
+<td></td>
+</tr>
+<tr>
+<td>3PC</td>
+<td>在最后一阶段单点不阻塞</td>
+<td>网络分区可能造成不一致</td>
+<td></td>
+</tr>
+<tr>
+<td>T cc</td>
+<td>锁冻结的资金,粒度降低了</td>
+<td></td>
+<td>tcc-transaction</td>
+</tr>
+</tbody>
+</table>
+<p>小王写了这个几句话</p>
+<p>区别是:在网络出现分区情况下，默认超时处理方式不一样。</p>
+<blockquote>
+<p>two -phase commit  投票yes之后（query Commit），在一方故障的情况的下,需要通过读取日志记录事物的状态来恢复 判断</p>
+<p>不能通过本地事务来推断整个事务状态判断，需要等待或者查询，来保证数据的一致性。</p>
+</blockquote>
+<blockquote>
+<p>three -phase commit 投票yes之后（pre Commit），如果出现网络原因，因为做了一次canCommit的统计，默认超时，转为do_commit ,</p>
+<p>但是协调者也默认超时abort操作。这个时候可能数据的不一致。</p>
+</blockquote>
+<p><img src="https://user-images.githubusercontent.com/5937331/69323825-5c2dab00-0c82-11ea-89b8-06c019db8696.png" alt=""></p>
+<blockquote>
+<p>来源网络</p>
+</blockquote>
+<p>三阶段提交协议的不足</p>
+<p>相对于2PC，3PC避免了协调者宕机之后可能出现的参与者们阻塞的情况。但仍然有较小的概率会导致不一致。</p>
+<p>我绘制的</p>
+<p><img src="https://i.loli.net/2019/11/23/3DYgsJoZLFzMiSR.png" alt="2pc"></p>
+<p>别人绘制的</p>
+<p><img src="https://i.loli.net/2019/11/23/4T1GpVglyhqjteY.png" alt="image.png"></p>
+<p>～～～～～～～～～～～～～～～～～我是分隔符 我来补充基本 ，不代表一定正确～～～～～～～～～～～</p>
+<ul>
+<li>拜托，面试请不要再问我TCC分布式事务的实现原理！</li>
+</ul>
+<p>​        <a href="https://juejin.im/post/5bf201f7f265da610f63528a">https://juejin.im/post/5bf201f7f265da610f63528a</a></p>
+<p>​         <a href="https://yemablog.com/posts/tcc-1">https://yemablog.com/posts/tcc-1</a></p>
+<p><a href="https://roxanageambasu.github.io/ds-class//assets/lectures/lecture17.pdf">https://roxanageambasu.github.io/ds-class//assets/lectures/lecture17.pdf</a></p>
+<p>从银行转账失败到分布式事务：总结与思考</p>
+<p><a href="https://www.cnblogs.com/xybaby/p/7465816.html">https://www.cnblogs.com/xybaby/p/7465816.html</a></p>
+<p><a href="http://huzb.me/2019/06/30/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E2%80%94%E2%80%942PC%E3%80%813PC%E5%92%8CTCC/">分布式事务——2PC、3PC 和 TCC</a></p>
+<h4 id="一致性问题">一致性问题</h4>
+<ul>
+<li>
+<p>当协调者向所有参与者发送commit请求之后，发生了局部网络异常或协调者在尚未发完commit请求之前自身发生了崩溃，导致最终只有部分参与者接收到了commit请求。</p>
+<p>于是这部分参与者执行事务提交，而没收到commit请求的参与者则无法进行事务提交，于是整个分布式系统出现了数据不一致性现象。</p>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Coordinator                                         Participant
+</span></span><span class="line"><span class="cl">                              QUERY TO COMMIT
+</span></span><span class="line"><span class="cl">                --------------------------------&gt;
+</span></span><span class="line"><span class="cl">                              VOTE YES/NO           prepare*/abort*
+</span></span><span class="line"><span class="cl">                &lt;-------------------------------
+</span></span><span class="line"><span class="cl">commit*/abort*                COMMIT/ROLLBACK
+</span></span><span class="line"><span class="cl">                --------------------------------&gt;
+</span></span><span class="line"><span class="cl">                              ACKNOWLEDGMENT        commit*/abort*
+</span></span><span class="line"><span class="cl">                &lt;--------------------------------  
+</span></span><span class="line"><span class="cl">end
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">https://cseweb.ucsd.edu/classes/sp16/cse291-e/applications/ln/lecture8.html
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">牧师：”你愿意娶这个女人吗?爱她、忠诚于她，无论她贫困、患病或者残疾，直至死亡。Doyou(你愿意吗)?”
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">新郎：”Ido(我愿意)!”
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">牧师：”你愿意嫁给这个男人吗?爱他、忠诚于他，无论他贫困、患病或者残疾，直至死亡。Doyou(你愿意吗)?”
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">新娘：”Ido(我愿意)!”
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">牧师：现在请你们面向对方，握住对方的双手，作为妻子和丈夫向对方宣告誓言。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">新郎：我——某某某，全心全意娶你做我的妻子，无论是顺境或逆境，富裕或贫穷，健康或疾病，快乐或忧愁，我都将毫无保留地爱你，我将努力去理解你，完完全全信任你。我们将成为一个整体，互为彼此的一部分，我们将一起面对人生的一切，去分享我们的梦想，作为平等的忠实伴侣，度过今后的一生。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">新娘：我全心全意嫁给你作为你的妻子，无论是顺境或逆境，富裕或贫穷，健康或疾病，快乐或忧愁，我都将毫无保留的爱你，我将努力去理解你，完完全全信任你，我们将成为一个整体，互为彼此的一部分，我们将一起面对人生的一切，去分享我们的梦想，作为平等的忠实伴侣，度过今后的一生。
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>An * next to the record type means that the record is forced to stable storage.[<a href="https://en.wikipedia.org/wiki/Two-phase_commit_protocol#cite_note-mohan1986-4">4]</a></p>
+<p><img src="https://i.loli.net/2019/11/20/Lhza6UytbmeZ7pQ.png" alt="image.png"></p>
+<p><img src="https://i.loli.net/2019/11/20/3YHP2fOr815jCvZ.png" alt="image.png"></p>
+<h4 id="阻塞的httpsilolinet201911135rvzhuk9qlcikebpng-3pchttpsappyinxiangcomshards39nl822682959f28292-cd0c-4c99-b43a-4405c133154c"><img src="https://i.loli.net/2019/11/13/5rVZHuK9QLcikEb.png" alt="阻塞的"> <a href="https://app.yinxiang.com/shard/s39/nl/8226829/59f28292-cd0c-4c99-b43a-4405c133154c">3PC</a></h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="err">一个节点故障，写入操作全部失败，整个系统崩溃？</span>
+</span></span><span class="line"><span class="cl"><span class="nl">https</span><span class="p">:</span><span class="c1">//en.wikipedia.org/wiki/Three-phase_commit_protocol
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">A</span> <span class="n">two</span><span class="o">-</span><span class="n">phase</span> <span class="n">commit</span> <span class="n">protocol</span> <span class="n">cannot</span> <span class="n">dependably</span> <span class="n">recover</span> <span class="n">from</span> <span class="n">a</span> <span class="n">failure</span> <span class="n">of</span> <span class="n">both</span> <span class="n">the</span> <span class="n">coordinator</span> <span class="n">and</span> <span class="n">a</span> <span class="n">cohort</span> <span class="n">member</span> <span class="n">during</span> <span class="n">the</span> <span class="n">Commit</span> <span class="n">phase</span> <span class="err">【这里说是第二阶段】</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">If</span> <span class="n">only</span> <span class="n">the</span> <span class="n">coordinator</span> <span class="n">had</span> <span class="n">failed</span><span class="p">,</span> <span class="n">and</span> <span class="n">no</span> <span class="n">cohort</span> <span class="n">members</span> <span class="n">had</span> <span class="n">received</span> <span class="n">a</span> <span class="n">commit</span> <span class="n">message</span><span class="p">,</span> <span class="n">it</span> <span class="n">could</span> <span class="n">safely</span> <span class="n">be</span> <span class="n">inferred</span> <span class="n">that</span> <span class="n">no</span> <span class="n">commit</span> <span class="n">had</span> <span class="n">happened</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="n">send</span> <span class="err">发送失败，不会提交业务的，原子操作，提交成功</span> <span class="err">然后返回结果</span><span class="p">)</span> <span class="err">原子操作类别</span><span class="n">pthread_cond_wait</span><span class="err">（</span><span class="mi">1</span> <span class="n">wait</span> <span class="mi">2u</span><span class="n">nlock</span><span class="err">）</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">Even</span> <span class="k">if</span> <span class="n">a</span> <span class="k">new</span> <span class="n">coordinator</span> <span class="n">is</span> <span class="n">selected</span><span class="p">,</span> <span class="n">it</span> <span class="n">cannot</span> <span class="n">confidently</span> <span class="n">proceed</span> <span class="n">with</span> <span class="n">the</span> <span class="n">operation</span> <span class="n">until</span> <span class="n">it</span> <span class="n">has</span> <span class="n">received</span> <span class="n">an</span> <span class="n">agreement</span> <span class="n">from</span> <span class="n">all</span> <span class="n">cohort</span> <span class="n">members</span><span class="p">,</span> <span class="n">and</span> <span class="n">hence</span> <span class="n">must</span> <span class="n">block</span> <span class="n">until</span> <span class="n">all</span> <span class="n">cohort</span> <span class="n">members</span> <span class="n">respond</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">   
+</span></span><span class="line"><span class="cl">        <span class="n">The</span> <span class="n">three</span><span class="o">-</span><span class="n">phase</span> <span class="n">commit</span> <span class="n">protocol</span> <span class="n">eliminates</span> <span class="k">this</span> <span class="n">problem</span> <span class="n">by</span> <span class="n">introducing</span> <span class="n">the</span> <span class="n">Prepared</span> <span class="n">to</span> <span class="n">commit</span> <span class="n">state</span> <span class="p">(</span><span class="err">多了一个状态</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="n">If</span> <span class="n">the</span> <span class="n">coordinator</span> <span class="n">fails</span> <span class="n">before</span> <span class="n">sending</span> <span class="n">preCommit</span> <span class="n">messages</span><span class="p">,</span> <span class="n">the</span> <span class="n">cohort</span> <span class="n">will</span> <span class="n">unanimously</span> <span class="n">agree</span> <span class="n">that</span> <span class="n">the</span> <span class="n">operation</span> <span class="n">was</span> <span class="n">aborted</span><span class="err">（没有准备，可以放弃）</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="n">The</span> <span class="n">coordinator</span> <span class="n">will</span> <span class="n">not</span> <span class="n">send</span> <span class="n">out</span> <span class="n">a</span> <span class="n">doCommit</span> <span class="n">message</span> <span class="n">until</span> <span class="n">all</span> <span class="n">cohort</span> <span class="n">members</span> <span class="n">have</span> <span class="n">ACKed</span> <span class="n">that</span> <span class="n">they</span> <span class="n">are</span> <span class="n">Prepared</span> <span class="n">to</span> <span class="n">commit</span><span class="p">.</span><span class="err">（这里不发送）</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   <span class="nl">https</span><span class="p">:</span><span class="c1">//cseweb.ucsd.edu/classes/sp16/cse291-e/applications/ln/lecture8.html     
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="n">Recovery</span> <span class="n">in</span> <span class="mi">3</span><span class="n">PC</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl"> <span class="err">脑洞</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> <span class="err">如果有至少一个返回</span><span class="n">commit了</span><span class="err">，那么挂掉的节点只可能是</span><span class="n">prepare</span><span class="o">-</span><span class="n">commit和commit状态</span><span class="err">，这样整个系统状态也是可以提交的</span> 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="https://cseweb.ucsd.edu/classes/sp16/cse291-e/applications/ln/3pc-part.jpg" alt="img"></p>
+<p><img src="https://cseweb.ucsd.edu/classes/sp16/cse291-e/applications/ln/3pc-coord.jpg" alt="img"></p>
+<p><img src="https://cseweb.ucsd.edu/classes/sp16/cse291-e/applications/ln/2pc-part.jpg" alt="img"></p>
+<p><img src="https://cseweb.ucsd.edu/classes/sp16/cse291-e/applications/ln/2pc-coord.jpg" alt="img"></p>
+<p>～～～～～～～～～～～～～～～～～我是分隔符 我来补充基本 ，不代表一定正确 end～～～～～～～～～～～</p>
+<h3 id="全部一致--pacifica">全部一致  PacificA</h3>
+<p><img src="https://i.loli.net/2019/11/13/TYcnjfMLIN2hk97.png" alt="提交不变量"></p>
+<p><img src="https://i.loli.net/2019/11/13/ZJtYgPRMeo6r3pf.png" alt="image.png"></p>
+<h3 id="过半一致-raft">过半一致 raft</h3>
+<p>小王提问</p>
+<ul>
+<li>假如只存在2个节点，这个2个节点存在网络分区该怎么办？&mdash;2个节点系统不允许存在</li>
+</ul>
+<p><img src="https://i.loli.net/2019/11/13/2TSnYU9ur7gf5Xm.png" alt="不断的重试，业务不阻塞"></p>
+<h4 id="小王的思考与行动">小王的思考与行动</h4>
+<p>～～～～～～～～～～～～～～～～～我是分隔符 我来补充基本 ，不代表一定正确～～～～～～～～～～～</p>
+<ul>
+<li>
+<p><a href="http://atomicer.cn/2019/05/17/etcd-raft%E4%B8%ADraft%E7%AE%97%E6%B3%95%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%80%9D%E8%B7%AF%E5%8F%82%E8%80%83/">Raft在网络分区时leader选举的一个疑问？</a></p>
+</li>
+<li>
+<h1 id="raft-在-etcd-中的实现httpsblogbetacatiopostraft-implementation-in-etcd-"><a href="https://blog.betacat.io/post/raft-implementation-in-etcd/">Raft 在 etcd 中的实现</a></h1>
+</li>
+</ul>
+<h3 id="弱一致gossip">弱一致（gossip）</h3>
+<h1 id="数据库产品">数据库产品</h1>
+<p><img src="https://i.loli.net/2019/11/14/KTc9tlHFyaWioxI.png" alt="image.png"></p>
+<h2 id="rocksdb">rocksDB</h2>
+<h1 id="服务产品">服务产品</h1>
+<h2 id="一-kubernetes">一. Kubernetes</h2>
+<h3 id="kubernetes-autoscalin">Kubernetes Autoscalin</h3>
+<h2 id="二服务网格istio">二、服务网格Istio</h2>
+<blockquote>
+<p>A service mesh is a dedicated infrastructure layer for handling service-to-service communication.</p>
+<p>It’s responsible for the reliable delivery of requests through the complex topology of services that comprise a modern, cloud native application.</p>
+<p>In practice, the service mesh is typically implemented as an array of lightweight network proxies that are deployed alongside application code, without the application needing to be aware.</p>
+<p>服务网格是一个基础设施层，用于处理服务间通信。</p>
+<p>现代云原生应用有着复杂的服务拓扑结构，服务网格负责在这些拓扑结构中实现请求的可靠传递。</p>
+<p>在实践中，服务网格通常被实现为一组轻量级网络代理，它们与应用程序部署在一起，对应用程序是透明的。</p>
+<p>A <em>service mesh</em> is a configurable, low‑latency infrastructure layer designed to handle a high volume of network‑based interprocess communication among application infrastructure services using application programming interfaces (APIs).</p>
+</blockquote>
+<h1 id="瞎扯">瞎扯</h1>
+<p><img src="https://i.loli.net/2019/11/21/5nTuUXIHow6xj2G.png" alt="image.png"></p>
+<h1 id="塔山之石">塔山之石</h1>
+<p>[1] <a href="https://www.infoq.cn/article/2018/05/distributed-system-architecture">左耳朵耗子推荐：分布式系统架构经典资料</a> 【book 正在看，进展10%】</p>
+<p>[2] <a href="https://www.servicemesher.com/istio-handbook/">Istio Handbook——Istio 服务网格进阶实战</a>【book 正在看，进展0%】</p>
+<p>[3] <a href="https://github.com/cloudnativebooks/cloud-native-istio">云原生服务网格Istio：原理、实践、架构与源码解析</a> 【book 求电子书，感激不尽】</p>
+<p>迁移到云原生应用架构  <a href="https://jimmysong.io/migrating-to-cloud-native-application-architectures/">https://jimmysong.io/migrating-to-cloud-native-application-architectures/</a></p>
+<p>[4] <a href="ps://zhaohuabing.com/istio-practice/content/istio-introduction/">istio-introduction</a> 【book 正在看，进展0%】</p>
+<p>[5]  <a href="https://www.zhihu.com/question/21419897">https://www.zhihu.com/question/21419897</a> [blog 正在看 进展0%]</p>
+<p>[6] <a href="https://www.w3cschool.cn/redis_all_about/">Redis开发运维实践指南</a> 【book 正在看，进展0%】</p>
+<p>[7]  <a href="http://redisbook.com/index.html">Redis 设计与实现</a></p>
+<p>[8] <a href="http://zhangtielei.com/posts/server.html">Redis内部数据结构详解</a>   <a href="http://zhangtielei.com/posts/blog-redis-skiplist.html">http://zhangtielei.com/posts/blog-redis-skiplist.html</a></p>
+<p>[9] <a href="http://www.ruanyifeng.com/blog/2016/11/byte-order.html">理解字节序</a> [ok]</p>
+<p>[10] 服务网格是什么？  <a href="https://www.nginx.com/blog/what-is-a-service-mesh/">https://www.nginx.com/blog/what-is-a-service-mesh/</a></p>
+<p>[11] MySQL高可用在网易的最佳应用与实践</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Troy</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2019-11-13 00:00
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a target="_blank" rel="license noopener" href="https://github.com/nusr/blog/blob/master/LICENSE">MIT</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/book/">book</a>
+          <a href="/tags/reading/">reading</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/2020/FQA_Linux/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">FQA_Linux</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/2020/nginx/">
+            <span class="next-text nav-default">nginx</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="wangcy6/wangcy6.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:wang_cyi@163.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/wangcy6" class="iconfont icon-github" title="github"></a>
+  <a href="https://wangcy6.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2022
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Troy</span>
+  </span>
+</div>
+<script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
+  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+    var languageCode = "zh-cn".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    timeago().render(document.querySelectorAll('.timeago'), languageCode);
+    timeago.cancel();  
+  </script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-138883536-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>

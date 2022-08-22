@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>SRS官方文档和学习路径 - Troy的网络博客</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Troy" /><meta name="description" content="高性能可扩展服务" /><meta name="keywords" content="daily-interview-question, Github, c&#43;&#43;, Leetcode 题解, 后端面试" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.101.0 with theme even" />
+
+
+<link rel="canonical" href="https://wangcy6.github.io/post/2020/01_srs/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="SRS官方文档和学习路径" />
+<meta property="og:description" content="高性能可扩展服务" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wangcy6.github.io/post/2020/01_srs/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-06-06T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-06-06T00:00:00+00:00" />
+
+<meta itemprop="name" content="SRS官方文档和学习路径">
+<meta itemprop="description" content="高性能可扩展服务"><meta itemprop="datePublished" content="2021-06-06T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-06-06T00:00:00+00:00" />
+<meta itemprop="wordCount" content="4704">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SRS官方文档和学习路径"/>
+<meta name="twitter:description" content="高性能可扩展服务"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="https://github.com/wangcy6/weekly/tree/master/book">
+        <li class="mobile-menu-item">阅读清单</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于我</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://github.com/wangcy6/weekly/tree/master/book">阅读清单</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于我</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">SRS官方文档和学习路径</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-06-06 00:00 </span>
+        <div class="post-category">
+            <a href="/categories/code_reading/"> code_reading </a>
+            </div>
+          <span class="more-meta"> 约 4704 字 </span>
+          <span class="more-meta"> 预计阅读 10 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#第一天快速预览">第一天：快速预览</a>
+      <ul>
+        <li><a href="#40">4.0</a></li>
+        <li><a href="#第一天-fqa">第一天 FQA</a></li>
+      </ul>
+    </li>
+    <li><a href="#第二天61-深入场景-主要了解功能">第二天（6.1） 深入场景 主要了解功能</a>
+      <ul>
+        <li><a href="#通过下面图片看到-相关知识框架">通过下面图片看到 相关知识框架</a></li>
+        <li><a href="#note-问题推流srs单点故障怎么办阅读">note： 问题：推流srs单点故障怎么办？阅读</a></li>
+      </ul>
+    </li>
+    <li><a href="#无状态源站集群deployment">无状态源站集群(Deployment)</a></li>
+    <li><a href="#有状态源站集群statefullset">有状态源站集群(StatefullSet)</a>
+      <ul>
+        <li><a href="#note阅读开源流媒体服务器srs学习笔记4---cluster集群方案httpswwwcnblogscomyjmyzzpsrs_study_4_clusterhtml">note：阅读：<a href="https://www.cnblogs.com/yjmyzz/p/srs_study_4_cluster.html">开源流媒体服务器SRS学习笔记(4) - Cluster集群方案</a></a></li>
+        <li><a href="#cluster-guides">Cluster Guides</a></li>
+      </ul>
+    </li>
+    <li><a href="#第三天">第三天</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#todo-跟踪issue去学习">todo 跟踪issue去学习</a></li>
+    <li><a href="#推送">推送</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#资料搜集">资料搜集</a></li>
+    <li><a href="#动手">动手</a>
+      <ul>
+        <li><a href="#task1">task1</a></li>
+        <li><a href="#todo02avstackdocs-master">todo02：AvStackDocs-master</a></li>
+      </ul>
+    </li>
+    <li><a href="#depends">Depends</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+  <div class="post-outdated">
+    <div class="hint">
+      <p>【注意】最后更新于 <span class="timeago" datetime="2021-06-06T00:00:00" title="June 6, 2021">June 6, 2021</span>，文中内容可能已过时，请谨慎使用。</p>
+    </div>
+  </div>
+    <div class="post-content">
+      <ul>
+<li>文章路径</li>
+</ul>
+<p>http://localhost:1313/post/2020/01_srs/</p>
+<h1 id="卡片">卡片</h1>
+<p>SRS4.0官方文档和学习路径</p>
+<p><a href="https://mp.weixin.qq.com/s/AZhSQbCMBlaZv-0-myc1zg">https://mp.weixin.qq.com/s/AZhSQbCMBlaZv-0-myc1zg</a></p>
+<p><a href="https://ossrs.net/releases/">https://ossrs.net/releases/</a></p>
+<p>Introduction</p>
+<p>Problem</p>
+<p>solucction</p>
+<p><a href="https://gitee.com/ossrs/srs/wikis/v4_CN_Home">https://gitee.com/ossrs/srs/wikis/v4_CN_Home</a></p>
+<p><a href="https://github.com/ossrs/srs">https://github.com/ossrs/srs</a></p>
+<p><a href="https://hub.fastgit.org/ossrs/srs">https://hub.fastgit.org/ossrs/srs</a></p>
+<h2 id="第一天快速预览">第一天：快速预览</h2>
+<p>环境：2g+Ubuntu</p>
+<ul>
+<li>在vpn环境完成搭建(docker安装不上)</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">git clone -b 4.0release https://gitee.com/ossrs/srs.git &amp;&amp;
+</span></span><span class="line"><span class="cl">cd srs/trunk &amp;&amp; ./configure &amp;&amp; make &amp;&amp; ./objs/srs -c conf/srs.conf
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">/root/code/c++/srs/trunk
+</span></span><span class="line"><span class="cl">/app/work/srs/trunk
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">nohup ./objs/srs -c conf/srs.conf &amp;
+</span></span><span class="line"><span class="cl">10.112.179.21
+</span></span><span class="line"><span class="cl">10.112.178.189
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">/usr/local/srs 
+</span></span><span class="line"><span class="cl">rtmp://10.112.179.21:1935/live/wangchuanyi
+</span></span><span class="line"><span class="cl">rtmp://10.112.178.189:1935/live/wangchuanyi
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>本地obs/FFMEG</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">nohup</span> <span class="p">.</span><span class="o">/</span><span class="n">ffmpeg</span>  <span class="o">-</span><span class="n">re</span> <span class="o">-</span><span class="n">i</span> <span class="p">.</span><span class="o">/</span><span class="n">hengping</span><span class="p">.</span><span class="n">mp4</span>  <span class="o">-</span><span class="n">vcodec</span> <span class="n">copy</span> <span class="o">-</span><span class="n">acodec</span> <span class="n">copy</span> <span class="o">-</span><span class="n">f</span> <span class="n">flv</span> <span class="nl">rtmp</span><span class="p">:</span><span class="c1">//74.120.174.137:1935/live/wangchuanyi &gt;&gt;./push3.log 2&gt;&amp;1 &amp;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">ffmpeg</span> <span class="o">-</span><span class="n">re</span> <span class="o">-</span><span class="n">i</span> <span class="mf">1.</span><span class="n">mp4</span> <span class="o">-</span><span class="n">vcodec</span> <span class="n">copy</span> <span class="o">-</span><span class="n">acodec</span> <span class="n">copy</span> <span class="o">-</span><span class="n">f</span> <span class="n">flv</span> <span class="nl">rtmp</span><span class="p">:</span><span class="c1">//74.120.174.137/live/wangchuanyi
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">查看</span><span class="n">srs日志</span> <span class="err">、、</span>
+</span></span><span class="line"><span class="cl"><span class="n">cd</span> <span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">code</span><span class="o">/</span><span class="n">c</span><span class="o">++/</span><span class="n">srs</span><span class="o">/</span><span class="n">trunk</span><span class="o">/</span><span class="n">objs</span>
+</span></span><span class="line"><span class="cl"><span class="n">tail</span> <span class="o">-</span><span class="n">f</span> <span class="n">srs</span><span class="p">.</span><span class="n">log</span>  <span class="c1">//目前看不懂 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nl">https</span><span class="p">:</span><span class="c1">//gitee.com/ossrs/srs/wikis/v4_CN_SampleRTMP?sort_id=3957465
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>VLC观看</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">http://74.120.174.137:8080/
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">1. RTMP <span class="o">(</span>by VLC<span class="o">)</span>: rtmp://74.120.174.137:1935/live/wangchuanyi --播放正常
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">2. H5<span class="o">(</span>HTTP-FLV<span class="o">)</span>: http://74.120.174.137:8080/live/wangchuanyi.flv --播放正常、
+</span></span><span class="line"><span class="cl">http://74.120.174.137:8080/console/ng_index.html#/streams?port<span class="o">=</span>1985<span class="p">&amp;</span><span class="nv">schema</span><span class="o">=</span>http<span class="p">&amp;</span><span class="nv">host</span><span class="o">=</span>74.120.174.137
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">3. H5<span class="o">(</span>HLS<span class="o">)</span>: http:/74.120.174.137:8080/live/wangchuanyi.m3u8 --测试不通过【相关配置和原理不清楚】
+</span></span><span class="line"><span class="cl">4. H5<span class="o">(</span>WebRTC<span class="o">)</span>: webrtc://74.120.174.137/live/wangchuanyi --测试不通过【相关配置和原理不清楚】
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="40">4.0</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">cd /app/work
+</span></span><span class="line"><span class="cl">git clone -b 4.0release https://gitee.com/ossrs/srs.git
+</span></span><span class="line"><span class="cl">srs-4.0release.zip
+</span></span><span class="line"><span class="cl">rm -rf  srs-4.0release\ \(1\).zip
+</span></span><span class="line"><span class="cl">./configure 
+</span></span><span class="line"><span class="cl">make
+</span></span><span class="line"><span class="cl">cat conf/srs.conf
+</span></span><span class="line"><span class="cl">nohup ./objs/srs -c conf/srs.conf &amp;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">:10.112.179.21
+</span></span><span class="line"><span class="cl">https://gitee.com/ossrs/srs/wikis/v4_CN_HTTPApi?sort_id=3957392
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">./objs/srs -c http-api.conf
+</span></span><span class="line"><span class="cl">cat ./conf/http-api.conf
+</span></span><span class="line"><span class="cl">http://10.112.179.21:1985/api/v1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">http://10.112.179.21:1985/api/v1/streams
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="C:%5CUsers%5Cwangchuanyi%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210531211418617.png" alt="image-20210531211418617"></p>
+<h4 id="基础知识补充视音频数据处理入门-雷霄骅httpsblogcsdnnetleixiaohua1020">基础知识补充：<em>视音频数据处理入门</em> <a href="https://blog.csdn.net/leixiaohua1020">雷霄骅</a></h4>
+<p>音视频协议：RTMP，HTTP-FLV，HLS和WebRTC</p>
+<p><a href="https://link.jianshu.com?t=http%3A%2F%2Fblog.csdn.net%2Fleixiaohua1020%2Farticle%2Fdetails%2F50534150">视音频数据处理入门：RGB、YUV像素数据处理</a>
+<a href="https://link.jianshu.com?t=http%3A%2F%2Fblog.csdn.net%2Fleixiaohua1020%2Farticle%2Fdetails%2F50534316">视音频数据处理入门：PCM音频采样数据处理</a>
+<a href="https://link.jianshu.com?t=http%3A%2F%2Fblog.csdn.net%2Fleixiaohua1020%2Farticle%2Fdetails%2F50534369">视音频数据处理入门：H.264视频码流解析</a>
+<a href="https://link.jianshu.com?t=http%3A%2F%2Fblog.csdn.net%2Fleixiaohua1020%2Farticle%2Fdetails%2F50535042">视音频数据处理入门：AAC音频码流解析</a>
+<a href="https://link.jianshu.com?t=http%3A%2F%2Fblog.csdn.net%2Fleixiaohua1020%2Farticle%2Fdetails%2F50535082">视音频数据处理入门：FLV封装格式解析</a>
+<a href="https://link.jianshu.com?t=http%3A%2F%2Fblog.csdn.net%2Fleixiaohua1020%2Farticle%2Fdetails%2F50535230">视音频数据处理入门：UDP-RTP协议解析</a></p>
+<p><img src="https://i.loli.net/2021/06/01/HJa6f5sYhwrO2kV.png" alt="image.png"></p>
+<p><img src="https://i.loli.net/2021/06/01/xGBqrt2Ijwn5CSK.png" alt="image.png"></p>
+<ul>
+<li>
+<p><strong>Flash Video</strong> is a container file format used to deliver digital video content</p>
+<p><a href="https://blog.csdn.net/leixiaohua1020/article/details/50535082?spm=1001.2014.3001.5501">https://blog.csdn.net/leixiaohua1020/article/details/50535082?spm=1001.2014.3001.5501</a></p>
+</li>
+</ul>
+<h3 id="第一天-fqa">第一天 FQA</h3>
+<h5 id="问题协议rtmp怎么传输数据的呀">问题：协议rtmp怎么传输数据的呀？</h5>
+<ol>
+<li>这个是谁产生的呀？摄像头吗？，ffmpeg？ obs  经过编解码了吗</li>
+</ol>
+<h2 id="第二天61-深入场景-主要了解功能">第二天（6.1） 深入场景 主要了解功能</h2>
+<p>资料：<em><a href="https://gitee.com/ossrs/srs/wikis/v4_CN_Home#srs-overview">https://gitee.com/ossrs/srs/wikis/v4_CN_Home#srs-overview</a></em></p>
+<pre><code>       https://gitee.com/ossrs/srs/wikis/v4_CN_Home#solution-guides
+</code></pre>
+<p>资料：<a href="https://ke.qq.com/course/3202131">【免费】FFmpeg/WebRTC/RTMP/NDK/Android音视频流媒体高级开发</a></p>
+<ul>
+<li>SRS是一个简单高效的实时视频服务器，支持RTMP/WebRTC/HLS/HTTP-FLV/SRT/GB28181</li>
+</ul>
+<h3 id="通过下面图片看到-相关知识框架">通过下面图片看到 相关知识框架</h3>
+<p><img src="https://10.idqqimg.com/qqke_course_info/ajNVdqHZLLC4FCr3MVJTPQMdriaWTtibiaGflowOyQ9pZ1N1dnKZkevcWBE9PsCMib3wZqgEibT4osXc/" alt=""></p>
+<p>阅读：SRS支持SRT的详细步骤。 <a href="https://gitee.com/ossrs/srs/wikis/v4_CN_SampleSRT">https://gitee.com/ossrs/srs/wikis/v4_CN_SampleSRT</a></p>
+<p>阅读：视频播放器原理 <a href="https://www.cnblogs.com/linuxAndMcu/p/12038740.html">https://www.cnblogs.com/linuxAndMcu/p/12038740.html</a></p>
+<p><img src="https://img-blog.csdn.net/20140201120523046?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGVpeGlhb2h1YTEwMjA=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p><strong>解协议</strong>的作用 &mdash;-&gt;<strong>解封装</strong>的作用 &mdash;<strong>解码</strong>的作用</p>
+<ul>
+<li>FLV 格式的数据，经过解封装操作后，输出 H.264 编码的视频码流和 AAC 编码的音频码流</li>
+</ul>
+<h3 id="note-问题推流srs单点故障怎么办阅读">note： 问题：推流srs单点故障怎么办？阅读</h3>
+<p>Cluster: Origin Cluster for Fault Tolarence and Load Balance, 源站热备和负载均衡集群 #464</p>
+<p><a href="https://github.com/ossrs/srs/issues/938">https://github.com/ossrs/srs/issues/938</a></p>
+<p><a href="https://github.com/ossrs/srs/issues/1607#issuecomment-586543387">https://github.com/ossrs/srs/issues/1607#issuecomment-586543387</a></p>
+<p><a href="https://gitee.com/ossrs/srs/wikis/v4_CN_OriginCluster">https://gitee.com/ossrs/srs/wikis/v4_CN_OriginCluster</a></p>
+<p>Origin Cluster设计目标是&lt;5k个流以内的集群，或者用于少量流的容灾。若需要100k流级别，请参考 <a href="https://github.com/ossrs/srs/issues/1607#issuecomment-586543387">#1607 (comment)</a></p>
+<p>Origin Cluster设计目标是&lt;5k个流以内的集群，或者用于少量流的容灾。若需要100k流级别，请参考 <a href="https://github.com/ossrs/srs/issues/1607#issuecomment-586543387">#1607 (comment)</a></p>
+<p>这个方案中，每个源站互相访问，这意味着每个源站都是一个独立的服务。由于每个源站都需要对Edge提供服务，或者说源站需要被访问，每个源站都需要有个服务地址。有两种方式：</p>
+<ul>
+<li>无状态源站集群：1~3个源站，每个源站需要单独创建Deployment和Service。好处就是它是无状态，不用互相关联，稳定性会比较高。</li>
+<li>有状态源站集群：3~30个源站，只需要创建一个StatefulSets和Service。好处就是配置简单，坏处是有状态比较复杂，创建后只能更新Replicas、Template、UpdateStrategy等几个字段。</li>
+</ul>
+<blockquote>
+<p>以上两种情况，这都需要源站配置<code>coworkers</code>，和边缘配置<code>origin</code>时，配置上所有的源站的地址。</p>
+</blockquote>
+<h2 id="无状态源站集群deployment">无状态源站集群(Deployment)</h2>
+<p>适用于极少的流，比如&lt;100个流，1~3个源站。</p>
+<p>SRS的源站集群本身是有状态的，也就是请求某个流必须在某个服务器上，而不是可以随便在一个服务器就能拉到流。我们也不能将多个源站挂在SLB后面，播放某个流时SLB会随机选择一台源站，所以可能会到错误的源站上去，或者说流的状态和流的数据是在某个源站上的，并非无状态。</p>
+<p>那么我们这里说的无状态源站集群，是源站集群以Deployment(无状态应用)方式部署。由于每个源站都需要一个独立的Deployment，每个Deployment只有一个Replicas，每个Deployment对应的Service(ClusterIP)也有独立的名称，实际上就相当于SLB后面只挂了一个源站，比如：</p>
+<table>
+<thead>
+<tr>
+<th>源站</th>
+<th>Deployment</th>
+<th>Service</th>
+<th>域名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Origin Server 0</td>
+<td>origin-0-deploy</td>
+<td>origin-0-service</td>
+<td>origin-0-service</td>
+</tr>
+<tr>
+<td>Origin Server 1</td>
+<td>origin-1-deploy</td>
+<td>origin-1-service</td>
+<td>origin-1-service</td>
+</tr>
+<tr>
+<td>Origin Server 2</td>
+<td>origin-2-deploy</td>
+<td>origin-2-service</td>
+<td>origin-2-service</td>
+</tr>
+<tr>
+<td>Origin Server N</td>
+<td>origin-N-deploy</td>
+<td>origin-N-service</td>
+<td>origin-N-service</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Note：无状态集群的部署实例，参考<a href="https://github.com/ossrs/srs/wiki/v4_CN_K8s#build-srs-origin-cluster-as-deployment">Wiki</a>。</p>
+</blockquote>
+<p>每个源站创建一个独立的Deployment，Replicas为1，创建对应的Service类型为ClusterIP。这种方案比较麻烦，不过迁移到OCM( <a href="https://github.com/ossrs/srs/issues/1607">#1607</a> )时会比较方便，源站使用的是service-name，而不是pod-name.service-name方式彼此寻址。</p>
+<p><a href="https://github.com/ossrs/srs/wiki/v4_CN_K8s#build-srs-origin-cluster-as-deployment">https://github.com/ossrs/srs/wiki/v4_CN_K8s#build-srs-origin-cluster-as-deployment</a></p>
+<h2 id="有状态源站集群statefullset">有状态源站集群(StatefullSet)</h2>
+<p>适用于一定数量的流，比如&lt;5k个流，5~30个之内的源站。</p>
+<p>在K8s中，每个源站都需要响应的Service，可选择<a href="https://v1-14.docs.kubernetes.io/docs/concepts/workloads/controllers/statefulset/">StatefulSets</a>，用<a href="https://v1-14.docs.kubernetes.io/docs/concepts/services-networking/service/#headless-services">HeadlessService</a>给让每个源站Pod具备寻址能力。比如：</p>
+<table>
+<thead>
+<tr>
+<th>源站</th>
+<th>StatefulSet</th>
+<th>Service</th>
+<th>域名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Origin Server 0</td>
+<td>origin</td>
+<td>service</td>
+<td>origin-0.service</td>
+</tr>
+<tr>
+<td>Origin Server 1</td>
+<td>origin</td>
+<td>service</td>
+<td>origin-1.service</td>
+</tr>
+<tr>
+<td>Origin Server 2</td>
+<td>origin</td>
+<td>service</td>
+<td>origin-2.service</td>
+</tr>
+<tr>
+<td>Origin Server N</td>
+<td>origin</td>
+<td>service</td>
+<td>origin-N.service</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Note：有状态集群的部署实例，参考<a href="https://github.com/ossrs/srs/wiki/v4_CN_K8s#srs-origin-cluster-for-a-large-number-of-streams">Wiki</a>。</p>
+</blockquote>
+<p>只需要创建一个StatefulSets和一个Service，Replicas设置为源站的数目。</p>
+<p>源站配置为<code>coworkers: origin-0.service origin-1.service origin-2.service;</code>
+边缘配置为所有源站，或部分源站：<code>origin origin-0.service origin-1.service origin-2.service;</code></p>
+<p>可以看到确实会比较繁琐，而且新增源站时需要更新其他源站配置，以及边缘的配置，这个方案在30个以内的源站节点是适用的</p>
+<p>【这个kafa的配置，redis集群配置类似呀】‘</p>
+<p>源站集群支持&lt;5k路流方案，参考：<a href="https://github.com/ossrs/srs/issues/464#issuecomment-586550787">#464 (comment)</a></p>
+<p>源站集群支持&lt;100k路流方案，参考：<a href="https://github.com/ossrs/srs/issues/1607#issuecomment-586543387">#1607 (comment)</a></p>
+<p>关于源站集群中，源站的服务地址定义问题，参考：<a href="https://github.com/ossrs/srs/issues/1501#issuecomment-559946431">#1501 (comment)</a></p>
+<p>关于源站集群中，多节点源站轮询问题，参考：<a href="https://github.com/ossrs/srs/issues/1501#issuecomment-559938654">#1501 (comment)</a></p>
+<p>关于源站集群的存储问题，参考：<a href="https://github.com/ossrs/srs/issues/1595#issuecomment-586550583">#1595 (comment)</a></p>
+<p>关于源站集群的API问题，参考：<a href="https://github.com/ossrs/srs/issues/1607#issuecomment-586549464">#1607 (comment)</a></p>
+<p><a href="https://github.com/ossrs/srs/wiki/v4_CN_K8s#srs-origin-cluster-for-a-large-number-of-streams">https://github.com/ossrs/srs/wiki/v4_CN_K8s#srs-origin-cluster-for-a-large-number-of-streams</a></p>
+<p><a href="https://github.com/ossrs/srs/issues/1607">https://github.com/ossrs/srs/issues/1607</a>:</p>
+<p><a href="https://github.com/ossrs/srs/wiki/v3_EN_SampleOriginCluster">https://github.com/ossrs/srs/wiki/v3_EN_SampleOriginCluster</a></p>
+<p>源站集群主要解决大量推流的情况</p>
+<p><a href="https://github.com/ossrs/srs/wiki/v3_CN_OriginCluster">https://github.com/ossrs/srs/wiki/v3_CN_OriginCluster</a></p>
+<p>推荐在源站集群前面挂一系列的Edge服务器，参考<a href="https://github.com/ossrs/srs/issues/464#issuecomment-366169962">这里</a>，Edge服务器可以转换协议，支持RTMP和HTTP-FLV，同时支持源站故障时自动切换，不中断客户端。</p>
+<p><img src="https://wallenotes.github.io/2020/04/14/%E6%95%B0%E6%8D%AE%E5%BA%93/Cassandra/Cassandra-001/figure3.png" alt="https://wallenotes.github.io/2020/04/14/%E6%95%B0%E6%8D%AE%E5%BA%93/Cassandra/Cassandra-001/"></p>
+<ul>
+<li>目前源站集群(Origin Cluster)方案中，流的状态是靠源站之间互相访问获知，源站地址是通过配置在配置文件中的，扩容时需要更新这个状态</li>
+</ul>
+<p>SrsRtmpConn::playing</p>
+<p><a href="https://github.com/ossrs/srs/wiki/v3_EN_OriginCluster">https://github.com/ossrs/srs/wiki/v3_EN_OriginCluster</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">vhost __defaultVhost__ {
+</span></span><span class="line"><span class="cl">    # The config for cluster.
+</span></span><span class="line"><span class="cl">    cluster {
+</span></span><span class="line"><span class="cl">        # The cluster mode, local or remote.
+</span></span><span class="line"><span class="cl">        #       local: It&#39;s an origin server, serve streams itself.
+</span></span><span class="line"><span class="cl">        #       remote: It&#39;s an edge server, fetch or push stream to origin server.
+</span></span><span class="line"><span class="cl">        # default: local
+</span></span><span class="line"><span class="cl">        mode            local;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        # For origin(mode local) cluster, turn on the cluster.
+</span></span><span class="line"><span class="cl">        # @remark Origin cluster only supports RTMP, use Edge to transmux RTMP to FLV.
+</span></span><span class="line"><span class="cl">        # default: off
+</span></span><span class="line"><span class="cl">        # TODO: FIXME: Support reload.
+</span></span><span class="line"><span class="cl">        origin_cluster      on;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        # For origin (mode local) cluster, the co-worker&#39;s HTTP APIs.
+</span></span><span class="line"><span class="cl">        # This origin will connect to co-workers and communicate with them.
+</span></span><span class="line"><span class="cl">        # please read: https://github.com/ossrs/srs/wiki/v3_EN_OriginCluster
+</span></span><span class="line"><span class="cl">        # TODO: FIXME: Support reload.
+</span></span><span class="line"><span class="cl">        coworkers           127.0.0.1:9091 127.0.0.1:9092;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>HA（High Availability 高可用方案）：这个是为了解决 NameNode 单点问题；</p>
+<p>两台 NameNode 形成互备，一台处于 Active 状态，为主 NameNode，另外一台处于 Standby 状态，为备 NameNode，只有主 NameNode 才能对外提供读写服务；</p>
+</li>
+<li>
+<p>直播链路跟踪</p>
+</li>
+</ul>
+<h3 id="note阅读开源流媒体服务器srs学习笔记4---cluster集群方案httpswwwcnblogscomyjmyzzpsrs_study_4_clusterhtml">note：阅读：<a href="https://www.cnblogs.com/yjmyzz/p/srs_study_4_cluster.html">开源流媒体服务器SRS学习笔记(4) - Cluster集群方案</a></h3>
+<p><a href="https://www.cnblogs.com/yjmyzz/p/srs_study_4_cluster.html">https://www.cnblogs.com/yjmyzz/p/srs_study_4_cluster.html</a></p>
+<ul>
+<li>这个文章主要利用 <a href="http://www.haproxy.org/">http://www.haproxy.org/</a> 特点。</li>
+</ul>
+<h3 id="cluster-guides">Cluster Guides</h3>
+<ul>
+<li>
+<p><a href="https://gitee.com/ossrs/srs/wikis/v4_CN_OriginCluster">Origin Cluster</a>: 如何支持源站集群，扩展源站能力。</p>
+</li>
+<li>
+<p><a href="https://gitee.com/ossrs/srs/wikis/v4_CN_SampleRTMPCluster">Edge Cluster: RTMP</a>: 如何部署RTMP分发集群，譬如CDN支持RTMP分发。</p>
+</li>
+<li>
+<p><a href="https://gitee.com/ossrs/srs/wikis/v4_CN_SampleHttpFlvCluster">Edge Cluster: FLV</a>: 如何部署HTTP-FLV分发集群，譬如CDN支持HTTP-FLV分发。</p>
+</li>
+<li>
+<p><a href="https://gitee.com/ossrs/srs/wikis/v4_CN_RtmpUrlVhost">VHOST</a>: 如何一个集群支持多个用户，即Vhost。</p>
+</li>
+<li>
+<p><a href="https://gitee.com/ossrs/srs/wikis/v4_CN_Reload">Reload</a>: 如何不中断服务的前提下应用新的配置，即Reload。</p>
+</li>
+<li>
+<p><a href="https://gitee.com/ossrs/srs/wikis/v4_CN_SrsLog">Tracable Log</a>: 如何在集群中追溯错误和日志，基于连接的日志，排错日志。</p>
+</li>
+<li>
+<p><a href="https://gitee.com/ossrs/srs/wikis/v4_CN_LogRotate">Log Rotate</a>: 如何切割服务器的日志，然后压缩或者清理。</p>
+</li>
+<li>
+<p><a href="https://gitee.com/ossrs/srs/wikis/v4_CN_K8s">K8s</a>: 如何使用<a href="https://www.aliyun.com/product/kubernetes">ACK(阿里云容器服务Kubernetes版)</a>部署SRS集群。</p>
+</li>
+</ul>
+<h4 id="6-9">6-9</h4>
+<p><a href="https://github.com/ossrs/srs/issues/1575">https://github.com/ossrs/srs/issues/1575</a></p>
+<p><a href="https://github.com/ossrs/srs/issues/1607#issuecomment-586543387">https://github.com/ossrs/srs/issues/1607#issuecomment-586543387</a></p>
+<h2 id="第三天">第三天</h2>
+<h1 id="srs之启用webrtc播放">SRS之启用webrtc播放</h1>
+<h2 id="todo-跟踪issue去学习">todo 跟踪issue去学习</h2>
+<ul>
+<li><input disabled="" type="checkbox"> <a href="https://github.com/ossrs/srs/issues/2449">https://github.com/ossrs/srs/issues/2449</a> SRS webrtc 播放出现灰屏现象 #2449</li>
+</ul>
+<p>webrtc不支持B帧，看看是不是这个原因。<a href="https://github.com/ossrs/srs/issues/2439#issuecomment-868208452">#2439 (comment)</a></p>
+<p>您好，通过 ffmpeg 推 RTMP 时已经去除了 B 帧</p>
+<p><a href="https://github.com/ossrs/srs/issues/2439">https://github.com/ossrs/srs/issues/2439</a></p>
+<ul>
+<li>&ldquo;设置&rdquo;-&gt; &ldquo;输出&rdquo; -&gt; 高级 -&gt; profile 选&quot;baseline&quot;, webrtc不支持B帧</li>
+</ul>
+<p>H.264有四种画质级别,分别是baseline, extended, main, high：</p>
+<p>1、Baseline Profile：基本画质。支持I/P 帧，只支持无交错（Progressive）和CAVLC；</p>
+<p>从压缩比例来说，baseline&lt; main &lt; high ，对于带宽比较局限的在线视频，可能会选择high，</p>
+<ul>
+<li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ffmpeg -i input.mp4 -c:v libx264 -preset fast -profile:v baseline out.mov
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">H.264有四种画质级别,分别是baseline, extended, main, high：
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">1、Baseline Profile：基本画质。支持I/P 帧，只支持无交错（Progressive）和CAVLC；
+</span></span><span class="line"><span class="cl">2、Extended profile：进阶画质。支持I/P/B/SP/SI 帧，只支持无交错（Progressive）和CAVLC；(用的少)
+</span></span><span class="line"><span class="cl">3、Main profile：主流画质。提供I/P/B 帧，支持无交错（Progressive）和交错（Interlaced）， 也支持CAVLC 和CABAC 的支持；
+</span></span><span class="line"><span class="cl">4、High profile：高级画质。在main Profile 的基础上增加了8x8内部预测、自定义量化、 无损视频编码和更多的YUV 格式；
+</span></span><span class="line"><span class="cl">　　H.264 Baseline profile、Extended profile和Main profile都是针对8位样本数据、4:2:0格式(YUV)的视频序列。在相同配置情况下，High profile（HP）可以比Main profile（MP）降低10%的码率。 根据应用领域的不同，Baseline profile多应用于实时通信领域，Main profile多应用于流媒体领域，High profile则多应用于广电和存储领域。
+</span></span><span class="line"><span class="cl">　　
+</span></span><span class="line"><span class="cl">　　
+</span></span><span class="line"><span class="cl">　　nt SrsRtmpConn::acquire_publish(SrsSource* source, bool is_edge)
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">int ret = ERROR_SUCCESS;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">if (!source-&gt;can_publish(is_edge)) {
+</span></span><span class="line"><span class="cl">ret = ERROR_SYSTEM_STREAM_BUSY;
+</span></span><span class="line"><span class="cl">srs_warn(&#34;stream %s is already publishing. ret=%d&#34;,
+</span></span><span class="line"><span class="cl">req-&gt;get_stream_url().c_str(), ret);
+</span></span><span class="line"><span class="cl">return ret;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">// when edge, ignore the publish event, directly proxy it.
+</span></span><span class="line"><span class="cl">if (is_edge) {
+</span></span><span class="line"><span class="cl">if ((ret = source-&gt;on_edge_start_publish()) != ERROR_SUCCESS) {
+</span></span><span class="line"><span class="cl">srs_error(&#34;notice edge start publish stream failed. ret=%d&#34;, ret);
+</span></span><span class="line"><span class="cl">return ret;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">} else {
+</span></span><span class="line"><span class="cl">if ((ret = source-&gt;on_publish()) != ERROR_SUCCESS) {
+</span></span><span class="line"><span class="cl">srs_error(&#34;notify publish failed. ret=%d&#34;, ret);
+</span></span><span class="line"><span class="cl">return ret;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">return ret;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">清者自清:
+</span></span><span class="line"><span class="cl">int SrsRtmpConn::process_publish_message(SrsSource* source, SrsCommonMessage* msg, bool vhost_is_edge)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">清者自清:
+</span></span><span class="line"><span class="cl">int SrsSource::on_audio(SrsCommonMessage* shared_audio)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">清者自清:
+</span></span><span class="line"><span class="cl">int SrsPublishRecvThread::handle(SrsCommonMessage* msg)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">清者自清:
+</span></span><span class="line"><span class="cl">SrsSource
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">清者自清:
+</span></span><span class="line"><span class="cl">SrsRtmpConn
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">清者自清:
+</span></span><span class="line"><span class="cl">SrsPublishRecvThread
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">清者自清:
+</span></span><span class="line"><span class="cl">SrsPlayEdge
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">清者自清:
+</span></span><span class="line"><span class="cl">SrsPublishEdge
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">清者自清:
+</span></span><span class="line"><span class="cl">http_hooks_on_policy_publish
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">清者自清:
+</span></span><span class="line"><span class="cl">http_hooks_on_policy_unpublish
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">清者自清:
+</span></span><span class="line"><span class="cl">[图片]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">清者自清:
+</span></span><span class="line"><span class="cl">SrsGoApiRaw::SrsGoApiRaw(SrsServer *svr)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="http://wiki.intra.gomeplus.com/download/attachments/75367792/image2021-8-26%2017%3A16%3A59.png?version=1&amp;modificationDate=1629969420000&amp;api=v2" alt="img"></p>
+<p><img src="http://wiki.intra.gomeplus.com/download/attachments/75367792/image2021-8-26%2017%3A17%3A49.png?version=1&amp;modificationDate=1629969470000&amp;api=v2" alt="img"></p>
+<h2 id="推送">推送</h2>
+<p>1、首先分析RTMP连接</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">SrsServer</span><span class="o">::</span><span class="n">listen_rtmp</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">SrsConnection</span><span class="o">::</span><span class="n">cycle</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">SrsRecvThread</span><span class="o">::</span><span class="n">cycle</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ret</span> <span class="o">=</span> <span class="n">rtmp</span><span class="o">-&gt;</span><span class="n">recv_message</span><span class="p">(</span><span class="o">&amp;</span><span class="n">msg</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">==</span> <span class="n">ERROR_SUCCESS</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">ret</span> <span class="o">=</span> <span class="n">handler</span><span class="o">-&gt;</span><span class="n">handle</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="mf">10.112.179.21</span> 
+</span></span><span class="line"><span class="cl"><span class="mf">10.115.37.56</span>
+</span></span><span class="line"><span class="cl"><span class="nl">rtmp</span><span class="p">:</span><span class="c1">//zhibo.xx.com.cn/live/lyl
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">srs</span><span class="o">/</span><span class="n">objs</span><span class="o">/</span><span class="n">srs</span><span class="p">.</span><span class="n">log</span>
+</span></span><span class="line"><span class="cl"><span class="n">gome</span>
+</span></span><span class="line"><span class="cl"> <span class="n">tail</span> <span class="o">-</span><span class="n">f</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">srs</span><span class="o">/</span><span class="n">objs</span><span class="o">/</span><span class="n">srs</span><span class="p">.</span><span class="n">log</span> <span class="o">|</span><span class="n">grep</span> <span class="n">trace</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">SrsPublishRecvThread</span><span class="o">::</span><span class="n">handle</span><span class="p">(</span><span class="n">SrsCommonMessage</span><span class="o">*</span> <span class="n">msg</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl"><span class="n">SrsRtmpConn</span><span class="o">::</span><span class="n">handle_publish_message</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">SrsRtmpConn</span><span class="o">::</span><span class="n">handle_publish_message</span><span class="p">(</span><span class="n">SrsSource</span> <span class="o">*</span><span class="n">source</span><span class="p">,</span> <span class="n">SrsCommonMessage</span> <span class="o">*</span><span class="n">msg</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">is_fmle</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">vhost_is_edge</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// for edge, directly proxy message to origin.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>         <span class="c1">// process audio packet
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>         <span class="c1">// process video packet
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>         <span class="c1">// process onMetaData
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">SrsSource</span><span class="o">::</span><span class="n">on_video</span><span class="p">(</span><span class="n">SrsCommonMessage</span><span class="o">*</span> <span class="n">shared_video</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="第二部分参与开发">第二部分：参与开发</h1>
+<h2 id="资料搜集">资料搜集</h2>
+<ul>
+<li>
+<p><a href="https://gitee.com/ossrs/srs/wikis/v4_CN_SrsLog">https://gitee.com/ossrs/srs/wikis/v4_CN_SrsLog</a></p>
+</li>
+<li>
+<p><a href="https://www.bilibili.com/video/BV1Lh411v7kD/">https://www.bilibili.com/video/BV1Lh411v7kD/</a></p>
+</li>
+<li>
+<p><a href="https://www.bilibili.com/video/BV1Lh411v7kD/">https://www.bilibili.com/video/BV1Lh411v7kD/</a></p>
+</li>
+<li>
+<p>AvStackDocs-master</p>
+</li>
+</ul>
+<h2 id="动手">动手</h2>
+<h3 id="task1">task1</h3>
+<p><a href="https://blog.csdn.net/m0_56595685/article/details/122594797">https://blog.csdn.net/m0_56595685/article/details/122594797</a></p>
+<p>FFmpeg播放WebRTC的流，全开源的方案来了，没有二进制库和私有协议，全都是开源代码和公开的协议，欢迎一起来搞metaRTC。</p>
+<h3 id="todo02avstackdocs-master">todo02：AvStackDocs-master</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">10.112.178.189  
+</span></span><span class="line"><span class="cl">/app/work/srs/trunk
+</span></span><span class="line"><span class="cl">nohup ./objs/srs -c conf/srs.conf &amp;
+</span></span><span class="line"><span class="cl">rtmp://10.112.178.189:1935/live/watchpoint
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><a href="https://github.com/ossrs/srs/issues/2856">https://github.com/ossrs/srs/issues/2856</a></p>
+<p><a href="https://github.com/ossrs/srs/issues/2891">https://github.com/ossrs/srs/issues/2891</a></p>
+<p>SRS云服务器是nodejs实现的开源方案，代码在<a href="https://github.com/ossrs/srs-cloud">srs-cloud</a>，欢迎一起来搞。</p>
+<p>SRS云服务器面向鼠标编程，让每个人都能做音视频业务，不懂音视频的可以，懂音视频的也可以，种地的可以，撸网线的可以，剪电影的可以，背摄像机的也可以，跳舞的可以，唱歌的可以，会用电脑有微信就可以，守法公民都可以。</p>
+<p>LightHouse是腾讯云的轻量服务器（云服务器），一键就可以购买内置了SRS服务器的云服务器，而且带外网IP可以直接访问。
+使用说明，请参考视频<a href="https://www.bilibili.com/video/BV1844y1L7dL/">内置SRS的云服务器</a>。</p>
+<p><a href="https://github.com/ossrs/srs-cloud">https://github.com/ossrs/srs-cloud</a></p>
+<p><a href="https://github.com/ossrs/srs-cloud">https://github.com/ossrs/srs-cloud</a></p>
+<p><a href="https://github.com/ossrs/srs-cloud">https://github.com/ossrs/srs-cloud</a></p>
+<p>A lightweight open-source video cloud based on Nodejs, SRS, FFmpeg, WebRTC, etc.</p>
+<h2 id="depends">Depends</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">The software we depend <span class="k">on</span>:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Docker ok
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">yum install -y docker ok
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Redis ok
+</span></span><span class="line"><span class="cl">yum install -y redis 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Nginx, ok
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">yum install -y nginx
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">SSL: /etc/nginx/ssl
+</span></span><span class="line"><span class="cl">Certbot, docker --name certbot
+</span></span><span class="line"><span class="cl">Verify webroot: mgmt/containers/www/.well-known/acme-challenge/
+</span></span><span class="line"><span class="cl">Cert files: mgmt/containers/etc/letsencrypt/live/
+</span></span><span class="line"><span class="cl">SRS, docker --name srs-server
+</span></span><span class="line"><span class="cl">Config: mgmt/containers/conf/srs<span class="m">.</span>conf mount <span class="k">as</span> /usr/local/srs/conf/lighthouse<span class="m">.</span>conf
+</span></span><span class="line"><span class="cl">Volume: mgmt/containers/objs/nginx/html mount <span class="k">as</span> /usr/local/srs/objs/nginx/html
+</span></span><span class="line"><span class="cl">srs-hooks, docker --name srs-hooks
+</span></span><span class="line"><span class="cl">Volume: mgmt/containers/objs/nginx/html mount <span class="k">as</span> /usr/local/mgmt/containers/objs/nginx/html
+</span></span><span class="line"><span class="cl">tencent-cloud, docker --name tencent-cloud
+</span></span><span class="line"><span class="cl">CAM Authentication <span class="k">by</span> secretId <span class="k">and</span> secretKey.
+</span></span><span class="line"><span class="cl">ffmpeg, docker --name ffmpeg
+</span></span><span class="line"><span class="cl">FFmpeg <span class="k">and</span> ffprobe tools <span class="k">in</span> ossrs/srs:node-av
+</span></span><span class="line"><span class="cl">Prometheus, docker --name prometheus
+</span></span><span class="line"><span class="cl">Config: mgmt/containers/conf/prometheus<span class="m">.</span>yml
+</span></span><span class="line"><span class="cl"><span class="kr">Data </span>directory: mgmt/containers/data/prometheus
+</span></span><span class="line"><span class="cl">NodeExporter, docker --name node-exporter
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Develop</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Install dependencies:
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> mgmt <span class="o">&amp;&amp;</span> npm install
+</span></span><span class="line"><span class="cl">Run the mgmt backend:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> mgmt
+</span></span><span class="line"><span class="cl">npm start
+</span></span><span class="line"><span class="cl">Run the mgmt react ui:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> mgmt/ui
+</span></span><span class="line"><span class="cl">npm start
+</span></span><span class="line"><span class="cl">Access the browser: http://localhost:3000
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Troy</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2021-06-06 00:00
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a target="_blank" rel="license noopener" href="https://github.com/nusr/blog/blob/master/LICENSE">MIT</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/2021/python01/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">python入门教程</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/plan/oceanbase_read_01/">
+            <span class="next-text nav-default"> OceanBase 开源社区</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="wangcy6/wangcy6.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:wang_cyi@163.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/wangcy6" class="iconfont icon-github" title="github"></a>
+  <a href="https://wangcy6.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2022
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Troy</span>
+  </span>
+</div>
+<script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
+  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+    var languageCode = "zh-cn".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    timeago().render(document.querySelectorAll('.timeago'), languageCode);
+    timeago.cancel();  
+  </script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-138883536-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>

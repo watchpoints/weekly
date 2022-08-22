@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>中间件 on Troy的网络博客</title>
+    <link>https://wangcy6.github.io/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/</link>
+    <description>Recent content in 中间件 on Troy的网络博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 13 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MySQL实战45讲</title>
+      <link>https://wangcy6.github.io/post/2020/MySQL%E5%AE%9E%E6%88%9845%E8%AE%B2-%E5%8A%A8%E6%89%8B%E5%AE%9E%E9%AA%8C/</link>
+      <pubDate>Wed, 13 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2020/MySQL%E5%AE%9E%E6%88%9845%E8%AE%B2-%E5%8A%A8%E6%89%8B%E5%AE%9E%E9%AA%8C/</guid>
+      <description>问题： 假如公司没有大量业务？假如公司不重视mysql ？你就不学习了吗？ 回答：记录Mysql 学习过程。日供一卒 对于公司来说，业务，架构，甚至管</description>
+    </item>
+    
+    <item>
+      <title>MySQL实战45讲</title>
+      <link>https://wangcy6.github.io/post/2020/MySQL%E5%AE%9E%E6%88%9845%E8%AE%B2/</link>
+      <pubDate>Wed, 13 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2020/MySQL%E5%AE%9E%E6%88%9845%E8%AE%B2/</guid>
+      <description>问题： 假如公司没有大量业务？假如公司不重视mysql ？你就不学习了吗？ 回答：记录Mysql 学习过程。日供一卒 对于公司来说，业务，架构，甚至管</description>
+    </item>
+    
+    <item>
+      <title>redis知识卡</title>
+      <link>https://wangcy6.github.io/post/2020/server_redis/</link>
+      <pubDate>Wed, 13 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2020/server_redis/</guid>
+      <description>问题： reids成为后端开发人员必备技能，你对他了解多少？ 像电信公司 根本不用redis,其他公司之间拿过来使用 满足业务了， 你改如何学习，很简</description>
+    </item>
+    
+    <item>
+      <title>nginx核心知识100讲</title>
+      <link>https://wangcy6.github.io/post/2020/nginx%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86100%E8%AE%B2/</link>
+      <pubDate>Wed, 29 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2020/nginx%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86100%E8%AE%B2/</guid>
+      <description>下面重要概念记录 nginx核心知识100讲课件@陶辉 FQA-1 如何不影响服务情况下升级 FQA-2 为什么需要共享内存 FQA-3 如何优化 TCP消息的发送 10个步骤 了解下</description>
+    </item>
+    
+  </channel>
+</rss>

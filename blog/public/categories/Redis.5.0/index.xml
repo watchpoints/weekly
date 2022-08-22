@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Redis.5.0 on Troy的网络博客</title>
+    <link>https://wangcy6.github.io/categories/Redis.5.0/</link>
+    <description>Recent content in Redis.5.0 on Troy的网络博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 20 Nov 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/categories/Redis.5.0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Redis.5.0</title>
+      <link>https://wangcy6.github.io/post/2020/FQA_Redis/</link>
+      <pubDate>Wed, 20 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2020/FQA_Redis/</guid>
+      <description>知识卡(redis.5.0) 源码阅读 参考redis-3.0-annotated-huangz1990 内容 对象的类型和编码 1 2 3 4 5 6 7 8 9 10</description>
+    </item>
+    
+  </channel>
+</rss>

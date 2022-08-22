@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>redis on Troy的网络博客</title>
+    <link>https://wangcy6.github.io/tags/redis/</link>
+    <description>Recent content in redis on Troy的网络博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 13 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/tags/redis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>redis知识卡</title>
+      <link>https://wangcy6.github.io/post/2020/server_redis/</link>
+      <pubDate>Wed, 13 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2020/server_redis/</guid>
+      <description>问题： reids成为后端开发人员必备技能，你对他了解多少？ 像电信公司 根本不用redis,其他公司之间拿过来使用 满足业务了， 你改如何学习，很简</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Products on Troy的网络博客</title>
+    <link>https://wangcy6.github.io/product/</link>
+    <description>Recent content in Products on Troy的网络博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language><atom:link href="https://wangcy6.github.io/product/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://wangcy6.github.io/product/RocketMQ/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/product/RocketMQ/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://wangcy6.github.io/product/thrift.apache/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/product/thrift.apache/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

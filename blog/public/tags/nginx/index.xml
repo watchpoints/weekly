@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nginx on Troy的网络博客</title>
+    <link>https://wangcy6.github.io/tags/nginx/</link>
+    <description>Recent content in nginx on Troy的网络博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 29 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/tags/nginx/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>nginx核心知识100讲</title>
+      <link>https://wangcy6.github.io/post/2020/nginx%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86100%E8%AE%B2/</link>
+      <pubDate>Wed, 29 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2020/nginx%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86100%E8%AE%B2/</guid>
+      <description>下面重要概念记录 nginx核心知识100讲课件@陶辉 FQA-1 如何不影响服务情况下升级 FQA-2 为什么需要共享内存 FQA-3 如何优化 TCP消息的发送 10个步骤 了解下</description>
+    </item>
+    
+  </channel>
+</rss>

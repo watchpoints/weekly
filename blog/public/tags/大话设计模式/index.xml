@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>大话设计模式 on Troy的网络博客</title>
+    <link>https://wangcy6.github.io/tags/%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
+    <description>Recent content in 大话设计模式 on Troy的网络博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 27 Nov 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/tags/%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>设计之禅</title>
+      <link>https://wangcy6.github.io/post/2020/%E6%A8%A1%E6%9D%BF/</link>
+      <pubDate>Wed, 27 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2020/%E6%A8%A1%E6%9D%BF/</guid>
+      <description>陈咬金的三板斧 第一斧：技术本质是什么？ 第二斧：解决了什么问题？ 第三斧：如何使用？</description>
+    </item>
+    
+    <item>
+      <title>设计之禅</title>
+      <link>https://wangcy6.github.io/post/book/book_04_%E8%AE%BE%E8%AE%A1%E4%B9%8B%E7%A6%85/</link>
+      <pubDate>Wed, 27 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/book/book_04_%E8%AE%BE%E8%AE%A1%E4%B9%8B%E7%A6%85/</guid>
+      <description>书籍 设计模式：可复用面向对象软件的基础 领域驱动设计 重构&amp;ndash;改善既有代码的设计 设计模式精解－GoF 23 种设计模式解析附 C++实现源码 代</description>
+    </item>
+    
+  </channel>
+</rss>

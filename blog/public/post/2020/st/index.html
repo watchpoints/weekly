@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>协程库 - Troy的网络博客</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Troy" /><meta name="description" content="高性能可扩展服务" /><meta name="keywords" content="daily-interview-question, Github, c&#43;&#43;, Leetcode 题解, 后端面试" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.101.0 with theme even" />
+
+
+<link rel="canonical" href="https://wangcy6.github.io/post/2020/st/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="协程库" />
+<meta property="og:description" content="高性能可扩展服务" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wangcy6.github.io/post/2020/st/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2020-03-14T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-03-14T00:00:00+00:00" />
+
+<meta itemprop="name" content="协程库">
+<meta itemprop="description" content="高性能可扩展服务"><meta itemprop="datePublished" content="2020-03-14T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-03-14T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1532">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="协程库"/>
+<meta name="twitter:description" content="高性能可扩展服务"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="https://github.com/wangcy6/weekly/tree/master/book">
+        <li class="mobile-menu-item">阅读清单</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于我</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://github.com/wangcy6/weekly/tree/master/book">阅读清单</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于我</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">协程库</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-03-14 00:00 </span>
+        <div class="post-category">
+            <a href="/categories/code_reading/"> code_reading </a>
+            </div>
+          <span class="more-meta"> 约 1532 字 </span>
+          <span class="more-meta"> 预计阅读 4 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#文档fqa">文档FQA</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#代码fqa">代码FQA</a>
+      <ul>
+        <li><a href="#重要数据结构">重要数据结构</a></li>
+        <li><a href="#重要接口">重要接口</a></li>
+        <li><a href="#循环处理">循环处理</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+  <div class="post-outdated">
+    <div class="warn">
+      <p>【注意】最后更新于 <span class="timeago" datetime="2020-03-14T00:00:00" title="March 14, 2020">March 14, 2020</span>，文中内容可能已过时，请谨慎使用。</p>
+    </div>
+  </div>
+    <div class="post-content">
+      <h1 id="卡片">卡片</h1>
+<table>
+<thead>
+<tr>
+<th>协程库</th>
+<th>语言</th>
+<th>开发者</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/ossrs/state-threads">state threads library</a></td>
+<td>3000行<a href="https://github.com/wangcy6/reading_code_note/tree/master/liunx/st">C代码</a></td>
+<td><a href="https://coolshell.cn/articles/12012.html">历史渊源</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="摘要">摘要</h1>
+<blockquote>
+<p>今日理解。</p>
+</blockquote>
+<p>一、一个普通的应用程序，假如采用st库，那么这个应用具备2个特点</p>
+<ul>
+<li>highly scalable applications，在负载伸缩和系统伸缩方面 将很容易的扩展，</li>
+<li>design of fast ，让开发快速简单，可以自由地使用静态变量和不可重入的库函数。</li>
+</ul>
+<p>二、scalable：是什么</p>
+<p>简单说，一个用户把cpu个数，或者线程个数增加一倍，性能也应该提一倍(system1蓝色原来的配置,system2 提高一倍之后的)</p>
+<blockquote>
+<p>an application has a good <em>load scalability</em> if it can sustain its throughput over a wide range of loads</p>
+</blockquote>
+<p><img src="https://i.loli.net/2020/03/15/hcZ2Fp69D3W1tYu.png" alt="image.png"></p>
+<p>三、ST的多核架构核心是：Multi-Process EDSM，</p>
+<p>继承了 <em>Multi-Process</em>, <em>Multi-Threaded</em>, and <em>Event-Driven State Machine</em> architectures全部优点。</p>
+<p>The State Threads library combines the advantages of all of the above architectures。</p>
+<table>
+<thead>
+<tr>
+<th>Architecture</th>
+<th>load  scalability</th>
+<th>system scalability</th>
+<th>note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Multi-Process Architecture</td>
+<td>poor</td>
+<td>good</td>
+<td>负载差</td>
+</tr>
+<tr>
+<td>Multi-Threaded Architecture</td>
+<td>good</td>
+<td>poor</td>
+<td>有资源竞争</td>
+</tr>
+<tr>
+<td>Event-Driven State Machine Architecture</td>
+<td>good</td>
+<td>poor</td>
+<td>系统负载扩展差</td>
+</tr>
+<tr>
+<td>Multi-Process EDSM</td>
+<td>good</td>
+<td>good</td>
+<td>完美</td>
+</tr>
+</tbody>
+</table>
+<p>但是，</p>
+<p>这是半成品，我只提供一个lib，因为其他方面，操作系统或者第三方技术已经做很好了。完全交给开发者，</p>
+<blockquote>
+<p>Process management is not in the ST&rsquo;s scope but instead is left up to the application.</p>
+</blockquote>
+<p>具体完成过程需要开发者来实现</p>
+<p>用户来决定fork多少进程，每个进程分配多少资源 。</p>
+<blockquote>
+<p>The application designer has full control of how many processes to create</p>
+</blockquote>
+<h1 id="项目实践">项目实践</h1>
+<ul>
+<li>task 编译成动态库和静态库 10分钟</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">git</span> <span class="n">clone</span> <span class="nl">https</span><span class="p">:</span><span class="c1">//github.com/wangcy6/state-threads.git
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">cd</span> <span class="n">state</span><span class="o">-</span><span class="n">threads</span>
+</span></span><span class="line"><span class="cl"><span class="n">make</span> <span class="n">linux</span><span class="o">-</span><span class="n">debug</span> <span class="c1">//不同平台
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">state</span><span class="o">-</span><span class="n">threads</span><span class="o">/</span><span class="n">obj</span><span class="o">/</span>
+</span></span><span class="line"><span class="cl"><span class="n">libst</span><span class="p">.</span><span class="n">so</span><span class="mf">.1.9</span>
+</span></span><span class="line"><span class="cl"><span class="n">libst</span><span class="p">.</span><span class="n">a</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> <span class="n">cd</span> <span class="n">examples</span><span class="o">/</span>
+</span></span><span class="line"><span class="cl"> <span class="n">make</span> <span class="n">linux</span><span class="o">-</span><span class="n">debug</span> <span class="c1">//不同平台
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="n">EXAMPLES</span>    <span class="o">=</span> <span class="err">$</span><span class="p">(</span><span class="n">OBJDIR</span><span class="p">)</span><span class="o">/</span><span class="n">lookupdns</span> <span class="err">$</span><span class="p">(</span><span class="n">OBJDIR</span><span class="p">)</span><span class="o">/</span><span class="n">proxy</span> <span class="err">$</span><span class="p">(</span><span class="n">OBJDIR</span><span class="p">)</span><span class="o">/</span><span class="n">server</span>  
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl"><span class="n">USAGE</span>
+</span></span><span class="line"><span class="cl">    <span class="n">server</span> <span class="o">-</span><span class="n">l</span> <span class="o">&lt;</span><span class="n">log_directory</span><span class="o">&gt;</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">options</span><span class="o">&gt;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="n">Possible</span> <span class="nl">options</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="o">-</span><span class="n">p</span> <span class="o">&lt;</span><span class="n">num_processes</span><span class="o">&gt;</span>      <span class="n">create</span> <span class="n">specified</span> <span class="n">number</span> <span class="n">of</span> <span class="n">processes</span>
+</span></span><span class="line"><span class="cl">    <span class="o">-</span><span class="n">t</span> <span class="o">&lt;</span><span class="n">min_thr</span><span class="o">&gt;:&lt;</span><span class="n">max_thr</span><span class="o">&gt;</span>  <span class="n">specify</span> <span class="kr">thread</span> <span class="n">limits</span> <span class="n">per</span> <span class="n">listening</span> <span class="n">socket</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">across</span> <span class="n">all</span> <span class="n">processes</span>
+</span></span><span class="line"><span class="cl">  <span class="p">.</span>
+</span></span><span class="line"><span class="cl">    
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>阅读 examples代码 50分钟</p>
+<blockquote>
+<p><a href="https://github.com/wangcy6/state-threads/blob/master/examples/server.c">https://github.com/wangcy6/state-threads/blob/master/examples/server.c</a></p>
+</blockquote>
+</li>
+</ul>
+<p>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;看到这里可以 -end&mdash;&mdash;下面是记录 &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</p>
+<h1 id="遗留问题">遗留问题</h1>
+<ul>
+<li>st 真的有那么厉害吗？和golang 等其他语言比较是不是弱？</li>
+<li>st根本无法利用多核，怎么宣称是为互联网应用而生的呢？</li>
+</ul>
+<h2 id="文档fqa">文档FQA</h2>
+<p>阅读文档1 ，累计盘茄次数 5    耗时 130分钟</p>
+<p>理解 <strong>ST本质上仍然是基于<a href="https://coolshell.cn/articles/12012.html">EDSM模型</a>，但旨在取代传统的异步回调方式</strong> ,<strong>为<a href="https://github.com/zfengzhen/Blog/blob/master/article/%E4%B8%BA%E4%BA%92%E8%81%94%E7%BD%91%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E8%80%8C%E7%94%9F%E7%9A%84State%20Threads%5B%E5%B8%B8%E8%A7%81%E5%90%8E%E5%8F%B0%E6%9E%B6%E6%9E%84%E6%B5%85%E6%9E%90%5D.md">互联网应用程</a>序而生<a href="https://www.cnblogs.com/NerdWill/p/6166220.html">的State Threads</a></strong></p>
+<p>涉及内容</p>
+<p><strong>State Threads Library Documentation</strong></p>
+<ul>
+<li>
+<p><a href="http://state-threads.sourceforge.net/docs/st.html"><strong>Introductory paper</strong></a></p>
+</li>
+<li>
+<p><a href="http://state-threads.sourceforge.net/docs/reference.html"><strong>Complete reference</strong></a></p>
+</li>
+<li>
+<p><a href="http://state-threads.sourceforge.net/docs/notes.html"><strong>Programming notes</strong></a></p>
+</li>
+<li>
+<p><a href="http://state-threads.sourceforge.net/docs/faq.html"><strong>Frequently Asked Questions and answers (FAQ)</strong></a></p>
+</li>
+<li>
+<p>ST scheduler （不懂）</p>
+</li>
+</ul>
+<blockquote>
+<p>the ST scheduler is hidden inside the library and invisible to an application writer.</p>
+</blockquote>
+<ul>
+<li>traditional EDSM (不懂)</li>
+</ul>
+<blockquote>
+<p>event-driven state machines (EDSM)</p>
+</blockquote>
+<ul>
+<li>virtual processor (不懂)</li>
+</ul>
+<blockquote>
+<p>ST的多核架构</p>
+</blockquote>
+<ul>
+<li>
+<p>，<strong>ST的threads可以并发地线性地处理I/O事件</strong> （不懂）</p>
+</li>
+<li>
+<p>execute state   event wait queue</p>
+</li>
+<li>
+<p>setjmp/longjmp （不懂）</p>
+<p>the context switch overhead is a cost of doing <code>_setjmp()/_longjmp()</code> (no system calls are involved).</p>
+</li>
+</ul>
+<p>并发不是并行，只要不让cpu闲着就行 这就是好的设计，例如多线程，多进程。</p>
+<p>whenever a thread needs to wait for a specific event to occur, it saves its execution state and puts itself on an event wait queue &ndash; this is equivalent to registering a callback in traditional EDSMs.</p>
+<p>Then the scheduler is executed. It pulls the first thread from the run queue and restores its execution state &ndash; this is equivalent to invoking a callback in traditional EDSMs.</p>
+<p>If there are no runnable threads (the run queue is empty), the scheduler waits for I/O or timing events using <code>select()</code>, <code>poll()</code> or possibly other exotic mechanism available on that OS.</p>
+<p>When events occur, the scheduler &ldquo;wakes up&rdquo; threads waiting for those events by putting them on the run queue. Then it restores the execution state of the first runnable thread. The cycle is complete.</p>
+<ul>
+<li>看了一下代码和运行一个例子 懂了</li>
+</ul>
+<p><img src="https://i.loli.net/2019/11/18/wscU78RMAI6ZDmf.png" alt="image.png"></p>
+<ul>
+<li>
+<h1 id="the-go-schedulerhttpmorsmachinedkgo-scheduler"><a href="http://morsmachine.dk/go-scheduler">The Go scheduler</a></h1>
+</li>
+<li>
+<p>TCP-Finite-State-Machine <a href="https://github.com/wangcy6/weekly/blob/master/daily-interview/5.%E6%89%8B%E7%BB%98tcp%E7%8A%B6%E6%80%81_home.md">TCP 有限状态机</a></p>
+</li>
+</ul>
+<h2 id="代码fqa">代码FQA</h2>
+<h3 id="重要数据结构">重要数据结构</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">typedef</span> <span class="k">struct</span> <span class="n">_st_vp</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">_st_thread_t</span> <span class="o">*</span><span class="n">idle_thread</span><span class="p">;</span> <span class="cm">/* Idle thread for this vp */</span>
+</span></span><span class="line"><span class="cl">  <span class="n">st_utime_t</span> <span class="n">last_clock</span><span class="p">;</span>     <span class="cm">/* The last time we went into vp_check_clock() */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">_st_clist_t</span> <span class="n">run_q</span><span class="p">;</span>    <span class="cm">/* run queue for this vp */</span>
+</span></span><span class="line"><span class="cl">  <span class="n">_st_clist_t</span> <span class="n">io_q</span><span class="p">;</span>     <span class="cm">/* io queue for this vp */</span>
+</span></span><span class="line"><span class="cl">  <span class="n">_st_clist_t</span> <span class="n">zombie_q</span><span class="p">;</span> <span class="cm">/* zombie queue for this vp */</span>
+</span></span><span class="line"><span class="cl"><span class="cp">#ifdef DEBUG
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>  <span class="n">_st_clist_t</span> <span class="n">thread_q</span><span class="p">;</span> <span class="cm">/* all threads of this vp */</span>
+</span></span><span class="line"><span class="cl"><span class="cp">#endif
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>  <span class="kt">int</span> <span class="n">pagesize</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">_st_thread_t</span> <span class="o">*</span><span class="n">sleep_q</span><span class="p">;</span> <span class="cm">/* sleep queue for this vp */</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">sleepq_size</span><span class="p">;</span>       <span class="cm">/* number of threads on sleep queue */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cp">#ifdef ST_SWITCH_CB
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>  <span class="n">st_switch_cb_t</span> <span class="n">switch_out_cb</span><span class="p">;</span> <span class="cm">/* called when a thread is switched out */</span>
+</span></span><span class="line"><span class="cl">  <span class="n">st_switch_cb_t</span> <span class="n">switch_in_cb</span><span class="p">;</span>  <span class="cm">/* called when a thread is switched in */</span>
+</span></span><span class="line"><span class="cl"><span class="cp">#endif
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="p">}</span> <span class="n">_st_vp_t</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="重要接口">重要接口</h3>
+<h3 id="循环处理">循环处理</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="o">*</span><span class="nf">_st_idle_thread_start</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">_st_thread_t</span> <span class="o">*</span><span class="n">me</span> <span class="o">=</span> <span class="n">_ST_CURRENT_THREAD</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">_st_active_count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="cm">/* Idle vp till I/O is ready or the smallest timeout expired */</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_ST_VP_IDLE</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">        <span class="cm">/* Check sleep queue for expired threads */</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_st_vp_check_clock</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">        <span class="n">me</span><span class="o">-&gt;</span><span class="n">state</span> <span class="o">=</span> <span class="n">_ST_ST_RUNNABLE</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_ST_SWITCH_CONTEXT</span><span class="p">(</span><span class="n">me</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="cm">/* No more threads */</span>
+</span></span><span class="line"><span class="cl">    <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="cm">/* NOTREACHED */</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * Switch away from the current thread context by saving its state 
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * and calling the thread scheduler
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
+</span></span><span class="line"><span class="cl"><span class="cp">#define _ST_SWITCH_CONTEXT(_thread)       \
+</span></span></span><span class="line"><span class="cl"><span class="cp">    ST_BEGIN_MACRO                        \
+</span></span></span><span class="line"><span class="cl"><span class="cp">    if (!MD_SETJMP((_thread)-&gt;context)) { \
+</span></span></span><span class="line"><span class="cl"><span class="cp">      _st_vp_schedule();                  \
+</span></span></span><span class="line"><span class="cl"><span class="cp">    }                                     \
+</span></span></span><span class="line"><span class="cl"><span class="cp">    ST_END_MACRO
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span> 
+</span></span><span class="line"><span class="cl"><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * Restore a thread context that was saved by _ST_SWITCH_CONTEXT 
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * or initialized by _ST_INIT_CONTEXT
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
+</span></span><span class="line"><span class="cl"><span class="cp">#define _ST_RESTORE_CONTEXT(_thread)   \
+</span></span></span><span class="line"><span class="cl"><span class="cp">    ST_BEGIN_MACRO                     \
+</span></span></span><span class="line"><span class="cl"><span class="cp">    _ST_SET_CURRENT_THREAD(_thread);   \
+</span></span></span><span class="line"><span class="cl"><span class="cp">    MD_LONGJMP((_thread)-&gt;context, 1); \
+</span></span></span><span class="line"><span class="cl"><span class="cp">    ST_END_MACRO
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span> 
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">_st_vp_schedule</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">_st_thread_t</span> <span class="o">*</span><span class="kr">thread</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">_ST_RUNQ</span><span class="p">.</span><span class="n">next</span> <span class="o">!=</span> <span class="o">&amp;</span><span class="n">_ST_RUNQ</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="cm">/* Pull thread off of the run queue */</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">thread</span> <span class="o">=</span> <span class="n">_ST_THREAD_PTR</span><span class="p">(</span><span class="n">_ST_RUNQ</span><span class="p">.</span><span class="n">next</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_ST_DEL_RUNQ</span><span class="p">(</span><span class="kr">thread</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="cm">/* If there are no threads to run, switch to the idle thread */</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">thread</span> <span class="o">=</span> <span class="n">_st_this_vp</span><span class="p">.</span><span class="n">idle_thread</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ST_ASSERT</span><span class="p">(</span><span class="kr">thread</span><span class="o">-&gt;</span><span class="n">state</span> <span class="o">==</span> <span class="n">_ST_ST_RUNNABLE</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="cm">/* Resume the thread */</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">thread</span><span class="o">-&gt;</span><span class="n">state</span> <span class="o">=</span> <span class="n">_ST_ST_RUNNING</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">_ST_RESTORE_CONTEXT</span><span class="p">(</span><span class="kr">thread</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Troy</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-03-14 00:00
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a target="_blank" rel="license noopener" href="https://github.com/nusr/blog/blob/master/LICENSE">MIT</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/2020/zooKeeper/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">zooKeeper</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/ARTS/ARTS_2020_12_weekly/">
+            <span class="next-text nav-default">ARTS_2012_weekly_5</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="wangcy6/wangcy6.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:wang_cyi@163.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/wangcy6" class="iconfont icon-github" title="github"></a>
+  <a href="https://wangcy6.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2022
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Troy</span>
+  </span>
+</div>
+<script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
+  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+    var languageCode = "zh-cn".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    timeago().render(document.querySelectorAll('.timeago'), languageCode);
+    timeago.cancel();  
+  </script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-138883536-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>

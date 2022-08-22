@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Tidb学习记录（1） - Troy的网络博客</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Troy" /><meta name="description" content="parser" /><meta name="keywords" content="daily-interview-question, Github, c&#43;&#43;, Leetcode 题解, 后端面试" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.101.0 with theme even" />
+
+
+<link rel="canonical" href="https://wangcy6.github.io/post/tidb/parse/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Tidb学习记录（1）" />
+<meta property="og:description" content="parser" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wangcy6.github.io/post/tidb/parse/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-07-18T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-07-18T00:00:00+00:00" />
+
+<meta itemprop="name" content="Tidb学习记录（1）">
+<meta itemprop="description" content="parser"><meta itemprop="datePublished" content="2021-07-18T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-07-18T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2627">
+<meta itemprop="keywords" content="mysql," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Tidb学习记录（1）"/>
+<meta name="twitter:description" content="parser"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="https://github.com/wangcy6/weekly/tree/master/book">
+        <li class="mobile-menu-item">阅读清单</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于我</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://github.com/wangcy6/weekly/tree/master/book">阅读清单</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于我</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Tidb学习记录（1）</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-07-18 00:00 </span>
+        
+          <span class="more-meta"> 约 2627 字 </span>
+          <span class="more-meta"> 预计阅读 6 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#使用tiup-部署集群">使用tiup 部署集群</a></li>
+    <li><a href="#vpn-环境">vpn 环境</a>
+      <ul>
+        <li><a href="#准备">准备</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#替换成自己编译">替换成自己编译</a></li>
+      </ul>
+    </li>
+    <li><a href="#如何单元测试">如何单元测试</a></li>
+    <li><a href="#--q1之前根本没接触过parser该从哪里开始呀">##  Q1之前根本没接触过parser，该从哪里开始呀？</a>
+      <ul>
+        <li><a href="#步骤1--阅读-三十分钟成为contributor--提升tidb-parser对mysql-80语法兼容性">步骤1 ： 阅读 三十分钟成为Contributor | 提升TiDB Parser对MySQL 8.0语法兼容性</a></li>
+        <li><a href="#步骤2-createtablestmt为例子tidb是如何新建一张表的">步骤2: CreateTableStmt为例子tiDB是如何新建一张表的。</a></li>
+      </ul>
+    </li>
+    <li><a href="#q2如何了解-planner模块">Q2：如何了解 planner模块</a></li>
+    <li><a href="#步骤2-查看代码">步骤2 查看代码</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#q3如何了解ddl-模块">Q3：如何了解DDL 模块</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#issue-18149-合并">issue 18149 [合并]</a></li>
+    <li><a href="#ssues9815httpsgithubcompingcaptidbissues9815"><a href="https://github.com/pingcap/tidb/issues/9815">ssues/9815</a></a>
+      <ul>
+        <li></li>
+        <li><a href="#输出">输出</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#第一天">第一天：</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+  <div class="post-outdated">
+    <div class="hint">
+      <p>【注意】最后更新于 <span class="timeago" datetime="2021-07-18T00:00:00" title="July 18, 2021">July 18, 2021</span>，文中内容可能已过时，请谨慎使用。</p>
+    </div>
+  </div>
+    <div class="post-content">
+      <p>说明：</p>
+<ul>
+<li>parser 模块</li>
+</ul>
+<p><a href="https://docs.qq.com/sheet/DSlBwS3VCb01kTnZw?tab=BB08J2&amp;confirmed=1">https://docs.qq.com/sheet/DSlBwS3VCb01kTnZw?tab=BB08J2&amp;confirmed=1</a></p>
+<p><a href="https://docs.qq.com/sheet/DSlBwS3VCb01kTnZw?tab=BB08J2">https://docs.qq.com/sheet/DSlBwS3VCb01kTnZw?tab=BB08J2</a></p>
+<p><a href="https://github.com/pingcap/blog">https://github.com/pingcap/blog</a></p>
+<p><a href="https://github.com/pingcap/tidb/issues/20804">https://github.com/pingcap/tidb/issues/20804</a></p>
+<p><a href="https://github.com/pingcap/tidb/issues/20804#sig/DDL">https://github.com/pingcap/tidb/issues/20804#sig/DDL</a></p>
+<h1 id="基本操作parser">基本操作parser</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="nx">https</span><span class="o">:</span><span class="c1">//github.com/watchpoints/parser
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">https</span><span class="o">:</span><span class="c1">//github.com/pingcap/parser
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">git</span> <span class="nx">reset</span> <span class="o">--</span><span class="nx">hard</span> <span class="nx">origin</span><span class="o">/</span><span class="nx">master</span> <span class="c1">// git 放弃本地修改 强制更新
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">git</span> <span class="nx">remote</span> <span class="nx">add</span> <span class="nx">upstream</span> <span class="c1">//https://github.com/pingcap/parser.git
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err">#</span><span class="nx">切换到主分支</span>
+</span></span><span class="line"><span class="cl"><span class="nx">git</span> <span class="nx">checkout</span> <span class="nx">master</span>
+</span></span><span class="line"><span class="cl"><span class="nx">git</span> <span class="nx">fetch</span> <span class="nx">upstream</span>
+</span></span><span class="line"><span class="cl"><span class="nx">git</span> <span class="nx">merge</span> <span class="nx">upstream</span><span class="o">/</span><span class="nx">master</span>
+</span></span><span class="line"><span class="cl"><span class="nx">git</span> <span class="nx">push</span> <span class="nx">origin</span> <span class="nx">master</span>
+</span></span><span class="line"><span class="cl"><span class="nx">git</span> <span class="nx">checkout</span> <span class="nx">dev_study</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">git</span><span class="err">@</span><span class="nx">github</span><span class="p">.</span><span class="nx">com</span><span class="o">:</span><span class="nx">watchpoints</span><span class="o">/</span><span class="nx">parser</span><span class="p">.</span><span class="nx">git</span>	
+</span></span><span class="line"><span class="cl"><span class="nx">git</span> <span class="nx">remote</span> <span class="o">-</span><span class="nx">v</span> 
+</span></span><span class="line"><span class="cl"><span class="nx">git</span> <span class="nx">checkout</span> <span class="o">-</span><span class="nx">b</span> <span class="nx">wangchuanyi</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="使用tiup-部署集群">使用tiup 部署集群</h2>
+<h2 id="vpn-环境">vpn 环境</h2>
+<h3 id="准备">准备</h3>
+<ol>
+<li>使用tiup 部署集群</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">cd</span> /data/tidb/tiup
+</span></span><span class="line"><span class="cl">tiup cluster deploy tidb-test  v5.0.2 ./topology1.yaml --user root -p <span class="c1">##部署</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">root@money:/data/tidb/tiup# cat topology1.yaml
+</span></span><span class="line"><span class="cl"><span class="c1"># # Global variables are applied to all deployments and used as the default value of</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># # the deployments if a specific deployment value is missing.</span>
+</span></span><span class="line"><span class="cl">global:
+</span></span><span class="line"><span class="cl"> user: <span class="s2">&#34;tidb&#34;</span>
+</span></span><span class="line"><span class="cl"> ssh_port: <span class="m">29761</span>
+</span></span><span class="line"><span class="cl"> deploy_dir: <span class="s2">&#34;/data/tidb/tiup/tidb-deploy&#34;</span>
+</span></span><span class="line"><span class="cl"> data_dir: <span class="s2">&#34;/data/tidb/tiup/tidb-data&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># # Monitored variables are applied to all the machines.</span>
+</span></span><span class="line"><span class="cl">monitored:
+</span></span><span class="line"><span class="cl"> node_exporter_port: <span class="m">9100</span>
+</span></span><span class="line"><span class="cl"> blackbox_exporter_port: <span class="m">9115</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">server_configs:
+</span></span><span class="line"><span class="cl"> tidb:
+</span></span><span class="line"><span class="cl">   log.slow-threshold: <span class="m">300</span>
+</span></span><span class="line"><span class="cl"> tikv:
+</span></span><span class="line"><span class="cl">   readpool.storage.use-unified-pool: <span class="nb">false</span>
+</span></span><span class="line"><span class="cl">   readpool.coprocessor.use-unified-pool: <span class="nb">true</span>
+</span></span><span class="line"><span class="cl"> pd:
+</span></span><span class="line"><span class="cl">   replication.enable-placement-rules: <span class="nb">true</span>
+</span></span><span class="line"><span class="cl"> tiflash:
+</span></span><span class="line"><span class="cl">   logger.level: <span class="s2">&#34;info&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">pd_servers:
+</span></span><span class="line"><span class="cl"> - host: 127.0.0.1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">tidb_servers:
+</span></span><span class="line"><span class="cl"> - host: 127.0.0.1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">tikv_servers:
+</span></span><span class="line"><span class="cl"> - host: 127.0.0.1
+</span></span><span class="line"><span class="cl">   port: <span class="m">20170</span>
+</span></span><span class="line"><span class="cl">   status_port: <span class="m">20180</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">monitoring_servers:
+</span></span><span class="line"><span class="cl"> - host: 127.0.0.1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">grafana_servers:
+</span></span><span class="line"><span class="cl"> - host: 127.0.0.1
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">tiup cluster list <span class="c1">##查询</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">tiup cluster display tidb-test  <span class="c1">##查询</span>
+</span></span><span class="line"><span class="cl">tiup cluster start tidb-test <span class="c1">##启动</span>
+</span></span><span class="line"><span class="cl">tiup cluster stop tidb-test
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> /data/tidb/tiup/tidb-deploy/tidb-4000/bin
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">## 对之前部署tidb-test集群进行参数 </span>
+</span></span><span class="line"><span class="cl">tiup cluster edit-config  tidb-test
+</span></span><span class="line"><span class="cl">tiup cluster reload  tidb-test
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># TiDB 集群可以在不中断线上服务的情况下进行扩容和缩容。</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## 执行扩容命令  https://docs.pingcap.com/zh/tidb/dev/scale-tidb-using-tiup</span>
+</span></span><span class="line"><span class="cl">tiup cluster scale-out tidb-test scale-out.yaml
+</span></span><span class="line"><span class="cl">ssh-keygen //设置 SSH 通过密钥登录
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">## 缩容 TiDB/PD/TiKV 节点 </span>
+</span></span><span class="line"><span class="cl">画外音：配置太低，需要缩容
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">tiup cluster display  tidb-test
+</span></span><span class="line"><span class="cl">tiup cluster scale-in tidb-test --node 127.0.0.1:4001
+</span></span><span class="line"><span class="cl">提示：Scaled cluster <span class="sb">`</span>tidb-test<span class="sb">`</span> in successfully
+</span></span><span class="line"><span class="cl">查看 /data/tidb/tiup/tidb-deploy 目录 tidb-4001 已经被删除
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">https://asktug.com/t/topic/36950
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>编译源码</li>
+</ol>
+<h4 id="tidb">tidb</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1">## go </span>
+</span></span><span class="line"><span class="cl">https://golang.google.cn/dl/
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> /Users/wangchuanyi/local
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">### tidb</span>
+</span></span><span class="line"><span class="cl">git clone https://github.com/pingcap/tidb.git
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> /Users/wangchuanyi/code/src/github.com/watchpoints/tidb
+</span></span><span class="line"><span class="cl">make
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">./tidb-server -V 
+</span></span><span class="line"><span class="cl">Release Version: v4.0.0-beta.2-949-g3f38fa5d0-dirty
+</span></span><span class="line"><span class="cl">Edition: Community
+</span></span><span class="line"><span class="cl">Git Commit Hash: 3f38fa5d02b618666efce714be129b1afacd582d
+</span></span><span class="line"><span class="cl">Git Branch: master
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> git remote add  wangchuanyi https://github.com/pingcap/tidb.git
+</span></span><span class="line"><span class="cl"> git remote -v
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">//切换到本地分支 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">git checkout -b wangchuanyi
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">//下载远程代码
+</span></span><span class="line"><span class="cl">git fetch wangchuanyi
+</span></span><span class="line"><span class="cl">//合并master到自己分支
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">git merge wangchuanyi/master
+</span></span><span class="line"><span class="cl">//合并upstream的master
+</span></span><span class="line"><span class="cl">// 提交远程master分支代码
+</span></span><span class="line"><span class="cl"> git push origin master
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"> http://senzhangai.github.io/programming/build-tidb-by-source
+</span></span><span class="line"><span class="cl">  git remote -v
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"> 取代默认tidb：
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"> data/tidb/tiup/tidb-deploy/tidb-4000/bin
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"> 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="-vpn环境">## vpn环境</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">vpn环境</span>
+</span></span><span class="line"><span class="cl"><span class="err">##</span> <span class="nx">go环境</span>
+</span></span><span class="line"><span class="cl"><span class="nx">cd</span> <span class="o">/</span><span class="nx">root</span><span class="o">/</span><span class="nx">local</span>
+</span></span><span class="line"><span class="cl"><span class="nx">https</span><span class="p">:</span><span class="c1">//golang.google.cn/dl/go1.16.5.linux-amd64.tar.gz
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">tar</span> <span class="o">-</span><span class="nx">xvf</span> <span class="nx">go1</span><span class="mf">.16.5</span><span class="p">.</span><span class="nx">linux</span><span class="o">-</span><span class="nx">amd64</span><span class="p">.</span><span class="nx">tar</span><span class="p">.</span><span class="nx">gz</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">##</span> <span class="nx">tidb</span>
+</span></span><span class="line"><span class="cl"><span class="nx">cd</span> <span class="o">/</span><span class="nx">data</span><span class="o">/</span><span class="nx">tidb</span><span class="o">/</span><span class="nx">src</span><span class="o">/</span><span class="nx">github</span><span class="p">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">watchpoints</span><span class="o">/</span><span class="nx">tidb</span>
+</span></span><span class="line"><span class="cl"><span class="nx">git</span> <span class="nx">clone</span> <span class="nx">https</span><span class="p">:</span><span class="c1">//github.com/pingcap/tidb.git
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">git</span> <span class="nx">remote</span> <span class="nx">add</span>  <span class="nx">wangchuanyi</span> <span class="nx">https</span><span class="p">:</span><span class="c1">//github.com/pingcap/tidb.git
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">git</span> <span class="nx">fetch</span> <span class="nx">wangchuanyi</span>
+</span></span><span class="line"><span class="cl"><span class="nx">git</span> <span class="nx">merge</span> <span class="nx">wangchuanyi</span><span class="o">/</span><span class="nx">master</span>
+</span></span><span class="line"><span class="cl"><span class="nx">git</span> <span class="nx">push</span> <span class="nx">origin</span> <span class="nx">master</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">make</span> 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="替换成自己编译">替换成自己编译</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1">### tidb </span>
+</span></span><span class="line"><span class="cl">cp /data/tidb/src/github.com/watchpoints/tidb/bin/tidb-server  /data/tidb/tiup/tidb-deploy/tidb-4000/bin/tidb-server 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">tiup cluster destroy tidb-test
+</span></span><span class="line"><span class="cl">tiup cluster stop tidb-test
+</span></span><span class="line"><span class="cl">tiup cluster start tidb-test 
+</span></span><span class="line"><span class="cl">tiup cluster display tidb-test 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">https://asktug.com/t/topic/34904/22
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">第 <span class="m">5</span> 步：查看 TiUP 管理的集群情况
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">tiup cluster deploy tidb-test v5.0.2 ./topology1.yaml --user root -p 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">tiup cluster list
+</span></span><span class="line"><span class="cl">tiup cluster display tidb-test
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="连接">连接：</h4>
+<p>mysql -h 127.0.0.1 -P 4000 -u root -D test</p>
+<p>Cdmysql</p>
+<p>设置密码：
+mysql -h 127.0.0.1 -P 4000 -u root</p>
+<p>SET PASSWORD FOR &lsquo;root&rsquo;@&rsquo;%&rsquo; = &lsquo;123456&rsquo;</p>
+<p>mysql -h 127.0.0.1 -P 4000 -u root  -p</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"></code></pre></td></tr></table>
+</div>
+</div><h2 id="如何单元测试">如何单元测试</h2>
+<p><code>go test -check.f $TEST_NAME</code> 来指定测试用例</p>
+<h2 id="--q1之前根本没接触过parser该从哪里开始呀">##  Q1之前根本没接触过parser，该从哪里开始呀？</h2>
+<h3 id="步骤1--阅读-三十分钟成为contributor--提升tidb-parser对mysql-80语法兼容性">步骤1 ： 阅读 三十分钟成为Contributor | 提升TiDB Parser对MySQL 8.0语法兼容性</h3>
+<ul>
+<li><a href="https://segmentfault.com/a/1190000017467536">https://segmentfault.com/a/1190000017467536</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/77255479">https://zhuanlan.zhihu.com/p/77255479</a></li>
+<li><a href="http://mysql.taobao.org/monthly/2017/02/04/">http://mysql.taobao.org/monthly/2017/02/04/</a></li>
+<li><a href="https://segmentfault.com/a/1190000017467536">十分钟成为 Contributor 系列 | 支持 AST 还原为 SQL</a></li>
+</ul>
+<h3 id="步骤2-createtablestmt为例子tidb是如何新建一张表的">步骤2: CreateTableStmt为例子tiDB是如何新建一张表的。</h3>
+<h4 id="21-修改-parsery-文件">2.1 修改 <code>parser.y</code> 文件</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="cm">/*******************************************************************
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *  Create Table Statement
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *  Example:
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *      CREATE TABLE Persons
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *      (
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *          P_Id int NOT NULL,
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *          LastName varchar(255) NOT NULL,
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *          FirstName varchar(255),
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *          Address varchar(255),
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *          City varchar(255),
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *          PRIMARY KEY (P_Id)
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *      )
+</span></span></span><span class="line"><span class="cl"><span class="cm"> // https://dev.mysql.com/doc/refman/5.7/en/create-table.html
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *******************************************************************/</span>
+</span></span><span class="line"><span class="cl"><span class="nx">CreateTableStmt</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;CREATE&#34;</span> <span class="nx">OptTemporary</span> <span class="s">&#34;TABLE&#34;</span> <span class="nx">IfNotExists</span> <span class="nx">TableName</span> <span class="nx">TableElementListOpt</span> <span class="nx">CreateTableOptionListOpt</span> <span class="nx">PartitionOpt</span> <span class="nx">DuplicateOpt</span> <span class="nx">AsOpt</span> <span class="nx">CreateTableSelectOpt</span> <span class="nx">OnCommitOpt</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">stmt</span> <span class="o">:=</span> <span class="err">$</span><span class="mf">6.</span><span class="p">(</span><span class="o">*</span><span class="nx">ast</span><span class="p">.</span><span class="nx">CreateTableStmt</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">stmt</span><span class="p">.</span><span class="nx">Table</span> <span class="p">=</span> <span class="err">$</span><span class="mf">5.</span><span class="p">(</span><span class="o">*</span><span class="nx">ast</span><span class="p">.</span><span class="nx">TableName</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">stmt</span><span class="p">.</span><span class="nx">IfNotExists</span> <span class="p">=</span> <span class="err">$</span><span class="mf">4.</span><span class="p">(</span><span class="kt">bool</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">stmt</span><span class="p">.</span><span class="nx">TemporaryKeyword</span> <span class="p">=</span> <span class="err">$</span><span class="mf">2.</span><span class="p">(</span><span class="nx">ast</span><span class="p">.</span><span class="nx">TemporaryKeyword</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">stmt</span><span class="p">.</span><span class="nx">Options</span> <span class="p">=</span> <span class="err">$</span><span class="mf">7.</span><span class="p">([]</span><span class="o">*</span><span class="nx">ast</span><span class="p">.</span><span class="nx">TableOption</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="err">$</span><span class="mi">8</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">stmt</span><span class="p">.</span><span class="nx">Partition</span> <span class="p">=</span> <span class="err">$</span><span class="mf">8.</span><span class="p">(</span><span class="o">*</span><span class="nx">ast</span><span class="p">.</span><span class="nx">PartitionOptions</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">stmt</span><span class="p">.</span><span class="nx">OnDuplicate</span> <span class="p">=</span> <span class="err">$</span><span class="mf">9.</span><span class="p">(</span><span class="nx">ast</span><span class="p">.</span><span class="nx">OnDuplicateKeyHandlingType</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">stmt</span><span class="p">.</span><span class="nx">Select</span> <span class="p">=</span> <span class="err">$</span><span class="mf">11.</span><span class="p">(</span><span class="o">*</span><span class="nx">ast</span><span class="p">.</span><span class="nx">CreateTableStmt</span><span class="p">).</span><span class="nx">Select</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="p">(</span><span class="err">$</span><span class="mi">12</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="o">&amp;&amp;</span> <span class="nx">stmt</span><span class="p">.</span><span class="nx">TemporaryKeyword</span> <span class="o">!=</span> <span class="nx">ast</span><span class="p">.</span><span class="nx">TemporaryGlobal</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="nx">stmt</span><span class="p">.</span><span class="nx">TemporaryKeyword</span> <span class="o">==</span> <span class="nx">ast</span><span class="p">.</span><span class="nx">TemporaryGlobal</span> <span class="o">&amp;&amp;</span> <span class="err">$</span><span class="mi">12</span> <span class="o">==</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">yylex</span><span class="p">.</span><span class="nf">AppendError</span><span class="p">(</span><span class="nx">yylex</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;GLOBAL TEMPORARY and ON COMMIT DELETE|PRESERVE ROWS must appear together&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">if</span> <span class="nx">stmt</span><span class="p">.</span><span class="nx">TemporaryKeyword</span> <span class="o">==</span> <span class="nx">ast</span><span class="p">.</span><span class="nx">TemporaryGlobal</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">stmt</span><span class="p">.</span><span class="nx">OnCommitDelete</span> <span class="p">=</span> <span class="err">$</span><span class="mf">12.</span><span class="p">(</span><span class="kt">bool</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="err">$$</span> <span class="p">=</span> <span class="nx">stmt</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="22-ddlgo">2.2 ddl.go</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span><span class="lnt">145
+</span><span class="lnt">146
+</span><span class="lnt">147
+</span><span class="lnt">148
+</span><span class="lnt">149
+</span><span class="lnt">150
+</span><span class="lnt">151
+</span><span class="lnt">152
+</span><span class="lnt">153
+</span><span class="lnt">154
+</span><span class="lnt">155
+</span><span class="lnt">156
+</span><span class="lnt">157
+</span><span class="lnt">158
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// CreateTableStmt is a statement to create a table.
+</span></span></span><span class="line"><span class="cl"><span class="c1">// See https://dev.mysql.com/doc/refman/5.7/en/create-table.html
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">CreateTableStmt</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">ddlNode</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">IfNotExists</span> <span class="kt">bool</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">TemporaryKeyword</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// Meanless when TemporaryKeyword is not TemporaryGlobal.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// ON COMMIT DELETE ROWS =&gt; true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// ON COMMIT PRESERVE ROW =&gt; false
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">OnCommitDelete</span> <span class="kt">bool</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Table</span>          <span class="o">*</span><span class="nx">TableName</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">ReferTable</span>     <span class="o">*</span><span class="nx">TableName</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Cols</span>           <span class="p">[]</span><span class="o">*</span><span class="nx">ColumnDef</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Constraints</span>    <span class="p">[]</span><span class="o">*</span><span class="nx">Constraint</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Options</span>        <span class="p">[]</span><span class="o">*</span><span class="nx">TableOption</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Partition</span>      <span class="o">*</span><span class="nx">PartitionOptions</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">OnDuplicate</span>    <span class="nx">OnDuplicateKeyHandlingType</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Select</span>         <span class="nx">ResultSetNode</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Restore implements Node interface.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">n</span> <span class="o">*</span><span class="nx">CreateTableStmt</span><span class="p">)</span> <span class="nf">Restore</span><span class="p">(</span><span class="nx">ctx</span> <span class="o">*</span><span class="nx">format</span><span class="p">.</span><span class="nx">RestoreCtx</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">switch</span> <span class="nx">n</span><span class="p">.</span><span class="nx">TemporaryKeyword</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">case</span> <span class="nx">TemporaryNone</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">ctx</span><span class="p">.</span><span class="nf">WriteKeyWord</span><span class="p">(</span><span class="s">&#34;CREATE TABLE &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">case</span> <span class="nx">TemporaryGlobal</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">ctx</span><span class="p">.</span><span class="nf">WriteKeyWord</span><span class="p">(</span><span class="s">&#34;CREATE GLOBAL TEMPORARY TABLE &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">case</span> <span class="nx">TemporaryLocal</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">ctx</span><span class="p">.</span><span class="nf">WriteKeyWord</span><span class="p">(</span><span class="s">&#34;CREATE TEMPORARY TABLE &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">n</span><span class="p">.</span><span class="nx">IfNotExists</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">ctx</span><span class="p">.</span><span class="nf">WriteKeyWord</span><span class="p">(</span><span class="s">&#34;IF NOT EXISTS &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">n</span><span class="p">.</span><span class="nx">Table</span><span class="p">.</span><span class="nf">Restore</span><span class="p">(</span><span class="nx">ctx</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">Annotate</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="s">&#34;An error occurred while splicing CreateTableStmt Table&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">n</span><span class="p">.</span><span class="nx">ReferTable</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">ctx</span><span class="p">.</span><span class="nf">WriteKeyWord</span><span class="p">(</span><span class="s">&#34; LIKE &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">n</span><span class="p">.</span><span class="nx">ReferTable</span><span class="p">.</span><span class="nf">Restore</span><span class="p">(</span><span class="nx">ctx</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">return</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">Annotate</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="s">&#34;An error occurred while splicing CreateTableStmt ReferTable&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">lenCols</span> <span class="o">:=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">n</span><span class="p">.</span><span class="nx">Cols</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">lenConstraints</span> <span class="o">:=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">n</span><span class="p">.</span><span class="nx">Constraints</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">lenCols</span><span class="o">+</span><span class="nx">lenConstraints</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">ctx</span><span class="p">.</span><span class="nf">WritePlain</span><span class="p">(</span><span class="s">&#34; (&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">col</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">n</span><span class="p">.</span><span class="nx">Cols</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">if</span> <span class="nx">i</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">ctx</span><span class="p">.</span><span class="nf">WritePlain</span><span class="p">(</span><span class="s">&#34;,&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">			<span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">col</span><span class="p">.</span><span class="nf">Restore</span><span class="p">(</span><span class="nx">ctx</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="k">return</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">Annotatef</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="s">&#34;An error occurred while splicing CreateTableStmt ColumnDef: [%v]&#34;</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">constraint</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">n</span><span class="p">.</span><span class="nx">Constraints</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">if</span> <span class="nx">i</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">lenCols</span> <span class="o">&gt;=</span> <span class="mi">1</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">ctx</span><span class="p">.</span><span class="nf">WritePlain</span><span class="p">(</span><span class="s">&#34;,&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">			<span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">constraint</span><span class="p">.</span><span class="nf">Restore</span><span class="p">(</span><span class="nx">ctx</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="k">return</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">Annotatef</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="s">&#34;An error occurred while splicing CreateTableStmt Constraints: [%v]&#34;</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">ctx</span><span class="p">.</span><span class="nf">WritePlain</span><span class="p">(</span><span class="s">&#34;)&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">option</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">n</span><span class="p">.</span><span class="nx">Options</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">ctx</span><span class="p">.</span><span class="nf">WritePlain</span><span class="p">(</span><span class="s">&#34; &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">option</span><span class="p">.</span><span class="nf">Restore</span><span class="p">(</span><span class="nx">ctx</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">return</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">Annotatef</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="s">&#34;An error occurred while splicing CreateTableStmt TableOption: [%v]&#34;</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">n</span><span class="p">.</span><span class="nx">Partition</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">ctx</span><span class="p">.</span><span class="nf">WritePlain</span><span class="p">(</span><span class="s">&#34; &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">n</span><span class="p">.</span><span class="nx">Partition</span><span class="p">.</span><span class="nf">Restore</span><span class="p">(</span><span class="nx">ctx</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">return</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">Annotate</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="s">&#34;An error occurred while splicing CreateTableStmt Partition&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">n</span><span class="p">.</span><span class="nx">Select</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">switch</span> <span class="nx">n</span><span class="p">.</span><span class="nx">OnDuplicate</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">case</span> <span class="nx">OnDuplicateKeyHandlingError</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">ctx</span><span class="p">.</span><span class="nf">WriteKeyWord</span><span class="p">(</span><span class="s">&#34; AS &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">case</span> <span class="nx">OnDuplicateKeyHandlingIgnore</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">ctx</span><span class="p">.</span><span class="nf">WriteKeyWord</span><span class="p">(</span><span class="s">&#34; IGNORE AS &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">case</span> <span class="nx">OnDuplicateKeyHandlingReplace</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">ctx</span><span class="p">.</span><span class="nf">WriteKeyWord</span><span class="p">(</span><span class="s">&#34; REPLACE AS &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">n</span><span class="p">.</span><span class="nx">Select</span><span class="p">.</span><span class="nf">Restore</span><span class="p">(</span><span class="nx">ctx</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">return</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">Annotate</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="s">&#34;An error occurred while splicing CreateTableStmt Select&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">n</span><span class="p">.</span><span class="nx">TemporaryKeyword</span> <span class="o">==</span> <span class="nx">TemporaryGlobal</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">n</span><span class="p">.</span><span class="nx">OnCommitDelete</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">ctx</span><span class="p">.</span><span class="nf">WriteKeyWord</span><span class="p">(</span><span class="s">&#34; ON COMMIT DELETE ROWS&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">ctx</span><span class="p">.</span><span class="nf">WriteKeyWord</span><span class="p">(</span><span class="s">&#34; ON COMMIT PRESERVE ROWS&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Accept implements Node Accept interface.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">n</span> <span class="o">*</span><span class="nx">CreateTableStmt</span><span class="p">)</span> <span class="nf">Accept</span><span class="p">(</span><span class="nx">v</span> <span class="nx">Visitor</span><span class="p">)</span> <span class="p">(</span><span class="nx">Node</span><span class="p">,</span> <span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">newNode</span><span class="p">,</span> <span class="nx">skipChildren</span> <span class="o">:=</span> <span class="nx">v</span><span class="p">.</span><span class="nf">Enter</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">skipChildren</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="nx">v</span><span class="p">.</span><span class="nf">Leave</span><span class="p">(</span><span class="nx">newNode</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">n</span> <span class="p">=</span> <span class="nx">newNode</span><span class="p">.(</span><span class="o">*</span><span class="nx">CreateTableStmt</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">node</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">n</span><span class="p">.</span><span class="nx">Table</span><span class="p">.</span><span class="nf">Accept</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">!</span><span class="nx">ok</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="nx">n</span><span class="p">,</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">n</span><span class="p">.</span><span class="nx">Table</span> <span class="p">=</span> <span class="nx">node</span><span class="p">.(</span><span class="o">*</span><span class="nx">TableName</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">n</span><span class="p">.</span><span class="nx">ReferTable</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">node</span><span class="p">,</span> <span class="nx">ok</span> <span class="p">=</span> <span class="nx">n</span><span class="p">.</span><span class="nx">ReferTable</span><span class="p">.</span><span class="nf">Accept</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="p">!</span><span class="nx">ok</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">return</span> <span class="nx">n</span><span class="p">,</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">n</span><span class="p">.</span><span class="nx">ReferTable</span> <span class="p">=</span> <span class="nx">node</span><span class="p">.(</span><span class="o">*</span><span class="nx">TableName</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">val</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">n</span><span class="p">.</span><span class="nx">Cols</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">node</span><span class="p">,</span> <span class="nx">ok</span> <span class="p">=</span> <span class="nx">val</span><span class="p">.</span><span class="nf">Accept</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="p">!</span><span class="nx">ok</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">return</span> <span class="nx">n</span><span class="p">,</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">n</span><span class="p">.</span><span class="nx">Cols</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="nx">node</span><span class="p">.(</span><span class="o">*</span><span class="nx">ColumnDef</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">val</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">n</span><span class="p">.</span><span class="nx">Constraints</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">node</span><span class="p">,</span> <span class="nx">ok</span> <span class="p">=</span> <span class="nx">val</span><span class="p">.</span><span class="nf">Accept</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="p">!</span><span class="nx">ok</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">return</span> <span class="nx">n</span><span class="p">,</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">n</span><span class="p">.</span><span class="nx">Constraints</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="nx">node</span><span class="p">.(</span><span class="o">*</span><span class="nx">Constraint</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">n</span><span class="p">.</span><span class="nx">Select</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">node</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">n</span><span class="p">.</span><span class="nx">Select</span><span class="p">.</span><span class="nf">Accept</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="p">!</span><span class="nx">ok</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">return</span> <span class="nx">n</span><span class="p">,</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">n</span><span class="p">.</span><span class="nx">Select</span> <span class="p">=</span> <span class="nx">node</span><span class="p">.(</span><span class="nx">ResultSetNode</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">n</span><span class="p">.</span><span class="nx">Partition</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">node</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">n</span><span class="p">.</span><span class="nx">Partition</span><span class="p">.</span><span class="nf">Accept</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="p">!</span><span class="nx">ok</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">return</span> <span class="nx">n</span><span class="p">,</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">n</span><span class="p">.</span><span class="nx">Partition</span> <span class="p">=</span> <span class="nx">node</span><span class="p">.(</span><span class="o">*</span><span class="nx">PartitionOptions</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">v</span><span class="p">.</span><span class="nf">Leave</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="23-parser_testgo">2.3 parser_test.go</h4>
+<ul>
+<li>TestDMLStmt</li>
+</ul>
+<h4 id="步骤24-查看历史-issue">步骤2.4 查看历史 issue</h4>
+<ul>
+<li>
+<p><a href="https://github.com/pingcap/tidb/issues/8532">https://github.com/pingcap/tidb/issues/8532</a></p>
+</li>
+<li>
+<p><a href="https://github.com/pingcap/tidb/pull/21064">https://github.com/pingcap/tidb/pull/21064</a></p>
+</li>
+<li>
+<p><a href="https://github.com/pingcap/tidb/issues/21063">https://github.com/pingcap/tidb/issues/21063</a></p>
+</li>
+<li>
+<p><a href="https://github.com/pingcap/tidb/pull/21064/commits">https://github.com/pingcap/tidb/pull/21064/commits</a> [ok]</p>
+<p>lexer: Format syntax errmsg when value out of range #1110</p>
+</li>
+<li>
+<p><a href="https://github.com/pingcap/parser/pull/1110">https://github.com/pingcap/parser/pull/1110</a></p>
+</li>
+</ul>
+<h2 id="q2如何了解-planner模块">Q2：如何了解 planner模块</h2>
+<p><a href="https://github.com/watchpoints/tidb">https://github.com/watchpoints/tidb</a></p>
+<h2 id="步骤2-查看代码">步骤2 查看代码</h2>
+<ul>
+<li>lanner/core/preprocess_test.go</li>
+</ul>
+<h4 id="plannercorepreprocessgo">planner/core/preprocess.go</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// preprocessor is an ast.Visitor that preprocess
+</span></span></span><span class="line"><span class="cl"><span class="c1">// ast Nodes parsed from parser.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">preprocessor</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">ctx</span>    <span class="nx">sessionctx</span><span class="p">.</span><span class="nx">Context</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">flag</span>   <span class="nx">preprocessorFlag</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">stmtTp</span> <span class="kt">byte</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// tableAliasInJoin is a stack that keeps the table alias names for joins.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// len(tableAliasInJoin) may bigger than 1 because the left/right child of join may be subquery that contains `JOIN`
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">tableAliasInJoin</span> <span class="p">[]</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kd">interface</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">withName</span>         <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kd">interface</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// values that may be returned
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="o">*</span><span class="nx">PreprocessorReturn</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">err</span> <span class="kt">error</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">preprocessor</span><span class="p">)</span> <span class="nf">Enter</span><span class="p">(</span><span class="nx">in</span> <span class="nx">ast</span><span class="p">.</span><span class="nx">Node</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> <span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">preprocessor</span><span class="p">)</span> <span class="nf">checkCreateTableGrammar</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   
+</span></span><span class="line"><span class="cl">   
+</span></span><span class="line"><span class="cl">   <span class="nx">planner</span><span class="o">/</span><span class="nx">core</span><span class="o">/</span><span class="nx">preprocess_test</span><span class="p">.</span><span class="k">go</span>
+</span></span><span class="line"><span class="cl">   
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="q3如何了解ddl-模块">Q3：如何了解DDL 模块</h2>
+<h4 id="步骤1-阅读文档了解整个处理过程">步骤1 阅读文档。了解整个处理过程</h4>
+<ul>
+<li>TiDB 源码阅读系列文章（十七）DDL 源码解析</li>
+</ul>
+<p>​    <a href="https://pingcap.com/blog-cn/tidb-source-code-reading-17/">https://pingcap.com/blog-cn/tidb-source-code-reading-17/</a></p>
+<h4 id="步骤2-根据文档看代码">步骤2 根据文档看代码</h4>
+<p><a href="https://github.com/pingcap/tidb/blob/source-code/ddl/ddl_api.go#L739">https://github.com/pingcap/tidb/blob/source-code/ddl/ddl_api.go#L739</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">func</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="w"> </span><span class="o">*</span><span class="n">DDLExec</span><span class="p">)</span><span class="w"> </span><span class="k">Next</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">case</span><span class="w"> </span><span class="o">*</span><span class="n">ast</span><span class="p">.</span><span class="n">CreateTableStmt</span><span class="p">:</span><span class="c1">--&gt;func (e *DDLExec) executeCreateTable --&gt;func (d *ddl) CreateTable(
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">func</span><span class="w"> </span><span class="p">(</span><span class="n">d</span><span class="w"> </span><span class="o">*</span><span class="n">ddl</span><span class="p">)</span><span class="w"> </span><span class="n">CreateTableWithInfo</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">buildTableInfo</span><span class="w"> </span><span class="err">获取</span><span class="w"> </span><span class="k">global</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">ID</span><span class="err">，生成</span><span class="w"> </span><span class="n">tableInfo</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="err">即</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="err">的元信息，然后封装成一个</span><span class="w"> </span><span class="n">DDL</span><span class="w"> </span><span class="n">job</span><span class="err">，</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="err">这个</span><span class="w"> </span><span class="n">job</span><span class="w"> </span><span class="err">包含了</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">ID</span><span class="w"> </span><span class="err">和</span><span class="w"> </span><span class="n">tableInfo</span><span class="err">，</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="err">并将这个</span><span class="w"> </span><span class="n">job</span><span class="w"> </span><span class="err">的</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="err">标记为</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">ActionCreateTable</span><span class="err">。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="n">checkTableInfoValidExtra</span><span class="err">：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">d</span><span class="p">.</span><span class="n">doDDLJob</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span><span class="w"> </span><span class="n">job</span><span class="p">)</span><span class="w"> </span><span class="err">函数中的</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">addDDLJob</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span><span class="w"> </span><span class="n">job</span><span class="p">)</span><span class="w"> </span><span class="err">会先给</span><span class="w"> </span><span class="n">job</span><span class="w"> </span><span class="err">获取一个</span><span class="w"> </span><span class="k">global</span><span class="w"> </span><span class="n">job</span><span class="w"> </span><span class="n">ID</span><span class="w"> </span><span class="err">然后放到</span><span class="w"> </span><span class="n">job</span><span class="w"> </span><span class="n">queue</span><span class="w"> </span><span class="err">中去。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="我的issue">我的issue</h1>
+<h2 id="issue-18149-合并">issue 18149 [合并]</h2>
+<ul>
+<li>
+<p>DDL: create table should not allow explicit empty name index #20617</p>
+</li>
+<li>
+<p>加速查询：https://phoenix2.yizimg.com/pingcap/tidb/pull/18149</p>
+</li>
+<li>
+<p><a href="https://github.com/pingcap/tidb/pull/20617">https://github.com/pingcap/tidb/pull/20617</a></p>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="k">if</span> <span class="nx">constraint</span><span class="p">.</span><span class="nx">IsEmptyIndex</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">p</span><span class="p">.</span><span class="nx">err</span> <span class="p">=</span> <span class="nx">ddl</span><span class="p">.</span><span class="nx">ErrWrongNameForIndex</span><span class="p">.</span><span class="nf">GenWithStackByArgs</span><span class="p">(</span><span class="nx">constraint</span><span class="p">.</span><span class="nx">Name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">				<span class="k">return</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// issue 18149
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">testValidatorSuite</span><span class="p">)</span> <span class="nf">TestValidator</span><span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">C</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">testValidatorSuite</span><span class="p">)</span> <span class="nf">runSQL</span><span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">C</span><span class="p">,</span> <span class="nx">sql</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">inPrepare</span> <span class="kt">bool</span><span class="p">,</span> <span class="nx">terr</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">stmts</span><span class="p">,</span> <span class="nx">err1</span> <span class="o">:=</span> <span class="nx">session</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">ctx</span><span class="p">,</span> <span class="nx">sql</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">c</span><span class="p">.</span><span class="nf">Assert</span><span class="p">(</span><span class="nx">err1</span><span class="p">,</span> <span class="nx">IsNil</span><span class="p">,</span> <span class="nf">Commentf</span><span class="p">(</span><span class="s">&#34;sql: %s&#34;</span><span class="p">,</span> <span class="nx">sql</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">c</span><span class="p">.</span><span class="nf">Assert</span><span class="p">(</span><span class="nx">stmts</span><span class="p">,</span> <span class="nx">HasLen</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">stmt</span> <span class="o">:=</span> <span class="nx">stmts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">	<span class="kd">var</span> <span class="nx">opts</span> <span class="p">[]</span><span class="nx">core</span><span class="p">.</span><span class="nx">PreprocessOpt</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">inPrepare</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">opts</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">opts</span><span class="p">,</span> <span class="nx">core</span><span class="p">.</span><span class="nx">InPrepare</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">err</span> <span class="o">:=</span> <span class="nx">core</span><span class="p">.</span><span class="nf">Preprocess</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">ctx</span><span class="p">,</span> <span class="nx">stmt</span><span class="p">,</span> <span class="nb">append</span><span class="p">(</span><span class="nx">opts</span><span class="p">,</span> <span class="nx">core</span><span class="p">.</span><span class="nf">WithPreprocessorReturn</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">core</span><span class="p">.</span><span class="nx">PreprocessorReturn</span><span class="p">{</span><span class="nx">InfoSchema</span><span class="p">:</span> <span class="nx">s</span><span class="p">.</span><span class="nx">is</span><span class="p">}))</span><span class="o">...</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">c</span><span class="p">.</span><span class="nf">Assert</span><span class="p">(</span><span class="nx">terror</span><span class="p">.</span><span class="nf">ErrorEqual</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">terr</span><span class="p">),</span> <span class="nx">IsTrue</span><span class="p">,</span> <span class="nf">Commentf</span><span class="p">(</span><span class="s">&#34;sql: %s, err:%v&#34;</span><span class="p">,</span> <span class="nx">sql</span><span class="p">,</span> <span class="nx">err</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="ssues9815httpsgithubcompingcaptidbissues9815"><a href="https://github.com/pingcap/tidb/issues/9815">ssues/9815</a></h2>
+<h4 id="进展">进展</h4>
+<h3 id="输出">输出</h3>
+<ul>
+<li>
+<p><a href="https://github.com/pingcap/tidb/issues/9815">https://github.com/pingcap/tidb/issues/9815</a></p>
+</li>
+<li>
+<p><a href="https://github.com/pingcap/tidb/pull/9328/files">https://github.com/pingcap/tidb/pull/9328/files</a></p>
+</li>
+<li>
+<p><a href="https://github.com/pingcap/tidb/issues/9798">https://github.com/pingcap/tidb/issues/9798</a></p>
+</li>
+<li>
+<p><a href="https://blog.csdn.net/nangeali/article/details/76359601">https://blog.csdn.net/nangeali/article/details/76359601</a> MySQL修改视图</p>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">What did you expect to see?
+</span></span><span class="line"><span class="cl">mysql [localhost:8015] {msandbox} (test) &gt; use test;
+</span></span><span class="line"><span class="cl">Database changed
+</span></span><span class="line"><span class="cl">mysql [localhost:8015] {msandbox} (test) &gt; DROP VIEW IF EXISTS v1;
+</span></span><span class="line"><span class="cl">Query OK, 0 rows affected (0.01 sec)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">mysql [localhost:8015] {msandbox} (test) &gt; CREATE VIEW v1 AS SELECT 1;
+</span></span><span class="line"><span class="cl">Query OK, 0 rows affected (0.01 sec)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">mysql [localhost:8015] {msandbox} (test) &gt; SELECT * FROM v1;
+</span></span><span class="line"><span class="cl">+---+
+</span></span><span class="line"><span class="cl">| 1 |
+</span></span><span class="line"><span class="cl">+---+
+</span></span><span class="line"><span class="cl">| 1 |
+</span></span><span class="line"><span class="cl">+---+
+</span></span><span class="line"><span class="cl">1 row in set (0.00 sec)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">mysql [localhost:8015] {msandbox} (test) &gt; ALTER VIEW v1 AS SELECT 2;
+</span></span><span class="line"><span class="cl">Query OK, 0 rows affected (0.01 sec)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">mysql [localhost:8015] {msandbox} (test) &gt; SELECT * FROM v1;
+</span></span><span class="line"><span class="cl">+---+
+</span></span><span class="line"><span class="cl">| 2 |
+</span></span><span class="line"><span class="cl">+---+
+</span></span><span class="line"><span class="cl">| 2 |
+</span></span><span class="line"><span class="cl">+---+
+</span></span><span class="line"><span class="cl">1 row in set (0.00 sec)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">// DropTableStmt is a statement to drop one or more tables.
+</span></span><span class="line"><span class="cl">// See https://dev.mysql.com/doc/refman/5.7/en/drop-table.html
+</span></span><span class="line"><span class="cl">type DropTableStmt struct {
+</span></span><span class="line"><span class="cl">	ddlNode
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	IfExists         bool
+</span></span><span class="line"><span class="cl">	Tables           []*TableName
+</span></span><span class="line"><span class="cl">	IsView           bool
+</span></span><span class="line"><span class="cl">	TemporaryKeyword // make sense ONLY if/when IsView == false
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">DropViewStmt:
+</span></span><span class="line"><span class="cl">	&#34;DROP&#34; &#34;VIEW&#34; TableNameList RestrictOrCascadeOpt
+</span></span><span class="line"><span class="cl">	{
+</span></span><span class="line"><span class="cl">		$$ = &amp;ast.DropTableStmt{Tables: $3.([]*ast.TableName), IsView: true}
+</span></span><span class="line"><span class="cl">	}
+</span></span><span class="line"><span class="cl">|	&#34;DROP&#34; &#34;VIEW&#34; &#34;IF&#34; &#34;EXISTS&#34; TableNameList RestrictOrCascadeOpt
+</span></span><span class="line"><span class="cl">	{
+</span></span><span class="line"><span class="cl">		$$ = &amp;ast.DropTableStmt{IfExists: true, Tables: $5.([]*ast.TableName), IsView: true}
+</span></span><span class="line"><span class="cl">	}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="看代码过程">看代码过程</h1>
+<h2 id="第一天">第一天：</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/24564238">https://zhuanlan.zhihu.com/p/24564238</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Troy</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2021-07-18 00:00
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a target="_blank" rel="license noopener" href="https://github.com/nusr/blog/blob/master/LICENSE">MIT</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/mysql/">mysql</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/ARTS/day_03_run/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">挑战03:第四个解决事情 运动区 打开交流之门：</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/2020/ask_2021/">
+            <span class="next-text nav-default">打破砂锅问到底</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="wangcy6/wangcy6.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:wang_cyi@163.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/wangcy6" class="iconfont icon-github" title="github"></a>
+  <a href="https://wangcy6.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2022
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Troy</span>
+  </span>
+</div>
+<script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
+  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+    var languageCode = "zh-cn".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    timeago().render(document.querySelectorAll('.timeago'), languageCode);
+    timeago.cancel();  
+  </script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-138883536-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>

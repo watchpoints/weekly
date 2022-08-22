@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>coding on Troy的网络博客</title>
+    <link>https://wangcy6.github.io/categories/coding/</link>
+    <description>Recent content in coding on Troy的网络博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 03 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/categories/coding/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title> OceanBase 开源社区</title>
+      <link>https://wangcy6.github.io/post/plan/oceanbase_read_01/</link>
+      <pubDate>Thu, 03 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/plan/oceanbase_read_01/</guid>
+      <description>day1 总结：Mac:使用 OBD 部署 OceanBase 数据库 参考文档：https://github.com/oceanbase/obdeploy 预备知识： OceanBase 不支持ma</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>reading on Troy的网络博客</title>
+    <link>https://wangcy6.github.io/tags/reading/</link>
+    <description>Recent content in reading on Troy的网络博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 13 Nov 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/tags/reading/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>FQA_Service_Mesh</title>
+      <link>https://wangcy6.github.io/post/2020/FQA_Service_Mesh/</link>
+      <pubDate>Wed, 13 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2020/FQA_Service_Mesh/</guid>
+      <description>book 未来架构：从服务化到云原生 分布式缓存，从原理到实践 分布式系统：从概念到设计 第五版 深入理解Linux内核中文第三版 第五章 内核同步 distributed-systems-theory-for-the-distributed-systems-engineer 业务场景 衡</description>
+    </item>
+    
+    <item>
+      <title>[每周阅读一本书]被讨厌的勇气</title>
+      <link>https://wangcy6.github.io/post/2020/2019-10-10-%E8%A2%AB%E8%AE%A8%E5%8E%8C%E7%9A%84%E5%8B%87%E6%B0%94/</link>
+      <pubDate>Thu, 10 Oct 2019 17:02:43 +0800</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2020/2019-10-10-%E8%A2%AB%E8%AE%A8%E5%8E%8C%E7%9A%84%E5%8B%87%E6%B0%94/</guid>
+      <description>阅读推荐 &amp;mdash;被讨厌的勇气 书封 被讨厌的勇气 豆瓣 评分 8.6 万维钢 专栏 解读 本书以“青年”和“哲人”对话的形式，将阿德勒的哲学逐渐渗透于话语之</description>
+    </item>
+    
+    <item>
+      <title>Memcached</title>
+      <link>https://wangcy6.github.io/post/2020/Memcached/</link>
+      <pubDate>Thu, 10 Oct 2019 17:02:43 +0800</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2020/Memcached/</guid>
+      <description>提问的艺术</description>
+    </item>
+    
+  </channel>
+</rss>

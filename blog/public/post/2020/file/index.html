@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title> - Troy的网络博客</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Troy" /><meta name="description" content="文件系统-知识地图 知识卡 https://github.com/wangcy6/weekly/blob/master/KM/01%E7%B3%BB%E7%BB%9F%E7%9F%A5%E8%AF%86/file.md 阅读相关书籍 Linux 0.11内核完全注释 Linux内核设计与实现(第三版中文高清带目录) Linux设备驱动程序. Understanding the Linux Kernel," /><meta name="keywords" content="daily-interview-question, Github, c&#43;&#43;, Leetcode 题解, 后端面试" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.101.0 with theme even" />
+
+
+<link rel="canonical" href="https://wangcy6.github.io/post/2020/file/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="" />
+<meta property="og:description" content="文件系统-知识地图 知识卡 https://github.com/wangcy6/weekly/blob/master/KM/01%E7%B3%BB%E7%BB%9F%E7%9F%A5%E8%AF%86/file.md 阅读相关书籍 Linux 0.11内核完全注释 Linux内核设计与实现(第三版中文高清带目录) Linux设备驱动程序. Understanding the Linux Kernel," />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wangcy6.github.io/post/2020/file/" /><meta property="article:section" content="post" />
+
+
+
+<meta itemprop="name" content="">
+<meta itemprop="description" content="文件系统-知识地图 知识卡 https://github.com/wangcy6/weekly/blob/master/KM/01%E7%B3%BB%E7%BB%9F%E7%9F%A5%E8%AF%86/file.md 阅读相关书籍 Linux 0.11内核完全注释 Linux内核设计与实现(第三版中文高清带目录) Linux设备驱动程序. Understanding the Linux Kernel,">
+
+<meta itemprop="wordCount" content="4442">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="文件系统-知识地图 知识卡 https://github.com/wangcy6/weekly/blob/master/KM/01%E7%B3%BB%E7%BB%9F%E7%9F%A5%E8%AF%86/file.md 阅读相关书籍 Linux 0.11内核完全注释 Linux内核设计与实现(第三版中文高清带目录) Linux设备驱动程序. Understanding the Linux Kernel,"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="https://github.com/wangcy6/weekly/tree/master/book">
+        <li class="mobile-menu-item">阅读清单</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于我</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://github.com/wangcy6/weekly/tree/master/book">阅读清单</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于我</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title"></h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 0001-01-01 00:00 </span>
+        
+          <span class="more-meta"> 约 4442 字 </span>
+          <span class="more-meta"> 预计阅读 9 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#知识卡">知识卡</a></li>
+        <li><a href="#阅读相关书籍">阅读相关书籍</a></li>
+        <li><a href="#第一性原理">第一性原理</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#文件系统">文件系统</a>
+      <ul>
+        <li><a href="#第一个问题文件系统类型有哪些">第一个问题：文件系统类型有哪些？</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#组成">组成</a>
+      <ul>
+        <li><a href="#1-inode-结构">1. inode 结构</a></li>
+        <li><a href="#2-目录项对象directory-entry">2. 目录项对象（directory entry）</a></li>
+        <li><a href="#3-缓存">3. 缓存</a></li>
+        <li><a href="#4-linux-内核中文件-cache-管理的机制">4 Linux 内核中文件 Cache 管理的机制</a></li>
+        <li><a href="#概念回顾">概念回顾</a></li>
+        <li><a href="#文件读写">文件读写</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#实验1-查看文件系统-占用情况">实验1： 查看文件系统 占用情况</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+  <div class="post-outdated">
+    <div class="warn">
+      <p>【注意】最后更新于 <span class="timeago" datetime="0001-01-01T00:00:00" title="January 1, 0001">January 1, 0001</span>，文中内容可能已过时，请谨慎使用。</p>
+    </div>
+  </div>
+    <div class="post-content">
+      <h1 id="文件系统-知识地图">文件系统-知识地图</h1>
+<h3 id="知识卡">知识卡</h3>
+<p><img src="http://www.brendangregg.com/Perf/linux_observability_tools.png" alt="img"></p>
+<p><a href="https://github.com/wangcy6/weekly/blob/master/KM/01%E7%B3%BB%E7%BB%9F%E7%9F%A5%E8%AF%86/file.md">https://github.com/wangcy6/weekly/blob/master/KM/01%E7%B3%BB%E7%BB%9F%E7%9F%A5%E8%AF%86/file.md</a></p>
+<h3 id="阅读相关书籍">阅读相关书籍</h3>
+<ul>
+<li>Linux 0.11内核完全注释</li>
+<li>Linux内核设计与实现(第三版中文高清带目录)</li>
+<li>Linux设备驱动程序.</li>
+<li>Understanding the Linux Kernel, 3rd Editio</li>
+<li>Linux.Kernel.Cache</li>
+<li>MySQL技术内幕(InnoDB存储引擎)第2版.</li>
+<li>性能之巅  洞悉系统、企业与云计算(完整版)</li>
+</ul>
+<p>找不到电子版book</p>
+<h3 id="第一性原理">第一性原理</h3>
+<ul>
+<li>
+<p>mysql 有b+作为索引，为什么liunx文件系统不用b+索引结构，采用inode下面一个固定大小数组来表示？</p>
+</li>
+<li>
+<p>为什么需要进行“格式化”呢</p>
+</li>
+<li>
+<p>ls -i 显示inode 就是 long 类型的编号 还有什么呀？</p>
+</li>
+<li>
+<p>文件存储在哪里呀？内存还是磁盘</p>
+</li>
+<li>
+<p>什么是缓存呀</p>
+</li>
+<li>
+<p>cache和buffer   dentry objects and inode object 都在内存里有啥  区别？</p>
+</li>
+</ul>
+<h1 id="概念理解">概念理解</h1>
+<p><img src="./../../images/201909/image-20191029165602251.png" alt="image-20191029165602251"></p>
+<p><img src="../../images/201909/image-20191029165823043.png" alt="image-20191029165823043"></p>
+<ul>
+<li>缓存</li>
+</ul>
+<p><img src="../../images/201909/image-20191029165953551.png" alt="image-20191029165953551"></p>
+<h2 id="文件系统">文件系统</h2>
+<p>在 Linux 中一切皆文件。不仅普通的文件和目录，就连块设备、套接字、管道等，也都要通过统一的文件系统来管理。</p>
+<p><img src="https://www.ibm.com/developerworks/cn/linux/l-cn-vfs/2.jpg" alt="img"></p>
+<p>Linux 下的文件系统主要可分为三大块：</p>
+<p>一是上层的文件系统的系统调用，</p>
+<p>二是虚拟文件系统 VFS(Virtual Filesystem Switch)，</p>
+<p>三是挂载到 VFS 中的各实际文件系统</p>
+<p><img src="../../images/201909/image-20191029171230016.png" alt="image-20191029171230016"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1837968-14fbf22dc1ac6cb1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1568019662577.jpg"></p>
+<h3 id="第一个问题文件系统类型有哪些">第一个问题：文件系统类型有哪些？</h3>
+<blockquote>
+<p>字符设备、块设备、网络设备</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"> df -h
+</span></span><span class="line"><span class="cl">Filesystem                Size  Used Avail Use% Mounted on
+</span></span><span class="line"><span class="cl">/dev/mapper/vg_root-root   19G  6.5G   12G  37% /
+</span></span><span class="line"><span class="cl">devtmpfs                  7.8G     <span class="m">0</span>  7.8G   0% /dev
+</span></span><span class="line"><span class="cl">tmpfs                     7.8G     <span class="m">0</span>  7.8G   0% /dev/shm
+</span></span><span class="line"><span class="cl">tmpfs                     7.8G  4.3G  3.6G  55% /run
+</span></span><span class="line"><span class="cl">tmpfs                     7.8G     <span class="m">0</span>  7.8G   0% /sys/fs/cgroup
+</span></span><span class="line"><span class="cl">/dev/sda1                 190M  100M   77M  57% /boot
+</span></span><span class="line"><span class="cl">/dev/vda1                 493G  350M  467G   1% /app
+</span></span><span class="line"><span class="cl">tmpfs                     1.6G     <span class="m">0</span>  1.6G   0% /run/user/0
+</span></span><span class="line"><span class="cl">tmpfs                     1.6G     <span class="m">0</span>  1.6G   0% /run/user/888
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">tmpfs是最好的基于RAM的文件系统。是一种基于内存的文件系
+</span></span><span class="line"><span class="cl">/dev目录下的每一个文件都对应的是一个设备
+</span></span><span class="line"><span class="cl">proc文件系统为操作系统本身和应用程序之间的通信提供了一个安全的接口
+</span></span><span class="line"><span class="cl">https://blog.csdn.net/qq_27840681/article/details/77567094
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>.上层应用如何调用底层驱动？</p>
+<h1 id="vfs">VFS</h1>
+<h2 id="组成">组成</h2>
+<p><img src="../../images/201909/image-20191029171712870.png" alt="image-20191029171712870">文件系统是如何运行的</p>
+<blockquote>
+<p>那么文件系统是如何运行的呢？这与操作系统的文件数据有关。较新的操作系统的文件数据
+除了文件实际内容外， 通常含有非常多的属性，</p>
+<p>例如 Linux 操作系统的文件权限（rwx） 与文
+件属性（拥有者、群组、时间参数等） 。</p>
+<p>文件系统通常会将这两部份的数据分别存放在不同
+的区块，权限与属性放置到 inode 中，</p>
+<p>至于实际数据则放置到 data block 区块中。 另外，还
+有一个超级区块 （superblock） 会记录整个文件系统的整体信息，包括 inode 与 block 的总
+量、使用量、剩余量等</p>
+</blockquote>
+<ul>
+<li>构成</li>
+</ul>
+<p>VFS （virtual File System）</p>
+<p>目录项、索引节点、逻辑块以及超级块，构成了 Linux 文件系统的四大基本要素。</p>
+<p>目录项对象 (dentry object)</p>
+<blockquote>
+<p>目录项，简称为 dentry，用来记录文件的名字、索引节点指针以及与其他目录项的关联关系。</p>
+<p>多个关联的目录项，就构成了文件系统的目录结构。</p>
+<p>不过，不同于索引节点，目录项是由内核维护的一个内存数据结构，所以通常也被叫做目录项缓存。</p>
+<p>一个目录文件包含了一组目录项，目录项是放在data block中的。(参考《Unix环境高级编程》Page87)</p>
+</blockquote>
+<p>索引节点对象 (inode object)</p>
+<blockquote>
+<p>索引节点，简称为 inode，用来记录文件的元数据，</p>
+<p>比如 inode 编号、文件大小、访问权限、修改日期、数据的位置等。</p>
+<p>索引节点和文件一一对应，它跟文件内容一样，都会被持久化存储到磁盘中。</p>
+<p>所以记住，索引节点同样占用磁盘空间。</p>
+</blockquote>
+<p>文件对象 (file object)：</p>
+<p>​	数据块是记录文件真实内容的地方</p>
+<p>在格式化时 block 的大小就固定了，且每个 block 都有编号，以方便 inode
+的记录啦</p>
+<p>比较：</p>
+<p>文件系统通常会将这两部份的数据分别存放在不同
+的区块，权限与属性放置到 inode 中，至于实际数据则放置到 data block 区块中</p>
+<p>超级块对象 (superblock object)</p>
+<p>会记录整个文件系统的整体信息，包括 inode 与 block 的总
+量、使用量、剩余量等。</p>
+<blockquote>
+<p>磁盘在执行文件系统格式化时，会被分成三个存储区域，超级块、索引节点区和数据块区。其中，</p>
+<p>超级块，存储整个文件系统的状态。
+索引节点区，用来存储索引节点。
+数据块区，则用来存储文件数据。</p>
+</blockquote>
+<ul>
+<li>关系：</li>
+</ul>
+<p><img src="https://upload-images.jianshu.io/upload_images/1837968-67064997f97bc05d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="https://www.ibm.com/developerworks/cn/linux/l-cn-hardandsymb-links/image004.jpg" alt=""></p>
+<h3 id="1-inode-结构">1. inode 结构</h3>
+<p>每个inode保存了文件系统中的一个<strong>文件系统对象</strong>（包括<a href="https://zh.wikipedia.org/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%96%87%E4%BB%B6">文件</a>、<a href="https://zh.wikipedia.org/wiki/%E7%9B%AE%E5%BD%95_(%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F)">目录</a>、<a href="https://zh.wikipedia.org/wiki/%E8%AE%BE%E5%A4%87%E6%96%87%E4%BB%B6">设备文件</a>、<a href="https://zh.wikipedia.org/wiki/Unix%E5%9F%9F%E5%A5%97%E6%8E%A5%E5%AD%97">socket</a>、<a href="https://zh.wikipedia.org/wiki/%E7%AE%A1%E9%81%93_(Unix)">管道</a>, 等等）的元信息数据，但不包括数据内容或者文件名[<a href="https://zh.wikipedia.org/wiki/Inode#cite_note-1">1]</a>。</p>
+<p>文件系统创建（格式化）时，就把存储区域分为两大连续的存储区域。</p>
+<p>一个用来保存文件系统对象的元信息数据，这是由inode组成的表，</p>
+<p>每个inode节点的大小，一般是128字节或256字节。inode节点的总数，</p>
+<p>在格式化时就给定，一般是每1KB或每2KB就设置一个inode。</p>
+<blockquote>
+<p>假定在一块1GB的硬盘中，每个inode节点的大小为128字节，</p>
+<p>每1KB就设置一个inode，那么inode table的大小就会达到128MB，占整块硬盘的12.8%。</p>
+</blockquote>
+<p>另一个用来保存“文件系统对象”的内容数据，划分为512字节的扇区，以及由8个扇区组成的4K字节的块。块是读写时的基本单位。一个文件系统的inode的总数是固定的。</p>
+<p>这限制了该文件系统所能存储的文件系统对象的总数目。典型的实现下，所有inode占用了文件系统1%左右的存储容量。</p>
+<blockquote>
+<p>一个数据快大小4k，一个inode节点256字节，根本装不下快，因此不包括数据内容</p>
+</blockquote>
+<p><img src="../../images/201909/image-20191102122010632.png" alt="image-20191102122010632"></p>
+<p><img src="../../images/201909/image-20191102122928053.png" alt="image-20191102122928053"></p>
+<p><img src="https://pic3.zhimg.com/80/v2-1bbe92018e1fb7bb11cc5b11e806c43a_hd.jpg" alt=""></p>
+<p>小王： 你明白了吧  inode 不仅仅是 <em>inode 编号</em></p>
+<p>ls -i src
+30933073 github.com</p>
+<p>30933073 是而<em>索引编号</em>实际上是 inode 的标识编号，</p>
+<p>因此也称其为 <em>inode 编号</em> 或者<em>索引编号</em>。</p>
+<p>索引编号只是文件相关信息中一项重要的内容</p>
+<h5 id="vfs-中的-inode-与-inode_operations-结构体">VFS 中的 inode 与 inode_operations 结构体</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">inode</span> <span class="p">{</span> 
+</span></span><span class="line"><span class="cl">   <span class="p">...</span> 
+</span></span><span class="line"><span class="cl">   <span class="k">const</span> <span class="k">struct</span> <span class="n">inode_operations</span>   <span class="o">*</span><span class="n">i_op</span><span class="p">;</span> <span class="c1">// 索引节点操作
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="kt">unsigned</span> <span class="kt">long</span>           <span class="n">i_ino</span><span class="p">;</span>      <span class="c1">// 索引节点号
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">atomic_t</span>                <span class="n">i_count</span><span class="p">;</span>    <span class="c1">// 引用计数器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="kt">unsigned</span> <span class="kt">int</span>            <span class="n">i_nlink</span><span class="p">;</span>    <span class="c1">// 硬链接数目
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="p">...</span> 
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">inode_operations</span> <span class="p">{</span> 
+</span></span><span class="line"><span class="cl">   <span class="p">...</span> 
+</span></span><span class="line"><span class="cl">   <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">create</span><span class="p">)</span> <span class="p">(</span><span class="k">struct</span> <span class="n">inode</span> <span class="o">*</span><span class="p">,</span><span class="k">struct</span> <span class="n">dentry</span> <span class="o">*</span><span class="p">,</span><span class="kt">int</span><span class="p">,</span> <span class="k">struct</span> <span class="n">nameidata</span> <span class="o">*</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">   <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">link</span><span class="p">)</span> <span class="p">(</span><span class="k">struct</span> <span class="n">dentry</span> <span class="o">*</span><span class="p">,</span><span class="k">struct</span> <span class="n">inode</span> <span class="o">*</span><span class="p">,</span><span class="k">struct</span> <span class="n">dentry</span> <span class="o">*</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">   <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">unlink</span><span class="p">)</span> <span class="p">(</span><span class="k">struct</span> <span class="n">inode</span> <span class="o">*</span><span class="p">,</span><span class="k">struct</span> <span class="n">dentry</span> <span class="o">*</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">   <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">symlink</span><span class="p">)</span> <span class="p">(</span><span class="k">struct</span> <span class="n">inode</span> <span class="o">*</span><span class="p">,</span><span class="k">struct</span> <span class="n">dentry</span> <span class="o">*</span><span class="p">,</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">   <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">mkdir</span><span class="p">)</span> <span class="p">(</span><span class="k">struct</span> <span class="n">inode</span> <span class="o">*</span><span class="p">,</span><span class="k">struct</span> <span class="n">dentry</span> <span class="o">*</span><span class="p">,</span><span class="kt">int</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">   <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">rmdir</span><span class="p">)</span> <span class="p">(</span><span class="k">struct</span> <span class="n">inode</span> <span class="o">*</span><span class="p">,</span><span class="k">struct</span> <span class="n">dentry</span> <span class="o">*</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">   <span class="p">...</span> 
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">ext4_inode</span> <span class="p">{</span> 
+</span></span><span class="line"><span class="cl">   <span class="err">``</span><span class="p">...</span> 
+</span></span><span class="line"><span class="cl">   <span class="err">``</span><span class="n">__le32</span>  <span class="n">i_atime</span><span class="p">;</span>        <span class="c1">// 文件内容最后一次访问时间
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="err">``</span><span class="n">__le32</span>  <span class="n">i_ctime</span><span class="p">;</span>        <span class="c1">// inode 修改时间
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="err">``</span><span class="n">__le32</span>  <span class="n">i_mtime</span><span class="p">;</span>        <span class="c1">// 文件内容最后一次修改时间
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="err">``</span><span class="n">__le16</span>  <span class="n">i_links_count</span><span class="p">;</span>  <span class="c1">// 硬链接计数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="err">``</span><span class="n">__le32</span>  <span class="n">i_blocks_lo</span><span class="p">;</span>    <span class="c1">// Block 计数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="err">``</span><span class="n">__le32</span>  <span class="n">i_block</span><span class="p">[</span><span class="n">EXT4_N_BLOCKS</span><span class="p">];</span>  <span class="c1">// 指向具体的 block 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="err">``</span><span class="p">...</span> 
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>画外音：</p>
+<p>通过 inode 找到数据快才是重点，这样数据库 可能存储在任何一个角落里</p>
+<p>文件系统一开始就将 inode 与 block 规划好了，除非重新格式化</p>
+<h4 id="superblock-超级区块">Superblock （超级区块）</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">block 与 inode 的总量；
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">未使用与已使用的 inode / block 数量；
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">block 与 inode 的大小 （block 为 1, 2, 4K，inode 为 128Bytes 或 256Bytes） ；
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">filesystem 的挂载时间、最近一次写入数据的时间、最近一次检验磁盘 （fsck） 的时间
+</span></span><span class="line"><span class="cl">等文件系统的相关信息；
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">一个 val
+</span></span><span class="line"><span class="cl">id bit 数值，若此文件系统已被挂载，则 valid bit 为 0 ，若未被挂载，则 valid bit
+</span></span><span class="line"><span class="cl">为
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">dumpe2fs -h /dev/sda2
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="2-目录项对象directory-entry">2. 目录项对象（directory entry）</h3>
+<blockquote>
+<p>存储在哪里</p>
+</blockquote>
+<p><img src="../../images/201909/image-20191101112234783.png" alt="image-20191101112234783"></p>
+<blockquote>
+<p>什么是目录项 ，如何读取的</p>
+</blockquote>
+<p>/ ,/etc,/etc/passwd 都是目录项</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1837968-67064997f97bc05d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="inode 本身并不记录文件名，文件名的记录是在目录的 block 当中 "></p>
+<ul>
+<li>node 本身并不记录文件名，文件名的记录 是在目录文件中</li>
+</ul>
+<h3 id="3-缓存">3. 缓存</h3>
+<ul>
+<li>
+<p>缓存类型</p>
+<p><img src="../../images/image-20191102143152311.png" alt="image-20191102143152311"></p>
+</li>
+</ul>
+<p><img src="../../images/201909/image-20191102141216537.png" alt="缓存类型 "></p>
+<ul>
+<li>
+<p>页缓存</p>
+<p><img src="../../images/201909/image-20191102141432007.png" alt="image-20191102141432007"></p>
+</li>
+</ul>
+<p><img src="../../images/201909/image-20191102141127416.png" alt="image-20191102141127416"></p>
+<p><img src="../images/201909/image-20191029172455029.png" alt="image-20191029172455029">-</p>
+<p><img src="../images/201909/image-20191029172803543.png" alt="image-20191029172803543"></p>
+<p><img src="../images/201909/image-20191029173304985.png" alt="image-20191029173304985"></p>
+<h3 id="4-linux-内核中文件-cache-管理的机制">4 Linux 内核中文件 Cache 管理的机制</h3>
+<p><a href="http://www.ilinuxkernel.com/files/Linux.Kernel.Cache.pdf">http://www.ilinuxkernel.com/files/Linux.Kernel.Cache.pdf</a></p>
+<h3 id="概念回顾">概念回顾</h3>
+<p>文件 Cache 是文件数据在内存中的副本 ,</p>
+<p>文件 Cache 分为两个层面，一是 Page Cache，  另一个 Buffer Cache</p>
+<ul>
+<li>Page</li>
+</ul>
+<p><img src="../images/201909/image-20191101154937693.png" alt="image-20191101154937693"></p>
+<ul>
+<li>内存管理系统和 VFS 只与 Page Cache 交互</li>
+</ul>
+<p><img src="../images/201909/image-20191101152555437.png" alt="image-20191101152555437"></p>
+<p><img src="https://www.ibm.com/developerworks/cn/linux/l-cache/images/1.jpg" alt=""></p>
+<ul>
+<li>
+<p>Page Cache、Buffer Cache、文件以及磁盘之间的关系</p>
+<p>文件的每个数据块最多只能对应一个 Page Cache 项 ，</p>
+<p>页面Cache中的每页所包含的数据是属于某个文件</p>
+</li>
+</ul>
+<p><img src="https://www.ibm.com/developerworks/cn/linux/l-cache/images/2.jpg" alt="img"></p>
+<ul>
+<li>每一个 Page Cache 包含若干 Buffer Cache</li>
+</ul>
+<p><img src="https://www.ibm.com/developerworks/cn/linux/l-cache/images/3.jpg" alt="img"></p>
+<ul>
+<li><strong>Page cache和Buffer cache的区别</strong></li>
+</ul>
+<p>磁盘的操作有逻辑级（文件系统）和物理级（磁盘块），这两种Cache就是分别缓存逻辑和物理级数据的。</p>
+<blockquote>
+<p>假设我们通过文件系统操作文件，那么文件将被缓存到Page Cache，</p>
+<p>如果需要刷新文件的时候，Page Cache将交给Buffer Cache去完成，因为Buffer Cache就是缓存磁盘块的。</p>
+</blockquote>
+<p>Page cache实际上是针对文件系统的，是文件的缓存，在文件层面上的数据会缓存到page cache。</p>
+<p>文件的逻辑层需要映射到实际的物理磁盘，这种映射关系由文件系统来完成。</p>
+<p>当page cache的数据需要刷新时，page cache中的数据交给buffer cache</p>
+<p>来自：Understanding the Linux Kernel 15章节</p>
+<ul>
+<li>
+<p>15.1. The Page Cache</p>
+<p>The page cache is the main disk cache used by the Linux
+kernel</p>
+<p>15.1.1. The address_space Object</p>
+<p>15.1.3. Page Cache Handling Functions</p>
+<p>15.1.3.3. Removing a page</p>
+<p>15.1.3.3. Removing a page</p>
+</li>
+<li>
+<p>15.2. Storing Blocks in the Page Cache</p>
+</li>
+</ul>
+<p>15.2.1. Block Buffers and Buffer Heads</p>
+<p>15.2.2. Managing the Buffer Heads</p>
+<p>15.2.3. Buffer Pages</p>
+<p>15.2.4. Allocating Block Device Buffer Pages</p>
+<p>15.3.1. The pdflush Kernel Threads</p>
+<p>15.3.3. Retrieving Old Dirty Pages</p>
+<p>15.3.3. Retrieving Old Dirty Pages</p>
+<ul>
+<li>16.1. Reading and Writing a File</li>
+</ul>
+<h3 id="文件读写">文件读写</h3>
+<p><a href="http://man7.org/linux/man-pages/man2/mmap.2.html">http://man7.org/linux/man-pages/man2/mmap.2.html</a></p>
+<p><a href="https://www.jianshu.com/p/eece39beee20">https://www.jianshu.com/p/eece39beee20</a></p>
+<p>page cache 中的页直接映射到用户进程地址空间中，</p>
+<p>从而进程可以直接访问自身地址空间的虚拟地址来访问 page cache 中的页</p>
+<p>page结构表示物理内存页帧，同一个物理内存地址可以同时被内核进程和用户进程访问，只要将用户进程的页表项也指向这个物理内存地址。</p>
+<p><a href="http://roux.top/2017/10/28/page%20cache%E5%92%8Caddress_space/">也就是mmap的实现原理</a></p>
+<p>比如，假设需要设计一个底层的数据结构是B+ Tree，node操作以Page单位的单机存储引擎，根据上述推论，</p>
+<p>写入使用系统调用，而读取使用mmap，可以达到最优的性能。</p>
+<p>而LMDB就是如此实现的。</p>
+<h1 id="案例实践">案例实践</h1>
+<h3 id="实验1-查看文件系统-占用情况">实验1： 查看文件系统 占用情况</h3>
+<ul>
+<li>文件系统中的目录项和索引节</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp"># 按下 c 按照缓存大小排序，按下 a 按照活跃对象数排序 
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="err">$</span> <span class="n">slabtop</span> 
+</span></span><span class="line"><span class="cl"><span class="n">Active</span> <span class="o">/</span> <span class="n">Total</span> <span class="n">Objects</span> <span class="p">(</span><span class="o">%</span> <span class="n">used</span><span class="p">)</span>    <span class="o">:</span> <span class="mi">277970</span> <span class="o">/</span> <span class="mi">358914</span> <span class="p">(</span><span class="mf">77.4</span><span class="o">%</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="n">Active</span> <span class="o">/</span> <span class="n">Total</span> <span class="n">Slabs</span> <span class="p">(</span><span class="o">%</span> <span class="n">used</span><span class="p">)</span>      <span class="o">:</span> <span class="mi">12414</span> <span class="o">/</span> <span class="mi">12414</span> <span class="p">(</span><span class="mf">100.0</span><span class="o">%</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="n">Active</span> <span class="o">/</span> <span class="n">Total</span> <span class="n">Caches</span> <span class="p">(</span><span class="o">%</span> <span class="n">used</span><span class="p">)</span>     <span class="o">:</span> <span class="mi">83</span> <span class="o">/</span> <span class="mi">135</span> <span class="p">(</span><span class="mf">61.5</span><span class="o">%</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="n">Active</span> <span class="o">/</span> <span class="n">Total</span> <span class="n">Size</span> <span class="p">(</span><span class="o">%</span> <span class="n">used</span><span class="p">)</span>       <span class="o">:</span> <span class="mf">57816.88</span><span class="n">K</span> <span class="o">/</span> <span class="mf">73307.70</span><span class="n">K</span> <span class="p">(</span><span class="mf">78.9</span><span class="o">%</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="n">Minimum</span> <span class="o">/</span> <span class="n">Average</span> <span class="o">/</span> <span class="n">Maximum</span> <span class="nl">Object</span> <span class="p">:</span> <span class="mf">0.01</span><span class="n">K</span> <span class="o">/</span> <span class="mf">0.20</span><span class="n">K</span> <span class="o">/</span> <span class="mf">22.88</span><span class="n">K</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">OBJS</span> <span class="n">ACTIVE</span>  <span class="n">USE</span> <span class="n">OBJ</span> <span class="n">SIZE</span>  <span class="n">SLABS</span> <span class="n">OBJ</span><span class="o">/</span><span class="n">SLAB</span> <span class="n">CACHE</span> <span class="n">SIZE</span> <span class="n">NAME</span> 
+</span></span><span class="line"><span class="cl"><span class="mi">69804</span>  <span class="mi">23094</span>   <span class="mi">0</span><span class="o">%</span>    <span class="mf">0.19</span><span class="n">K</span>   <span class="mi">3324</span>       <span class="mi">21</span>     <span class="mi">13296</span><span class="n">K</span> <span class="n">dentry</span> 
+</span></span><span class="line"><span class="cl"><span class="mi">16380</span>  <span class="mi">15854</span>   <span class="mi">0</span><span class="o">%</span>    <span class="mf">0.59</span><span class="n">K</span>   <span class="mi">1260</span>       <span class="mi">13</span>     <span class="mi">10080</span><span class="n">K</span> <span class="n">inode_cache</span> 
+</span></span><span class="line"><span class="cl"><span class="mi">58260</span>  <span class="mi">55397</span>   <span class="mi">0</span><span class="o">%</span>    <span class="mf">0.13</span><span class="n">K</span>   <span class="mi">1942</span>       <span class="mi">30</span>      <span class="mi">7768</span><span class="n">K</span> <span class="n">kernfs_node_cache</span> 
+</span></span><span class="line"><span class="cl">   <span class="mi">485</span>    <span class="mi">413</span>   <span class="mi">0</span><span class="o">%</span>    <span class="mf">5.69</span><span class="n">K</span>     <span class="mi">97</span>        <span class="mi">5</span>      <span class="mi">3104</span><span class="n">K</span> <span class="n">task_struct</span> 
+</span></span><span class="line"><span class="cl">  <span class="mi">1472</span>   <span class="mi">1397</span>   <span class="mi">0</span><span class="o">%</span>    <span class="mf">2.00</span><span class="n">K</span>     <span class="mi">92</span>       <span class="mi">16</span>      <span class="mi">2944</span><span class="n">K</span> <span class="n">kmalloc</span><span class="o">-</span><span class="mi">2048</span> 
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">   <span class="n">dentry</span> <span class="err">行表示目录项缓存，</span><span class="n">inode_cache</span> <span class="err">行，表示</span> <span class="n">VFS</span> <span class="err">索引节点缓存，其余的则是各种文件系统的索引节点缓存。</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl"> <span class="err">目录项和索引节点占用了最多的</span> <span class="n">Slab</span> <span class="err">缓存。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">不过它们占用的内存其实并不大，加起来也只有</span> <span class="mi">23</span><span class="n">MB</span> <span class="err">左右</span>
+</span></span><span class="line"><span class="cl">    
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>free 输出的 Cache，是页缓存和可回收 Slab 缓存的和  （vmstat free）</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ cat /proc/meminfo <span class="p">|</span> grep -E <span class="s2">&#34;SReclaimable|Cached&#34;</span> 
+</span></span><span class="line"><span class="cl">Cached:           <span class="m">748316</span> kB 
+</span></span><span class="line"><span class="cl">SwapCached:            <span class="m">0</span> kB 
+</span></span><span class="line"><span class="cl">SReclaimable:     <span class="m">179508</span> kB 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
+</span></span><span class="line"><span class="cl"> r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
+</span></span><span class="line"><span class="cl"> <span class="m">1</span>  <span class="m">0</span>  <span class="m">81196</span> <span class="m">13122800</span> <span class="m">239084</span> <span class="m">2126152</span>    <span class="m">0</span>    <span class="m">0</span>     <span class="m">0</span>     <span class="m">1</span>    <span class="m">0</span>    <span class="m">0</span>  <span class="m">1</span>  <span class="m">0</span> <span class="m">99</span>  <span class="m">0</span>  <span class="m">0</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">cat </span><span class="p">/</span><span class="n">proc</span><span class="p">/</span><span class="n">meminfo</span>
+</span></span><span class="line"><span class="cl"><span class="n">MemTotal</span><span class="err">:</span>       <span class="n">16267884</span> <span class="n">kB</span>
+</span></span><span class="line"><span class="cl"><span class="n">MemFree</span><span class="err">:</span>        <span class="n">13119460</span> <span class="n">kB</span>
+</span></span><span class="line"><span class="cl"><span class="n">MemAvailable</span><span class="err">:</span>   <span class="n">13798228</span> <span class="n">kB</span>
+</span></span><span class="line"><span class="cl"><span class="n">Buffers</span><span class="err">:</span>          <span class="n">240324</span> <span class="n">kB</span>
+</span></span><span class="line"><span class="cl"><span class="n">Cached</span><span class="err">:</span>          <span class="n">1648252</span> <span class="n">kB</span>
+</span></span><span class="line"><span class="cl"><span class="n">SwapCached</span><span class="err">:</span>         <span class="n">9644</span> <span class="n">kB</span>
+</span></span><span class="line"><span class="cl"><span class="n">Active</span><span class="err">:</span>           <span class="n">802676</span> <span class="n">kB</span>
+</span></span><span class="line"><span class="cl"><span class="n">Inactive</span><span class="err">:</span>        <span class="n">1733356</span> <span class="n">kB</span>
+</span></span><span class="line"><span class="cl"><span class="n">Active</span><span class="p">(</span><span class="n">anon</span><span class="p">)</span><span class="err">:</span>     <span class="n">510300</span> <span class="n">kB</span>
+</span></span><span class="line"><span class="cl"><span class="n">Inactive</span><span class="p">(</span><span class="n">anon</span><span class="p">)</span><span class="err">:</span>  <span class="n">1449420</span> <span class="n">kB</span>
+</span></span><span class="line"><span class="cl"><span class="n">Active</span><span class="p">(</span><span class="n">file</span><span class="p">)</span><span class="err">:</span>     <span class="n">292376</span> <span class="n">kB</span>
+</span></span><span class="line"><span class="cl"><span class="n">Inactive</span><span class="p">(</span><span class="n">file</span><span class="p">)</span><span class="err">:</span>   <span class="n">283936</span> <span class="n">kB</span>
+</span></span><span class="line"><span class="cl"><span class="n">Unevictable</span><span class="err">:</span>           <span class="n">0</span> <span class="n">kB</span>
+</span></span><span class="line"><span class="cl"><span class="n">Mlocked</span><span class="err">:</span>               <span class="n">0</span> <span class="n">kB</span>
+</span></span><span class="line"><span class="cl"><span class="n">SwapTotal</span><span class="err">:</span>       <span class="n">1048572</span> <span class="n">kB</span>
+</span></span><span class="line"><span class="cl"><span class="n">SwapFree</span><span class="err">:</span>         <span class="n">967376</span> <span class="n">kB</span>
+</span></span><span class="line"><span class="cl"><span class="n">Dirty</span><span class="err">:</span>               <span class="n">108</span> <span class="n">kB</span>
+</span></span><span class="line"><span class="cl"><span class="n">Writeback</span><span class="err">:</span>             <span class="n">0</span> <span class="n">kB</span>
+</span></span><span class="line"><span class="cl"><span class="n">AnonPages</span><span class="err">:</span>        <span class="n">639208</span> <span class="n">kB</span>
+</span></span><span class="line"><span class="cl"><span class="n">Mapped</span><span class="err">:</span>           <span class="n">109460</span> <span class="n">kB</span>
+</span></span><span class="line"><span class="cl"><span class="n">Shmem</span><span class="err">:</span>           <span class="n">1312244</span> <span class="n">kB</span>
+</span></span><span class="line"><span class="cl"><span class="n">Slab</span><span class="err">:</span>             <span class="n">478768</span> <span class="n">kB</span>
+</span></span><span class="line"><span class="cl"><span class="n">SReclaimable</span><span class="err">:</span>     <span class="n">355860</span> <span class="n">kB</span>
+</span></span><span class="line"><span class="cl"><span class="n">SUnreclaim</span><span class="err">:</span>       <span class="n">122908</span> <span class="n">kB</span>
+</span></span><span class="line"><span class="cl"><span class="n">KernelStack</span><span class="err">:</span>        <span class="n">5376</span> <span class="n">kB</span>
+</span></span><span class="line"><span class="cl"><span class="n">PageTables</span><span class="err">:</span>        <span class="n">10860</span> <span class="n">kB</span>
+</span></span><span class="line"><span class="cl"><span class="n">NFS_Unstable</span><span class="err">:</span>          <span class="n">0</span> <span class="n">kB</span>
+</span></span><span class="line"><span class="cl"><span class="n">Bounce</span><span class="err">:</span>                <span class="n">0</span> <span class="n">kB</span>
+</span></span><span class="line"><span class="cl"><span class="n">WritebackTmp</span><span class="err">:</span>          <span class="n">0</span> <span class="n">kB</span>
+</span></span><span class="line"><span class="cl"><span class="n">CommitLimit</span><span class="err">:</span>     <span class="n">9182512</span> <span class="n">kB</span>
+</span></span><span class="line"><span class="cl"><span class="n">Committed_AS</span><span class="err">:</span>    <span class="n">3782272</span> <span class="n">kB</span>
+</span></span><span class="line"><span class="cl"><span class="n">VmallocTotal</span><span class="err">:</span>   <span class="n">34359738367</span> <span class="n">kB</span>
+</span></span><span class="line"><span class="cl"><span class="n">VmallocUsed</span><span class="err">:</span>       <span class="n">34736</span> <span class="n">kB</span>
+</span></span><span class="line"><span class="cl"><span class="n">VmallocChunk</span><span class="err">:</span>   <span class="n">34359698684</span> <span class="n">kB</span>
+</span></span><span class="line"><span class="cl"><span class="n">HardwareCorrupted</span><span class="err">:</span>     <span class="n">0</span> <span class="n">kB</span>
+</span></span><span class="line"><span class="cl"><span class="n">AnonHugePages</span><span class="err">:</span>    <span class="n">253952</span> <span class="n">kB</span>
+</span></span><span class="line"><span class="cl"><span class="n">HugePages_Total</span><span class="err">:</span>       <span class="n">0</span>
+</span></span><span class="line"><span class="cl"><span class="n">HugePages_Free</span><span class="err">:</span>        <span class="n">0</span>
+</span></span><span class="line"><span class="cl"><span class="n">HugePages_Rsvd</span><span class="err">:</span>        <span class="n">0</span>
+</span></span><span class="line"><span class="cl"><span class="n">HugePages_Surp</span><span class="err">:</span>        <span class="n">0</span>
+</span></span><span class="line"><span class="cl"><span class="n">Hugepagesize</span><span class="err">:</span>       <span class="n">2048</span> <span class="n">kB</span>
+</span></span><span class="line"><span class="cl"><span class="n">DirectMap4k</span><span class="err">:</span>      <span class="n">108416</span> <span class="n">kB</span>
+</span></span><span class="line"><span class="cl"><span class="n">DirectMap2M</span><span class="err">:</span>    <span class="n">10377216</span> <span class="n">kB</span>
+</span></span><span class="line"><span class="cl"><span class="n">DirectMap1G</span><span class="err">:</span>     <span class="n">8388608</span> <span class="n">kB</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>可以用stat命令，查看某个文件的inode信息</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"> stat cmd.txt 
+</span></span><span class="line"><span class="cl">  File: ‘cmd.txt’
+</span></span><span class="line"><span class="cl">  Size: <span class="m">131</span>             Blocks: <span class="m">8</span>          IO Block: <span class="m">4096</span>   regular file
+</span></span><span class="line"><span class="cl">Device: fd00h/64768d    Inode: <span class="m">482</span>         Links: <span class="m">1</span>
+</span></span><span class="line"><span class="cl">Access: <span class="o">(</span>0644/-rw-r--r--<span class="o">)</span>  Uid: <span class="o">(</span>    0/    root<span class="o">)</span>   Gid: <span class="o">(</span>    0/    root<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Access: 2019-01-22 17:22:54.685741395 +0800
+</span></span><span class="line"><span class="cl">Modify: 2019-01-22 16:34:25.993178846 +0800
+</span></span><span class="line"><span class="cl">Change: 2019-01-22 16:34:25.993178846 +0800
+</span></span><span class="line"><span class="cl"> Birth: -
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">stat - display file or file system status
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">stat -f cmd.txt 
+</span></span><span class="line"><span class="cl">  File: <span class="s2">&#34;cmd.txt&#34;</span>
+</span></span><span class="line"><span class="cl">    ID: 37fc5f360777ebb Namelen: <span class="m">255</span>     Type: ext2/ext3
+</span></span><span class="line"><span class="cl">Block size: <span class="m">4096</span>       Fundamental block size: <span class="m">4096</span>
+</span></span><span class="line"><span class="cl">Blocks: Total: <span class="m">4817666</span>    Free: <span class="m">2971792</span>    Available: <span class="m">2748308</span>
+</span></span><span class="line"><span class="cl">Inodes: Total: <span class="m">1227328</span>    Free: <span class="m">1148127</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">df -i
+</span></span><span class="line"><span class="cl">Filesystem                 Inodes  IUsed    IFree IUse% Mounted on
+</span></span><span class="line"><span class="cl">/dev/mapper/vg_root-root  <span class="m">1227328</span>  <span class="m">79201</span>  <span class="m">1148127</span>    7% /
+</span></span><span class="line"><span class="cl">devtmpfs                  <span class="m">2030909</span>    <span class="m">422</span>  <span class="m">2030487</span>    1% /dev
+</span></span><span class="line"><span class="cl">tmpfs                     <span class="m">2033485</span>      <span class="m">1</span>  <span class="m">2033484</span>    1% /dev/shm
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>是否缓存 1631&ndash;&gt;112</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">To free pagecache:
+</span></span><span class="line"><span class="cl"><span class="c1"># echo 1 &gt; /proc/sys/vm/drop_caches</span>
+</span></span><span class="line"><span class="cl">To free dentries and inodes:
+</span></span><span class="line"><span class="cl"><span class="c1"># echo 2 &gt; /proc/sys/vm/drop_caches</span>
+</span></span><span class="line"><span class="cl">To free pagecache, dentries and inodes:
+</span></span><span class="line"><span class="cl"><span class="c1"># echo 3 &gt; /proc/sys/vm/drop_caches</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">root@work:~# free -m
+</span></span><span class="line"><span class="cl">              total        used        free      shared  buff/cache   available
+</span></span><span class="line"><span class="cl">Mem:           <span class="m">2009</span>         <span class="m">276</span>         <span class="m">101</span>           <span class="m">3</span>        <span class="m">1631</span>        <span class="m">1545</span>
+</span></span><span class="line"><span class="cl">Swap:           <span class="m">425</span>     
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">root@work:~# <span class="nb">echo</span> <span class="m">3</span> &gt; /proc/sys/vm/drop_caches
+</span></span><span class="line"><span class="cl">root@work:~# free -m
+</span></span><span class="line"><span class="cl">              total        used        free      shared  buff/cache   available
+</span></span><span class="line"><span class="cl">Mem:           <span class="m">2009</span>         <span class="m">250</span>        <span class="m">1646</span>           <span class="m">1</span>         <span class="m">112</span>        <span class="m">1628</span>
+</span></span><span class="line"><span class="cl">Swap:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">命令slabtop查看slab占用情况
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Slab的两个主要作用：
+</span></span><span class="line"><span class="cl">Slab对小对象进行分配，不用为每个小对象分配一个页，节省了空间。
+</span></span><span class="line"><span class="cl">内核中一些小对象创建析构很频繁，Slab对这些小对象做缓存，可以重复利用一些相同的对象，减少内存分配次
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">https://fivezh.github.io/2017/06/25/Linux-slab-info/
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@vm-10-115-37-60 bin<span class="o">]</span><span class="c1">#  cat /proc/slabinfo |awk &#39;{print $1,$3*$4/1024,&#34;KB&#34;}&#39; | sort -k2 -n | tail</span>
+</span></span><span class="line"><span class="cl">sysfs_dir_cache 2019.94 KB
+</span></span><span class="line"><span class="cl">kmalloc-1024 <span class="m">2080</span> KB
+</span></span><span class="line"><span class="cl">kmalloc-2048 <span class="m">2304</span> KB
+</span></span><span class="line"><span class="cl">kmalloc-4096 <span class="m">2528</span> KB
+</span></span><span class="line"><span class="cl">buffer_head 6515.74 KB
+</span></span><span class="line"><span class="cl">ext4_inode_cache 8439.27 KB
+</span></span><span class="line"><span class="cl">inode_cache 9396.84 KB
+</span></span><span class="line"><span class="cl">radix_tree_node 11705.1 KB
+</span></span><span class="line"><span class="cl">shmem_inode_cache <span class="m">91290</span> KB
+</span></span><span class="line"><span class="cl">dentry <span class="m">309050</span> KB
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>nmon</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">wget http://sourceforge.net/projects/nmon/files/nmon16e_mpginc.tar.gz
+</span></span><span class="line"><span class="cl">tar -zxvf nmon16e_mpginc.tar.gz
+</span></span><span class="line"><span class="cl">cp nmon_x86_64_centos7 /usr/local/bin/nmon
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> /usr/local/bin
+</span></span><span class="line"><span class="cl">chmod <span class="m">777</span> nmon
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>vmtouch</li>
+</ul>
+<p><a href="http://ohmycat.me/2017/12/05/vmtouch.html">http://ohmycat.me/2017/12/05/vmtouch.html</a></p>
+<p>祝玩得开心！</p>
+<h1 id="参考">参考</h1>
+<ul>
+<li>
+<p><a href="https://cloud.tencent.com/developer/article/1145377">理解mmap</a></p>
+</li>
+<li>
+<p>MMKV&ndash;基于 mmap 的 iOS 高性能通用 key-value 组件</p>
+</li>
+<li>
+<p>linux中的mmap和直接io的区别，两者的使用场景有啥区别？</p>
+</li>
+</ul>
+<p>[1]  <a href="https://github.com/freelancer-leon/notes/blob/master/kernel/vfs.md">https://github.com/freelancer-leon/notes/blob/master/kernel/vfs.md</a></p>
+<p><a href="https://wizardforcel.gitbooks.io/vbird-linux-basic-4e/content/59.html">https://wizardforcel.gitbooks.io/vbird-linux-basic-4e/content/59.html</a></p>
+<p><a href="https://www.cnblogs.com/xiaojiang1025/p/6363626.html">https://www.cnblogs.com/xiaojiang1025/p/6363626.html</a></p>
+<p>[2]  directory entry cache (dcache). 是什么  <a href="https://www.kernel.org/doc/ols/2002/ols2002-pages-289-300.pdf">https://www.kernel.org/doc/ols/2002/ols2002-pages-289-300.pdf</a></p>
+<p>[3] 一次FIND命令导致的内存问题排查  <a href="https://ixyzero.com/blog/archives/3231.html">https://ixyzero.com/blog/archives/3231.html</a></p>
+<p>[4] 什么是PAGECACHE/DENTRIES/INODES?  <a href="https://ixyzero.com/blog/archives/3233.html">https://ixyzero.com/blog/archives/3233.html</a></p>
+<p>[5]  free  <a href="https://zhuanlan.zhihu.com/p/35277219">https://zhuanlan.zhihu.com/p/35277219</a></p>
+<p>[6] Linux Used内存到底哪里去了？  <a href="http://blog.yufeng.info/archives/2456">http://blog.yufeng.info/archives/2456</a></p>
+<p>[7] x86 CPU中逻辑地址到物理地址映射过程  <a href="http://ilinuxkernel.com/?p=448">http://ilinuxkernel.com/?p=448</a></p>
+<p>[8]  <a href="https://zh.wikipedia.org/wiki/Inode">https://zh.wikipedia.org/wiki/Inode</a></p>
+<p>[9]  <a href="http://www.ruanyifeng.com/blog/2011/12/inode.html">http://www.ruanyifeng.com/blog/2011/12/inode.html</a></p>
+<p>【10】 <a href="https://zhuanlan.zhihu.com/p/50310694">https://zhuanlan.zhihu.com/p/50310694</a></p>
+<p>【11】 <a href="https://zhuanlan.zhihu.com/p/69527356">https://zhuanlan.zhihu.com/p/69527356</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Troy</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        0001-01-01 00:00
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a target="_blank" rel="license noopener" href="https://github.com/nusr/blog/blob/master/LICENSE">MIT</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/leetcode/%E6%B1%BD%E6%B0%B4%E7%93%B6/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">智力题</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/English/The-Go-scheduler/">
+            <span class="next-text nav-default"></span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="wangcy6/wangcy6.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:wang_cyi@163.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/wangcy6" class="iconfont icon-github" title="github"></a>
+  <a href="https://wangcy6.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2022
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Troy</span>
+  </span>
+</div>
+<script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
+  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+    var languageCode = "zh-cn".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    timeago().render(document.querySelectorAll('.timeago'), languageCode);
+    timeago.cancel();  
+  </script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-138883536-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>

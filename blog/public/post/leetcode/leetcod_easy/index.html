@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>leetcode_easy_200-300 - Troy的网络博客</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Troy" /><meta name="description" content="开始日期 更新日期 备注 2020-6-17 2020-6-17 leetcode_easy_200-300 绘图工具 https://app.diagrams.net/#Hwatchpoints%2Fdaily-interview%2Fmain%2Fleetcode%2Fppt%2F%E6%9C%AA%E5%91%BD%E5%90%8D%E7%BB%98%E5%9B%BE.drawio http://127.0.0.1:1313/post/leetcode/leetcod_easy/ 题目汇总 最后一个单词的长度 796. 旋转字符串 151. 翻转字符串里的单词 感觉理解 1 。之翻转 blue eulb &amp;mdash;&amp;gt;" /><meta name="keywords" content="daily-interview-question, Github, c&#43;&#43;, Leetcode 题解, 后端面试" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.101.0 with theme even" />
+
+
+<link rel="canonical" href="https://wangcy6.github.io/post/leetcode/leetcod_easy/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="leetcode_easy_200-300" />
+<meta property="og:description" content="开始日期 更新日期 备注 2020-6-17 2020-6-17 leetcode_easy_200-300 绘图工具 https://app.diagrams.net/#Hwatchpoints%2Fdaily-interview%2Fmain%2Fleetcode%2Fppt%2F%E6%9C%AA%E5%91%BD%E5%90%8D%E7%BB%98%E5%9B%BE.drawio http://127.0.0.1:1313/post/leetcode/leetcod_easy/ 题目汇总 最后一个单词的长度 796. 旋转字符串 151. 翻转字符串里的单词 感觉理解 1 。之翻转 blue eulb &mdash;&gt;" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wangcy6.github.io/post/leetcode/leetcod_easy/" /><meta property="article:section" content="post" />
+
+
+
+<meta itemprop="name" content="leetcode_easy_200-300">
+<meta itemprop="description" content="开始日期 更新日期 备注 2020-6-17 2020-6-17 leetcode_easy_200-300 绘图工具 https://app.diagrams.net/#Hwatchpoints%2Fdaily-interview%2Fmain%2Fleetcode%2Fppt%2F%E6%9C%AA%E5%91%BD%E5%90%8D%E7%BB%98%E5%9B%BE.drawio http://127.0.0.1:1313/post/leetcode/leetcod_easy/ 题目汇总 最后一个单词的长度 796. 旋转字符串 151. 翻转字符串里的单词 感觉理解 1 。之翻转 blue eulb &mdash;&gt;">
+
+<meta itemprop="wordCount" content="456">
+<meta itemprop="keywords" content="Interview Question," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="leetcode_easy_200-300"/>
+<meta name="twitter:description" content="开始日期 更新日期 备注 2020-6-17 2020-6-17 leetcode_easy_200-300 绘图工具 https://app.diagrams.net/#Hwatchpoints%2Fdaily-interview%2Fmain%2Fleetcode%2Fppt%2F%E6%9C%AA%E5%91%BD%E5%90%8D%E7%BB%98%E5%9B%BE.drawio http://127.0.0.1:1313/post/leetcode/leetcod_easy/ 题目汇总 最后一个单词的长度 796. 旋转字符串 151. 翻转字符串里的单词 感觉理解 1 。之翻转 blue eulb &mdash;&gt;"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="https://github.com/wangcy6/weekly/tree/master/book">
+        <li class="mobile-menu-item">阅读清单</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于我</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://github.com/wangcy6/weekly/tree/master/book">阅读清单</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于我</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">leetcode_easy_200-300</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 0001-01-01 00:00 </span>
+        <div class="post-category">
+            <a href="/categories/Leetcode/"> Leetcode </a>
+            </div>
+          <span class="more-meta"> 约 456 字 </span>
+          <span class="more-meta"> 预计阅读 1 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+  <div class="post-outdated">
+    <div class="warn">
+      <p>【注意】最后更新于 <span class="timeago" datetime="0001-01-01T00:00:00" title="January 1, 0001">January 1, 0001</span>，文中内容可能已过时，请谨慎使用。</p>
+    </div>
+  </div>
+    <div class="post-content">
+      <table>
+<thead>
+<tr>
+<th>开始日期</th>
+<th>更新日期</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2020-6-17</td>
+<td>2020-6-17</td>
+<td>leetcode_easy_200-300</td>
+</tr>
+</tbody>
+</table>
+<p>绘图工具</p>
+<ul>
+<li>
+<p><a href="https://app.diagrams.net/#Hwatchpoints%2Fdaily-interview%2Fmain%2Fleetcode%2Fppt%2F%E6%9C%AA%E5%91%BD%E5%90%8D%E7%BB%98%E5%9B%BE.drawio">https://app.diagrams.net/#Hwatchpoints%2Fdaily-interview%2Fmain%2Fleetcode%2Fppt%2F%E6%9C%AA%E5%91%BD%E5%90%8D%E7%BB%98%E5%9B%BE.drawio</a></p>
+</li>
+<li>
+<p>http://127.0.0.1:1313/post/leetcode/leetcod_easy/</p>
+</li>
+</ul>
+<h1 id="题目汇总">题目汇总</h1>
+<ul>
+<li>
+<ol>
+<li>
+<ol start="58">
+<li>
+<p>最后一个单词的长度</p>
+<ol>
+<li>
+<h4 id="796-旋转字符串httpsleetcode-cncomproblemsrotate-string"><a href="https://leetcode-cn.com/problems/rotate-string/">796. 旋转字符串</a></h4>
+</li>
+<li>
+<h4 id="151-翻转字符串里的单词httpsleetcode-cncomproblemsreverse-words-in-a-string"><a href="https://leetcode-cn.com/problems/reverse-words-in-a-string/">151. 翻转字符串里的单词</a></h4>
+<p>感觉理解</p>
+<p>1 。之翻转 blue eulb &mdash;&gt;在在翻转&mdash;每个单词位置。</p>
+</li>
+<li>
+<h4 id="5-最长回文子串httpsleetcode-cncomproblemslongest-palindromic-substring"><a href="https://leetcode-cn.com/problems/longest-palindromic-substring/">5. 最长回文子串</a></h4>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>使用循坏输出等腰三角形</li>
+</ol>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">https://www.nowcoder.com/questionTerminal/200cb07ae99141e488bc15d4c79a6c87?orderByHotValue=1&amp;mutiTagIds=639&amp;page=1&amp;onlyReference=false
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">9_输出由星号组成的三角形
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">请实现一个返回指定高度圣诞树的函数。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">例如height = 5应返回:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    *    
+</span></span><span class="line"><span class="cl">   ***   
+</span></span><span class="line"><span class="cl">  *****  
+</span></span><span class="line"><span class="cl"> ******* 
+</span></span><span class="line"><span class="cl">*********
+</span></span><span class="line"><span class="cl">高度为 0 到 100 之间的整数。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">用空格填充，使每行长度相同。最后一行只有星星，没有空格
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>【day6】3.汽水瓶</p>
+<ul>
+<li>如何在O(n)的时间复杂度内查找一个无序数组中的第K个大元素？</li>
+</ul>
+<p>【day7】 <a href="https://github.com/watchpoints/daily-interview/blob/main/leetcode/code/405.%E6%95%B0%E5%AD%97%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E6%95%B0.cpp">405. 数字转换为十六进制数</a></p>
+<ul>
+<li>
+<p>准备：深入理解计算机系统（CSAPP）<a href="https://devinkin.github.io/post/csapp/chapter2/">第二章，第三章</a></p>
+</li>
+<li>
+<p>准备：<a href="https://www.zhihu.com/question/50098632">如何区别二进制32个1表示-1，还是4294967295？</a></p>
+</li>
+<li>
+<p><a href="https://github.com/watchpoints/gcc/blob/master/libiberty/strtol.c">十六进制字符串转换为十进制数值</a></p>
+<p>strtol的思路是声明unsigned long 这是算法关键。</p>
+</li>
+</ul>
+<p>一个合法很大数字 40000*50000有符号位表示不了</p>
+<p>输入 ox -1 和超过 unsigned long（不是long）判断次要的</p>
+<p>负数十六进制与十进制如何相互转换？</p>
+<p>【Day 8】547. 省份数量</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Troy</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        0001-01-01 00:00
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a target="_blank" rel="license noopener" href="https://github.com/nusr/blog/blob/master/LICENSE">MIT</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/Interview-Question/">Interview Question</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/plan/2020_04_toddo/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">ARTS_weekly_5</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/leetcode/system_desing/">
+            <span class="next-text nav-default">system_desing</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="wangcy6/wangcy6.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:wang_cyi@163.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/wangcy6" class="iconfont icon-github" title="github"></a>
+  <a href="https://wangcy6.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2022
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Troy</span>
+  </span>
+</div>
+<script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
+  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+    var languageCode = "zh-cn".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    timeago().render(document.querySelectorAll('.timeago'), languageCode);
+    timeago.cancel();  
+  </script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-138883536-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>leetcode_medium_300-400 - Troy的网络博客</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Troy" /><meta name="description" content="开始日期 更新日期 备注 2020-6-10 2020-6-10 300-400中等难度总结 题目汇总 查找和最小的K对数字 合并K个排序链表 寻找两个有序数组的中位数 K个有序数组的中位数 m" /><meta name="keywords" content="daily-interview-question, Github, c&#43;&#43;, Leetcode 题解, 后端面试" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.101.0 with theme even" />
+
+
+<link rel="canonical" href="https://wangcy6.github.io/post/leetcode/leetcode_hard/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="leetcode_medium_300-400" />
+<meta property="og:description" content="开始日期 更新日期 备注 2020-6-10 2020-6-10 300-400中等难度总结 题目汇总 查找和最小的K对数字 合并K个排序链表 寻找两个有序数组的中位数 K个有序数组的中位数 m" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wangcy6.github.io/post/leetcode/leetcode_hard/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2020-06-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-06-10T00:00:00+00:00" />
+
+<meta itemprop="name" content="leetcode_medium_300-400">
+<meta itemprop="description" content="开始日期 更新日期 备注 2020-6-10 2020-6-10 300-400中等难度总结 题目汇总 查找和最小的K对数字 合并K个排序链表 寻找两个有序数组的中位数 K个有序数组的中位数 m"><meta itemprop="datePublished" content="2020-06-10T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-06-10T00:00:00+00:00" />
+<meta itemprop="wordCount" content="3555">
+<meta itemprop="keywords" content="Interview Question," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="leetcode_medium_300-400"/>
+<meta name="twitter:description" content="开始日期 更新日期 备注 2020-6-10 2020-6-10 300-400中等难度总结 题目汇总 查找和最小的K对数字 合并K个排序链表 寻找两个有序数组的中位数 K个有序数组的中位数 m"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="https://github.com/wangcy6/weekly/tree/master/book">
+        <li class="mobile-menu-item">阅读清单</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于我</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://github.com/wangcy6/weekly/tree/master/book">阅读清单</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于我</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">leetcode_medium_300-400</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-06-10 00:00 </span>
+        <div class="post-category">
+            <a href="/categories/Leetcode/"> Leetcode </a>
+            </div>
+          <span class="more-meta"> 约 3555 字 </span>
+          <span class="more-meta"> 预计阅读 8 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#373-查找和最小的k对数字">373. 查找和最小的K对数字</a>
+      <ul>
+        <li><a href="#一题目信息">一、<strong>题目信息</strong></a></li>
+        <li><a href="#二思路描述">二、<strong>思路描述</strong></a></li>
+        <li><a href="#三算法描述">三、<strong>算法描述</strong></a></li>
+        <li><a href="#四参考代码">四、<strong>参考代码</strong></a></li>
+        <li><a href="#五举一反三">五、举一反三</a></li>
+      </ul>
+    </li>
+    <li><a href="#375-猜数字大小-ii">[375] 猜数字大小 II</a>
+      <ul>
+        <li><a href="#一题目信息-1">一、<strong>题目信息</strong></a></li>
+        <li><a href="#二题目描述">二、<strong>题目描述</strong></a></li>
+        <li><a href="#三算法描述-1">三、<strong>算法描述</strong></a></li>
+        <li><a href="#四参考代码-1">四、<strong>参考代码</strong></a></li>
+        <li><a href="#五举一反三-1">五、举一反三</a></li>
+      </ul>
+    </li>
+    <li><a href="#377-组合总和-">[377] 组合总和 Ⅳ</a>
+      <ul>
+        <li><a href="#一题目信息-2">一、<strong>题目信息</strong></a></li>
+        <li><a href="#二题目描述-1">二、<strong>题目描述</strong></a></li>
+        <li><a href="#三算法描述-2">三、<strong>算法描述</strong></a></li>
+        <li><a href="#四参考代码-2">四、<strong>参考代码</strong></a></li>
+        <li><a href="#五举一反三-2">五、举一反三</a></li>
+      </ul>
+    </li>
+    <li><a href="#378-有序矩阵中第k小的元素">378. 有序矩阵中第K小的元素</a>
+      <ul>
+        <li><a href="#一题目信息-3">一、<strong>题目信息</strong></a></li>
+        <li><a href="#二题目描述-2">二、<strong>题目描述</strong></a></li>
+        <li><a href="#二题目描述-3">二、<strong>题目描述</strong></a></li>
+        <li><a href="#三算法描述-3">三、<strong>算法描述</strong></a></li>
+        <li><a href="#四参考代码-3">四、<strong>参考代码</strong></a></li>
+        <li><a href="#五举一反三-3">五、举一反三</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+  <div class="post-outdated">
+    <div class="warn">
+      <p>【注意】最后更新于 <span class="timeago" datetime="2020-06-10T00:00:00" title="June 10, 2020">June 10, 2020</span>，文中内容可能已过时，请谨慎使用。</p>
+    </div>
+  </div>
+    <div class="post-content">
+      <table>
+<thead>
+<tr>
+<th>开始日期</th>
+<th>更新日期</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2020-6-10</td>
+<td>2020-6-10</td>
+<td>300-400中等难度总结</td>
+</tr>
+</tbody>
+</table>
+<h1 id="题目汇总">题目汇总</h1>
+<ul>
+<li>
+<ol start="373">
+<li>查找和最小的K对数字</li>
+<li>合并K个排序链表</li>
+</ol>
+</li>
+<li>寻找两个有序数组的中位数  </li>
+<li><a href="https://www.lintcode.com/problem/median-of-k-sorted-arrays/description">K个有序数组的中位数</a></li>
+<li><a href="https://www.1point3acres.com/bbs/thread-283988-1-1.html">m个有序数组求第k小的数字</a></li>
+<li><a href="https://leetcode-cn.com/problems/kth-smallest-element-in-a-sorted-matrix/">有序矩阵中第K小的元素</a></li>
+<li>[375] 猜数字大小 II</li>
+<li>
+<ol start="240">
+<li>搜索二维矩阵 II</li>
+</ol>
+</li>
+</ul>
+<h2 id="373-查找和最小的k对数字">373. 查找和最小的K对数字</h2>
+<h3 id="一题目信息">一、<strong>题目信息</strong></h3>
+<p>今天来做这个题目，主要考察的xxx</p>
+<h3 id="二思路描述">二、<strong>思路描述</strong></h3>
+<blockquote>
+<p>能说出基本思想即可,实在不行动手画个流程图把。</p>
+</blockquote>
+<p><img src="https://i.loli.net/2020/06/17/WmDrHfbEzyYFpnN.png" alt="image.png">
+<img src="https://i.loli.net/2020/06/17/R9XozHErmeTgMt7.png" alt="image.png"></p>
+<h3 id="三算法描述">三、<strong>算法描述</strong></h3>
+<blockquote>
+<p>算法是问题求解过程的一种描述,有清晰的操作步骤。</p>
+</blockquote>
+<h3 id="四参考代码">四、<strong>参考代码</strong></h3>
+<blockquote>
+<p>放轻松，虽然是c++实现，我们一贯宗旨是拒绝奇技淫巧，不懂代码一看就明白</p>
+</blockquote>
+<h3 id="五举一反三">五、举一反三</h3>
+<blockquote>
+<p>别人最佳答案并不重要，关键是自己理解。
+<a href="https://leetcode-cn.com/problems/find-k-pairs-with-smallest-sums/solution/cha-zhao-he-zui-xiao-de-kdui-shu-zi-by-lenn123/">https://leetcode-cn.com/problems/find-k-pairs-with-smallest-sums/solution/cha-zhao-he-zui-xiao-de-kdui-shu-zi-by-lenn123/</a>
+<a href="https://leetcode.com/problems/find-k-pairs-with-smallest-sums/discuss/84551/simple-Java-O(KlogK)-solution-with-explanation">https://leetcode.com/problems/find-k-pairs-with-smallest-sums/discuss/84551/simple-Java-O(KlogK)-solution-with-explanation</a></p>
+</blockquote>
+<h2 id="375-猜数字大小-ii">[375] 猜数字大小 II</h2>
+<h3 id="一题目信息-1">一、<strong>题目信息</strong></h3>
+<p>今天来做这个题目，主要考察的xxx</p>
+<blockquote>
+<ul>
+<li>链接：<a href="https://leetcode-cn.com/problems/guess-number-higher-or-lower-ii/">guess-number-higher-or-lower-ii</a></li>
+<li>来源：Interview Question</li>
+<li>难度：中等</li>
+</ul>
+</blockquote>
+<p><img src="https://i.bmp.ovh/imgs/2020/06/d80e16f3603ba6b1.png" alt=""></p>
+<h3 id="二题目描述">二、<strong>题目描述</strong></h3>
+<blockquote>
+<p>算法是问题求解过程的一种描述，看看这个题目是怎么描述的吧。</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> * 我们正在玩一个猜数游戏，游戏规则如下：
+</span></span><span class="line"><span class="cl"> * 
+</span></span><span class="line"><span class="cl"> * 我从 1 到 n 之间选择一个数字，你来猜我选了哪个数字。
+</span></span><span class="line"><span class="cl"> * 
+</span></span><span class="line"><span class="cl"> * 每次你猜错了，我都会告诉你，我选的数字比你的大了或者小了。
+</span></span><span class="line"><span class="cl"> * 
+</span></span><span class="line"><span class="cl"> * 然而，当你猜了数字 x 并且猜错了的时候，你需要支付金额为 x 的现金。直到你猜到我选的数字，你才算赢得了这个游戏。
+</span></span><span class="line"><span class="cl"> * 
+</span></span><span class="line"><span class="cl"> * 示例:
+</span></span><span class="line"><span class="cl"> * 
+</span></span><span class="line"><span class="cl"> * n = 10的, 我选择了8.
+</span></span><span class="line"><span class="cl"> * 
+</span></span><span class="line"><span class="cl"> * 第一轮: 你猜我选择的数字是5，我会告诉你，我的数字更大一些，然后你需要支付5块。
+</span></span><span class="line"><span class="cl"> * 第二轮: 你猜是7，我告诉你，我的数字更大一些，你支付7块。
+</span></span><span class="line"><span class="cl"> * 第三轮: 你猜是9，我告诉你，我数字更小一些，你支付9块。
+</span></span><span class="line"><span class="cl"> * 
+</span></span><span class="line"><span class="cl"> * 游戏结束。8 就是我选的数字。
+</span></span><span class="line"><span class="cl"> * 
+</span></span><span class="line"><span class="cl"> * 你最终要支付 5 + 7 + 9 = 21 块钱。
+</span></span><span class="line"><span class="cl"> * 
+</span></span><span class="line"><span class="cl"> * 
+</span></span><span class="line"><span class="cl"> * 给定 n ≥ 1，计算你至少需要拥有多少现金才能确保你能赢得这个游戏。
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="三算法描述-1">三、<strong>算法描述</strong></h3>
+<blockquote>
+<p>能说出基本思想即可,实在不行动手画个流程图把。</p>
+</blockquote>
+<ul>
+<li>Solution1 题目看起来很简单，但是无从下手。
+n是模糊数据。
+最差就是（1+n）n/2 顺猜，优化一下平衡二叉搜索tree，但是
+结果如何计算呢？</li>
+</ul>
+<blockquote>
+<p>画外音：在此阅读题目要求，自己理解题目了吗？对不明白地方，我跳过了吗?</p>
+</blockquote>
+<p>给定 n ≥ 1，计算你至少需要拥有多少现金才能确保你能赢得这个游戏
+&lt;&mdash;&gt; 
+需要考虑最坏情况下的代价。也就是说要算每次都猜错的情况下的总体最大开销。</p>
+<h3 id="四参考代码-1">四、<strong>参考代码</strong></h3>
+<blockquote>
+<p>放轻松，虽然是c++实现，我们一贯宗旨是拒绝奇技淫巧，不懂代码一看就明白</p>
+</blockquote>
+<h3 id="五举一反三-1">五、举一反三</h3>
+<blockquote>
+<p>别人最佳答案并不重要，关键是自己理解。
+<a href="https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-375-guess-number-higher-or-lower-ii/">https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-375-guess-number-higher-or-lower-ii/</a></p>
+</blockquote>
+<h2 id="377-组合总和-">[377] 组合总和 Ⅳ</h2>
+<h3 id="一题目信息-2">一、<strong>题目信息</strong></h3>
+<p>这个是一个经典题目,</p>
+<ul>
+<li>
+<p>第一次实现用递归回溯，参考组合排序,区别 不需要判断历史记录是否访问，虽然做了剪彩。结果超时、</p>
+</li>
+<li>
+<p>第二次实现，根据当target=1000时候，很多重复，采用vector<!-- raw HTML omitted -->dp(target+1,-1)) ,map&lt;int,int&gt;dp
+虽然dp节省空间，但是依然耗时增加了</p>
+</li>
+<li>
+<p>第三次实现，动态规划。和递归相比，递归是中间结果 防止过度计算。
+动态规划是vector<!-- raw HTML omitted -->dp(target+1,0))，每个节点从小到大计算一次。
+变化公式target-array[i]</p>
+</li>
+<li>
+<p>总结，动态规划是每个target都要计算一次。
+每个target如何计算和回溯一样，target-array[i]。
+这样一比较 时间复杂度是降低的，但是递归浪费更多空间。</p>
+</li>
+</ul>
+<h3 id="二题目描述-1">二、<strong>题目描述</strong></h3>
+<blockquote>
+<p>算法是问题求解过程的一种描述，看看这个题目是怎么描述的吧。</p>
+</blockquote>
+<p>给出一个都是正整数的数组 nums，其中没有重复的数。从中找出所有的和为 target 的组合个数
+～～～
+nums = [1, 2, 3]
+target = 4</p>
+<p>所有可能的组合为：
+(1, 1, 1, 1)
+(1, 1, 2)
+(1, 2, 1)
+(1, 3)
+(2, 1, 1)
+(2, 2)
+(3, 1)</p>
+<p>来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/combination-sum-iv
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+～～～</p>
+<h3 id="三算法描述-2">三、<strong>算法描述</strong></h3>
+<blockquote>
+<p>能说出基本思想即可,实在不行动手画个流程图把。</p>
+</blockquote>
+<ul>
+<li>Solution1  递归回溯&ndash;当n过大时超时
+<img src="https://i.loli.net/2020/06/14/IpgnfK91PHJrBVq.png" alt="递归回溯&amp;ndash;当n过大时超时"></li>
+</ul>
+<p>循环条件是：target 大于0</p>
+<ul>
+<li>Solution2 从小到大的动态规划
+循环条件是：遍历target。</li>
+</ul>
+<p>I=1</p>
+<p>1+2
+1+3
+1+1</p>
+<h3 id="四参考代码-2">四、<strong>参考代码</strong></h3>
+<blockquote>
+<p>放轻松，虽然是c++实现，我们一贯宗旨是拒绝奇技淫巧，不懂代码一看就明白</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">class Solution
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">public:
+</span></span><span class="line"><span class="cl">    int combinationSum4(vector&lt;int&gt; &amp;nums, int target)
+</span></span><span class="line"><span class="cl">    {
+</span></span><span class="line"><span class="cl">        vector&lt;unsigned int&gt; dp(target + 1, 0); //默认为0
+</span></span><span class="line"><span class="cl">        dp[0] = 1;                              // target=4 集合{4} 4-4=0;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        //动态规划，从小到大每个Indextarget都要计算,全部要计算。
+</span></span><span class="line"><span class="cl">        for (int targetIndex = 1; targetIndex &lt;= target; targetIndex++)
+</span></span><span class="line"><span class="cl">        {
+</span></span><span class="line"><span class="cl">            //分叉
+</span></span><span class="line"><span class="cl">            for (int j = 0; j &lt; nums.size(); j++)
+</span></span><span class="line"><span class="cl">            {
+</span></span><span class="line"><span class="cl">                //和为给定目标正整数的组合
+</span></span><span class="line"><span class="cl">                if (targetIndex &gt;= nums[j])
+</span></span><span class="line"><span class="cl">                {
+</span></span><span class="line"><span class="cl">                    dp[targetIndex] += dp[targetIndex - nums[j]];
+</span></span><span class="line"><span class="cl">                }
+</span></span><span class="line"><span class="cl">            }
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        return dp[target];
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">};
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">//@lc code=start
+</span></span><span class="line"><span class="cl">// 用map代替vector 虽然节省空间，但是时间增加了
+</span></span><span class="line"><span class="cl">// 40 ms  8.2 MB
+</span></span><span class="line"><span class="cl">class Solution4
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">private:
+</span></span><span class="line"><span class="cl">    unordered_map&lt;int, int&gt; map;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">public:
+</span></span><span class="line"><span class="cl">    //驱动点
+</span></span><span class="line"><span class="cl">    int combinationSum4(vector&lt;int&gt; &amp;nums, int target)
+</span></span><span class="line"><span class="cl">    {
+</span></span><span class="line"><span class="cl">        if (target &lt; 0 || nums.empty())
+</span></span><span class="line"><span class="cl">            return 0;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        if (target == 0)
+</span></span><span class="line"><span class="cl">        {
+</span></span><span class="line"><span class="cl">            return 1;
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        if (map.count(target))
+</span></span><span class="line"><span class="cl">        {
+</span></span><span class="line"><span class="cl">            return map[target];
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">        int count = 0;
+</span></span><span class="line"><span class="cl">        for (int i = 0; i &lt; nums.size(); i++)
+</span></span><span class="line"><span class="cl">        {
+</span></span><span class="line"><span class="cl">            if (target &gt;= nums[i])
+</span></span><span class="line"><span class="cl">            {
+</span></span><span class="line"><span class="cl">                cout &lt;&lt; &#34;-------------&#34; &lt;&lt; count &lt;&lt; endl;
+</span></span><span class="line"><span class="cl">                count += combinationSum4(nums, target - nums[i]);
+</span></span><span class="line"><span class="cl">            }
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        map[target] = count;
+</span></span><span class="line"><span class="cl">        cout &lt;&lt; target &lt;&lt; &#34;:&#34; &lt;&lt; count &lt;&lt; endl;
+</span></span><span class="line"><span class="cl">        return count;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">};
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="五举一反三-2">五、举一反三</h3>
+<blockquote>
+<p>别人最佳答案并不重要，关键是自己理解。</p>
+</blockquote>
+<h2 id="378-有序矩阵中第k小的元素">378. 有序矩阵中第K小的元素</h2>
+<h3 id="一题目信息-3">一、<strong>题目信息</strong></h3>
+<p>今天来做这个题目，主要有3个思路，二分查找，虽然巧妙，但是理解不了，我没有做出来。</p>
+<h3 id="二题目描述-2">二、<strong>题目描述</strong></h3>
+<blockquote>
+<p>算法是问题求解过程的一种描述，看看这个题目是怎么描述的吧。</p>
+</blockquote>
+<h3 id="二题目描述-3">二、<strong>题目描述</strong></h3>
+<blockquote>
+<p>算法是问题求解过程的一种描述，看看这个题目是怎么描述的吧。</p>
+</blockquote>
+<h3 id="三算法描述-3">三、<strong>算法描述</strong></h3>
+<blockquote>
+<p>能说出基本思想即可,实在不行动手画个流程图把。</p>
+</blockquote>
+<ul>
+<li>空间 O(n)，时间Klg(n)</li>
+</ul>
+<p>由于优先队列使用堆实现，可保证队列头是最小值</p>
+<p>设矩阵有n行，这队列中有n个元素，每个元素都来自其中一行。初始化时，将每行的第0列压入</p>
+<p>每次取出一个元素，根据元素是哪一行的，再将其所在行的下一个元素加入</p>
+<p>执行k次出队列操作，即可得到结果</p>
+<p>队列中每个元素为pair&lt;int,pair&lt;int,int&raquo;，外层pair的int表示矩阵中的值，内层pair的first表示第几行，内层pair的second表示该行的第几列</p>
+<h3 id="四参考代码-3">四、<strong>参考代码</strong></h3>
+<blockquote>
+<p>放轻松，虽然是c++实现，我们一贯宗旨是拒绝奇技淫巧，不懂代码一看就明白</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">//168 ms
+</span></span><span class="line"><span class="cl">class Solution
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">public:
+</span></span><span class="line"><span class="cl">    //仿函数
+</span></span><span class="line"><span class="cl">    struct compare
+</span></span><span class="line"><span class="cl">    {
+</span></span><span class="line"><span class="cl">        bool operator()(pair&lt;int, pair&lt;int, int&gt;&gt; &amp;p1, pair&lt;int, pair&lt;int, int&gt;&gt; &amp;p2)
+</span></span><span class="line"><span class="cl">        {
+</span></span><span class="line"><span class="cl">            // “大于” 构造的是最小堆
+</span></span><span class="line"><span class="cl">            return p1.first &gt; p2.first;
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">    };
+</span></span><span class="line"><span class="cl">    int kthSmallest(vector&lt;vector&lt;int&gt;&gt; &amp;matrix, int k)
+</span></span><span class="line"><span class="cl">    {
+</span></span><span class="line"><span class="cl">        priority_queue&lt;pair&lt;int, pair&lt;int, int&gt;&gt;, vector&lt;pair&lt;int, pair&lt;int, int&gt;&gt;&gt;, compare&gt; pq;
+</span></span><span class="line"><span class="cl">        int cols, rows;
+</span></span><span class="line"><span class="cl">        rows = matrix.size();
+</span></span><span class="line"><span class="cl">        cols = matrix[0].size();
+</span></span><span class="line"><span class="cl">        //将每一行的第0列入队
+</span></span><span class="line"><span class="cl">        for (int i = 0; i &lt; rows; ++i)
+</span></span><span class="line"><span class="cl">            pq.push(make_pair(matrix[i][0], make_pair(i, 0)));
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        int res = 0;
+</span></span><span class="line"><span class="cl">        while (k)
+</span></span><span class="line"><span class="cl">        {
+</span></span><span class="line"><span class="cl">            res = pq.top().first;
+</span></span><span class="line"><span class="cl">            //记录堆顶元素所在的行、列
+</span></span><span class="line"><span class="cl">            int r = pq.top().second.first;
+</span></span><span class="line"><span class="cl">            int c = pq.top().second.second;
+</span></span><span class="line"><span class="cl">            pq.pop();
+</span></span><span class="line"><span class="cl">            --k;
+</span></span><span class="line"><span class="cl">            if (c + 1 &lt; cols)
+</span></span><span class="line"><span class="cl">                pq.push(make_pair(matrix[r][c + 1], make_pair(r, c + 1)));
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">        return res;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">};
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">class Solution2
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">public:
+</span></span><span class="line"><span class="cl">    int kthSmallest(vector&lt;vector&lt;int&gt;&gt; &amp;matrix, int k)
+</span></span><span class="line"><span class="cl">    {
+</span></span><span class="line"><span class="cl">        auto comp = [&amp;matrix](pair&lt;int, int&gt; p1, pair&lt;int, int&gt; p2) {
+</span></span><span class="line"><span class="cl">            return matrix[p1.first][p1.second] &gt; matrix[p2.first][p2.second];
+</span></span><span class="line"><span class="cl">        };
+</span></span><span class="line"><span class="cl">        priority_queue&lt;pair&lt;int, int&gt;, vector&lt;pair&lt;int, int&gt;&gt;, decltype(comp)&gt; que(comp);
+</span></span><span class="line"><span class="cl">        que.push(make_pair(0, 0));
+</span></span><span class="line"><span class="cl">        int count = 1;
+</span></span><span class="line"><span class="cl">        while (count &lt; k)
+</span></span><span class="line"><span class="cl">        {
+</span></span><span class="line"><span class="cl">            auto temp = que.top();
+</span></span><span class="line"><span class="cl">            que.pop();
+</span></span><span class="line"><span class="cl">            cout &lt;&lt; &#34;temp.first= &#34; &lt;&lt; temp.first &lt;&lt; &#34; temp.second &#34; &lt;&lt; temp.second &lt;&lt; &#34; value= &#34; &lt;&lt; matrix[temp.first][temp.second] &lt;&lt; endl;
+</span></span><span class="line"><span class="cl">            if (temp.first + 1 &lt; matrix.size())
+</span></span><span class="line"><span class="cl">            {
+</span></span><span class="line"><span class="cl">                que.push(make_pair(temp.first + 1, temp.second));
+</span></span><span class="line"><span class="cl">            }
+</span></span><span class="line"><span class="cl">            //if (temp.first == 0 &amp;&amp; temp.second + 1 &lt; matrix[0].size())
+</span></span><span class="line"><span class="cl">            if (temp.first == 0 &amp;&amp; temp.second + 1 &lt; matrix[0].size())
+</span></span><span class="line"><span class="cl">            {
+</span></span><span class="line"><span class="cl">                que.push(make_pair(temp.first, temp.second + 1));
+</span></span><span class="line"><span class="cl">            }
+</span></span><span class="line"><span class="cl">            count++;
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">        auto t = que.top();
+</span></span><span class="line"><span class="cl">        return matrix[t.first][t.second];
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    /***  次方法虽然秒，但是我看不懂，并且体会里面好出，为什么大家都这样做。
+</span></span><span class="line"><span class="cl">      *  利用题目给出条件：有序  采用二分查找。
+</span></span><span class="line"><span class="cl">      *  
+</span></span><span class="line"><span class="cl">      *  二分查找关键 最大值，最小值,和中间值（卡住了）
+</span></span><span class="line"><span class="cl">      *  求top k  k是索引。array{k} ==中间值
+</span></span><span class="line"><span class="cl">      *  
+</span></span><span class="line"><span class="cl">      * 时间复杂度其实也是很高的
+</span></span><span class="line"><span class="cl">      * 1.找出二维矩阵中最小的数left，最大的数right，那么第k小的数必定在left~right之间
+</span></span><span class="line"><span class="cl">        2.mid=(left+right) / 2；在二维矩阵中寻找小于等于mid的元素个数count
+</span></span><span class="line"><span class="cl">        3.若这个count小于k，表明第k小的数在右半部分且不包含mid，即left=mid+1, right=right，又保证了第k小的数在left~right之间
+</span></span><span class="line"><span class="cl">        4.若这个count大于k，表明第k小的数在左半部分且可能包含mid，即left=left, right=mid，又保证了第k小的数在left~right之间
+</span></span><span class="line"><span class="cl">        5.因为每次循环中都保证了第k小的数在left~right之间，当left==right时，第k小的数即被找出，等于right 
+</span></span><span class="line"><span class="cl">          (76 ms ）
+</span></span><span class="line"><span class="cl">      */
+</span></span><span class="line"><span class="cl">    int kthSmallest1(vector&lt;vector&lt;int&gt;&gt; &amp;matrix, int k)
+</span></span><span class="line"><span class="cl">    {
+</span></span><span class="line"><span class="cl">        int rows = matrix.size();
+</span></span><span class="line"><span class="cl">        if (0 == rows)
+</span></span><span class="line"><span class="cl">            return -1; //不存在
+</span></span><span class="line"><span class="cl">        int cols = matrix[0].size();
+</span></span><span class="line"><span class="cl">        //1 5 9 10 11 11 12 13 13 15
+</span></span><span class="line"><span class="cl">        // k=8 13
+</span></span><span class="line"><span class="cl">        // matrix = [
+</span></span><span class="line"><span class="cl">        //     *⁠[1, 5, 9],
+</span></span><span class="line"><span class="cl">        //     *⁠[10, 11, 13],
+</span></span><span class="line"><span class="cl">        //     *⁠[12, 13, 15] *
+</span></span><span class="line"><span class="cl">        // ],
+</span></span><span class="line"><span class="cl">        int low = matrix[0][0];
+</span></span><span class="line"><span class="cl">        int high = matrix[rows - 1][cols - 1];
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        int mid = 0; //中间数值，array中是不存在的，通过计算是否第k小，变化low 和high的范围。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        while (low &lt; high)
+</span></span><span class="line"><span class="cl">        {
+</span></span><span class="line"><span class="cl">            cout &lt;&lt; low &lt;&lt; &#34;aaa&#34; &lt;&lt; mid &lt;&lt; &#34; &#34; &lt;&lt; high &lt;&lt; endl;
+</span></span><span class="line"><span class="cl">            mid = low + (high - low) / 2;
+</span></span><span class="line"><span class="cl">            int count = findNotBiggerThanMid(matrix, mid);
+</span></span><span class="line"><span class="cl">            if (k &gt; count)
+</span></span><span class="line"><span class="cl">            {
+</span></span><span class="line"><span class="cl">                low = mid + 1; //此时 low 变成可能不存。
+</span></span><span class="line"><span class="cl">            }
+</span></span><span class="line"><span class="cl">            else
+</span></span><span class="line"><span class="cl">            {
+</span></span><span class="line"><span class="cl">                high = mid;
+</span></span><span class="line"><span class="cl">            }
+</span></span><span class="line"><span class="cl">            cout &lt;&lt; low &lt;&lt; &#34;bbb&#34; &lt;&lt; mid &lt;&lt; &#34; &#34; &lt;&lt; high &lt;&lt; endl;
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        return low;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    //查找一个元素
+</span></span><span class="line"><span class="cl">    int findNotBiggerThanMid(vector&lt;vector&lt;int&gt;&gt; &amp;matrix, int x)
+</span></span><span class="line"><span class="cl">    {
+</span></span><span class="line"><span class="cl">        int N = matrix.size();
+</span></span><span class="line"><span class="cl">        int i = N - 1, j = 0, count = 0;
+</span></span><span class="line"><span class="cl">        while (i &gt;= 0 &amp;&amp; j &lt; N)
+</span></span><span class="line"><span class="cl">        {
+</span></span><span class="line"><span class="cl">            if (matrix[i][j] &lt;= x)
+</span></span><span class="line"><span class="cl">            {
+</span></span><span class="line"><span class="cl">                count += (i + 1);
+</span></span><span class="line"><span class="cl">                //排除列
+</span></span><span class="line"><span class="cl">                j++;
+</span></span><span class="line"><span class="cl">            }
+</span></span><span class="line"><span class="cl">            else
+</span></span><span class="line"><span class="cl">                //排除行
+</span></span><span class="line"><span class="cl">                i--;
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">        return count;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">};
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="五举一反三-3">五、举一反三</h3>
+<blockquote>
+<p>别人最佳答案并不重要，关键是自己理解。</p>
+</blockquote>
+<h1 id="其他参考">其他参考</h1>
+<ul>
+<li><a href="https://leetcode-cn.com/problems/kth-smallest-element-in-a-sorted-matrix/solution/er-fen-fa-by-powcai-5/">https://leetcode-cn.com/problems/kth-smallest-element-in-a-sorted-matrix/solution/er-fen-fa-by-powcai-5/</a></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Troy</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-06-10 00:00
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a target="_blank" rel="license noopener" href="https://github.com/nusr/blog/blob/master/LICENSE">MIT</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/Interview-Question/">Interview Question</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/2020/talkgo_todo/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">talkgo</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/2020/%E6%8A%80%E8%83%BD01-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
+            <span class="next-text nav-default">systems_performance</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="wangcy6/wangcy6.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:wang_cyi@163.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/wangcy6" class="iconfont icon-github" title="github"></a>
+  <a href="https://wangcy6.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2022
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Troy</span>
+  </span>
+</div>
+<script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
+  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+    var languageCode = "zh-cn".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    timeago().render(document.querySelectorAll('.timeago'), languageCode);
+    timeago.cancel();  
+  </script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-138883536-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>

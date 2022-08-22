@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>man - Troy的网络博客</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Troy" /><meta name="description" content="帮助文档 内存管理 1 man malloc http://man7.org/linux/man-pages/man3/malloc.3.html Thread safety （多个线程可以同时执行） arena 1 2 3 4 5 To scalably handle memory allocation in multithreaded applications, glibc creates additional memory allocation arenas if mutex contention is detected. Each arena is a large region of memory that is internally allocated by the system (using brk(2) or mmap(2))," /><meta name="keywords" content="daily-interview-question, Github, c&#43;&#43;, Leetcode 题解, 后端面试" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.101.0 with theme even" />
+
+
+<link rel="canonical" href="https://wangcy6.github.io/post/book/man/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="man" />
+<meta property="og:description" content="帮助文档 内存管理 1 man malloc http://man7.org/linux/man-pages/man3/malloc.3.html Thread safety （多个线程可以同时执行） arena 1 2 3 4 5 To scalably handle memory allocation in multithreaded applications, glibc creates additional memory allocation arenas if mutex contention is detected. Each arena is a large region of memory that is internally allocated by the system (using brk(2) or mmap(2))," />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wangcy6.github.io/post/book/man/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2019-12-02T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-12-02T00:00:00+00:00" />
+
+<meta itemprop="name" content="man">
+<meta itemprop="description" content="帮助文档 内存管理 1 man malloc http://man7.org/linux/man-pages/man3/malloc.3.html Thread safety （多个线程可以同时执行） arena 1 2 3 4 5 To scalably handle memory allocation in multithreaded applications, glibc creates additional memory allocation arenas if mutex contention is detected. Each arena is a large region of memory that is internally allocated by the system (using brk(2) or mmap(2)),"><meta itemprop="datePublished" content="2019-12-02T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-12-02T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2281">
+<meta itemprop="keywords" content="man," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="man"/>
+<meta name="twitter:description" content="帮助文档 内存管理 1 man malloc http://man7.org/linux/man-pages/man3/malloc.3.html Thread safety （多个线程可以同时执行） arena 1 2 3 4 5 To scalably handle memory allocation in multithreaded applications, glibc creates additional memory allocation arenas if mutex contention is detected. Each arena is a large region of memory that is internally allocated by the system (using brk(2) or mmap(2)),"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="https://github.com/wangcy6/weekly/tree/master/book">
+        <li class="mobile-menu-item">阅读清单</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于我</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://github.com/wangcy6/weekly/tree/master/book">阅读清单</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于我</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">man</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-12-02 00:00 </span>
+        <div class="post-category">
+            <a href="/categories/liunx/"> liunx </a>
+            </div>
+          <span class="more-meta"> 约 2281 字 </span>
+          <span class="more-meta"> 预计阅读 5 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#内存管理">内存管理</a>
+      <ul>
+        <li><a href="#1-man-malloc">1 man malloc</a></li>
+        <li><a href="#2-man-mmap">2 man mmap</a></li>
+        <li><a href="#定义">定义</a></li>
+        <li><a href="#3-malloc_trim---release-free-memory-from-the-top-of-the-heap">3 malloc_trim - release free memory from the top of the heap</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading"></a>
+      <ul>
+        <li><a href="#4--man-brk">4  man brk</a></li>
+      </ul>
+    </li>
+    <li><a href="#锁">锁</a>
+      <ul>
+        <li><a href="#pthread_rwlock_unlock">pthread_rwlock_unlock</a></li>
+        <li><a href="#pthread_rwlock_wrlock">pthread_rwlock_wrlock</a></li>
+      </ul>
+    </li>
+    <li><a href="#网络">网络</a>
+      <ul>
+        <li><a href="#send">send</a></li>
+        <li><a href="#httpslinuxdienetman2recv"><a href="https://linux.die.net/man/2/recv">https://linux.die.net/man/2/recv</a></a></li>
+        <li><a href="#man-2-read">man 2 read</a></li>
+      </ul>
+    </li>
+    <li><a href="#epoll">epoll</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+  <div class="post-outdated">
+    <div class="warn">
+      <p>【注意】最后更新于 <span class="timeago" datetime="2019-12-02T00:00:00" title="December 2, 2019">December 2, 2019</span>，文中内容可能已过时，请谨慎使用。</p>
+    </div>
+  </div>
+    <div class="post-content">
+      <h1 id="帮助文档">帮助文档</h1>
+<h2 id="内存管理">内存管理</h2>
+<h3 id="1-man-malloc">1 man malloc</h3>
+<p><a href="http://man7.org/linux/man-pages/man3/malloc.3.html">http://man7.org/linux/man-pages/man3/malloc.3.html</a></p>
+<ul>
+<li>Thread safety （多个线程可以同时执行） arena</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="line"><span class="cl"><span class="nt">To</span> <span class="nt">scalably</span> <span class="nt">handle</span> <span class="nt">memory</span> <span class="nt">allocation</span> <span class="nt">in</span>
+</span></span><span class="line"><span class="cl">       <span class="nt">multithreaded</span> <span class="nt">applications</span><span class="o">,</span> <span class="nt">glibc</span> <span class="nt">creates</span> <span class="nt">additional</span> <span class="nt">memory</span>
+</span></span><span class="line"><span class="cl">       <span class="nt">allocation</span> <span class="nt">arenas</span> <span class="nt">if</span> <span class="nt">mutex</span> <span class="nt">contention</span> <span class="nt">is</span> <span class="nt">detected</span><span class="nc">.</span>  <span class="nt">Each</span> <span class="nt">arena</span> <span class="nt">is</span> <span class="nt">a</span>
+</span></span><span class="line"><span class="cl">       <span class="nt">large</span> <span class="nt">region</span> <span class="nt">of</span> <span class="nt">memory</span> <span class="nt">that</span> <span class="nt">is</span> <span class="nt">internally</span> <span class="nt">allocated</span> <span class="nt">by</span> <span class="nt">the</span> <span class="nt">system</span>
+</span></span><span class="line"><span class="cl">       <span class="o">(</span><span class="nt">using</span> <span class="nt">brk</span><span class="o">(</span><span class="nt">2</span><span class="o">)</span> <span class="nt">or</span> <span class="nt">mmap</span><span class="o">(</span><span class="nt">2</span><span class="o">)),</span> <span class="nt">and</span> <span class="nt">managed</span> <span class="nt">with</span> <span class="nt">its</span> <span class="nt">own</span> <span class="nt">mutexes</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>runtime （free）</li>
+</ul>
+<blockquote>
+<p>Usually, all it can do is allow a later call to <code>malloc</code> to reuse the space. In the meantime, the space remains in your program as part of a free-list used internally by <code>malloc</code>.</p>
+</blockquote>
+<p>：Linux下谷歌有个 tcmalloc 能做到立刻释放到OS，或者malloc_trim(0)</p>
+<h3 id="2-man-mmap">2 man mmap</h3>
+<h3 id="定义">定义</h3>
+<p>mmap, munmap - map or unmap files or devices into memory</p>
+<p>mmap分配的内存，等于是直接从物理内存中映射了一块过来。释放这块内存时，可以直接归还给OS</p>
+<p><a href="https://www.cnblogs.com/lookof/archive/2013/03/26/2981768.html">https://www.cnblogs.com/lookof/archive/2013/03/26/2981768.html</a></p>
+<ol>
+<li>
+<p>brk(sbrk)，性能损耗少; mmap相对而言，性能损耗大</p>
+</li>
+<li>
+<p>mmap不存在内存碎片(是物理页对齐的，整页映射和释放); brk(sbrk)可能存在内存碎片(由于new和delete的顺序不同，可能存在空洞，又称为碎片)</p>
+<p><a href="https://cloud.tencent.com/developer/article/1138651">Glibc内存分配算法</a></p>
+</li>
+</ol>
+<p>glibc采用的是dlmalloc。为了避免频繁调用系统调用，它内部维护了一个内存池，方便reuse，又称为free-list或bins</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="nx">DEFAULT_MXFAST</span>             <span class="mi">64</span> <span class="p">(</span><span class="k">for</span> <span class="mi">32</span><span class="nx">bit</span><span class="p">),</span> <span class="mi">128</span> <span class="p">(</span><span class="k">for</span> <span class="mi">64</span><span class="nx">bit</span><span class="p">)</span> <span class="c1">// free-list(fastbin)最大内存块
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">DEFAULT_TRIM_THRESHOLD</span>     <span class="mi">128</span> <span class="o">*</span> <span class="mi">1024</span> <span class="c1">// malloc_trim的门槛值 128k
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">DEFAULT_TOP_PAD</span>            <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="nx">DEFAULT_MMAP_THRESHOLD</span>     <span class="mi">128</span> <span class="o">*</span> <span class="mi">1024</span> <span class="c1">// 使用mmap分配内存的门槛值 128k
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">DEFAULT_MMAP_MAX</span>           <span class="mi">65536</span> <span class="c1">// mmap的最大数量
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>glibc中，设置了默认进行malloc_trim的threshhold为128K，也就是说当dlmalloc管理的内存池中最大可用内存&gt;128K时，就会执行malloc_trim操作，归还部分内存给操作系统；</p>
+<p>而在可用内存&lt;=128K时，及时程序中delete了这部分内存，这些内存也是不会归还给操作系统的。</p>
+<p>表现为：调用delete之后，进程占用的内存并没有减少。</p>
+<p>测试：</p>
+<ol>
+<li>循环new分配64K * 2048的内存空间，写入脏数据后，循环调用delete释放。top看进程依然使用131M内存，没有释放。 —— 此时用brk</li>
+<li>循环new分配128K * 2048的内存空间，写入脏数据后，循环调用delete释放。top看进程使用，2960字节内存，完全释放。 —— 此时用mmap</li>
+<li>设置M_MMAP_THRESHOLD 256k，循环new分配128k * 2048 的内存空间，写入脏数据后，循环调用delete释放，而后调用malloc_trim(0)。top看进程使用，2348字节，完全释放。 ——此时用brk</li>
+</ol>
+<h3 id="3-malloc_trim---release-free-memory-from-the-top-of-the-heap">3 malloc_trim - release free memory from the top of the heap</h3>
+<p>当我调用了**malloc_trim(0)<strong>以后，我发现堆中全部的空余内存全部被归还给系统了，包括那些洞。不过，free list bing/fast bin中依然维护着这些内存地址，当再次需要申请小内存块时，总是前面的洞被再次从系统中“要”回来，然后分给调用者。这一点显得</strong>malloc_trim(0)**很高级</p>
+<h2 id="heading"></h2>
+<p><a href="https://www.cnblogs.com/lookof/archive/2013/03/26/2981768.html">https://www.cnblogs.com/lookof/archive/2013/03/26/2981768.html</a></p>
+<h3 id="4--man-brk">4  man brk</h3>
+<h2 id="锁">锁</h2>
+<h3 id="pthread_rwlock_unlock">pthread_rwlock_unlock</h3>
+<pre><code>   int pthread_rwlock_unlock(pthread_rwlock_t *rwlock);
+</code></pre>
+<p>DESCRIPTION
+The  pthread_rwlock_unlock() function shall release <strong>a lock</strong> held on the read-write lock object referenced
+by rwlock.</p>
+<pre><code>   If this function is called to release a read lock from the read-write lock object and  there  are  other
+   read locks currently held on this read-write lock object, the read-write lock object remains in the read
+   locked state. 
+   
+   If this function releases the last read lock for this read-write lock  object,  the  read-
+   write lock object shall be put in the unlocked state with no owners.
+</code></pre>
+<p>​    <br>
+​ <br>
+​       If  this function is called to release a write lock for this read-write lock object, the read-write lock
+​       object shall be put in the unlocked state.
+​ <br>
+​       If there are threads blocked on the lock when it becomes available, the scheduling policy  shall  deter‐
+​       mine  which  thread(s)  shall acquire the lock.  If the Thread Execution Scheduling option is supported,
+​       when threads executing with the scheduling policies SCHED_FIFO, SCHED_RR, or SCHED_SPORADIC are  waiting
+​       on  the  lock,  they shall acquire the lock in priority order when the lock becomes available. For equal
+​       priority threads, write locks shall take precedence over read locks.  If the Thread Execution Scheduling
+​       option  is  not  supported,  it  is implementation-defined whether write locks take precedence over read
+​       locks.</p>
+<p>​</p>
+<h3 id="pthread_rwlock_wrlock">pthread_rwlock_wrlock</h3>
+<p>key::whether  a  read  or  write lock deadlock</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"> The  pthread_rwlock_wrlock<span class="o">()</span>  <span class="k">function</span>  shall  apply  a  write lock to the read-write lock referenced by rwlock.<span class="o">(</span>写锁<span class="o">)</span> 
+</span></span><span class="line"><span class="cl">   
+</span></span><span class="line"><span class="cl">The calling thread acquires the write lock <span class="k">if</span> no other thread <span class="o">(</span>reader or writer<span class="o">)</span> holds the read-write  lock  rwlock. <span class="o">(</span>获取成功，没有任何其他锁<span class="o">)</span>
+</span></span><span class="line"><span class="cl">   
+</span></span><span class="line"><span class="cl">    Otherwise, the thread shall block <span class="k">until</span> it can acquire the lock. 
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl"> The calling thread may deadlock 
+</span></span><span class="line"><span class="cl"> <span class="k">if</span> at the <span class="nb">time</span> the call is made it holds the read-write  lock  <span class="o">(</span>whether  a  <span class="nb">read</span>  or  write lock<span class="o">)</span>.<span class="o">(</span>占用不释放<span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>ERRORS
+The pthread_rwlock_trywrlock() function shall fail if:</p>
+<pre><code>   EBUSY  The read-write lock could not be acquired for writing because it was already locked  for  reading
+          or writing.
+</code></pre>
+<h2 id="网络">网络</h2>
+<h3 id="send">send</h3>
+<p>send  send a message on a socket</p>
+<p>send(sockfd, buf, len, flags);</p>
+<ul>
+<li>ERRORS</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   EAGAIN or EWOULDBLOCK
+</span></span><span class="line"><span class="cl">          The socket is marked nonblocking and the requested operation would block.   POSIX.1-2001  allows  either
+</span></span><span class="line"><span class="cl">          error  to  be  returned <span class="k">for</span> this <span class="k">case</span>, and does not require these constants to have the same value, so a
+</span></span><span class="line"><span class="cl">          portable application should check <span class="k">for</span> both possibilities.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   EBADF  An invalid descriptor was specified.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   ECONNRESET
+</span></span><span class="line"><span class="cl">          Connection reset by peer.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   EDESTADDRREQ
+</span></span><span class="line"><span class="cl">          The socket is not connection-mode, and no peer address is set.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   EFAULT An invalid user space address was specified <span class="k">for</span> an argument.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   EINTR  A signal occurred before any data was transmitted<span class="p">;</span> see signal<span class="o">(</span>7<span class="o">)</span>.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   EINVAL Invalid argument passed.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">https://stackoverflow.com/questions/3081952/with-c-tcp-sockets-can-send-return-zero
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">On success, these calls <span class="k">return</span> the number of bytes sent.  On error,
+</span></span><span class="line"><span class="cl">       -1 is returned, and errno is <span class="nb">set</span> appropriately.
+</span></span><span class="line"><span class="cl">       
+</span></span><span class="line"><span class="cl">   &gt;0
+</span></span><span class="line"><span class="cl">   &lt;0<span class="o">(</span>-1<span class="o">)</span>
+</span></span><span class="line"><span class="cl">   <span class="o">=</span><span class="m">0</span> 在这种情况下，从内存中，远程 TCP 栈缓冲区已经填满，栈通知本地端，它将延迟到一些空间被清空，本地缓冲区也已经填满。
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="httpslinuxdienetman2recv"><a href="https://linux.die.net/man/2/recv">https://linux.die.net/man/2/recv</a></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Return Value
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">These calls <span class="k">return</span> the number of bytes received, 
+</span></span><span class="line"><span class="cl">or -1 <span class="k">if</span> an error occurred. 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">The <span class="k">return</span> value will be <span class="m">0</span> when the peer has performed an orderly shutdown.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Errors
+</span></span><span class="line"><span class="cl">These are some standard errors generated by the socket layer. Additional errors may be generated and returned from the underlying protocol modules<span class="p">;</span> see their manual pages.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">EAGAIN or EWOULDBLOCK
+</span></span><span class="line"><span class="cl">The socket is marked nonblocking and the receive operation would block, or a receive timeout had been <span class="nb">set</span> and the timeout expired before data was received. POSIX.1-2001 allows either error to be returned <span class="k">for</span> this <span class="k">case</span>, and does not require these constants to have the same value, so a portable application should check <span class="k">for</span> both possibilities.
+</span></span><span class="line"><span class="cl">EBADF
+</span></span><span class="line"><span class="cl">The argument sockfd is an invalid descriptor.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">ECONNREFUSED
+</span></span><span class="line"><span class="cl">A remote host refused to allow the network connection <span class="o">(</span>typically because it is not running the requested service<span class="o">)</span>.
+</span></span><span class="line"><span class="cl">EFAULT
+</span></span><span class="line"><span class="cl">The receive buffer pointer<span class="o">(</span>s<span class="o">)</span> point outside the process<span class="err">&#39;</span>s address space.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">EINTR
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">The receive was interrupted by delivery of a signal before any data were available<span class="p">;</span> see signal<span class="o">(</span>7<span class="o">)</span>.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">EINVAL
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Invalid argument passed.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">ENOMEM
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Could not allocate memory <span class="k">for</span> recvmsg<span class="o">()</span>.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">ENOTCONN
+</span></span><span class="line"><span class="cl">The socket is associated with a connection-oriented protocol and has not been connected <span class="o">(</span>see connect<span class="o">(</span>2<span class="o">)</span> and accept<span class="o">(</span>2<span class="o">))</span>.
+</span></span><span class="line"><span class="cl">ENOTSOCK
+</span></span><span class="line"><span class="cl">The argument sockfd does not refer to a socket.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="man-2-read">man 2 read</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cm">/* myread() 函数的一部分，在 while (1) 大循环里 */</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">((</span><span class="n">n</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="n">nbytes</span><span class="p">))</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="n">errno</span> <span class="o">==</span> <span class="n">EINTR</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">perror</span><span class="p">(</span><span class="s">&#34;EINTR&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">perror</span><span class="p">(</span><span class="s">&#34;read error&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/* main() 函数中 */</span>
+</span></span><span class="line"><span class="cl"><span class="n">signal</span><span class="p">(</span><span class="n">SIGALRM</span><span class="p">,</span> <span class="n">sig_alrm</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">alarm</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">myread</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="n">MAX</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/* sig_alrm() 函数 */</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">sig_alrm</span><span class="p">(</span><span class="n">ing</span> <span class="n">signo</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nl">http</span><span class="p">:</span><span class="c1">//yungkcx.github.io/jekyll/update/2016/09/16/read()-and-EINTR.html
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nl">https</span><span class="p">:</span><span class="c1">//stackoverflow.com/questions/48959061/tcp-socket-can-read-still-fail-with-eintr-when-select-indicates-there-are-d
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="epoll">epoll</h2>
+<p>Edge Triggered (ET) 边沿触发
+.socket的接收缓冲区状态变化时触发读事件，即空的接收缓冲区刚接收到数据时触发读事件
+.socket的发送缓冲区状态变化时触发写事件，即满的缓冲区刚空出空间时触发读事件</p>
+<h1 id="进程">进程</h1>
+<ul>
+<li>man pthread_exit</li>
+</ul>
+<p>DESCRIPTION
+The pthread_exit() function terminates the calling thread and returns a value via retval that (if the thread is
+joinable) is available to another thread in the same process that calls pthread_join(3).</p>
+<pre><code>   Any clean-up handlers established by pthread_cleanup_push(3) that have not yet been popped, are popped (in  the
+   reverse  of  the  order  in  which they were pushed) and executed.  If the thread has any thread-specific data,
+   then, after the clean-up handlers have been executed, the corresponding destructor functions are called, in  an
+   unspecified order.
+
+   When  a  thread  terminates, process-shared resources (e.g., mutexes, condition variables, semaphores, and file
+   descriptors) are not released, and functions registered using atexit(3) are not called.
+
+   After the last thread in a process terminates, the process terminates as by calling exit(3) with an exit status
+   of zero; thus, process-shared resources are released and functions registered using atexit(3) are called.
+</code></pre>
+<p>ERRORS
+This function always succeeds.</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Troy</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2019-12-02 00:00
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a target="_blank" rel="license noopener" href="https://github.com/nusr/blog/blob/master/LICENSE">MIT</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/man/">man</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/book/book_thingin_c&#43;&#43;/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">c&#43;&#43;编程思想</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/2020/%E6%8F%90%E9%AB%98%E5%B7%A5%E4%BD%9C%E6%95%88%E7%8E%87%E7%9A%84%E5%87%A0%E4%B8%AA%E5%B7%A5%E5%85%B7/">
+            <span class="next-text nav-default">提高工作效率的几个工具</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="wangcy6/wangcy6.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:wang_cyi@163.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/wangcy6" class="iconfont icon-github" title="github"></a>
+  <a href="https://wangcy6.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2022
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Troy</span>
+  </span>
+</div>
+<script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
+  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+    var languageCode = "zh-cn".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    timeago().render(document.querySelectorAll('.timeago'), languageCode);
+    timeago.cancel();  
+  </script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-138883536-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>

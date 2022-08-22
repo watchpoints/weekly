@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>操作系统入门知识 - Troy的网络博客</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Troy" /><meta name="description" content="疑问" /><meta name="keywords" content="daily-interview-question, Github, c&#43;&#43;, Leetcode 题解, 后端面试" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.101.0 with theme even" />
+
+
+<link rel="canonical" href="https://wangcy6.github.io/post/2022/2-2022-1-25-os/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="操作系统入门知识" />
+<meta property="og:description" content="疑问" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wangcy6.github.io/post/2022/2-2022-1-25-os/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-01-25T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-01-25T00:00:00+00:00" />
+
+<meta itemprop="name" content="操作系统入门知识">
+<meta itemprop="description" content="疑问"><meta itemprop="datePublished" content="2022-01-25T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-01-25T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2484">
+<meta itemprop="keywords" content="book," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="操作系统入门知识"/>
+<meta name="twitter:description" content="疑问"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="https://github.com/wangcy6/weekly/tree/master/book">
+        <li class="mobile-menu-item">阅读清单</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于我</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://github.com/wangcy6/weekly/tree/master/book">阅读清单</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于我</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">操作系统入门知识</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-01-25 00:00 </span>
+        
+          <span class="more-meta"> 约 2484 字 </span>
+          <span class="more-meta"> 预计阅读 5 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#疑问1--what-is-numa">疑问1  What is NUMA?</a></li>
+        <li><a href="#疑问2网卡软中断都集中在了一个cpu上导致cpu负载升高多余网络包被丢弃httpszhuanlanzhihucomp80619249">疑问2:<a href="https://zhuanlan.zhihu.com/p/80619249">网卡软中断都集中在了一个cpu上，导致cpu负载升高，多余网络包被丢弃？</a></a></li>
+      </ul>
+    </li>
+    <li><a href="#net">net</a></li>
+    <li><a href="#file">file</a>
+      <ul>
+        <li><a href="#一手资料">一手资料</a></li>
+      </ul>
+    </li>
+    <li><a href="#-方法">## 方法</a>
+      <ul>
+        <li><a href="#1-沟通步骤">1. 沟通步骤：</a></li>
+        <li><a href="#2-知识点">2. 知识点</a></li>
+        <li><a href="#一这个技术出现的背景初衷和要达到什么样的目标或是要解决什么样的问题">一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题</a></li>
+        <li><a href="#二这个技术的优势和劣势分别是什么">二、这个技术的优势和劣势分别是什么</a></li>
+        <li><a href="#三这技术适用的场景任何技术都有其适用的场景离开了这个场景">三、这技术适用的场景。任何技术都有其适用的场景，离开了这个场景</a></li>
+        <li><a href="#四技术的组成部分和关键点">四、技术的组成部分和关键点。</a></li>
+        <li><a href="#五技术的底层原理和关键实现">五、技术的底层原理和关键实现</a></li>
+        <li><a href="#六已有的实现和它之间的对比">六、已有的实现和它之间的对比</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="cpu">cpu</h1>
+<h3 id="疑问1--what-is-numa">疑问1  What is NUMA?</h3>
+<p>dmesg|grep -i numa</p>
+<p>[  0.000000] No NUMA configuration found</p>
+<h3 id="疑问2网卡软中断都集中在了一个cpu上导致cpu负载升高多余网络包被丢弃httpszhuanlanzhihucomp80619249">疑问2:<a href="https://zhuanlan.zhihu.com/p/80619249">网卡软中断都集中在了一个cpu上，导致cpu负载升高，多余网络包被丢弃？</a></h3>
+<p>X86系统采用中断机制协同处理CPU与其他设备工作。长久以来网卡的中断默认由cpu0处理，在大量小包的网络环境下可能出现cpu0负载高，而其他cpu空闲。后来出现网卡多队列技术解决这个问题。</p>
+<ul>
+<li>
+<p>ls /sys/class/net/eth0/queues/</p>
+<p>多队列网卡的好处是可以将每个队列产生的中断分布到cpu的多个核，实现负载均衡，避免了单个核被占用到100%而其他核还处于空闲的情况</p>
+</li>
+<li>
+<p>ethtool -l eth0  eth0网卡是否支持多队列，最多支持多少、当前开启多少</p>
+</li>
+<li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">service irqbalance stop
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h2 id="net">net</h2>
+<p>Google 对此做的统计显示，三次握手消耗的时间，在 HTTP 请求完成的时间占比在 10% 到 30% 之间</p>
+<p>疑问1.</p>
+<p>net.ipv4.tcp_syncookies = 1</p>
+<p>Linux 下怎样开启 syncookies 功能呢？修改 tcp_syncookies 参数即可，其中值为 0 时表示关闭该功能，2 表示无条件开启功能，而 1 则表示仅当 SYN 半连接队列放不下时，再启用它。由于 syncookie 仅用于应对 SYN 泛洪攻击（攻击者恶意构造大量的 SYN 报文发送给服务器，造成 SYN 半连接队列溢出，导致正常客户端的连接无法建立），这种方式建立的连接，许多 TCP 特性都无法使用。所以，应当把 tcp_syncookies 设置为 1，仅在队列满时再启用。</p>
+<p>tcp_max_tw_buckets 控制并发的 TIME_WAIT 的数量，默认值是 180000</p>
+<h2 id="file">file</h2>
+<p>疑问1: aio 我业务代码没写，需要内核调整吗？</p>
+<p>/etc/sysctl.conf</p>
+<p>## 修改内核异步 I/O 限制</p>
+<p>fs.aio-max-nr=1048576</p>
+<h3 id="一手资料">一手资料</h3>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> <a href="https://open.oceanbase.com/ask/detail?id=20400568&amp;pageNo=1&amp;query=NUMA#all">https://open.oceanbase.com/ask/detail?id=20400568&amp;pageNo=1&amp;query=NUMA#all</a></li>
+<li><input checked="" disabled="" type="checkbox"> <a href="https://zhuanlan.zhihu.com/p/336365600">每个程序员都应该知道的 CPU 知识：NUMA</a></li>
+<li><input checked="" disabled="" type="checkbox"> <a href="">以蚂蚁集团不同使用场景为例，分析如何调整和优化高性能 OceanBase</a></li>
+</ul>
+<p><img src="https://gw.alipayobjects.com/zos/oceanbase/cab256f1-ad0f-4a74-a434-07c2ad995948/image/2022-03-29/8d66c655-e16a-4a7f-859b-fc0a9cbf4047.png" alt=""></p>
+<ul>
+<li>
+<p>Linux 性能优化实战</p>
+<p>下半部用来延迟处理上半部未完成的工作，通常以内核线程的方式运行。</p>
+<p>上半部直接处理硬件请求，也就是我们常说的硬中断，特点是快速执行；（dma）</p>
+<p>而下半部则是由内核触发，也就是我们常说的软中断，特点是延迟执行。</p>
+<p>cat /proc/softirqs</p>
+<p>NET_RX 表示网络接收中断，而 NET_TX 表示网络发送中断。</p>
+<p>ps aux | grep softirq - &mdash;48内核。</p>
+<p>[ksoftirqd/47</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[root@spa-65-177-112 gadmin]# ps aux | grep softirq
+</span></span><span class="line"><span class="cl">root         6  0.0  0.0      0     0 ?        S     2021   0:20 [ksoftirqd/0]
+</span></span><span class="line"><span class="cl">root        14  0.0  0.0      0     0 ?        S     2021   0:21 [ksoftirqd/1]
+</span></span><span class="line"><span class="cl">root        20  0.0  0.0      0     0 ?        S     2021   0:16 [ksoftirqd/2]
+</span></span><span class="line"><span class="cl">root        25  0.0  0.0      0     0 ?        S     2021   0:19 [ksoftirqd/3]
+</span></span><span class="line"><span class="cl">root        30  0.0  0.0      0     0 ?        S     2021   0:19 [ksoftirqd/4]
+</span></span><span class="line"><span class="cl">root        35  0.0  0.0      0     0 ?        S     2021   0:30 [ksoftirqd/5]
+</span></span><span class="line"><span class="cl">root        40  0.0  0.0      0     0 ?        S     2021   0:20 [ksoftirqd/6]
+</span></span><span class="line"><span class="cl">root        45  0.0  0.0      0     0 ?        S     2021   0:33 [ksoftirqd/7]
+</span></span><span class="line"><span class="cl">root        50  0.0  0.0      0     0 ?        S     2021   0:20 [ksoftirqd/8]
+</span></span><span class="line"><span class="cl">root        55  0.0  0.0      0     0 ?        S     2021   0:17 [ksoftirqd/9]
+</span></span><span class="line"><span class="cl">root        60  0.0  0.0      0     0 ?        S     2021   0:31 [ksoftirqd/10]
+</span></span><span class="line"><span class="cl">root        65  0.0  0.0      0     0 ?        S     2021   0:23 [ksoftirqd/11]
+</span></span><span class="line"><span class="cl">root        70  0.0  0.0      0     0 ?        S     2021   0:13 [ksoftirqd/12]
+</span></span><span class="line"><span class="cl">root        76  0.0  0.0      0     0 ?        S     2021   0:22 [ksoftirqd/13]
+</span></span><span class="line"><span class="cl">root        81  0.0  0.0      0     0 ?        S     2021   0:27 [ksoftirqd/14]
+</span></span><span class="line"><span class="cl">root        86  0.0  0.0      0     0 ?        S     2021   0:32 [ksoftirqd/15]
+</span></span><span class="line"><span class="cl">root        91  0.0  0.0      0     0 ?        S     2021   0:34 [ksoftirqd/16]
+</span></span><span class="line"><span class="cl">root        96  0.0  0.0      0     0 ?        S     2021   0:18 [ksoftirqd/17]
+</span></span><span class="line"><span class="cl">root       101  0.0  0.0      0     0 ?        S     2021   0:18 [ksoftirqd/18]
+</span></span><span class="line"><span class="cl">root       106  0.0  0.0      0     0 ?        S     2021   0:16 [ksoftirqd/19]
+</span></span><span class="line"><span class="cl">root       111  0.0  0.0      0     0 ?        S     2021   0:20 [ksoftirqd/20]
+</span></span><span class="line"><span class="cl">root       116  0.0  0.0      0     0 ?        S     2021   0:23 [ksoftirqd/21]
+</span></span><span class="line"><span class="cl">root       121  0.0  0.0      0     0 ?        S     2021   0:18 [ksoftirqd/22]
+</span></span><span class="line"><span class="cl">root       126  0.0  0.0      0     0 ?        S     2021   0:14 [ksoftirqd/23]
+</span></span><span class="line"><span class="cl">root       131  0.0  0.0      0     0 ?        S     2021   0:00 [ksoftirqd/24]
+</span></span><span class="line"><span class="cl">root       136  0.0  0.0      0     0 ?        S     2021   0:06 [ksoftirqd/25]
+</span></span><span class="line"><span class="cl">root       141  0.0  0.0      0     0 ?        S     2021   0:04 [ksoftirqd/26]
+</span></span><span class="line"><span class="cl">root       146  0.0  0.0      0     0 ?        S     2021   0:03 [ksoftirqd/27]
+</span></span><span class="line"><span class="cl">root       151  0.0  0.0      0     0 ?        S     2021   0:03 [ksoftirqd/28]
+</span></span><span class="line"><span class="cl">root       156  0.0  0.0      0     0 ?        S     2021   0:02 [ksoftirqd/29]
+</span></span><span class="line"><span class="cl">root       161  0.0  0.0      0     0 ?        S     2021   0:02 [ksoftirqd/30]
+</span></span><span class="line"><span class="cl">root       166  0.0  0.0      0     0 ?        S     2021   0:02 [ksoftirqd/31]
+</span></span><span class="line"><span class="cl">root       171  0.0  0.0      0     0 ?        S     2021   0:01 [ksoftirqd/32]
+</span></span><span class="line"><span class="cl">root       176  0.0  0.0      0     0 ?        S     2021   0:01 [ksoftirqd/33]
+</span></span><span class="line"><span class="cl">root       181  0.0  0.0      0     0 ?        S     2021   0:01 [ksoftirqd/34]
+</span></span><span class="line"><span class="cl">root       186  0.0  0.0      0     0 ?        S     2021   0:01 [ksoftirqd/35]
+</span></span><span class="line"><span class="cl">root       191  0.0  0.0      0     0 ?        S     2021   0:00 [ksoftirqd/36]
+</span></span><span class="line"><span class="cl">root       196  0.0  0.0      0     0 ?        S     2021   0:06 [ksoftirqd/37]
+</span></span><span class="line"><span class="cl">root       201  0.0  0.0      0     0 ?        S     2021   0:04 [ksoftirqd/38]
+</span></span><span class="line"><span class="cl">root       206  0.0  0.0      0     0 ?        S     2021   0:03 [ksoftirqd/39]
+</span></span><span class="line"><span class="cl">root       211  0.0  0.0      0     0 ?        S     2021   0:03 [ksoftirqd/40]
+</span></span><span class="line"><span class="cl">root       216  0.0  0.0      0     0 ?        S     2021   0:02 [ksoftirqd/41]
+</span></span><span class="line"><span class="cl">root       221  0.0  0.0      0     0 ?        S     2021   0:03 [ksoftirqd/42]
+</span></span><span class="line"><span class="cl">root       226  0.0  0.0      0     0 ?        S     2021   0:02 [ksoftirqd/43]
+</span></span><span class="line"><span class="cl">root       231  0.0  0.0      0     0 ?        S     2021   0:00 [ksoftirqd/44]
+</span></span><span class="line"><span class="cl">root       236  0.0  0.0      0     0 ?        S     2021   0:00 [ksoftirqd/45]
+</span></span><span class="line"><span class="cl">root       241  0.0  0.0      0     0 ?        S     2021   0:00 [ksoftirqd/46]
+</span></span><span class="line"><span class="cl">root       246  0.0  0.0      0     0 ?        S     2021   0:00 [ksoftirqd/47]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[ ~]# cat /proc/irq/24/smp_affinity
+</span></span><span class="line"><span class="cl">0001
+</span></span><span class="line"><span class="cl">[ ~]# cat /proc/irq/24/smp_affinity_list 
+</span></span><span class="line"><span class="cl">0
+</span></span><span class="line"><span class="cl">#上面表示0001对应cpu0，可以直接修改绑定关系
+</span></span><span class="line"><span class="cl">[ ~]# echo 4 &gt; /proc/irq/24/smp_affinity
+</span></span><span class="line"><span class="cl">[ ~]# cat /proc/irq/24/smp_affinity_list 
+</span></span><span class="line"><span class="cl">2
+</span></span><span class="line"><span class="cl">#此时中断号24对应的处理CPU为cpu2
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">mpstat -P ALL 1 1
+</span></span><span class="line"><span class="cl">watch -d cat /proc/softirqs
+</span></span><span class="line"><span class="cl">cat /proc/interrupts  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>watch -d cat /proc/softirqs</p>
+<p>ET_RX（网络接收）、SCHED（内核调度）、RCU（RCU 锁）</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 10 | 案例篇：系统的软中断CPU使用率升高，我该怎么办？</li>
+<li><input checked="" disabled="" type="checkbox"> <a href="https://linuxhint.com/understanding_numa_architecture/">https://linuxhint.com/understanding_numa_architecture/</a></li>
+<li><input checked="" disabled="" type="checkbox"> <a href="https://www.jianshu.com/p/6dfde8331380">https://www.jianshu.com/p/6dfde8331380</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Why</strong> - the application buffer/queue to the write/send data, <a href="https://blog.cloudflare.com/the-story-of-one-latency-spike/">understand its consequences can help a lot</a>.</p>
+</li>
+<li>
+<p><strong>How:</strong></p>
+<ul>
+<li>
+<p><strong>Check command:</strong> <code>sysctl net.ipv4.tcp_rmem</code></p>
+</li>
+<li>
+<p><strong>Change command:</strong> <code>sysctl -w net.ipv4.tcp_rmem=&quot;min default max&quot;</code>; when changing default value, remember to restart your user space app (i.e. your web server, nginx, etc)</p>
+</li>
+<li>
+<p><strong>How to monitor:</strong> <code>cat /proc/net/sockstat</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<p>【11】内核参数 /etc/sysctl.conf  ✅</p>
+<p>cat /proc/sys/fs/aio-max-nr</p>
+<p>65536</p>
+<p>fs.aio-max-nr = 1048576</p>
+<p><strong>sysctl -p /etc/sysctl.conf</strong></p>
+<p>The Linux kernel provides the Asynchronous non-blocking I/O (AIO) feature that allows a process to initiate multiple I/O operations simultaneously without having to wait for any of them to complete. This helps boost performance for applications that are able to overlap processing and I/O. ✅</p>
+<p><a href="https://www.jianshu.com/p/6dfde8331380">https://www.jianshu.com/p/6dfde8331380</a></p>
+<p>######################## cat /proc/sys/net/core/somaxconn</p>
+<p># 默认值：128</p>
+<p># 作用：已经成功建立连接的套接字将要进入队列的长度</p>
+<p><strong>net.core.somaxconn = 65536</strong></p>
+<p>作者：济夏
+链接：https://www.jianshu.com/p/6dfde8331380
+来源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<p>Socket accept 队列满，系统的 somaxconn 内核参数默认太小。</p>
+<p>net.ipv4.tcp_max_syn_backlog = 1024</p>
+<p>net.ipv4.tcp_fin_timeout = 60</p>
+<p>如何提升TCP四次挥手的性能？</p>
+<ul>
+<li>
+<p>为什么建立连接是三次握手，而关闭连接需要四次挥手呢？</p>
+<p>TCP 不允许连接处于 半打开状态 时就单向传输数据，因此合并在一起传输了。</p>
+<p>但是当连接处于半关闭状态时，TCP 是允许单向传输数据的。</p>
+<p>tcp_orphan_retries</p>
+<p>net.ipv4.tcp_max_orphans = 16384</p>
+<p>net.ipv4.tcp_fin_timeout = 60</p>
+<p>net.ipv4.tcp_max_tw_buckets = 5000</p>
+<p>//Linux 提供了 tcp_max_tw_buckets 参数，当 TIME_WAIT 的连接数量超过该参数时，新关闭的连接就不再经历 TIME_WAIT 而直接关闭。</p>
+<p>Linux 并没有限制 CLOSE_WAIT 状态的持续时间。</p>
+<p>tcp_max_orphans 定义了孤儿连接的最大数量。当进程调用 close 函数关闭连接后，无论该连接是在 FIN_WAIT1 状态，还是确实关闭了，这个连接都与该进程无关了，它变成了孤儿连接。Linux 系统为防止孤儿连接过多，导致系统资源长期被占用，就提供了 tcp_max_orphans 参数。</p>
+<ul>
+<li>如果孤儿连接数量大于它，新增的孤儿连接将不再走四次挥手，而是直接发送 RST 复位报文强制关闭。</li>
+</ul>
+</li>
+</ul>
+<h2 id="-方法">## 方法</h2>
+<h3 id="1-沟通步骤">1. 沟通步骤：</h3>
+<ol>
+<li>准备好一个ppt，在写代码之前演示最终目标 和架构设计 就是如何去实现的</li>
+</ol>
+<p>【不要说公司部门环境不对 着就是最终结果，不要试着看看，一定是可以完全上线的项目，非demo和一个知识点。自己认为真的 不是闹着玩的。。】</p>
+<ol start="2">
+<li>经过领导，专家 进行鸡蛋里挑骨头。【自己做好了别人路了胡扯，不会对别人产生任何影响，做事和做人一样，无论熟悉人，还是老师，领导，不相关人 反对 他们反馈信号，接受质疑，经过九九八十一难考验，并且你还在坚持认为对的。】</li>
+<li>
+<ol start="3">
+<li></li>
+<li>最后融合别人建议，然后完善你项目。【不听老人言，吃亏在眼前，不敢接受别人批评，说明自己完全没有把握，才去否定 愤怒方式】</li>
+</ol>
+</li>
+</ol>
+<p>xx发问；怎么做调度的， 任务多，负载多 ，流量多。</p>
+<p>我的回答</p>
+<p>xx点评：</p>
+<p>完善流程：</p>
+<h3 id="2-知识点">2. 知识点</h3>
+<h3 id="一这个技术出现的背景初衷和要达到什么样的目标或是要解决什么样的问题">一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题</h3>
+<h3 id="二这个技术的优势和劣势分别是什么">二、这个技术的优势和劣势分别是什么</h3>
+<h3 id="三这技术适用的场景任何技术都有其适用的场景离开了这个场景">三、这技术适用的场景。任何技术都有其适用的场景，离开了这个场景</h3>
+<h3 id="四技术的组成部分和关键点">四、技术的组成部分和关键点。</h3>
+<h3 id="五技术的底层原理和关键实现">五、技术的底层原理和关键实现</h3>
+<h3 id="六已有的实现和它之间的对比">六、已有的实现和它之间的对比</h3>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Troy</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2022-01-25 00:00
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a target="_blank" rel="license noopener" href="https://github.com/nusr/blog/blob/master/LICENSE">MIT</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/book/">book</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/ARTS/2022/6/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">一周精彩内容分享（第六期）</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/2020/k8s/">
+            <span class="next-text nav-default">k8s入门</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="wangcy6/wangcy6.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:wang_cyi@163.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/wangcy6" class="iconfont icon-github" title="github"></a>
+  <a href="https://wangcy6.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2022
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Troy</span>
+  </span>
+</div>
+<script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
+  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+    var languageCode = "zh-cn".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    timeago().render(document.querySelectorAll('.timeago'), languageCode);
+    timeago.cancel();  
+  </script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-138883536-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>

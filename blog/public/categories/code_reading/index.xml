@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>code_reading on Troy的网络博客</title>
+    <link>https://wangcy6.github.io/categories/code_reading/</link>
+    <description>Recent content in code_reading on Troy的网络博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 09 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/categories/code_reading/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OBCP准备</title>
+      <link>https://wangcy6.github.io/post/oceanbase/2011/obcp_2/</link>
+      <pubDate>Sat, 09 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/oceanbase/2011/obcp_2/</guid>
+      <description>多看、多问、多总结，肯定是可以攻克的。 文章地址：https://wangcy6.github.io/post/oceanbase/obcp_</description>
+    </item>
+    
+    <item>
+      <title>OBCP考试</title>
+      <link>https://wangcy6.github.io/post/oceanbase/2011/obcp/</link>
+      <pubDate>Sun, 20 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/oceanbase/2011/obcp/</guid>
+      <description>多看、多问、多总结，肯定是可以攻克的。 环境说明 单机单节点部署 1 2 3 4 5 6 7 8 9 10 11 12 obd cluster display test +---------------------------------------------+ | observer | +-----------+---------+------+-------+--------+ | ip | version | port | zone | status | +-----------+---------+------+-------+--------+ | 127.0.0.1 | 3.1.1 | 2881 |</description>
+    </item>
+    
+    <item>
+      <title>mimob代码阅读</title>
+      <link>https://wangcy6.github.io/post/oceanbase/2011/03_mimi_ob/</link>
+      <pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/oceanbase/2011/03_mimi_ob/</guid>
+      <description>慢慢来，多看、多问、多总结 沟通步骤 准备好一个ppt，在写代码之前演示最终目标 和架构设计 就是如何去实现的 【不要说公司部门环境不对 着就是最终结果</description>
+    </item>
+    
+    <item>
+      <title>社区问题整理第一期</title>
+      <link>https://wangcy6.github.io/post/oceanbase/2011/04_FQA/</link>
+      <pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/oceanbase/2011/04_FQA/</guid>
+      <description>慢慢来，多看、多问、多总结 沟通步骤 准备好一个ppt，在写代码之前演示最终目标 和架构设计 就是如何去实现的 【不要说公司部门环境不对 着就是最终结果</description>
+    </item>
+    
+    <item>
+      <title>实践练习六（必选）：查看 OceanBase 执行计划</title>
+      <link>https://wangcy6.github.io/post/oceanbase/2011/2022-1-28_p6/</link>
+      <pubDate>Fri, 28 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/oceanbase/2011/2022-1-28_p6/</guid>
+      <description>多看、多问、多总结，肯定是可以攻克的。 文章结构 http://127.0.0.1:1313/post/oceanbase/2022-1-28_p6/ 实践练习六（必选）：查看 OceanBase 执行计划 环境说明 单机单节点部署 1 2 3 4 5 6 7 8 9 10 11 12 obd cluster display test +---------------------------------------------+ |</description>
+    </item>
+    
+    <item>
+      <title>逆向入门教程</title>
+      <link>https://wangcy6.github.io/post/2022/2022-1-20-%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/</link>
+      <pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2022/2022-1-20-%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/</guid>
+      <description>背景：答应别人导入微信记录，结果半年毫无动静，一点进展都没有。 记录入门遇到的问题，然后看了那些文章 和写了那些代码解决的。 文章地址 http://localhost:1313/post/2022/2022-1-20-%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/ 手机端-A</description>
+    </item>
+    
+    <item>
+      <title>oceanbase源码阅读（1）程序启动</title>
+      <link>https://wangcy6.github.io/post/oceanbase/2011/oceanbase_day1/</link>
+      <pubDate>Tue, 22 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/oceanbase/2011/oceanbase_day1/</guid>
+      <description>慢慢来，多看、多问、多总结，肯定是可以攻克的。 沟通步骤 准备好一个ppt，在写代码之前演示最终目标 和架构设计 就是如何去实现的 【不要说公司部门环</description>
+    </item>
+    
+    <item>
+      <title>oceanbase源码阅读（1）程序启动</title>
+      <link>https://wangcy6.github.io/post/plan/oceanbase_day1/</link>
+      <pubDate>Tue, 22 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/plan/oceanbase_day1/</guid>
+      <description>预备知识： 掌握gdb原理 源码编译 OceanBase Deploy （简称 OBD）是 OceanBase 开源软件的安装部署工具÷÷ 步骤1 源码编译OceanBase： 1 2 3 bash build.sh debug --init --make cd /app/data/oceanbase/build_debug make install 步</description>
+    </item>
+    
+    <item>
+      <title>python入门教程</title>
+      <link>https://wangcy6.github.io/post/2021/python01/</link>
+      <pubDate>Sun, 06 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2021/python01/</guid>
+      <description>第一天 window python 环境安装 官网地址： https://www.python.org/downloads/release/python-396/ python环境变量：path D:\local\python3 pip环境变量 path D:\local\python3\Scripts window可以默认按照自动设置。其他手工设置 用于检测当前W</description>
+    </item>
+    
+    <item>
+      <title>SRS官方文档和学习路径</title>
+      <link>https://wangcy6.github.io/post/2020/01_srs/</link>
+      <pubDate>Sun, 06 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2020/01_srs/</guid>
+      <description>文章路径 http://localhost:1313/post/2020/01_srs/ 卡片 SRS4.0官方文档和学习路径 https://mp.weixin.qq.com/s/AZhSQbCMBlaZv-0-myc1zg https://ossrs.net/releases/ Introduction Problem solucction https://gitee.com/ossrs/srs/wikis/v4_CN_Home https://github.com/ossrs/srs https://hub.fastgit.org/ossrs/srs 第一天：快速预览 环境：2g+Ubuntu 在vpn环境完成搭建(docker安装不</description>
+    </item>
+    
+    <item>
+      <title>协程库</title>
+      <link>https://wangcy6.github.io/post/2020/st/</link>
+      <pubDate>Sat, 14 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2020/st/</guid>
+      <description>卡片 协程库 语言 开发者 state threads library 3000行C代码 历史渊源 摘要 今日理解。 一、一个普通的应用程序，假如采用st库，那么这个应用具备2个特点 highly scalable appl</description>
+    </item>
+    
+  </channel>
+</rss>

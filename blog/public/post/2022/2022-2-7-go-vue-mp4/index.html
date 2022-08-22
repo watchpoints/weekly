@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>视频管理平台 - Troy的网络博客</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Troy" /><meta name="description" content="http://127.0.0.1:1313/post/2022/2022-2-7-go-vue-mp4/ 练习06 ：短视频管理平台 练习05 ：直播管理平台 练习04 ：ai 主播 4.1 基础理论 Examples PaddleBoBo: Use PaddleSpeech TTS to generate virtual human voice. 4.2 产品 PaddleBoBo 4.3 使用教程 4.3.1 PaddleBoBo 运行环境 飞桨AIStu" /><meta name="keywords" content="daily-interview-question, Github, c&#43;&#43;, Leetcode 题解, 后端面试" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.101.0 with theme even" />
+
+
+<link rel="canonical" href="https://wangcy6.github.io/post/2022/2022-2-7-go-vue-mp4/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="视频管理平台" />
+<meta property="og:description" content="http://127.0.0.1:1313/post/2022/2022-2-7-go-vue-mp4/ 练习06 ：短视频管理平台 练习05 ：直播管理平台 练习04 ：ai 主播 4.1 基础理论 Examples PaddleBoBo: Use PaddleSpeech TTS to generate virtual human voice. 4.2 产品 PaddleBoBo 4.3 使用教程 4.3.1 PaddleBoBo 运行环境 飞桨AIStu" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wangcy6.github.io/post/2022/2022-2-7-go-vue-mp4/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-02-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-02-07T00:00:00+00:00" />
+
+<meta itemprop="name" content="视频管理平台">
+<meta itemprop="description" content="http://127.0.0.1:1313/post/2022/2022-2-7-go-vue-mp4/ 练习06 ：短视频管理平台 练习05 ：直播管理平台 练习04 ：ai 主播 4.1 基础理论 Examples PaddleBoBo: Use PaddleSpeech TTS to generate virtual human voice. 4.2 产品 PaddleBoBo 4.3 使用教程 4.3.1 PaddleBoBo 运行环境 飞桨AIStu"><meta itemprop="datePublished" content="2022-02-07T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-02-07T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1382">
+<meta itemprop="keywords" content="系统设计," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="视频管理平台"/>
+<meta name="twitter:description" content="http://127.0.0.1:1313/post/2022/2022-2-7-go-vue-mp4/ 练习06 ：短视频管理平台 练习05 ：直播管理平台 练习04 ：ai 主播 4.1 基础理论 Examples PaddleBoBo: Use PaddleSpeech TTS to generate virtual human voice. 4.2 产品 PaddleBoBo 4.3 使用教程 4.3.1 PaddleBoBo 运行环境 飞桨AIStu"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="https://github.com/wangcy6/weekly/tree/master/book">
+        <li class="mobile-menu-item">阅读清单</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于我</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://github.com/wangcy6/weekly/tree/master/book">阅读清单</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于我</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">视频管理平台</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-02-07 00:00 </span>
+        
+          <span class="more-meta"> 约 1382 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#heading"></a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#练习04-ai-主播">练习04 ：ai 主播</a>
+      <ul>
+        <li><a href="#41-基础理论">4.1 基础理论</a></li>
+        <li><a href="#42-产品">4.2 产品</a></li>
+        <li><a href="#43-使用教程">4.3 使用教程</a></li>
+        <li><a href="#44-引用">4.4 引用</a></li>
+      </ul>
+    </li>
+    <li><a href="#练习03-obs--绿幕直播">练习03 ：obs  绿幕直播</a></li>
+    <li><a href="#练习02-obs-虚拟主播方案">练习02 ：obs 虚拟主播方案</a></li>
+    <li><a href="#基础理论">基础理论</a></li>
+    <li><a href="#产品">产品</a></li>
+    <li><a href="#动手操作">动手操作</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#练习01-用网页播放视频">练习01 ：用网页播放视频</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#引用">引用</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="heading"></h2>
+<p>http://127.0.0.1:1313/post/2022/2022-2-7-go-vue-mp4/</p>
+<h1 id="练习06-短视频管理平台">练习06 ：短视频管理平台</h1>
+<h1 id="练习05-直播管理平台">练习05 ：直播管理平台</h1>
+<h2 id="练习04-ai-主播">练习04 ：ai 主播</h2>
+<h3 id="41-基础理论">4.1 基础理论</h3>
+<ul>
+<li><strong><a href="https://github.com/JiehangXie/PaddleBoBo">Examples PaddleBoBo</a>: Use PaddleSpeech TTS to generate virtual human voice.</strong></li>
+</ul>
+<h3 id="42-产品">4.2 产品</h3>
+<ul>
+<li>PaddleBoBo</li>
+</ul>
+<h3 id="43-使用教程">4.3 使用教程</h3>
+<h4 id="431-paddlebobo">4.3.1 PaddleBoBo</h4>
+<p>运行环境</p>
+<ul>
+<li>飞桨AIStudio在线运行 (强烈推荐，Tesla V100冲！！！)【开发思路 任何软件都提供 在线可视化操作】</li>
+</ul>
+<p>自建本地环境</p>
+<ul>
+<li>Windows 10
+Python 3.7+
+PaddlePaddle &gt;= 2.2.1
+Nvidia显卡 显存16G+（没测试过，希望有显卡的土豪大佬们反馈下）</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">https://github.com/wangcy6/PaddleBoBo
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">## 1.下载项目代码</span>
+</span></span><span class="line"><span class="cl">git clone git@github.com:wangcy6/PaddleBoBo.git -b develop
+</span></span><span class="line"><span class="cl">     https://gitee.com/wang_cyi/PaddleBoBo
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">##  2. 安装PaddleGAN和PaddleSpeech依赖</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## 百度飞桨PaddleSpeech</span>
+</span></span><span class="line"><span class="cl"><span class="c1">##paddegan为开发者提供经典和SOTA生成对抗网络的高性能实现，并支持开发者快速构建、训练和部署用于学术、娱乐和工业用途的GANs</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">C:<span class="se">\U</span>sers<span class="se">\w</span>angchuanyi<span class="se">\A</span>ppData<span class="se">\L</span>ocal<span class="se">\M</span>icrosoft<span class="se">\W</span>indowsApps<span class="se">\P</span>ythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0<span class="se">\p</span>ython.exe -m pip install --upgrade pip
+</span></span><span class="line"><span class="cl">pip -V
+</span></span><span class="line"><span class="cl">pip 22.0.3 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">pip install wheel
+</span></span><span class="line"><span class="cl">Successfully installed wheel-0.37.1
+</span></span><span class="line"><span class="cl">pip install numpy
+</span></span><span class="line"><span class="cl">Successfully installed numpy-1.22.2
+</span></span><span class="line"><span class="cl">pip install numba
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">pip install ppgan paddlespeech
+</span></span><span class="line"><span class="cl">百度PaddlePaddle
+</span></span><span class="line"><span class="cl">python -m pip install paddlepaddle -i https://mirror.baidu.com/pypi/simple
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">wget https://paddlespeech.bj.bcebos.com/Parakeet/tools/nltk_data.tar.gz
+</span></span><span class="line"><span class="cl">tar zxvf nltk_data.tar.gz
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">##  3. 静态图像转虚拟主播动画</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> PaddleBoBo
+</span></span><span class="line"><span class="cl">D:<span class="se">\m</span>oney<span class="se">\z</span>hibo<span class="se">\P</span>addleBoBo
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">python create_virtual_human.py --config default.yaml
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">## 4. 让虚拟主播说话</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">python general_demo.py <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --human ./file/input/test.mp4 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --output output.mp4 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --text 各位开发者大家好，欢迎使用飞桨。 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">参数	参数说明
+</span></span><span class="line"><span class="cl">human	第3步生成的人脸视频路径
+</span></span><span class="line"><span class="cl">output	生成虚拟主播视频的输出路径
+</span></span><span class="line"><span class="cl">text	虚拟主播语音文本
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">https://github.com/PaddlePaddle/PaddleSpeech
+</span></span><span class="line"><span class="cl">https://paddlespeech.readthedocs.io/en/latest/demo_video.html
+</span></span><span class="line"><span class="cl">https://blog.csdn.net/zhiweihongyan1/article/details/122326644
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>遇到的错误</p>
+<ul>
+<li>python pip 国内镜像</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">阿里云</span><span class="err">：</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">mirrors</span><span class="o">.</span><span class="n">aliyun</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">pypi</span><span class="o">/</span><span class="n">simple</span><span class="o">/</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">pip</span> <span class="n">install</span> <span class="n">numpy</span>  <span class="o">-</span><span class="n">i</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">mirrors</span><span class="o">.</span><span class="n">aliyun</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">pypi</span><span class="o">/</span><span class="n">simple</span><span class="o">/</span> <span class="o">--</span><span class="n">trusted</span><span class="o">-</span><span class="n">host</span> <span class="n">mirrors</span><span class="o">.</span><span class="n">aliyun</span><span class="o">.</span><span class="n">com</span>
+</span></span><span class="line"><span class="cl"><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">cnblogs</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">mini</span><span class="o">-</span><span class="n">monkey</span><span class="o">/</span><span class="n">p</span><span class="o">/</span><span class="mf">11175485.</span><span class="n">html</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="n">wangchuanyi</span>\<span class="n">AppData</span>\<span class="n">Roaming</span>\<span class="n">pip</span>\<span class="n">pip</span><span class="o">.</span><span class="n">ini</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="k">global</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">index</span><span class="o">-</span><span class="n">url</span> <span class="o">=</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">mirrors</span><span class="o">.</span><span class="n">aliyun</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">pypi</span><span class="o">/</span><span class="n">simple</span><span class="o">/</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="n">install</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">trusted</span><span class="o">-</span><span class="n">host</span><span class="o">=</span><span class="n">mirrors</span><span class="o">.</span><span class="n">aliyun</span><span class="o">.</span><span class="n">com</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> <span class="n">WARNING</span><span class="p">:</span> <span class="n">The</span> <span class="n">wheel</span> <span class="n">package</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">available</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">          <span class="n">WARNING</span><span class="p">:</span> <span class="n">The</span> <span class="n">script</span> <span class="n">wheel</span><span class="o">.</span><span class="n">exe</span> <span class="ow">is</span> <span class="n">installed</span> <span class="ow">in</span> <span class="s1">&#39;C:\Users\wangchuanyi\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\Scripts&#39;</span> <span class="n">which</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">on</span> <span class="n">PATH</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl">  <span class="n">Consider</span> <span class="n">adding</span> <span class="n">this</span> <span class="n">directory</span> <span class="n">to</span> <span class="n">PATH</span> <span class="ow">or</span><span class="p">,</span> <span class="k">if</span> <span class="n">you</span> <span class="n">prefer</span> <span class="n">to</span> <span class="n">suppress</span> <span class="n">this</span> <span class="n">warning</span><span class="p">,</span> <span class="n">use</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">warn</span><span class="o">-</span><span class="n">script</span><span class="o">-</span><span class="n">location</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">ERROR</span><span class="p">:</span> <span class="n">Could</span> <span class="ow">not</span> <span class="n">build</span> <span class="n">wheels</span> <span class="k">for</span> <span class="n">numpy</span><span class="p">,</span> <span class="n">which</span> <span class="ow">is</span> <span class="n">required</span> <span class="n">to</span> <span class="n">install</span> <span class="n">pyproject</span><span class="o">.</span><span class="n">toml</span><span class="o">-</span><span class="n">based</span> <span class="n">projects</span>
+</span></span><span class="line"><span class="cl"><span class="n">为Python项目启用poetry和pyproject</span><span class="o">.</span><span class="n">tom</span>
+</span></span><span class="line"><span class="cl"><span class="n">pip</span> <span class="n">install</span> <span class="n">poetry</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="44-引用">4.4 引用</h3>
+<ul>
+<li>
+<p><a href="https://www.zhihu.com/question/362044834">https://www.zhihu.com/question/362044834</a></p>
+</li>
+<li>
+<p>语音聊天机器人 —— Facemoji 废萌</p>
+<ul>
+<li>
+<p><a href="https://zhuanlan.zhihu.com/p/454540553">https://zhuanlan.zhihu.com/p/454540553</a></p>
+</li>
+<li>
+<p><a href="https://zhuanlan.zhihu.com/p/452209677">https://zhuanlan.zhihu.com/p/452209677</a></p>
+</li>
+<li>
+<p>百度飞桨PaddlePaddle</p>
+</li>
+<li>
+<p><a href="https://github.com/PaddlePaddle/PaddleSpeech">https://github.com/PaddlePaddle/PaddleSpeech</a></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="练习03-obs--绿幕直播">练习03 ：obs  绿幕直播</h2>
+<ul>
+<li>vMix 25 预览版（25.0.0.10 测试版）来了！https://www.vmix.com.cn/vmix-25-preview-released.html</li>
+</ul>
+<h2 id="练习02-obs-虚拟主播方案">练习02 ：obs 虚拟主播方案</h2>
+<h2 id="基础理论">基础理论</h2>
+<ul>
+<li>
+<p>目前虚拟主播形象模型分为2D和3D。2D的实现方式多数为Live2D，本质上是将人物图片分图层组件化</p>
+</li>
+<li>
+<p>捕捉方式分为通过专业设备捕捉和通过摄像头捕捉</p>
+<p>。专业设备捕捉多数为全身动捕，需要专业软件支</p>
+<p>。摄像头捕捉为现在最常见的捕捉方式</p>
+<p>一般采用的动捕方式为Live2D+Facerig，或者通过手机APP动捕将画面传输至电脑直播产品</p>
+</li>
+</ul>
+<h2 id="产品">产品</h2>
+<ul>
+<li>虚拟主播神器Facerig</li>
+</ul>
+<p>​      Facerig就是可以让你的上半身变成虚拟主播的软件，它是一个steam独占的软件，所以首先你要有个steam账号。</p>
+<h2 id="动手操作">动手操作</h2>
+<ul>
+<li>
+<p><strong>VTmini：针对日常直播，同时支持面部捕捉与动作捕捉，兼容多种设备，多种版本可以选择，有免费版本，</strong></p>
+<p><a href="https://www.vtmini.cn/">https://www.vtmini.cn/</a></p>
+</li>
+</ul>
+<h4 id="22-live2dviewerex电脑版-方案卡在注册上">2.2 live2dviewerex电脑版 （方案卡在注册上）</h4>
+<ol>
+<li>
+<p>安装steam</p>
+<p><a href="https://store.steampowered.com/app/616720/Live2DViewerEX/">https://store.steampowered.com/app/616720/Live2DViewerEX/</a></p>
+<p>Live2DViewerEX是一款在steam上爆火的动态壁纸<a href="https://www.96dian.com/xitong/rjjc/">软件</a></p>
+<p>注册不了</p>
+</li>
+<li>
+<p>使用手册</p>
+<p>Live2DViewerEX OBS Vtuber Tutorial</p>
+<p><a href="https://www.youtube.com/watch?v=ydvHLYaZw7g">https://www.youtube.com/watch?v=ydvHLYaZw7g</a></p>
+<p>Live2DViewerEX 在OBS中使用Live2D模型作为虚拟形象</p>
+</li>
+</ol>
+<p>window 下载不了</p>
+<h4 id="23-app-custom-cast定制虚拟偶像这款app进行模型制作和动捕">2.3 app custom cast（定制虚拟偶像）这款APP进行模型制作和动捕</h4>
+<p><a href="https://www.66152.com/article/202106/259675.html">https://www.66152.com/article/202106/259675.html</a></p>
+<h4 id="24--windowvtuber-live2dfacerig">2.4  window：Vtuber Live2D+Facerig</h4>
+<h4 id="25-免费的vtuber软件--vup">2.5 免费的VTuber软件&ndash;VUP</h4>
+<p>准备：只需要一个普通电脑摄像头</p>
+<h2 id="练习01-用网页播放视频">练习01 ：用网页播放视频</h2>
+<p>环境配置</p>
+<p><a href="http://bilibili.github.io/flv.js/demo/">http://bilibili.github.io/flv.js/demo/</a></p>
+<p>代码地址：</p>
+<p><a href="https://gitee.com/wang_cyi/go_mp4">https://gitee.com/wang_cyi/go_mp4</a>
+mac：</p>
+<p>/Users/wangchuanyi/code/src/gitee.com/wang_cyi/go_mp4</p>
+<p>window：
+D:\money\golang\src\gitee\wang_cyi\go_mp4</p>
+<h4 id="理论12--编解码">理论1.2  编解码</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ffplay -i D:\mp4\keep\1.mp4
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="引用">引用</h2>
+<ul>
+<li><a href="https://github.com/bytedance/xgplayer/blob/master/README.zh-CN.md">https://github.com/bytedance/xgplayer/blob/master/README.zh-CN.md</a></li>
+<li>GET 和 POST  <a href="https://www.cnblogs.com/liuhe688/p/11063945.html">https://www.cnblogs.com/liuhe688/p/11063945.html</a></li>
+<li>axios在Vue-cli+webpac</li>
+<li>一个axios的简单教程</li>
+</ul>
+<p>​</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Troy</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2022-02-07 00:00
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a target="_blank" rel="license noopener" href="https://github.com/nusr/blog/blob/master/LICENSE">MIT</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/">系统设计</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/2022/5-20220-2-8-leveldb/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">庖丁解牛之LevelDB</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/oceanbase/2011/2022-1-28_p6/">
+            <span class="next-text nav-default">实践练习六（必选）：查看 OceanBase 执行计划</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="wangcy6/wangcy6.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:wang_cyi@163.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/wangcy6" class="iconfont icon-github" title="github"></a>
+  <a href="https://wangcy6.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2022
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Troy</span>
+  </span>
+</div>
+<script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
+  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+    var languageCode = "zh-cn".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    timeago().render(document.querySelectorAll('.timeago'), languageCode);
+    timeago.cancel();  
+  </script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-138883536-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>

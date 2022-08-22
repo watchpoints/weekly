@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Memcached on Troy的网络博客</title>
+    <link>https://wangcy6.github.io/categories/Memcached/</link>
+    <description>Recent content in Memcached on Troy的网络博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 10 Oct 2019 17:02:43 +0800</lastBuildDate><atom:link href="https://wangcy6.github.io/categories/Memcached/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Memcached</title>
+      <link>https://wangcy6.github.io/post/2020/Memcached/</link>
+      <pubDate>Thu, 10 Oct 2019 17:02:43 +0800</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2020/Memcached/</guid>
+      <description>提问的艺术</description>
+    </item>
+    
+  </channel>
+</rss>

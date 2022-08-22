@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>oceanbase on Troy的网络博客</title>
+    <link>https://wangcy6.github.io/categories/oceanbase/</link>
+    <description>Recent content in oceanbase on Troy的网络博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 14 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/categories/oceanbase/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>成为oceanbase贡献者第二天：</title>
+      <link>https://wangcy6.github.io/post/oceanbase/2022/oceanbase_day2/</link>
+      <pubDate>Sun, 14 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/oceanbase/2022/oceanbase_day2/</guid>
+      <description>慢慢来，多看、多问、多总结，肯定是可以攻克的。 文章地址： http://localhost:1313/post/oceanbase/2022/oceanbase_day2/ 沟通步骤 准备好一个ppt，在写代码之前演示最终目标 和架构设计 就是如何去实现的 【不要</description>
+    </item>
+    
+  </channel>
+</rss>

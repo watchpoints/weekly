@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title> OceanBase 开源社区 - Troy的网络博客</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Troy" /><meta name="description" content="入门教程" /><meta name="keywords" content="daily-interview-question, Github, c&#43;&#43;, Leetcode 题解, 后端面试" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.101.0 with theme even" />
+
+
+<link rel="canonical" href="https://wangcy6.github.io/post/plan/oceanbase_read_01/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content=" OceanBase 开源社区" />
+<meta property="og:description" content="入门教程" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wangcy6.github.io/post/plan/oceanbase_read_01/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-06-03T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-06-03T00:00:00+00:00" />
+
+<meta itemprop="name" content=" OceanBase 开源社区">
+<meta itemprop="description" content="入门教程"><meta itemprop="datePublished" content="2021-06-03T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-06-03T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2039">
+<meta itemprop="keywords" content="GTD," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=" OceanBase 开源社区"/>
+<meta name="twitter:description" content="入门教程"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="https://github.com/wangcy6/weekly/tree/master/book">
+        <li class="mobile-menu-item">阅读清单</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于我</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://github.com/wangcy6/weekly/tree/master/book">阅读清单</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于我</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title"> OceanBase 开源社区</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-06-03 00:00 </span>
+        <div class="post-category">
+            <a href="/categories/coding/"> coding </a>
+            </div>
+          <span class="more-meta"> 约 2039 字 </span>
+          <span class="more-meta"> 预计阅读 5 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#总结mac使用-obd-部署-oceanbase-数据库">总结：Mac:使用 OBD 部署 OceanBase 数据库</a></li>
+    <li><a href="#总结oceanbase启动过程源码分析检查配置文件">总结：OceanBase启动过程源码分析：检查配置文件。</a></li>
+    <li><a href="#具体过程">具体过程：</a></li>
+    <li><a href="#todo我是新手-我从哪里开始">todo：我是新手 ，我从哪里开始</a>
+      <ul>
+        <li><a href="#就看这个文档-httpsopenoceanbasecomcommunityorganization">就看这个文档 <a href="https://open.oceanbase.com/community/organization">https://open.oceanbase.com/community/organization</a></a></li>
+        <li><a href="#挑战01--直接使用镜像使用-docker-镜像在-mac-平台上部署-oceanbase-试用版">挑战01&ndash;:直接使用镜像：<strong>使用 Docker 镜像在 Mac 平台上部署 OceanBase 试用版</strong></a></li>
+        <li><a href="#方案1-使用-rpm-包centos-7-及以上安装">方案1： 使用 RPM 包（Centos 7 及以上）安装。</a></li>
+        <li><a href="#阅读oceanbase-数据库概览-需要-x天">阅读：OceanBase 数据库概览 需要 x天</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+  <div class="post-outdated">
+    <div class="hint">
+      <p>【注意】最后更新于 <span class="timeago" datetime="2021-06-03T00:00:00" title="June 3, 2021">June 3, 2021</span>，文中内容可能已过时，请谨慎使用。</p>
+    </div>
+  </div>
+    <div class="post-content">
+      <h1 id="day1">day1</h1>
+<h2 id="总结mac使用-obd-部署-oceanbase-数据库">总结：Mac:使用 OBD 部署 OceanBase 数据库</h2>
+<p>参考文档：https://github.com/oceanbase/obdeploy</p>
+<p>预备知识：</p>
+<ul>
+<li>
+<p>OceanBase 不支持mac，使用docker</p>
+</li>
+<li>
+<p>obd是安装工具，不需要重现编译源码（定制版本除外）</p>
+</li>
+<li>
+<p>单机 本地安装不需要配上ssh 密码登陆 配置文件</p>
+</li>
+<li>
+<p>对内存和cpu都要要求，满足最低配置  mini-local-example.yaml 执行不会报错。 需要结合日志和代码解决。</p>
+</li>
+</ul>
+<p>环境准备：</p>
+<ul>
+<li>系统环境配置: memory_limit cannot be less than 8G</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">问题：
+</span></span><span class="line"><span class="cl">[WARN] (127.0.0.1) fs.aio-max-nr must not be less than 1048576 (Current value: 65536)
+</span></span><span class="line"><span class="cl">[WARN] (127.0.0.1) open files number must not be less than 655350 (Current value: 1024)
+</span></span><span class="line"><span class="cl">[WARN] (127.0.0.1) not enough memory
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">办法：
+</span></span><span class="line"><span class="cl">vi /etc/security/limits.conf
+</span></span><span class="line"><span class="cl">*	 soft	nofile		655360
+</span></span><span class="line"><span class="cl">*	 hard	nofile		655360
+</span></span><span class="line"><span class="cl">*  soft nproc    655360
+</span></span><span class="line"><span class="cl">*  hard nproc    655360
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">vi /etc/sysctl.conf
+</span></span><span class="line"><span class="cl">fs.file-max = 655360
+</span></span><span class="line"><span class="cl">fs.aio-max-nr=1048576
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sysctl -p//生效
+</span></span><span class="line"><span class="cl">ulimit -a //新窗口查看结果
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>mini-local-example.yaml 变量 里面配置是最低配置，不能修改</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="p">[</span><span class="l">root@56bd78306b21 data]# obd cluster edit-config obtest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">oceanbase-ce</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">servers</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Please don&#39;t use hostname, only IP can be supported</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="m">127.0.0.1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">global</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">home_path</span><span class="p">:</span><span class="w"> </span><span class="l">/root/data/observer</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Please set devname as the network adaptor&#39;s name whose ip is  in the setting of severs.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># if set severs as &#34;127.0.0.1&#34;, please set devname as &#34;lo&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># if current ip is 192.168.1.10, and the ip&#39;s network adaptor&#39;s name is &#34;eth0&#34;, please use &#34;eth0&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">devname</span><span class="p">:</span><span class="w"> </span><span class="l">lo</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">mysql_port</span><span class="p">:</span><span class="w"> </span><span class="m">2881</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">rpc_port</span><span class="p">:</span><span class="w"> </span><span class="m">2882</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">zone</span><span class="p">:</span><span class="w"> </span><span class="l">zone1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">cluster_id</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># please set memory limit to a suitable value which is matching resource.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">memory_limit</span><span class="p">:</span><span class="w"> </span><span class="l">8G //不能修改，至少不多 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">system_memory</span><span class="p">:</span><span class="w"> </span><span class="l">4G //不能修改，至少不多</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">stack_size</span><span class="p">:</span><span class="w"> </span><span class="l">512K  //不能修改，至少不多</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">cpu_count</span><span class="p">:</span><span class="w"> </span><span class="m">6</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">cache_wash_threshold</span><span class="p">:</span><span class="w"> </span><span class="l">500M</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">__min_full_resource_pool_memory</span><span class="p">:</span><span class="w"> </span><span class="m">268435456</span><span class="w">  </span><span class="l">//不能修改，至少不多</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">workers_per_cpu_quota</span><span class="p">:</span><span class="w"> </span><span class="m">10</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">schema_history_expire_time</span><span class="p">:</span><span class="w"> </span><span class="l">1d</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># The value of net_thread_count had better be same as cpu&#39;s core number.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">net_thread_count</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">sys_bkgd_migration_retry_num</span><span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">minor_freeze_times</span><span class="p">:</span><span class="w"> </span><span class="m">10</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">enable_separate_sys_clog</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">enable_merge_by_turn</span><span class="p">:</span><span class="w"> </span><span class="kc">FALSE</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">datafile_disk_percentage</span><span class="p">:</span><span class="w"> </span><span class="m">20</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">syslog_level</span><span class="p">:</span><span class="w"> </span><span class="l">INFO</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">enable_syslog_recycle</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">max_syslog_file_count</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>安装部署</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker update --memory 8G --memory-swap -1 56bd78306b21
+</span></span><span class="line"><span class="cl">docker run -itd  --name oceanbase  --privileged centos /bin/bash
+</span></span><span class="line"><span class="cl">docker start 56bd78306b21 
+</span></span><span class="line"><span class="cl">docker attach 56bd78306b21  //进入容器
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">obd cluster destroy obtest
+</span></span><span class="line"><span class="cl">obd cluster deploy obtest -c /root/data/mini-local-example.yaml 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">obd cluster edit-config obtest
+</span></span><span class="line"><span class="cl">obd cluster redeploy obtest
+</span></span><span class="line"><span class="cl">obd cluster display obtest
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">obd cluster start obtest
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>连接 OceanBase 数据库</p>
+<p><a href="https://open.oceanbase.com/quickStart">https://open.oceanbase.com/quickStart</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="n">obclient</span><span class="w"> </span><span class="o">-</span><span class="n">h</span><span class="w"> </span><span class="mi">127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="w">  </span><span class="o">-</span><span class="n">P</span><span class="w"> </span><span class="mi">2881</span><span class="w">  </span><span class="o">-</span><span class="n">uroot</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">use</span><span class="w"> </span><span class="n">test</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="nf">person</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">person</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">person</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>查看源码定位启动失败：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="err">启动失败</span> 
+</span></span><span class="line"><span class="cl"><span class="n">cd</span> <span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">observer</span><span class="o">/</span><span class="n">log</span><span class="o">/</span>
+</span></span><span class="line"><span class="cl"><span class="n">grep</span> <span class="n">ERROR</span> <span class="n">observer</span><span class="p">.</span><span class="n">log</span> <span class="c1">//请看第一个错误。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  
+</span></span><span class="line"><span class="cl"><span class="n">DEF_INT</span><span class="p">(</span><span class="n">__min_full_resource_pool_memory</span><span class="p">,</span> <span class="n">OB_CLUSTER_PARAMETER</span><span class="p">,</span> <span class="s">&#34;5368709120&#34;</span><span class="p">,</span> <span class="s">&#34;[268435456,)&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;the min memory value which is specified for a full resource pool.&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl"><span class="n">DEF_CAP</span><span class="p">(</span><span class="n">stack_size</span><span class="p">,</span> <span class="n">OB_CLUSTER_PARAMETER</span><span class="p">,</span> <span class="s">&#34;1M&#34;</span><span class="p">,</span> <span class="s">&#34;[512K, 20M]&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;the size of routine execution stack&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;Range: [512K, 20M]&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ObParameterAttr</span><span class="p">(</span><span class="n">Section</span><span class="o">::</span><span class="n">OBSERVER</span><span class="p">,</span> <span class="n">Source</span><span class="o">::</span><span class="n">DEFAULT</span><span class="p">,</span> <span class="n">EditLevel</span><span class="o">::</span><span class="n">STATIC_EFFECTIVE</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">obd cluster display obtest
+</span></span><span class="line"><span class="cl">Get local repositories and plugins ok
+</span></span><span class="line"><span class="cl">Connect to observer ok
+</span></span><span class="line"><span class="cl">Wait for observer init ok
+</span></span><span class="line"><span class="cl">+---------------------------------------------+
+</span></span><span class="line"><span class="cl">|                   observer                  |
+</span></span><span class="line"><span class="cl">+-----------+---------+------+-------+--------+
+</span></span><span class="line"><span class="cl">| ip        | version | port | zone  | status |
+</span></span><span class="line"><span class="cl">+-----------+---------+------+-------+--------+
+</span></span><span class="line"><span class="cl">| 127.0.0.1 | 3.1.0   | 2881 | zone1 | active |
+</span></span><span class="line"><span class="cl">+-----------+---------+------+-------+--------+
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># 什么是 OceanBase Client
+</span></span><span class="line"><span class="cl">https://github.com/oceanbase/obclient/blob/master/README.md
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"></code></pre></td></tr></table>
+</div>
+</div><p>Bug:</p>
+<ul>
+<li><a href="https://github.com/oceanbase/oceanbase/issues/107">https://github.com/oceanbase/oceanbase/issues/107</a></li>
+<li><a href="https://maimai.cn/web/gossip_detail?gid=29085179&amp;egid=05322459ce5811eb9159246e96b48088">https://maimai.cn/web/gossip_detail?gid=29085179&amp;egid=05322459ce5811eb9159246e96b48088</a></li>
+<li><a href="https://www.oceanbase.com/community/answer/detail?id=292">https://www.oceanbase.com/community/answer/detail?id=292</a></li>
+<li><a href="https://github.com/oceanbase/obdeploy/issues/4">https://github.com/oceanbase/obdeploy/issues/4</a></li>
+<li><a href="https://www.oceanbase.com/community/answer/detail?id=292">https://www.oceanbase.com/community/answer/detail?id=292</a></li>
+</ul>
+<h2 id="总结oceanbase启动过程源码分析检查配置文件">总结：OceanBase启动过程源码分析：检查配置文件。</h2>
+<h2 id="具体过程">具体过程：</h2>
+<h2 id="todo我是新手-我从哪里开始">todo：我是新手 ，我从哪里开始</h2>
+<h3 id="就看这个文档-httpsopenoceanbasecomcommunityorganization">就看这个文档 <a href="https://open.oceanbase.com/community/organization">https://open.oceanbase.com/community/organization</a></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">开源地址:
+</span></span><span class="line"><span class="cl">https://gitee.com/oceanbase/oceanbase
+</span></span><span class="line"><span class="cl">https://github.com/oceanbase/oceanbase
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>源码编译 需要x天</p>
+<p>就看这个文档：https://open.oceanbase.com/docs/community/oceanbase-database/V3.1.0/get-the-oceanbase-database-by-using-source-code</p>
+</li>
+</ul>
+<p>根据官网说明，只能在centos上编译，因此在mac使用docker编译</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span><span class="lnt">86
+</span><span class="lnt">87
+</span><span class="lnt">88
+</span><span class="lnt">89
+</span><span class="lnt">90
+</span><span class="lnt">91
+</span><span class="lnt">92
+</span><span class="lnt">93
+</span><span class="lnt">94
+</span><span class="lnt">95
+</span><span class="lnt">96
+</span><span class="lnt">97
+</span><span class="lnt">98
+</span><span class="lnt">99
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="err">使用源码构建</span> <span class="n">OceanBase</span> <span class="err">数据库</span>
+</span></span><span class="line"><span class="cl">  <span class="nl">https</span><span class="p">:</span><span class="c1">//open.oceanbase.com/docs/community/oceanbase-database/V3.1.0/get-the-oceanbase-database-by-using-source-code
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">sudo</span> <span class="n">docker</span> <span class="n">pull</span> <span class="n">centos</span>
+</span></span><span class="line"><span class="cl"><span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">itd</span>  <span class="o">--</span><span class="n">name</span> <span class="n">oceanbase</span>  <span class="o">--</span><span class="n">privileged</span> <span class="n">centos</span> <span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">bash</span>
+</span></span><span class="line"><span class="cl"><span class="n">docker</span> <span class="n">attach</span> <span class="mi">56</span><span class="n">bd78306b21</span>  <span class="c1">//进入容器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">docker</span> <span class="n">update</span> <span class="o">--</span><span class="n">memory</span> <span class="mi">8</span><span class="n">G</span> <span class="o">--</span><span class="n">memory</span><span class="o">-</span><span class="n">swap</span> <span class="o">-</span><span class="mi">1</span> <span class="mi">56</span><span class="n">bd78306b21</span>
+</span></span><span class="line"><span class="cl">  <span class="n">docker</span> <span class="n">start</span> <span class="mi">56</span><span class="n">bd78306b21</span> 
+</span></span><span class="line"><span class="cl">  <span class="n">docker</span> <span class="n">attach</span> <span class="mi">56</span><span class="n">bd78306b21</span> 
+</span></span><span class="line"><span class="cl"><span class="n">cd</span> <span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">data</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">git</span> <span class="n">clone</span> <span class="nl">https</span><span class="p">:</span><span class="c1">//github.com/watchpoints/oceanbase.git //因为github环境太慢
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err">改为：</span>
+</span></span><span class="line"><span class="cl"><span class="n">git</span> <span class="n">clone</span> <span class="nl">https</span><span class="p">:</span><span class="c1">//gitee.com/wang_cyi/oceanbase.git
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cp"># 进入代码根目录
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="n">cd</span> <span class="n">oceanbase</span>
+</span></span><span class="line"><span class="cl"><span class="cp"># 执行build.sh脚本并传入init参数
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="n">sh</span> <span class="n">build</span><span class="p">.</span><span class="n">sh</span> <span class="n">init</span>
+</span></span><span class="line"><span class="cl"><span class="n">sh</span> <span class="n">build</span><span class="p">.</span><span class="n">sh</span> <span class="n">debug</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">DEBUG</span> <span class="err">构建</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cp"># 在源码目录下执行debug版的预制构建命令
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="n">sh</span> <span class="n">build</span><span class="p">.</span><span class="n">sh</span> <span class="n">debug</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cp"># 进入生成的 debug 构建目录
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="n">cd</span> <span class="n">build_debug</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cp"># 进行构建
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="n">make</span> <span class="o">-</span><span class="n">j3</span> <span class="n">observer</span>
+</span></span><span class="line"><span class="cl"><span class="n">make</span>  <span class="n">observer</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cp"># 查看构建产物
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="n">stat</span> <span class="n">src</span><span class="o">/</span><span class="n">observer</span><span class="o">/</span><span class="n">observe</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">其他安装文档：</span>
+</span></span><span class="line"><span class="cl"><span class="nl">https</span><span class="p">:</span><span class="c1">//gw.alipayobjects.com/os/bmw-prod/518c88ac-e4d2-4a2d-8428-11d3671f397f.pdf
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="err">使用</span> <span class="n">OBD</span> <span class="err">部署</span> <span class="n">OceanBase</span> <span class="err">数据库</span>
+</span></span><span class="line"><span class="cl"><span class="nl">https</span><span class="p">:</span><span class="c1">//open.oceanbase.com/docs/community/oceanbase-database/V3.1.0/deploy-the-oceanbase-database-by-using-obd
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cp"># 安装 OBD
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span> <span class="nl">https</span><span class="p">:</span><span class="c1">//github.com/oceanbase/obdeploy/blob/master/README-CN.md
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="cp"># 什么是 OceanBase Client
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="nl">https</span><span class="p">:</span><span class="c1">//github.com/oceanbase/obclient/blob/master/README.md
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err">安装</span> <span class="n">OBClient</span>
+</span></span><span class="line"><span class="cl"><span class="n">sudo</span> <span class="n">yum</span> <span class="n">install</span> <span class="n">obclient</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> <span class="n">docker</span> <span class="n">update</span> <span class="o">--</span><span class="n">memory</span> <span class="mi">8</span><span class="n">G</span> <span class="o">--</span><span class="n">memory</span><span class="o">-</span><span class="n">swap</span> <span class="o">-</span><span class="mi">1</span> <span class="mi">57577713</span><span class="n">a6ef</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"><span class="n">docker</span> <span class="n">attach</span> <span class="mi">56</span><span class="n">bd78306b21</span>
+</span></span><span class="line"><span class="cl"><span class="err">如果您采用本地安装，即中控机器和目标机器是同一台机器</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nl">https</span><span class="p">:</span><span class="c1">//github.com/oceanbase/obdeploy/blob/master/example/mini-local-example.yaml
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nl">https</span><span class="p">:</span><span class="c1">//open.oceanbase.com/docs/community/oceanbase-database/V3.1.0/deploy-the-oceanbase-database-by-using-obd
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="cp"># 修改 home_path， 这是 OceanBase 数据库的工作目录。
+</span></span></span><span class="line"><span class="cl"><span class="cp"># 修改 mysql_port，这是 OceanBase 数据库 SQL 服务协议端口号。后续将使用此端口连接数据库。
+</span></span></span><span class="line"><span class="cl"><span class="cp"># 修改 rpc_port，这是 OceanBase 数据库集群内部通信的端口号。
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="err">启动</span> <span class="n">OceanBase</span> <span class="err">数据库</span>
+</span></span><span class="line"><span class="cl"><span class="err">运行以下命令部署集群：</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">obd</span> <span class="n">cluster</span> <span class="n">destroy</span> <span class="n">obtest</span>
+</span></span><span class="line"><span class="cl"><span class="n">obd</span> <span class="n">cluster</span> <span class="n">deploy</span> <span class="n">obtest</span> <span class="o">-</span><span class="n">c</span> <span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">mini</span><span class="o">-</span><span class="n">local</span><span class="o">-</span><span class="n">example</span><span class="p">.</span><span class="n">yaml</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> <span class="err">运行以下命令启动集群：</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">obd</span> <span class="n">cluster</span> <span class="n">start</span> <span class="n">obtest</span> <span class="o">-</span><span class="n">v</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">obd</span> <span class="n">cluster</span> <span class="n">edit</span><span class="o">-</span><span class="n">config</span> <span class="n">obtest</span>
+</span></span><span class="line"><span class="cl"><span class="n">obd</span> <span class="n">cluster</span> <span class="n">redeploy</span> <span class="n">obtest</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="err">运行以下命令查看集群状态：</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nl">https</span><span class="p">:</span><span class="c1">//github.com/oceanbase/obdeploy
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cp"># 遇到问题
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>  <span class="nl">error</span><span class="p">:</span> <span class="n">RPC</span> <span class="n">failed</span><span class="p">;</span> <span class="n">curl</span> <span class="mi">18</span> <span class="n">transfer</span> <span class="n">closed</span> <span class="n">with</span> <span class="n">outstanding</span> <span class="n">read</span> <span class="n">data</span> <span class="n">remaining</span>
+</span></span><span class="line"><span class="cl">    <span class="nl">error</span><span class="p">:</span> <span class="n">RPC</span> <span class="n">failed</span><span class="p">;</span> <span class="n">curl</span> <span class="mi">18</span> <span class="n">transfer</span> <span class="n">closed</span> <span class="n">with</span> <span class="n">outstanding</span> <span class="n">read</span> <span class="n">data</span> <span class="n">remaining</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="nl">https</span><span class="p">:</span><span class="c1">//github.com/oceanbase/oceanbase/issues/19
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="mi">56</span><span class="n">bd78306b21</span> <span class="n">etc</span><span class="p">]</span><span class="err">#</span> <span class="n">obd</span> <span class="n">cluster</span> <span class="n">start</span> <span class="n">obtest</span>
+</span></span><span class="line"><span class="cl"><span class="n">Get</span> <span class="n">local</span> <span class="n">repositories</span> <span class="n">and</span> <span class="n">plugins</span> <span class="n">ok</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="n">WARN</span><span class="p">]</span> <span class="p">(</span><span class="mf">127.0.0.1</span><span class="p">)</span> <span class="n">not</span> <span class="n">enough</span> <span class="n">memory</span>
+</span></span><span class="line"><span class="cl"><span class="n">Start</span> <span class="n">observer</span> <span class="n">ok</span>
+</span></span><span class="line"><span class="cl"><span class="n">observer</span> <span class="n">program</span> <span class="n">health</span> <span class="n">check</span> <span class="n">x</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="n">WARN</span><span class="p">]</span> <span class="n">failed</span> <span class="n">to</span> <span class="n">start</span> <span class="mf">127.0.0.1</span> <span class="n">observer</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="n">ERROR</span><span class="p">]</span> <span class="n">oceanbase</span><span class="o">-</span><span class="n">ce</span> <span class="n">start</span> <span class="n">failed</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="mi">56</span><span class="n">bd78306b21</span> <span class="n">etc</span><span class="p">]</span><span class="err">#</span> <span class="n">ls</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><a href="https://github.com/oceanbase/oceanbase/issues/92">https://github.com/oceanbase/oceanbase/issues/92</a></li>
+</ul>
+<h3 id="挑战01--直接使用镜像使用-docker-镜像在-mac-平台上部署-oceanbase-试用版">挑战01&ndash;:直接使用镜像：<strong>使用 Docker 镜像在 Mac 平台上部署 OceanBase 试用版</strong></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">https://www.yuque.com/oceanbase-site/oceanbase2.2.50-trial/gp7hkg 测试没有问题耗时一天
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="挑战02--直接镜像自己搭建单机版的">挑战02&ndash;:直接镜像：自己搭建单机版的。</h4>
+<p>[2021-06-16 03:32:49.038316] ERROR stop (ob_ddl_task_executor.cpp:176) [257][0][Y0-0000000000000000] [lt=8] invalid tg id BACKTRACE:0x90a3c0e 0x900348b 0x24c2cfb 0x24c03b5 0x625a2f6 0x5ef31c0 0x65e2a4f 0x87001af 0x8701abd 0x24c1415 0x7f20177b9493 0x24c00ee</p>
+<p>[2021-06-16 03:32:49.038383] ERROR wait (ob_ddl_task_executor.cpp:181) [257][0][Y0-0000000000000000] [lt=62] invalid tg id BACKTRACE:0x90a3c0e 0x900348b 0x24c2cfb 0x24c03b5 0x625a4e6 0x5ef31c8 0x65e2a4f 0x87001af 0x8701abd 0x24c1415 0x7f20177b9493 0x24c00ee</p>
+<p><a href="https://github.com/oceanbase/obdeploy">https://github.com/oceanbase/obdeploy</a></p>
+<h3 id="方案1-使用-rpm-包centos-7-及以上安装">方案1： 使用 RPM 包（Centos 7 及以上）安装。</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo yum install -y yum-utils
+</span></span><span class="line"><span class="cl">sudo yum-config-manager --add-repo https://mirrors.aliyun.com/oceanbase/OceanBase.repo
+</span></span><span class="line"><span class="cl">sudo yum install -y ob-deploy
+</span></span><span class="line"><span class="cl">source /etc/profile.d/obd.sh
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><a href="https://github.com/oceanbase/obdeploy/blob/master/example/mini-local-example.yaml">https://github.com/oceanbase/obdeploy/blob/master/example/mini-local-example.yaml</a></p>
+<p>obd cluster destroy obtest
+obd cluster deploy obtest -c /root/oceanbase/mini-local-example.yaml</p>
+<p>obd cluster start obtest -v</p>
+<p>[2021-06-16 16:24:36.963284] WARN [SHARE] add_extra_config (ob_common_config.cpp:100) [9380][0][Y0-0000000000000000] [lt=25] Invalid config, value out of range(name=&ldquo;memory_limit&rdquo;, value=&ldquo;2G&rdquo;, ret=-4147)</p>
+<p>[2021-06-16 16:32:16.971564] ERROR [SERVER] init_config (ob_server.cpp:832) [11202][0][Y0-0000000000000000] [lt=770] invalid config from cmdline options(opts_.optstr_=&quot;__min_full_resource_pool_memory=268435456,memory_limit=2G,system_memory=1G,stack_size=512K,cpu_count=16,cache_wash_threshold=20M,workers_per_cpu_quota=10,schema_history_expire_time=1d,net_thread_count=4,sys_bkgd_migration_retry_num=3,minor_freeze_times=10,enable_separate_sys_clog=0,enable_merge_by_turn=False,datafile_disk_percentage=20,enable_syslog_recycle=True,max_syslog_file_count=4&quot;, ret=-4147) BACKTRACE:0x90a3c0e 0x900348b 0x24d44b1 0x251e04b 0x87055be 0x8701023 0x24c1415 0x7f69aafd46a3 0x24c00ee</p>
+<ul>
+<li>open files number must not be less than 655350 (Current value: 100001)</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">问题：
+</span></span><span class="line"><span class="cl">[WARN] (127.0.0.1) fs.aio-max-nr must not be less than 1048576 (Current value: 65536)
+</span></span><span class="line"><span class="cl">[WARN] (127.0.0.1) open files number must not be less than 655350 (Current value: 1024)
+</span></span><span class="line"><span class="cl">[WARN] (127.0.0.1) not enough memory
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">办法：
+</span></span><span class="line"><span class="cl">vi /etc/security/limits.conf
+</span></span><span class="line"><span class="cl">*	 soft	nofile		655360
+</span></span><span class="line"><span class="cl">*	 hard	nofile		655360
+</span></span><span class="line"><span class="cl">*  soft nproc    655360
+</span></span><span class="line"><span class="cl">*  hard nproc    655360
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">vi /etc/sysctl.conf
+</span></span><span class="line"><span class="cl">fs.file-max = 655360
+</span></span><span class="line"><span class="cl">fs.aio-max-nr=1048576
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sysctl -p//生效
+</span></span><span class="line"><span class="cl">ulimit -a //新窗口查看结果
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>obd cluster edit-config obtest
+obd cluster redeploy obtest</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">cat /proc/cpuinfo| grep &#34;cpu cores&#34;| uniq
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="阅读oceanbase-数据库概览-需要-x天">阅读：OceanBase 数据库概览 需要 x天</h3>
+<p>就看这个文档：https://open.oceanbase.com/docs/community/oceanbase-database/V3.1.0/cluster-management</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="nx">yum</span> <span class="nx">install</span> <span class="nx">gdb</span> <span class="o">-</span><span class="nx">y</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Troy</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2021-06-03 00:00
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a target="_blank" rel="license noopener" href="https://github.com/nusr/blog/blob/master/LICENSE">MIT</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/GTD/">GTD</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/2020/01_srs/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">SRS官方文档和学习路径</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/ARTS/100_life/">
+            <span class="next-text nav-default">日常生活记录第100周</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="wangcy6/wangcy6.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:wang_cyi@163.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/wangcy6" class="iconfont icon-github" title="github"></a>
+  <a href="https://wangcy6.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2022
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Troy</span>
+  </span>
+</div>
+<script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
+  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+    var languageCode = "zh-cn".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    timeago().render(document.querySelectorAll('.timeago'), languageCode);
+    timeago.cancel();  
+  </script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-138883536-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>

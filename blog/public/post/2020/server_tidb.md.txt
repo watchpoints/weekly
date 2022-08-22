@@ -1,0 +1,47 @@
+---
+title: "What is TiDB"
+date: 2019-12-02
+description: "记录TiDB学习过程"
+draft: false
+tags: ["Tidb"]
+categories: ["数据库"]
+---
+
+# TiDB 是关系数据库内
+
+# 版本
+
+
+
+**TiDB**
+
+- TiDB参考Percolator 事务模型，事务下沉到TiKV（存储引擎）
+- 通过2PC(Prewrite阶段和Commit阶段)提交以及乐观锁保证分布系统中的ACID
+- TiDB提供的事务隔离级别（Snapshot Isolation）与MySQL提供的事务隔离级别保持一致
+
+
+
+
+
+# FQA
+
+
+
+# 学习过程
+
+
+
+## 第一天 阅读官方文档和视频
+
+
+
+
+
+https://pingcap.com/docs-cn/
+
+https://university.pingcap.com/
+
+https://tour.pingcap.com/
+
+
+

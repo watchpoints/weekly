@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>阅读与写作第一期 - Troy的网络博客</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Troy" /><meta name="description" content="地址：https://wangcy6.github.io/post/2021/06_ask_1/ http://127.0.0.1:1313//post/2021/06_ask_1/ 方法： 阅读(输入：三天,万句 输出 笔记摘要就" /><meta name="keywords" content="daily-interview-question, Github, c&#43;&#43;, Leetcode 题解, 后端面试" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.101.0 with theme even" />
+
+
+<link rel="canonical" href="https://wangcy6.github.io/post/2022/06_ask_1/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="阅读与写作第一期" />
+<meta property="og:description" content="地址：https://wangcy6.github.io/post/2021/06_ask_1/ http://127.0.0.1:1313//post/2021/06_ask_1/ 方法： 阅读(输入：三天,万句 输出 笔记摘要就" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wangcy6.github.io/post/2022/06_ask_1/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-02-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-02-10T00:00:00+00:00" />
+
+<meta itemprop="name" content="阅读与写作第一期">
+<meta itemprop="description" content="地址：https://wangcy6.github.io/post/2021/06_ask_1/ http://127.0.0.1:1313//post/2021/06_ask_1/ 方法： 阅读(输入：三天,万句 输出 笔记摘要就"><meta itemprop="datePublished" content="2022-02-10T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-02-10T00:00:00+00:00" />
+<meta itemprop="wordCount" content="6161">
+<meta itemprop="keywords" content="60秒问答," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="阅读与写作第一期"/>
+<meta name="twitter:description" content="地址：https://wangcy6.github.io/post/2021/06_ask_1/ http://127.0.0.1:1313//post/2021/06_ask_1/ 方法： 阅读(输入：三天,万句 输出 笔记摘要就"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="https://github.com/wangcy6/weekly/tree/master/book">
+        <li class="mobile-menu-item">阅读清单</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于我</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://github.com/wangcy6/weekly/tree/master/book">阅读清单</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于我</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">阅读与写作第一期</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-02-10 00:00 </span>
+        
+          <span class="more-meta"> 约 6161 字 </span>
+          <span class="more-meta"> 预计阅读 13 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#fqa-6-c11-特性">[FQA-6] c++11 特性</a></li>
+        <li><a href="#5-虚拟内存是怎么实现的怎么映射的-为分段分野">5. 虚拟内存是怎么实现的？怎么映射的 为分段分野</a></li>
+        <li><a href="#52022-3-1-在c语言中浮点型数据只有有符号类型这是为什么">5.2022-3-1 在c语言中，浮点型数据只有有符号类型。这是为什么</a></li>
+        <li><a href="#4-2022-2-24--raft-日志怎么commitedapply-idfollow如何接受数据的如何优化传输">4. 2022-2-24  raft 日志怎么commited,apply id，follow如何接受数据的？如何优化传输。</a></li>
+        <li><a href="#3-2022-2-24-为分页和分段优缺点">3. 2022-2-24 为分页和分段，优缺点？</a></li>
+        <li><a href="#2gdb-问号httpsmaimaicnwebgossip_detailencode_ideyjhbgcioijiuzi1niisinr5cci6ikpxvcj9eyjlz2lkijoinmewzwjhzme3ywnjndk5ndkxywuymmnjmzziytg5ntcilcjpzci6mjk5nzgzmdasinuiojq2njuxfqiveedd-50iwvxzi0jw3fkrj3cszzih6y_rw4g0qe3jefromlist">2、<a href="https://maimai.cn/web/gossip_detail?encode_id=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlZ2lkIjoiNmEwZWJhZmE3YWNjNDk5NDkxYWUyMmNjMzZiYTg5NTciLCJpZCI6Mjk5NzgzMDAsInUiOjQ2NjUxfQ.IVeEdD-50IwvxZi0jw3Fkrj3CSzzih6y_rW4g0qe3jE&amp;from=list">gdb 问号？</a></a></li>
+      </ul>
+    </li>
+    <li><a href="#第四步回答问题输入60秒2句-技术语言--输出一个视频">第四步：回答问题（输入：60秒,2句 技术语言  输出：一个视频）</a></li>
+    <li><a href="#第三步整理问题输入5分钟-10句-技术文档--输出说重点快问快答-">第三步：整理问题（输入：5分钟 10句 技术文档  输出：说重点快问快答 ）</a>
+      <ul>
+        <li><a href="#-问什么是四次挥手描述具体过程"># 问：什么是四次挥手，描述具体过程？</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1-描述-tcp四次挥手的过程从青铜到王者">1. 描述 tcp四次挥手的过程？【从青铜到王者】</a></li>
+        <li><a href="#11-要点分析--回答问题回到中岛">#1.1 要点分析：  （回答问题回到中岛）</a></li>
+        <li><a href="#12-答">#1.2 答：</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#four-way-handshake-四次挥手">four-way Handshake 四次挥手</a>
+      <ul>
+        <li><a href="#3-为什么-time_wait-状态还需要等-2msl-后才能返回到-closed-状态">3. 为什么 TIME_WAIT 状态还需要等 2MSL 后才能返回到 CLOSED 状态？</a></li>
+        <li><a href="#5-udp的问题">5 udp的问题</a></li>
+        <li><a href="#51-有什么问题自己都不知道然后空白回答-就是pass">5.1 有什么问题，自己都不知道，然后空白回答 就是pass</a></li>
+        <li><a href="#7什么tcp-延迟启动-快速重传流量控制">7.什么tcp 延迟启动 快速重传。流量控制</a></li>
+        <li><a href="#8--问redis--cluster节点间采取gossip协议进行通讯-传递数据数是什么主从复制的数据吗1主-1从-感觉不需要这么复杂协议吧httpsmaimaicnwebgossip_detailencode_ideyjhbgcioijiuzi1niisinr5cci6ikpxvcj9eyjlz2lkijoindu4ytbizdkxn2rmndqxy2i5mwmxmwqzy2rjyzq2nzuilcjpzci6mjk5ndq4mdmsinuiojq2njuxfqccjcci0lj1ezelkaevtebwvg1m2caq4tdi0-adcuwmafromlist">8  <a href="https://maimai.cn/web/gossip_detail?encode_id=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlZ2lkIjoiNDU4YTBiZDkxN2RmNDQxY2I5MWMxMWQzY2RjYzQ2NzUiLCJpZCI6Mjk5NDQ4MDMsInUiOjQ2NjUxfQ.ccJCcI0lj1eZeLkAeVtEBwvG1m2caq4Tdi0-adcUwmA&amp;from=list">问：redis  <em>cluster</em>节点间采取<em>gossip</em>协议进行通讯 。传递数据数是什么主从复制的数据吗？1主 1从 感觉不需要这么复杂协议吧</a></a></li>
+        <li><a href="#9-c11-新特性">9. c++11 新特性</a></li>
+        <li><a href="#10-模版编译过程编译器-连接器做了什么事情">10 模版编译过程：编译器 连接器做了什么事情</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#问--什么是深度拷贝-什么是浅拷贝">问：  什么是深度拷贝 什么是浅拷贝？</a></li>
+        <li><a href="#问函数能返回局部变量吗">问：函数能返回局部变量吗？</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#tcp-ip详解卷1协议">TCP-IP详解卷1：协议</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#程序员自我修养-第2章节">&lt;程序员自我修养&gt; 第2章节。</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <ul>
+<li>地址：https://wangcy6.github.io/post/2021/06_ask_1/</li>
+</ul>
+<p>http://127.0.0.1:1313//post/2021/06_ask_1/</p>
+<ul>
+<li>方法：</li>
+</ul>
+<blockquote>
+<ol>
+<li>阅读(输入：三天,万句   输出 笔记摘要就哪里，但是自己看不懂，别人看不懂 )</li>
+<li>发现问题（输入：技术文档 30分钟 百句，输出 ：一大堆东西不无法语言描述，反正就是他，自己回答不清楚，别人听不清楚）</li>
+<li>整理问题（输入：5分钟 10句 技术文档  输出：核心根本无法理解，至少说到重点，不管别人听不懂，至少自己理解极限了）</li>
+<li>回答问题（输入：60秒,2句 技术语言  输出：一个视频）</li>
+</ol>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">### 一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">### 二、这个技术的优势和劣势分别是什么 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">### 三、这个技术适用的场景。任何技术都有其适用的场景，离开了这个场景
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">### 四、技术的组成部分和关键点。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">### 五、技术的底层原理和关键实现
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">### 六、已有的实现和它之间的对比
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="fqa-6-c11-特性">[FQA-6] c++11 特性</h3>
+<ul>
+<li>6.1 青铜-：小白回答</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">怎么回答都不对
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">C++11中的std::future是一个模板类。std::future提供了一种用于访问异步操作结果的机制
+</span></span><span class="line"><span class="cl">我们想要从线程中返回异步任务结果，一般需要依靠全局变量；
+</span></span><span class="line"><span class="cl">从安全角度看，有些不妥；为此C++11提供了std::future类模板，
+</span></span><span class="line"><span class="cl">future对象提供访问异步操作结果的机制，很轻松解决从异步任务中返回结果。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">move semantics and perfect forwarding
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>阅读：CRTP – Curiously Recurring Template Pattern</li>
+</ul>
+<p><a href="https://gzuliani.github.io/cpp/crtp.html">https://gzuliani.github.io/cpp/crtp.html</a></p>
+<p><a href="https://www.fluentcpp.com/2017/05/12/curiously-recurring-template-pattern/">https://www.fluentcpp.com/2017/05/12/curiously-recurring-template-pattern/</a></p>
+<ul>
+<li>
+<p>C++ Template 模版的本质html</p>
+<p>自动化是人类进化的动力</p>
+</li>
+</ul>
+<p><a href="https://www.shangmayuan.com/a/d9c0ca76edc54a8190dc7ae5.html">https://www.shangmayuan.com/a/d9c0ca76edc54a8190dc7ae5.html</a></p>
+<p>输出：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">note that contrary to typical casts to derived class, we don’t use dynamic_cast here. 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">A dynamic_cast is used when you want to make sure at run-time that the derived class you are casting into is the correct one. 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">But here we don’t need this guarantee: the Base class is designed to be inherited from by its template parameter, and by nothing else. 
+</span></span><span class="line"><span class="cl">Therefore it takes this as an assumption, and a static_cast is enough.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>6.2 白银：熟练工回答</li>
+</ul>
+<ol>
+<li>增加了右值引用和通用引用 universal reference.，解决移动语义和完美转发问题。提供std:moved() std:forard工具</li>
+</ol>
+<p>​</p>
+<ol>
+<li>std 支持移动语义（move-only types类型使用场景）： unique_ptr智能指针。<a href="https://blog.csdn.net/c_base_jin/article/details/89761718">future</a>访问异步操作结果</li>
+</ol>
+<blockquote>
+<p>Move semantics also enables the creation of move-only types, such as std::unique_ptr, std::future, and std::thread.</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">template</span><span class="o">&lt;</span><span class="kr">typename</span> <span class="n">T</span><span class="o">&gt;</span> 
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span> <span class="n">param</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">   *  @brief  Convert a value to an rvalue.
+</span></span></span><span class="line"><span class="cl"><span class="cm">   *  @param  __t  A thing of arbitrary type.
+</span></span></span><span class="line"><span class="cl"><span class="cm">   *  @return The parameter cast to an rvalue-reference to allow moving it.
+</span></span></span><span class="line"><span class="cl"><span class="cm">  */</span>
+</span></span><span class="line"><span class="cl">  <span class="n">template</span><span class="o">&lt;</span><span class="kr">typename</span> <span class="n">_Tp</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">_GLIBCXX_NODISCARD</span>
+</span></span><span class="line"><span class="cl">    <span class="n">constexpr</span> <span class="kr">typename</span> <span class="n">std</span><span class="o">::</span><span class="n">remove_reference</span><span class="o">&lt;</span><span class="n">_Tp</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&amp;&amp;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">move</span><span class="p">(</span><span class="n">_Tp</span><span class="o">&amp;&amp;</span> <span class="n">__t</span><span class="p">)</span> <span class="n">noexcept</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span> <span class="k">return</span> <span class="n">static_cast</span><span class="o">&lt;</span><span class="kr">typename</span> <span class="n">std</span><span class="o">::</span><span class="n">remove_reference</span><span class="o">&lt;</span><span class="n">_Tp</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&amp;&amp;&gt;</span><span class="p">(</span><span class="n">__t</span><span class="p">);</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">The</span> <span class="n">construct</span> <span class="err">“</span><span class="n">type</span><span class="o">&amp;&amp;</span><span class="err">”</span> <span class="n">doesn</span><span class="err">’</span><span class="n">t</span> <span class="n">always</span> <span class="n">represent</span> <span class="n">an</span> <span class="n">rvalue</span> <span class="n">reference</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"><span class="n">To</span> <span class="n">prevent</span> <span class="n">this</span> <span class="n">from</span> <span class="n">happening</span><span class="p">,</span> <span class="n">the</span> <span class="n">type</span> <span class="n">trait</span> <span class="p">(</span><span class="n">see</span> <span class="n">Item</span> <span class="mi">9</span><span class="p">)</span> <span class="n">std</span><span class="o">::</span><span class="n">remove_reference</span> <span class="n">is</span> <span class="n">applied</span> <span class="n">to</span> <span class="n">T</span><span class="p">,</span> <span class="n">thus</span> <span class="n">ensuring</span> <span class="n">that</span> <span class="err">“</span><span class="o">&amp;&amp;</span><span class="err">”</span> <span class="n">is</span> <span class="n">applied</span> <span class="n">to</span> <span class="n">a</span> <span class="n">type</span> <span class="n">that</span> <span class="n">isn</span><span class="err">’</span><span class="n">t</span> <span class="n">a</span> <span class="n">reference</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"> <span class="n">The</span> <span class="n">other</span> <span class="n">meaning</span> <span class="k">for</span> <span class="err">“</span><span class="n">T</span><span class="o">&amp;&amp;</span><span class="err">”</span> <span class="n">is</span> <span class="n">either</span> <span class="n">rvalue</span> <span class="n">reference</span> <span class="n">or</span> <span class="n">lvalue</span> <span class="n">reference</span><span class="p">.</span> 
+</span></span><span class="line"><span class="cl">   
+</span></span><span class="line"><span class="cl"><span class="err">模版作用：</span>
+</span></span><span class="line"><span class="cl"> <span class="n">If</span> <span class="n">the</span> <span class="n">initializer</span> <span class="n">is</span> <span class="n">an</span> <span class="n">rvalue</span><span class="p">,</span> <span class="n">the</span> <span class="n">universal</span> <span class="n">reference</span> <span class="n">corresponds</span> <span class="n">to</span> <span class="n">an</span> <span class="n">rvalue</span> <span class="n">reference</span><span class="p">.</span> 
+</span></span><span class="line"><span class="cl"> <span class="n">If</span> <span class="n">the</span> <span class="n">initializer</span> <span class="n">is</span> <span class="n">an</span> <span class="n">lvalue</span><span class="p">,</span> <span class="n">the</span> <span class="n">universal</span> <span class="n">reference</span> <span class="n">corresponds</span> <span class="n">to</span> <span class="n">an</span> <span class="n">lvalue</span> <span class="n">reference</span>
+</span></span><span class="line"><span class="cl">   
+</span></span><span class="line"><span class="cl">   <span class="n">vector</span><span class="o">&lt;</span><span class="n">_Tp</span><span class="p">,</span> <span class="n">_Alloc</span><span class="o">&gt;::</span>
+</span></span><span class="line"><span class="cl">      <span class="n">emplace_back</span><span class="p">(</span><span class="n">_Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">__args</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="n">this</span><span class="o">-&gt;</span><span class="n">_M_impl</span><span class="p">.</span><span class="n">_M_finish</span> <span class="o">!=</span> <span class="n">this</span><span class="o">-&gt;</span><span class="n">_M_impl</span><span class="p">.</span><span class="n">_M_end_of_storage</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	    <span class="n">_GLIBCXX_ASAN_ANNOTATE_GROW</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	    <span class="n">_Alloc_traits</span><span class="o">::</span><span class="n">construct</span><span class="p">(</span><span class="n">this</span><span class="o">-&gt;</span><span class="n">_M_impl</span><span class="p">,</span> <span class="n">this</span><span class="o">-&gt;</span><span class="n">_M_impl</span><span class="p">.</span><span class="n">_M_finish</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">				     <span class="n">std</span><span class="o">::</span><span class="n">forward</span><span class="o">&lt;</span><span class="n">_Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">__args</span><span class="p">)...);</span>
+</span></span><span class="line"><span class="cl">	    <span class="o">++</span><span class="n">this</span><span class="o">-&gt;</span><span class="n">_M_impl</span><span class="p">.</span><span class="n">_M_finish</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	    <span class="n">_GLIBCXX_ASAN_ANNOTATE_GREW</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">else</span>
+</span></span><span class="line"><span class="cl">	  <span class="n">_M_realloc_insert</span><span class="p">(</span><span class="n">end</span><span class="p">(),</span> <span class="n">std</span><span class="o">::</span><span class="n">forward</span><span class="o">&lt;</span><span class="n">_Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">__args</span><span class="p">)...);</span>
+</span></span><span class="line"><span class="cl"><span class="cp">#if __cplusplus &gt; 201402L
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>	<span class="k">return</span> <span class="nf">back</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="cp">#endif
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>      <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="cp">#endif
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>移动语义：创建一个unique_ptr  完美转发：模版函数中，传递T类型 ==过程中   c++11 新增函数 emplace_back()</li>
+</ol>
+<blockquote>
+<p>Item 25: Use <strong>std::move</strong> on rvalue references, <strong>std::forward</strong> on universal references.</p>
+</blockquote>
+<ol start="3">
+<li>异步实现：future</li>
+</ol>
+<ul>
+<li>6.3 王者：别人怎么回答</li>
+</ul>
+<p>c++11 新特性</p>
+<ol>
+<li>
+<p>增加了右值引用和通用引用 universal reference.，解决移动语义和完美转发问题。提供std:moved() std:forard工具</p>
+</li>
+<li>
+<p>移动语义：创建一个unique_ptr  完美转发：模版函数中，传递T类型 ==过程中   c++11 新增函数 emplace_back()</p>
+</li>
+<li>
+<p>线程：获取异步结果：future</p>
+</li>
+</ol>
+<h3 id="5-虚拟内存是怎么实现的怎么映射的-为分段分野">5. 虚拟内存是怎么实现的？怎么映射的 为分段分野</h3>
+<p>4.1 青铜-：小白回答</p>
+<ul>
+<li>之间用 malloc 返回的地址</li>
+<li>虚假的很大  （类 对象 地址 。）</li>
+</ul>
+<p>阅读：</p>
+<p><a href="https://hansimov.gitbook.io/csapp/part2/ch09-virtual-memory/9.2-address-spaces"><strong>9.2 地址空间</strong></a></p>
+<p><a href="https://willendless.github.io/%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B/2021/07/14/csapp-ch9-1/">第 3 章：程序的机器级表示</a></p>
+<ul>
+<li><a href="https://www.bbsmax.com/A/x9J211Qjz6/">所有可能地址的集合称为<strong>虚拟地址空间</strong></a></li>
+</ul>
+<p>虚拟内存被组织成一个<strong>存储在磁盘上的N个连续字节大小的数组</strong>。【字长】</p>
+<p><a href="http://kaito-kidd.com/2018/09/06/computer-system-virtual-memory/">阅读：计算机系统基础（八）虚拟存储器</a></p>
+<ul>
+<li>一个程序是如何加载到内存中去的。</li>
+</ul>
+<p>阅读：怎样通俗的理解操作系统中内存管理分页和分段？</p>
+<p>分段其实是特定时期的产物，主要是由于寄存器位数不够，而地址线的位数超过了寄存器的位数，所以采用分段的方式好访问所有内存。随着时间的流逝，分页逐渐站上了历史舞台，它更灵活，支持的内存大，安全性控制好，所以成为主流</p>
+<p>分段机制早于分页机制，使用分段考虑的是多进程并行，在分段的基础上产生了分页，分页可以减少外部碎片</p>
+<ul>
+<li>基础：<a href="https://zhuanlan.zhihu.com/p/435844641">【计算机操作系统】第四章 存储器管理</a></li>
+<li>基础：<a href="https://www.zhihu.com/question/50796850">怎样通俗的理解操作系统中内存管理分页和分段？</a></li>
+<li>其他：<a href="https://www.zhihu.com/question/20729324">堆排序中建堆过程时间复杂度O(n)怎么来的？</a></li>
+<li>基础：<a href="https://www.zhihu.com/question/24011983/answer/181412473">Linux页表中虚拟内存地址如何映射到硬盘数据块地址?</a></li>
+</ul>
+<p>输出：</p>
+<p>而栈，堆，bss段，数据段均是匿名映射 [ anon ]</p>
+<p>内存文件映射mmap。
+mmap()  creates  a new mapping in the virtual address space of the calling process. 
+mmap就是将文件映射到内存上，进程直接对内存进行读写，然后就会反映到磁盘上。
+实现文件磁盘地址和进程虚拟地址空间中一段虚拟地址的一一对映关系。实现这样的映射关系后
+进程的代码段来自于镜像，采用文件映射方式；</p>
+<p>4.2 白银：熟练工回答</p>
+<p>4.3 王者：别人怎么回答</p>
+<h3 id="52022-3-1-在c语言中浮点型数据只有有符号类型这是为什么">5.2022-3-1 在c语言中，浮点型数据只有有符号类型。这是为什么</h3>
+<p>​      <a href="https://zhuanlan.zhihu.com/p/138845520">https://zhuanlan.zhihu.com/p/138845520</a></p>
+<h3 id="4-2022-2-24--raft-日志怎么commitedapply-idfollow如何接受数据的如何优化传输">4. 2022-2-24  raft 日志怎么commited,apply id，follow如何接受数据的？如何优化传输。</h3>
+<p>4.1 青铜-：小白回答</p>
+<ul>
+<li>根本理解不了题目，根本不知道怎么回答 然后按照看raft论文回答。没有实操。全部说了，但是没有到终点</li>
+<li>阅读：<a href="https://www.zhihu.com/question/61726492/answer/190435698">Raft 协议论文里面的commitIndex 和lastApplied 分别指什么？</a></li>
+<li>阅读：<a href="https://www.zhihu.com/question/382888510/answer/1555866662">为什么 Raft 的 ApplyIndex 和 CommitIndex 不需要持久化？</a></li>
+</ul>
+<p>4.2 白银：熟练工回答</p>
+<p>4.3 王者：别人怎么回答</p>
+<h3 id="3-2022-2-24-为分页和分段优缺点">3. 2022-2-24 为分页和分段，优缺点？</h3>
+<p>3.1 青铜-：小白回答</p>
+<ul>
+<li>基础：<a href="https://zhuanlan.zhihu.com/p/435844641">【计算机操作系统】第四章 存储器管理</a></li>
+<li>基础：<a href="https://www.zhihu.com/question/50796850">怎样通俗的理解操作系统中内存管理分页和分段？</a></li>
+<li>其他：<a href="https://www.zhihu.com/question/20729324">堆排序中建堆过程时间复杂度O(n)怎么来的？</a></li>
+</ul>
+<p>3.2 白银：熟练工回答</p>
+<p>3.3 王者：别人怎么回答</p>
+<h3 id="2gdb-问号httpsmaimaicnwebgossip_detailencode_ideyjhbgcioijiuzi1niisinr5cci6ikpxvcj9eyjlz2lkijoinmewzwjhzme3ywnjndk5ndkxywuymmnjmzziytg5ntcilcjpzci6mjk5nzgzmdasinuiojq2njuxfqiveedd-50iwvxzi0jw3fkrj3cszzih6y_rw4g0qe3jefromlist">2、<a href="https://maimai.cn/web/gossip_detail?encode_id=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlZ2lkIjoiNmEwZWJhZmE3YWNjNDk5NDkxYWUyMmNjMzZiYTg5NTciLCJpZCI6Mjk5NzgzMDAsInUiOjQ2NjUxfQ.IVeEdD-50IwvxZi0jw3Fkrj3CSzzih6y_rW4g0qe3jE&amp;from=list">gdb 问号？</a></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">(</span>gdb<span class="o">)</span> bt
+</span></span><span class="line"><span class="cl"><span class="c1">#0  0x0000003ec40e91a3 in __epoll_wait_nocancel () from /lib64/libc.so.6</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#1  0x00000000006410da in _st_epoll_dispatch ()</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#2  0x000000000063bc78 in _st_idle_thread_start ()</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#3  0x000000000063c082 in _st_thread_main ()</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#4  0x000000000063c8ff in st_thread_create ()</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#5  0x00007ffcd2733958 in ?? ()</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#6  0x0000000000915258 in vtable for _SrsContextId ()</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#7  0x00007ffcd2733968 in ?? ()</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#8  0x0000000000000008 in ?? () at /usr/local/gcc/include/c++/6.3.0/bits/stl_tree.h:2318</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#9  0x3138343863373838 in ?? ()</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#10 0x00007ffcd2733900 in ?? ()</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#11 0x0000000000000002 in ?? () at /usr/local/gcc/include/c++/6.3.0/bits/stl_tree.h:2318</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#12 0x0000000030006e6f in ?? ()</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#13 0x0000000000ec90b0 in ?? ()</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#14 0x0000000000f0e280 in ?? ()</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#15 0x0000000000000064 in ?? () at /usr/local/gcc/include/c++/6.3.0/bits/stl_tree.h:2322</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#16 0x0000000000000064 in ?? () at /usr/local/gcc/include/c++/6.3.0/bits/stl_tree.h:2322</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#17 0x0000003e00000001 in ?? ()</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#18 0x0000000000915258 in vtable for _SrsContextId ()</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#19 0x00007ffcd27339c8 in ?? ()</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#20 0x0000000000000008 in ?? () at /usr/local/gcc/include/c++/6.3.0/bits/stl_tree.h:2318</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#21 0x3138343863373838 in ?? ()</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#22 0x0000000000000000 in ?? ()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>过程：（忘记问题，专注过程）</p>
+</blockquote>
+<ul>
+<li><a href="https://sourceware.org/gdb/current/onlinedocs/gdb/index.html#SEC_Contents">看gdb 文档</a>，了解gdb调试原理</li>
+<li>了解编译器做了什么（函数调用）</li>
+<li><a href="https://blog.csdn.net/weixin_30840573/article/details/98768479">了解连接器做了什么</a></li>
+</ul>
+<blockquote>
+<p>青铜-&gt;新手村：</p>
+</blockquote>
+<ol>
+<li>
+<p>这个问题自己无法根本解决，掌握知识不够（心态问题，你全部回顾你掌握的知识 ）</p>
+</li>
+<li>
+<p>我看文档 也找不大答案，（看方式不正确，全面看资料，问题是引子。意外收获呢，你看文档资料对吗？）</p>
+<ul>
+<li>
+<p><a href="https://blog.csdn.net/linyt/article/details/51635768?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_title~default-0.pc_relevant_default&amp;spm=1001.2101.3001.4242.1&amp;utm_relevant_index=2">disassemble</a>  main(<strong>objdump -d test.o</strong>)</p>
+</li>
+<li>
+<p>callq  0x400468 <a href="mailto:puts@plt">puts@plt</a>（不允许修改代码段，只能修改数据段）</p>
+</li>
+<li>
+<p><a href="https://blog.csdn.net/weixin_30840573/article/details/98768479">链接器无法知知道进程运行起来之</a>后printf函数的加载地址.只有进程运运行后，<a href="https://blog.csdn.net/linyt/article/details/51635768?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_title~default-0.pc_relevant_default&amp;spm=1001.2101.3001.4242.1&amp;utm_relevant_index=2">printf函数的地址才能确定</a></p>
+</li>
+<li>
+<p>got表中存放的是外部符号的地址。plt表中存放的是函数地址</p>
+</li>
+<li>
+<p>小贴士：线索：<a href="https://blog.csdn.net/weixin_30840573/article/details/98768479">No function contains specified address.</a></p>
+</li>
+<li>
+<p>资料：<a href="https://blog.csdn.net/zhy025907/article/details/86088368?spm=1001.2101.3001.6650.1&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_default&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_default&amp;utm_relevant_index=1">GOT表与PLT表</a></p>
+<p><img src="06_ask_1.assets/20160611124517413.jpeg" alt="没看懂系列">、<a href="https://stackoverflow.com/questions/39016138/how-to-force-gdb-to-disassemble-code-when-it-says-no-function-contains-program">How to force GDB to disassemble code when it says &ldquo;No function contains program counter for selected frame&rdquo;?</a></p>
+<p>【动手操作】 <a href="https://www.cs.dartmouth.edu/~sergey/cs108/dyn-linking-with-gdb.txt">https://www.cs.dartmouth.edu/~sergey/cs108/dyn-linking-with-gdb.txt</a></p>
+</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>黄金-&gt;熟练工：</p>
+</blockquote>
+<hr>
+<h2 id="第四步回答问题输入60秒2句-技术语言--输出一个视频">第四步：回答问题（输入：60秒,2句 技术语言  输出：一个视频）</h2>
+<h2 id="第三步整理问题输入5分钟-10句-技术文档--输出说重点快问快答-">第三步：整理问题（输入：5分钟 10句 技术文档  输出：说重点快问快答 ）</h2>
+<h3 id="-问什么是四次挥手描述具体过程"># 问：什么是四次挥手，描述具体过程？</h3>
+<ul>
+<li>如图1：</li>
+</ul>
+<p>第一次握手：客户端发送close请求，传输含有fin标记报文段到服务器。</p>
+<p>第二次握手：服务器 tcp回应 含有ack标记报到客户端。</p>
+<p>第三次，四次握手 一次类推。</p>
+<ul>
+<li>如图2</li>
+</ul>
+<p>拿客户端状态变化为例子。</p>
+<p>tcp基于<strong>有序字节流</strong>传输，客户端发出第一次握手后。</p>
+<p>接受数据包的情况：</p>
+<ol>
+<li>
+<p>客户端接受是： 第二次握手延三次握手合并传输 其中包括 第二次 第三次握手之间传递数据。（（场景：tcp延迟确认））</p>
+<p>tcp状态是 ESTABLISHED &mdash;-FIN_WAIT_1&mdash;&gt;直接进入TIME_WAIT状态.  Tcp 默认开启</p>
+</li>
+<li>
+<p>客户端接受是： 第二次握手，然后接受是 第三次握手先后传输 tcp状态是（场景：tcp没有延迟确认）</p>
+<p>从FIN_WAIT_1&mdash;变成FIN_WAIT_2&gt;成TIME_WAIT</p>
+</li>
+<li>
+<p>客户端接受：  第三次握手（场景：双方同时关闭场景）</p>
+<p>从FIN_WAIT_1&mdash;&gt;<strong>CLOSING状态</strong>&mdash;&gt;然后TIME_WAIT状态。</p>
+</li>
+</ol>
+<ul>
+<li>总结：从FIN_WAIT_1 状态到 TIME_WAIT有三个情况（第二次握手 和第三次握手传输顺序：先后顺序，合并顺序，提前顺序）</li>
+</ul>
+<blockquote>
+<p>小贴士：</p>
+</blockquote>
+<ol>
+<li>
+<p>当用ack fin 描述时候，自己跟不愿意说，感觉难受 不痛快，害怕担心陷入僵局无法调整。</p>
+</li>
+<li>
+<p>设计底层原理 我跟不没有掌握 心虚。自己完全彻底吧自己打败了</p>
+</li>
+<li>
+<p>然后用第二次握手，第三次握手代替感觉顺畅多了。</p>
+</li>
+</ol>
+<h1 id="第二步骤发现问题输入技术文档-30分钟-百句输出-依然不清楚的理解尝试不着边际的回答">第二步骤：发现问题（输入：技术文档 30分钟 百句，输出 ：依然不清楚的理解，尝试不着边际的回答）</h1>
+<h3 id="1-描述-tcp四次挥手的过程从青铜到王者">1. 描述 tcp四次挥手的过程？【从青铜到王者】</h3>
+<h3 id="11-要点分析--回答问题回到中岛">#1.1 要点分析：  （回答问题回到中岛）</h3>
+<ul>
+<li>
+<p>小白回答：就是4个步骤 就是找死。</p>
+</li>
+<li>
+<p>什么情况tcp层ack延迟发送 和应用层close请求进行合并。</p>
+</li>
+</ul>
+<p>​	- 请问最后一张图最下面，linux三次挥手指的是什么？</p>
+<h3 id="12-答">#1.2 答：</h3>
+<p>time_wait 状态变化有三个情况</p>
+<p>2个图来说明</p>
+<p>客户端状态变化：</p>
+<p>ESTABLISHED &mdash;-FIN_WAIT_1&mdash;FIN_WAIT_2&gt;TIME_WAIT&mdash;&gt;CLOSED</p>
+<p>ESTABLISHED &mdash;-FIN_WAIT_1&mdash;&gt;TIME_WAIT&mdash;&gt;CLOSED</p>
+<p>ESTABLISHED &mdash;-FIN_WAIT_1&mdash;&gt;<strong>CLOSING</strong>&mdash;&gt;TIME_WAIT&mdash;&gt;CLOSED</p>
+<p>服务器端状态变化：</p>
+<p>ESTABLISHED &mdash;-&gt;CLOSE_WAIT&mdash;&gt;LAST_ACK&mdash;-&gt;CLOSED</p>
+<p>ESTABLISHED &mdash;-FIN_WAIT_1&mdash;&gt;<strong>CLOSING</strong>&mdash;&gt;TIME_WAIT&mdash;&gt;CLOSED</p>
+<p>对于关闭TCP_NODELAY，则是应用了Nagle算法。数据只有在写缓存中累积到一定量之后，才会被发送出去，这样明显提高了网络利用率</p>
+<ul>
+<li>
+<h1 id="tcp-tcp_nodelay选项与神秘的40ms延迟">TCP TCP_NODELAY选项与神秘的40ms延迟</h1>
+</li>
+<li>
+<p>TCP Delayed ACK 也是基于同样的目的而设计出来的，他的作用就是延迟ACK包的发送，使得协议栈可以合并多个ACK，提高网络利用率</p>
+</li>
+<li>
+<p><code>TCP_CORK</code>选项与<code>TCP_NODELAY</code>一样，是控制Nagle化的。</p>
+<ol>
+<li>打开<code>TCP_NODELAY</code>选项，则意味着无论数据包是多么的小，都立即发送(不考虑拥塞窗口)。</li>
+<li>就是A块数据的ACK为什么40ms之后才收到？这是因为TCP/IP中不仅仅有nagle算法，还有一个<strong>ACK延迟机制</strong> 。当Server端收到数据之后，它并不会马上向client端发送ACK，而是会将ACK的发送延迟一段时间（假设为t），它希望在t时间内server端会向client端发送应答数据，</li>
+<li>那么可以通过<strong>设置TCP_NODELAY将其禁用</strong></li>
+<li>CLOSING</li>
+</ol>
+</li>
+</ul>
+<p>1.3 更新</p>
+<ol start="2">
+<li>关闭tcp连接一定要四次挥手吗？为什么不是三个？</li>
+</ol>
+<ul>
+<li>RST 强制终止 TCP 连接（SO_LINGER）</li>
+<li>当没有数据传输是，ack 和fin小包不同的请求，合并发送（negal算法）</li>
+<li>再谈TCP/IP三步握手&amp;四步挥手原理及衍生问题—长文解剖IP</li>
+</ul>
+<h2 id="four-way-handshake-四次挥手">four-way Handshake 四次挥手</h2>
+<p><img src="https://www.zhoulujun.cn/uploadfile/images/2018/1105/20181105205714654247516.jpg" alt=""></p>
+<p><a href="https://www.cnblogs.com/figo-cui/p/5137993.html">https://www.cnblogs.com/figo-cui/p/5137993.html</a></p>
+<p>1</p>
+<h3 id="3-为什么-time_wait-状态还需要等-2msl-后才能返回到-closed-状态">3. 为什么 TIME_WAIT 状态还需要等 2MSL 后才能返回到 CLOSED 状态？</h3>
+<ol start="4">
+<li>
+<p>tcp和udp区别？和使用场景 【青铜-王者】</p>
+<p>大小：</p>
+<ul>
+<li>
+<p>首部开销小，仅8字节，适用于实时应用（IP电话、视频会议、直播）</p>
+</li>
+<li>
+<p>首部最小20字节，最大60字节，适用于要求可靠传输的应</p>
+</li>
+<li>
+<p>tcp 会将应用程序发送的数据分割合适的数据块来字节流传输。</p>
+</li>
+</ul>
+<h3 id="5-udp的问题">5 udp的问题</h3>
+</li>
+<li>
+<p><a href="https://maimai.cn/web/gossip_detail?encode_id=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlZ2lkIjoiNWI0ZWM3NmFhYjFkNDk4MjhmMTE1ODQ2MmU3MDVhNjEiLCJpZCI6Mjk5MjcyODgsInUiOjQ2NjUxfQ.dpI12xFWledfdMr_93jCL5Q0um2DHbmt0khSrYdkMr4&amp;from=list">为什么流量型 都是用udp，不使用tcp ，tcp不能把带宽打满吗</a></p>
+</li>
+</ol>
+<h3 id="51-有什么问题自己都不知道然后空白回答-就是pass">5.1 有什么问题，自己都不知道，然后空白回答 就是pass</h3>
+<p><a href="https://maimai.cn/web/gossip_detail?encode_id=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlZ2lkIjoiNWI0ZWM3NmFhYjFkNDk4MjhmMTE1ODQ2MmU3MDVhNjEiLCJpZCI6Mjk5MjcyODgsInUiOjQ2NjUxfQ.dpI12xFWledfdMr_93jCL5Q0um2DHbmt0khSrYdkMr4&amp;from=list">为什么流量型 都是用udp，不使用tcp ，tcp不能把带宽打满吗</a></p>
+<p><a href="https://maimai.cn/web/gossip_detail?gid=29758420&amp;egid=f087f0801a254f91b764c1c490d43cc6">一面凉 迅雷为什么用udp 答了半天 都不对</a></p>
+<p>区别：</p>
+<ul>
+<li>
+<p>格式大小：（从协议看）tup小。建立连接，</p>
+</li>
+<li>
+<p>传输数据大小</p>
+</li>
+</ul>
+<p>。而 UDP 继承了 IP 的特性，基于数据报的，一个一个地发，一个</p>
+<ul>
+<li>1:对传输</li>
+</ul>
+<p>场景：</p>
+<ul>
+<li>
+<p>upd 打洞</p>
+</li>
+<li>
+<p>udp flood攻击</p>
+</li>
+<li>
+<p>不需要一对一沟通，建立连接，而是可以广播的应用，比如 DHCP 协议就是基于 UDP 协议的。</p>
+</li>
+</ul>
+<ol start="4">
+<li>
+<p>tcp 数据传输过程，如何实现的？</p>
+<h3 id="7什么tcp-延迟启动-快速重传流量控制">7.什么tcp 延迟启动 快速重传。流量控制</h3>
+<h3 id="8--问redis--cluster节点间采取gossip协议进行通讯-传递数据数是什么主从复制的数据吗1主-1从-感觉不需要这么复杂协议吧httpsmaimaicnwebgossip_detailencode_ideyjhbgcioijiuzi1niisinr5cci6ikpxvcj9eyjlz2lkijoindu4ytbizdkxn2rmndqxy2i5mwmxmwqzy2rjyzq2nzuilcjpzci6mjk5ndq4mdmsinuiojq2njuxfqccjcci0lj1ezelkaevtebwvg1m2caq4tdi0-adcuwmafromlist">8  <a href="https://maimai.cn/web/gossip_detail?encode_id=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlZ2lkIjoiNDU4YTBiZDkxN2RmNDQxY2I5MWMxMWQzY2RjYzQ2NzUiLCJpZCI6Mjk5NDQ4MDMsInUiOjQ2NjUxfQ.ccJCcI0lj1eZeLkAeVtEBwvG1m2caq4Tdi0-adcUwmA&amp;from=list">问：redis  <em>cluster</em>节点间采取<em>gossip</em>协议进行通讯 。传递数据数是什么主从复制的数据吗？1主 1从 感觉不需要这么复杂协议吧</a></h3>
+</li>
+</ol>
+<h3 id="9-c11-新特性">9. c++11 新特性</h3>
+<h3 id="10-模版编译过程编译器-连接器做了什么事情">10 模版编译过程：编译器 连接器做了什么事情</h3>
+<blockquote>
+<p>小白思考：做了什么我围绕做什么思考，怎么说也说明白，。那些功能，很多东西付过 定义 生命 为市民办</p>
+<h1 id="编译器链接生成的符号详解">编译器链接生成的符号详解</h1>
+</blockquote>
+<p>GCC编译分为四个阶段：</p>
+<p>　　1、预处理：将代码中的代码中的头文件，宏定义宏选择等进行展开及替换。 gcc -E</p>
+<p>g++ -E -std=c++17 3_unique_ptr.cpp  -o test.i</p>
+<p>　　2、编译   ：产生汇编文件 。gcc -S</p>
+<p>g++ -std=c++17 -S test.i  -o test.s</p>
+<p>　　3、汇编   ：将汇编文件编译为目标文件。 gcc -c</p>
+<p>g++ -std=c++17  -c test.s -o test.o</p>
+<p>　　4、链接   ：产生可执行文件</p>
+<p>g++ -std=c++17  test.o -o test</p>
+<blockquote>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">https://www.jianshu.com/p/02a5a1bf1096
+</span></span><span class="line"><span class="cl">st=&gt;start: Start
+</span></span><span class="line"><span class="cl">op=&gt;operation: Your Operation
+</span></span><span class="line"><span class="cl">cond=&gt;condition: Yes or No?
+</span></span><span class="line"><span class="cl">e=&gt;end
+</span></span><span class="line"><span class="cl">st-&gt;op-&gt;cond
+</span></span><span class="line"><span class="cl">cond(yes)-&gt;e
+</span></span><span class="line"><span class="cl">cond(no)-&gt;op
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>&laquo;&laquo;&laquo;&lt; HEAD</p>
+<h3 id="问--什么是深度拷贝-什么是浅拷贝">问：  什么是深度拷贝 什么是浅拷贝？</h3>
+<ul>
+<li>拷贝只是对象拷贝。指针赋值不属于拷贝。</li>
+<li>深度拷贝对应值拷贝（stl 容器值拷贝）。浅拷C++编译器默认提供的拷贝方式（memcpy）</li>
+</ul>
+<p>为防止HomeForSale对象被拷贝，可以继承Uncopyable类</p>
+<p><a href="https://tangxing.blog.csdn.net/article/details/116401405?spm=1001.2101.3001.6661.1&amp;utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-1.queryctrv4&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-1.queryctrv4&amp;utm_relevant_index=1">C++ Boost库：禁止拷贝 nocopyable</a></p>
+<p><a href="https://stackoverflow.com/questions/7823990/what-are-the-advantages-of-boostnoncopyable">What are the advantages of boost::noncopyable</a></p>
+<ul>
+<li>浅拷贝(构造函数)</li>
+</ul>
+<p>std:moved()</p>
+<ul>
+<li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">成本：Clone(浅克隆.) &gt; new &gt; Kryo序列化 &gt; Jdk序列化 &gt; Json(各种Json类似)序列化
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h3 id="问函数能返回局部变量吗">问：函数能返回局部变量吗？</h3>
+<ul>
+<li>
+<p>静态局部变量</p>
+</li>
+<li>
+<p><a href="https://www.cprogramming.com/c++11/rvalue-references-and-move-semantics-in-c++11.html">rvalue reference（Move semantics ）</a></p>
+</li>
+</ul>
+<h1 id="-第一步阅读输入三天万句---输出-笔记摘要记录了但是不懂-"># 第一步：阅读(输入：三天,万句   输出 笔记摘要，记录了但是不懂 )</h1>
+<h2 id="tcp-ip详解卷1协议">TCP-IP详解卷1：协议</h2>
+<ol>
+<li>TCP为什么是四次挥手，而不是三次？</li>
+</ol>
+<p><a href="https://www.zhoulujun.cn/html/theory/ComputerScienceTechnology/network/2015_0708_65.html">https://www.zhoulujun.cn/html/theory/ComputerScienceTechnology/network/2015_0708_65.html</a></p>
+<p><img src="https://www.zhoulujun.cn/uploadfile/images/2018/1105/20181105205714654247516.jpg" alt=""></p>
+<p><img src="http://www.iigrowing.cn/wp-content/uploads/TCPtcp_C97D/wps_clip_image899741.jpg" alt=""></p>
+<p><img src="https://pic1.zhimg.com/80/v2-d80eca1373a96f0f27df2400413f0902_1440w.jpg?source=1940ef5c" alt=""></p>
+<p><img src="https://pic1.zhimg.com/80/v2-c1cc4773efb484a5bb20e8ded575e7a9_1440w.jpg?source=1940ef5c" alt=""></p>
+<p>Redis Cluster采用P2P的Gossip协议进行通信，采用tcp还是udp这个没区别吗？</p>
+<p>Gossip协议一般基于UDP实现，其自身即在应用层保证了协议的robustness。</p>
+<p><a href="https://maimai.cn/web/gossip_detail?gid=29170876&amp;egid=61b42cdfe2f511eba165246e96b48088">https://maimai.cn/web/gossip_detail?gid=29170876&amp;egid=61b42cdfe2f511eba165246e96b48088</a></p>
+<p>UDP 全称 User Datagram Protocol，即用户数据报协议。</p>
+<p>不需要一对一沟通，建立连接，而是可以广播的应用，比如 DHCP 协议就是基于 UDP 协议的。</p>
+<p>。而 UDP 继承了 IP 的特性，基于数据报的，一个一个地发，一个</p>
+<p><a href="https://blog.csdn.net/weixin_39766014/article/details/111118107">https://blog.csdn.net/weixin_39766014/article/details/111118107</a></p>
+<p>Redis 集群是去中心化的，彼此之间状态同步靠 gossip 协议通信，集群的消息有以下几种类</p>
+<h1 id="redis-cluster-gossip-协议">Redis Cluster Gossip 协议</h1>
+<p>cluster bus 用的是一种叫gossip 协议的二进制协议，用于节点间高效的数据交换，占用更少的网络带宽和处理时间</p>
+<p><img src="https://img2020.cnblogs.com/blog/2136379/202009/2136379-20200907102559173-1607791644.png" alt="元数据1："></p>
+<p>将集群元数据集中存储在一个节点上。</p>
+<p>典型代表是大数据领域的 storm。</p>
+<p>它是分布式的大数据实时计算引擎，是集中式的元数据存储的结构，底层基于 zookeeper对所有元数据进行存储维护。</p>
+<p><img src="https://img2020.cnblogs.com/blog/2136379/202009/2136379-20200907102610613-1983444640.png" alt=""></p>
+<p>redis 维护集群元数据采用的是gossip 协议，所有节点都持有一份元数据，不同的节点如果出现了元数据的变更，就不断将元数据发送给其它的节点，让其它节点也进行元数据的变更。</p>
+<ul>
+<li><strong>优点</strong></li>
+</ul>
+<p>元数据的更新比较分散，不是集中在一个地方，降低了压力；</p>
+<ul>
+<li><strong>缺点</strong></li>
+</ul>
+<p>元数据的更新有延时，可能导致集群中的一些操作会有一些滞后。</p>
+<p>gossip 协议包含多种消息，包含 ping、pong、meet、fail等等。</p>
+<h2 id="程序员自我修养-第2章节">&lt;程序员自我修养&gt; 第2章节。</h2>
+<h1 id="编译器链接生成的符号详解-1">编译器链接生成的符号详解</h1>
+<ul>
+<li>
+<p>编译过程就是把预处理完的文件进行一系列的词法分析、语法分析、语义分析以及优化后产生相应的.  汇编代码文件</p>
+</li>
+<li>
+<p>GCC把预处理和编译两个步骤合并成一个步骤，使用一个叫ccl的程序来完成两个步骤。我们可以直接使用如下命令：</p>
+</li>
+</ul>
+<p>gcc -S test.c -o test.s</p>
+<p>test.s: assembler source text, ASCII text</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">wangchuanyi@bogon 2022 % which ld
+</span></span><span class="line"><span class="cl">/usr/bin/ld
+</span></span><span class="line"><span class="cl">wangchuanyi@bogon 2022 % which as
+</span></span><span class="line"><span class="cl">/usr/bin/as
+</span></span><span class="line"><span class="cl">wangchuanyi@bogon 2022 % which cc 
+</span></span><span class="line"><span class="cl">/usr/bin/cc
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">movl $0x2a, var
+</span></span><span class="line"><span class="cl"> 这条指令就是给这个var变量赋值0x2a，相当于C语言中的语句var = 42
+</span></span><span class="line"><span class="cl">  由于在编译目标文件B的时候，编译器并不知道变量var的目标地址，所以编译器在没法确定地址的情况下，将这条mov指令的目标地址设为0，等待链接器在将目标文件A和B链接起来的时候再将其修正
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>gcc这个命令只是这些后台程序的包装，它会根据不同的参数要求取调用预处理编译程序ccl、汇编器as、链接器ld。</p>
+<p><a href="http://blog.chinaunix.net/uid-26430381-id-3842510.html">http://blog.chinaunix.net/uid-26430381-id-3842510.html</a></p>
+</blockquote>
+<ul>
+<li>由于在编译目标文件B的时候，编译器并不知道变量var的目标地址，所以编译器在没法确定地址的情况下，将这条mov指令的目标地址设为0，等待链接器在将目标文件A和B链接起来的时候再将其修正。假设A和B链接后，变量var的地址确定下来为0x1000，那么链接器将会把这个指令的目标地址部分修改成0x10000。这个地址修正的过程也叫做重定位，每个要被修正的地方叫一个重定位入口。</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Troy</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2022-02-10 00:00
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a target="_blank" rel="license noopener" href="https://github.com/nusr/blog/blob/master/LICENSE">MIT</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/60%E7%A7%92%E9%97%AE%E7%AD%94/">60秒问答</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/2021/06_ask_1/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">阅读与写作第一期</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/04_2021-10-10.2021.years/">
+            <span class="next-text nav-default">2021年历史文章</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="wangcy6/wangcy6.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:wang_cyi@163.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/wangcy6" class="iconfont icon-github" title="github"></a>
+  <a href="https://wangcy6.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2022
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Troy</span>
+  </span>
+</div>
+<script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
+  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+    var languageCode = "zh-cn".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    timeago().render(document.querySelectorAll('.timeago'), languageCode);
+    timeago.cancel();  
+  </script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-138883536-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>

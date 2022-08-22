@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>ARTS_weekly_7 - Troy的网络博客</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Troy" /><meta name="description" content="GTD践行第七周" /><meta name="keywords" content="daily-interview-question, Github, c&#43;&#43;, Leetcode 题解, 后端面试" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.101.0 with theme even" />
+
+
+<link rel="canonical" href="https://wangcy6.github.io/post/ARTS/ARTS_weekly-7/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="ARTS_weekly_7" />
+<meta property="og:description" content="GTD践行第七周" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wangcy6.github.io/post/ARTS/ARTS_weekly-7/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2019-12-19T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-12-19T00:00:00+00:00" />
+
+<meta itemprop="name" content="ARTS_weekly_7">
+<meta itemprop="description" content="GTD践行第七周"><meta itemprop="datePublished" content="2019-12-19T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-12-19T00:00:00+00:00" />
+<meta itemprop="wordCount" content="3298">
+<meta itemprop="keywords" content="GTD,work," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ARTS_weekly_7"/>
+<meta name="twitter:description" content="GTD践行第七周"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="https://github.com/wangcy6/weekly/tree/master/book">
+        <li class="mobile-menu-item">阅读清单</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于我</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://github.com/wangcy6/weekly/tree/master/book">阅读清单</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于我</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">ARTS_weekly_7</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-12-19 00:00 </span>
+        <div class="post-category">
+            <a href="/categories/ARTS/"> ARTS </a>
+            </div>
+          <span class="more-meta"> 约 3298 字 </span>
+          <span class="more-meta"> 预计阅读 7 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1algorithm">1.Algorithm</a></li>
+        <li><a href="#2review">2.Review</a></li>
+        <li><a href="#redis集群规范">redis集群规范</a></li>
+      </ul>
+    </li>
+    <li><a href="#clients-and-servers-roles-in-the-redis-cluster-protocol">Clients and Servers roles in the Redis Cluster protocol</a>
+      <ul>
+        <li><a href="#3-tip">3. Tip</a></li>
+        <li><a href="#4--share">4.  Share</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#1-起床--没有记录就没有进步">1. 起床&ndash;没有记录就没有进步</a>
+      <ul>
+        <li><a href="#a-早睡早起床">A-早睡早起床：</a></li>
+        <li><a href="#目前现状">目前现状</a></li>
+        <li><a href="#期望结果">期望结果</a></li>
+        <li><a href="#执行结果变化">执行结果（变化）</a></li>
+        <li><a href="#b-防沉迷不解锁手机">B-防沉迷不解锁手机</a></li>
+        <li><a href="#目前现状-1">目前现状</a></li>
+        <li><a href="#期望结果日志跟踪记录">期望结果：日志跟踪记录</a></li>
+        <li><a href="#执行结果变化-1">执行结果(变化)</a></li>
+        <li><a href="#c-切换频率鼠标">C-切换频率鼠标</a></li>
+        <li><a href="#目前现状-2">目前现状：</a></li>
+        <li><a href="#期望结果一次只做一件事按照计划做事情繁忙">期望结果:一次只做一件事，按照计划做事情（繁忙）</a></li>
+        <li><a href="#执行结果变化-2">执行结果（变化）</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-运动----掌控跑步你掌控生活">2. 运动&mdash;-掌控跑步，你掌控生活</a>
+      <ul>
+        <li><a href="#目前现状-3">目前现状</a></li>
+        <li><a href="#期望结果-1">期望结果：</a></li>
+        <li><a href="#执行结果">执行结果</a></li>
+      </ul>
+    </li>
+    <li><a href="#3--阅读----科学合理方法">3.  阅读 &mdash;科学合理方法</a>
+      <ul>
+        <li><a href="#a-计划">A-计划</a></li>
+        <li><a href="#b-行动">B-行动</a></li>
+        <li><a href="#c-执行结果看到变化">C-执行结果（看到变化</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#1-沟通--深入剖析">1. 沟通&ndash;深入剖析</a>
+      <ul>
+        <li><a href="#目前现状-4">目前现状：</a></li>
+        <li><a href="#期望结果-2">期望结果：</a></li>
+      </ul>
+    </li>
+    <li><a href="#下周计划--意志力实验">下周计划 -意志力实验</a>
+      <ul>
+        <li><a href="#a-目前现状">A-目前现状：</a></li>
+        <li><a href="#b-期望结果">B-期望结果</a></li>
+        <li><a href="#c-执行结果看到变化-1">C-执行结果（看到变化）</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+  <div class="post-outdated">
+    <div class="warn">
+      <p>【注意】最后更新于 <span class="timeago" datetime="2019-12-19T00:00:00" title="December 19, 2019">December 19, 2019</span>，文中内容可能已过时，请谨慎使用。</p>
+    </div>
+  </div>
+    <div class="post-content">
+      <h1 id="打卡gtd践行第七周2019-12-11">打卡GTD践行第七周（2019-12-11）</h1>
+<h1 id="一周记录">一周记录</h1>
+<p>本周主要问题，没有科学工作和沟通方法，和计划安排。</p>
+<p>导致一直在迷茫中</p>
+<h1 id="一-arts的初衷">一. <strong>ARTS的初衷</strong></h1>
+<p><img src="https://cdn.nlark.com/yuque/0/2018/png/98009/1543218806927-7f502f95-8bd0-4c24-bf11-df765683689d.png" alt="img"></p>
+<table>
+<thead>
+<tr>
+<th>周一</th>
+<th>周二</th>
+<th>周三</th>
+<th>周四</th>
+<th>周五</th>
+<th>周六</th>
+<th>周日</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><strong>Algorithm</strong></td>
+<td></td>
+<td><strong>Review</strong></td>
+<td></td>
+<td><strong>Review/Tip</strong></td>
+<td><strong>Share</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="1algorithm">1.Algorithm</h3>
+<blockquote>
+<p>**主要是为了编程训练和学习。**每周至少做一个 leetcode 的算法题（先从Easy开始，然后再Medium，最后才Hard）。进行编程训练，如果不训练你看再多的算法书，你依然不会做算法题，看完书后，你需要训练。。</p>
+</blockquote>
+<p>依然停留在这里</p>
+<p><a href="https://github.com/wangcy6/leetcode/issues/12">https://github.com/wangcy6/leetcode/issues/12</a></p>
+<h3 id="2review">2.Review</h3>
+<blockquote>
+<p>主要是为了学习英文，如果你的英文不行，你基本上无缘技术高手。**所以，需要你阅读并点评至少一篇英文技术文章，我个人最喜欢去的地方是<a href="https://link.zhihu.com/?target=http%3A//Medium.com">http://Medium.com</a></p>
+</blockquote>
+<h4 id="malloc-如何申请内存的">malloc 如何申请内存的</h4>
+<p>英文：</p>
+<p><a href="https://sploitfun.wordpress.com/2015/02/10/understanding-glibc-malloc/">https://sploitfun.wordpress.com/2015/02/10/understanding-glibc-malloc/</a></p>
+<p><a href="https://sourceware.org/glibc/wiki/MallocInternals">https://sourceware.org/glibc/wiki/MallocInternals</a></p>
+<p>翻译：</p>
+<p><a href="http://pwn4.fun/2016/04/11/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3glibc-malloc/">http://pwn4.fun/2016/04/11/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3glibc-malloc/</a></p>
+<p>[https://wooyun.js.org/drops/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%20glibc%20malloc.html](<a href="https://wooyun.js.org/drops/">https://wooyun.js.org/drops/</a>深入理解 glibc malloc.html)</p>
+<h4 id="摘要">摘要：</h4>
+<h3 id="redis集群规范">redis集群规范</h3>
+<p>英文：https://redis.io/topics/cluster-spec</p>
+<p>翻译：</p>
+<p><a href="http://www.redis.cn/topics/cluster-spec.html">http://www.redis.cn/topics/cluster-spec.html</a></p>
+<p><a href="http://arloor.com/posts/redis/redis-cluster/">http://arloor.com/posts/redis/redis-cluster/</a></p>
+<h4 id="摘要-1">摘要</h4>
+<p>redis 源码解析：https://github.com/wangcy6/reading_code_note/tree/master/mdb/redis-unstable</p>
+<ul>
+<li>It is useful to note that while the <code>PFAIL</code> -&gt; <code>FAIL</code> transition uses a form of agreement, the agreement used is weak:(在失败检查方面，是弱一致监测，大多数确认就可以，而不是全部)</li>
+<li><strong>The <code>FAIL</code> flag is only used as a trigger to run the safe part of the algorithm</strong> for the slave promotion（fatl标记用来触发切换）</li>
+<li>Masters reply to slave vote request（其他master主机代替哨兵的角色 来做投票判断。）</li>
+</ul>
+<p>​      Masters receive requests for votes in form of <code>FAILOVER_AUTH_REQUEST</code> requests from slaves.</p>
+<ul>
+<li>slave选举过程</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="err">于挂掉的</span><span class="n">master可能会有多个slave</span><span class="err">，从而存在多个</span><span class="n">slave竞争成为master节点的过程</span><span class="err">，</span> <span class="err">其过程如下：</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mf">1.</span><span class="n">slave发现自己的master变为FAIL</span>
+</span></span><span class="line"><span class="cl"><span class="mf">2.</span><span class="err">将自己记录的集群</span><span class="n">currentEpoch加1</span><span class="err">，并广播</span><span class="n">FAILOVER_AUTH_REQUEST信息</span>
+</span></span><span class="line"><span class="cl"><span class="mf">3.</span><span class="err">其他节点收到该信息，只有</span><span class="n">master响应</span><span class="err">，判断请求者的合法性，并发送</span><span class="n">FAILOVER_AUTH</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mf">4.</span><span class="err">尝试</span><span class="n">failover的slave收集FAILOVER_AUTH_ACK</span>
+</span></span><span class="line"><span class="cl"><span class="mf">5.</span><span class="err">超过半数后变成新</span><span class="n">Master</span>
+</span></span><span class="line"><span class="cl"><span class="mf">6.</span><span class="err">广播</span><span class="n">Pong通知其他集群节点</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">主节点接收到来自于从节点、要求以</span> <span class="n">FAILOVER_AUTH_REQUEST</span> <span class="err">请求的形式投票的请求。</span> <span class="err">要授予一个投票，必须要满足以下条件：</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mi">1</span><span class="p">)</span> <span class="err">在一个给定的时段（</span><span class="n">epoch</span><span class="err">）里，一个主节点只能投一次票，并且拒绝给以前时段投票：每个主节点都有一个</span> <span class="n">lastVoteEpoch</span> <span class="err">域，一旦认证请求数据包（</span><span class="n">auth</span> <span class="n">request</span> <span class="n">packet</span><span class="err">）里的</span> <span class="n">currentEpoch</span> <span class="err">小于</span> <span class="n">lastVoteEpoch</span><span class="err">，那么主节点就会拒绝再次投票。</span>
+</span></span><span class="line"><span class="cl">  <span class="err">当一个主节点积极响应一个投票请求，那么</span> <span class="n">lastVoteEpoch</span> <span class="err">会相应地进行更新。</span>
+</span></span><span class="line"><span class="cl"><span class="mi">2</span><span class="p">)</span> <span class="err">一个主节点投票给某个从节点当且仅当该从节点的主节点被标记为</span> <span class="n">FAIL</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl"><span class="mi">3</span><span class="p">)</span> <span class="err">如果认证请求里的</span> <span class="n">currentEpoch</span> <span class="err">小于主节点里的</span> <span class="n">currentEpoch</span> <span class="err">的话，那么该请求会被忽视掉。</span>
+</span></span><span class="line"><span class="cl">    <span class="err">因此，主节点的回应总是带着和认证请求一致的</span> <span class="n">currentEpoch</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">    <span class="err">如果同一个从节点在增加</span> <span class="n">currentEpoch</span> <span class="err">后再次请求投票，那么保证一个来自于主节点的、旧的延迟回复不会被新一轮选举接受。</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<h2 id="clients-and-servers-roles-in-the-redis-cluster-protocol">Clients and Servers roles in the Redis Cluster protocol</h2>
+</li>
+</ul>
+<p>auto-discover other nodes(自动发起其他节点功能 类似区块的广播协议)</p>
+<p>promote slave nodes to master（这是node作职责）</p>
+<h3 id="3-tip">3. Tip</h3>
+<blockquote>
+<p>主要是为了总结和归纳你在是常工作中所遇到的知识点**。学习至少一个技术技巧。你在工作中遇到的问题，踩过的坑，学习的点滴知识。</p>
+</blockquote>
+<ul>
+<li>如何在Excel中输入1显示对号“√”，输入0显示错号“X”？</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1、选中B2到B9单元格，也就是你需要添加&#34;√&#34;和&#34;X&#34;的地方，然后右键并选择【设置单元格格式】。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">2、将单元格的格式内容自定义为以下内容：
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[=1]&#34;√&#34;;[=0]&#34;X&#34;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">然后保存。
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="4--share">4.  Share</h3>
+<blockquote>
+<p>主要是为了建立你的影响力，能够输出价值观。分享一篇有观点和思考的技术文章。</p>
+</blockquote>
+<p>如何消除痛苦</p>
+<p><a href="https://medium.com/s/story/read-this-if-you-feel-like-you-cant-stop-creating-problems-in-your-mind-d137a36201a7">https://medium.com/s/story/read-this-if-you-feel-like-you-cant-stop-creating-problems-in-your-mind-d137a36201a7</a></p>
+<p>翻译计划：</p>
+<h1 id="二--起床-运动-阅读">二 . 起床-运动-阅读</h1>
+<p><img src="https://i.loli.net/2019/11/04/iPFxvJj1HM2ahtn.png" alt="image.png"></p>
+<h2 id="1-起床--没有记录就没有进步">1. 起床&ndash;没有记录就没有进步</h2>
+<h3 id="a-早睡早起床">A-早睡早起床：</h3>
+<h3 id="目前现状">目前现状</h3>
+<blockquote>
+<p>晚上因为看书和运动事情从9点延迟到23点，造成第二天造成无法起床</p>
+<p>现在主要问题是起床问题，6：00准备起床</p>
+</blockquote>
+<h3 id="期望结果">期望结果</h3>
+<p>闹钟再次调整：6：30 和 7：30 各2个（以前是间隔15分钟一个 累计10个）</p>
+<p><img src="https://i.loli.net/2019/11/04/FsyLTB9XYCHGdAk.png" alt="image.png"></p>
+<p>具体方法请看</p>
+<ul>
+<li>R90 睡眠革命</li>
+</ul>
+<p><img src="https://i.loli.net/2019/11/04/gHYuPvMOGwUyoQV.png" alt="image.png"></p>
+<ul>
+<li>
+<p>放松练习 神奇的睡眠</p>
+<p><img src="https://i.loli.net/2019/11/04/ICiXmrThvDxojH2.png" alt="image.png"></p>
+</li>
+<li>
+<p>四点钟起床，最养生和高效的时间管</p>
+</li>
+</ul>
+<p><img src="https://upload-images.jianshu.io/upload_images/1766206-0ff284fc8c851075?imageMogr2/auto-orient/strip%7CimageView2/2/w/640/format/webp" alt="img"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1766206-8a51a71e35464d0e?imageMogr2/auto-orient/strip%7CimageView2/2/w/640/format/webp" alt="img"></p>
+<h3 id="执行结果变化">执行结果（变化）</h3>
+<p><img src="../images/172905_c3c53871_116887.png" alt="起床" title="屏幕截图.png"></p>
+<h3 id="b-防沉迷不解锁手机">B-防沉迷不解锁手机</h3>
+<h3 id="目前现状-1">目前现状</h3>
+<ul>
+<li>我救赎-手机&ndash;腾讯视频 晚上8-凌晨3点 8个小时  (严重超时呀！！)</li>
+</ul>
+<blockquote>
+<p>吃饭看腾讯视频，地铁看腾讯视频，走路看腾讯视频，</p>
+<p>学习时候看腾讯视频，手机解锁上床看腾讯视频，</p>
+<p>然后从晚上7点看到8点 9点 10点 11点 12点凌晨1点 2点。</p>
+</blockquote>
+<p><img src="https://i.loli.net/2019/11/04/hgasVrMyud3AHvo.png" alt="image.png"></p>
+<h3 id="期望结果日志跟踪记录">期望结果：日志跟踪记录</h3>
+<ul>
+<li>防沉迷-不解锁</li>
+</ul>
+<blockquote>
+<p>无论任何情况都监督时候都不解锁，这底线，这你重点要做事情</p>
+</blockquote>
+<p><a href="https://mp.weixin.qq.com/s/Bg-a2W5_4OyR9hhy3Y6ptQ">意志力实验：直面自身欲望，但是不要付诸行定</a>接下来一周里可以用以下 4个步骤来应对自己强烈的欲望</p>
+<p>这些欲望可以是巧克力 、卡布奇诺咖啡或不停查收电子邮件 。</p>
+<p>1 ．承认自己脑海中的欲望 ，以及渴望某种事物的感觉 。</p>
+<p>2 ．不要马上试着转移注意力或与之争论 。接受这种想法或感觉 ，提醒自己 “白熊 ”现象和 “反弹 ”理论 。</p>
+<p>3 ．退一步考虑 ，意识到这种想法和感觉并不受你控制 ，但你可以选择是否将这些想法付诸实践 。</p>
+<p>4 ．记住你的目标 ，提醒自己预先作出的承诺 。正如那些学生会提醒自己 ，他们答应过不偷吃巧克力 。这个需要反复练习</p>
+<ul>
+<li>自我救赎-手机&ndash;腾讯视频 20-23点 3个小时 尤其是周末</li>
+</ul>
+<h3 id="执行结果变化-1">执行结果(变化)</h3>
+<p><img src="https://i.loli.net/2019/10/21/sjQhIJbwiT8qeWV.png" alt="image.png"></p>
+<h3 id="c-切换频率鼠标">C-切换频率鼠标</h3>
+<h3 id="目前现状-2">目前现状：</h3>
+<p>鼠标统计:平均每天点击鼠标6167次 39秒点击1次</p>
+<ul>
+<li>画外音</li>
+</ul>
+<blockquote>
+<p>从外人看来，你像傻子一样，打开软件，关闭软件，打开网页关闭网页， 跟小白鼠没区别。</p>
+<p>这说明注意力很容易被其事情吸引走，并且你自己发没有发现 已经偏离轨道，很危险</p>
+<p>没有人提醒你</p>
+</blockquote>
+<ul>
+<li>潜意识</li>
+</ul>
+<blockquote>
+<p>完全靠自己感觉，不从 公司角度和规划角度做失去，这最大问题.</p>
+<p>不停点击鼠标，处理问题没有规则流程，去分析业务，架构，技术是什么</p>
+<p>纯把自己当成重复地下劳动力呀</p>
+<p>一切忙碌，在10分钟，1小时，一天，一星期去没有取得任何进步</p>
+</blockquote>
+<h3 id="期望结果一次只做一件事按照计划做事情繁忙">期望结果:一次只做一件事，按照计划做事情（繁忙）</h3>
+<ul>
+<li>
+<p>盘茄时间 25分钟工作+5分钟 这个必须严格执行。</p>
+</li>
+<li>
+<p>这个不要公司去规定，更不害怕别人嘲笑，站起来活动5分钟</p>
+</li>
+<li>
+<p>我自己很清楚，很容易其他事情走神。别人厉害不需要那是他们事情。</p>
+</li>
+</ul>
+<h3 id="执行结果变化-2">执行结果（变化）</h3>
+<p><img src="https://i.loli.net/2019/10/17/8Whlt51RLArsI39.png" alt="上周"></p>
+<h2 id="2-运动----掌控跑步你掌控生活">2. 运动&mdash;-掌控跑步，你掌控生活</h2>
+<h3 id="目前现状-3">目前现状</h3>
+<ul>
+<li>自己每次都妥协</li>
+</ul>
+<blockquote>
+<p>发现驼背 ，高低肩 长时间坐姿不正确，不运动导致的  。这谁责任。</p>
+<p>说根本时间，平时没时间，周末么总有时间吧。</p>
+</blockquote>
+<ul>
+<li>
+<p>大脑可以屏蔽痛苦，让感受不到这 最可怕的失去</p>
+<blockquote>
+<p>当你走出公司，你才感觉 说不出来疲惫，为什么 自己身心暴躁焦虑，工作没有计划。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="期望结果-1">期望结果：</h3>
+<ul>
+<li>
+<p>每周跑步三次 ，3公里 5 公里 8公里</p>
+<p>时间周三 周六和周天</p>
+</li>
+</ul>
+<p><img src="../../images/image-20191104121844430.png" alt="image-20191104121844430"></p>
+<ul>
+<li>
+<p>感觉累时候，你休息一下，一天三次机会</p>
+<p>中午吃饭时候</p>
+<p>晚上吃饭时候</p>
+</li>
+</ul>
+<h3 id="执行结果">执行结果</h3>
+<p><img src="../images/174055_63bd7ef7_116887.png" alt="输入图片说明" title="屏幕截图.png"></p>
+<h2 id="3--阅读----科学合理方法">3.  阅读 &mdash;科学合理方法</h2>
+<h3 id="a-计划">A-计划</h3>
+<p><img src="../images/174226_6bc1986c_116887.png" alt="book" title="屏幕截图.png"></p>
+<h3 id="b-行动">B-行动</h3>
+<ul>
+<li>用读书记录app跟着</li>
+<li>用ppt记录分享到抖音上</li>
+</ul>
+<h3 id="c-执行结果看到变化">C-执行结果（看到变化</h3>
+<p>自己不敢说话，分享失败</p>
+<h1 id="三-工作--吃饭的饭碗">三 .工作 -吃饭的饭碗</h1>
+<h2 id="1-沟通--深入剖析">1. 沟通&ndash;深入剖析</h2>
+<h3 id="目前现状-4">目前现状：</h3>
+<blockquote>
+<p>自己说的别人都听不懂，紧张，焦虑 ；</p>
+<p>经常打断别人说话，自己听不进去</p>
+</blockquote>
+<h3 id="期望结果-2">期望结果：</h3>
+<ul>
+<li>
+<p>说给自己听，让自己听清楚慢慢会说，用更多时间耐心说出来</p>
+<blockquote>
+<p>不害怕尴尬，大脑思路空白</p>
+</blockquote>
+</li>
+<li>
+<p>仔细听别人讲话结果是什么，逻辑是什么，最终目的是什么</p>
+<blockquote>
+<p>你说都是废话，没有目的，没有结果 没有执行，放弃一切想说的，都是这个大脑受当时环境引起的。非自己想说的</p>
+</blockquote>
+</li>
+<li>
+<p>上面2个并不矛盾</p>
+</li>
+</ul>
+<h2 id="下周计划--意志力实验">下周计划 -意志力实验</h2>
+<h3 id="a-目前现状">A-目前现状：</h3>
+<blockquote>
+<p>注意力高度不集中，一个点击8千次鼠标，</p>
+<p>然不停看打开网页，关闭网页。打开聊天软件关闭聊天软件</p>
+</blockquote>
+<p>这就是疯子，闪灵中 不停打字的疯子</p>
+<p><img src="https://i.loli.net/2019/11/04/K6ygNbfeYQMpFVn.png" alt="image.png"></p>
+<h3 id="b-期望结果">B-期望结果</h3>
+<blockquote>
+<p>心流状态</p>
+</blockquote>
+<p><img src="https://i.loli.net/2019/11/04/DzC4NBEtuiYgKn3.png" alt="image.png"></p>
+<p>最高学习效率=15.87%，并却经过机器学习训练得出的这个比例15.87%</p>
+<p>​	意思就说：</p>
+<blockquote>
+<p>舒适区的内容对你来说太容易</p>
+</blockquote>
+<blockquote>
+<p>恐慌区的内容太难，</p>
+</blockquote>
+<blockquote>
+<p>刻意练习要求你始终在二者中间一个特别小的学习区里学习 —— 这里的难度对你恰到好处。</p>
+</blockquote>
+<p><img src="https://i.loli.net/2019/11/04/Ro4wSLnXVHQICjb.png" alt="image.png"></p>
+<h3 id="c-执行结果看到变化-1">C-执行结果（看到变化）</h3>
+<p><a href="https://app.yinxiang.com/client/web#?n=671a47c7-fccd-457d-9fc8-69c980997b6a&amp;s=s39&amp;swm=true&amp;">https://app.yinxiang.com/client/web#?n=671a47c7-fccd-457d-9fc8-69c980997b6a&amp;s=s39&amp;swm=true&amp;</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Troy</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2019-12-19 00:00
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a target="_blank" rel="license noopener" href="https://github.com/nusr/blog/blob/master/LICENSE">MIT</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/GTD/">GTD</a>
+          <a href="/tags/work/">work</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/ARTS/ARTS_2020_02_weekly/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">ARTS_2012_weekly_2</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/habit/eat_regularly/">
+            <span class="next-text nav-default">reat regularly</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="wangcy6/wangcy6.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:wang_cyi@163.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/wangcy6" class="iconfont icon-github" title="github"></a>
+  <a href="https://wangcy6.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2022
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Troy</span>
+  </span>
+</div>
+<script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
+  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+    var languageCode = "zh-cn".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    timeago().render(document.querySelectorAll('.timeago'), languageCode);
+    timeago.cancel();  
+  </script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-138883536-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>
