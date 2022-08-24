@@ -35,3 +35,4 @@ build
 pkg
 *.a
 .class
+public

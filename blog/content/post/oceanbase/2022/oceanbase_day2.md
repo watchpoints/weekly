@@ -145,7 +145,7 @@ CREATE TABLE v0 ( v2 INTEGER PRIMARY KEY , v1 VARCHARACTER ( 30 ) , UNIQUE v0 ( 
 
 obclient [oceanbase]> ALTER TABLE v0 DROP COLUMN v2 ;
 ERROR 4016 (HY000): Internal error
-
+=INSERT INTO __all_server_event_history (g
 
 ~~~
 
@@ -158,6 +158,7 @@ ERROR 4016 (HY000): Internal error
 ~~~shell
 ## 设置断点
 ## PROCESS
+=
 dir /oceanbase/oceanbase
 set pagination off //
 thread apply all break obmp_query.cpp:414
@@ -195,6 +196,64 @@ ObAlterTableExecutor::execute
 thread apply all break ob_table_executor.cpp:1021
 
 thread apply all break ob_table_executor.cpp:785
+
+ObAlterTableExecutor::alter_table_rpc_v2
+thread apply all break ob_table_executor.cpp:670 
+thread apply all break ob_table_executor.cpp:698 
+common_rpc_proxy->alter_table
+alter_table_rpc_v2(alter_table_arg, res, allocator, common_rpc_proxy, my_session, is_sync_ddl_user)) 【问题不在这里】
+
+D:\oceanbase\src\rootserver\ob_ddl_service.cpp
+thread apply all break ob_ddl_service.cpp:5967
+thread apply all break ob_ddl_service.cpp:6090
+thread apply all break ob_ddl_service.cpp:6120
+thread apply all break ob_ddl_service.cpp:6291
+thread apply all break ob_ddl_service.cpp:6350
+thread apply all break ob_ddl_service.cpp:6285  kaaaa
+
+thread apply all break ob_ddl_service.cpp:6294
+
+
+thread apply all break ob_ddl_service.cpp:6301 //up 
+thread apply all break ob_ddl_service.cpp:6433 if ret <0
+
+dir /oceanbase/oceanbase
+set pagination off /
+thread apply all break ob_cmd_executor.cpp:130 
+~~~
+
+D:\oceanbase\src\sql\executor\ob_cmd_executor.cpp
+
+
+
+~~~
+set ob_enable_trace_log = 1
+show trace;
+obclient [oceanbase]> select * from __all_server_event_history;
+
+
+
+obclient [test]> ALTER TABLE v0 DROP COLUMN v2;
+No connection. Trying to reconnect...
+Connection id:    3221487617
+Current database: test
+
+ERROR 4694 (HY000): check drop column failed
+
+
+
+(gdb) bt
+#0  oceanbase::rootserver::ObDDLService::alter_table (this=0xc5f4550 <oceanbase::observer::ObServer::get_instance()::THE_ONE+9585616>, alter_table_arg=..., frozen_version=1) at ./src/rootserver/ob_ddl_service.cpp:6433
+#1  0x000000000809aaf1 in oceanbase::rootserver::ObRootService::alter_table (this=0xbe37e80 <oceanbase::observer::ObServer::get_instance()::THE_ONE+1473792>, arg=..., res=...) at ./src/rootserver/ob_root_service.cpp:4684
+
+#2  0x000000000a7d36d2 in oceanbase::rootserver::ObRpcAlterTableP::leader_process (this=0x7f1642a6d1d0) at ./src/rootserver/ob_rs_rpc_processor.h:364
+#3  0x000000000a7b1edd in oceanbase::rootserver::ObRootServerRPCProcessorBase::process_ (this=0x7f1642a6f6f0, pcode=oceanbase::obrpc::OB_ALTER_TABLE) at ./src/rootserver/ob_rs_rpc_processor.h:181
+
+#4  0x000000000a7d35a3 in oceanbase::rootserver::ObRootServerRPCProcessor<(oceanbase::obrpc::ObRpcPacketCode)517>::process (this=0x7f1642a6d1d0) at ./src/rootserver/ob_rs_rpc_processor.h:249
+#5  0x000000000b6c492d in oceanbase::rpc::frame::ObReqProcessor::run (this=0x7f1642a6d1d0) at ./deps/oblib/src/rpc/frame/ob_req_processor.cpp:50
+#6  0x000000000b6c58ae in oceanbase::rpc::frame::ObReqQHandler::handlePacketQueue (this=0xbdb8470 <oceanbase::observer::ObServer::get_instance()::THE_ONE+951024>, req=0x7f172a8e1f40) at ./deps/oblib/src/rpc/frame/ob_req_qhandler.cpp:78
+#7  0x000000000b6c625e in oceanbase::rpc::frame::ObReqQueue::process_task (this=0x7f1833fd1ff0, task=0x7f172a8e1f40) at ./deps/oblib/src/rpc/frame/ob_req_queue_thread.cpp:124
+
 ~~~
 
 
@@ -304,6 +363,23 @@ DEP_DIR = /oceanbase/oceanbase/deps/3rd/usr/local/oceanbase/deps/devel
 https://github.com/google/googletest
 ld.lld: error: undefined symbol: testing::internal::EqFailure(char 
 ~~~
+
+ 
+
+```
+case stmt::T_ALTER_TABLE: {
+      DEFINE_EXECUTE_CMD(ObAlterTableStmt, ObAlterTableExecutor);
+      break;
+ }   
+ 
+#define DEFINE_EXECUTE_CMD(Statement, Executor)       \
+  Statement& stmt = *(static_cast<Statement*>(&cmd)); \
+  Executor executor;                                  \
+  sql_text = stmt.get_sql_stmt();                     \
+  ret = executor.execute(ctx, stmt);
+```
+
+
 
 
 

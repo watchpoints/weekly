@@ -75,7 +75,7 @@ pip3 uninstall apscheduler
 mpi4py https://pypi.org/project/mpi4py/#files 
 https://github.com/mpi4py/mpi4py/releases/tag/3.1.3
 python setup.py bdist_rpm
-
+psutil
 apscheduler:
 https://pypi.org/project/APScheduler/#files
 https://github.com/agronholm/apscheduler/releases/tag/3.8.1

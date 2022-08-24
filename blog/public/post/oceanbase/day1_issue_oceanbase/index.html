@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.101.0 with theme even" />
+<meta name="generator" content="Hugo 0.83.1 with theme even" />
 
 
 <link rel="canonical" href="https://wangcy6.github.io/post/oceanbase/day1_issue_oceanbase/" />
@@ -42,13 +42,13 @@
 <meta property="og:description" content="OceanBase开发者手册" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://wangcy6.github.io/post/oceanbase/day1_issue_oceanbase/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2022-02-23T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-02-23T00:00:00+00:00" />
+<meta property="article:published_time" content="2022-02-23T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2022-02-23T00:00:00&#43;00:00" />
 
 <meta itemprop="name" content="OceanBase开发者手册">
-<meta itemprop="description" content="OceanBase开发者手册"><meta itemprop="datePublished" content="2022-02-23T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-02-23T00:00:00+00:00" />
-<meta itemprop="wordCount" content="4564">
+<meta itemprop="description" content="OceanBase开发者手册"><meta itemprop="datePublished" content="2022-02-23T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2022-02-23T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="4567">
 <meta itemprop="keywords" content="OceanBase," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="OceanBase开发者手册"/>
 <meta name="twitter:description" content="OceanBase开发者手册"/>
@@ -128,7 +128,7 @@
       <div class="post-meta">
         <span class="post-time"> 2022-02-23 00:00 </span>
         
-          <span class="more-meta"> 约 4564 字 </span>
+          <span class="more-meta"> 约 4567 字 </span>
           <span class="more-meta"> 预计阅读 10 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -214,7 +214,7 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -225,16 +225,16 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">Make sure the available resources meet the requirements:
-</span></span><span class="line"><span class="cl">The logical CPU count is no less than 4.
-</span></span><span class="line"><span class="cl">The available memory is no less than 10G, and the docker container memory limit is no less than 10G.
-</span></span><span class="line"><span class="cl">The available disk space is no less than 10G.
-</span></span><span class="line"><span class="cl">请确保宿主机的可用资源满足下面要求：
-</span></span><span class="line"><span class="cl">逻辑 CPU 不少于4个
-</span></span><span class="line"><span class="cl">可用内存不少于 10G，并且 docker 容器内存限制不少于10G
-</span></span><span class="line"><span class="cl">空间不少于10G
-</span></span><span class="line"><span class="cl">https://hub.docker.com/r/obpilot/oceanbase-ce
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">Make sure the available resources meet the requirements:
+The logical CPU count is no less than 4.
+The available memory is no less than 10G, and the docker container memory limit is no less than 10G.
+The available disk space is no less than 10G.
+请确保宿主机的可用资源满足下面要求：
+逻辑 CPU 不少于4个
+可用内存不少于 10G，并且 docker 容器内存限制不少于10G
+空间不少于10G
+https://hub.docker.com/r/obpilot/oceanbase-ce
+</code></pre></td></tr></table>
 </div>
 </div><blockquote>
 <p>小贴士：可以直接使用官方提供docker进行开发。</p>
@@ -246,7 +246,7 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -319,82 +319,84 @@
 </span><span class="lnt">71
 </span><span class="lnt">72
 </span><span class="lnt">73
+</span><span class="lnt">74
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1">## centos镜像</span>
-</span></span><span class="line"><span class="cl">https://github.com/watchpoints/mydocker
-</span></span><span class="line"><span class="cl">docker pull oceanbase/centos7:latest
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">docker run -itd  -p 2881:2881 -p 22:22 --privileged<span class="o">=</span><span class="nb">true</span>  --name oceanbase-ce oceanbase/centos7 /bin/bash
-</span></span><span class="line"><span class="cl">docker <span class="nb">exec</span> -it oceanbase-ce bash
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">yum-config-manager --add-repo http://mirrors.aliyun.com/repo/Centos-7.repo
-</span></span><span class="line"><span class="cl">yum-config-manager --add-repo https://mirrors.aliyun.com/oceanbase/OceanBase.repo
-</span></span><span class="line"><span class="cl">ifconfig安装
-</span></span><span class="line"><span class="cl">yum install net-tools.x86_64
-</span></span><span class="line"><span class="cl">yum install m4
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">##SSH公钥认证方式远程登陆docker容器</span>
-</span></span><span class="line"><span class="cl">vi /etc/ssh/sshd_config
-</span></span><span class="line"><span class="cl">PermitRootLogin yes <span class="c1">##允许root用户以任何认证方式登录（用户名密码认证和公钥认证）</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#PermitRootLogin yes #允许root用户以任何认证方式登录（用户名密码认证和公钥认证）</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#PermitRootLogin without-password #只允许root用公钥认证方式登录</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#PermitRootLogin no #不允许root用户以任何认证方式登录</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">PasswordAuthentication yes
-</span></span><span class="line"><span class="cl">RSAAuthentication yes
-</span></span><span class="line"><span class="cl">PubkeyAuthentication yes <span class="c1">#启用公钥私钥配对认证方式</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#AuthorizedKeysFile .ssh/authorized_keys #公钥文件路径（和上面生成的文件同）</span>
-</span></span><span class="line"><span class="cl">passwd root
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">登录操作：
-</span></span><span class="line"><span class="cl">docker attach  3346da816048
-</span></span><span class="line"><span class="cl">docker <span class="nb">exec</span> -it oceanbase-ce bash
-</span></span><span class="line"><span class="cl">service sshd restart
-</span></span><span class="line"><span class="cl">chkconfig sshd on
-</span></span><span class="line"><span class="cl">ssh root@10.2.131.60 -p <span class="m">22</span> （ mac 网络方式变化 宿主机器IP）
-</span></span><span class="line"><span class="cl">ssh root@192.168.4.106 -p <span class="m">22</span>  （mac 网络方式变化 宿主机器IP）
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">## 编译</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">docker <span class="nb">exec</span> -it oceanbase-ce bash
-</span></span><span class="line"><span class="cl">service sshd restart
-</span></span><span class="line"><span class="cl">cat /root/.ssh/id_rsa.pub
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">git clone git@github.com:watchpoints/oceanbase.git （下载超慢!!!）
-</span></span><span class="line"><span class="cl">git config --global user.name <span class="s2">&#34;watchpoints&#34;</span>
-</span></span><span class="line"><span class="cl">git config --global user.email <span class="s2">&#34;wang_cyi@163.com&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">debug mode
-</span></span><span class="line"><span class="cl">bash build.sh debug --init --make
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 执行build.sh脚本并传入init参数</span>
-</span></span><span class="line"><span class="cl">sh build.sh init //更新依赖的第三方库。
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 在源码目录下执行debug版的预制构建命令</span>
-</span></span><span class="line"><span class="cl">yum install m4
-</span></span><span class="line"><span class="cl">sh build.sh debug
-</span></span><span class="line"><span class="cl"><span class="c1"># 进入生成的 debug 构建目录</span>
-</span></span><span class="line"><span class="cl"><span class="nb">cd</span> build_debug
-</span></span><span class="line"><span class="cl"><span class="c1"># 进行构建</span>
-</span></span><span class="line"><span class="cl">make -j<span class="o">{</span>N<span class="o">}</span> observer <span class="o">(</span>需要很长时间<span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># 查看构建产物</span>
-</span></span><span class="line"><span class="cl">stat src/observer/observer
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">--基于新镜像运行容器
-</span></span><span class="line"><span class="cl">docker run -d -p 10022:22 herong/centos7-ssh:latest /usr/sbin/sshd -D
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1">## centos镜像</span>
+https://github.com/watchpoints/mydocker
+docker pull oceanbase/centos7:latest
+
+docker run -itd  -p 2881:2881 -p 22:22 --privileged<span class="o">=</span><span class="nb">true</span>  --name oceanbase-ce oceanbase/centos7 /bin/bash
+docker <span class="nb">exec</span> -it oceanbase-ce bash
+
+yum-config-manager --add-repo http://mirrors.aliyun.com/repo/Centos-7.repo
+yum-config-manager --add-repo https://mirrors.aliyun.com/oceanbase/OceanBase.repo
+ifconfig安装
+yum install net-tools.x86_64
+yum install m4
+
+
+<span class="c1">##SSH公钥认证方式远程登陆docker容器</span>
+vi /etc/ssh/sshd_config
+PermitRootLogin yes <span class="c1">##允许root用户以任何认证方式登录（用户名密码认证和公钥认证）</span>
+<span class="c1">#PermitRootLogin yes #允许root用户以任何认证方式登录（用户名密码认证和公钥认证）</span>
+<span class="c1">#PermitRootLogin without-password #只允许root用公钥认证方式登录</span>
+<span class="c1">#PermitRootLogin no #不允许root用户以任何认证方式登录</span>
+
+PasswordAuthentication yes
+RSAAuthentication yes
+PubkeyAuthentication yes <span class="c1">#启用公钥私钥配对认证方式</span>
+<span class="c1">#AuthorizedKeysFile .ssh/authorized_keys #公钥文件路径（和上面生成的文件同）</span>
+passwd root
+
+
+登录操作：
+docker attach  3346da816048
+docker <span class="nb">exec</span> -it oceanbase-ce bash
+service sshd restart
+chkconfig sshd on
+ssh root@10.2.131.60 -p <span class="m">22</span> （ mac 网络方式变化 宿主机器IP）
+ssh root@192.168.4.106 -p <span class="m">22</span>  （mac 网络方式变化 宿主机器IP）
+
+
+
+
+
+
+<span class="c1">## 编译</span>
+
+
+docker <span class="nb">exec</span> -it oceanbase-ce bash
+service sshd restart
+cat /root/.ssh/id_rsa.pub
+
+git clone git@github.com:watchpoints/oceanbase.git （下载超慢!!!）
+git config --global user.name <span class="s2">&#34;watchpoints&#34;</span>
+git config --global user.email <span class="s2">&#34;wang_cyi@163.com&#34;</span>
+
+debug mode
+bash build.sh debug --init --make
+
+<span class="c1"># 执行build.sh脚本并传入init参数</span>
+sh build.sh init //更新依赖的第三方库。
+
+
+<span class="c1"># 在源码目录下执行debug版的预制构建命令</span>
+yum install m4
+sh build.sh debug
+<span class="c1"># 进入生成的 debug 构建目录</span>
+<span class="nb">cd</span> build_debug
+<span class="c1"># 进行构建</span>
+make -j<span class="o">{</span>N<span class="o">}</span> observer <span class="o">(</span>需要很长时间<span class="o">)</span>
+<span class="c1"># 查看构建产物</span>
+stat src/observer/observer
+
+
+
+--基于新镜像运行容器
+docker run -d -p 10022:22 herong/centos7-ssh:latest /usr/sbin/sshd -D
+
+</code></pre></td></tr></table>
 </div>
 </div><blockquote>
 <p>遗留问题 缺点：每次重启 service sshd restart 因此 需要重新构造一个镜像。这里还没有实现。</p>
@@ -422,7 +424,7 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -459,46 +461,48 @@
 </span><span class="lnt">35
 </span><span class="lnt">36
 </span><span class="lnt">37
+</span><span class="lnt">38
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker <span class="nb">exec</span> -it oceanbase-ce bash
-</span></span><span class="line"><span class="cl">service sshd restart
-</span></span><span class="line"><span class="cl">ssh root@10.2.131.60 -p <span class="m">22</span> （宿主机器IP）
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">## 关联远程仓库，保证代码可以和远程更新和提交</span>
-</span></span><span class="line"><span class="cl">git remote add oceanbase https://github.com/oceanbase/oceanbase.git
-</span></span><span class="line"><span class="cl">git remote -v
-</span></span><span class="line"><span class="cl"><span class="c1">#把远程仓库最新的代码及分支拉取一下 </span>
-</span></span><span class="line"><span class="cl">git fetch oceanbase 
-</span></span><span class="line"><span class="cl">git merge oceanbase/master
-</span></span><span class="line"><span class="cl"><span class="c1"># git merge 远程仓库的别名/分支名 （一般不这样做）</span>
-</span></span><span class="line"><span class="cl">git merge upstream/issue_557
-</span></span><span class="line"><span class="cl">git checkout -b issue_557 origin/issue_557
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">#查看远程分支</span>
-</span></span><span class="line"><span class="cl">git branch -r 
-</span></span><span class="line"><span class="cl">git branch -a
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">## 本地创建分支，进行开发</span>
-</span></span><span class="line"><span class="cl">git checkout -b issue_557
-</span></span><span class="line"><span class="cl">git checkout -b issue_558
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">## 提交</span>
-</span></span><span class="line"><span class="cl">当前分支推送到自己的远程仓库
-</span></span><span class="line"><span class="cl">100%<span class="o">]</span> Linking CXX static library liboceanbase_static.a
-</span></span><span class="line"><span class="cl"><span class="o">[</span>100%<span class="o">]</span> Built target oceanbase_static
-</span></span><span class="line"><span class="cl"><span class="o">[</span>100%<span class="o">]</span> Linking CXX executable observer
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;fix typos ocena-&gt;ocean #646&#34;</span>
-</span></span><span class="line"><span class="cl">git push -u  origin issue_558 //1.8.1
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">## 冲突解决</span>
-</span></span><span class="line"><span class="cl">git reset --hard HEAD  （不建议）
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">https://github.com/oceanbase/oceanbase/issues/646 为例子 提交pr
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">docker <span class="nb">exec</span> -it oceanbase-ce bash
+service sshd restart
+ssh root@10.2.131.60 -p <span class="m">22</span> （宿主机器IP）
+
+<span class="c1">## 关联远程仓库，保证代码可以和远程更新和提交</span>
+git remote add oceanbase https://github.com/oceanbase/oceanbase.git
+git remote -v
+<span class="c1">#把远程仓库最新的代码及分支拉取一下 </span>
+git fetch oceanbase 
+git merge oceanbase/master
+<span class="c1"># git merge 远程仓库的别名/分支名 （一般不这样做）</span>
+git merge upstream/issue_557
+git checkout -b issue_557 origin/issue_557
+
+<span class="c1">#查看远程分支</span>
+git branch -r 
+git branch -a
+
+
+<span class="c1">## 本地创建分支，进行开发</span>
+git checkout -b issue_557
+git checkout -b issue_558
+
+<span class="c1">## 提交</span>
+当前分支推送到自己的远程仓库
+100%<span class="o">]</span> Linking CXX static library liboceanbase_static.a
+<span class="o">[</span>100%<span class="o">]</span> Built target oceanbase_static
+<span class="o">[</span>100%<span class="o">]</span> Linking CXX executable observer
+
+git commit -m <span class="s2">&#34;fix typos ocena-&gt;ocean #646&#34;</span>
+git push -u  origin issue_558 //1.8.1
+
+<span class="c1">## 冲突解决</span>
+git reset --hard HEAD  （不建议）
+
+
+https://github.com/oceanbase/oceanbase/issues/646 为例子 提交pr
+
+</code></pre></td></tr></table>
 </div>
 </div><h3 id="16-oceanbase开发者手册之五-如何debug-oceanbasehttpsgithubcomoceanbaseoceanbasewikihow_to_debug">1.6 <a href="https://github.com/oceanbase/oceanbase/wiki/how_to_debug">《OceanBase开发者手册》之五 如何debug OceanBase</a></h3>
 <ul>
@@ -511,7 +515,7 @@
 <p>二、过程</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -606,100 +610,100 @@
 </span><span class="lnt">93
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">#1. 官方提供2C8G参考配置 https://github.com/oceanbase/oceanbase/pull/787(2C8G)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">https://github.com/oceanbase/obdeploy
-</span></span><span class="line"><span class="cl">Your server has at least <span class="m">8</span> GB of memory.
-</span></span><span class="line"><span class="cl">Your server has at least <span class="m">2</span> CPU cores.
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">RUN sh build.sh debug --init <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="o">&amp;&amp;</span> sh build.sh --make -j4 <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="o">&amp;&amp;</span> <span class="nb">cd</span> build_debug <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="o">&amp;&amp;</span> make <span class="nv">DESTDIR</span><span class="o">=</span>. install <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="o">&amp;&amp;</span> obd mirror create -n oceanbase-ce -V 100.0.0 -p ./usr/local -t <span class="nb">test</span> -f
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">docker <span class="nb">exec</span> -it oceanbase-ce bash
-</span></span><span class="line"><span class="cl">service sshd restart
-</span></span><span class="line"><span class="cl">ssh root@10.2.131.60 -p <span class="m">22</span> （宿主机器IP）
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">observer -r xxx.xxx.xxx.xxx:2882:2881 -o <span class="nv">__min_full_resource_pool_memory</span><span class="o">=</span>268435456,enable_syslog_recycle<span class="o">=</span>True,enable_syslog_wf<span class="o">=</span>True,max_syslog_file_count<span class="o">=</span>4,memory_limit<span class="o">=</span>69G,system_memory<span class="o">=</span>27G,cpu_count<span class="o">=</span>19,datafile_size<span class="o">=</span>1029G,clog_disk_utilization_threshold<span class="o">=</span>95,clog_disk_usage_limit_percentage<span class="o">=</span><span class="m">98</span> -z zone1 -p <span class="m">2881</span> -P <span class="m">2882</span> -n obcluster -c <span class="m">1</span> -d /home/xxxxxxx/observer/store -i em1 -l INFO
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">https://gitee.com/oceanbase/obdeploy/blob/master/example/mini-local-example.yaml
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">obd cluster deploy obtest -c mini-local-example.yaml
-</span></span><span class="line"><span class="cl">obd cluster edit-config obtest
-</span></span><span class="line"><span class="cl">obd cluster redeploy obtest
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">obd cluster list
-</span></span><span class="line"><span class="cl">obd cluster display obtest
-</span></span><span class="line"><span class="cl">obd cluster start  obtest
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">obclient -uroot@sys -h127.0.0.1 -P2881 oceanbase
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">//
-</span></span><span class="line"><span class="cl">observer program health check x
-</span></span><span class="line"><span class="cl"><span class="o">[</span>2022-02-25 02:30:19.076440<span class="o">]</span> WARN  <span class="o">[</span>SHARE<span class="o">]</span> add_extra_config <span class="o">(</span>ob_common_config.cpp:100<span class="o">)</span> <span class="o">[</span>1476<span class="o">][</span>0<span class="o">][</span>Y0-0000000000000000<span class="o">]</span> <span class="o">[</span><span class="nv">lt</span><span class="o">=</span>20<span class="o">]</span> Invalid config, value out of range<span class="o">(</span><span class="nv">name</span><span class="o">=</span><span class="s2">&#34;memory_limit&#34;</span>, <span class="nv">value</span><span class="o">=</span><span class="s2">&#34;6G&#34;</span>, <span class="nv">ret</span><span class="o">=</span>-4147<span class="o">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">const int64_t ObRunningModeConfig::MINI_MEM_LOWER <span class="o">=</span> 8L <span class="s">&lt;&lt; 30;
-</span></span></span><span class="line"><span class="cl"><span class="s">const int64_t ObRunningModeConfig::MINI_MEM_UPPER = 16L &lt;&lt; 30</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">Invalid config, value out of range<span class="o">(</span><span class="nv">name</span><span class="o">=</span><span class="s2">&#34;memory_limit&#34;</span>, <span class="nv">value</span><span class="o">=</span><span class="s2">&#34;6G&#34;</span>, <span class="nv">ret</span><span class="o">=</span>-4147<span class="o">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">int64_t ObRunningModeConfig::MINI_MEM_LOWER <span class="o">=</span> 8L <span class="s">&lt;&lt; 30;
-</span></span></span><span class="line"><span class="cl"><span class="s">
-</span></span></span><span class="line"><span class="cl"><span class="s">obclient -uroot@sys -h127.0.0.1 -P2881 oceanbase
-</span></span></span><span class="line"><span class="cl"><span class="s">
-</span></span></span><span class="line"><span class="cl"><span class="s">[root@3346da816048 ~]# obclient -uroot@sys -h127.0.0.1 -P2881 oceanbase
-</span></span></span><span class="line"><span class="cl"><span class="s">Reading table information for completion of table and column names
-</span></span></span><span class="line"><span class="cl"><span class="s">You can turn off this feature to get a quicker startup with -A
-</span></span></span><span class="line"><span class="cl"><span class="s">
-</span></span></span><span class="line"><span class="cl"><span class="s">Welcome to the OceanBase.  Commands end with ; or \g.
-</span></span></span><span class="line"><span class="cl"><span class="s">Your MySQL connection id is 3221487661
-</span></span></span><span class="line"><span class="cl"><span class="s">Server version: 5.7.25 OceanBase 3.1.2 (r100003920211230</span>10-d4ace121deae5b81d8f0b40afbc4c02705b7fc1d<span class="o">)</span> <span class="o">(</span>Built Dec <span class="m">30</span> <span class="m">2021</span> 02:47:29<span class="o">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">Copyright <span class="o">(</span>c<span class="o">)</span> 2000, 2018, Oracle, MariaDB Corporation Ab and others.
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">Type <span class="s1">&#39;help;&#39;</span> or <span class="s1">&#39;\h&#39;</span> <span class="k">for</span> help. Type <span class="s1">&#39;\c&#39;</span> to clear the current input statemen
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">捕获oceanbase 的启动参数 <span class="o">(</span>通过‘ps -ef<span class="p">|</span>grep observer’<span class="o">)</span>.
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">/root/observer/bin/observer -r 127.0.0.1:2882:2881 -o <span class="nv">__min_full_resource_pool_memory</span><span class="o">=</span>268435456,memory_limit<span class="o">=</span>8G,system_memory<span class="o">=</span>4G,stack_size<span class="o">=</span>512K,cpu_count<span class="o">=</span>16,cache_wash_threshold<span class="o">=</span>1G,workers_per_cpu_quota<span class="o">=</span>10,schema_history_expire_time<span class="o">=</span>1d,net_thread_count<span class="o">=</span>4,sys_bkgd_migration_retry_num<span class="o">=</span>3,minor_freeze_times<span class="o">=</span>10,enable_separate_sys_clog<span class="o">=</span>0,enable_merge_by_turn<span class="o">=</span>False,datafile_disk_percentage<span class="o">=</span>20,enable_syslog_wf<span class="o">=</span>False,enable_syslog_recycle<span class="o">=</span>True,max_syslog_file_count<span class="o">=</span><span class="m">4</span> -z zone1 -p <span class="m">2881</span> -P <span class="m">2882</span> -c <span class="m">1</span> -d /root/observer/store -i lo -l INFO
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">资料：https://github.com/oceanbase/oceanbase/wiki/how_to_debug
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">摘要：
-</span></span><span class="line"><span class="cl">remote ssh 连接远程机器
-</span></span><span class="line"><span class="cl">插件：
-</span></span><span class="line"><span class="cl">C/C++ GNU Global
-</span></span><span class="line"><span class="cl">C/C++
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">OB_SRC_DIR：
-</span></span><span class="line"><span class="cl"><span class="c1">###########################</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># 动态库  /etc/ld.so.conf</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#####################</span>
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$LD_LIBRARY_PATH</span>:/usr/local/lib
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">###########################</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#  环境变量</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#####################</span>
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">OB_SRC_DIR</span><span class="o">=</span>//app//oceanbase
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">IP</span><span class="o">=</span>127.0.0.1
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">###########################</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#  别名</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#####################</span>
-</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">c</span><span class="o">=</span><span class="s2">&#34;source ~/.bashrc&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">cdcode</span><span class="o">=</span><span class="s2">&#34;cd /home/work/dns_zhibo&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">OBServer 启动失败
-</span></span><span class="line"><span class="cl">https://open.oceanbase.com/docs/tutorials-cn/V1.0.0/10000000000012304
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">
+<span class="c1">#1. 官方提供2C8G参考配置 https://github.com/oceanbase/oceanbase/pull/787(2C8G)</span>
+
+https://github.com/oceanbase/obdeploy
+Your server has at least <span class="m">8</span> GB of memory.
+Your server has at least <span class="m">2</span> CPU cores.
+
+RUN sh build.sh debug --init <span class="se">\
+</span><span class="se"></span>    <span class="o">&amp;&amp;</span> sh build.sh --make -j4 <span class="se">\
+</span><span class="se"></span>    <span class="o">&amp;&amp;</span> <span class="nb">cd</span> build_debug <span class="se">\
+</span><span class="se"></span>    <span class="o">&amp;&amp;</span> make <span class="nv">DESTDIR</span><span class="o">=</span>. install <span class="se">\
+</span><span class="se"></span>    <span class="o">&amp;&amp;</span> obd mirror create -n oceanbase-ce -V 100.0.0 -p ./usr/local -t <span class="nb">test</span> -f
+    
+    
+docker <span class="nb">exec</span> -it oceanbase-ce bash
+service sshd restart
+ssh root@10.2.131.60 -p <span class="m">22</span> （宿主机器IP）
+
+
+observer -r xxx.xxx.xxx.xxx:2882:2881 -o <span class="nv">__min_full_resource_pool_memory</span><span class="o">=</span>268435456,enable_syslog_recycle<span class="o">=</span>True,enable_syslog_wf<span class="o">=</span>True,max_syslog_file_count<span class="o">=</span>4,memory_limit<span class="o">=</span>69G,system_memory<span class="o">=</span>27G,cpu_count<span class="o">=</span>19,datafile_size<span class="o">=</span>1029G,clog_disk_utilization_threshold<span class="o">=</span>95,clog_disk_usage_limit_percentage<span class="o">=</span><span class="m">98</span> -z zone1 -p <span class="m">2881</span> -P <span class="m">2882</span> -n obcluster -c <span class="m">1</span> -d /home/xxxxxxx/observer/store -i em1 -l INFO
+
+https://gitee.com/oceanbase/obdeploy/blob/master/example/mini-local-example.yaml
+
+
+obd cluster deploy obtest -c mini-local-example.yaml
+obd cluster edit-config obtest
+obd cluster redeploy obtest
+
+obd cluster list
+obd cluster display obtest
+obd cluster start  obtest
+
+obclient -uroot@sys -h127.0.0.1 -P2881 oceanbase
+
+//
+observer program health check x
+<span class="o">[</span>2022-02-25 02:30:19.076440<span class="o">]</span> WARN  <span class="o">[</span>SHARE<span class="o">]</span> add_extra_config <span class="o">(</span>ob_common_config.cpp:100<span class="o">)</span> <span class="o">[</span>1476<span class="o">][</span>0<span class="o">][</span>Y0-0000000000000000<span class="o">]</span> <span class="o">[</span><span class="nv">lt</span><span class="o">=</span>20<span class="o">]</span> Invalid config, value out of range<span class="o">(</span><span class="nv">name</span><span class="o">=</span><span class="s2">&#34;memory_limit&#34;</span>, <span class="nv">value</span><span class="o">=</span><span class="s2">&#34;6G&#34;</span>, <span class="nv">ret</span><span class="o">=</span>-4147<span class="o">)</span>
+
+const int64_t ObRunningModeConfig::MINI_MEM_LOWER <span class="o">=</span> 8L <span class="s">&lt;&lt; 30;
+</span><span class="s">const int64_t ObRunningModeConfig::MINI_MEM_UPPER = 16L &lt;&lt; 30</span><span class="p">;</span>
+
+Invalid config, value out of range<span class="o">(</span><span class="nv">name</span><span class="o">=</span><span class="s2">&#34;memory_limit&#34;</span>, <span class="nv">value</span><span class="o">=</span><span class="s2">&#34;6G&#34;</span>, <span class="nv">ret</span><span class="o">=</span>-4147<span class="o">)</span>
+
+int64_t ObRunningModeConfig::MINI_MEM_LOWER <span class="o">=</span> 8L <span class="s">&lt;&lt; 30;
+</span><span class="s">
+</span><span class="s">obclient -uroot@sys -h127.0.0.1 -P2881 oceanbase
+</span><span class="s">
+</span><span class="s">[root@3346da816048 ~]# obclient -uroot@sys -h127.0.0.1 -P2881 oceanbase
+</span><span class="s">Reading table information for completion of table and column names
+</span><span class="s">You can turn off this feature to get a quicker startup with -A
+</span><span class="s">
+</span><span class="s">Welcome to the OceanBase.  Commands end with ; or \g.
+</span><span class="s">Your MySQL connection id is 3221487661
+</span><span class="s">Server version: 5.7.25 OceanBase 3.1.2 (r100003920211230</span>10-d4ace121deae5b81d8f0b40afbc4c02705b7fc1d<span class="o">)</span> <span class="o">(</span>Built Dec <span class="m">30</span> <span class="m">2021</span> 02:47:29<span class="o">)</span>
+
+Copyright <span class="o">(</span>c<span class="o">)</span> 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type <span class="s1">&#39;help;&#39;</span> or <span class="s1">&#39;\h&#39;</span> <span class="k">for</span> help. Type <span class="s1">&#39;\c&#39;</span> to clear the current input statemen
+
+捕获oceanbase 的启动参数 <span class="o">(</span>通过‘ps -ef<span class="p">|</span>grep observer’<span class="o">)</span>.
+
+/root/observer/bin/observer -r 127.0.0.1:2882:2881 -o <span class="nv">__min_full_resource_pool_memory</span><span class="o">=</span>268435456,memory_limit<span class="o">=</span>8G,system_memory<span class="o">=</span>4G,stack_size<span class="o">=</span>512K,cpu_count<span class="o">=</span>16,cache_wash_threshold<span class="o">=</span>1G,workers_per_cpu_quota<span class="o">=</span>10,schema_history_expire_time<span class="o">=</span>1d,net_thread_count<span class="o">=</span>4,sys_bkgd_migration_retry_num<span class="o">=</span>3,minor_freeze_times<span class="o">=</span>10,enable_separate_sys_clog<span class="o">=</span>0,enable_merge_by_turn<span class="o">=</span>False,datafile_disk_percentage<span class="o">=</span>20,enable_syslog_wf<span class="o">=</span>False,enable_syslog_recycle<span class="o">=</span>True,max_syslog_file_count<span class="o">=</span><span class="m">4</span> -z zone1 -p <span class="m">2881</span> -P <span class="m">2882</span> -c <span class="m">1</span> -d /root/observer/store -i lo -l INFO
+
+
+资料：https://github.com/oceanbase/oceanbase/wiki/how_to_debug
+
+摘要：
+remote ssh 连接远程机器
+插件：
+C/C++ GNU Global
+C/C++
+
+OB_SRC_DIR：
+<span class="c1">###########################</span>
+<span class="c1"># 动态库  /etc/ld.so.conf</span>
+<span class="c1">#####################</span>
+<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$LD_LIBRARY_PATH</span>:/usr/local/lib
+
+<span class="c1">###########################</span>
+<span class="c1">#  环境变量</span>
+<span class="c1">#####################</span>
+<span class="nb">export</span> <span class="nv">OB_SRC_DIR</span><span class="o">=</span>//app//oceanbase
+<span class="nb">export</span> <span class="nv">IP</span><span class="o">=</span>127.0.0.1
+
+<span class="c1">###########################</span>
+<span class="c1">#  别名</span>
+<span class="c1">#####################</span>
+<span class="nb">alias</span> <span class="nv">c</span><span class="o">=</span><span class="s2">&#34;source ~/.bashrc&#34;</span>
+<span class="nb">alias</span> <span class="nv">cdcode</span><span class="o">=</span><span class="s2">&#34;cd /home/work/dns_zhibo&#34;</span>
+
+
+OBServer 启动失败
+https://open.oceanbase.com/docs/tutorials-cn/V1.0.0/10000000000012304
+</code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>
@@ -713,7 +717,7 @@
 <p>/root/observer/bin/observer -r 127.0.0.1:2882:2881 -o __min_full_resource_pool_memory=268435456,memory_limit=8G,system_memory=4G,stack_size=512K,cpu_count=16,cache_wash_threshold=1G,workers_per_cpu_quota=10,schema_history_expire_time=1d,net_thread_count=4,sys_bkgd_migration_retry_num=3,minor_freeze_times=10,enable_separate_sys_clog=0,enable_merge_by_turn=False,datafile_disk_percentage=20,enable_syslog_wf=False,enable_syslog_recycle=True,max_syslog_file_count=4 -z zone1 -p 2881 -P 2882 -c 1 -d /root/observer/store -i lo -l INFO</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -781,73 +785,73 @@
 </span><span class="lnt">66
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">{
-</span></span><span class="line"><span class="cl">    // Use IntelliSense to learn about possible attributes.
-</span></span><span class="line"><span class="cl">    // Hover to view descriptions of existing attributes.
-</span></span><span class="line"><span class="cl">    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-</span></span><span class="line"><span class="cl">    &#34;version&#34;: &#34;0.2.0&#34;,
-</span></span><span class="line"><span class="cl">    &#34;configurations&#34;: [
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">        {
-</span></span><span class="line"><span class="cl">            &#34;name&#34;: &#34;observer&#34;,
-</span></span><span class="line"><span class="cl">            &#34;type&#34;: &#34;cppdbg&#34;,
-</span></span><span class="line"><span class="cl">            &#34;request&#34;: &#34;launch&#34;,
-</span></span><span class="line"><span class="cl">            &#34;program&#34;: &#34; /root/observer/build_debug/src/observer/observer&#34;,
-</span></span><span class="line"><span class="cl">            &#34;args&#34;: [&#34;-r&#34;, &#34;127.0.0.1:2882:2881&#34;, &#34;-o&#34;, &#34;__min_full_resource_pool_memory=268435456,memory_limit=8G,system_memory=4G,stack_size=512K,cpu_count=16,cache_wash_threshold=1G,workers_per_cpu_quota=10,schema_history_expire_time=1d,net_thread_count=4,sys_bkgd_migration_retry_num=3,minor_freeze_times=10,enable_separate_sys_clog=0,enable_merge_by_turn=False,datafile_disk_percentage=20,enable_syslog_wf=False,enable_syslog_recycle=True,max_syslog_file_count=4&#34;, &#34;-z&#34;, &#34;zone1&#34;, &#34;-p&#34;, &#34;2881&#34;, &#34;-P&#34;, &#34;2882&#34;, &#34;-n&#34;, &#34;obcluster&#34;, &#34;-c&#34;, 1, &#34;-d&#34;, &#34;/root/observer/store&#34;, &#34;-i&#34;, &#34;lo&#34;, &#34;-l&#34;, &#34;INFO&#34;],
-</span></span><span class="line"><span class="cl">            &#34;stopAtEntry&#34;: true,
-</span></span><span class="line"><span class="cl">            &#34;cwd&#34;: &#34; /root/observer&#34;,
-</span></span><span class="line"><span class="cl">            &#34;environment&#34;: [],
-</span></span><span class="line"><span class="cl">            &#34;externalConsole&#34;: false,
-</span></span><span class="line"><span class="cl">            &#34;MIMode&#34;: &#34;gdb&#34;,
-</span></span><span class="line"><span class="cl">            &#34;setupCommands&#34;: [
-</span></span><span class="line"><span class="cl">                {
-</span></span><span class="line"><span class="cl">                    &#34;description&#34;: &#34;Enable pretty-printing for gdb&#34;,
-</span></span><span class="line"><span class="cl">                    &#34;text&#34;: &#34;-enable-pretty-printing&#34;,
-</span></span><span class="line"><span class="cl">                    &#34;ignoreFailures&#34;: true
-</span></span><span class="line"><span class="cl">                },
-</span></span><span class="line"><span class="cl">                {
-</span></span><span class="line"><span class="cl">                    &#34;description&#34;: &#34;将反汇编风格设置为 Intel&#34;,
-</span></span><span class="line"><span class="cl">                    &#34;text&#34;: &#34;-gdb-set disassembly-flavor intel&#34;,
-</span></span><span class="line"><span class="cl">                    &#34;ignoreFailures&#34;: true
-</span></span><span class="line"><span class="cl">                }
-</span></span><span class="line"><span class="cl">            ]
-</span></span><span class="line"><span class="cl">        }
-</span></span><span class="line"><span class="cl">    ]
-</span></span><span class="line"><span class="cl">}
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">{
-</span></span><span class="line"><span class="cl">    // 使用 IntelliSense 了解相关属性。 
-</span></span><span class="line"><span class="cl">    // 悬停以查看现有属性的描述。
-</span></span><span class="line"><span class="cl">    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
-</span></span><span class="line"><span class="cl">    &#34;version&#34;: &#34;0.2.0&#34;,
-</span></span><span class="line"><span class="cl">    &#34;configurations&#34;: [
-</span></span><span class="line"><span class="cl">        {
-</span></span><span class="line"><span class="cl">            &#34;name&#34;: &#34;(gdb) 启动&#34;,
-</span></span><span class="line"><span class="cl">            &#34;type&#34;: &#34;cppdbg&#34;,
-</span></span><span class="line"><span class="cl">            &#34;request&#34;: &#34;launch&#34;,
-</span></span><span class="line"><span class="cl">            &#34;program&#34;: &#34;输入程序名称，例如 ${workspaceFolder}/a.out&#34;,
-</span></span><span class="line"><span class="cl">            &#34;args&#34;: [],
-</span></span><span class="line"><span class="cl">            &#34;stopAtEntry&#34;: false,
-</span></span><span class="line"><span class="cl">            &#34;cwd&#34;: &#34;${fileDirname}&#34;,
-</span></span><span class="line"><span class="cl">            &#34;environment&#34;: [],
-</span></span><span class="line"><span class="cl">            &#34;externalConsole&#34;: false,
-</span></span><span class="line"><span class="cl">            &#34;MIMode&#34;: &#34;gdb&#34;,
-</span></span><span class="line"><span class="cl">            &#34;setupCommands&#34;: [
-</span></span><span class="line"><span class="cl">                {
-</span></span><span class="line"><span class="cl">                    &#34;description&#34;: &#34;为 gdb 启用整齐打印&#34;,
-</span></span><span class="line"><span class="cl">                    &#34;text&#34;: &#34;-enable-pretty-printing&#34;,
-</span></span><span class="line"><span class="cl">                    &#34;ignoreFailures&#34;: true
-</span></span><span class="line"><span class="cl">                },
-</span></span><span class="line"><span class="cl">                {
-</span></span><span class="line"><span class="cl">                    &#34;description&#34;: &#34;将反汇编风格设置为 Intel&#34;,
-</span></span><span class="line"><span class="cl">                    &#34;text&#34;: &#34;-gdb-set disassembly-flavor intel&#34;,
-</span></span><span class="line"><span class="cl">                    &#34;ignoreFailures&#34;: true
-</span></span><span class="line"><span class="cl">                }
-</span></span><span class="line"><span class="cl">            ]
-</span></span><span class="line"><span class="cl">        }
-</span></span><span class="line"><span class="cl">    ]
-</span></span><span class="line"><span class="cl">}
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    &#34;version&#34;: &#34;0.2.0&#34;,
+    &#34;configurations&#34;: [
+    
+        {
+            &#34;name&#34;: &#34;observer&#34;,
+            &#34;type&#34;: &#34;cppdbg&#34;,
+            &#34;request&#34;: &#34;launch&#34;,
+            &#34;program&#34;: &#34; /root/observer/build_debug/src/observer/observer&#34;,
+            &#34;args&#34;: [&#34;-r&#34;, &#34;127.0.0.1:2882:2881&#34;, &#34;-o&#34;, &#34;__min_full_resource_pool_memory=268435456,memory_limit=8G,system_memory=4G,stack_size=512K,cpu_count=16,cache_wash_threshold=1G,workers_per_cpu_quota=10,schema_history_expire_time=1d,net_thread_count=4,sys_bkgd_migration_retry_num=3,minor_freeze_times=10,enable_separate_sys_clog=0,enable_merge_by_turn=False,datafile_disk_percentage=20,enable_syslog_wf=False,enable_syslog_recycle=True,max_syslog_file_count=4&#34;, &#34;-z&#34;, &#34;zone1&#34;, &#34;-p&#34;, &#34;2881&#34;, &#34;-P&#34;, &#34;2882&#34;, &#34;-n&#34;, &#34;obcluster&#34;, &#34;-c&#34;, 1, &#34;-d&#34;, &#34;/root/observer/store&#34;, &#34;-i&#34;, &#34;lo&#34;, &#34;-l&#34;, &#34;INFO&#34;],
+            &#34;stopAtEntry&#34;: true,
+            &#34;cwd&#34;: &#34; /root/observer&#34;,
+            &#34;environment&#34;: [],
+            &#34;externalConsole&#34;: false,
+            &#34;MIMode&#34;: &#34;gdb&#34;,
+            &#34;setupCommands&#34;: [
+                {
+                    &#34;description&#34;: &#34;Enable pretty-printing for gdb&#34;,
+                    &#34;text&#34;: &#34;-enable-pretty-printing&#34;,
+                    &#34;ignoreFailures&#34;: true
+                },
+                {
+                    &#34;description&#34;: &#34;将反汇编风格设置为 Intel&#34;,
+                    &#34;text&#34;: &#34;-gdb-set disassembly-flavor intel&#34;,
+                    &#34;ignoreFailures&#34;: true
+                }
+            ]
+        }
+    ]
+}
+
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    &#34;version&#34;: &#34;0.2.0&#34;,
+    &#34;configurations&#34;: [
+        {
+            &#34;name&#34;: &#34;(gdb) 启动&#34;,
+            &#34;type&#34;: &#34;cppdbg&#34;,
+            &#34;request&#34;: &#34;launch&#34;,
+            &#34;program&#34;: &#34;输入程序名称，例如 ${workspaceFolder}/a.out&#34;,
+            &#34;args&#34;: [],
+            &#34;stopAtEntry&#34;: false,
+            &#34;cwd&#34;: &#34;${fileDirname}&#34;,
+            &#34;environment&#34;: [],
+            &#34;externalConsole&#34;: false,
+            &#34;MIMode&#34;: &#34;gdb&#34;,
+            &#34;setupCommands&#34;: [
+                {
+                    &#34;description&#34;: &#34;为 gdb 启用整齐打印&#34;,
+                    &#34;text&#34;: &#34;-enable-pretty-printing&#34;,
+                    &#34;ignoreFailures&#34;: true
+                },
+                {
+                    &#34;description&#34;: &#34;将反汇编风格设置为 Intel&#34;,
+                    &#34;text&#34;: &#34;-gdb-set disassembly-flavor intel&#34;,
+                    &#34;ignoreFailures&#34;: true
+                }
+            ]
+        }
+    ]
+}
+</code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>
@@ -866,52 +870,52 @@
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">add-auto-load-safe-path ${OB_SRC_DIR}/.gdbinit
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">add-auto-load-safe-path ${OB_SRC_DIR}/.gdbinit
+</code></pre></td></tr></table>
 </div>
 </div><ol>
 <li>vi ${OB_SRC_DIR}/.gdbinit</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">file build_debug/src/observer/observer
-</span></span><span class="line"><span class="cl">set args &#34;-r&#34;, &#34;127.0.0.1:2882:2881&#34;, &#34;-o&#34;, &#34;___min_full_resource_pool_memory=268435456,memory_limit=8G,system_memory=4G,stack_size=512K,cpu_count=16,cache_wash_threshold=1G,workers_per_cpu_quota=10,schema_history_expire_time=1d,net_thread_count=4,sys_bkgd_migration_retry_num=3,minor_freeze_times=10,enable_separate_sys_clog=0,enable_merge_by_turn=False,datafile_disk_percentage=20,enable_syslog_wf=False,enable_syslog_recycle=True,max_syslog_file_count=4&#34;,&#34;-z&#34;, &#34;zone1&#34;, &#34;-p&#34;, &#34;2881&#34;, &#34;-P&#34;, &#34;2882&#34;, &#34;-n&#34;, &#34;obcluster&#34;, &#34;-c&#34;, 1, &#34;-d&#34;, &#34;/root/observer/store&#34;, &#34;-i&#34;, &#34;lo&#34;, &#34;-l&#34;, &#34;INFO&#34;
-</span></span><span class="line"><span class="cl">b main
-</span></span><span class="line"><span class="cl">r
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">file build_debug/src/observer/observer
+set args &#34;-r&#34;, &#34;127.0.0.1:2882:2881&#34;, &#34;-o&#34;, &#34;___min_full_resource_pool_memory=268435456,memory_limit=8G,system_memory=4G,stack_size=512K,cpu_count=16,cache_wash_threshold=1G,workers_per_cpu_quota=10,schema_history_expire_time=1d,net_thread_count=4,sys_bkgd_migration_retry_num=3,minor_freeze_times=10,enable_separate_sys_clog=0,enable_merge_by_turn=False,datafile_disk_percentage=20,enable_syslog_wf=False,enable_syslog_recycle=True,max_syslog_file_count=4&#34;,&#34;-z&#34;, &#34;zone1&#34;, &#34;-p&#34;, &#34;2881&#34;, &#34;-P&#34;, &#34;2882&#34;, &#34;-n&#34;, &#34;obcluster&#34;, &#34;-c&#34;, 1, &#34;-d&#34;, &#34;/root/observer/store&#34;, &#34;-i&#34;, &#34;lo&#34;, &#34;-l&#34;, &#34;INFO&#34;
+b main
+r
+</code></pre></td></tr></table>
 </div>
 </div><p>备注: 这个里面有args的参数来自于第一步的准备工作中获取的启动参数, 每台机器有每台机器的配置, 笔者的参数如下, 其中:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1. ${OB_SRC_DIR} 为源码目录, ${IP} 为observer 的绑定ip
-</span></span><span class="line"><span class="cl">2. 需要设置“cwd”, 为${OB_SRC_DIR}
-</span></span><span class="line"><span class="cl">3. 当前的工作目录必须是${OB_SRC_DIR}
-</span></span><span class="line"><span class="cl">4. 在args 参数中, 其中 -d 设置的目录 &#34;/home/xxxxx/observer/store&#34;, 需要设置为真实的参数
-</span></span><span class="line"><span class="cl">5. 在args 参数中, 其中-i 设置的设备名称 &#34;em1&#34;, 为ip 对应的设备名称
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">1. ${OB_SRC_DIR} 为源码目录, ${IP} 为observer 的绑定ip
+2. 需要设置“cwd”, 为${OB_SRC_DIR}
+3. 当前的工作目录必须是${OB_SRC_DIR}
+4. 在args 参数中, 其中 -d 设置的目录 &#34;/home/xxxxx/observer/store&#34;, 需要设置为真实的参数
+5. 在args 参数中, 其中-i 设置的设备名称 &#34;em1&#34;, 为ip 对应的设备名称
+</code></pre></td></tr></table>
 </div>
 </div><ol>
 <li>推荐使用tui tui是gdb自带的图形界面，比较直观，这里简单说一下切换方法和常用命令</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -920,21 +924,21 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1、gdb -tui + (可执行程序)  直接进入tui图形界面
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">2、gdb进入后，使用命令focus进入tui图形界面，或者使用快捷键：Ctl+x+a (注意按键顺序，记忆：x：focus，a：another)
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">3、在tui中使用相同的快捷键Ctl+x+a返回到gdb原生界面
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">4、在gdb中↑和↓切换上一个命令和下一个命令，但是在tui中只是控制代码视图。想达到切换命令的目的，使用Ctl+n （记忆：next）和Ctl+p（记忆：previous），这其实就是gdb的原生快捷键
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">1、gdb -tui + (可执行程序)  直接进入tui图形界面
+
+2、gdb进入后，使用命令focus进入tui图形界面，或者使用快捷键：Ctl+x+a (注意按键顺序，记忆：x：focus，a：another)
+
+3、在tui中使用相同的快捷键Ctl+x+a返回到gdb原生界面
+
+4、在gdb中↑和↓切换上一个命令和下一个命令，但是在tui中只是控制代码视图。想达到切换命令的目的，使用Ctl+n （记忆：next）和Ctl+p（记忆：previous），这其实就是gdb的原生快捷键
+</code></pre></td></tr></table>
 </div>
 </div><ol>
 <li>在源码目录下, 敲入gdb 即可启动gdb debug</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1011,86 +1015,88 @@
 </span><span class="lnt">75
 </span><span class="lnt">76
 </span><span class="lnt">77
+</span><span class="lnt">78
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/root/.obd/repository/oceanbase-ce/3.1.1/f19f8bfb67723712175fb0dfd60579196b3168f1/bin/observer
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">gdb 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">gdb进入后，使用命令focus进入tui图形界面，或者使用快捷键：Ctl+x+a (注意按键顺序，记忆：x：focus，a：another)
-</span></span><span class="line"><span class="cl">在tui中使用相同的快捷键Ctl+x+a返回到gdb原生界面
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">替换：
-</span></span><span class="line"><span class="cl">obd cluster stop test
-</span></span><span class="line"><span class="cl">cd /app/oceanbase/build_debug/src/observer
-</span></span><span class="line"><span class="cl">cp observer /root/.obd/repository/oceanbase-ce/3.1.1/f19f8bfb67723712175fb0dfd60579196b3168f1/bin/observer
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">问：[如何设置断点跟踪](https://open.oceanbase.com/answer/detail?id=20400433)
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">答：
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">- gdb Function  not defined. 是因为自己设置符号不存在。
-</span></span><span class="line"><span class="cl">- 改为thread apply all break obmp_query.cpp:84 解决
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">dbgui：基于浏览器的gdb前端（gnu调试器）。 使用C，C ++，Go，Rust和F
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">obclient -uroot@tpcc -h127.0.0.1 -P2881 -p123456 -Dtpcc
-</span></span><span class="line"><span class="cl">obclient -uroot@tpcc -h127.0.0.1 -P2881 -p123456 -Dtpcc
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">obclient -uroot@tpcc -h127.0.0.1 -P2881 -p123456 -Dtpcc
-</span></span><span class="line"><span class="cl">gdb设置代码目录
-</span></span><span class="line"><span class="cl">dir /app/oceanbase/ //No such file or directory.
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">(gdb) delete
-</span></span><span class="line"><span class="cl">Delete all breakpoints? (y or n) y
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">thread apply all break ob_sql.cpp:1139
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">直接用gdb 本地调试
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">/app/data/observer/bin/observer -r 127.0.0.1:2882:2881 -o __min_full_resource_pool_memory=268435456,memory_limit=10G,system_memory=4G,stack_size=512K,cpu_count=12,cache_wash_threshold=1G,workers_per_cpu_quota=10,schema_history_expire_time=1d,net_thread_count=4,sys_bkgd_migration_retry_num=3,minor_freeze_times=10,enable_separate_sys_clog=0,enable_merge_by_turn=False,datafile_disk_percentage=20,enable_syslog_recycle=True,max_syslog_file_count=4,clog_disk_utilization_threshold=10 -z zone1 -p 2881 -P 2882 -c 1 -d /app/data/observer/store -i lo -l WARN
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">vi ${OB_SRC_DIR}/.gdbinit
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">file build_debug/src/observer/observer
-</span></span><span class="line"><span class="cl">set args &#34;-r&#34;, &#34;127.0.0.1:2882:2881&#34;, &#34;-o&#34;, &#34;__min_full_resource_pool_memory=268435456,memory_limit=10G,system_memory=4G,stack_size=512K,cpu_count=12,cache_wash_threshold=1G,workers_per_cpu_quota=10,schema_history_expire_time=1d,net_thread_count=4,sys_bkgd_migration_retry_num=3,minor_freeze_times=10,enable_separate_sys_clog=0,enable_merge_by_turn=False,datafile_disk_percentage=20,enable_syslog_recycle=True,max_syslog_file_count=4,clog_disk_utilization_threshold=10&#34;, &#34;-z&#34;,&#34;zone1&#34;,&#34;-p&#34;, &#34;2881&#34;, &#34;-P&#34;, &#34;2882&#34;, &#34;-n&#34;, &#34;obcluster&#34;, &#34;-c&#34;, 1, &#34;-d&#34;, &#34;/app/data/observer/store&#34;, &#34;-i&#34;, &#34;lo&#34;, &#34;-l&#34;, &#34;INFO&#34;
-</span></span><span class="line"><span class="cl">b main
-</span></span><span class="line"><span class="cl">r
-</span></span><span class="line"><span class="cl">add-auto-load-safe-path /app/oceanbase/.gdbinit
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">export OB_SRC_DIR=//app//oceanbase
-</span></span><span class="line"><span class="cl">export IP=127.0.0.1
-</span></span><span class="line"><span class="cl">////测试不通过
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">build_debug/src/observer/observer -r 127.0.0.1:2882:2881 -o __min_full_resource_pool_memory=268435456,memory_limit=10G,system_memory=4G,stack_size=512K,cpu_count=12,cache_wash_threshold=1G,workers_per_cpu_quota=10,schema_history_expire_time=1d,net_thread_count=4,sys_bkgd_migration_retry_num=3,minor_freeze_times=10,enable_separate_sys_clog=0,enable_merge_by_turn=False,datafile_disk_percentage=20,enable_syslog_recycle=True,max_syslog_file_count=4,clog_disk_utilization_threshold=10 -z zone1 -p 2881 -P 2882 -c 1 -d /app/data/observer/store -i lo -l WARN
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">## 设置断点
-</span></span><span class="line"><span class="cl">## PROCESS
-</span></span><span class="line"><span class="cl">dir /app/oceanbase/ 
-</span></span><span class="line"><span class="cl">set pagination off
-</span></span><span class="line"><span class="cl">thread apply all break obmp_query.cpp:100
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">## handle_physical_plan （(这个断点不能设置)）
-</span></span><span class="line"><span class="cl">thread apply all break ob_sql.cpp:1200
-</span></span><span class="line"><span class="cl">//thread apply all break ob_sql.cpp:3160 （(这个断点不能设置)）
-</span></span><span class="line"><span class="cl">int ObSql::handle_physical_plan
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">thread apply all break ob_sql.cpp:3217(这个断点不能设置)
-</span></span><span class="line"><span class="cl">else if (OB_FAIL(generate_physical_plan(parse_result, &amp;pc_ctx, context, result))) {
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">create table sex (sex bit(60) primary key,name bit(60)) partition by hash(sex) partitions 4;
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">/root/.obd/repository/oceanbase-ce/3.1.1/f19f8bfb67723712175fb0dfd60579196b3168f1/bin/observer
+
+
+gdb 
+
+gdb进入后，使用命令focus进入tui图形界面，或者使用快捷键：Ctl+x+a (注意按键顺序，记忆：x：focus，a：another)
+在tui中使用相同的快捷键Ctl+x+a返回到gdb原生界面
+
+
+替换：
+obd cluster stop test
+cd /app/oceanbase/build_debug/src/observer
+cp observer /root/.obd/repository/oceanbase-ce/3.1.1/f19f8bfb67723712175fb0dfd60579196b3168f1/bin/observer
+
+
+问：[如何设置断点跟踪](https://open.oceanbase.com/answer/detail?id=20400433)
+
+答：
+
+- gdb Function  not defined. 是因为自己设置符号不存在。
+- 改为thread apply all break obmp_query.cpp:84 解决
+
+
+
+dbgui：基于浏览器的gdb前端（gnu调试器）。 使用C，C ++，Go，Rust和F
+
+obclient -uroot@tpcc -h127.0.0.1 -P2881 -p123456 -Dtpcc
+obclient -uroot@tpcc -h127.0.0.1 -P2881 -p123456 -Dtpcc
+
+
+
+obclient -uroot@tpcc -h127.0.0.1 -P2881 -p123456 -Dtpcc
+gdb设置代码目录
+dir /app/oceanbase/ //No such file or directory.
+
+(gdb) delete
+Delete all breakpoints? (y or n) y
+
+thread apply all break ob_sql.cpp:1139
+
+直接用gdb 本地调试
+
+/app/data/observer/bin/observer -r 127.0.0.1:2882:2881 -o __min_full_resource_pool_memory=268435456,memory_limit=10G,system_memory=4G,stack_size=512K,cpu_count=12,cache_wash_threshold=1G,workers_per_cpu_quota=10,schema_history_expire_time=1d,net_thread_count=4,sys_bkgd_migration_retry_num=3,minor_freeze_times=10,enable_separate_sys_clog=0,enable_merge_by_turn=False,datafile_disk_percentage=20,enable_syslog_recycle=True,max_syslog_file_count=4,clog_disk_utilization_threshold=10 -z zone1 -p 2881 -P 2882 -c 1 -d /app/data/observer/store -i lo -l WARN
+
+
+vi ${OB_SRC_DIR}/.gdbinit
+
+file build_debug/src/observer/observer
+set args &#34;-r&#34;, &#34;127.0.0.1:2882:2881&#34;, &#34;-o&#34;, &#34;__min_full_resource_pool_memory=268435456,memory_limit=10G,system_memory=4G,stack_size=512K,cpu_count=12,cache_wash_threshold=1G,workers_per_cpu_quota=10,schema_history_expire_time=1d,net_thread_count=4,sys_bkgd_migration_retry_num=3,minor_freeze_times=10,enable_separate_sys_clog=0,enable_merge_by_turn=False,datafile_disk_percentage=20,enable_syslog_recycle=True,max_syslog_file_count=4,clog_disk_utilization_threshold=10&#34;, &#34;-z&#34;,&#34;zone1&#34;,&#34;-p&#34;, &#34;2881&#34;, &#34;-P&#34;, &#34;2882&#34;, &#34;-n&#34;, &#34;obcluster&#34;, &#34;-c&#34;, 1, &#34;-d&#34;, &#34;/app/data/observer/store&#34;, &#34;-i&#34;, &#34;lo&#34;, &#34;-l&#34;, &#34;INFO&#34;
+b main
+r
+add-auto-load-safe-path /app/oceanbase/.gdbinit
+
+export OB_SRC_DIR=//app//oceanbase
+export IP=127.0.0.1
+////测试不通过
+
+build_debug/src/observer/observer -r 127.0.0.1:2882:2881 -o __min_full_resource_pool_memory=268435456,memory_limit=10G,system_memory=4G,stack_size=512K,cpu_count=12,cache_wash_threshold=1G,workers_per_cpu_quota=10,schema_history_expire_time=1d,net_thread_count=4,sys_bkgd_migration_retry_num=3,minor_freeze_times=10,enable_separate_sys_clog=0,enable_merge_by_turn=False,datafile_disk_percentage=20,enable_syslog_recycle=True,max_syslog_file_count=4,clog_disk_utilization_threshold=10 -z zone1 -p 2881 -P 2882 -c 1 -d /app/data/observer/store -i lo -l WARN
+
+
+
+
+## 设置断点
+## PROCESS
+dir /app/oceanbase/ 
+set pagination off
+thread apply all break obmp_query.cpp:100
+
+## handle_physical_plan （(这个断点不能设置)）
+thread apply all break ob_sql.cpp:1200
+//thread apply all break ob_sql.cpp:3160 （(这个断点不能设置)）
+int ObSql::handle_physical_plan
+
+thread apply all break ob_sql.cpp:3217(这个断点不能设置)
+else if (OB_FAIL(generate_physical_plan(parse_result, &amp;pc_ctx, context, result))) {
+
+create table sex (sex bit(60) primary key,name bit(60)) partition by hash(sex) partitions 4;
+
+</code></pre></td></tr></table>
 </div>
 </div><p>阅读：<a href="https://wizardforcel.gitbooks.io/100-gdb-tips/content/config-gdbinit.html">配置gdb init文件</a> 10分钟 ✅</p>
 <ul>
@@ -1100,19 +1106,19 @@
 <p><a href="https://github.com/oceanbase/oceanbase/wiki/how_to_test">单元测试</a>  完成。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">cd</span> <span class="n">build_debug</span><span class="o">/</span><span class="n">unittest</span><span class="o">/</span>
-</span></span><span class="line"><span class="cl"><span class="n">make</span> <span class="o">-</span><span class="n">j</span> <span class="mi">4</span>
-</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="o">/</span><span class="n">run_tests</span><span class="p">.</span><span class="n">sh</span>
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl"><span class="err">整个过程</span><span class="p">,</span> <span class="err">需要</span><span class="mi">1</span><span class="err">个小时</span> <span class="err">太慢了。又优化吗？（</span><span class="n">mac不舍得</span> <span class="err">编译太慢，用其他</span><span class="n">liunx机器代替</span><span class="err">）</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">cd</span> <span class="n">build_debug</span><span class="o">/</span><span class="n">unittest</span><span class="o">/</span>
+<span class="n">make</span> <span class="o">-</span><span class="n">j</span> <span class="mi">4</span>
+<span class="p">.</span><span class="o">/</span><span class="n">run_tests</span><span class="p">.</span><span class="n">sh</span>
+  
+<span class="err">整个过程</span><span class="p">,</span> <span class="err">需要</span><span class="mi">1</span><span class="err">个小时</span> <span class="err">太慢了。又优化吗？（</span><span class="n">mac不舍得</span> <span class="err">编译太慢，用其他</span><span class="n">liunx机器代替</span><span class="err">）</span>
+</code></pre></td></tr></table>
 </div>
 </div><p>三 、 结论</p>
 <ul>
@@ -1130,7 +1136,7 @@
 <p><img src="day1_issue_oceanbase.assets/ojGQeLh83bymEr9.png" alt="image.png"></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1152,27 +1158,27 @@
 </span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">## 设置代码目录</span>
-</span></span><span class="line"><span class="cl">gdb -p xx
-</span></span><span class="line"><span class="cl">dir /app/oceanbase/ 
-</span></span><span class="line"><span class="cl"><span class="c1">## 设置断点</span>
-</span></span><span class="line"><span class="cl"><span class="c1">## PROCESS</span>
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> obmp_query.cpp:100
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">## handle_physical_plan</span>
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_sql.cpp:1200
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_sql.cpp:3160
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_sql.cpp:3217
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">## tui图形界面</span>
-</span></span><span class="line"><span class="cl">gdb进入后，使用命令focus进入tui图形界面，
-</span></span><span class="line"><span class="cl">或者使用快捷键：Ctl+x+a <span class="o">(</span>注意按键顺序，记忆：x：focus，a：another<span class="o">)</span>
-</span></span><span class="line"><span class="cl">在tui中使用相同的快捷键Ctl+x+a返回到gdb原生界面
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">## dbgui：基于浏览器的gdb前端（gnu调试器）。 使用C，C ++，Go，Rust和F</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">
+<span class="c1">## 设置代码目录</span>
+gdb -p xx
+dir /app/oceanbase/ 
+<span class="c1">## 设置断点</span>
+<span class="c1">## PROCESS</span>
+thread apply all <span class="nb">break</span> obmp_query.cpp:100
+
+<span class="c1">## handle_physical_plan</span>
+thread apply all <span class="nb">break</span> ob_sql.cpp:1200
+thread apply all <span class="nb">break</span> ob_sql.cpp:3160
+thread apply all <span class="nb">break</span> ob_sql.cpp:3217
+
+
+<span class="c1">## tui图形界面</span>
+gdb进入后，使用命令focus进入tui图形界面，
+或者使用快捷键：Ctl+x+a <span class="o">(</span>注意按键顺序，记忆：x：focus，a：another<span class="o">)</span>
+在tui中使用相同的快捷键Ctl+x+a返回到gdb原生界面
+
+<span class="c1">## dbgui：基于浏览器的gdb前端（gnu调试器）。 使用C，C ++，Go，Rust和F</span>
+</code></pre></td></tr></table>
 </div>
 </div><p><img src="day1_issue_oceanbase.assets/urDkBXaGmWygw9O.png" alt="image.png"></p>
 <p>sql 入口为例子</p>
