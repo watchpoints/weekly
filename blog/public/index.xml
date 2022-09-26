@@ -6,22 +6,40 @@
     <description>Recent content on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 22 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 03 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>成为oceanbase贡献者第二天：源码解析 DDL语句执行过程</title>
+      <link>https://wangcy6.github.io/post/oceanbase/2022/oceanbase_day2/</link>
+      <pubDate>Sat, 03 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/oceanbase/2022/oceanbase_day2/</guid>
+      <description>慢慢来，多看、多问、多总结，肯定是可以攻克的。 文章地址： http://localhost:1313/post/oceanbase/2022/oceanbase_day2/ https://wangcy6.github.io/post/oceanbase/2022/oceanbase_day2/ #一、Overview 前言 大家好， 这篇文章描述的是在解决issues/1035 对</description>
+    </item>
+    
+    <item>
+      <title>2002年todo</title>
+      <link>https://wangcy6.github.io/post/2022/08_worlog/</link>
+      <pubDate>Fri, 26 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2022/08_worlog/</guid>
+      <description>todo 9月 Emacs被公认为是最受专业程序员喜爱的代码编辑器之一 学会他 ​ Win10+emacs配置 D:\Program Files\Emacs\emacs-28.1\bin **win+r，在弹出的框中输入reged</description>
+    </item>
+    
     <item>
       <title>时间管理</title>
       <link>https://wangcy6.github.io/post/habit/1-2022-8-22-GDTlife/</link>
       <pubDate>Mon, 22 Aug 2022 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/habit/1-2022-8-22-GDTlife/</guid>
-      <description>FQA Q1：设定了番茄时间，时间到了，不想休息怎办？ ​ 结果从一个晚上过去了，导致熬夜第二天起不来 ​ 一个下午过去，经历消耗殆尽。 ​ 建议：8个 ​ 结果</description>
+      <description>锦囊一：改变从接受开始。 锦囊二：训练你的反馈系统。 锦囊三：找到温柔而坚定的力量。 第一，千万不要光学不练。 第二，千万不要光复制不进化。 第三，千</description>
     </item>
     
     <item>
-      <title>成为oceanbase贡献者第二天：</title>
-      <link>https://wangcy6.github.io/post/oceanbase/2022/oceanbase_day2/</link>
+      <title>成为Beegfs贡献者</title>
+      <link>https://wangcy6.github.io/post/beeGfs/day1-2022-8-24-start/</link>
       <pubDate>Sun, 14 Aug 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://wangcy6.github.io/post/oceanbase/2022/oceanbase_day2/</guid>
+      <guid>https://wangcy6.github.io/post/beeGfs/day1-2022-8-24-start/</guid>
       <description>慢慢来，多看、多问、多总结，肯定是可以攻克的。 文章地址： http://localhost:1313/post/oceanbase/2022/oceanbase_day2/ 沟通步骤 准备好一个ppt，在写代码之前演示最终目标 和架构设计 就是如何去实现的 【不要</description>
     </item>
     
@@ -131,6 +149,15 @@
       
       <guid>https://wangcy6.github.io/post/2022/liuqing/</guid>
       <description>曝光币圈连环诈骗犯刘庆, 拖欠数亿成老赖 1. 刘庆个人情况 刘庆，自称币圈70%矿机控制自身手中，通过不断诈骗和招募下线包装自己，在云南、四川、山东</description>
+    </item>
+    
+    <item>
+      <title>GTD践行第17周</title>
+      <link>https://wangcy6.github.io/post/ARTS/2022/2022-17/</link>
+      <pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ARTS/2022/2022-17/</guid>
+      <description>GDT践行记录 本周故事 第一部分：GDT践行 周一 周二 周三 周四 周五 周六 周日 Read 复盘 Share Algorithm 1. 热点新闻 目的 主要是为了学习英文，如果你的英文不行，你基本上</description>
     </item>
     
     <item>

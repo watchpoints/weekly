@@ -12,9 +12,9 @@ tags: ["mysql"]
 
 
 
-## day1
+## 	成为贡献者day1
 
-
+x`x`
 
 - [ ] 阅读资料 [TiFlash 相关的学习资料](https://asktug.com/t/topic/662813)
 
@@ -41,3 +41,4 @@ cmake ..
 make
 ~~~
 
+x

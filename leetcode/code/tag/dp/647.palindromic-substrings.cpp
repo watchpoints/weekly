@@ -4,10 +4,11 @@ using namespace std;
 class Solution
 {
 public:
-    int countSubstrings(string s)
+    int countSubstrings1(string s)
     {
         int count = 0;
         vector<vector<bool> > dp(s.size(), vector<bool>(s.size(), false));
+        //表示区间范围[i,j] （注意是左闭右闭）的子串是否是回文子串
         // dp[start][end] =false;
 
         for (int end = 0; end < s.size(); end++)

@@ -16,6 +16,46 @@ tags: ["mysql"]
 
 
 
+# 第一天：环境搭建
+
+### GO
+
+~~~
+https://www.digitalocean.com/community/tutorials/how-to-install-go-1-7-on-centos-7
+Step 1 – Downloading Go
+wget https://studygolang.com/dl/golang/go1.19.1.linux-amd64.tar.gz
+
+Step 2 – Setting Paths for Go
+
+export GOROOT=/root/local/go
+export PATH=$PATH:$GOROOT/bin
+export GOPATH=/root/src
+
+Step 3 – Downloading lib
+go env -w GO111MODULE=on 
+go env -w GOPROXY=https://goproxy.cn,direct
+go get -v golang.org/x/tools/cmd/goimports
+
+~~~
+
+
+
+### pingcap/parser
+
+~~~
+
+http://senzhangai.github.io/programming/build-tidb-by-source
+git clone git@github.com:watchpoints/tidb.git
+cd tidb && make
+
+~~~
+
+
+
+### 使用tiup 部署集群
+
+
+
 https://docs.qq.com/sheet/DSlBwS3VCb01kTnZw?tab=BB08J2&confirmed=1
 
 https://docs.qq.com/sheet/DSlBwS3VCb01kTnZw?tab=BB08J2
@@ -26,44 +66,21 @@ https://github.com/pingcap/tidb/issues/20804
 
 https://github.com/pingcap/tidb/issues/20804#sig/DDL
 
+- https://docs.pingcap.com/zh/tidb/v6.2/production-deployment-using-tiup
+
+~~~
+TiUP cluster 是 TiUP 提供的使用 Golang 编写的集群管理组件，
+通过 TiUP cluster 组件就可以进行日常的运维工作，包括部署、启动、关闭、销毁、弹性扩缩容、升级 TiDB 集群，以及管理 TiDB 集群参数。
+
+在中控机上部署 TiUP 组件有两种方式：在线部署和离线部署。
+curl --proto '=https' --tlsv1.2 -sSf https://tiup-mirrors.pingcap.com/install.sh | sh
+source ~/.bash_profile
+
+tiup cluster
+tiup update --self && tiup update cluster
+tiup --binary cluster
 
 
-# 基本操作parser
-
-
-
-```javascript
-https://github.com/watchpoints/parser
-https://github.com/pingcap/parser
-git reset --hard origin/master // git 放弃本地修改 强制更新
-git remote add upstream //https://github.com/pingcap/parser.git
-#切换到主分支
-git checkout master
-git fetch upstream
-git merge upstream/master
-git push origin master
-git checkout dev_study
-
-git@github.com:watchpoints/parser.git	
-git remote -v 
-git checkout -b wangchuanyi
-
-
-```
-
-
-
-## 使用tiup 部署集群
-
-## vpn 环境 
-
-
-
-### 准备
-
-1. 使用tiup 部署集群
-
-~~~shell
 cd /data/tidb/tiup
 tiup cluster deploy tidb-test  v5.0.2 ./topology1.yaml --user root -p ##部署
 
@@ -141,6 +158,51 @@ tiup cluster scale-in tidb-test --node 127.0.0.1:4001
 查看 /data/tidb/tiup/tidb-deploy 目录 tidb-4001 已经被删除
 
 https://asktug.com/t/topic/36950
+~~~
+
+
+
+
+
+### 替换成自己编译
+
+~~~
+### tidb 
+cp /data/tidb/src/github.com/watchpoints/tidb/bin/tidb-server  /data/tidb/tiup/tidb-deploy/tidb-4000/bin/tidb-server 
+
+tiup cluster destroy tidb-test
+tiup cluster stop tidb-test
+tiup cluster start tidb-test 
+tiup cluster display tidb-test 
+
+
+https://asktug.com/t/topic/34904/22
+
+第 5 步：查看 TiUP 管理的集群情况
+
+tiup cluster deploy tidb-test v5.0.2 ./topology1.yaml --user root -p 
+
+
+tiup cluster list
+tiup cluster display tidb-test
+~~~
+
+
+
+
+
+## 
+
+## vpn 环境 
+
+
+
+### 准备
+
+1. 使用tiup 部署集群
+
+~~~shell
+
 
 
 
@@ -158,7 +220,6 @@ https://asktug.com/t/topic/36950
 ## go 
 https://golang.google.cn/dl/
 cd /Users/wangchuanyi/local
-
 
 ### tidb
 git clone https://github.com/pingcap/tidb.git
@@ -198,7 +259,6 @@ git merge wangchuanyi/master
  取代默认tidb：
  
  data/tidb/tiup/tidb-deploy/tidb-4000/bin
- 
  
 
 ~~~
@@ -754,15 +814,11 @@ DropViewStmt:
 
 
 
-# 看代码过程
 
 
 
-## 第一天：
 
 
-
-https://zhuanlan.zhihu.com/p/24564238
 
 
 

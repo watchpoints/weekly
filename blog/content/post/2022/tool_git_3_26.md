@@ -8,47 +8,103 @@ tags: ["book"]
 
 
 
+# 编码 教训
+
+- 不能在window 修改代码，然后上传到liunx提交代码 【大量混乱 不行】【不运行这样操作发送】
+
+  纠正过去错误习惯：window 开发 然后上传liunx编译开发 【学会远程开发工具IDE 和 vi等命令】
+
+## 操作
 
 
 
+```bash
+git stash
+```
 
-问：git pull merge git rebase 区别？
-
-答：
-
-
-
+###  解决冲突
 
 
 
+Please, commit your changes or stash them before you can switch branches
 
 
 
+- [07★Git入门★比较修改内容 git diff](https://www.bilibili.com/video/BV1sf4y1D7bF/?vd_source=432dc5326188b5e1aa7119a815a8b105)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-参考资料
-
-- https://www.liaoxuefeng.com/wiki/896043488029600/1216289527823648
-
-- https://www.yiibai.com/git/git_merge.html
-
-- https://www.yiibai.com/git/git_rebase.html
+​      [git必知必会第三课：git status与git diff
 
   
+
+`1. git diff -- 文件名`：查看具体某个文件 在工作区和暂存区之间的差异
+
+ git diff -- ob_system_variable.cpp
+
+
+
+如何回退代码
+
+https://www.bilibili.com/video/BV1T5411j76k/?spm_id_from=333.788.recommend_more_video.4&vd_source=432dc5326188b5e1aa7119a815a8b105
+
+https://www.bilibili.com/video/BV19B4y1u7vm/?spm_id_from=333.788.recommend_more_video.3&vd_source=432dc5326188b5e1aa7119a815a8b105 	
+
+https://www.cnblogs.com/haima/p/13365483.html
+
+
+
+https://www.bilibili.com/video/BV14i4y1C7tM/?vd_source=432dc5326188b5e1aa7119a815a8b105
+
+https://www.liaoxuefeng.com/wiki/896043488029600/1216289527823648
+
+
+
+https://juejin.cn/post/6844904089600409613
+
+
+
+https://www.bilibili.com/video/BV1cv411u7wd/?spm_id_from=333.788.recommend_more_video.-1&vd_source=432dc5326188b5e1aa7119a815a8b105
+
+- 如何合并代码
+
+  git checkout -b newB
+
+  git checkout master
+
+  git merge newB
+
+
+
+- 如何提交代码？
+
+  git push <远程主机名> <本地分支名>:<远程分支名>
+
+  git push -u origin newB
+
+
+
+
+
+
+
+## doc
+
+1. https://git-scm.com/docs/git-diff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
