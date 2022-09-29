@@ -1,4 +1,86 @@
 
+
+Failed to start beeecp.service: Unit beeecp.service not found.
+[root@h12-storage03 noarch]# systemctl start beecp
+[root@h12-storage03 noarch]# systemctl status beecp
+● beecp.service - migration engine server
+   Loaded: loaded (/usr/lib/systemd/system/beecp.service; disabled; vendor preset: disabled)
+   Active: failed (Result: exit-code) since Mon 2022-09-26 20:56:22 CST; 6s ago
+  Process: 614291 ExecStart=/usr/bin/python3 $START -c $OPTIONS (code=exited, status=1/FAILURE)
+ Main PID: 614291 (code=exited, status=1/FAILURE)
+
+Sep 26 20:56:22 h12-storage03 python3[614291]: Traceback (most recent call last):
+Sep 26 20:56:22 h12-storage03 python3[614291]:   File "/opt/migration/move/src/beemove.py", line 8, in <module>
+Sep 26 20:56:22 h12-storage03 python3[614291]:     import parse_config
+Sep 26 20:56:22 h12-storage03 python3[614291]:   File "/opt/migration/move/src/parse_config.py", line 6, in <module>
+Sep 26 20:56:22 h12-storage03 python3[614291]:     from config.policy import get_policies_string
+Sep 26 20:56:22 h12-storage03 python3[614291]:   File "/opt/migration/move/src/config/policy.py", line 4, in <module>
+Sep 26 20:56:22 h12-storage03 python3[614291]:     from config.parse_config import PolicyConfig
+Sep 26 20:56:22 h12-storage03 python3[614291]: ModuleNotFoundError: No module named 'config.parse_config'
+Sep 26 20:56:22 h12-storage03 systemd[1]: beecp.service: Main process exited, code=exited, status=1/FAILURE
+Sep 26 20:56:22 h12-storage03 systemd[1]: beecp.service: Failed with result 'exit-code'
+
+
+
+python3 -m pip psutil-wheels-5.8.1.tar.gz
+ xattr属性是啥 ，应该有系统api ，现在离线部署还麻烦我看看这个。
+ 
+ 
+cp --preserve=all srcfile dstfile
+ 
+ 马上完成 
+ 提交报销单
+1. 中移--写测试报告
+2. 中移---竞品分析
+3. 中移--未完成功能整理
+ 
+ 问卷调查 ok
+ 
+   #  /var/log/mount/storage2/.temp_beegfs_migration/policy1/day5/vdb.1_1.dir/vdb_f1352.file
+    # /mnt/beegfs/wangchuanyi/storage2/.temp/day4/vdb.1_2.dir/vdb.2_4.dir/vdb.3_1.dir/vdb.4_3.dir/vdb_f156750.file
+    # /mnt/beegfs/wangchuanyi/storage1  /day4/vdb.1_2.dir/vdb.2_4.dir/vdb.3_1.dir/vdb.4_3.dir/vdb_f156750.file
+    source_path = beehive_path.replace(fileMigPolicy.beehive_input, fileMigPolicy.source_path)
+
+    logging.debug("step::task:file source_path =  " + source_path)
+    """ 根据一级目录文件 获取迁移到二级目录的路径  """
+
+    # /mnt/beegfs/wangchuanyi/storage1 /day4/vdb.1_2.dir/vdb.2_4.dir/vdb.3_1.dir/vdb.4_3.dir/vdb_f156750.file
+    #  /mnt/beegfs/wangchuanyi/storage2 /day4/vdb.1_2.dir/vdb.2_4.dir/vdb.3_1.dir/vdb.4_3.dir/vdb_f156750.file
+    destination_path = source_path.replace(fileMigPolicy.source_path, fileMigPolicy.dest_path)
+    logging.debug("step::thread::task: destination_path is  " + destination_path)
+	
+	   # # /var/log/mount/storage2/.temp_beegfs_migration/policy1/day5/vdb.1_1.dir/vdb_f3775.file
+	
+迁移机器：需要2台
+如果部署1300的集群的 在添加3台。
+需要5台
+
+ 
+@魏赫   一级存储用混闪的MN24，二级存储用咱们的CG36，交接后，提供下环境信息
+   threads = []
+    if len(files) > 0:
+        logging.debug("step::thread::task >>>>>>>>> " + str(files))
+        for file in files:
+            if str(file).endswith('.swp'):
+                logging.warning(" pass file " + file)
+                continue
+            task_path = split_output_path + '/' + file
+            t = threading.Thread(target=migration_theads_work, args=(task_path, opt_init, fileMigPolicy))
+            threads.append(t)
+            t.start()
+    for t in threads:
+        t.join()
+        logging.debug("step::thread::task::join ")
+		
+		
+1. 完成对速度和带宽流控，剩余单个文件流控 90%
+2. 解决压测并发低问题。
+3. 解决任务分发不均匀问题。
+
+1. 基本功能自测
+2. 文件拷贝过程中 异常处理
+3. cp性能优化
+
 测试迁移工具性能差异
 cp 
 scp 
@@ -9,7 +91,6 @@ cp只是在本机进行拷贝不能跨服务器，
 而且scp传输是加密的。可能会稍微影响一下速度
 rsync比cp和scp快在两方面在带宽有巨大限制的时候使用rsync的这一特性可以极大加速传输过程
 rsync 适合用来增量备份整个工作路径
-
 cp scp tar 适合用来冷备份到移动硬盘
 
 查看网口带宽
