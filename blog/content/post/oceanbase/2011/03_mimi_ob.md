@@ -1,4 +1,3 @@
-
 ---
 title: "mimob代码阅读"
 date: 2022-02-10
@@ -10,28 +9,6 @@ categories: ["code_reading"]
 > 慢慢来，多看、多问、多总结
 
 
-
-### 沟通步骤
-
-1. 准备好一个ppt，在写代码之前演示最终目标 和架构设计 就是如何去实现的 【不要说公司部门环境不对 着就是最终结果，不要试着看看，一定是可以完全上线的项目，非demo和一个知识点。自己认为真的 不是闹着玩的。。】
-
-   一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题
-
-   二、这个技术的优势和劣势分别是什么
-
-   三、这个技术适用的场景。任何技术都有其适用的场景，离开了这个场景
-
-   四、技术的组成部分和关键点。
-
-   五、技术的底层原理和关键实现
-
-   六、已有的实现和它之间的对比
-
-   
-
-2. 经过领导，专家 进行鸡蛋里挑骨头。【自己做好了别人路了胡扯，不会对别人产生任何影响，做事和做人一样，无论熟悉人，还是老师，领导，不相关人 反对 他们反馈信号，接受质疑，经过九九八十一难考验，并且你还在坚持认为对的。】
-
-3. 最后融合别人建议，然后完善你项目。【不听老人言，吃亏在眼前，不敢接受别人批评，说明自己完全没有把握，才去否定 愤怒方式】
 
 
 
@@ -47,25 +24,48 @@ categories: ["code_reading"]
 
 
 
+### day1
 
+- [ ]  https://github.com/watchpoints/miniob_2022/blob/main/docs/how_to_build.md
 
-## miniob说明
+- centos7.8系统【建议用8】
 
+```shell
 
+#命令安装版本过低
+yum install  cmake
+cmake --version 
+2.8.12.2 //cmake 版本 >= 3.10
+rpm -e cmake-2.8.12.2-2.el7.x86_64
+# 下载二进制安装包
+wget https://github.com/Kitware/CMake/releases/download/v3.24.0/cmake-3.24.0-linux-x86_64.sh
+bash cmake-3.24.0-linux-x86_64.sh
 
-### 线程池组件
+export PATH=$PATH:$GOROOT/bin:/root/github/cmake-3.24.0-linux-x86_64/bin
+/root/github/cmake-3.24.0-linux-x86_64/bin
+cmake --version
+cmake version 3.24.0
 
-- 类的关系
-- 函数说明
+# gcc过低 需要源码安装
+gcc --version
+gcc (GCC) 4.8.5 20150623 (Red Hat 4.8.5-44
+tar xzvf gcc-11.3.0.tar.gz
+cd gcc-11.3.0
 
-~~~
-add_event -->event_list_.push_back(event) -->Threadpool::schedule(Stage *stage)
---->Threadpool::run_thread--> 
-virtual void callback_event(StageEvent *event, CallbackContext *context) = 0;
+# gcc不同版本切换 
 
- int stat = pthread_create(&pthread, &pthread_attrs, Threadpool::run_thread, (void *) this);
+Centos7 使用 yum 安装的 GCC 版本是 4.8.5，蛮老的版本了，现在稍微新一点的库都要求 GCC5 以上，但是重新编译安装最新的GCC又特别麻烦，而且不能在各个版本的 GCC 之间来回切换，不够灵活，刚好有一个叫做 SCL 的软件库可以提供不同版本 GCC 的灵活切换，可以完美解决我们的需求，安装十分简单：
+————————————————
+版权声明：本文为CSDN博主「thewangcj」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/wcjlyj/article/details/122844189
 
-~~~
+yum install centos-release-scl scl-utils-build
+yum search devtoolset # 搜索 GCC
+devtoolset-9-gcc.x86_64 : GCC version 9
+
+yum install devtoolset-9-gcc.x86_64 
+scl enable devtoolset-9 # 启用 GC9
+```
 
 
 
