@@ -2,6 +2,56 @@
 
 ### day3
 
+
+
+### 提问2/100： - how to build rpm packages
+
+
+
+查看`.rpm` 包依赖 缺少 打的rpm是否正确
+
+-  rpm -qpR 
+
+- yum deplist 
+
+SPEC 阶段与目录的对应关系[#](https://www.cnblogs.com/michael-xiang/p/10500704.html#1297686658)
+
+- %install: 安装步骤,此时需要指定安装路径，创建编译时自动生成目录，复制配置文件至所对应的目录中（这一步比较重要！）
+
+-  %py3_install
+
+  Runs the `setup.py install` command with arguments suitable for an RPM package
+
+  些文件就是用户安装 RPM 后，最终得到的文件。注意一个奇怪的地方: 最终安装目录 不是 构建目录。通过执行类似 make install 的命令实现。
+
+  - %build #执行编译命令，编译后会在BUILD目录下存在暂时文件
+
+  
+
+
+
+
+
+
+
+
+
+----过程
+
+- https://access.redhat.com/sites/default/files/attachments/rpm_building_howto.pdf
+
+- https://docs.fedoraproject.org/en-US/packaging-guidelines/Python_Appendix/
+
+- https://rogerwelin.github.io/rpm/rpmbuild/2015/04/04/rpmbuild-tutorial-part-1.html
+- https://unix.stackexchange.com/questions/226319/rpm-and-defattr
+- https://www.golinuxcloud.com/rpmbuild-command-in-linux/
+- https://www.cnblogs.com/zhangxinglong/p/11904922.html
+- https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/html/installing_and_using_dynamic_programming_languages/assembly_packaging-python-3-rpms_installing-and-using-dynamic-programming-languages
+
+
+
+
+
 #### 问题1/100：如何安装mpi4py
 
 回答：
@@ -11,6 +61,30 @@
 
 
 过程：
+
+- rpm打包流程步骤 https://blog.csdn.net/LvJzzZ/article/details/114328421
+
+- rpmbuild tutorial - how to build rpm packages
+
+- 
+
+  
+
+  1.  	下载源码包时，需要 保留时间戳。如果有多个源码包，请用 Source1，Source2 等依次列出。如果你需要添加额外文件，请将它们列在后面
+
+  ```text
+  python setup.py bdist_rpm
+  ```
+
+~~~
+
+[root@h12-meta01 SOURCES]# pip3 install --help |grep target
+  -t, --target <dir>          Install packages into <dir>. By default this will not replace existing files/folders in <dir>. Use --upgrade to replace existing packages in <dir> with new versions.
+
+
+~~~
+
+
 
 - This is the **MPI for Python** package
 
@@ -40,6 +114,26 @@ https://mpi4py.readthedocs.io/en/latest/install.html#envvar-MPI4PY_BUILD_BACKEND
 rpm -qa |grep mpich
 mpich-3.3.2-9.el8.x86_64
 mpich-devel-3.3.2-9.el8.x86_64
+
++ mv /root/rpmbuild/BUILDROOT/beegfs-move-utils-1.0-1.el8.x86_64/etc/beegfs/move/beegfs_move.conf /root/rpmbuild/BUILDROOT/beegfs-move-utils-1.0-1.el8.x86_64/etc/beegfs/move/beegfs_move.conf.rpmsave
++ exit 0
+[root@h12-meta01 SPECS]# python3 -m site
+sys.path = [
+    '/root/rpmbuild/SPECS',
+    '/usr/lib64/python36.zip',
+    '/usr/lib64/python3.6',
+    '/usr/lib64/python3.6/lib-dynload',
+    '/usr/local/lib64/python3.6/site-packages',
+    '/usr/local/lib/python3.6/site-packages',
+    '/usr/lib64/python3.6/site-packages',
+    '/usr/lib/python3.6/site-packages',
+]
+USER_BASE: '/root/.local' (exists)
+USER_SITE: '/root/.local/lib/python3.6/site-packages' (doesn't exist)
+
+python3 -m site -help
+/usr/lib64/python3.6/site.py [--user-base] [--user-site]
+
 
 ~~~
 

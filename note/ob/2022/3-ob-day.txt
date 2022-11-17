@@ -1,4 +1,251 @@
 
+
+SELECT * FROM multi_index3 WHERE id = 1;
+
+[root@node1 bin]# ./observer -f /root/gitee/miniob-2022/etc/observer.ini
+Successfully load /root/gitee/miniob-2022/etc/observer.ini
+=================================================================
+==13159==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x6020000030b4 at pc 0x7ffbb5b07796 bp 0x7ffba0570b80 sp 0x7ffba05702f8
+READ of size 5 at 0x6020000030b4 thread T2 (SQLThreads)
+    #0 0x7ffbb5b07795  (/lib64/libasan.so.5+0x55795)
+    #1 0x7ffbb5b09565 in vsnprintf (/lib64/libasan.so.5+0x57565)
+    #2 0x7ffbb57f80c4 in common::Log::output(common::LOG_LEVEL, char const*, char const*, char const*, ...) /root/gitee/miniob-2022/deps/common/log/log.cpp:91
+    #3 0x4f9c2a in Table::make_record(int, _Value const*, char*&) /root/gitee/miniob-2022/src/observer/storage/common/table.cpp:433
+    #4 0x508cc5 in Table::insert_record_mult_rows(Trx*, int, Valuesitem const*) /root/gitee/miniob-2022/src/observer/storage/common/table.cpp:385
+    #5 0x46bbd7 in ExecuteStage::do_insert(SQLStageEvent*) /root/gitee/miniob-2022/src/observer/sql/executor/execute_stage.cpp:1150
+    #6 0x46bbd7 in ExecuteStage::handle_request(common::StageEvent*) /root/gitee/miniob-2022/src/observer/sql/executor/execute_stage.cpp:150
+    #7 0x46edfa in ExecuteStage::handle_event(common::StageEvent*) /root/gitee/miniob-2022/src/observer/sql/executor/execute_stage.cpp:120
+    #8 0x497721 in OptimizeStage::handle_event(common::StageEvent*) /root/gitee/miniob-2022/src/observer/sql/optimizer/optimize_stage.cpp:87
+    #9 0x4b8fd1 in QueryCacheStage::handle_event(common::StageEvent*) /root/gitee/miniob-2022/src/observer/sql/query_cache/query_cache_stage.cpp:86
+    #10 0x4ae6a0 in ResolveStage::handle_event(common::StageEvent*) /root/gitee/miniob-2022/src/observer/sql/parser/resolve_stage.cpp:115
+    #11 0x4a9329 in ParseStage::handle_event(common::StageEvent*) /root/gitee/miniob-2022/src/observer/sql/parser/parse_stage.cpp:104
+    #12 0x4b5bb1 in PlanCacheStage::handle_event(common::StageEvent*) /root/gitee/miniob-2022/src/observer/sql/plan_cache/plan_cache_stage.cpp:99
+    #13 0x4433ab in SessionStage::handle_request(common::StageEvent*) /root/gitee/miniob-2022/src/observer/session/session_stage.cpp:171
+    #14 0x44450a in SessionStage::handle_event(common::StageEvent*) /root/gitee/miniob-2022/src/observer/session/session_stage.cpp:105
+    #15 0x7ffbb586df04 in common::Threadpool::run_thread(void*) /root/gitee/miniob-2022/deps/common/seda/thread_pool.cpp:309
+    #16 0x7ffbb55781ce in start_thread (/lib64/libpthread.so.0+0x81ce)
+    #17 0x7ffbb4021dd2 in __GI___clone (/lib64/libc.so.6+0x39dd2)
+
+0x6020000030b4 is located 0 bytes to the right of 4-byte region [0x6020000030b0,0x6020000030b4)
+allocated by thread T2 (SQLThreads) here:
+    #0 0x7ffbb5ba1ba8 in __interceptor_malloc (/lib64/libasan.so.5+0xefba8)
+    #1 0x4a0dc4 in value_init_float /root/gitee/miniob-2022/src/observer/sql/parser/parse.cpp:63
+    #2 0x4b3f2f in yyparse /root/gitee/miniob-2022/build/src/observer/yacc_sql.y:392
+    #3 0x4b4ea1 in sql_parse /root/gitee/miniob-2022/build/src/observer/yacc_sql.y:820
+    #4 0x4a5a16 in parse(char const*, Query*) /root/gitee/miniob-2022/src/observer/sql/parser/parse.cpp:523
+    #5 0x4a925a in ParseStage::handle_request(common::StageEvent*) /root/gitee/miniob-2022/src/observer/sql/parser/parse_stage.cpp:132
+    #6 0x4a925a in ParseStage::handle_event(common::StageEvent*) /root/gitee/miniob-2022/src/observer/sql/parser/parse_stage.cpp:90
+    #7 0x4b5bb1 in PlanCacheStage::handle_event(common::StageEvent*) /root/gitee/miniob-2022/src/observer/sql/plan_cache/plan_cache_stage.cpp:99
+    #8 0x4433ab in SessionStage::handle_request(common::StageEvent*) /root/gitee/miniob-2022/src/observer/session/session_stage.cpp:171
+    #9 0x44450a in SessionStage::handle_event(common::StageEvent*) /root/gitee/miniob-2022/src/observer/session/session_stage.cpp:105
+    #10 0x7ffbb586df04 in common::Threadpool::run_thread(void*) /root/gitee/miniob-2022/deps/common/seda/thread_pool.cpp:309
+    #11 0x7ffbb55781ce in start_thread (/lib64/libpthread.so.0+0x81ce)
+
+Thread T2 (SQLThreads) created by T0 here:
+    #0 0x7ffbb5b04ea3 in __interceptor_pthread_create (/lib64/libasan.so.5+0x52ea3)
+    #1 0x7ffbb5867c21 in common::Threadpool::add_threads(unsigned int) /root/gitee/miniob-2022/deps/common/seda/thread_pool.cpp:105
+    #2 0x7ffbb58694c7 in common::Threadpool::Threadpool(unsigned int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /root/gitee/miniob-2022/deps/common/seda/thread_pool.cpp:47
+    #3 0x7ffbb585096e in common::SedaConfig::init_thread_pool() /root/gitee/miniob-2022/deps/common/seda/seda_config.cpp:258
+    #4 0x7ffbb585960f in common::SedaConfig::instantiate() /root/gitee/miniob-2022/deps/common/seda/seda_config.cpp:419
+    #5 0x7ffbb585b7cf in common::SedaConfig::init() /root/gitee/miniob-2022/deps/common/seda/seda_config.cpp:145
+    #6 0x7ffbb5837b3a in common::init_seda(common::ProcessParam*) /root/gitee/miniob-2022/deps/common/seda/init.cpp:67
+    #7 0x422205 in init(common::ProcessParam*) /root/gitee/miniob-2022/src/observer/init.cpp:242
+    #8 0x4166fa in main /root/gitee/miniob-2022/src/observer/main.cpp:156
+    #9 0x7ffbb4022cf2 in __libc_start_main (/lib64/libc.so.6+0x3acf2)
+
+SUMMARY: AddressSanitizer: heap-buffer-overflow (/lib64/libasan.so.5+0x55795)
+Shadow bytes around the buggy address:
+  0x0c047fff85c0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c047fff85d0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c047fff85e0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c047fff85f0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c047fff8600: fa fa fd fd fa fa fd fa fa fa 00 05 fa fa 04 fa
+=>0x0c047fff8610: fa fa 04 fa fa fa[04]fa fa fa 04 fa fa fa 02 fa
+  0x0c047fff8620: fa fa 02 fa fa fa fd fd fa fa 00 05 fa fa 00 03
+  0x0c047fff8630: fa fa fd fd fa fa fd fd fa fa 04 fa fa fa 04 fa
+  0x0c047fff8640: fa fa 04 fa fa fa 00 05 fa fa fd fd fa fa fd fd
+  0x0c047fff8650: fa fa fd fd fa fa 00 07 fa fa fa fa fa fa fa fa
+  0x0c047fff8660: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+  
+
+
+
+[root@node1 bin]# ./observer -f /root/gitee/miniob-2022/etc/observer.ini
+Successfully load /root/gitee/miniob-2022/etc/observer.ini
+=================================================================
+==12957==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60200000c094 at pc 0x7f9108145796 bp 0x7f90f2b70b80 sp 0x7f90f2b702f8
+READ of size 5 at 0x60200000c094 thread T2 (SQLThreads)
+    #0 0x7f9108145795  (/lib64/libasan.so.5+0x55795)
+    #1 0x7f9108147565 in vsnprintf (/lib64/libasan.so.5+0x57565)
+    #2 0x7f9107e360c4 in common::Log::output(common::LOG_LEVEL, char const*, char const*, char const*, ...) /root/gitee/miniob-2022/deps/common/log/log.cpp:91
+    #3 0x4f9c2a in Table::make_record(int, _Value const*, char*&) /root/gitee/miniob-2022/src/observer/storage/common/table.cpp:433
+    #4 0x508cc5 in Table::insert_record_mult_rows(Trx*, int, Valuesitem const*) /root/gitee/miniob-2022/src/observer/storage/common/table.cpp:385
+    #5 0x46bbd7 in ExecuteStage::do_insert(SQLStageEvent*) /root/gitee/miniob-2022/src/observer/sql/executor/execute_stage.cpp:1150
+    #6 0x46bbd7 in ExecuteStage::handle_request(common::StageEvent*) /root/gitee/miniob-2022/src/observer/sql/executor/execute_stage.cpp:150
+    #7 0x46edfa in ExecuteStage::handle_event(common::StageEvent*) /root/gitee/miniob-2022/src/observer/sql/executor/execute_stage.cpp:120
+    #8 0x497721 in OptimizeStage::handle_event(common::StageEvent*) /root/gitee/miniob-2022/src/observer/sql/optimizer/optimize_stage.cpp:87
+    #9 0x4b8fd1 in QueryCacheStage::handle_event(common::StageEvent*) /root/gitee/miniob-2022/src/observer/sql/query_cache/query_cache_stage.cpp:86
+    #10 0x4ae6a0 in ResolveStage::handle_event(common::StageEvent*) /root/gitee/miniob-2022/src/observer/sql/parser/resolve_stage.cpp:115
+    #11 0x4a9329 in ParseStage::handle_event(common::StageEvent*) /root/gitee/miniob-2022/src/observer/sql/parser/parse_stage.cpp:104
+    #12 0x4b5bb1 in PlanCacheStage::handle_event(common::StageEvent*) /root/gitee/miniob-2022/src/observer/sql/plan_cache/plan_cache_stage.cpp:99
+    #13 0x4433ab in SessionStage::handle_request(common::StageEvent*) /root/gitee/miniob-2022/src/observer/session/session_stage.cpp:171
+    #14 0x44450a in SessionStage::handle_event(common::StageEvent*) /root/gitee/miniob-2022/src/observer/session/session_stage.cpp:105
+    #15 0x7f9107eabf04 in common::Threadpool::run_thread(void*) /root/gitee/miniob-2022/deps/common/seda/thread_pool.cpp:309
+    #16 0x7f9107bb61ce in start_thread (/lib64/libpthread.so.0+0x81ce)
+    #17 0x7f910665fdd2 in __GI___clone (/lib64/libc.so.6+0x39dd2)
+
+0x60200000c094 is located 0 bytes to the right of 4-byte region [0x60200000c090,0x60200000c094)
+allocated by thread T2 (SQLThreads) here:
+    #0 0x7f91081dfba8 in __interceptor_malloc (/lib64/libasan.so.5+0xefba8)
+    #1 0x4a0dc4 in value_init_float /root/gitee/miniob-2022/src/observer/sql/parser/parse.cpp:63
+    #2 0x4b3f2f in yyparse /root/gitee/miniob-2022/build/src/observer/yacc_sql.y:392
+    #3 0x4b4ea1 in sql_parse /root/gitee/miniob-2022/build/src/observer/yacc_sql.y:820
+    #4 0x4a5a16 in parse(char const*, Query*) /root/gitee/miniob-2022/src/observer/sql/parser/parse.cpp:523
+    #5 0x4a925a in ParseStage::handle_request(common::StageEvent*) /root/gitee/miniob-2022/src/observer/sql/parser/parse_stage.cpp:132
+    #6 0x4a925a in ParseStage::handle_event(common::StageEvent*) /root/gitee/miniob-2022/src/observer/sql/parser/parse_stage.cpp:90
+    #7 0x4b5bb1 in PlanCacheStage::handle_event(common::StageEvent*) /root/gitee/miniob-2022/src/observer/sql/plan_cache/plan_cache_stage.cpp:99
+    #8 0x4433ab in SessionStage::handle_request(common::StageEvent*) /root/gitee/miniob-2022/src/observer/session/session_stage.cpp:171
+    #9 0x44450a in SessionStage::handle_event(common::StageEvent*) /root/gitee/miniob-2022/src/observer/session/session_stage.cpp:105
+    #10 0x7f9107eabf04 in common::Threadpool::run_thread(void*) /root/gitee/miniob-2022/deps/common/seda/thread_pool.cpp:309
+    #11 0x7f9107bb61ce in start_thread (/lib64/libpthread.so.0+0x81ce)
+
+Thread T2 (SQLThreads) created by T0 here:
+    #0 0x7f9108142ea3 in __interceptor_pthread_create (/lib64/libasan.so.5+0x52ea3)
+    #1 0x7f9107ea5c21 in common::Threadpool::add_threads(unsigned int) /root/gitee/miniob-2022/deps/common/seda/thread_pool.cpp:105
+    #2 0x7f9107ea74c7 in common::Threadpool::Threadpool(unsigned int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /root/gitee/miniob-2022/deps/common/seda/thread_pool.cpp:47
+    #3 0x7f9107e8e96e in common::SedaConfig::init_thread_pool() /root/gitee/miniob-2022/deps/common/seda/seda_config.cpp:258
+    #4 0x7f9107e9760f in common::SedaConfig::instantiate() /root/gitee/miniob-2022/deps/common/seda/seda_config.cpp:419
+    #5 0x7f9107e997cf in common::SedaConfig::init() /root/gitee/miniob-2022/deps/common/seda/seda_config.cpp:145
+    #6 0x7f9107e75b3a in common::init_seda(common::ProcessParam*) /root/gitee/miniob-2022/deps/common/seda/init.cpp:67
+    #7 0x422205 in init(common::ProcessParam*) /root/gitee/miniob-2022/src/observer/init.cpp:242
+    #8 0x4166fa in main /root/gitee/miniob-2022/src/observer/main.cpp:156
+    #9 0x7f9106660cf2 in __libc_start_main (/lib64/libc.so.6+0x3acf2)
+
+SUMMARY: AddressSanitizer: heap-buffer-overflow (/lib64/libasan.so.5+0x55795)
+
+
+
+
+
+
+
+
+SCF_CREATE_UNIQUE_INDEX
+ExecuteStage::handle_request -->ExecuteStage::do_create_unique_index-->Table::create_index
+
+insert:
+ExecuteStage::do_insert->RC Table::insert_record--->RC Table::insert_entry_of_indexes-->
+RC BplusTreeIndex::insert_entry
+
+Table::insert_entry_of_indexes-->BplusTreeIndex::insert_entry-->BplusTreeHandler::insert_entry_unique
+
+ ---------------------------------
+ 
+ 
+   // 创建索引相关数据
+  BplusTreeIndex *index = new BplusTreeIndex();
+  std::string index_file = table_index_file(base_dir_.c_str(), name(), index_name);
+  rc = index->create(index_file.c_str(), new_index_meta, *field_meta);
+  if (rc != RC::SUCCESS) {
+    delete index;
+    LOG_ERROR("Failed to create bplus tree index. file name=%s, rc=%d:%s", index_file.c_str(), rc, strrc(rc));
+    return rc;
+  }
+  
+ return RC::RECORD_DUPLICATE_KEY;
+ int insert_position = leaf_node.lookup(key_comparator_, key, &exists);
+  if (exists) {
+    LOG_TRACE("entry exists");
+    return RC::RECORD_DUPLICATE_KEY;
+  }
+fin      _unique
+DiskBufferPoo\
+·
+RC BplusTreeIndex::insert_entry(const char *record, const RID *rid)
+{  
+  if (true == index_meta().unique()){
+    if (rid)
+    {
+      LOG_INFO("BplusTreeIndex::insert_entry  of record(rid=%d.%d)",
+               rid->page_num, rid->slot_num);
+      // return index_handler_.insert_entry_unique(record + field_meta_.offset(), rid);
+    }
+  }else{
+      return index_handler_.insert_entry(record + field_meta_.offset(), rid);
+  }
+}
+
+
+
+------------------------
+
+这个2天事情比较做，心情比较急躁，包涵包涵
+
+
+
+
+
+
+scale
+
+
+
+
+
+
+
+
+
+
+
+
+[root@h12-storage03 ~]# netstat -an | awk '/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}'
+LISTEN 17
+ESTABLISHED 158
+TIME_WAIT 3682
+
+[root@h12-meta01 ~]# netstat -an | awk '/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}'
+LISTEN 95
+CLOSE_WAIT 2
+ESTABLISHED 1991
+TIME_WAIT 806
+
+explicit ObVector(Allocator* alloc = NULL, const lib::ObLabel& label = ObModIds::OB_MOD_DO_NOT_USE_ME);
+
+ObVector<TestItem*> total_items;
+if (OB_FAIL(items.push_back(item))) {
+	  COMMON_LOG(WARN, "fail to push back item", K(ret));
+	}
+
+
+
+
+
+
+
+
+
+
+  
 1. 完成分级概要设计和自测用例
 2. 
 

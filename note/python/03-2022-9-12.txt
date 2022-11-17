@@ -1,551 +1,166 @@
 
 
-Failed to start beeecp.service: Unit beeecp.service not found.
-[root@h12-storage03 noarch]# systemctl start beecp
-[root@h12-storage03 noarch]# systemctl status beecp
-● beecp.service - migration engine server
-   Loaded: loaded (/usr/lib/systemd/system/beecp.service; disabled; vendor preset: disabled)
-   Active: failed (Result: exit-code) since Mon 2022-09-26 20:56:22 CST; 6s ago
-  Process: 614291 ExecStart=/usr/bin/python3 $START -c $OPTIONS (code=exited, status=1/FAILURE)
- Main PID: 614291 (code=exited, status=1/FAILURE)
-
-Sep 26 20:56:22 h12-storage03 python3[614291]: Traceback (most recent call last):
-Sep 26 20:56:22 h12-storage03 python3[614291]:   File "/opt/migration/move/src/beemove.py", line 8, in <module>
-Sep 26 20:56:22 h12-storage03 python3[614291]:     import parse_config
-Sep 26 20:56:22 h12-storage03 python3[614291]:   File "/opt/migration/move/src/parse_config.py", line 6, in <module>
-Sep 26 20:56:22 h12-storage03 python3[614291]:     from config.policy import get_policies_string
-Sep 26 20:56:22 h12-storage03 python3[614291]:   File "/opt/migration/move/src/config/policy.py", line 4, in <module>
-Sep 26 20:56:22 h12-storage03 python3[614291]:     from config.parse_config import PolicyConfig
-Sep 26 20:56:22 h12-storage03 python3[614291]: ModuleNotFoundError: No module named 'config.parse_config'
-Sep 26 20:56:22 h12-storage03 systemd[1]: beecp.service: Main process exited, code=exited, status=1/FAILURE
-Sep 26 20:56:22 h12-storage03 systemd[1]: beecp.service: Failed with result 'exit-code'
-
-
-
-python3 -m pip psutil-wheels-5.8.1.tar.gz
- xattr属性是啥 ，应该有系统api ，现在离线部署还麻烦我看看这个。
- 
- 
-cp --preserve=all srcfile dstfile
- 
- 马上完成 
- 提交报销单
-1. 中移--写测试报告
-2. 中移---竞品分析
-3. 中移--未完成功能整理
- 
- 问卷调查 ok
- 
-   #  /var/log/mount/storage2/.temp_beegfs_migration/policy1/day5/vdb.1_1.dir/vdb_f1352.file
-    # /mnt/beegfs/wangchuanyi/storage2/.temp/day4/vdb.1_2.dir/vdb.2_4.dir/vdb.3_1.dir/vdb.4_3.dir/vdb_f156750.file
-    # /mnt/beegfs/wangchuanyi/storage1  /day4/vdb.1_2.dir/vdb.2_4.dir/vdb.3_1.dir/vdb.4_3.dir/vdb_f156750.file
-    source_path = beehive_path.replace(fileMigPolicy.beehive_input, fileMigPolicy.source_path)
-
-    logging.debug("step::task:file source_path =  " + source_path)
-    """ 根据一级目录文件 获取迁移到二级目录的路径  """
-
-    # /mnt/beegfs/wangchuanyi/storage1 /day4/vdb.1_2.dir/vdb.2_4.dir/vdb.3_1.dir/vdb.4_3.dir/vdb_f156750.file
-    #  /mnt/beegfs/wangchuanyi/storage2 /day4/vdb.1_2.dir/vdb.2_4.dir/vdb.3_1.dir/vdb.4_3.dir/vdb_f156750.file
-    destination_path = source_path.replace(fileMigPolicy.source_path, fileMigPolicy.dest_path)
-    logging.debug("step::thread::task: destination_path is  " + destination_path)
-	
-	   # # /var/log/mount/storage2/.temp_beegfs_migration/policy1/day5/vdb.1_1.dir/vdb_f3775.file
-	
-迁移机器：需要2台
-如果部署1300的集群的 在添加3台。
-需要5台
-
- 
-@魏赫   一级存储用混闪的MN24，二级存储用咱们的CG36，交接后，提供下环境信息
-   threads = []
-    if len(files) > 0:
-        logging.debug("step::thread::task >>>>>>>>> " + str(files))
-        for file in files:
-            if str(file).endswith('.swp'):
-                logging.warning(" pass file " + file)
-                continue
-            task_path = split_output_path + '/' + file
-            t = threading.Thread(target=migration_theads_work, args=(task_path, opt_init, fileMigPolicy))
-            threads.append(t)
-            t.start()
-    for t in threads:
-        t.join()
-        logging.debug("step::thread::task::join ")
-		
-		
-1. 完成对速度和带宽流控，剩余单个文件流控 90%
-2. 解决压测并发低问题。
-3. 解决任务分发不均匀问题。
-
-1. 基本功能自测
-2. 文件拷贝过程中 异常处理
-3. cp性能优化
-
-测试迁移工具性能差异
-cp 
-scp 
-rsync
-Rclone
-
-cp只是在本机进行拷贝不能跨服务器，
-而且scp传输是加密的。可能会稍微影响一下速度
-rsync比cp和scp快在两方面在带宽有巨大限制的时候使用rsync的这一特性可以极大加速传输过程
-rsync 适合用来增量备份整个工作路径
-cp scp tar 适合用来冷备份到移动硬盘
-
-查看网口带宽
-ethtool ens17f3
-可以看到是千兆带宽
-Speed: 1000Mb/s
-
-scp -l 716800 -v 文件  192.168.42.122:/root/
--l 716800 限速700M
--v 显示速度
 
-wget http://www.ex-parrot.com/pdw/iftop/download/iftop-1.0pre2.tar.gz
 
 
- 
- 
-https://www.yuque.com/docs/share/9963acc9-873b-4c6b-950b-731964af3a8b?# 《Day2 of OceanBase 源码解析：函数与表达式》
 
-提问：
-表达式内置函数 返回计算类型calc_result_type1 参数  type ，type1 这2个有什么区别没看懂？ 
-代码位置：ObExprMonthName::calc_result_type1(ObExprResType& type, ObExprResType& type1）
 
 
-type C:\Users\wangchuanyi\.ssh\id_rsa.pub | ssh 192.168.192.160 "cat >> .ssh/authorized_keys"
 
-sudo useradd -m wangchuanyi
-sudo passwd wangchuanyi
-C:\Users\wangchuanyi>ssh  root@192.168.192.160
-root@192.168.192.160's password:
 
-root@192.168.192.160: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).
-https://phoenixnap.com/kb/ssh-permission-denied-publickey
 
-C:\Users\wangchuanyi>ssh  root@192.168.192.160
-root@192.168.192.160: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).
+2.4.1. 本发明的主要创新点/发明点
+本发明的关键在于：
+(1) 无服务器(Serverless)架构下存储分布式文件系统的元数据信息,通过sql命令方式快速查询。
+(2) 基于数据对象schema信息实现sqldiff工具，快速对比目录下文件变化情况.
+(3) 通过集群定时启动job方式并发迁移文件。
+CREATE TABLE entrie
+id 编号,name 文件名，inode编号，type 文件类型，size 大小等
 
- root@192.168.192.160
- root@192.168.192.160
- 
- 
-问题：
-这几天为小孩的每天早晨看看平板，晚上看平板烦恼
-自己提出例如 学习 看书都被 小孩反馈说无赖然后拒绝。
-我想想的样子和小孩想想样子不一样。
-这个长期事情。
-复习了建立共同目标的五问法明晰表 和SMART
-自己提出方法 不可执行，不具体。
+2.4.2. 本发明的权利要求如下
 
-行动：
+基于元数据增量搜索文件 
 
-1. 每天6点起床，小孩起床我起床（具体）
-2. 自己起床后 运动 朗读（不要别人做到）
+1）	在Grand Unified File Index (GUFI)基础上，
+利用多线程扫描文件系统的元数据
+2）	在多线程并发扫描规程中，根据策略 增量过滤需要分级的文件。
+代替Beelive全量扫描
+3）	最后增量扫描结果到本地文本 或者sqlite3数据中
 
-执行结果：
-自己3天，做到1次，2次忙碌忘记了
+基于元数据对文件快速搜索后基于策略的并发迁移
+1）主节点启动定时器检检测job任务
+2）work主分发节点 分派任务
+1）	work从节点并发处理任务
+2）	work主机统计任务执行情况
+3）	解析策略，按照优先级排序
+4）	判断是否匹配，根据策略产生查询sql，统计个数，小于0为不匹配
+bdm-search  -n 8 -B 4096  -a -d " " -E 'SELECT COUNT(*)  FROM pentries WHERE uid= 0 AND gid=0' /root/bee
 
+7） 执行策略,检索文件，查询结果输出到共享目录文件中
+bdm-search  -n 8 -B 4096  -a -d " " -o /mnt/beegfs/bak/query -E 'SELECT path() || (CASE type WHEN "d" THEN "" ELSE "/" || name END)  FROM pentries WHERE uid= 0 AND gid=0' /root/beegfs
 
-service sshd restart
+8） 启动mpirun,master节点 任务分发
+Master 发送 文件目录到 到slave节点
+9）	任务处理
+slave节点结束消息，读取文件中 需要迁移文件，开始迁移
 
 
 
+BeeGFS的客户端是由一个内核模块和两个系统服务组成的,内核模块主要实现了一个Linux的文件系统
+本发明
+在不增加额外常驻服务情况下。
+利用
+满足海量文件系统中，实现快速文件检索，快速迁移。对原有文件系统很少影响
+从而达到分级迁移目的。
 
+本发明目在是beegfs分布式文件集群基础上，尽可能少的情况下占用服务器计算资源，快速分层迁移。
 
+1.文件的元数据信息保存到本地磁盘文件(SQLite),取代要常驻服务存储到内存方式而实现海量文件快速检索。
+2.通过job方式启动文件迁移任务，不迁移占用额外服务端资源。
+3.迁移程序只需要读写 本地文件系统实现文件从快池到慢池迁移(beegfs客户端注册一个文件系统，访问全局数据)。
 
 
-查询英文有效期和PMI ID：https://my.pmi.org/--按希赛后台我的报名里的PMI账号和密码登录--右上角名字--Dashboard
-PMI账号	
-wang_cyi@aliyun.com （新账号）
-qwer1234
-PMI ID: 7407664
-12 July 2021
-31 December 2022
 
-中文
-wangchuanyi
+1.根据分级迁移剩余问题
+2.处理教育贷相关问题
 
 
+1）主节点启动runapi job 完成分布式计算
+2）work主分发节点 分派任务
+3）work从节点并发处理任务
+4）work主机统计任务执行情况
 
 
+1）	解析策略，按照优先级排序
+2）	判断是否匹配，根据策略产生查询sql，统计个数，小于0为不匹配
+bdm-search  -n 8 -B 4096  -a -d " " -E 'SELECT COUNT(*)  FROM pentries WHERE uid= 0 AND gid=0' /root/beeg
 
-币印用户的币抵押矿机，资本是不敢接受这些矿机的，从流程上只有用户把自己币给币印，
-币印才获得资本。然后才回收用户的iou，看似合理。
-结果漏洞很大
-1. 币印从资本上亏损，谁来填补肯定用户，兑换必然会打折
-2. 币印想一分钱不出，完美解决这个问题。 谁能保证币印高管不腐败，
-优先保证自己利用
+3）执行策略,检索文件，查询结果输出到共享目录文件中
+bdm-search  -n 8 -B 4096  -a -d " " -o /mnt/beegfs/bak/query -E 'SELECT path() || (CASE type WHEN "d" THEN "" ELSE "/" || name END)  FROM pentries WHERE uid= 0 AND gid=0' /root/beegfs
 
-python-devel
+4） 启动mpirun,master节点 任务分发
+Master 发送 文件目录到 到slave节点
+1. 指定符合策略迁移，是每次遍历文件，寻找符合条件，然后
 
 
- -l limit
-             Limits the used bandwidth, specified in Kbit/s.
+2.4.1. 本发明的主要创新点/发明点
+本发明的关键在于：
+（1）	基于元数据快速搜索文件。
+（2）	基于元数据对文件快速搜索后基于策略的并发迁移。
+2.4.2. 本发明的权利要求如下
 
-https://psutil.readthedocs.io/en/latest/#processes
+基于元数据增量搜索文件 
 
-dezxfrzcxdrfzecxvgcfxgvdc
-如何父母沟通
-识别情绪：只要他们好心好意的 日常 衣服事情 你和烦恼
-停止抱怨：一直陷入 不要 不要斗争中
-寻找真像：是自己这方面做的不好，忽视了（忙碌学习，没有结果），他们帮助你解决问题
-积极行动：
-不在说不。当面争吵，拿着你感受道理
-全局视角
+1）	在Grand Unified File Index (GUFI)基础上，
+利用多线程扫描文件系统的元数据
+2）	在多线程并发扫描规程中，根据策略 增量过滤需要分级的文件。
+代替Beelive全量扫描
+3）	最后增量扫描结果到本地文本 或者sqlite3数据中
 
+基于元数据对文件快速搜索后基于策略的并发迁移
+1）主节点启动定时器检检测job任务
+2）work主分发节点 分派任务
+1）	work从节点并发处理任务
+2）	work主机统计任务执行情况
+3）	解析策略，按照优先级排序
+4）	判断是否匹配，根据策略产生查询sql，统计个数，小于0为不匹配
+bdm-search  -n 8 -B 4096  -a -d " " -E 'SELECT COUNT(*)  FROM pentries WHERE uid= 0 AND gid=0' /root/bee
 
+7） 执行策略,检索文件，查询结果输出到共享目录文件中
+bdm-search  -n 8 -B 4096  -a -d " " -o /mnt/beegfs/bak/query -E 'SELECT path() || (CASE type WHEN "d" THEN "" ELSE "/" || name END)  FROM pentries WHERE uid= 0 AND gid=0' /root/beegfs
 
-1. 中移性能统计和流控实现
-2. 根据DiLuV2测试用例调整代码
-step::thread::task check_is_time_meta_same
-求组队
-statinfo = os.stat(file_path)
-优势：
-1. 去年参加过1次，有经验（到现在也忘记了）
-2. oceanbase 6个提交 #28，还有3个没有合并
-劣势：
-1. 工作比较忙，没有充足时间完成miniob的任务
-2. 偏向于 oceanbase 源码阅读（不参加比赛也可以）
-发布文章源码解析 DDL语句执行过程(后面还有不少没整理)
-https://wangcy6.github.io/post/oceanbase/2022/oceanbase_day2/
+8） 启动mpirun,master节点 任务分发
+Master 发送 文件目录到 到slave节点
+9）	任务处理
+slave节点结束消息，读取文件中 需要迁移文件，开始迁移
 
-佛系参加：
-1. 如果学习为主话，可以2个对 3个对 合并大队。只要一个进入其他可以跟着学习。
-2. 期望 在校和工作都可以
 
-mpirun_master_slave.py
 
-资料：
-1. 【腾讯文档】迁移引擎测试开发记录
-https://docs.qq.com/doc/DY0FWUlF2bmNKcHFR
-2. 【腾讯文档】代码合并记录
-https://docs.qq.com/doc/DY1VIa05MV3F6VHFn
-3. 【腾讯文档】分级存储任务分解
-https://docs.qq.com/sheet/DY2dzb251TVBQc0hM?tab=BB08J2
-4.【腾讯文档】操作手册
-https://docs.qq.com/doc/DY3VQU2FEb0N5aExT
-5 DiLuV2测试设计和数据分层测试
 
 
-1. 中移信息POC测 总体进展：开发完成60%
-分级策略和文件迁移两大主要模块代码完成
-2. 参加 李璇 写了 DiLuV2测试设计。提很多约束（用在分级策略）
+5）	任务处理
+slave节点结束消息，读取文件中 需要迁移文件，开始迁移
+利用Beegfs提供工具迁移
+6） 统计结果
 
-check_file_hash
-https://pypi.org/project/filehash/
 
-获取文件的哈希值sha512,md等
-内建函数的实现 sql/engine/expr
-步骤
-python下，安装
+1）管理节点执行全量扫描文件命令 产生索引文件输出到一个目录
+   通过sql查询方式一次性查找符合策略文件，
+   例如：
+   search  -n 8 -B 4096  -a -d " " -E 'SELECT COUNT(*)  FROM pentries WHERE uid= 0 AND gid=0' /xxx/xxx
+   代替反复遍历目录查找文件，减少IO操作次数。
+   
+2）管理节点执行对比命令 增量判断本次需要迁移文件。
+   步骤1是对整个目录进行扫描，无法区分是否从快池迁移慢池
+   对用户来说文件路径保持不变，存储位置发生变化。文件迁移后增加flag标记 记录步骤1产生数据库文件中。
+   
+   执行对比工具 本次全量扫描文件数据库文件 和上次迁移数据库文件对比
+   增量判断。
+   优点：通过客户都命令方式对比变化文件，不需要额外常驻服务存储文件信息。
+   需要多索引文件历史记录存在2份，增加磁盘空间。
+   
+3）job节点 执行负载均衡，迁移增量文件。
+   文件迁移过程如果用户正在读写，说明仍有用户在访问属于热数据，该文件迁移终止。保证数据一致性
 
-pip3 install filehash
-1
-步骤
+4）针对大文件迁移，根据通过sql命令 根据大小排序，
+  集中迁移大文件，然后在集中迁移小文件方式避免大文件迁移影响小文件迁移速度
 
-import os
-from filehash import FileHash
-md5hasher = FileHash('sha512')
-print (md5hasher.hash_file(r"C:\local\vcpkg2\downloads\msys2-base-x86_64-20181211.tar.xz"))
-————————————————
-版权声明：本文为CSDN博主「Frank（Zhiyang-Dou）」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/OOFFrankDura/article/details/104571951
+5）job节点迁移完毕，汇总管理节点，任务执行完毕，修改文件迁移结果
 
+6）管理节点，修改步骤1扫描结果，为下次增量扫描做对比。
 
 
 
-except FileNotFoundError:
-	logging.error("FileNotFoundError" + path)
-except Exception as e:
-	logging.error("clear failed " + str(e))
-		
-		
-呼吸也是工作的的一部分，不能为了写代码 不呼吸了吗
+1）递归遍历/mnt/beegfs目录，
+   获取文件属性：
+    文件名称，文件类型，文件大小，文件访问权限，文件创建时间，修改时间等。
 
-坐正也是工作的的一部分，不能为了写代码 不坐正
+2）每一层有多个目录，多个目录交给线程池继续遍历。
 
-呼吸也是写代码的一部分
+3) 每个目录遍历结果输出到sqlite3数据库中。
+    Entries表存储目录下每个文件信息。
+      CREATE TABLE entrie
+      id 编号,name 文件名，inode编号，type 文件类型，size 大小等
+ tree表记录每个目录 和子目录之间关系。
 
 
-
-逗号分割 
-
-机器IP,开始时间 策略id，文件总数量，迁移成功文件数量，迁移失败数量，qos，带宽
-
-[Server]
-
-report_progress_path=/var/log/migration_engine/migration_engine_process.txt
-
-
-上班第一时间打卡，一气呵成。
-
-
-
-https://python.plainenglish.io/simple-safe-atomic-writes-in-python3-44b98830a013
-
-https://www.cnblogs.com/wongbingming/p/12892927.html
-
-4. 为什么 Queue 是线程安全的？#
-Python 的 threading 模块里的消息通信机制主要有如下三种：
-
-Event
-Condition
-Queue
-使用最多的是 Queue，而我们都知道它是线程安全的。当我们对它进行写入和提取的操作不会被中断而导致错误，这也是我们在使用队列时，不需要额外加锁的原
-1,2和3 用户安装rmp包的时候 自动化成 不需要考虑
-
-4 限制一个月目的 是全部导出来太多，默认倒数 30条 40条就可
-
-5 就一点：策略关键字 时间 路径 不拼写错误。不识别的策略配置要报错。（后面遇到其他的在添加）
-
-
-
-
-[root@h12-storage03 ~]# beegfs-ctl  --liststoragepools
-Pool ID   Pool Description                      Targets                 Buddy Groups
-======= ================== ============================ ============================
-      1            Default 101,102,103
-      2          slow pool 201,202,203
-      3          fast pool 301,302,303
-
-
-我没准备，错过很多，比不过别人
-
-这周忙，我没练习，害怕老师批判（本来有问题 ，你通过没有练习逃避问题，不会发现问题，找问题）
-
-看到别人朗读很好，自己不练习了(看不到练习的结果,周围人都做都了，你更加周围学习，不是自暴自弃)
-
-
-
-
-别人预约时间你说么时间，不去打车，不去挤时间,不去请假
-tail -f /var/log/migration_engine/migration_engine.log |grep "step::thread::task" |grep failed 
-
-昨天看手机腾讯视频恶果来了，疲惫 难受出现，陷入僵局 不知道解决这个问题
-千方百计消除疲累，消除后悔，指定合理规划，
-发誓后面怎么做，结果事后聪明 60分钟，没做
-第二天如此。根本记不得昨天想什么，
-
-疲惫起床
-
-太困 睡60分钟，太晚 干脆,
-
-你看看昨天看四五小时手机电视视频，现在根本无法起床，你睡一会结果60分钟过去了，困问题无法解决
-你计划的是6点起床，现在是7点，8点来了，别人起床了跑步来了， 干脆 不起床不跑步
-
-中午 晚上时间 别人让你去你不去
-这次错过，不预约下次
-预约时间到了，你不去。
-更不要说准备了。
-让后玩游戏，忙其他不重要事情
-
-
-%patch 打补丁
-通常补丁都会一起在源码tar.gz包中，或放到SOURCES目录下。一般参数为：
-%patch -p1 使用前面定义的Patch补丁进行，-p1是忽略patch的第一层目录
-%Patch2 -p1 -b xxx.patch 打上指定的补丁，-b是指生成备份文件
-
-%configure 这个不是关键字，而是rpm定义的标准宏命令。意思是执行源代码的configure配置
-在/usr/src/asianux/BUILD/%{name}-%{version}目录中进行，使用标准写法，会引用/usr/lib/rpm/marcros中定义的参数。 另一种不标准的写法是，可参考源码中的参数自定义，例如：
-CFLAGS=“$RPM_OPT_FLAGS” CXXFLAGS=“$RPM_OPT_FLAGS” ./configure –prefix=%{_prefix}
-
-%build 开始构建包
-在/usr/src/asianux/BUILD/%{name}-%{version}目录中进行make的工作，常见写法：
-make %{?_smp_mflags} OPTIMIZE=“%{optflags}”
-
-都是一些优化参数，定义在/usr/lib/rpm/marcros中
-
-%install 开始把软件安装到虚拟的根目录中
-在/usr/src/asianux/BUILD/%{name}-%{version}目录中进行make install的操作。这个很重要，因为如果这里的路径不对的话，则下面%file中寻找文件的时候就会失败。常见内容有：
-%makeinstall 这不是关键字，而是rpm定义的标准宏命令。也可以使用非标准写法：
-make DESTDIR=$RPM_BUILD_ROOT install
-或
-make prefix=$RPM_BUILD_ROOT install
-需要说明的是，这里的%install主要就是为了后面的%file服务的。所以，还可以使用常规的系统命令：
-install -d $RPM_BUILD_ROOT/ cp -a * $RPM_BUILD_ROOT/
-
-
-
-前言：常用RPM的朋友们都知道，RPM简单易用，但是它的依赖关系是最头疼的！
-
-有时候比方说A包需要B包，B包需要C包，C包需要A包，好了。这就是最常见的死锁了（类似数据库有木有？）。
-
-这个时候有以下几种方式可以解决：
-
-
-
-A、强制安装 ----暴力型
-
-
-# rpm  -ivh--force --nodepsgcc-c++-4.1.2-42.el5.i386.rpm
-
-warning: gcc-c++-4.1.2-42.el5.i386.rpm: Header V3 DSA signature: NOKEY, key ID 37017186
-
-Preparing...                ########################################### [100%]
-
-1:gcc-c++                   ########################################### [100%]
-
-使用rpm -ivh --force --nodeps  强制安装。忽略依赖关系。这种方法你可以先装A包，再装B包，再装C包。这样还是有点隐患的，感觉不是很踏实（虽然其实目前没发现什么不好）。安装后使用成功的前提是：你要搞清楚依赖关系，并且把这些包都装好。好处是：不用管它们的具体依赖关系先后顺序。
-
-
-
-B、一次性全装上--- 一网打尽型
-可以把依赖的几个包拷出来放在同一个文件夹里 然后 rpm -ivn *.rpm   这样也可以 前提也是一个都不能少。
-
-#rpm -ivn *.rpm
-
-# yum  -y  localinstall  *.rpm
-
-
-
-C、 使用yum技术安装 --使用服务器方式
-yum是一个服务器资源技术。通过在线下载服务器资源的方式。
-
-缺点:太繁琐。要设置一堆的东西。优点：设置以后，很方便，需要的大多数资源都可以从服务器上找到。
-
-yum deplist  PACKAGE_NAME  列出一个包所有的依赖
-
-如果没有yum源，我们要离线在一台服务器上安装httpd，那么可以把所有依赖打包：
-
-#export  LANG=en_US.utf-8
-
-# yum deplist  httpd | grep provider | awk '{print $2}' | sort | uniq
-
-python pip3离线安装第三方依赖
-pip3 install --target ./python pymysql
-2.2 离线情况安装其他机器打包好的包whl
-https://blog.csdn.net/book_lba_csdn/article/details/54575868
-
-# yumdownloader  $(yum deplist  httpd | grep provider | awk '{print $2}' | sort | uniq)
-
-#yumdownloader  httpd
-
-然后在安装服务器上：
-
-#yum -y localinstall httpd
-
-作者：Bogon
-链接：https://www.jianshu.com/p/314b8ef1509e
-来源：简书
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
-
-
-
-1. virtual env(anaconda激活相应的虚拟环境这个步骤没有)
-2 .python3 -m pip freeze > requirements.txt
-3. pip3 download -d  ./whl -r ./requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
-4. python3 -m pip wheel --wheel-dir=/whl
-   pip3 install wheel
-   pip3 install -r requirements.txt
-   pip3 install --no-index --find-links=D:/.../.../site-package/ -r requirements.txt
-
-https://pip.pypa.io/en/stable/cli/pip_download/
-
-https://zhuanlan.zhihu.com/p/460233022
-https://www.zhihu.com/question/51645857/answer/126859236
-https://blog.csdn.net/zphj1987/article/details/116781016
-yum deplist  PACKAGE_NAME  列出一个包所有的依赖
-
-1、pip install指定安装目录
-
-
-[root@h12-storage03 src]# python3 -m site
-sys.path = [
-    '/opt/migration/move/src',
-    '/usr/lib64/python36.zip',
-    '/usr/lib64/python3.6',
-    '/usr/lib64/python3.6/lib-dynload',
-    '/usr/local/lib64/python3.6/site-packages',
-    '/usr/local/lib/python3.6/site-packages',
-    '/usr/lib64/python3.6/site-packages',
-    '/usr/lib/python3.6/site-packages',
-]
-USER_BASE: '/root/.local' (doesn't exist)
-USER_SITE: '/root/.local/lib/python3.6/site-packages' (doesn't exist)
-ENABLE_USER_SITE: Tru
-pip install --target=path_name package_name
-
-
-
-[root@h12-storage01 ~]# locate  mpi.h
-/root/mpi4py-3.1.3/conf/mpiuni/mpi.h
-/root/mpi4py-3.1.3/conf/nompi/mpi.h
-/root/mpi4py-3.1.3/src/lib-mpi/compat/lammpi.h
-/root/mpi4py-3.1.3/src/lib-mpi/compat/msmpi.h
-/root/mpi4py-3.1.3/src/lib-mpi/compat/openmpi.h
-/root/mpi4py-3.1.3/src/lib-mpi/compat/pcmpi.h
-/root/mpi4py-3.1.3/src/lib-mpi/config/msmpi.h
-/root/mpi4py-3.1.3/src/lib-mpi/config/openmpi.h
-/usr/include/mpich-x86_64/mpi.h
-/usr/include/openmpi-x86_64/mpi.h
-/usr/src/kernels/4.18.0-305.3.1.el8_4.x86_64/include/linux/mpi.h
-[root@h12-storage01 ~]#
-
-
-
-uild/temp.linux-x86_64-3.6/src/dynload.o
-    src/dynload.c:5:20: fatal error: Python.h: No such file or directory
-     #include "Python.h"
-                        ^
-    compilation terminated.
-    warning: build_ext: command 'gcc' failed with exit status 1
-
-    warning: build_ext: building optional extension "mpi4py.dl" failed
-
-    checking for MPI compile and link ...
-    gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -fPIC -I/usr/include/python3.6m -c _configtest.c -o _configtest.o
-    _configtest.c:2:17: fatal error: mpi.h: No such file or directory
-     #include <mpi.h>
-                     ^
-    compilation terminated.
-    failure.
-    removing: _configtest.c _configtest.o
-
-
-
-
-# 环境安装问题
-
-https://blog.csdn.net/baidu_35848778/article/details/124984378
-mpich安装
-
-
-
-
-问题：如果对python依赖进行打包，直接拷贝/usr/local/lib64/python3.6/site-packages 目录可以吗？
-
-背景：
-
-我有个2个机器，在机器A联网开发了 pip3安装APScheduler，
-在部署到生产时候，机器B无法联网。
-通过whl包安装，结果发现APScheduler依赖--pytz依赖--	backports 。
-很对依赖。
-请问：
-如果对python依赖进行打包呢， c++ 动态库 ，golang 编译可执行程序。Python源码部署。
-不知道操作了 ?
-
-
-
-
-importlib_resources-5.9.0-py3-none-any.whl
-
-[root@localhost local]# pip3 install importlib_resources-5.9.0-py3-none-any.whl
-WARNING: Running pip install with root privileges is generally not a good idea. Try `pip3 install --user` instead.
-Processing ./importlib_resources-5.9.0-py3-none-any.whl
-importlib-resources requires Python '>=3.7' but the running Python is 3.6.8
-
-
-
-
-[root@localhost local]# pip3 install tzlocal-4.2-py3-none-any.whl
-WARNING: Running pip install with root privileges is generally not a good idea. Try `pip3 install --user` instead.
-Processing ./tzlocal-4.2-py3-none-any.whl
-Collecting backports.zoneinfo; python_version < "3.9" (from tzlocal==4.2)
-  Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.VerifiedHTTPSConnection object at 0x7f87d183c048>: Failed to establish a new connection: [Errno -2] Name or service not known',)': /simple/backports-zoneinfo/
-  Retrying (Retry(total=3, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.VerifiedHTTPSConnection object at 0x7f87d183ca20>: Failed to establish a new connection: [Errno -2] Name or service not known',)': /simple/backports-zoneinfo/
-  Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.VerifiedHTTPSConnection object at 0x7f87d183c710>: Failed to establish a new connection: [Errno -2] Name or service not known',)': /simple/backports-zoneinfo/
-  Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.VerifiedHTTPSConnection object at 0x7f87d183cdd8>: Failed to establish a new connection: [Errno -2] Name or service not known',)': /simple/backports-zoneinfo/
-  Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.VerifiedHTTPSConnection object at 0x7f87d183cef0>: Failed to establish a new connection: [Errno -2] Name or service not known',)': /simple/backports-zoneinfo/
-^Z
