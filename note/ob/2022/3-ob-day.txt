@@ -2,6 +2,8 @@
 
 SELECT * FROM multi_index3 WHERE id = 1;
 
+
+
 [root@node1 bin]# ./observer -f /root/gitee/miniob-2022/etc/observer.ini
 Successfully load /root/gitee/miniob-2022/etc/observer.ini
 =================================================================
