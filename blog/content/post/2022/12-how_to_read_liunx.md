@@ -54,11 +54,20 @@ https://www.sourceinsight.com/
 
 但是后来又学了understand 这个代码分析工具，完全可以替代掉source insight。
 
-
-
 - understand 流程图功能比source insight强大
 
 - understand 统计分析过滤功能比source insight更强
 
   
 
+源码分析神器 — Understand的使用教程
+
+### vscode
+
+1. [VS Code中使用PlantUML绘图](https://blog.csdn.net/stone0823/article/details/100058365#:~:text=%E9%A6%96%E5%85%88%E5%9C%A8%20VS%20Code%20%E4%B8%AD%E5%AE%89%E8%A3%85%20PlantUML%20%E6%89%A9%E5%B1%95%EF%BC%8C%E6%96%B9%E6%B3%95%E5%90%8C%E5%AE%89%E8%A3%85%E5%85%B6%E4%BB%96%E6%89%A9%E5%B1%95%E7%9B%B8%E5%90%8C%E3%80%82%20%E6%89%93%E5%BC%80%20Extensions,Graphviz%20%E7%9A%84%E5%AE%98%E7%BD%91%20%28https%3A%2F%2Fgraphviz.gitlab.io%2F_pages%2FDownload%2FDownload_windows.html%29%20%E4%B8%8B%E8%BD%BD%20Graphviz%20%E8%BD%AF%E4%BB%B6%E7%9A%84%20msi%20%E6%96%87%E4%BB%B6%EF%BC%8C%E7%84%B6%E5%90%8E%E5%AE%89%E8%A3%85%E3%80%82)
+
+-  快捷键 Alt + D
+
+- Ctrl + Shift + P，打开命令面板，
+
+  找到 Export Current Diagram 命令，导出

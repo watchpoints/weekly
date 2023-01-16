@@ -22,7 +22,7 @@
       <pubDate>Wed, 09 Feb 2022 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/2022/6-tool-gperftools/</guid>
-      <description>基本用法 Perftools-Specific Install Notes 1 2 3 4 5 6 7 8 9 10 11 12 https://github.com/gperftools/gperftools/blob/master/INSTALL yum install libunwind(否者heap profiler产生的数据文件都会是空的) if you use a 64-bit system, we strongly recommend you install</description>
+      <description>青铜提问1/100：如何用emacs搭建c++开发环境？ 学习别人的思路： https://www.zhihu.com/question/51099641 https://emacs-lsp.github.io/lsp-mode/tutorials/CPP-guide/ https://www.cnblogs.com/flyingdirt/p/3399624.html https://github.com/purcell/emacs.d{web} https://www.cnblogs.com/GarfieldEr007/p/5588979.html https://www.zybuluo.com/qqiseeu/note/17692 小马过河： todo1 我应一开始就照抄 世界级大师 Steve Purcell 的 Emacs 配置. 安心</description>
     </item>
     
     <item>
@@ -40,7 +40,7 @@
       <pubDate>Mon, 07 Feb 2022 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/2022/2022-2-7-go-vue-mp4/</guid>
-      <description>http://127.0.0.1:1313/post/2022/2022-2-7-go-vue-mp4/ 练习06 ：短视频管理平台 练习05 ：直播管理平台 练习04 ：ai 主播 4.1 基础理论 Examples PaddleBoBo: Use PaddleSpeech TTS to generate virtual human voice. 4.2 产品 PaddleBoBo 4.3 使用教程 4.3.1 PaddleBoBo 运行环境 飞桨AIStu</description>
+      <description>http://127.0.0.1:1313/post/2022/2022-2-7-go-vue-mp4/ todo 7 srs推流转码 云SRS是开源的音视频方案，它组合了SRS、FFmpeg、WebRTC，使用Redis、Nodejs和React来实现必</description>
     </item>
     
   </channel>

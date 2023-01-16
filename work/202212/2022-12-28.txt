@@ -1,0 +1,249 @@
+1-12
+1. 不需要思考 30分钟完成 关闭bug
+2. 
+
+1. 关闭分级迁移全部bug。
+2. 看cache调研文档。
+ 
+
+-------------------
+1-11
+
+1 完成部署文档 已经过去4天，今天完成。
+2 午睡三部曲，公司混沌不好吃，吃了呕吐
+3 坐正--思考 练习 1次
+  能做到我说这个事情，完成就彻底完成了，别妥妥拉来，不停返工 消耗n年。 做出一个版本来，不要说没有结果，别人无法使用。
+4 晚上三部曲。真个晚上4个小时
+5 起床太晚了，固定时间起床。7:00起床 
+  固定起床7:30起床 --7:00起床 明天一定要做到
+  
+
+4.1	扩容
+
+--------------------------
+1-10
+
+1. 午睡三部曲 
+2.  提交部署文档一份。
+
+
+-------------------
+1-6
+
+1 专注--- 30分钟完成一天工作任务  9:00-9:30
+   
+  新增一个每天创建文件脚本 done
+   vdbbench创建文件 先删除在创建
+ 
+ 出现意外情况导致根本无法执行
+ 9:00-10:42
+ 40主机彻底非了不用社区
+ 
+ 9:00-10：47 
+  
+  - 30分钟安装最后发现整个环境不可用了
+ 9:00-11：21
+  
+2. 专注 30分钟完成常驻测试 任务1继续 14：00 -14：30
+
+14：00--15:18 不知道怎么像什么然后1个小时过去了，---偏离目标 
+ what：你就是测试你写的rm时候 不提示error
+ 
+
+-------------------------
+1-5
+
+1. 解决最后一个bug
+
+a 想清楚在测试（模糊） --->b意思是，如果不清楚，就不要测试 停止测试（具体）
+c--->时间用在思考号方案上（模糊）--d 打开代码工具（具体）。
+
+/diluv2/tools/vdbench50406/vdbench -f /diluv2/tools/vdbench50406/examples/filesys/create_files
+
+完成
+
+2. 协助：文档协作
+
+3.  常规测试 
+ 部署 120分钟
+ 
+
+10M文件 4秒迁移 平均速度最多2s/
+
+
+4 晚上 卧室看小说5个小时。失控 耽误运动睡眠自责
+明天一定：在进入卧室时候 手机放客厅，手机放可定第10000次提醒第100000失控
+
+5 看书熬夜看小说导致第二天根本起不来跟不上 自责 看别人做到了 7:50起床
+明天一定：准时起床 不找任何借口，固定时间起床 6:30
+
+
+
+
+
+--------------------------------------
+故障测试：ifdown，断点重启
+
+解决方式：
+1. tcp心跳检测--解决问题管理节点检测job通讯问题 提出job节点
+2. sleep 10 然后执行mpirun ---解决重启过程中 任务提前接受
+3  限制单个文件最长迁移时间30分钟，---解决ifdwon后 单个文件卡住 
+ 测试结果：个别
+4. 10分钟心跳检测一次，解决job节点不退出。包含问题3
+
+
+10M文件 8进程 4线程
+1. 10M文件手工执行 4-5秒 
+2. 程序执行 最多执行当前速度2.0个/秒
+
+10M文件 16进程 8进程
+
+已成功迁移67文件,当前速度1.5个/秒
+
+
+ 
+
+
+
+
+关闭浏览器，太消耗内存了 ---效率提示 
+
+
+
+
+
+
+
+
+/diluv2/tools/vdbench50406/vdbench -f /diluv2/tools/vdbench50406/examples/filesys/create_files
+
+
+
+
+
+
+[root@server01 ~]# ps -aux |grep ctl
+root       62315  0.0  0.0 1828668 36372 ?       Ssl  Dec28   0:01 /usr/bin/python3 /opt/beegfs/move/sbin/beegfs-move-ctl -c /etc/beegfs/move/beegfs_move.conf
+root      433349  0.0  0.0 391008  7844 ?        Sl   Dec28   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/10M/vdb.1_1.dir/vdb_f26870.file
+root      433361  0.0  0.0 391008 10020 ?        Sl   Dec28   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/10M/vdb.1_1.dir/vdb_f29346.file
+root      433367  0.0  0.0 391008  7236 ?        Sl   Dec28   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/10M/vdb.1_1.dir/vdb_f3947.file
+root      433373  0.0  0.0 391008  9860 ?        Sl   Dec28   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/10M/vdb.1_1.dir/vdb_f15909.file
+root      433379  0.0  0.0 391008  7848 ?        Sl   Dec28   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/10M/vdb.1_1.dir/vdb_f21890.file
+root      433385  0.0  0.0 391008  9152 ?        Sl   Dec28   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/10M/vdb.1_1.dir/vdb_f8321.file
+root      433391  0.0  0.0 391008  8084 ?        Sl   Dec28   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/10M/vdb.1_1.dir/vdb_f2888.file
+root      433397  0.0  0.0 391008 10028 ?        Sl   Dec28   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/10M/vdb.1_1.dir/vdb_f31115.file
+root      433403  0.0  0.0 391008 10020 ?        Sl   Dec28   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/10M/vdb.1_1.dir/vdb_f12133.file
+root      433409  0.0  0.0 391008  8608 ?        Sl   Dec28   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/10M/vdb.1_1.dir/vdb_f27858.file
+root      433415  0.0  0.0 391008  9896 ?        Sl   Dec28   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/10M/vdb.1_1.dir/vdb_f8437.file
+root      433421  0.0  0.0 391008  5828 ?        Sl   Dec28   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/10M/vdb.1_1.dir/vdb_f0676.file
+root      433427  0.0  0.0 391008  7940 ?        Sl   Dec28   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/10M/vdb.1_1.dir/vdb_f24213.file
+root      433433  0.0  0.0 391008  7892 ?        Sl   Dec28   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/10M/vdb.1_1.dir/vdb_f4181.file
+root      433439  0.0  0.0 391008  5796 ?        Sl   Dec28   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/10M/vdb.1_1.dir/vdb_f28609.file
+
+------------------------
+
+[root@server01 ~]# ps -aux |grep ctl
+root       62315  0.0  0.0 1976132 36404 ?       Ssl  Dec28   0:01 /usr/bin/python3 /opt/beegfs/move/sbin/beegfs-move-ctl -c /etc/beegfs/move/beegfs_move.conf
+root      433349  0.0  0.0 391008  7848 ?        Sl   Dec28   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/10M/vdb.1_1.dir/vdb_f26870.file
+root      433361  0.0  0.0 391008 10020 ?        Sl   Dec28   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/10M/vdb.1_1.dir/vdb_f29346.file
+root      433367  0.0  0.0 391008  7236 ?        Sl   Dec28   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/10M/vdb.1_1.dir/vdb_f3947.file
+root      433373  0.0  0.0 391008  9860 ?        Sl   Dec28   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/10M/vdb.1_1.dir/vdb_f15909.file
+root      433379  0.0  0.0 391008  7848 ?        Sl   Dec28   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/10M/vdb.1_1.dir/vdb_f21890.file
+root      433385  0.0  0.0 391008  9152 ?        Sl   Dec28   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/10M/vdb.1_1.dir/vdb_f8321.file
+root      433391  0.0  0.0 391008  8084 ?        Sl   Dec28   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/10M/vdb.1_1.dir/vdb_f2888.file
+root      433397  0.0  0.0 391008 10028 ?        Sl   Dec28   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/10M/vdb.1_1.dir/vdb_f31115.file
+root      433403  0.0  0.0 391008 10020 ?        Sl   Dec28   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/10M/vdb.1_1.dir/vdb_f12133.file
+root      433409  0.0  0.0 391008  8608 ?        Sl   Dec28   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/10M/vdb.1_1.dir/vdb_f27858.file
+root      433415  0.0  0.0 391008  9896 ?        Sl   Dec28   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/10M/vdb.1_1.dir/vdb_f8437.file
+root      433421  0.0  0.0 391008  5828 ?        Sl   Dec28   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/10M/vdb.1_1.dir/vdb_f0676.file
+root      433427  0.0  0.0 391008  7940 ?        Sl   Dec28   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/10M/vdb.1_1.dir/vdb_f24213.file
+root      433433  0.0  0.0 391008  7892 ?        Sl   Dec28   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/10M/vdb.1_1.dir/vdb_f4181.file
+root      433439  0.0  0.0 391008  5800 ?        Sl   Dec28   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/10M/vdb.1_1.dir/vdb_f28609.file
+root      647388  0.6  0.0 489384 17392 ?        Sl   09:09   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/10M/vdb.1_1.dir/vdb_f59289.file
+root      647466  0.6  0.0 423840  9444 ?        Sl   09:09   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/10M/vdb.1_1.dir/vdb_f59615.file
+root      647472  0.6  0.0 423840  5352 ?        Sl   09:09   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/10M/vdb.1_1.dir/vdb_f56346.file
+root      647497  1.0  0.0 489384 15532 ?        Dl   09:09   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/10M/vdb.1_1.dir/vdb_f73861.file
+root      647514  1.0  0.0 489384 19548 ?        Sl   09:09   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/10M/vdb.1_1.dir/vdb_f14475.file
+root      647526  1.0  0.0 489384 17356 ?        Dl   09:09   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/10M/vdb.1_1.dir/vdb_f78902.file
+root      647666  1.0  0.0 489384 15312 ?        Dl   09:09   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/10M/vdb.1_1.dir/vdb_f59453.file
+root      647690  0.5  0.0 489384 19388 ?        Dl   09:09   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/10M/vdb.1_1.dir/vdb_f80707.file
+root      647708  0.5  0.0 489384 17448 ?        Sl   09:09   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/10M/vdb.1_1.dir/vdb_f78826.file
+root      647768  1.0  0.0 489384 15308 ?        Sl   09:09   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/10M/vdb.1_1.dir/vdb_f25489.file
+root      647800  1.0  0.0 489384 15404 ?        Sl   09:09   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/10M/vdb.1_1.dir/vdb_f11740.file
+root      647878  1.0  0.0 489384 15500 ?        Dl   09:09   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/10M/vdb.1_1.dir/vdb_f51651.file
+root      647885  1.0  0.0 489384 11232 ?        Rl   09:09   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/10M/vdb.1_1.dir/vdb_f55179.file
+root      647914  1.0  0.0 489384 15416 ?        Dl   09:09   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/10M/vdb.1_1.dir/vdb_f63176.file
+root      648010  0.0  0.0 489384 13488 ?        Sl   09:09   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/10M/vdb.1_1.dir/vdb_f54056.file
+root      648011  0.0  0.0 489384  9356 ?        Sl   09:09   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/10M/vdb.1_1.dir/vdb_f71560.file
+root      648067  0.0  0.0 489384 13284 ?        Dl   09:09   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/10M/vdb.1_1.dir/vdb_f58727.file
+root      648085  0.0  0.0 489384 13272 ?        Sl   09:09   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/10M/vdb.1_1.dir/vdb_f56497.file
+root      648114  0.0  0.0 423840  7308 ?        Dl   09:09   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/1M/vdb.1_1.dir/vdb_f41839.file
+root      648115  0.0  0.0 423840  7388 ?        Dl   09:09   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/1M/vdb.1_1.dir/vdb_f43153.file
+root      648126  0.0  0.0 423840  7388 ?        Sl   09:09   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/1M/vdb.1_1.dir/vdb_f42626.file
+root      648132  0.0  0.0 489384  9260 ?        Dl   09:09   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/1M/vdb.1_1.dir/vdb_f41531.file
+root      648138  0.0  0.0 489384  7272 ?        Dl   09:09   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/1M/vdb.1_1.dir/vdb_f47945.file
+root      648144  0.0  0.0 489384  7268 ?        Dl   09:09   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/1M/vdb.1_1.dir/vdb_f42908.file
+root      648150  0.0  0.0 489384  7124 ?        Dl   09:09   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/1M/vdb.1_1.dir/vdb_f52287.file
+root      648156  0.0  0.0 489384  7268 ?        Sl   09:09   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/1M/vdb.1_1.dir/vdb_f35235.file
+root      648162  0.0  0.0 489384  7260 ?        Dl   09:09   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/10M/vdb.1_1.dir/vdb_f82267.file
+root      648168  0.0  0.0 489384  7116 ?        Sl   09:09   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/1M/vdb.1_1.dir/vdb_f38873.file
+root      648169  0.0  0.0 489384  9272 ?        Sl   09:09   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/1M/vdb.1_1.dir/vdb_f46427.file
+root      648180  0.0  0.0 423840  5296 ?        Sl   09:09   0:00 beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/1M/vdb.1_1.dir/vdb_f40719.file
+
+
+1 beegfs分级迁移 测试问题分析--第一次转测测试完成。
+2.beegfs分级迁移 问题解决 90%
+3.beegfs内存涨问题--通过升级ib完毕 
+
+
+1. 参与beegfs分级迁移设计开发测试。
+2. 参与beegfs diuv
+
+
+
+import funcs
+
+# check fast pool
+@decorator.debug
+def check_fast_pool_size(path, pool, low, high):
+    """返回pool水位高低，<low时返回0 ，>=high时返回2
+    输入；
+        path:"/mnt/beegfs"
+        pool:"3"或"1"
+        low:opt.poolLow
+        high:opt.poolHigh
+    :rtype: int
+    -1 err
+    0 < low
+    1
+    2 >high
+    """
+
+    space = funcs.get_pool_space(pool)
+    # logging.debug(
+    #     f"当前快速池水位为 已用={space['used'] / (2 ** 30):.2f}G,总共={space['total'] / (2 ** 30):.2f}G,剩余={space['free'] / (2 ** 30):.2f}G")
+    # print(
+    #     f"当前快速池水位为 已用={space['used'] / (2 ** 30):.2f}G,总共={space['total'] / (2 ** 30):.2f}G,剩余={space['free'] / (2 ** 30):.2f}G")
+
+    total = space['total']
+    used = space['used']
+    avg_used  =0
+    if total >0:
+        avg_used = used/total
+    if 0 == int(low):
+        logging.info("the low level is 0,plase check the config")
+    if int(avg_used) < int(low):
+        ret = migration_base.PoolRange.pool_level_low
+    elif int(avg_used) >= int(high):
+       ret = migration_base.PoolRange.pool_level_high
+    else:
+        ret = migration_base.PoolRange.pool_level_mid
+    logging.info(
+        "task::do_urgent_migration_job check_pool_size  pool_level_low used: cur :{:.2f} low:{} high:{} ".format(
+            avg_used, int(low), int(high)))
+    # print(
+    #     "task::do_urgent_migration_job check_pool_size  pool_level_low used: cur :{:.2f} low:{} high:{} ".format(
+    #         avg_used, int(low), int(high)))
+
+    return ret
+	

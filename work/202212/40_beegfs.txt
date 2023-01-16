@@ -1,0 +1,96 @@
+
+管理节点： 188.188.12.40
+unmount /dev/nvme0n1
+
+mkdir -p /data/beegfs/beegfs_mgmtd/
+mkfs.ext4 /dev/nvme0n1 
+mount /dev/nvme0n1 /data/beegfs/beegfs_mgmtd/
+
+/opt/beegfs/sbin/beegfs-setup-mgmtd -p /data/beegfs/beegfs_mgmtd
+systemctl status beegfs-mgmtd
+systemctl restart beegfs-mgmtd
+
+元数据：
+
+mkdir -p /data/beegfs/beegfs_meta
+mkfs.ext4 /dev/nvme3n1
+mount /dev/nvme3n1 /data/beegfs/beegfs_meta
+
+/opt/beegfs/sbin/beegfs-setup-meta -p /data/beegfs/beegfs_meta -s 42 -m 188.188.12.40
+/etc/beegfs/beegfs-meta.conf
+[root@server01~]# systemctl restart beegfs-meta
+[root@server01~]# systemctl status beegfs-meta
+
+
+存储节点
+
+慢池
+mkdir -p /data/beegfs/beegfs_storage201
+mkdir -p /data/beegfs/beegfs_storage202
+mkdir -p /data/beegfs/beegfs_storage203
+
+mkfs.ext4  /dev/sdn
+mkfs.ext4  /dev/sdm
+mkfs.ext4  /dev/sdl
+
+mount /dev/sdn /data/beegfs/beegfs_storage201
+mount /dev/sdm /data/beegfs/beegfs_storage202
+mount /dev/sdl /data/beegfs/beegfs_storage203
+
+/opt/beegfs/sbin/beegfs-setup-storage  -p  /data/beegfs/beegfs_storage201 -s 21 -i 201 -m 188.188.12.40
+/opt/beegfs/sbin/beegfs-setup-storage  -p  /data/beegfs/beegfs_storage202 -s 21 -i 202
+/opt/beegfs/sbin/beegfs-setup-storage  -p  /data/beegfs/beegfs_storage203 -s 21 -i 203
+
+systemctl restart beegfs-storage
+systemctl status beegfs-storage
+/etc/beegfs/beegfs-storage.conf
+
+mkdir -p /data/beegfs/beegfs_storage101
+mkdir -p /data/beegfs/beegfs_storage102
+
+
+mkfs.ext4  /dev/nvme2n1
+mkfs.ext4  /dev/nvme1n1
+
+mount /dev/nvme2n1 /data/beegfs/beegfs_storage101
+mount /dev/nvme1n1 /data/beegfs/beegfs_storage102
+
+
+/opt/beegfs/sbin/beegfs-setup-storage  -p  /data/beegfs/beegfs_storage101 -s 43 -i 101 -m 188.188.12.40
+/opt/beegfs/sbin/beegfs-setup-storage  -p  /data/beegfs/beegfs_storage102 -s 43 -i 102
+
+systemctl restart beegfs-storage
+systemctl status beegfs-storage
+
+
+
+客户端：
+
+/opt/beegfs/sbin/beegfs-setup-client -m  10.141.162.38 -f 
+
+/etc/init.d/beegfs-client rebuild
+
+ systemctl restart  beegfs-client.service
+
+
+beegfs客户端无法启动，提示管理节点链接不上
+ip a
+ibstata 
+不显示ip 网卡
+
+/etc/init.d/opensmd restart 失败
+
+
+ 1164  lsmod |grep rdma
+ 1178  rmmod beegfs
+ 1180  lsmod |grep beegfs
+
+
+lsmod |grep beegfs
+lsmod - Show the status of modules in the Linux Kernel
+
+ beegfs-ctl --liststoragepools
+Pool ID   Pool Description                      Targets                 Buddy Groups
+======= ================== ============================ ============================
+      1            Default 101,102
+      2           slowpool 201,202,203

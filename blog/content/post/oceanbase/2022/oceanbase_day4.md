@@ -267,6 +267,8 @@ obd mirror disable remote
 /oceanbase/oceanbase/build_debug
 make DESTDIR=./ install 
 
+
+
 obd mirror create -n oceanbase-ce -V 3.1.4-1 -p ./usr/local -t my-oceanbase
 
 

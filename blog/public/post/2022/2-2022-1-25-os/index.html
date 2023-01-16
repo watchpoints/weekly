@@ -48,7 +48,7 @@
 <meta itemprop="name" content="操作系统入门知识">
 <meta itemprop="description" content="疑问"><meta itemprop="datePublished" content="2022-01-25T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-01-25T00:00:00+00:00" />
-<meta itemprop="wordCount" content="2484">
+<meta itemprop="wordCount" content="2728">
 <meta itemprop="keywords" content="book," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="操作系统入门知识"/>
 <meta name="twitter:description" content="疑问"/>
@@ -128,8 +128,8 @@
       <div class="post-meta">
         <span class="post-time"> 2022-01-25 00:00 </span>
         
-          <span class="more-meta"> 约 2484 字 </span>
-          <span class="more-meta"> 预计阅读 5 分钟 </span>
+          <span class="more-meta"> 约 2728 字 </span>
+          <span class="more-meta"> 预计阅读 6 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
     </header>
@@ -168,7 +168,51 @@
   </div>
 </div>
     <div class="post-content">
-      <h1 id="cpu">cpu</h1>
+      <h1 id="how-sched_setaffinity-works-inside-of-linux-kernel">How sched_setaffinity works inside of Linux Kernel</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">YSCALL_DEFINE3(sched_setaffinity, pid_t, pid, unsigned int, len, unsigned long __user *, user_mask_ptr)
+</span></span><span class="line"><span class="cl">-- sched_setaffinity(pid_t pid, const struct cpumask *in_mask)
+</span></span><span class="line"><span class="cl">--- __set_cpus_allowed_ptr(struct task_struct *p, const struct cpumask *new_mask, bool check)
+</span></span><span class="line"><span class="cl">---- stop_one_cpu(unsigned int cpu, cpu_stop_fn_t fn, void *arg)
+</span></span><span class="line"><span class="cl">----- migration_cpu_stop(void *data)
+</span></span><span class="line"><span class="cl">------ __migrate_task(struct rq *rq, struct task_struct *p, int dest_cpu)
+</span></span><span class="line"><span class="cl">------- move_queued_task(struct rq *rq, struct task_struct *p, int new_cpu)
+</span></span><span class="line"><span class="cl">-------- enqueue_task(struct rq *rq, struct task_struct *p, int flags)
+</span></span><span class="line"><span class="cl">--------- returns the new run queue of destination CPU
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>[root@h12-storage03 ~]# dmesg|grep -i numa
+[    0.000000] NUMA: Initialized distance table, cnt=2
+[    0.000000] NUMA: Node 0 [mem 0x00000000-0x7fffffff] + [mem 0x100000000-0x807fffffff] -&gt; [mem 0x00000000-0x807fffffff]
+[    0.001000] mempolicy: Enabling automatic NUMA balancing. Configure with numa_balancing= or the kernel.numa_balancing sysctl
+[    1.151966] pci_bus 0000:00: on NUMA node 0
+[    1.154241] pci_bus 0000:16: on NUMA node 0
+[    1.155523] pci_bus 0000:30: on NUMA node 0
+[    1.156810] pci_bus 0000:4a: on NUMA node 0
+[    1.160095] pci_bus 0000:64: on NUMA node 0
+[    1.164343] pci_bus 0000:7e: on NUMA node 0
+[    1.176501] pci_bus 0000:7f: on NUMA node 0
+[    1.178741] pci_bus 0000:80: on NUMA node 1
+[    1.181500] pci_bus 0000:97: on NUMA node 1
+[    1.182764] pci_bus 0000:b0: on NUMA node 1
+[    1.183768] pci_bus 0000:c9: on NUMA node 1
+[    1.184760] pci_bus 0000:e2: on NUMA node 1
+[    1.188830] pci_bus 0000:fe: on NUMA node 1
+[    1.200504] pci_bus 0000:ff: on NUMA node 1
+[root@h12-storage03 ~]#</p>
+<h1 id="cpu">cpu</h1>
 <h3 id="疑问1--what-is-numa">疑问1  What is NUMA?</h3>
 <p>dmesg|grep -i numa</p>
 <p>[  0.000000] No NUMA configuration found</p>
@@ -524,7 +568,7 @@
   <span class="copyright-year">
     &copy; 
     2017 - 
-    2022
+    2023
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>

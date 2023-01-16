@@ -6,7 +6,25 @@
     <description>Recent content in book on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 23 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/tags/book/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 20 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/tags/book/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux内核参数配置入门</title>
+      <link>https://wangcy6.github.io/post/liunx/2022-11-20-liunx_kernel_param/</link>
+      <pubDate>Sun, 20 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/liunx/2022-11-20-liunx_kernel_param/</guid>
+      <description>如何学习 在本文中，我将试着去回答liunx 内核参数： Q1 (Why): 为什么需要协程？ 我们会一起回顾协程出现的历史背景，当时要解决什么问题；同时，现在是什</description>
+    </item>
+    
+    <item>
+      <title>从青铜到王者系列：故障定位</title>
+      <link>https://wangcy6.github.io/post/liunx/2022_11_29_liunx_memory_/</link>
+      <pubDate>Sun, 20 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/liunx/2022_11_29_liunx_memory_/</guid>
+      <description>如何学习 在本文中，我将试着去回答liunx 内核参数： Q1 (Why): 为什么需要协程？ 我们会一起回顾协程出现的历史背景，当时要解决什么问题；同时，现在是什</description>
+    </item>
+    
     <item>
       <title>操作系统入门知识--网络</title>
       <link>https://wangcy6.github.io/post/2022/08_2022_4_17_epoll/</link>
@@ -22,7 +40,16 @@
       <pubDate>Sat, 26 Mar 2022 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/2022/tool_git_3_26/</guid>
-      <description>问：git pull merge git rebase 区别？ 答： 参考资料 https://www.liaoxuefeng.com/wiki/896043488029600/1216289527823648 https://www.yiibai.com/git/git_merge.html https://www.yiibai.com/git/git_rebase.html</description>
+      <description>编码 教训 不能在window 修改代码，然后上传到liunx提交代码 【大量混乱 不行】【不运行这样操作发送】 纠正过去错误习惯：window 开发 然后</description>
+    </item>
+    
+    <item>
+      <title>myql入门</title>
+      <link>https://wangcy6.github.io/post/2022/03-mysql/</link>
+      <pubDate>Sat, 26 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2022/03-mysql/</guid>
+      <description>第一篇 安装 在CentOS7中已经不在推荐使用mysql，甲骨文公司收购了MySQL后，有将MySQL闭源的潜在风险。 MariaDB数据库是 MySQL</description>
     </item>
     
     <item>
@@ -31,7 +58,7 @@
       <pubDate>Tue, 25 Jan 2022 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/2022/2-2022-1-25-os/</guid>
-      <description>cpu 疑问1 What is NUMA? dmesg|grep -i numa [ 0.000000] No NUMA configuration found 疑问2:网卡软中断都集中在了一个cpu上，导致cpu负载升高，多余网络包被丢弃？ X86系统采用中断机制协同处</description>
+      <description>How sched_setaffinity works inside of Linux Kernel 1 2 3 4 5 6 7 8 9 YSCALL_DEFINE3(sched_setaffinity, pid_t, pid, unsigned int, len, unsigned long __user *, user_mask_ptr) -- sched_setaffinity(pid_t pid, const struct cpumask *in_mask) --- __set_cpus_allowed_ptr(struct task_struct *p, const struct cpumask *new_mask, bool check) ---- stop_one_cpu(unsigned int cpu, cpu_stop_fn_t fn, void *arg) ----- migration_cpu_stop(void *data) ------ __migrate_task(struct rq *rq, struct task_struct *p, int dest_cpu) ------- move_queued_task(struct rq *rq, struct task_struct</description>
     </item>
     
     <item>

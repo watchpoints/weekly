@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Troy" /><meta name="description" content="问：git pull merge git rebase 区别？ 答： 参考资料 https://www.liaoxuefeng.com/wiki/896043488029600/1216289527823648 https://www.yiibai.com/git/git_merge.html https://www.yiibai.com/git/git_rebase.html" /><meta name="keywords" content="daily-interview-question, Github, c&#43;&#43;, Leetcode 题解, 后端面试" />
+<meta name="author" content="Troy" /><meta name="description" content="编码 教训 不能在window 修改代码，然后上传到liunx提交代码 【大量混乱 不行】【不运行这样操作发送】 纠正过去错误习惯：window 开发 然后" /><meta name="keywords" content="daily-interview-question, Github, c&#43;&#43;, Leetcode 题解, 后端面试" />
 
 
 
@@ -39,19 +39,19 @@
 
 
 <meta property="og:title" content="git入门" />
-<meta property="og:description" content="问：git pull merge git rebase 区别？ 答： 参考资料 https://www.liaoxuefeng.com/wiki/896043488029600/1216289527823648 https://www.yiibai.com/git/git_merge.html https://www.yiibai.com/git/git_rebase.html" />
+<meta property="og:description" content="编码 教训 不能在window 修改代码，然后上传到liunx提交代码 【大量混乱 不行】【不运行这样操作发送】 纠正过去错误习惯：window 开发 然后" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://wangcy6.github.io/post/2022/tool_git_3_26/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2022-03-26T00:00:00+00:00" />
 <meta property="article:modified_time" content="2022-03-26T00:00:00+00:00" />
 
 <meta itemprop="name" content="git入门">
-<meta itemprop="description" content="问：git pull merge git rebase 区别？ 答： 参考资料 https://www.liaoxuefeng.com/wiki/896043488029600/1216289527823648 https://www.yiibai.com/git/git_merge.html https://www.yiibai.com/git/git_rebase.html"><meta itemprop="datePublished" content="2022-03-26T00:00:00+00:00" />
+<meta itemprop="description" content="编码 教训 不能在window 修改代码，然后上传到liunx提交代码 【大量混乱 不行】【不运行这样操作发送】 纠正过去错误习惯：window 开发 然后"><meta itemprop="datePublished" content="2022-03-26T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-03-26T00:00:00+00:00" />
-<meta itemprop="wordCount" content="21">
+<meta itemprop="wordCount" content="283">
 <meta itemprop="keywords" content="book," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="git入门"/>
-<meta name="twitter:description" content="问：git pull merge git rebase 区别？ 答： 参考资料 https://www.liaoxuefeng.com/wiki/896043488029600/1216289527823648 https://www.yiibai.com/git/git_merge.html https://www.yiibai.com/git/git_rebase.html"/>
+<meta name="twitter:description" content="编码 教训 不能在window 修改代码，然后上传到liunx提交代码 【大量混乱 不行】【不运行这样操作发送】 纠正过去错误习惯：window 开发 然后"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -128,7 +128,7 @@
       <div class="post-meta">
         <span class="post-time"> 2022-03-26 00:00 </span>
         
-          <span class="more-meta"> 约 21 字 </span>
+          <span class="more-meta"> 约 283 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -137,24 +137,68 @@
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#操作">操作</a>
+      <ul>
+        <li><a href="#解决冲突">解决冲突</a></li>
+      </ul>
+    </li>
+    <li><a href="#doc">doc</a></li>
+  </ul>
+</nav>
   </div>
 </div>
     <div class="post-content">
-      <p>问：git pull merge git rebase 区别？</p>
-<p>答：</p>
-<p>参考资料</p>
+      <h1 id="编码-教训">编码 教训</h1>
 <ul>
 <li>
-<p><a href="https://www.liaoxuefeng.com/wiki/896043488029600/1216289527823648">https://www.liaoxuefeng.com/wiki/896043488029600/1216289527823648</a></p>
-</li>
-<li>
-<p><a href="https://www.yiibai.com/git/git_merge.html">https://www.yiibai.com/git/git_merge.html</a></p>
-</li>
-<li>
-<p><a href="https://www.yiibai.com/git/git_rebase.html">https://www.yiibai.com/git/git_rebase.html</a></p>
+<p>不能在window 修改代码，然后上传到liunx提交代码 【大量混乱 不行】【不运行这样操作发送】</p>
+<p>纠正过去错误习惯：window 开发 然后上传liunx编译开发 【学会远程开发工具IDE 和 vi等命令】</p>
 </li>
 </ul>
+<h2 id="操作">操作</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git stash
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="解决冲突">解决冲突</h3>
+<p>Please, commit your changes or stash them before you can switch branches</p>
+<ul>
+<li><a href="https://www.bilibili.com/video/BV1sf4y1D7bF/?vd_source=432dc5326188b5e1aa7119a815a8b105">07★Git入门★比较修改内容 git diff</a></li>
+</ul>
+<p>​      [git必知必会第三课：git status与git diff</p>
+<p><code>1. git diff -- 文件名</code>：查看具体某个文件 在工作区和暂存区之间的差异</p>
+<p>git diff &ndash; ob_system_variable.cpp</p>
+<p>如何回退代码</p>
+<p><a href="https://www.bilibili.com/video/BV1T5411j76k/?spm_id_from=333.788.recommend_more_video.4&amp;vd_source=432dc5326188b5e1aa7119a815a8b105">https://www.bilibili.com/video/BV1T5411j76k/?spm_id_from=333.788.recommend_more_video.4&amp;vd_source=432dc5326188b5e1aa7119a815a8b105</a></p>
+<p><a href="https://www.bilibili.com/video/BV19B4y1u7vm/?spm_id_from=333.788.recommend_more_video.3&amp;vd_source=432dc5326188b5e1aa7119a815a8b105">https://www.bilibili.com/video/BV19B4y1u7vm/?spm_id_from=333.788.recommend_more_video.3&amp;vd_source=432dc5326188b5e1aa7119a815a8b105</a></p>
+<p><a href="https://www.cnblogs.com/haima/p/13365483.html">https://www.cnblogs.com/haima/p/13365483.html</a></p>
+<p><a href="https://www.bilibili.com/video/BV14i4y1C7tM/?vd_source=432dc5326188b5e1aa7119a815a8b105">https://www.bilibili.com/video/BV14i4y1C7tM/?vd_source=432dc5326188b5e1aa7119a815a8b105</a></p>
+<p><a href="https://www.liaoxuefeng.com/wiki/896043488029600/1216289527823648">https://www.liaoxuefeng.com/wiki/896043488029600/1216289527823648</a></p>
+<p><a href="https://juejin.cn/post/6844904089600409613">https://juejin.cn/post/6844904089600409613</a></p>
+<p><a href="https://www.bilibili.com/video/BV1cv411u7wd/?spm_id_from=333.788.recommend_more_video.-1&amp;vd_source=432dc5326188b5e1aa7119a815a8b105">https://www.bilibili.com/video/BV1cv411u7wd/?spm_id_from=333.788.recommend_more_video.-1&amp;vd_source=432dc5326188b5e1aa7119a815a8b105</a></p>
+<ul>
+<li>
+<p>如何合并代码</p>
+<p>git checkout -b newB</p>
+<p>git checkout master</p>
+<p>git merge newB</p>
+</li>
+<li>
+<p>如何提交代码？</p>
+<p>git push &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;</p>
+<p>git push -u origin newB</p>
+</li>
+</ul>
+<h2 id="doc">doc</h2>
+<ol>
+<li><a href="https://git-scm.com/docs/git-diff">https://git-scm.com/docs/git-diff</a></li>
+</ol>
 
     </div>
 
@@ -186,8 +230,8 @@
             <span class="prev-text nav-default">带着问题去学习第三期</span>
             <span class="prev-text nav-mobile">上一篇</span>
           </a>
-        <a class="next" href="/post/mysql/day1_mysql_demo/">
-            <span class="next-text nav-default">mysql内核学习过程</span>
+        <a class="next" href="/post/2022/03-mysql/">
+            <span class="next-text nav-default">myql入门</span>
             <span class="next-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
           </a>
@@ -238,7 +282,7 @@
   <span class="copyright-year">
     &copy; 
     2017 - 
-    2022
+    2023
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>

@@ -70,11 +70,11 @@ https://sploitfun.wordpress.com/2015/02/10/understanding-glibc-malloc/
 
 
  - [ ]  阅读valgrind技术手册,累计耗时4小时。
- 
 
-  
+
+
 1. 自己过去3个星期搜索搜索中，Valgrind 没有找到有用的信息，都是copy ，没有自己一点理解，因此你必须看官方文档来获取信息。
-  很多实用技巧，从官方文档获取，不是各种网上 ！！！！！！！！！！！！！！！！！！
+    很多实用技巧，从官方文档获取，不是各种网上 ！！！！！！！！！！！！！！！！！！
    https://www.valgrind.org/docs/manual/manual-core.html#manual-core.whatdoes
 2. 相关设计原理 https://www.valgrind.org/docs/pubs.html
 
@@ -277,7 +277,7 @@ https://www.infoq.cn/article/bSNpBm7h4GgGj9uTHM3d
 ##### 游戏升级
 
   - 05-10 连续一周了一天没执行，手机解决了，电脑问题出现了。
-  
+
   > 游戏升级 晚上下班后：具体来说 8点 9点 11点 12点 之间不打开电脑继续学习。改为早晨。
 
   -05-20：因为下班比较晚，你回家路上手机解锁了，然后吃饭时候看腾讯视频，综艺节目 动漫，60*4分钟，第二天后悔也没用，因为下次你这样。 自己不忍心，看一次，完全失败思想太可怕了 
@@ -307,7 +307,7 @@ https://www.infoq.cn/article/bSNpBm7h4GgGj9uTHM3d
 #### bug2 在什么地方，遇到问题，然后什么心情
 
  -  吃饭+沙发 床+手机+电视 致命诱惑
-  
+
  
 
 

@@ -915,8 +915,11 @@ arch: x86_64
 
 配置文件：【1】
 https://gitee.com/oceanbase/obdeploy/blob/master/example/mini-distributed-example.yaml
-echo 'fs.aio-max-nr=1048576' | sudo tee /etc/sysctl.conf
+echo 'fs.aio-max-nr=1048576' >> /etc/sysctl.conf
 sysctl -p
+
+echo -e "root soft nofile 655350\nroot hard nofile 655350\n* soft nofile 655350\n* hard nofile 655350">> /etc/security/limits.conf
+
 
 echo -e "root soft nofile 655350\nroot hard nofile 655350\n* soft nofile 655350\n* hard nofile 655350">> /etc/security/limits.conf
 

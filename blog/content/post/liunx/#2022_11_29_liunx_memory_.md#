@@ -1,0 +1,188 @@
+---
+title: "从青铜到王者系列：故障定位"
+date: 2022-11-20
+description: ""
+draft: false
+tags: ["book"]
+---
+
+
+
+
+
+
+
+
+
+## 如何学习
+
+> 在本文中，我将试着去回答liunx 内核参数：
+> Q1 (Why): 为什么需要协程？
+> 我们会一起回顾协程出现的历史背景，当时要解决什么问题；同时，现在是什么场景，需要使用协程来进行处理？为什么进程或者线程不能够很好地满足当下的使用场景？
+> Q2 (What): 到底什么是协程？
+> 我们一直在谈论协程。由于协程中包含有「程」这个字眼，因此经常被拿来与进程线程进行对比，称协程为「用户态线程」；但又有人从协程实现的角度，说「协程是一种泛化的函数」。这就把我们给绕晕了。我们不禁要问，到底什么是协程？在本次分享中，我会试着进行回答。
+> Q3 (How): 怎么实现协程 (库)？
+> 在回答了协程是什么之后，第三个问题就紧随而来，我们可以自己去实现一个简单的协程或者协程库吗？如果可以实现，那我们应该怎么实现呢？
+> Q4 (Usage): 使用协程时需要注意什么？
+> 通过实际编码实现一个简单的协程库后，我们再来看 libco 的实现，就会清晰明了。我们会在第四部分介绍使用协程时需要注意的一些问题。
+> 这就是我本次分享想要达成的目标 —— 回答这四个问题。
+
+~~~
+ 一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题 
+
+ 二、这个技术的优势和劣势分别是什么 
+
+三、这个技术适用的场景。任何技术都有其适用的场景，离开了这个场景
+
+四、技术的组成部分和关键点。
+
+五、技术的底层原理和关键实现
+
+六、已有的实现和它之间的对比
+~~~
+
+
+
+
+
+#  故障1 
+
+
+
+### 现象描述：发现内存被占用，但是查找不到相关进程，
+
+
+
+### 1. free ps top 这些工具统计差距这么大，多出内存去哪里？
+
+~~~
+
+[root@localhost ~]# free -g
+              total        used        free      shared  buff/cache   available
+Mem:           1007          16         990           0           0         987
+Swap:            62           0          62
+
+
+ps aux | awk '{mem += $6} END {print mem/1024/1024}'
+2.13824
+
+
+top free 命令完整来源
+cat /proc/meminfo
+while true; do cat /proc/meminfo | grep MemFree; sleep 10; done
+~~~
+
+ 画外音：
+
+- ps top 这个工具使用场景是什么？用户态的内存 没有专门统计另一项缓存: Slab。
+- /proc/meminfo是了解Linux系统[内存](https://so.csdn.net/so/search?q=内存&spm=1001.2101.3001.7020)使用状况的主要接口，我们最常用的”free”、”vmstat”等命令就是通过它获取数据的 ，/proc/meminfo所包含的信息比”free”等命令要丰富得多
+
+### 2 陈咬金三板斧：不用什么原有 执行 drop_caches 之后，slab内存还是没有下降，无效操作？
+
+~~~shell
+## 没有释放
+echo 3 > /proc/sys/vm/drop_caches
+
+## 其中SUnreclaim:,随着测试时间加长SUnreclaim一直在增加，证明存在内存泄露可能.
+On linux Slab is subdivided into two: SReclaimable and SUnreclaim .
+
+[root@localhost ~]# cat /proc/meminfo | grep "SUnreclaim"
+SUnreclaim:     11777088 kB
+[root@localhost ~]# cat /proc/meminfo | grep "SUnreclaim"
+SUnreclaim:     11778504 kB
+[root@localhost ~]#
+
+
+### slab
+
+cat /proc/slabinfo  | awk '{if($3*$4/1024/1024 > 100){print $1,$3*$4/1024/1024} }' |sort -nr
+
+task_struct 8784.26
+taskstats 390.255
+signal_cache 1379.58
+kmalloc-192 119.878
+kmalloc-128 146.234
+cred_jar 218.97
+beegfs_inode_cache 226.975
+
+
+
+# 尝试在/sys/kernel/slab/*/中提供了alloc_calls和free_calls。 这个中断
+
+cat: /sys/kernel/slab/kmalloc-128/alloc_calls: Function not implemented
+
+cat /sys/kernel/slab/task_struct/alloc_calls
+cat: /sys/kernel/slab/task_struct/alloc_calls: Function not implemented
+
+CONFIG_SLUB_DEBUG_ON 不知道如何开启 
+
+slab
+info-S
+slabtop
+
+在内核中打开slub_debug，相关的工具有slabinfo。
+slabinfo的数据来源是/sys/kernel/slab。
+slabtop -s l
+
+ OBJS ACTIVE  USE OBJ SIZE  SLABS OBJ/SLAB CACHE SIZE NAME
+1246208 1246174  99%    7.56K 311552        4   9969664K task_struct
+1246362 1246362 100%    1.19K  47937       26   1533984K signal_cache
+1254336 1254336 100%    0.12K  39198       32    156792K kmalloc-128
+1252356 1252356 100%    0.19K  29818       42    238544K cred_jar
+
+经过确认  cat /boot/config-4.18.0-305.3.1.el8_4.x86_64
+cat /boot/config-4.18.0-305.3.1.el8_4.x86_64 |grep CONFIG_SLUB_DEBUG_ON
+# CONFIG_SLUB_DEBUG_ON is not set
+开启
+
+~~~
+
+
+
+> 画外音：
+
+- cat /sys/kernel/slab/task_struct/alloc_calls 使用条件是什么？需要重新编译源码 开启CONFIG_SLUB_DEBUG_ON 这里没做不到 中断了
+- 
+
+
+
+###  相关文章
+
+- linux内存占用问题调查——slab
+
+  https://dandelioncloud.cn/article/details/1392448199679090689/
+
+  - slab申请释放和追踪 alloc_calls
+
+    Chapter 8 Slab Allocator
+
+  - https://www.kernel.org/doc/gorman/html/understand/understand025.html
+
+  - https://www.kernel.org/doc/gorman/html/understand/understand015.html#htoc88
+
+    SLAB 分配器和 kmalloc
+
+
+
+- SLUB DEBUG原理 图解slub
+
+  http://www.wowotech.net/memory_management/426.html
+
+  linux 内核 内存管理 slub算法 （一） 原理
+
+  https://blog.csdn.net/lukuen/article/details/6935068
+
+- Linux kernel configuration
+
+```
+$ git clone https://github.com/torvalds/linux.git
+```
+
+
+
+- 趣谈Linux操作系统学习笔记：物理内存管理（下）（第24讲）
+- https://www.cnblogs.com/luoahong/p/10907734.html
+
+kmem_cache_create("task_struct"
+
+kmem_cache_alloc_node

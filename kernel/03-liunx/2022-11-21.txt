@@ -1,0 +1,565 @@
+
+
+rpm -ivh https://cbs.centos.org/kojifiles/packages/centos-release-scl-rh/2/3.el7.centos/noarch/centos-release-scl-rh-2-3.el7.centos.noarch.rpm
+
+rpm -ivh https://cbs.centos.org/kojifiles/packages/centos-release-scl/2/3.el7.centos/noarch/centos-release-scl-2-3.el7.centos.noarch.rpm
+
+成功安装完 centos-release-scl 后， centos-release-scl 得以继续。
+while true; do echo $(date "+%Y-%m-%d %H:%M:%S") >>./1 && cat /proc/slabinfo  | awk '{{print $1,$3*$4/1024/1024} }' |grep task_struct  >>./1;sleep 1; done
+
+
+[root@localhost ~]# yum install devtoolset-7
+Last metadata expiration check: 0:04:44 ago on Thu 01 Dec 2022 06:53:44 PM CST.
+No match for argument: devtoolset-7
+Error: Unable to find a match: devtoolset-7
+
+
+ yum install epel-release
+
+ /opt/beegfs/sbin/beegfs-setup-client -m 100.2.164.161
+ 
+ /opt/beegfs/sbin/beegfs-setup-client -m 188.188.12.40
+
+替换之前
+[2]+  Stopped                 find /mnt/beegfs -type f | xargs -n1 -P 30 -I{} sh -c " echo {} && beegfs-ctl  --migrate   --storagepoolid=1 --destination
+
+增长3M 【不会释放】
+task_struct 3782.28
+2022-12-01 16:22:34
+task_struct 3785.92
+2022-12-01 16:22:35
+task_struct 3788.84
+2022-12-01 16:22:36
+task_struct 3791.83
+2022-12-01 16:22:37
+task_struct 3795.02
+2022-12-01 16:22:38
+task_struct 3798.77
+
+
+替换之后 增加1M 然后减少1M 【会是否】
+task_struct 3974.01
+2022-12-01 16:28:15
+task_struct 3974.01
+2022-12-01 16:28:16
+task_struct 3974.36
+2022-12-01 16:28:17
+task_struct 3973.59
+
+2022-12-01 16:28:46
+task_struct 3974.48
+2022-12-01 16:28:47
+task_struct 3974.57
+2022-12-01 16:28:48
+task_struct 3973.83
+2022-12-01 16:28:49
+task_struct 3974.12
+2022-12-01 16:28:50
+task_struct 3974.27
+
+
+
+
+ md5sum /usr/bin/beegfs-ctl
+fb21aa112e436070ad0acc9db991795a  /usr/bin/beegfs-ctl
+
+ md5sum ./beegfs-ctl
+c217d6194a3d61cc920ebba9d56569b5  ./beegfs-ctl
+
+ssh-keygen -t rsa
+ssh-copy-id 10.141.162.45
+ssh-copy-id 10.141.162.21
+
+scp root@10.141.162.45:/root/v7-7.3.2/ctl/build/beegfs-ctl ./
+md5sum /usr/bin/beegfs-ctl
+beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/13.file
+test11111111111111111111111111111[root@localhost local]#
+
+ watch -n 1 -d slabinfo
+
+
+To build RPM packages, run
+
+make package-rpm PACKAGE_DIR=/root/beegfs/packages BEEGFS_VERSION=7.3.2 RPMBUILD_OPTS="-D 'MAKE_CONCURRENCY 16'"
+
+
+
+while true; do echo $(date "+%Y-%m-%d %H:%M:%S") >>./1 && cat /proc/slabinfo  | awk '{{print $1,$3*$4} }' |grep task_struct  >>./1;sleep 1; done
+
+dd if=/dev/zero of=13.file bs=1 count=0 seek=10G
+
+beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/13.file
+
+beegfs-ctl --migrate --storagepoolid=2 --destinationpoolid=1 /mnt/beegfs/13.file
+
+
+gdb beegfs-ctl 
+run --migrate --storagepoolid=2 --destinationpoolid=1 /mnt/beegfs/13.file
+break ModeMigrate.cpp:34
+break ModeMigrate.cpp:119
+break ModeMigrate.cpp:110
+break ModeMigrate.cpp:856
+break MigrateFile.cpp:80
+break MigrateFile.cpp:113
+
+第18给文件 
+dd if=/dev/zero of=18.file bs=1 count=0 seek=10G
+run --migrate --storagepoolid=2 --destinationpoolid=1 /mnt/beegfs/18.file
+
+task_struct 16417280
+task_struct 16417280
+run --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/18.file
+
+task_struct 16386304
+
+
+第17次  增加 --不变
+run --migrate --storagepoolid=2 --destinationpoolid=1 /mnt/beegfs/13.file
+
+task_struct 16479232
+task_struct 16510208
+task_struct 16572160
+task_struct 16603136
+
+run --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/13.file
+task_struct 16634112
+
+run --migrate --storagepoolid=2 --destinationpoolid=1 /mnt/beegfs/13.file
+
+run --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/13.file
+
+2022-11-30 18:15:54
+task_struct 16634112
+task_struct 16603136
+
+run --migrate --storagepoolid=2 --destinationpoolid=1 /mnt/beegfs/13.file
+
+
+2022-11-30 18:18:46
+task_struct 16603136
+2022-11-30 18:18:47
+task_struct 16603136
+
+第16次 无变化
+
+dd if=/dev/zero of=16.file bs=1 count=0 seek=20G
+gdb beegfs-ctl 
+run --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/13.file
+
+task_struct 16479232
+2022-11-30 18:05:53
+task_struct 16479232
+task_struct 16510208
+
+
+第15次(不变)
+run --migrate --storagepoolid=2 --destinationpoolid=1 /mnt/beegfs/13.file
+task_struct 16510208
+
+
+第14次(不变)
+run --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/13.file
+
+task_struct 16541184
+task_struct 16510208(down)
+task_struct 16510208
+task_struct 16510208
+
+
+
+第13次 (down)
+
+启动：
+run --migrate --storagepoolid=2 --destinationpoolid=1 /mnt/beegfs/13.file
+
+task_struct 16727040
+
+task_struct 16603136 （ down ）
+
+//stop 
+task_struct 16572160 （down ）
+16541184
+
+
+
+//gdb之前
+task_struct 27432903168
+//程序重启动
+task_struct 27432934144
+
+//变小了
+task_struct 27432872192
+
+task_struct 27432872192
+
+task_struct 27432903168
+//退出
+task_struct 27432872192
+
+
+task_struct 27432841216
+task_struct 27432810240
+task_struct 27432748288
+
+第10次
+27432748288
+task_struct 27432717312
+NodeStoreServers* mgmtNodes = app->getMgmtNodes(); //管理节点
+
+task_struct 27432717312
+
+
+
+task_struct 27432686336
+2022-11-30 16:55:34
+task_struct 27432717312
+2022-11-30 16:55:36
+
+sk_struct 27432810240
+
+//reanme
+task_struct 27432903168
+
+task_struct 27432934144
+
+task_struct 27432965120
+
+task_struct 27432996096
+task_struct 27433027072
+task_struct 27433058048
+task_struct 27433150976
+task_struct 27433243904
+task_struct 27433305856
+task_struct 27433336832
+
+第12次
+
+NodeStoreServers* mgmtNodes = app->getMgmtNodes(); //管理节点
+task_struct 27433460736
+ int statRes = lstat(this->cfgSearchPath.c_str(), &statBuf);
+task_struct 27433491712
+
+task_struct 27433460736（下将）
+ struct MigrateDirInfo dirInfo(path, dirFD, *inOutEntryInfo);
+
+task_struct 27433491712
+metaRes = copyData(fromFD, tmpFD, &fromStatData)
+task_struct 27433522688
+task_struct 	（ranme）
+task_struct 27433646592 （closed）
+task_struct 27433677568
+task_struct 27433708544
+
+task_struct 27434328064（上升）
+
+第13次
+
+while true; do cat /proc/slabinfo  | awk '{{print $1,$3*$4} }' |grep task_struct ;sleep 2; done
+
+开始：task_struct 27434328064
+run --migrate --storagepoolid=2 --destinationpoolid=1 /mnt/beegfs/1G.file
+
+
+
+
+
+[root@localhost ~]# while true; do cat /proc/slabinfo  | awk '{{print $1,$3*$4} }' |grep task_struct ;sleep 2; done
+
+
+
+[root@localhost ~]# while true; done cat /proc/slabinfo  | awk '{if($3*$4/1024/1024 > 100){print $1,$3*$4} }' |sort -nr |grep task_struct ;sleep 2; done
+
+
+
+cat /proc/slabinfo  | awk '{if($3*$4/1024/1024 > 100){print $1,$3*$4/1024/1024} }' |sort -nr
+
+
+ cat /proc/slabinfo  | awk '{if($3*$4/1024/1024 > 100){print $1,$3*$4} }' |sort -nr |grep task_struct
+ 
+
+ 
+/proc/slabinfo内容是什么
+
+
+
+目的：故障 业务什么时候恢复
+
+故障行为
+1. ifdown if up
+2  故障注入延迟，丢包情况
+
+业务模拟：
+1. 持续读取
+2. 持续写入
+
+配置：
+只配置ib 网卡
+
+
+
+
+
+1 模拟：beegfs集群 模拟Ib网卡故障后（rdma） 业务：访问元数据毫米变成10秒 ，访问内容收影响 【卡顿】
+
+1. 还原问题场景：rdma通讯出故障，访问：beegfs 业务卡顿
+   beegfs集群 模拟Ib网卡故障后（rdma） 业务：访问元数据毫米变成10秒 ，访问内容收影响。
+   
+ 
+2. 分级迁移测试，测试人员测试case41/90。
+
+紧急迁移：
+目标：当pool的使用空间大于上限，迁移老数据一直到低于安全线（默认为（上限+下限）/2）。
+
+
+针对：最坏情况 策略不满足，bszie不满足情况
+设置bsize 假如为500M
+1. 循环迁移 ：循环条件
+			计算水位，如果还是超过 （最低+最高）/2
+			bsize >0 
+			防止死循环：循环次数不超过100次（也可用不添加 bsize <0 时候退出）
+
+2. 如果一次迁移后 ，还没有剩余空间
+
+
+4. bszie =bszie -50M
+
+
+find /mnt/beegfs -type f |xargs -n1  -P 30 -I{} sh -c " echo {} && beegfs-ctl  --migrate   --storagepoolid=2 --destinationpoolid=1 {}"
+
+
+
+beegfs-ctl --liststoragepools
+beegfs-df
+
+
+find /mnt/beegfs -type f |xargs -n1 -I{} sh -c " echo {} && beegfs-ctl  --migrate   --storagepoolid=2 --destinationpoolid=1 {}"
+
+find /mnt/beegfs -type f |xargs -n1 -I{} sh -c " echo {} && beegfs-ctl  --getentryinfo {}"
+
+beegfs-ctl  --getentryinfo /mnt/beegfs/21_500M/vdb.1_1.dir/vdb.2_1.dir/vdb_f7401.file
+
+find /mnt/beegfs -type f |xargs -n1  beegfs-ctl  --getentryinfo
+
+/
+**
+ * This class provides special extensions for sockets in a NodeConnPool.
+ */
+struct PooledSocket
+{
+   Socket socket;
+   ConnectionList* pool;
+   PointerListElem* poolElem;
+   bool available; // == !acquired
+   bool hasActivity; // true if channel was not idle (part of channel class in fhgfs_common)
+   bool closeOnRelease; /* release must close socket. used for signal handling */
+   Time expireTimeStart; // 0 means "doesn't expire", otherwise time when conn was established
+   NicAddrType_t nicType; // same as the interface for which this conn was established
+};
+
+
+https://doc.beegfs.io/latest/advanced_topics/rdma_support.html?highlight=conninterfacesfile
+
+for i in {1..1000};do sleep 2;time ls /mnt/beegfs; done
+
+/diluv2/tools/vdbench50406/vdbench -f /diluv2/tools/vdbench50406/examples/filesys/create_files
+
+
+- 过高 版本 导致安装失败
+kernel-devel                        x86_64                        4.18.0-305.3.1.el8_4
+
+gcc version 8.4.1 20200928 (Red Hat 8.4.1-1) (GCC)
+
+ 
+beegfs安装的时候，
+如果联网安装7.3.2版本的 yum 本地不行，还需要其他默认的
+不然程序gcc版本不一致问题，本地提供8.4 gcc提供8.5冲突
+
+
+
+
+mkdir -p /var/www/html/rocky84
+mount -o loop /root/Rocky-8.4-x86_64-dvd1_20220919.iso /var/www/html/rocky84/
+vi /etc/rc.d/rc.local
+mount -o loop /root/Rocky-8.4-x86_64-dvd1_20220919.iso /var/www/html/rocky84/
+
+
+如何罐装一个系统
+
+
+
+
+
+
+
+
+
+
+
+gcc源码编译
+
+1. 下载源码
+wget https://ftp.gnu.org/gnu/gcc/gcc-8.4.0/gcc-8.4.0.tar.gz
+
+2. 安装gcc的依赖软件
+./contrib/download_prerequisites
+3. 编译gcc
+yum install gcc
+./configure -enable-checking=release -enable-languages=c,c++ -disable-multilib
+make -j4
+
+基于CentOS的IB网卡驱动安装
+https://www.cnblogs.com/babyclass/p/16348603.html
+
+
+
+确定插在服务器节点上的IB网卡的信息以及是否插入成功
+
+lspci |grep con
+
+yum install kernel-devel
+
+
+出现了问题你重装系统，重新安装，浪费大量时间和精力最后没解决
+改为思考为什么出错，寻找背后原有
+
+
+[root@h12-meta01 ~]# free -g
+              total        used        free      shared  buff/cache   available
+Mem:           1007          13         460           0         533         988
+Swap:            62           0          62
+
+
+
+[root@h12-storage03 log]# free -g
+              total        used        free      shared  buff/cache   available
+Mem:           1007           2         993           2          11         996
+Swap:            62           0          62
+
+
+
+
+/diluv2/tools/vdbench50406/vdbench -f /diluv2/tools/vdbench50406/examples/filesys/create_files
+
+/usr/bin/beegfs-ctl  --migrate   --storagepoolid=2 --destinationpoolid=1 /mnt/beegfs/big-file-sequential-write.0.0
+
+
+free
+
+
+
+
+管理节点： 188.188.12.40
+mkdir -p /data/beegfs/beegfs_mgmtd/
+mkfs.ext4 /dev/nvme0n1 
+mount /dev/nvme0n1 /data/beegfs/beegfs_mgmtd/
+
+/opt/beegfs/sbin/beegfs-setup-mgmtd -p /data/beegfs/beegfs_mgmtd
+
+#启动并查看Management服务
+[root@server01~]# systemctl restart beegfs-mgmtd
+[root@server01~]# systemctl status beegfs-mgmtd
+
+元数据：
+
+mkdir -p /data/beegfs/beegfs_meta
+mkfs.ext4 /dev/nvme1n1
+mkfs.ext4 /dev/sdc
+
+mount /dev/sdc /data/beegfs/beegfs_meta
+
+mount /dev/nvme1n1 /data/beegfs/beegfs_meta
+/opt/beegfs/sbin/beegfs-setup-meta -p /data/beegfs/beegfs_meta -s 3 -m 188.188.12.40
+
+
+/etc/beegfs/beegfs-meta.conf
+[root@server01~]# systemctl restart beegfs-meta
+[root@server01~]# systemctl status beegfs-meta
+
+
+
+
+存储节点：
+cat /etc/redhat-release
+
+
+
+mkdir -p /data/beegfs/beegfs_storage101
+mkdir -p /data/beegfs/beegfs_storage102
+
+mkfs.ext4  /dev/nvme2n1
+mkfs.ext4  /dev/nvme3n1
+
+mount /dev/nvme2n1 /data/beegfs/beegfs_storage101
+mount /dev/nvme3n1 /data/beegfs/beegfs_storage102
+
+mkfs.ext4  /dev/sdb
+mkdir -p /data/beegfs/beegfs_storage200
+mount /dev/sdb /data/beegfs/beegfs_storage200
+
+
+/opt/beegfs/sbin/beegfs-setup-storage  -p  /data/beegfs/beegfs_storage101 -s 400 -i 101 -m 188.188.12.40
+/opt/beegfs/sbin/beegfs-setup-storage  -p  /data/beegfs/beegfs_storage102 -s 400 -i 102
+/opt/beegfs/sbin/beegfs-setup-storage  -p  /data/beegfs/beegfs_storage200 -s 400 -i 200
+
+
+/etc/beegfs/beegfs-storage.conf
+
+yum install -y beegfs-mgmtd beegfs-meta beegfs-storage
+
+
+
+#启动并查看Management服务
+[root@server01~]# systemctl start beegfs-mgmtd
+[root@server01~]# systemctl status beegfs-mgmtd
+#启动并查看Meta服务
+[root@server01~]# systemctl start beegfs-meta
+[root@server01~]# systemctl status beegfs-meta
+#启动并查看Storage服务
+[root@server01~]# systemctl start beegfs-storage
+[root@server01~]# systemctl status beegfs-storage
+
+
+客户端：
+/etc/init.d/beegfs-client rebuild
+/opt/beegfs/sbin/beegfs-setup-client -m 10.141.162.40
+systemctl start  beegfs-helperd
+systemctl start beegfs-client
+systemctl status beegfs-client
+
+
+
+
+ls |xargs -n1 rpm -ivh
+rpm -qa |grep beegfs
+
+
+
+centos执行：
+vim /etc/sysconfig/network-scripts/ifcfg-ib0
+
+添加如下内容：
+DEVICE=ib0
+BOOTPROTO=static
+IPADDR=172.16.0.104
+NETMASK=255.255.255.0
+BROADCAST=172.16.0.255
+NETWORK=172.16.0.0
+ONBOOT=yes
+
+重启网口：
+sudo ifdown ib0
+sudo ifup ib0
+
+
+inspuR@123
+docgen
+
+MLNX_OFED_LINUX-5.6-1.0.3.3-rhel8.4-x86_64
+yum install kernel-rpm-macros
+./mlnxofedinstall -vvv --add-kernel-support --distro RHEL8.4 --skip-repo
+yum install tk kernel-modules-extra tcsh
+
+chmod +x mlnxofedinstall
+# 安装完成后根据提示执行相应命令，并重启设备使IB驱动生效
+[root@ localhost IB]# dracut -f
+[root@ localhost IB]# reboot

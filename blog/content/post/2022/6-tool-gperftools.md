@@ -56,10 +56,10 @@ wget https://ftp.gnu.org/gnu/emacs/emacs-28.2.tar.gz
  https://github.com/watchpoints/emacs.d/tree/master
  git clone https://github.com/purcell/emacs.d.git ~/.emacs.d
  
- 
- sed -i 's/https/http/g' ~/.emacs.d/lisp/init-elpa.el
- linux命令行代理神器-proxychains
+//sed -i 's/https/http/g' ~/.emacs.d/lisp/init-elpa.el
+//linux命令行代理神器-proxychains
 emacs --debug-init
+
 ~~~
 
 

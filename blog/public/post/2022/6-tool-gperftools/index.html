@@ -48,7 +48,7 @@
 <meta itemprop="name" content="gperftools">
 <meta itemprop="description" content="gperftools"><meta itemprop="datePublished" content="2022-02-09T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-02-09T00:00:00+00:00" />
-<meta itemprop="wordCount" content="89">
+<meta itemprop="wordCount" content="307">
 <meta itemprop="keywords" content="系统设计," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="gperftools"/>
 <meta name="twitter:description" content="gperftools"/>
@@ -128,7 +128,7 @@
       <div class="post-meta">
         <span class="post-time"> 2022-02-09 00:00 </span>
         
-          <span class="more-meta"> 约 89 字 </span>
+          <span class="more-meta"> 约 307 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -139,14 +139,105 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
+    <li>
+      <ul>
+        <li><a href="#青铜提问1100如何用emacs搭建c开发环境">青铜提问1/100：如何用emacs搭建c++开发环境？</a></li>
+        <li><a href="#heading"></a></li>
+      </ul>
+    </li>
     <li><a href="#基本用法">基本用法</a></li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <h2 id="基本用法">基本用法</h2>
+      <h3 id="青铜提问1100如何用emacs搭建c开发环境">青铜提问1/100：如何用emacs搭建c++开发环境？</h3>
+<h4 id="学习别人的思路">学习别人的思路：</h4>
 <ul>
+<li><a href="https://www.zhihu.com/question/51099641">https://www.zhihu.com/question/51099641</a></li>
+<li><a href="https://emacs-lsp.github.io/lsp-mode/tutorials/CPP-guide/">https://emacs-lsp.github.io/lsp-mode/tutorials/CPP-guide/</a></li>
+<li><a href="https://www.cnblogs.com/flyingdirt/p/3399624.html">https://www.cnblogs.com/flyingdirt/p/3399624.html</a></li>
+<li><a href="https://github.com/purcell/emacs.d%7Bweb%7D">https://github.com/purcell/emacs.d{web}</a></li>
+<li><a href="https://www.cnblogs.com/GarfieldEr007/p/5588979.html">https://www.cnblogs.com/GarfieldEr007/p/5588979.html</a></li>
+<li><a href="https://www.zybuluo.com/qqiseeu/note/17692">https://www.zybuluo.com/qqiseeu/note/17692</a></li>
+</ul>
+<h4 id="小马过河">小马过河：</h4>
+<ul>
+<li>
+<p>todo1</p>
+<ol>
+<li>
+<p>我应一开始就照抄 世界级大师 Steve Purcell 的 Emacs 配置.</p>
+</li>
+<li>
+<p>安心用 <a href="http://www.sanityinc.com/">Steve Purcell</a> 的 <a href="https://github.com/purcell/emacs.d">Emacs 配置</a> , 从此走上正轨.</p>
+</li>
+<li>
+<p>初学者开始阶段应以模仿为主. 这点是本文核心思想.</p>
+</li>
+</ol>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"> sudo dnf install emacs
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"> emacs --version
+</span></span><span class="line"><span class="cl"> GNU Emacs 26.1 //版本不是最新版本
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">依赖：
+</span></span><span class="line"><span class="cl">yum install gnutls  gnutls-devel
+</span></span><span class="line"><span class="cl">yum install ncurses-devel
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">wget https://ftp.gnu.org/gnu/emacs/emacs-28.2.tar.gz
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> https://github.com/watchpoints/emacs.d/tree/master
+</span></span><span class="line"><span class="cl"> git clone https://github.com/purcell/emacs.d.git ~/.emacs.d
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">//sed -i &#39;s/https/http/g&#39; ~/.emacs.d/lisp/init-elpa.el
+</span></span><span class="line"><span class="cl">//linux命令行代理神器-proxychains
+</span></span><span class="line"><span class="cl">emacs --debug-init
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="heading"></h3>
+<ul>
+<li><a href="https://www.cnblogs.com/eat-and-die/p/10309681.html">https://www.cnblogs.com/eat-and-die/p/10309681.html</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/114329781">https://zhuanlan.zhihu.com/p/114329781</a></li>
+<li><a href="https://github.com/redguardtoo/emacs.d">https://github.com/redguardtoo/emacs.d</a></li>
+</ul>
+<h2 id="基本用法">基本用法</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">perf record -a -e kmem:kmalloc --filter &#39;bytes_alloc == 192&#39; -e kmem:kfree --filter &#39; ptr != 0&#39; sleep 200
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
 <li>Perftools-Specific Install Notes</li>
 </ul>
 <div class="highlight"><div class="chroma">
@@ -262,7 +353,7 @@
   <span class="copyright-year">
     &copy; 
     2017 - 
-    2022
+    2023
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>

@@ -6,23 +6,41 @@
     <description>Recent content in oceanbase on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 03 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/categories/oceanbase/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 04 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/categories/oceanbase/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>成为oceanbase贡献者第5天：</title>
+      <link>https://wangcy6.github.io/post/oceanbase/2022/oceanbase_day5/</link>
+      <pubDate>Wed, 04 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/oceanbase/2022/oceanbase_day5/</guid>
+      <description>#一、Overview (what) 前言 大家好,今天是成为oceanbase贡献者第5天。 今天主要任务是：https://github.com/ocea</description>
+    </item>
+    
+    <item>
+      <title>成为oceanbase贡献者第四天：容器与分配器</title>
+      <link>https://wangcy6.github.io/post/oceanbase/2022/oceanbase_day4/</link>
+      <pubDate>Sun, 02 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/oceanbase/2022/oceanbase_day4/</guid>
+      <description>#一、Overview 前言 大家好,今天是成为oceanbase贡献者第四天 本文 主要描述的是 通过#1038 the template parameter of ObSortedVector must be pointer type which is not resonable 了解模板特</description>
+    </item>
+    
     <item>
       <title>成为oceanbase贡献者第二天：源码解析 DDL语句执行过程</title>
       <link>https://wangcy6.github.io/post/oceanbase/2022/oceanbase_day2/</link>
       <pubDate>Sat, 03 Sep 2022 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/oceanbase/2022/oceanbase_day2/</guid>
-      <description>慢慢来，多看、多问、多总结，肯定是可以攻克的。 文章地址： http://localhost:1313/post/oceanbase/2022/oceanbase_day2/ https://wangcy6.github.io/post/oceanbase/2022/oceanbase_day2/ #一、Overview 前言 大家好， 这篇文章描述的是在解决issues/1035 对</description>
+      <description>慢慢来，多看、多问、多总结，肯定是可以攻克的。 文章地址： http://localhost:1313/post/oceanbase/2022/oceanbase_day2/ https://wangcy6.github.io/post/oceanbase/2022/oceanbase_day2/ 沟通步骤 准备好一个ppt，在写代码之前演示最终目标 和架构设计 就是如何去实现的 【不</description>
     </item>
     
     <item>
-      <title>成为Beegfs贡献者</title>
+      <title>源码阅读：beegfs</title>
       <link>https://wangcy6.github.io/post/beeGfs/day1-2022-8-24-start/</link>
       <pubDate>Sun, 14 Aug 2022 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/beeGfs/day1-2022-8-24-start/</guid>
-      <description>慢慢来，多看、多问、多总结，肯定是可以攻克的。 文章地址： http://localhost:1313/post/oceanbase/2022/oceanbase_day2/ 沟通步骤 准备好一个ppt，在写代码之前演示最终目标 和架构设计 就是如何去实现的 【不要</description>
+      <description>慢慢来，多看、多问、多总结，肯定是可以攻克的。 BeeGFS升级方案 buddy groups Modifying operations will always be sent to the primary first, which takes care of the mirroring process. File contents and metadata are mirrored synchronously, i.e. the client operation completes after both copies of the data</description>
     </item>
     
   </channel>

@@ -1,0 +1,48 @@
+
+如何产生core文件
+
+vi /etc/security/limits.conf
+
+ulimit  -a
+* soft core unlimited
+* hard core unlimited
+
+ulimit -a
+core file size          (blocks, -c) unlimited
+data seg size           (kbytes, -d) unlimited
+
+
+core文件位置：
+
+vim /etc/sysctl.conf
+kernel.core_pattern=/mnt/beegfs/core-%e-%p-%t
+sysctl -p(生效)
+
+cat /proc/sys/kernel/core_pattern
+
+
+gdb  /root/src/oceanbase/build_debug/usr/local/bin/observer core-T1_TNT_L0_G0-2952856-1671113024
+
+
+
+
+Dec14 16:06] traps: T1_TNT_L0_G0[3691430] trap int3 ip:2f3dff5 sp:7f65289c5420 error:0 in observer[200000+ea95000]
+[Dec14 17:42] NOHZ: local_softirq_pending 280
+[Dec15 15:56] traps: T1_TNT_L0_G0[3761426] trap int3 ip:87754fa sp:7f9755fc3520 error:0 in observer[200000+ea95000]
+
+ObBatchRowIter
+
+br_it_.get_next_row();
+
+select a.tenant_id as tenant_id, a.ls_id as ls_id, a.primary_zone as primary_zone, a.ls_group_id as ls_group_id, b.zone_priority as zone_priority from __all_ls_status as a left join __all_ls_election_
+
+https://zhuanlan.zhihu.com/p/373889188
+
+
+数据库的服务端，可以划分为执行器 (Execution Engine) 和存储引擎(Storage Engine) 两部分。
+
+执行器负责解析 SQL 执行查询
+
+存储引擎负责保存数据。
+
+bdm-search   -B 4096  -a -d " " -E 'SELECT *  FROM pentries WHERE   name like "%test3333_%" AND path() like "/var/log/beegfs-move/index/testzh1%"' /var/log/beegfs-move/index

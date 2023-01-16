@@ -1,0 +1,157 @@
+ /opt/beegfs/sbin/beegfs-setup-client -m 188.188.12.40
+ 
+ 
+
+cat /proc/slabinfo |awk '{printf "%7i MiB : %s\n",$6*$(NF-1)/256,$1}'|sort -nk 1 -r|head -15
+1 验证beegfs能自主完成rdma到tcp切换，业务在10分钟内恢复 
+2 beegfs内存增长跟踪
+3.分级迁移常规测试
+
+
+1. 编译源码寻找内存增长原因 90%
+2. 模拟rdma通讯 fw异常造成df卡顿 50%
+3.分级迁移常规测40%
+
+Executing(%build): /bin/sh -e /var/tmp/rpm-tmp.KggKN0
++ umask 022
++ cd /root/beegfs/packages1/BUILD
++ cd beegfs-7.3.3_debug
++ export BEEGFS_VERSION=7.3.3_debug
++ BEEGFS_VERSION=7.3.3_debug
++ export WITHOUT_COMM_DEBUG=1
++ WITHOUT_COMM_DEBUG=1
++ export BEEGFS_NVFS=1
++ BEEGFS_NVFS=1
+
+rpm -qi ctags-5.8-22.el8.x86_64
+
+rpm --eval "%{?_smp_mflags}"
+-j112
+[root@h12-storage03 beegfs]# rpm --eval "%{optflags}"
+-O2 -g -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -fexceptions -fstack-protector-strong -grecord-gcc-switches -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection
+
+make %make_j daemons utils
+# 没看懂daemons utils 傻意思
+
+DAEMONS := mgmtd meta storage helperd mon
+UTILS := fsck ctl event_listener $(if $(WITHOUT_COMM_DEBUG),,comm_debug)
+
+
+
+
+踪beegfs内存涨问题:
+1. rpm打包方式会引起增长
+2. make 编译方式不会
+
+
+查看beegfs make和rpm打包方式区别
+
+while true; do beegfs-ctl --migrate --storagepoolid=2 --destinationpoolid=1 /mnt/beegfs/13.file
+ && beegfs-ctl --migrate --storagepoolid=1 --destinationpoolid=2 /mnt/beegfs/13.file;sleep 2; done
+
+
+
+
+
+
+
+
+
+
+
+
+
+、、、、、、、、、1.负责beegfs集群本身研发；（70%）
+2.负责beegfs周边分级迁移工作；（20%）
+3.负责教育贷支持工作；（10%）
+
+
+1. 搭建环境
+2. 还原卡顿问题
+3. 协助测试分级迁移42/96
+
+1.定位 rdma通讯恢复后，业务什么时候恢复问题
+2.继续跟踪 beegfs迁移过程导致内存增长
+3. 分级迁移协助测试
+
+
+1. 讨论分级迁移快池满实现思路
+2. 还原rdma通讯恢复后，业务什么时候恢复问题
+
+ select * from Employee;
++----+-----------+-----------+---------------+
+| ID | EmpName   | EmpSalary | EmpDepartment |
++----+-----------+-----------+---------------+
+|  1 | 张三      | 5000      | 开发部        |
+|  2 | 李四      | 2000      | 销售部        |
+|  3 | 王麻子    | 2500      | 销售部        |
++----+-----------+-----------+---------------+
+
+
+
+
+insert into product(id, name, price, type, address) values
+    (1,'商品1',200,'type1','北京'),
+    (2,'商品2',400,'type2','上海'),
+    (3,'商品3',600,'type3','深圳'),
+    (4,'商品4',800,'type1','南京'),
+    (5,'商品5',1000,'type2','成都'),
+    (6,'商品6',1200,'type3','武汉'),
+    (7,'商品7',1400,'type1','黑龙江'),
+    (8,'商品8',1600,'type2','黑河'),
+    (9,'商品9',1800,'type3','贵州'),
+    (10,'商品10',2000,'type1','南宁');
+————————————————
+版权声明：本文为CSDN博主「飞Link」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/feizuiku0116/article/details/126127948
+————————————————
+版权声明：本文为CSDN博主「飞Link」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/feizuiku0116/article/details/126127948
+
+
+痛苦根源：
+落后，贫穷 和无知环境，你的的知识，的行业，号的目标
+你改变一起欸，你发现你身边一切人 他们根本不邦只，1000让堕落
+你发现外面更如此知道一个一个陷进，让途中，
+你任务整个世界都是如此，
+走出绝望，发现世界上美，世界上真理。
+
+我的愚蠢
+你面试 云原生调度 你去c++ ，你不是go kub 你不去 sb
+你面试过 数据库公司，你不是开源不去
+你面试的 机器学习，你不是等填补过去
+
+上面不是愚蠢地方
+是无限后悔和自责，让后面不努力工作
+
+上面不是愚蠢地方
+是无限后悔和自责，让后面不努力工作
+然后停留5年10年
+不要停止努力。
+
+高中你后悔
+毕业你后悔
+后悔
+具体自责后悔让陷入僵局
+
+我不是想学习号，工作号，目标号把
+陷入垃圾公司垃圾人喊个学陷进。
+
+整个世界别人千瓦此努力 真个
+
+# 编写代码光标变成黑色方块,怎么修改为原来的竖线
+
+
+1.定位rdma通讯异常后，beegfs读写出现卡顿现象。
+   进展：还原问题，确定具体场景。结合代码查看
+2. 定位 beegfs 批量执行快满池切换会导致 内核内存增加 task不是否问题
+  进展：发给原厂，内网环境被征用，在外网重新搭建一套环境，跟踪模拟
+  gdb单步调试，观察不明显，还是匹配测试
+3. 解答测试人员分级迁移疑问
+   进展：case测试进展 41/96。发现bug1 极端情况 用户什么策略都不配置。导致不迁移。
+  
+4. beegfs 客户端代码查看
+   进展：gdb跟踪文件迁移过程 和文件系统读写函数重新注册。
+ 
+5 整理分级迁移的测试报告和操作手册。
+   
