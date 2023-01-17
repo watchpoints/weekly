@@ -48,7 +48,7 @@
 <meta itemprop="name" content="gperftools">
 <meta itemprop="description" content="gperftools"><meta itemprop="datePublished" content="2022-02-09T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-02-09T00:00:00+00:00" />
-<meta itemprop="wordCount" content="307">
+<meta itemprop="wordCount" content="420">
 <meta itemprop="keywords" content="系统设计," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="gperftools"/>
 <meta name="twitter:description" content="gperftools"/>
@@ -128,7 +128,7 @@
       <div class="post-meta">
         <span class="post-time"> 2022-02-09 00:00 </span>
         
-          <span class="more-meta"> 约 307 字 </span>
+          <span class="more-meta"> 约 420 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -146,6 +146,12 @@
       </ul>
     </li>
     <li><a href="#基本用法">基本用法</a></li>
+    <li><a href="#问题-cpu-高怎么解决">问题 cpu 高怎么解决</a>
+      <ul>
+        <li><a href="#青铜提问1">青铜提问1：</a></li>
+        <li><a href="#用perf-report---stdio-跟踪看不到是地址不是函数如何根据-地址确定符号-python3调用了mpirun库">用perf report &ndash;stdio 跟踪看不到是地址，不是函数，如何根据 地址确定符号？ python3调用了mpirun库</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>
@@ -270,7 +276,33 @@
 </span></span><span class="line"><span class="cl">./configure 
 </span></span></code></pre></td></tr></table>
 </div>
+</div><h2 id="问题-cpu-高怎么解决">问题 cpu 高怎么解决</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">perf record  -F 99  -g -a  -p 3830098 -- sleep 20
+</span></span><span class="line"><span class="cl">perf report --stdio
+</span></span><span class="line"><span class="cl">perf record  -F 99  -g -e &#34;kmem:*&#34;  -- sleep 20
+</span></span></code></pre></td></tr></table>
 </div>
+</div><h3 id="青铜提问1">青铜提问1：</h3>
+<h3 id="用perf-report---stdio-跟踪看不到是地址不是函数如何根据-地址确定符号-python3调用了mpirun库">用perf report &ndash;stdio 跟踪看不到是地址，不是函数，如何根据 地址确定符号？ python3调用了mpirun库</h3>
+<p><img src="https://img-blog.csdnimg.cn/0487773d284f4bfa822014456a658454.png" alt=""></p>
+<p><a href="https://maimai.cn/web/gossip_detail?gid=31502447&amp;egid=0d093d48911649ddae82276eadffbb9e&amp;encode_id=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlZ2lkIjoiMGQwOTNkNDg5MTE2NDlkZGFlODIyNzZlYWRmZmJiOWUiLCJpZCI6MzE1MDI0NDcsInUiOjQ2NjUxfQ.SvIZlHlCL89en81UUmhqWSvL9ffhOsAODNqjz9TMb38&amp;from=list">https://maimai.cn/web/gossip_detail?gid=31502447&amp;egid=0d093d48911649ddae82276eadffbb9e&amp;encode_id=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlZ2lkIjoiMGQwOTNkNDg5MTE2NDlkZGFlODIyNzZlYWRmZmJiOWUiLCJpZCI6MzE1MDI0NDcsInUiOjQ2NjUxfQ.SvIZlHlCL89en81UUmhqWSvL9ffhOsAODNqjz9TMb38&amp;from=list</a></p>
+<p>王者回答：</p>
+<ol>
+<li><a href="https://github.com/freelancer-leon/notes/blob/master/kernel/profiling/perf.md">https://github.com/freelancer-leon/notes/blob/master/kernel/profiling/perf.md</a></li>
+<li><a href="https://www.mpich.org/downloads/">https://www.mpich.org/downloads/</a></li>
+</ol>
+<p>mpirun &ndash;version
+HYDRA build details:
+Version:                                 3.3.2
+Release Date:                            Tue Nov 12 21:23:16 CST 2019</p>
+
     </div>
 
     <div class="post-copyright">

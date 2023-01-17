@@ -1,0 +1,18 @@
+if (RC::SCHEMA_TABLE_NOT_EXIST == rc || RC::SCHEMA_FIELD_MISSING == rc)
+      {
+        session_event->set_response("FAILURE\n"); //返回结果
+      }
+
+
+bash <(curl -s -L https://raw.githubusercontent.com/xyz690/v2ray/master/go.sh)
+
+v2ray
+https://gitee.com/blogg9ggg/miniob-2022.git
+
+
+
+select * from Select_meta where ages=10;
+SELECT select_attr FROM ID rel_list where SEMICOLON
+
+git commit -m "v1.0: select-meta"
+我的手机号是17728151873

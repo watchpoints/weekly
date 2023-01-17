@@ -115,9 +115,39 @@ sh autogen.sh
 
 
 
+## 问题 cpu 高怎么解决
 
 
 
+~~~
+perf record  -F 99  -g -a  -p 3830098 -- sleep 20
+perf report --stdio
+perf record  -F 99  -g -e "kmem:*"  -- sleep 20
+~~~
+
+
+
+### 青铜提问1：
+
+### 用perf report --stdio 跟踪看不到是地址，不是函数，如何根据 地址确定符号？ python3调用了mpirun库
+
+![](https://img-blog.csdnimg.cn/0487773d284f4bfa822014456a658454.png)
+
+
+
+https://maimai.cn/web/gossip_detail?gid=31502447&egid=0d093d48911649ddae82276eadffbb9e&encode_id=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlZ2lkIjoiMGQwOTNkNDg5MTE2NDlkZGFlODIyNzZlYWRmZmJiOWUiLCJpZCI6MzE1MDI0NDcsInUiOjQ2NjUxfQ.SvIZlHlCL89en81UUmhqWSvL9ffhOsAODNqjz9TMb38&from=list
+
+
+
+王者回答：
+
+1. https://github.com/freelancer-leon/notes/blob/master/kernel/profiling/perf.md
+2. https://www.mpich.org/downloads/
+
+mpirun --version
+HYDRA build details:
+    Version:                                 3.3.2
+    Release Date:                            Tue Nov 12 21:23:16 CST 2019
 
 
 
