@@ -787,3 +787,11 @@ $ git clone https://github.com/torvalds/linux.git
 kmem_cache_create("task_struct"
 
 kmem_cache_alloc_node
+
+[1]  bpftrace使用sizeof()查看task_struct的大小
+
+[2]BeeGFS源码分析2-客户端概要分析
+
+[3] Linux内存管理slub分配器
+
+ https://blog.csdn.net/weiqifa0/article/details/108591091
