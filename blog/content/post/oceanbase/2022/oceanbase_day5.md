@@ -267,6 +267,10 @@ Check before start observer ok
 
  # 客户端操作
         
+
+ 修改日志级别
+  obd cluster edit-config test
+  tail -f /data/storage/observer/log/observer.lo
 ```
 
 ~~~
@@ -308,17 +312,69 @@ D\note_oceanbase\src\sql\ob_sql.cpp
 
     
 # ObMPQuery::do_process
-thread apply all break obmp_query.cpp:684
+thread apply all break obmp_query.cpp:701
+thread apply all break obmp_query.cpp:777
+thread apply all break obmp_query.cpp:828  
+逻辑：
+stmt_query
+response_result
 
-thread apply all break obmp_query.cpp:90  
-# int ObMPQuery::process()
 
-thread apply all break obmp_query.cpp:484  
+
 # ObMPQuery::process_single_stmt
+ thread apply all break obmp_query.cpp:501 
 
+逻辑：
+first_exec_sql true -do_process 
+没有逻辑
+
+
+
+dir /root/src/oceanbase
+set pagination off 
+
+
+CREATE TABLE v4 ( v5 INT, v6 INT , v7 INT) ;
+INSERT INTO v4 VALUES (4, 5, 6);
+SELECT DISTINCT JSON_ARRAYAGG ( DISTINCT v6 ) OVER ( PARTITION BY v7 ) FROM v4;
+obclient [test]> SELECT DISTINCT JSON_ARRAYAGG ( DISTINCT v6 ) OVER ( PARTITION BY v7 ) FROM v4;
+ERROR 5798 (HY000): DISTINCT not allowed here
 ~~~~
 
-- 流程分析：
+### sql 查询返回结果流程
+
+1. 入库：gdb调试
+
+~~~
+dir /root/src/oceanbase
+set pagination off 
+# ObMPQuery::response_result
+thread apply all break obmp_query.cpp:1258
+流程：
+
+
+ob_sync_plan_driver.cpp
+int ObSyncPlanDriver::response_result
+~~~
+
+2. 流程代码
+
+
+
+~~~c++
+// 通过判断 plan 是否为 null 来确定是 plan 还是 cmd
+// 针对 plan 和 cmd 分开处理，逻辑会较为清晰。
+result.get_physical_plan()) 有物理计划的就普通的查询sql
+    
+ObSyncPlanDriver::response_result(ObMySQLResultSet &result)
+    
+~~~
+
+
+
+2
+
+流程分析：
 
 ~~~
  ObQueryDriver::response_query_result
@@ -377,6 +433,122 @@ thread apply all break ob_window_function_op.cpp:1373
 ------------------------------thread apply all break ob_aggregate_processor.cpp:1422------------------------------     
 
 ~~~
+
+
+
+## #  sql 查询返回结果流程
+
+### 1. gdb
+
+~~~
+dir /root/src/oceanbase
+set pagination off 
+# ObMPQuery::response_result
+thread apply all break obmp_query.cpp:1258
+流程：
+
+
+ob_sync_plan_driver.cpp
+int ObSyncPlanDriver::response_result
+~~~
+
+
+
+### 2. ob_sync_plan_driver.cpp -->int ObSyncPlanDriver::response_result
+
+
+
+~~~
+
+和miniob返回解决过类似 
+
+读取：result.open()
+
+1. 标记指定阶段  in_sql_execution_
+
+union {
+    uint64_t exec_phase_; // phase of execution bitmap
+    struct {
+      uint64_t in_parse_          : 1;
+      uint64_t in_pl_parse_       : 1;
+      uint64_t in_get_plan_cache_ : 1;
+      uint64_t in_sql_optimize_   : 1;
+      uint64_t in_sql_execution_  : 1;
+      uint64_t in_px_execution_   : 1;
+      uint64_t in_sequence_load_  : 1;
+    };
+  };
+  
+2、 
+result.is_with_rows 这个是查询有多个列意思，多少行。
+    -------const common::ColumnsFieldIArray *p_field_columns_;
+
+---2.1 ObQueryDriver::response_query_result
+ class ObQueryDriver 这是个虚函数 
+   D:\db\oceanbase\src\observer\mysql\ob_sync_cmd_driver.cpp ---没看
+   
+   src\observer\mysql\ob_query_driver.cpp （看这里）
+
+3. ObQueryDriver::response_query_result
+
+
+  循环读取每一行记录 get_next_row ---这个没什么逻辑   
+      
+     is_first_row  如果是第一行，则先给客户端回复field等信息。 
+      
+     循环读取每一行的列  -----2个for循环这里没有什么逻辑
+       ObObj& value ，类型不一致 ObObjCaster::to_type ---->具体怎么cast 这里跳过没看，看主要逻辑
+       
+      没有压缩  charset  lob text转化 ----> 具体什么类型，没看
+ 
+     | 
+      2个最基本的for循环，list各种东西都没有，这里结束来了吗？奇怪
+     | 
+     
+    3.3 返回结果 sender_.response_packet 
+    
+ 4. 每一行是如何获取的,这里有什么逻辑！！！
+ 
+    
+    ObResultSet::get_next_row ---->ObResultSet::inner_get_next_row
+
+                                |  ObPhysicalPlan* physical_plan --->ObIExecuteResult *exec_result_;
+                                |  ObICmd *cmd_;
+      
+
+  这个完全是不符合标准定义，纯靠自己看得懂 physical_plan_ 和cmd区分，谁这样写代码。 
+      https://docs.pingcap.com/tidb/v6.3/dev-guide-unstable-result-set
+      参考文章：https://cn.pingcap.com/blog/tidb-source-code-reading-3 TiDB 源码阅读系列文章（三）SQL 的一生
+      TiDB 源码阅读系列文章（二十三）Prepare/Execute 请求处理
+      TiDB 源码阅读系列文章（十）Chunk 和执行框架简介 
+      https://cn.pingcap.com/blog/tidb-source-code-reading-10
+
+  src\sql\executor\ob_execute_result.cpp
+
+
+----------------src\sql\executor\ob_execute_result.cpp---------------
+        --------> int ObExecuteResult::get_next_row(ObExecContext &ctx, const common::ObNewRow *&row)  
+
+int ObExecuteResult::get_next_row(ObExecContext &ctx, const common::ObNewRow *&row)
+
+
+~~~
+
+
+
+###  如何读取一行
+
+
+
+~~~~
+------------------------------thread apply all break ob_execute_result.cpp:38------------------------------ 
+
+ObExecuteResult::get_next_row --->
+            ObOperator *static_engine_root_;
+            | 1 创建 row_.cells_
+            | 2 创建 new (&row_.cells_[i]) ObObj(); 
+              3 转换 int ObExpr::eval
+~~~~
 
 
 
