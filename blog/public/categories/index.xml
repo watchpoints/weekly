@@ -6,13 +6,40 @@
     <description>Recent content in Categories on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 04 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 04 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>oceanbase</title>
-      <link>https://wangcy6.github.io/categories/oceanbase/</link>
-      <pubDate>Wed, 04 Jan 2023 00:00:00 +0000</pubDate>
+      <title>book</title>
+      <link>https://wangcy6.github.io/categories/book/</link>
+      <pubDate>Thu, 04 May 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://wangcy6.github.io/categories/oceanbase/</guid>
+      <guid>https://wangcy6.github.io/categories/book/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cephfse</title>
+      <link>https://wangcy6.github.io/categories/Cephfse/</link>
+      <pubDate>Mon, 20 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/categories/Cephfse/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>file storage</title>
+      <link>https://wangcy6.github.io/categories/file-storage/</link>
+      <pubDate>Fri, 10 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/categories/file-storage/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>oceanbase探索之旅</title>
+      <link>https://wangcy6.github.io/categories/oceanbase%E6%8E%A2%E7%B4%A2%E4%B9%8B%E6%97%85/</link>
+      <pubDate>Mon, 30 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/categories/oceanbase%E6%8E%A2%E7%B4%A2%E4%B9%8B%E6%97%85/</guid>
       <description></description>
     </item>
     
@@ -22,6 +49,15 @@
       <pubDate>Fri, 14 Oct 2022 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/categories/ARTS/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>oceanbase</title>
+      <link>https://wangcy6.github.io/categories/oceanbase/</link>
+      <pubDate>Sun, 02 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/categories/oceanbase/</guid>
       <description></description>
     </item>
     
@@ -49,15 +85,6 @@
       <pubDate>Tue, 04 Jan 2022 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/categories/Leetcode/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>book</title>
-      <link>https://wangcy6.github.io/categories/book/</link>
-      <pubDate>Sat, 10 Jul 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/categories/book/</guid>
       <description></description>
     </item>
     

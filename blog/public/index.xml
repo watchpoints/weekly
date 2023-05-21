@@ -6,23 +6,59 @@
     <description>Recent content on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 11 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 05 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>从青铜到王者系列：Dm-cache</title>
-      <link>https://wangcy6.github.io/post/2022/12_code_read_dm_cache/</link>
-      <pubDate>Wed, 11 Jan 2023 00:00:00 +0000</pubDate>
+      <title>tikv入门</title>
+      <link>https://wangcy6.github.io/post/tidb/20230_05_05_tikv/</link>
+      <pubDate>Fri, 05 May 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://wangcy6.github.io/post/2022/12_code_read_dm_cache/</guid>
-      <description>Dm-cache [23],a general block-level disk cache, for any storage systems, 带着问题和目标去学习 学习方法： 阅读(输入：三天,万句 输出 笔记摘要就哪里，但是自己看不懂，别人看不懂 ) 发现问题（输入：技术</description>
+      <guid>https://wangcy6.github.io/post/tidb/20230_05_05_tikv/</guid>
+      <description>一、问题是什么 阅读文章：https://asktug.com/t/topic/693645 【源码合集】TiKV 源码阅读三部曲 https://mp.weixin.qq.com/s/HgflwnZZMHXaIsFV3PdGAg 开始时间：20</description>
     </item>
     
     <item>
-      <title>成为oceanbase贡献者第5天：</title>
+      <title>践行时间管理方法</title>
+      <link>https://wangcy6.github.io/post/book/01_thing/</link>
+      <pubDate>Thu, 04 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/book/01_thing/</guid>
+      <description>个人学习使用 强哥思考笔记 1. 关于改变 很多人所谓的“改变”，其实都是在做“无用功”，比如说希望这次能够升职加薪，怎么办呢？要跟老板好好沟通，所以</description>
+    </item>
+    
+    <item>
+      <title>Cephfs入门手册</title>
+      <link>https://wangcy6.github.io/post/storage/1_2023_02_13_day1_Cephfs/</link>
+      <pubDate>Mon, 20 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/storage/1_2023_02_13_day1_Cephfs/</guid>
+      <description>Cephfs探索之旅第一天 文章地址：http://localhost:1313/post/storage/1_2023_02_13_day1</description>
+    </item>
+    
+    <item>
+      <title>CurveFS精通之旅第一天</title>
+      <link>https://wangcy6.github.io/post/storage/1_2023_02_10_day1_curveFS/</link>
+      <pubDate>Fri, 10 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/storage/1_2023_02_10_day1_curveFS/</guid>
+      <description>day 1 【新手】快速上手 Curve 指南 https://ask.opencurve.io/t/topic/70 https://github.com/opencurve/curve/wiki 【CurveFS设计文档】 https://github.com/opencurve/curve-meetup-slides/tree/main/CurveFS 【coode】 http://github.com/opencurve/curve。</description>
+    </item>
+    
+    <item>
+      <title>OceanBase Contributor day5：</title>
       <link>https://wangcy6.github.io/post/oceanbase/2022/oceanbase_day5/</link>
-      <pubDate>Wed, 04 Jan 2023 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 30 Jan 2023 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/oceanbase/2022/oceanbase_day5/</guid>
-      <description>#一、Overview (what) 前言 大家好,今天是成为oceanbase贡献者第5天。 今天主要任务是：https://github.com/ocea</description>
+      <description>oceanbase探索之旅开始，成为oceanbase贡献者第5天 历史文章 https://www.yuque.com/yiyezhou/rgak0e/ykp9grn90kvx59c2 # 一、Overview (任务是什么) 前言 大家好,今天是成为oce</description>
+    </item>
+    
+    <item>
+      <title>从青铜到王者系列：Dm-cache</title>
+      <link>https://wangcy6.github.io/post/2022/13_code_read_dm_cache/</link>
+      <pubDate>Wed, 11 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2022/13_code_read_dm_cache/</guid>
+      <description>Dm-cache [23],a general block-level disk cache, for any storage systems, 带着问题和目标去学习 学习方法： 阅读(输入：三天,万句 输出 笔记摘要就哪里，但是自己看不懂，别人看不懂 ) 发现问题（输入：技术</description>
     </item>
     
     <item>
@@ -107,30 +143,12 @@
     </item>
     
     <item>
-      <title>2002年todo</title>
-      <link>https://wangcy6.github.io/post/2022/08_worlog/</link>
-      <pubDate>Fri, 26 Aug 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/2022/08_worlog/</guid>
-      <description>todo 9月 Emacs被公认为是最受专业程序员喜爱的代码编辑器之一 学会他 ​ Win10+emacs配置 D:\Program Files\Emacs\emacs-28.1\bin **win+r，在弹出的框中输入reged</description>
-    </item>
-    
-    <item>
       <title>时间管理</title>
       <link>https://wangcy6.github.io/post/habit/2022-8-22-GTD.life/</link>
       <pubDate>Mon, 22 Aug 2022 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/habit/2022-8-22-GTD.life/</guid>
       <description>锦囊一：改变从接受开始。 锦囊二：训练你的反馈系统。 锦囊三：找到温柔而坚定的力量。 第一，千万不要光学不练。 第二，千万不要光复制不进化。 第三，千</description>
-    </item>
-    
-    <item>
-      <title>源码阅读：beegfs</title>
-      <link>https://wangcy6.github.io/post/beeGfs/day1-2022-8-24-start/</link>
-      <pubDate>Sun, 14 Aug 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/beeGfs/day1-2022-8-24-start/</guid>
-      <description>慢慢来，多看、多问、多总结，肯定是可以攻克的。 BeeGFS升级方案 buddy groups Modifying operations will always be sent to the primary first, which takes care of the mirroring process. File contents and metadata are mirrored synchronously, i.e. the client operation completes after both copies of the data</description>
     </item>
     
     <item>
@@ -198,11 +216,11 @@
     
     <item>
       <title>git入门</title>
-      <link>https://wangcy6.github.io/post/2022/tool_git_3_26/</link>
+      <link>https://wangcy6.github.io/post/2022/git/</link>
       <pubDate>Sat, 26 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://wangcy6.github.io/post/2022/tool_git_3_26/</guid>
-      <description>编码 教训 不能在window 修改代码，然后上传到liunx提交代码 【大量混乱 不行】【不运行这样操作发送】 纠正过去错误习惯：window 开发 然后</description>
+      <guid>https://wangcy6.github.io/post/2022/git/</guid>
+      <description>git checkout 文件名字太长错误 1 git config --global core.longpaths true 冲突解决 放弃本地修改（粗暴） 修改了本地文件，但是没有使用git add ​ git checkout . 通过git stash命令，把工作区的</description>
     </item>
     
     <item>
@@ -395,30 +413,21 @@
     </item>
     
     <item>
-      <title>逆向入门教程</title>
-      <link>https://wangcy6.github.io/post/2022/2022-1-20-%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/</link>
-      <pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/2022/2022-1-20-%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/</guid>
-      <description>背景：答应别人导入微信记录，结果半年毫无动静，一点进展都没有。 记录入门遇到的问题，然后看了那些文章 和写了那些代码解决的。 文章地址 http://localhost:1313/post/2022/2022-1-20-%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/ 手机端-A</description>
-    </item>
-    
-    <item>
-      <title>tikv第一天学习</title>
-      <link>https://wangcy6.github.io/post/tidb/2022/tikv_day1/</link>
-      <pubDate>Wed, 12 Jan 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/tidb/2022/tikv_day1/</guid>
-      <description>文章地址 http://localhost:1313/post/tidb/2022/tidb_01/ https://github.com/watchpoints/mylabs High Performance TiDB 课程 环境搭建 1 2 3 4 5 6 cd /Users/wangchuanyi/code/src/github.com/watchpoints/tikv https://github.com/watchpoints/tikv cd tikv &amp;amp;&amp;amp; make &amp;amp;&amp;amp; mkdir -p ./bin &amp;amp;&amp;amp; cp ./target/release/tikv-server bin brew install rust https://senzhangai.github.io/programming/build-tidb-by-source 参考 Raft/Paxos类协议与分布式事务</description>
-    </item>
-    
-    <item>
       <title>vldb-2021-labs</title>
       <link>https://wangcy6.github.io/post/tidb/2022/mylabs/</link>
       <pubDate>Wed, 12 Jan 2022 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/tidb/2022/mylabs/</guid>
       <description>文章地址 http://localhost:1313/post/tidb/2022/tidb_01/ https://github.com/watchpoints/mylabs 实验1 make lab1P0</description>
+    </item>
+    
+    <item>
+      <title>源码解读第一天：raft 与Paxos</title>
+      <link>https://wangcy6.github.io/post/tidb/2022/tikv_day1/</link>
+      <pubDate>Wed, 12 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/tidb/2022/tikv_day1/</guid>
+      <description>Raft 学习记录 todo task01：搭建tikv环境 task01：搭建tikv环境（容器版本，和源码版本） 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 在CentO</description>
     </item>
     
     <item>
@@ -1202,24 +1211,6 @@
       
       <guid>https://wangcy6.github.io/post/English/The-Go-scheduler/</guid>
       <description>The Go scheduler Introduction One of the big features for Go 1.1 is the new scheduler, contributed by Dmitry Vyukov. The new scheduler has given a dramatic increase in performance for parallel Go programs and with nothing better to do, I figured I&amp;rsquo;d write something about it. Most of what&amp;rsquo;s written in this blog post is already described in the original design doc. It&amp;rsquo;s a fairly comprehensive document, but pretty</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://wangcy6.github.io/product/RocketMQ/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/product/RocketMQ/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://wangcy6.github.io/product/thrift.apache/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/product/thrift.apache/</guid>
-      <description></description>
     </item>
     
     <item>

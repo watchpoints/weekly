@@ -391,3 +391,10 @@ tiup cluster display <cluster-name>
 ### ref
 
  - TIDB 优化--TiKV 性能参数调优
+
+
+
+https://docs.pingcap.com/zh/tidb/stable/tiup-cluster
+
+
+

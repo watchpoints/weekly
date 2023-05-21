@@ -6,7 +6,16 @@
     <description>Recent content in tidb on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 14 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/tags/tidb/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 05 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/tags/tidb/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>tikv入门</title>
+      <link>https://wangcy6.github.io/post/tidb/20230_05_05_tikv/</link>
+      <pubDate>Fri, 05 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/tidb/20230_05_05_tikv/</guid>
+      <description>一、问题是什么 阅读文章：https://asktug.com/t/topic/693645 【源码合集】TiKV 源码阅读三部曲 https://mp.weixin.qq.com/s/HgflwnZZMHXaIsFV3PdGAg 开始时间：20</description>
+    </item>
+    
     <item>
       <title>成为tiflash贡献者第一天</title>
       <link>https://wangcy6.github.io/post/tidb/2022/01_2022_4_14_tiflsh_study/</link>
@@ -17,21 +26,21 @@
     </item>
     
     <item>
-      <title>tikv第一天学习</title>
-      <link>https://wangcy6.github.io/post/tidb/2022/tikv_day1/</link>
-      <pubDate>Wed, 12 Jan 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/tidb/2022/tikv_day1/</guid>
-      <description>文章地址 http://localhost:1313/post/tidb/2022/tidb_01/ https://github.com/watchpoints/mylabs High Performance TiDB 课程 环境搭建 1 2 3 4 5 6 cd /Users/wangchuanyi/code/src/github.com/watchpoints/tikv https://github.com/watchpoints/tikv cd tikv &amp;amp;&amp;amp; make &amp;amp;&amp;amp; mkdir -p ./bin &amp;amp;&amp;amp; cp ./target/release/tikv-server bin brew install rust https://senzhangai.github.io/programming/build-tidb-by-source 参考 Raft/Paxos类协议与分布式事务</description>
-    </item>
-    
-    <item>
       <title>vldb-2021-labs</title>
       <link>https://wangcy6.github.io/post/tidb/2022/mylabs/</link>
       <pubDate>Wed, 12 Jan 2022 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/tidb/2022/mylabs/</guid>
       <description>文章地址 http://localhost:1313/post/tidb/2022/tidb_01/ https://github.com/watchpoints/mylabs 实验1 make lab1P0</description>
+    </item>
+    
+    <item>
+      <title>源码解读第一天：raft 与Paxos</title>
+      <link>https://wangcy6.github.io/post/tidb/2022/tikv_day1/</link>
+      <pubDate>Wed, 12 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/tidb/2022/tikv_day1/</guid>
+      <description>Raft 学习记录 todo task01：搭建tikv环境 task01：搭建tikv环境（容器版本，和源码版本） 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 在CentO</description>
     </item>
     
     <item>

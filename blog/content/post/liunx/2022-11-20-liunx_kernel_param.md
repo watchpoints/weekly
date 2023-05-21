@@ -110,7 +110,12 @@ https://help.aliyun.com/document_detail/316787.html
 
 
 
+### perf工具使用
 
+
+
+perf record   -g -p 30584
+perf report -n --stdio
 
 
 

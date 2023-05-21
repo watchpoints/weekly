@@ -44,15 +44,6 @@
     </item>
     
     <item>
-      <title>逆向入门教程</title>
-      <link>https://wangcy6.github.io/post/2022/2022-1-20-%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/</link>
-      <pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/2022/2022-1-20-%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/</guid>
-      <description>背景：答应别人导入微信记录，结果半年毫无动静，一点进展都没有。 记录入门遇到的问题，然后看了那些文章 和写了那些代码解决的。 文章地址 http://localhost:1313/post/2022/2022-1-20-%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/ 手机端-A</description>
-    </item>
-    
-    <item>
       <title>oceanbase源码阅读（1）程序启动</title>
       <link>https://wangcy6.github.io/post/oceanbase/2011/oceanbase_day1/</link>
       <pubDate>Tue, 22 Jun 2021 00:00:00 +0000</pubDate>

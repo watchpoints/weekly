@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>tikv第一天学习 - Troy的网络博客</title>
+  <title>源码解读第一天：raft 与Paxos - Troy的网络博客</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -38,19 +38,19 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="tikv第一天学习" />
+<meta property="og:title" content="源码解读第一天：raft 与Paxos" />
 <meta property="og:description" content="Tidb" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://wangcy6.github.io/post/tidb/2022/tikv_day1/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2022-01-12T00:00:00+00:00" />
 <meta property="article:modified_time" content="2022-01-12T00:00:00+00:00" />
 
-<meta itemprop="name" content="tikv第一天学习">
+<meta itemprop="name" content="源码解读第一天：raft 与Paxos">
 <meta itemprop="description" content="Tidb"><meta itemprop="datePublished" content="2022-01-12T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-01-12T00:00:00+00:00" />
-<meta itemprop="wordCount" content="61">
+<meta itemprop="wordCount" content="201">
 <meta itemprop="keywords" content="Tidb," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="tikv第一天学习"/>
+<meta name="twitter:title" content="源码解读第一天：raft 与Paxos"/>
 <meta name="twitter:description" content="Tidb"/>
 
 <!--[if lte IE 9]>
@@ -123,12 +123,12 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">tikv第一天学习</h1>
+      <h1 class="post-title">源码解读第一天：raft 与Paxos</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2022-01-12 00:00 </span>
         
-          <span class="more-meta"> 约 61 字 </span>
+          <span class="more-meta"> 约 201 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -139,7 +139,14 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#high-performance-tidb-课程httpszhuanlanzhihucomp179245036"><a href="https://zhuanlan.zhihu.com/p/179245036">High Performance TiDB 课程</a></a></li>
+    <li>
+      <ul>
+        <li><a href="#task01搭建tikv环境容器版本和源码版本">task01：搭建tikv环境（容器版本，和源码版本）</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
     <li><a href="#环境搭建">环境搭建</a></li>
     <li><a href="#参考">参考</a></li>
   </ul>
@@ -152,32 +159,64 @@
     </div>
   </div>
     <div class="post-content">
-      <p>文章地址</p>
-<ul>
-<li>http://localhost:1313/post/tidb/2022/tidb_01/</li>
-<li><a href="https://github.com/watchpoints/mylabs">https://github.com/watchpoints/mylabs</a></li>
-</ul>
-<h2 id="high-performance-tidb-课程httpszhuanlanzhihucomp179245036"><a href="https://zhuanlan.zhihu.com/p/179245036">High Performance TiDB 课程</a></h2>
-<h2 id="环境搭建">环境搭建</h2>
+      <h1 id="raft-学习记录">Raft 学习记录</h1>
+<h1 id="todo">todo</h1>
+<p>task01：搭建tikv环境</p>
+<hr>
+<h3 id="task01搭建tikv环境容器版本和源码版本">task01：搭建tikv环境（容器版本，和源码版本）</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">cd /Users/wangchuanyi/code/src/github.com/watchpoints/tikv
-</span></span><span class="line"><span class="cl">https://github.com/watchpoints/tikv
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">在CentOS上进行TiDB/PD/TIKV编译分享
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">路径：
+</span></span><span class="line"><span class="cl">umount /dev/nvme1n1
+</span></span><span class="line"><span class="cl">mkdir -p /data/kv
+</span></span><span class="line"><span class="cl">mkfs.ext4 /dev/nvme1n1
+</span></span><span class="line"><span class="cl">mount /dev/nvme1n1  /data/kv
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">cd /data/kv
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">cd tikv &amp;&amp; make &amp;&amp; mkdir -p ./bin &amp;&amp; cp ./target/release/tikv-server bin
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">brew install rust
 </span></span><span class="line"><span class="cl">https://senzhangai.github.io/programming/build-tidb-by-source
+</span></span><span class="line"><span class="cl">https://tidb.net/blog/7e4c77a0
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="参考">参考</h2>
+</div><ul>
+<li>容器</li>
+</ul>
+<h1 id="paxos学习记录">Paxos学习记录</h1>
+<h1 id="todo-1">todo</h1>
+<h1 id="参考资料">参考资料</h1>
+<ul>
+<li><a href="https://blog.csdn.net/zhengchao1991/article/details/124648950">Paxos与Raft比较</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/179245036">High Performance TiDB 课程</a></li>
+<li>http://localhost:1313/post/tidb/2022/tidb_01/</li>
+<li><a href="https://github.com/watchpoints/mylabs">https://github.com/watchpoints/mylabs</a></li>
+<li>Raft/Paxos类协议与分布式事务</li>
+</ul>
+<h2 id="环境搭建">环境搭建</h2>
+<h2 id="参考">参考</h2>
 <ul>
 <li>Raft/Paxos类协议与分布式事务</li>
 </ul>
@@ -207,13 +246,13 @@
           <a href="/tags/Tidb/">Tidb</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/2022/2022-1-20-%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/">
+        <a class="prev" href="/post/tidb/2022/mylabs/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">逆向入门教程</span>
+            <span class="prev-text nav-default">vldb-2021-labs</span>
             <span class="prev-text nav-mobile">上一篇</span>
           </a>
-        <a class="next" href="/post/tidb/2022/mylabs/">
-            <span class="next-text nav-default">vldb-2021-labs</span>
+        <a class="next" href="/post/tidb/2022/2022-1-19-Project2/">
+            <span class="next-text nav-default">Tidb入门1</span>
             <span class="next-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
           </a>

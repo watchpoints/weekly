@@ -36,11 +36,11 @@
     
     <item>
       <title>git入门</title>
-      <link>https://wangcy6.github.io/post/2022/tool_git_3_26/</link>
+      <link>https://wangcy6.github.io/post/2022/git/</link>
       <pubDate>Sat, 26 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://wangcy6.github.io/post/2022/tool_git_3_26/</guid>
-      <description>编码 教训 不能在window 修改代码，然后上传到liunx提交代码 【大量混乱 不行】【不运行这样操作发送】 纠正过去错误习惯：window 开发 然后</description>
+      <guid>https://wangcy6.github.io/post/2022/git/</guid>
+      <description>git checkout 文件名字太长错误 1 git config --global core.longpaths true 冲突解决 放弃本地修改（粗暴） 修改了本地文件，但是没有使用git add ​ git checkout . 通过git stash命令，把工作区的</description>
     </item>
     
     <item>

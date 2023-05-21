@@ -16,11 +16,29 @@ oceanbase探索之旅开始，成为oceanbase贡献者第5天
 
 
 
-# # 一、Overview (what)
+# # 一、Overview (任务是什么)
 
 > 前言
 
 大家好,今天是成为oceanbase贡献者第5天。
+
+
+
+https://github.com/watchpoints/oceanbase/commit/eb331d4f0d8d7887201b835b07ea1f3528b934c2
+
+https://github.com/oceanbase/oceanbase/issues/1383
+
+[status: confirmed](https://github.com/oceanbase/oceanbase/labels/status%3A confirmed)
+
+https://github.com/oceanbase/oceanbase/issues/1355
+
+https://github.com/oceanbase/oceanbase/issues?q=is%3Aissue+is%3Aopen+label%3A%22type%3A+bug%22
+
+
+
+
+
+
 
 今天主要任务是：
 
@@ -28,7 +46,9 @@ oceanbase探索之旅开始，成为oceanbase贡献者第5天
 
 - https://github.com/oceanbase/oceanbase/issues/1119
 
+  https://github.com/oceanbase/oceanbase/issues/1365
   
+  - https://github.com/oceanbase/oceanbase/issues/1365
 
 请教下，在查询数据时候ob有办法绕过kvcache缓存吗？我想做一个不常用的查询但是数据量太大，避免影响其它查询的命中率。
 
@@ -48,15 +68,9 @@ todo1： 在虚拟机搭建一个mysql最新版本，验证mysql语----结果：
 
 todo2： 源码编译验证最新代码---结果：已经被官方修复，你看如何修复的
 
-
-
 todo3： ssues/1119源码分析
 
-
-
-
-
-# #二 、 原理 （why）
+# #二 、 思考分析过程（why）
 
 ---------------------------------------------------------------------------------
 
@@ -168,8 +182,6 @@ ERROR 5798 (HY000): DISTINCT not allowed here
 ~~~
 
 ### todo2： 源码编译验证最新代码。
-
-
 
 
 
@@ -552,11 +564,42 @@ ObExecuteResult::get_next_row --->
 
 
 
-# # 三. 如何使用（how） 
+~~~
+mkdir -p /data/storage
+mkfs.ext4 /dev/nvme3n1 
+mount /dev/nvme3n1 /data/storage
+
+vi mini-local-example.yaml
+obd cluster edit-config  test
+obd cluster redeploy test
+
+obd cluster deploy test -c ./mini-local-example.yaml
+obd cluster start test
+# Connect to the OceanBase Database by using a MySQL client.
+mysql -h127.1 -uroot -P2883
+alias cdob="obclient -uroot@sys -h127.0.0.1 -P2881 oceanbase"
+
+
+启动失败：
+ERROR] (127.0.0.1): when production_mode is True, memory_limit can not be less then 16.0G
+
+解决：
+
+production_mode false
+
+
+编译：
+bash build.sh debug --init --make -j8
+~~~
 
 
 
+# # 三. 如何解决的（how） 
 
+
+
+- https://github.com/oceanbase/oceanbase/issues/1365
+- https://github.com/oceanbase/oceanbase/issues
 
 
 
@@ -594,46 +637,16 @@ ObExecuteResult::get_next_row --->
 
 
 
-# # 二    Read（how） 
-
-### 安装部署
+### 
 
 ~~~
-mkdir -p /data/storage
-mkfs.ext4 /dev/nvme3n1 
-mount /dev/nvme3n1 /data/storage
 
-vi mini-local-example.yaml
-obd cluster edit-config  test
-obd cluster redeploy test
-
-obd cluster deploy test -c ./mini-local-example.yaml
-obd cluster start test
-# Connect to the OceanBase Database by using a MySQL client.
-mysql -h127.1 -uroot -P2883
-alias cdob="obclient -uroot@sys -h127.0.0.1 -P2881 oceanbase"
-
-
-启动失败：
-ERROR] (127.0.0.1): when production_mode is True, memory_limit can not be less then 16.0G
-
-解决：
-
-production_mode false
-
-
-编译：
-bash build.sh debug --init --make -j8
 
 ~~~
 
 
 
 
-
-# # 三、more
-
-> 举一反三
 
 
 

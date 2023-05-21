@@ -334,6 +334,14 @@ cd /data/tidb/tiup
 perf record   -g -p 30584
 perf report -n --stdio
 
+
+
+perf record  -F 99  -g -a  -- sleep 20
+perf report -n --stdio
+perf record  -F 99  -g -e "kmem:*"  -- sleep 20
+
+
+
 perf script -i  ./perf.data | /data/tidb/src/github.com/FlameGraph/stackcollapse-perf.pl --all |  /data/tidb/src/github.com/FlameGraph/flamegraph.pl > tidb_16.svg
 
 
@@ -510,3 +518,8 @@ nohup valgrind --leak-check=full \
   
 
   
+
+
+
+perf script -i  ./perf.data | /data/tidb/src/github.com/FlameGraph/stackcollapse-perf.pl --all |  /data/tidb/src/github.com/FlameGraph/flamegraph.pl > tidb_16.svg
+

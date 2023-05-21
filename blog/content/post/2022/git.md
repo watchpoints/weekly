@@ -10,6 +10,28 @@ tags: ["book"]
 
 
 
+
+
+
+
+
+
+- git checkout 文件名字太长错误
+
+```bash
+git config --global core.longpaths true
+```
+
+
+
+
+
+
+
+
+
+
+
 # 冲突解决
 
 ### [放弃本地修改](https://zhuanlan.zhihu.com/p/547287193)（粗暴）
