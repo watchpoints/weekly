@@ -205,11 +205,11 @@ Copyright (c) 2011-2022 OceanBase Inc.
 禁用远程镜像仓库
 obd mirror disable remote
 
+   obd demo -c oceanbase,obproxy,obagent,prometheus,grafana
+  
 
 - 镜像版本
 make DESTDIR=./ install && 
-
-    
 obd mirror create -n oceanbase-ce -V 4.1.0.0 -p ./usr/local -t my-oceanbase
 
 Package ok
@@ -254,6 +254,7 @@ cp observer /root/.obd/repository/oceanbase-ce/3.1.4-1/my-oceanbase/bin/
 
 
 
+export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 
 
 obclient -h127.0.0.1 -P2881 -uroot -Doceanbase -A
@@ -604,11 +605,12 @@ mkfs.ext4 /dev/nvme3n1
 mount /dev/nvme3n1 /data/storage
 
 vi mini-local-example.yaml
-obd cluster edit-config  test
-obd cluster redeploy test
+obd cluster edit-config  watchpoints
+obd cluster redeploy watchpoints
+obd cluster stop watchpoints
 
-obd cluster deploy test -c ./mini-local-example.yaml
-obd cluster start test
+obd cluster deploy wathchpoints -c ./mini-local-example.yaml
+obd cluster start watchpoints
 # Connect to the OceanBase Database by using a MySQL client.
 mysql -h127.1 -uroot -P2883
 alias cdob="obclient -uroot@sys -h127.0.0.1 -P2881 oceanbase"
