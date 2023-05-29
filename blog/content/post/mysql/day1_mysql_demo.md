@@ -78,8 +78,17 @@ mysql -h 127.0.0.1 -u root -p -P 3306
 service docker start
 
 
+ 
+systemctl start mysqld
 
-
+# 查找以前是否装有MySQL
+rpm -qi mysql-server
+Name        : mysql-server
+Version     : 8.0.26
+# 启动：
+service mysqld start
+# 默认空密码
+mysql -uroot 
 
 
 ~~~

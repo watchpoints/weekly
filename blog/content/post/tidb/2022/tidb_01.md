@@ -81,6 +81,16 @@ ID               Role          Host       Ports                            OS/Ar
 127.0.0.1:20160  tikv          127.0.0.1  20160/20180                      linux/x86_64  Up       /mnt/tidb/tidb-data/tikv-20160         /mnt/tidb/tidb-deploy/tikv-20160
 Total nodes: 7
 
+安装 MySQL 客户端并连接
+yum install mysql -y
+OceanBase性能测试 https://juejin.cn/post/7203523120988717114
+```
+
+连接到 TiDB 集群：
+
+```sh
+mysql --comments -h 127.0.0.1 -P 4000 -u root -pBW07-+5vE36q@b*9RA
+show database;
 ```
 
 
