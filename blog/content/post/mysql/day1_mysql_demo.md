@@ -1,6 +1,6 @@
 ---
 title: "mysql内核学习过程"
-date: 2022-02-27
+date: 2023-05-20
 draft: false
 tags: ["mysql"]
 ---
@@ -22,51 +22,54 @@ tags: ["mysql"]
 - mysql8.0安装
 
 ~~~mysql
-#8.0 在centos6.8上安装不上 需要
+
+在mysql官网获取yum源安装包
+http://dev.mysql.com/downloads/repo/yum/
+复制下载链接地址为：
+mysql80-community-release-el7-7.noarch.rpm
+
+
 A Quick Guide to Using the MySQL Yum Repository
-wget https://dev.mysql.com/get/mysql80-community-release-el8-3.noarch.rpm
-rpm -ivh mysql80-community-release-el8-3.noarch.rpm 
+wget https://dev.mysql.com/get/mysql80-community-release-el7-7.noarch.rpm
+rpm -ivh mysql80-community-release-el7-7.noarch.rpm
+yum install mysql-community-server -y
 
-cat /etc/redhat-release
-CentOS release 6.8 (Final)
-#7.9 安装不删
-rpm -e --nodeps  mysql80-community-release-el8-3
-wget https://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm
-rpm -ivh mysql57-community-release-el7-9.noarch.rpm
+ 启动mysql
+service mysqld start
 
-https://blog.csdn.net/wohiusdashi/article/details/89358071
- Requires: libstdc++.so.6(GLIBCXX_3.4.15)(64bit)
- 
- 
-# Centos6.8通过yum安装mysql5.7 
+# 关闭mysql
+service mysqld stop
 
-netstat -lntup |  grep mysql
-wget https://dev.mysql.com/get/mysql57-community-release-el6-9.noarch.rpm
-rpm -Uvh mysql57-community-release-el6-9.noarch.rpm 
+# 查看启动状态
+service mysqld status
+
+# 重启mysql
+service mysqld restart
+# 查看默认密码
+sudo grep 'temporary password' /var/log/mysqld.log
 
 
-# Server version: 5.6.51
+因此，请遵守容器设计原则，一个容器里运行一个前台服务！
+报错1:
+docker centos 使用 systemctl Failed to get D-Bus connection: Operation not permitted
+
+docker ps -a
+3346da816048
+docker start 3346da816048
+ssh root@10.2.131.60 -p 22 （宿主机器IP）
+
+docker exec -it 3346da816048   /usr/sbin/init 
+
+   docker run --privileged  -ti -e "container=docker"  -v /sys/fs/cgroup:/sys/fs/cgroup  centos  /usr/sbin/init
+   
+创建容器：
+docker-failed-to-get-d-bus-connection-operation-not-permitted
+# docker run -d -name centos7 --privileged=true centos:7 /usr/sbin/init
+进入容器：
+# docker exec -it centos7 /bin/bash
+这样可以使用systemctl启动服务了。
 
 
-容器方式安装mysql：
-CentOS6.8安装Docker
-
-yum install -y epel-release
-EPEL的全称叫 Extra Packages for Enterprise Linux 。EPEL是由 Fedora 社区打造，为 RHEL 及衍生发行版如 CentOS、Scientific Linux 等提供高质量软件包的项目。装上了 EPEL之后，就相当于添加了一个第三方源。
-
-
-yum install docker-io
-解决CentOS6.8上安装docker失败：No package docker-io available
-
-https://www.cnblogs.com/ybyn/p/13698058.html
-
-
-1. docker pull mysql 默认拉取最新版本的镜像
-2. docker run -itd --name mysql8.0 -p 3306:3306  -e MYSQL_ROOT_PASSWORD=123456  mysql
-3 docker exec -it 7e1c7fc8da97 /bin/bash
-
-docker logs 7e1c7fc8da97
-FATAL: kernel too old 
 ~~~
 
 - 基本操作
@@ -98,4 +101,12 @@ mysql -uroot
 ## 三 结论
 
 - centos6.8版本无法安装mysql8.0，容器的方式也不行。
+
+
+
+分享地址：
+
+- http://localhost:1313/post/mysql/day1_mysql_demo/
+- https://wangcy6.gitbook.io/do_book/2023
+- https://wangcy6.github.io/post/mysql/day1_mysql_demo/
 
