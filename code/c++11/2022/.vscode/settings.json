@@ -1,8 +1,0 @@
-{
-    "files.associations": {
-        "type_traits": "cpp",
-        "future": "cpp",
-        "*.tcc": "cpp",
-        "compare": "cpp"
-    }
-}
