@@ -126,10 +126,6 @@ Google在它的分布式系统中，大量使用了Paxos，比如Chubby、MegaSt
   class PaxosService 
   ~~~
 
-  
-
-# [Ceph Monitor Paxos](https://blog.wjin.org/posts/ceph-monitor-paxos.html)
-
 
 
 主要参考
@@ -141,6 +137,41 @@ Google在它的分布式系统中，大量使用了Paxos，比如Chubby、MegaSt
 - [Ceph Monitor Leader Elect](https://blog.wjin.org/posts/ceph-monitor-leader-elect.html)
 
 - [Ceph Monitor Overview](https://blog.wjin.org/posts/ceph-monitor-overview.html)
+
+# [Ceph Monitor Overview](https://blog.wjin.org/posts/ceph-monitor-overview.html)
+
+- Introduction
+
+monitor在ceph集群中起着非常关键的作用，它维护着几张map(monmap, osdmap, pgmap等)， 通过paxos算法保证数据的一致性。
+
+
+
+![](https://blog.wjin.org/assets/img/post/ceph_mon_startup.png)
+
+- https://blog.wjin.org/posts/ceph-monitor-startup.html
+- https://blog.wjin.org/posts/ceph-monitor-overview.html
+
+
+
+# Main Thread
+
+- 主线程的初始化工作，参见代码ceph_mon.cc:
+
+
+
+Data Store
+
+monitor维护了很多map以及自身Elector和Paxos算法的数据，这些数据肯定是需要地方存储的，最开始的时候monitor采用文件存储，后来采用k/v存储， 主要是利用k/v的原子操作以及对key做有序排列，目前支持levelDB和rocksDB。
+
+
+
+主要实现是在文件MonitorDBStore.h中，将对key的操作封装成一个op， 然后考虑到同时对多个key操作的时候，需要确保事务性，所以使用的时候，都是以transaction的形式提交，一个transaction可能包含多个op。
+
+
+
+
+
+# [Ceph Monitor Paxos](https://blog.wjin.org/posts/ceph-monitor-paxos.html)
 
 
 
@@ -181,6 +212,8 @@ paxos需要根据monitor状态来做转换，大致如下:
 - Process
 - Update
 - Active
+
+![](https://blog.wjin.org/assets/img/post/ceph_mon_sequence.png)
 
 
 
