@@ -106,6 +106,28 @@ Google在它的分布式系统中，大量使用了Paxos，比如Chubby、MegaSt
 
 
 
+# 流程分析
+
+
+
+### 涉及文件
+
+- D:\db\note_ceph\src\mon\PaxosService.h
+
+- 
+
+  ~~~c#
+  
+  /**
+   * A Paxos Service is an abstraction that easily allows one to obtain an
+   * association between a Monitor and a Paxos class, in order to implement any
+   * service.
+   */
+  class PaxosService 
+  ~~~
+
+  
+
 # [Ceph Monitor Paxos](https://blog.wjin.org/posts/ceph-monitor-paxos.html)
 
 
@@ -120,7 +142,11 @@ Google在它的分布式系统中，大量使用了Paxos，比如Chubby、MegaSt
 
 - [Ceph Monitor Overview](https://blog.wjin.org/posts/ceph-monitor-overview.html)
 
-  
+
+
+
+
+
 
 # Introduction
 
@@ -137,6 +163,24 @@ paxos需要根据monitor状态来做转换，大致如下:
 
 
 ![img](https://blog.wjin.org/assets/img/post/ceph_mon_paxos_3.png)
+
+
+
+# [Ceph Monitor PaxosService](https://blog.wjin.org/posts/ceph-monitor-paxosservice.html)
+
+
+
+1. PaxosService是一个虚基类，内部利用Paxos类的功能，包装了一些接口，即提供一些模板方法，用来构建基于paxos的服务。 目前所有服务如下图所示:
+
+![](https://blog.wjin.org/assets/img/post/ceph_mon_paxosservice.png)
+
+如果考虑需要实现自己的一个能够利用paxos的服务，应该从何入手？大致应该考虑如下几个方面:
+
+- Init
+- Restart
+- Process
+- Update
+- Active
 
 
 
