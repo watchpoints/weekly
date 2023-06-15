@@ -17,11 +17,21 @@ http://localhost:1313/post/storage/2_ceph_mon/
 
 1. CEPH源码解析：读写流程
 
+### CephFS 内部实现（四）：MDS是如何启动的？
+
+https://www.jianshu.com/p/742e18f53f3a
 
 
 
+### ceph Heartbeat 分析
 
-# 
+https://zhuanlan.zhihu.com/p/128631881
+
+
+
+### Ceph心跳机制
+
+https://zhuanlan.zhihu.com/p/106730337
 
 
 
