@@ -28,11 +28,9 @@ tags: ["tools"]
 
 
 
-chatGPT破局，各种资源汇集
+# 🤖 chatGPT破局，各种资源汇集  🤖
 
-
-
-###  Chatgpt免费地址
+# Chatgpt免费地址
 
 - Chatgpt for chrome 浏览器插件（香港地区都可以，速度快，稳定可靠，每天30条免费，基本上够用）
 
@@ -48,16 +46,6 @@ chatGPT破局，各种资源汇集
 
 ## 学习资料
 
-
-
-
-
-
-
-# 🤖 ChatGPT 中文指南 🤖
-
-
-
 # 日常办公
 
 
@@ -71,6 +59,11 @@ chatGPT破局，各种资源汇集
 ​      https://www.notion.so/zh-cn
 
 
+
+### 视频工具
+
+- https://www.yuque.com/yiyezhou/nt04qa/spfa4v3g128lgvg6    【个人记录】
+- 
 
 
 
