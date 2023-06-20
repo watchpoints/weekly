@@ -13,7 +13,7 @@
       <pubDate>Fri, 05 May 2023 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/tidb/20230_05_05_tikv/</guid>
-      <description>一、问题是什么 阅读文章：https://asktug.com/t/topic/693645 【源码合集】TiKV 源码阅读三部曲 https://mp.weixin.qq.com/s/HgflwnZZMHXaIsFV3PdGAg 开始时间：20</description>
+      <description>一、问题是什么 阅读文章：https://asktug.com/t/topic/693645 【源码合集】TiKV 源码阅读三部曲 https://mp.weixin.qq.com/s/HgflwnZZMHXaIsFV3PdGAg 阅读 Rust 参考手册</description>
     </item>
     
     <item>
@@ -58,7 +58,7 @@
       <pubDate>Tue, 11 Jan 2022 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/tidb/2022/tidb_01/</guid>
-      <description>文章地址 http://localhost:1313/post/tidb/2022/tidb_01/ https://wangcy6.github.io/post/tidb/2022/tidb_01/ 管理配置 tiup 拓扑结构 https://docs.pingcap.com/zh/tidb/stable/minimal-deployment-topology/ http://74.120.174.137:2379/dashboard/#/overview tiup cluster list 1 2 3 4 Name User Version Path PrivateKey ---- ---- ------- ---- ---------- tidb-test tidb v5.0.2 /root/.tiup/storage/cluster/clusters/tidb-test /root/.tiup/storage/cluster/clusters/tidb-test/ssh/id_rsa root@money:~# tiup cluster start tidb-test mysql -h 127.0.0.1 -P 4000 -u root -D test 检查部署的 TiDB 集群情况 tiup cluster display tidb-test 1 2 3</description>
+      <description>文章地址 http://localhost:1313/post/tidb/2022/tidb_01/ https://wangcy6.github.io/post/tidb/2022/tidb_01/ 管理配置 tiup 拓扑结构 https://docs.pingcap.com/zh/tidb/stable/minimal-deployment-topology/ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54</description>
     </item>
     
   </channel>

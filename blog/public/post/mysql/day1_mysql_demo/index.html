@@ -42,13 +42,13 @@
 <meta property="og:description" content="day1 一、问题 msyql 忘记root密码怎么办？ 二、过程 mysql8.0安装 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://wangcy6.github.io/post/mysql/day1_mysql_demo/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2022-02-27T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-02-27T00:00:00+00:00" />
+<meta property="article:published_time" content="2023-05-20T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-05-20T00:00:00+00:00" />
 
 <meta itemprop="name" content="mysql内核学习过程">
-<meta itemprop="description" content="day1 一、问题 msyql 忘记root密码怎么办？ 二、过程 mysql8.0安装 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38"><meta itemprop="datePublished" content="2022-02-27T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-02-27T00:00:00+00:00" />
-<meta itemprop="wordCount" content="420">
+<meta itemprop="description" content="day1 一、问题 msyql 忘记root密码怎么办？ 二、过程 mysql8.0安装 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38"><meta itemprop="datePublished" content="2023-05-20T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-05-20T00:00:00+00:00" />
+<meta itemprop="wordCount" content="421">
 <meta itemprop="keywords" content="mysql," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="mysql内核学习过程"/>
 <meta name="twitter:description" content="day1 一、问题 msyql 忘记root密码怎么办？ 二、过程 mysql8.0安装 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38"/>
@@ -126,9 +126,9 @@
       <h1 class="post-title">mysql内核学习过程</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2022-02-27 00:00 </span>
+        <span class="post-time"> 2023-05-20 00:00 </span>
         
-          <span class="more-meta"> 约 420 字 </span>
+          <span class="more-meta"> 约 421 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -150,11 +150,6 @@
 </nav>
   </div>
 </div>
-  <div class="post-outdated">
-    <div class="hint">
-      <p>【注意】最后更新于 <span class="timeago" datetime="2022-02-27T00:00:00" title="February 27, 2022">February 27, 2022</span>，文中内容可能已过时，请谨慎使用。</p>
-    </div>
-  </div>
     <div class="post-content">
       <h1 id="day1">day1</h1>
 <h3 id="一问题">一、问题</h3>
@@ -212,53 +207,55 @@
 </span><span class="lnt">43
 </span><span class="lnt">44
 </span><span class="lnt">45
+</span><span class="lnt">46
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="c1">#8.0 在centos6.8上安装不上 需要
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">A</span><span class="w"> </span><span class="n">Quick</span><span class="w"> </span><span class="n">Guide</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">Using</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="n">Yum</span><span class="w"> </span><span class="n">Repository</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">wget</span><span class="w"> </span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">dev</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">get</span><span class="o">/</span><span class="n">mysql80</span><span class="o">-</span><span class="n">community</span><span class="o">-</span><span class="k">release</span><span class="o">-</span><span class="n">el8</span><span class="o">-</span><span class="mi">3</span><span class="p">.</span><span class="n">noarch</span><span class="p">.</span><span class="n">rpm</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">rpm</span><span class="w"> </span><span class="o">-</span><span class="n">ivh</span><span class="w"> </span><span class="n">mysql80</span><span class="o">-</span><span class="n">community</span><span class="o">-</span><span class="k">release</span><span class="o">-</span><span class="n">el8</span><span class="o">-</span><span class="mi">3</span><span class="p">.</span><span class="n">noarch</span><span class="p">.</span><span class="n">rpm</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">cat</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">redhat</span><span class="o">-</span><span class="k">release</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">CentOS</span><span class="w"> </span><span class="k">release</span><span class="w"> </span><span class="mi">6</span><span class="p">.</span><span class="mi">8</span><span class="w"> </span><span class="p">(</span><span class="n">Final</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">#7.9 安装不删
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">rpm</span><span class="w"> </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="o">--</span><span class="n">nodeps</span><span class="w">  </span><span class="n">mysql80</span><span class="o">-</span><span class="n">community</span><span class="o">-</span><span class="k">release</span><span class="o">-</span><span class="n">el8</span><span class="o">-</span><span class="mi">3</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">wget</span><span class="w"> </span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">dev</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">get</span><span class="o">/</span><span class="n">mysql57</span><span class="o">-</span><span class="n">community</span><span class="o">-</span><span class="k">release</span><span class="o">-</span><span class="n">el7</span><span class="o">-</span><span class="mi">9</span><span class="p">.</span><span class="n">noarch</span><span class="p">.</span><span class="n">rpm</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">rpm</span><span class="w"> </span><span class="o">-</span><span class="n">ivh</span><span class="w"> </span><span class="n">mysql57</span><span class="o">-</span><span class="n">community</span><span class="o">-</span><span class="k">release</span><span class="o">-</span><span class="n">el7</span><span class="o">-</span><span class="mi">9</span><span class="p">.</span><span class="n">noarch</span><span class="p">.</span><span class="n">rpm</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">blog</span><span class="p">.</span><span class="n">csdn</span><span class="p">.</span><span class="n">net</span><span class="o">/</span><span class="n">wohiusdashi</span><span class="o">/</span><span class="n">article</span><span class="o">/</span><span class="n">details</span><span class="o">/</span><span class="mi">89358071</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="n">Requires</span><span class="p">:</span><span class="w"> </span><span class="n">libstdc</span><span class="o">++</span><span class="p">.</span><span class="n">so</span><span class="p">.</span><span class="mi">6</span><span class="p">(</span><span class="n">GLIBCXX_3</span><span class="p">.</span><span class="mi">4</span><span class="p">.</span><span class="mi">15</span><span class="p">)(</span><span class="mi">64</span><span class="n">bit</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1"># Centos6.8通过yum安装mysql5.7 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">netstat</span><span class="w"> </span><span class="o">-</span><span class="n">lntup</span><span class="w"> </span><span class="o">|</span><span class="w">  </span><span class="n">grep</span><span class="w"> </span><span class="n">mysql</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">wget</span><span class="w"> </span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">dev</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">get</span><span class="o">/</span><span class="n">mysql57</span><span class="o">-</span><span class="n">community</span><span class="o">-</span><span class="k">release</span><span class="o">-</span><span class="n">el6</span><span class="o">-</span><span class="mi">9</span><span class="p">.</span><span class="n">noarch</span><span class="p">.</span><span class="n">rpm</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">rpm</span><span class="w"> </span><span class="o">-</span><span class="n">Uvh</span><span class="w"> </span><span class="n">mysql57</span><span class="o">-</span><span class="n">community</span><span class="o">-</span><span class="k">release</span><span class="o">-</span><span class="n">el6</span><span class="o">-</span><span class="mi">9</span><span class="p">.</span><span class="n">noarch</span><span class="p">.</span><span class="n">rpm</span><span class="w"> 
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">在</span><span class="n">mysql官网获取yum源安装包</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">dev</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">downloads</span><span class="o">/</span><span class="n">repo</span><span class="o">/</span><span class="n">yum</span><span class="o">/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">复制下载链接地址为：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">mysql80</span><span class="o">-</span><span class="n">community</span><span class="o">-</span><span class="k">release</span><span class="o">-</span><span class="n">el7</span><span class="o">-</span><span class="mi">7</span><span class="p">.</span><span class="n">noarch</span><span class="p">.</span><span class="n">rpm</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1"># Server version: 5.6.51
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">A</span><span class="w"> </span><span class="n">Quick</span><span class="w"> </span><span class="n">Guide</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">Using</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="n">Yum</span><span class="w"> </span><span class="n">Repository</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">wget</span><span class="w"> </span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">dev</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">get</span><span class="o">/</span><span class="n">mysql80</span><span class="o">-</span><span class="n">community</span><span class="o">-</span><span class="k">release</span><span class="o">-</span><span class="n">el7</span><span class="o">-</span><span class="mi">7</span><span class="p">.</span><span class="n">noarch</span><span class="p">.</span><span class="n">rpm</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">rpm</span><span class="w"> </span><span class="o">-</span><span class="n">ivh</span><span class="w"> </span><span class="n">mysql80</span><span class="o">-</span><span class="n">community</span><span class="o">-</span><span class="k">release</span><span class="o">-</span><span class="n">el7</span><span class="o">-</span><span class="mi">7</span><span class="p">.</span><span class="n">noarch</span><span class="p">.</span><span class="n">rpm</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">yum</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">mysql</span><span class="o">-</span><span class="n">community</span><span class="o">-</span><span class="n">server</span><span class="w"> </span><span class="o">-</span><span class="n">y</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">容器方式安装</span><span class="n">mysql</span><span class="err">：</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">CentOS6</span><span class="p">.</span><span class="mi">8</span><span class="err">安装</span><span class="n">Docker</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="err">启动</span><span class="n">mysql</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">service</span><span class="w"> </span><span class="n">mysqld</span><span class="w"> </span><span class="n">start</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">yum</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="o">-</span><span class="n">y</span><span class="w"> </span><span class="n">epel</span><span class="o">-</span><span class="k">release</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">EPEL的全称叫</span><span class="w"> </span><span class="n">Extra</span><span class="w"> </span><span class="n">Packages</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Enterprise</span><span class="w"> </span><span class="n">Linux</span><span class="w"> </span><span class="err">。</span><span class="n">EPEL是由</span><span class="w"> </span><span class="n">Fedora</span><span class="w"> </span><span class="err">社区打造，为</span><span class="w"> </span><span class="n">RHEL</span><span class="w"> </span><span class="err">及衍生发行版如</span><span class="w"> </span><span class="n">CentOS</span><span class="err">、</span><span class="n">Scientific</span><span class="w"> </span><span class="n">Linux</span><span class="w"> </span><span class="err">等提供高质量软件包的项目。装上了</span><span class="w"> </span><span class="n">EPEL之后</span><span class="err">，就相当于添加了一个第三方源。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1"># 关闭mysql
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">service</span><span class="w"> </span><span class="n">mysqld</span><span class="w"> </span><span class="n">stop</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1"># 查看启动状态
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">service</span><span class="w"> </span><span class="n">mysqld</span><span class="w"> </span><span class="n">status</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1"># 重启mysql
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">service</span><span class="w"> </span><span class="n">mysqld</span><span class="w"> </span><span class="n">restart</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1"># 查看默认密码
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">sudo</span><span class="w"> </span><span class="n">grep</span><span class="w"> </span><span class="s1">&#39;temporary password&#39;</span><span class="w"> </span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">mysqld</span><span class="p">.</span><span class="n">log</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">yum</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">docker</span><span class="o">-</span><span class="n">io</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">解决</span><span class="n">CentOS6</span><span class="p">.</span><span class="mi">8</span><span class="err">上安装</span><span class="n">docker失败</span><span class="err">：</span><span class="n">No</span><span class="w"> </span><span class="n">package</span><span class="w"> </span><span class="n">docker</span><span class="o">-</span><span class="n">io</span><span class="w"> </span><span class="n">available</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">因此，请遵守容器设计原则，一个容器里运行一个前台服务！</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">报错</span><span class="mi">1</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">docker</span><span class="w"> </span><span class="n">centos</span><span class="w"> </span><span class="err">使用</span><span class="w"> </span><span class="n">systemctl</span><span class="w"> </span><span class="n">Failed</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">get</span><span class="w"> </span><span class="n">D</span><span class="o">-</span><span class="n">Bus</span><span class="w"> </span><span class="n">connection</span><span class="p">:</span><span class="w"> </span><span class="n">Operation</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">permitted</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">cnblogs</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">ybyn</span><span class="o">/</span><span class="n">p</span><span class="o">/</span><span class="mi">13698058</span><span class="p">.</span><span class="n">html</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">docker</span><span class="w"> </span><span class="n">ps</span><span class="w"> </span><span class="o">-</span><span class="n">a</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="mi">3346</span><span class="n">da816048</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">docker</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="mi">3346</span><span class="n">da816048</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ssh</span><span class="w"> </span><span class="n">root</span><span class="o">@</span><span class="mi">10</span><span class="p">.</span><span class="mi">2</span><span class="p">.</span><span class="mi">131</span><span class="p">.</span><span class="mi">60</span><span class="w"> </span><span class="o">-</span><span class="n">p</span><span class="w"> </span><span class="mi">22</span><span class="w"> </span><span class="err">（宿主机器</span><span class="n">IP</span><span class="err">）</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">docker</span><span class="w"> </span><span class="n">exec</span><span class="w"> </span><span class="o">-</span><span class="n">it</span><span class="w"> </span><span class="mi">3346</span><span class="n">da816048</span><span class="w">   </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">init</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="n">pull</span><span class="w"> </span><span class="n">mysql</span><span class="w"> </span><span class="err">默认拉取最新版本的镜像</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="mi">2</span><span class="p">.</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="o">-</span><span class="n">itd</span><span class="w"> </span><span class="o">--</span><span class="n">name</span><span class="w"> </span><span class="n">mysql8</span><span class="p">.</span><span class="mi">0</span><span class="w"> </span><span class="o">-</span><span class="n">p</span><span class="w"> </span><span class="mi">3306</span><span class="p">:</span><span class="mi">3306</span><span class="w">  </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="n">MYSQL_ROOT_PASSWORD</span><span class="o">=</span><span class="mi">123456</span><span class="w">  </span><span class="n">mysql</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="mi">3</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="n">exec</span><span class="w"> </span><span class="o">-</span><span class="n">it</span><span class="w"> </span><span class="mi">7</span><span class="n">e1c7fc8da97</span><span class="w"> </span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">bash</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">docker</span><span class="w"> </span><span class="n">logs</span><span class="w"> </span><span class="mi">7</span><span class="n">e1c7fc8da97</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">FATAL</span><span class="p">:</span><span class="w"> </span><span class="n">kernel</span><span class="w"> </span><span class="n">too</span><span class="w"> </span><span class="n">old</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="n">docker</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="o">--</span><span class="n">privileged</span><span class="w">  </span><span class="o">-</span><span class="n">ti</span><span class="w"> </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="s2">&#34;container=docker&#34;</span><span class="w">  </span><span class="o">-</span><span class="n">v</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">fs</span><span class="o">/</span><span class="n">cgroup</span><span class="p">:</span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">fs</span><span class="o">/</span><span class="n">cgroup</span><span class="w">  </span><span class="n">centos</span><span class="w">  </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">init</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">创建容器：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">docker</span><span class="o">-</span><span class="n">failed</span><span class="o">-</span><span class="k">to</span><span class="o">-</span><span class="n">get</span><span class="o">-</span><span class="n">d</span><span class="o">-</span><span class="n">bus</span><span class="o">-</span><span class="n">connection</span><span class="o">-</span><span class="n">operation</span><span class="o">-</span><span class="k">not</span><span class="o">-</span><span class="n">permitted</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1"># docker run -d -name centos7 --privileged=true centos:7 /usr/sbin/init
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err">进入容器：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1"># docker exec -it centos7 /bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err">这样可以使用</span><span class="n">systemctl启动服务了</span><span class="err">。</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -266,21 +263,53 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">mysql</span><span class="w"> </span><span class="o">-</span><span class="n">h</span><span class="w"> </span><span class="mi">127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="n">u</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">-</span><span class="n">p</span><span class="w"> </span><span class="o">-</span><span class="n">P</span><span class="w"> </span><span class="mi">3306</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">service</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="n">start</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">systemctl</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="n">mysqld</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1"># 查找以前是否装有MySQL
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">rpm</span><span class="w"> </span><span class="o">-</span><span class="n">qi</span><span class="w"> </span><span class="n">mysql</span><span class="o">-</span><span class="n">server</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Name</span><span class="w">        </span><span class="p">:</span><span class="w"> </span><span class="n">mysql</span><span class="o">-</span><span class="n">server</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Version</span><span class="w">     </span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">26</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1"># 启动：
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">service</span><span class="w"> </span><span class="n">mysqld</span><span class="w"> </span><span class="n">start</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1"># 默认空密码
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">mysql</span><span class="w"> </span><span class="o">-</span><span class="n">uroot</span><span class="w"> 
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="三-结论">三 结论</h2>
 <ul>
 <li>centos6.8版本无法安装mysql8.0，容器的方式也不行。</li>
+</ul>
+<p>分享地址：</p>
+<ul>
+<li>http://localhost:1313/post/mysql/day1_mysql_demo/</li>
+<li><a href="https://wangcy6.gitbook.io/do_book/2023">https://wangcy6.gitbook.io/do_book/2023</a></li>
+<li><a href="https://wangcy6.github.io/post/mysql/day1_mysql_demo/">https://wangcy6.github.io/post/mysql/day1_mysql_demo/</a></li>
 </ul>
 
     </div>
@@ -293,7 +322,7 @@
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-        2022-02-27 00:00
+        2023-05-20 00:00
         
     </span>
   </p>
@@ -308,13 +337,13 @@
           <a href="/tags/mysql/">mysql</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/2022/03-mysql/">
+        <a class="prev" href="/post/oceanbase/1-2023-05-28-add-fun/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">myql入门</span>
+            <span class="prev-text nav-default">成为oceanbase贡献者第四天：内置函数</span>
             <span class="prev-text nav-mobile">上一篇</span>
           </a>
-        <a class="next" href="/post/oceanbase/2011/day1_issue_oceanbase/">
-            <span class="next-text nav-default">OceanBase开发者手册</span>
+        <a class="next" href="/post/2023/1.git/">
+            <span class="next-text nav-default">学会使用工具：ai</span>
             <span class="next-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
           </a>

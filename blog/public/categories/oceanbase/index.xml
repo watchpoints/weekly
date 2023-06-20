@@ -6,7 +6,16 @@
     <description>Recent content in oceanbase on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 02 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/categories/oceanbase/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 26 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/categories/oceanbase/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>成为oceanbase贡献者第四天：内置函数</title>
+      <link>https://wangcy6.github.io/post/oceanbase/1-2023-05-28-add-fun/</link>
+      <pubDate>Fri, 26 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/oceanbase/1-2023-05-28-add-fun/</guid>
+      <description>#一、Overview 大家好， 本文主要描述是如何OceanBase 社区版实现一个 MySQL 5.7 新增的系统内建函数。 开始时间：2023-6-8号&amp;nda</description>
+    </item>
+    
     <item>
       <title>成为oceanbase贡献者第四天：容器与分配器</title>
       <link>https://wangcy6.github.io/post/oceanbase/2022/oceanbase_day4/</link>
@@ -14,6 +23,15 @@
       
       <guid>https://wangcy6.github.io/post/oceanbase/2022/oceanbase_day4/</guid>
       <description>#一、Overview 前言 大家好,今天是成为oceanbase贡献者第四天 本文 主要描述的是 通过#1038 the template parameter of ObSortedVector must be pointer type which is not resonable 了解模板特</description>
+    </item>
+    
+    <item>
+      <title>成为ob贡献者第三天</title>
+      <link>https://wangcy6.github.io/post/oceanbase/day3_ob/</link>
+      <pubDate>Sun, 25 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/oceanbase/day3_ob/</guid>
+      <description>多看、多问、多总结，肯定是可以攻克的。 一、Overview https://github.com/oceanbase/oceanbase/issues/1038 提出疑问 设计一个类是需要需要考虑什么问题 这个和侯捷的《STL源码剖析》提到知识有</description>
     </item>
     
     <item>
