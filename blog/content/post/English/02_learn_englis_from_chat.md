@@ -19,6 +19,7 @@ categories: ["Englis"]
 If you missed the Hackathon Idea Pool meetup a few hours ago, you can watch the recording at https://youtube.com/live/eZt7-Cz3Zs4
 
 
+~~~
 梦想是什么？
 梦想是每一个天还未亮，
 你已悄然出门，
@@ -34,3 +35,4 @@ If you missed the Hackathon Idea Pool meetup a few hours ago, you can watch the 
 坚持梦想，高瞻远瞩，
 立鸿鸪之志，展鲲鹏之雄。
 不可任韶华流逝。
+~~~
