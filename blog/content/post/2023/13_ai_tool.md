@@ -8,8 +8,11 @@ tags: ["tools"]
 ### 
 
 
+> 一次只使用一个工具，其他装作看不见。
 
 ### 学习方法
+
+
 
 ~~~
 	 一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题
@@ -65,8 +68,27 @@ tags: ["tools"]
 - https://www.yuque.com/yiyezhou/nt04qa/spfa4v3g128lgvg6    【个人记录】
 - 
 
+### 文本变视频
+
+D-ID: https://www.d-id.com/ 可以从文本创建真人口播视频。
+
+Fliki: https://fliki.ai/ 使用真实的语音从脚本或博客文章中生成视频。
+
+Synthesia: Synthesia1AIVideoGenerationPlatform 将纯文本生成专业视频，有上百种AI虚拟人。
+
+#### 腾讯智影: 
+
+1， 特点：
+
+腾讯智影-在线智能视频创作平台 出自腾讯，提供多种能力：数字人、文本配音、文本转视频、添加字幕。
+
+https://zenvideo.qq.com/
 
 
+2. 收费情况：
+
+   免费使用5分钟。腾讯产品 一个字贵
+   
 ### 绘图工具
 
 
@@ -172,6 +194,21 @@ tags: ["tools"]
 
  Looka：图标AI，输入关键词即可生成对应的图标。
 
+
+
+# 写作工具列表
+
+Copy AI : CopyaiWritebettermarketingcopyandcontentwithAI 帮助各行各业的撰稿人、营销人员和企业快速的创建高质量内容。
+Jasper: Jasper-AICopywriterAIContentGeneratorforTeams 国外很有名的写作工具，模板丰富，可以用AI辅助你写博客、文章、书、剧本等。
+
+MoonBeam: https://www.gomoonbeam.com/ 长篇内容的AI写作助手。
+
+Novel AI: NovelAI-TheAIStoryteller 能创作高质量的文学作品。
+
+Jenni: SuperchargeYourWritingwithJenniAI 擅长写研究论文，特色：自动完成句子、抄袭检查、添加索引、修改润色。
+
+Compose: ComposeAIAutomateYourWriting 一款辅助写作的Chrome插件。
+图像工具列表
 
 
 
