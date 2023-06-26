@@ -43,11 +43,7 @@ tags: ["tools"]
 
 
 
-这是你的任务，如果有问题，你找别人帮忙解决
-
-内心难不做，不做，
-内心想半天看不的门路也不行
-做完后真个人状态不好也不行
+我想制作一份行动清单，内容是关于如何保持专注，因为我常常在想阅读论文的时候，看手机短视而无法停下来，或者分心走神频繁拿起手机，为此我很苦恼，因为我在对抗电子产品上瘾机制，保持专注力方面没有任何成功经验，希望这个清单能适用于我的情况，容易接受和执行
 
 
 
@@ -58,3 +54,32 @@ tags: ["tools"]
 ## 绘图
 
 - Adobe Firefly https://www.zhihu.com/question/591102347/answer/3057289569
+
+  
+
+  ## Midjourney
+
+**cartoonish blue skies with clouds. --v 5.2 --ar 16:9 --s 750 --quality 2 --style raw** - Variations by @adevonjohnson (fast)
+
+-卡通蓝天与云。--v 5.2 --ar 16：9 --s 750 --质量 2 --样式原始
+
+**create logo for a podcast with letters F and S, podcast is about entreprenership and photography** 
+
+为带有字母 F 和 S 的播客创建徽标，播客是关于创业和摄影的
+
+
+
+
+
+第四张：应用开发
+
+
+
+第五章：模型开发
+
+
+
+## 5.1 什么是HuggingFace
+
+https://www.mdnice.com/writing/a808a17898b147118d58843caed6b4fd
+

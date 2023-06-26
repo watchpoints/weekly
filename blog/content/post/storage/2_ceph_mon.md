@@ -17,15 +17,10 @@ http://localhost:1313/post/storage/2_ceph_mon/
 
 本文主要描述了 结合ceph mon模块，介绍Paxos基本实现。
 
-
-
 大纲如下：
-
-
 
 > 画外音：导入下面文章  https://www.chatpdf.com/ 提问
 >
-> 
 
 - [The Part-Time Parliament](https://www.microsoft.com/en-us/research/uploads/prod/2016/12/The-Part-Time-Parliament.pdf)
 - [Paxos Made Simple](https://www.microsoft.com/en-us/research/publication/paxos-made-simple/)
@@ -62,22 +57,12 @@ Google在它的分布式系统中，大量使用了Paxos，比如Chubby、MegaSt
 
   http://oceanbase.org.cn/?cat=16
 
-
-
-
-
-
-
-
-
-
-
 ```bash
 
 
 ```
 
-# Paxos算法
+# Paxos
 
 
 
@@ -85,7 +70,7 @@ Google在它的分布式系统中，大量使用了Paxos，比如Chubby、MegaSt
 
 阅读文档：https://zhuanlan.zhihu.com/p/408735316
 
-
+https://ceph.io/geen-categorie/monitors-and-paxos-a-chat-with-joao/
 
  Prepare->promise->propose->accept->learn
 
@@ -95,12 +80,37 @@ Google在它的分布式系统中，大量使用了Paxos，比如Chubby、MegaSt
 
 3. 学习者（Learner）
 
+   
+
+- 请为入门小白描述一下 什么是paxos，他解决了什么问题，然后如何解决的？
+
+- 
+
+Paxos是一种用于分布式系统中达成共识的算法，它的目的是让多个节点在没有中心化控制的情况下，就某个值达成一致。
+
+在分布式系统中，由于网络延迟、节点故障等原因，节点之间的通信可能会出现问题，从而导致共识无法达成。
+
+Paxos算法就是为了解决这个问题而设计的。
+
+ Paxos算法的核心思想是通过多轮投票来达成共识。在每一轮投票中，节点会向其他节点发送请求，并根据其他节点的响应来决定下一步该做什么。
+
+如果大多数节点都同意了某个值，那么这个值就被认为是达成共识的值。 Paxos算法解决了分布式系统中的共识问题，即如何让多个节点就某个值达成一致。它通过多轮投票来实现共识，并且可以容忍节点故障和网络延迟等问题。
 
 
 
-- https://ceph.io/geen-categorie/monitors-and-paxos-a-chat-with-joao/
+Paxos算法的实现比较复杂，但是它已经被广泛应用于分布式系统中，例如Google的Chubby锁服务和Apache的ZooKeeper分布式协调服务等。 总之，Paxos算法是一种用于分布式系统中达成共识的算法，它解决了共识问题，并且可以容忍节点故障和网络延迟等问题
 
-  
+
+
+
+
+- Paxos如何工程实现？
+
+- Paxos算法的工程实现可以分为以下几个步骤： 1. 设计系统架构：首先，需要设计分布式系统的整体架构，确定系统中的角色和节点数量。通常，Paxos算法中会有提议者（Proposer）、接受者（Acceptor）和学习者（Learner）等角色。 2. 实现网络通信：为了让节点之间能够进行通信，需要实现网络通信模块。这个模块负责节点之间的消息传递，包括发送和接收消息。 3. 实现提议者角色：提议者负责发起提议并推动共识的达成。在实现提议者角色时，需要实现以下功能：   - 生成唯一的提议编号；   - 发送prepare请求给接受者，并处理接受者的promise响应；   - 根据接受者的promise响应，决定是否发送accept请求；   - 处理接受者的accept响应，判断是否达成共识。 4. 实现接受者角色：接受者负责接收提议者的请求，并根据算法规则进行响应。在实现接受者角色时，需要实现以下功能：   - 接收并处理来自提议者的prepare请求；   - 根据当前状态和提议者的请求，返回promise响应；   - 接收并处理来自提议者的accept请求；   - 根据当前状态和提议者的请求，返回accept响应。 5. 实现学习者角色：学习者负责接收已达成共识的值，并将其应用到系统中。在实现学习者角色时，需要实现以下功能：   - 接收并处理来自接受者的已达成共识的值；   - 将共识的值应用到系统中，以完成相应的操作
+
+- 
+
+
 
 
 
@@ -143,6 +153,16 @@ Google在它的分布式系统中，大量使用了Paxos，比如Chubby、MegaSt
 - Introduction
 
 monitor在ceph集群中起着非常关键的作用，它维护着几张map(monmap, osdmap, pgmap等)， 通过paxos算法保证数据的一致性。
+
+ monitor节点信息会存放在monmap这张表中,其中存放的就是rank值，在选举leader的时候，rank值最小的获胜，所以monitor地位并不是平等的，这样做的目的可能是为了快速的选举出leader。
+
+
+
+monitor维护的map，都是以PaxosService的服务提供，不同服务继承基类PaxosService实现自己的特性，这些服务通过paxos算法对数据进行更新， 
+
+> 只有leader才可以调用propose相关函数进行更新，如果peon节点收到更新的消息，则需要将消息转发给leader节点， 所以同一时刻paxos算法只会存在一个proposer，几乎没有竞争，决议会很快完成，更新也是非常迅速的。
+
+
 
 
 
