@@ -46,3 +46,9 @@ https://zhuanlan.zhihu.com/p/106730337
 - https://blog.csdn.net/bandaoyu/article/details/124111075-
 
   ceph 读流程(2)
+  
+  [3] [ceph网络通信模块_以monitor模块为例 ](https://www.cnblogs.com/yi-mu-xi/p/10144362.html)
+  
+  https://www.cnblogs.com/yi-mu-xi/p/10144362.html
+  
+  
