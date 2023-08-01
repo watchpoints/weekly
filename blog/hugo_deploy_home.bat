@@ -7,7 +7,7 @@ echo 当前目录是：%cd%
 git add -A .
 git commit -m "update"
 git push 
-pause
+
 
 
 

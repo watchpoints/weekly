@@ -6,7 +6,16 @@
     <description>Recent content on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 19 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>只管去做践N0.5</title>
+      <link>https://wangcy6.github.io/post/ARTS/2023/%E5%8F%AA%E7%AE%A1%E5%8E%BB%E5%81%9A%E8%B7%B5%E8%A1%8C%E8%AE%B0%E5%BD%95%E7%AC%AC5%E5%91%A8/</link>
+      <pubDate>Tue, 01 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ARTS/2023/%E5%8F%AA%E7%AE%A1%E5%8E%BB%E5%81%9A%E8%B7%B5%E8%A1%8C%E8%AE%B0%E5%BD%95%E7%AC%AC5%E5%91%A8/</guid>
+      <description>只管去做 N0.5 大家好，个人记录，可能不完整比较冷乱。 第一部分 #203年 8月复盘# 一 、目标完成情况 本月完成目标0个，实现 年度目标0个 二 、令我高兴和</description>
+    </item>
+    
     <item>
       <title>do_book</title>
       <link>https://wangcy6.github.io/post/2023/2_do_book/</link>
@@ -31,7 +40,7 @@
       <pubDate>Sun, 18 Jun 2023 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/English/02_learn_englis_from_chat/</guid>
-      <description>If you missed the Hackathon Idea Pool meetup a few hours ago, you can watch the recording at https://youtube.com/live/eZt7-Cz3Zs4</description>
+      <description>If you missed the Hackathon Idea Pool meetup a few hours ago, you can watch the recording at https://youtube.com/live/eZt7-Cz3Zs4 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 梦想是什么？ 梦想是每一个天还未亮， 你已悄然出门， 梦想，是不管身处何方， 你</description>
     </item>
     
     <item>
@@ -58,7 +67,7 @@
       <pubDate>Fri, 26 May 2023 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/oceanbase/1-2023-05-28-add-fun/</guid>
-      <description>#一、Overview 大家好， 本文主要描述是如何OceanBase 社区版实现一个 MySQL 5.7 新增的系统内建函数。 开始时间：2023-6-8号&amp;nda</description>
+      <description>#一、Overview 大家好， 本文主要描述是如何OceanBase 社区版实现一个 MySQL 5.7 新增的系统内建函数。 通过https://github.c</description>
     </item>
     
     <item>
@@ -68,6 +77,15 @@
       
       <guid>https://wangcy6.github.io/post/mysql/day1_mysql_demo/</guid>
       <description>day1 一、问题 msyql 忘记root密码怎么办？ 二、过程 mysql8.0安装 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38</description>
+    </item>
+    
+    <item>
+      <title>ChatGPT从入门到精通</title>
+      <link>https://wangcy6.github.io/post/ai/01_gpt_from_new_to_master/</link>
+      <pubDate>Sat, 13 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ai/01_gpt_from_new_to_master/</guid>
+      <description>一次只使用一个工具，其他装作看不见。 第一章：概念 ChatGPT是什么 https://mp.weixin.qq.com/s/Dns5GSsiledxCV2SIhNgrw 第二章：提示词 写专利 例如：绘制时序图 1 2 请绘制 mermaid sequence diagram ： mds 启动 recov</description>
     </item>
     
     <item>
@@ -85,7 +103,7 @@
       <pubDate>Sat, 13 May 2023 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/2023/13_ai_tool/</guid>
-      <description>学习方法 1 2 3 4 5 6 7 8 9 10 11 12 一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题 二、这个技术的优势和劣势分别是什么 三、</description>
+      <description>一次只使用一个工具，其他装作看不见。 学习方法 1 2 3 4 5 6 7 8 9 10 11 12 一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题 二</description>
     </item>
     
     <item>
@@ -1283,6 +1301,15 @@
       
       <guid>https://wangcy6.github.io/post/2020/file/</guid>
       <description>文件系统-知识地图 知识卡 https://github.com/wangcy6/weekly/blob/master/KM/01%E7%B3%BB%E7%BB%9F%E7%9F%A5%E8%AF%86/file.md 阅读相关书籍 Linux 0.11内核完全注释 Linux内核设计与实现(第三版中文高清带目录) Linux设备驱动程序. Understanding the Linux Kernel,</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://wangcy6.github.io/post/ARTS/2023/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C%E7%AC%AC%E5%9B%9B%E6%9C%9F/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ARTS/2023/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C%E7%AC%AC%E5%9B%9B%E6%9C%9F/</guid>
+      <description>本文分为三个部分 产品应用，行业应用 和基础知识 从完成到完美，别想太多，只管去做。 这一期没有什么内容，我依然发出来了，只为重启，上一阶段解释。 马</description>
     </item>
     
     <item>
