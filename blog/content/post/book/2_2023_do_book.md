@@ -48,13 +48,62 @@ https://www.holisticedu.us/wechat/The_Road_Less_Traveled.pdf
 
 
 
+## 主题：《少有人走的路》1：从心智的角度看自律
 
 
 
+今天我们开启新一本书的践行，跟强哥一起来一场心智成熟探索之旅~
+
+ 今天是【DO书日】
+
+ 主题：
+《少有人走的路》1：从心智的角度看自律
+
+⏰ 时间：
+8月7日 20:00-21:00
+
+📍地址 ：
+https://stqaa.h5.xeknow.com/sl/4tJKBE
+
+![image.png](https://s2.loli.net/2023/08/07/AoHq1DYsalvGLQ8.png)
+
+![image.png](https://s2.loli.net/2023/08/07/YC2tc7m89MbTrlN.png)
 
 
 
+- 与父母和解：父母尽可能把他们all 一切给了你。这就是他们全部。如何解决父母的冲突
 
+   看到他们成长背后成长空间
+
+
+
+![image.png](https://s2.loli.net/2023/08/07/ad2AsGDx9wo3vgt.png)
+
+
+
+![image.png](https://s2.loli.net/2023/08/07/xZe7L2Ouf8p3Bht.png)
+
+
+
+- 你喜欢吃蛋糕 还是奶油  ?1小时痛苦 6小时幸福 还是6小时痛苦，1小时幸福。
+
+  
+
+  训练：心里弹性
+
+  
+
+  ![image.png](https://s2.loli.net/2023/08/07/GlmQyrjTsgDuRZw.png)
+
+
+
+从应该到允许
+
+应该：被老板批评了，不应该 
+
+允许：出现，潜在风险。
+
+![image.png](https://s2.loli.net/2023/08/07/u1romBP8OXGwsT7.png)
 
 #  《卡片笔记写作法》
 
