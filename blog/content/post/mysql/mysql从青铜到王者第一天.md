@@ -1,6 +1,6 @@
 ---
-title: "mysql内核学习过程"
-date: 2023-05-20
+title: "mysql从青铜到王者第一天"
+date: 2023-08-09
 draft: false
 tags: ["mysql"]
 ---
