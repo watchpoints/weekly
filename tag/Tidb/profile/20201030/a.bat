@@ -1,1 +1,0 @@
-go tool pprof -http=":8082" profile
