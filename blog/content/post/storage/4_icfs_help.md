@@ -26,3 +26,38 @@ Speed: 10000Mb/s
 
 /etc/ssh/sshd_config
 
+
+
+
+
+# cifs
+
+
+
+[mds减少mds 进程个数]
+ systemctl stop icfs-mds@N
+
+ 再 删除 
+
+/etc/systemd/system/icfs-mds.target.wants/icfs-mds@N.service ;
+
+ systemctl daemon-reload  
+
+ rm -rf /var/lib/icfs/mds/icfs-N
+
+
+
+
+
+### 3  mds一致处于 reply状态怎么处理。 
+
+reply --osd 读取日志信息 --
+
+icfs ods  tree
+
+高可用配置。
+
+
+
+
+
