@@ -59,5 +59,15 @@ icfs ods  tree
 
 
 
+4. MLNX_OFED_LINUX
+
+   ./mlnxofedinstall   # 安装程序会检查系统库，如果缺少库会直接提示使用yum install ‘缺少的库’安装，根据提示安装即可，-q参数静默安装
+
+   /etc/init.d/openibd restart
+
+   https://docs.nvidia.com/networking/display/MLNXOFEDv461000/Installing+Mellanox+OFED
+
+
+
 
 
