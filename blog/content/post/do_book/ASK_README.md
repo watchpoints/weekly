@@ -248,3 +248,30 @@ https://shimo.im/docs/wPAti0OJpAI0Solj/ 《【提问】强哥答疑NO.25-9.9-202
 
 
 
+
+
+### ###  强哥答疑NO.25
+
+@所有人
+#强哥答疑NO.25
+
+哈喽，同学们！
+周末愉快，今天是【答疑日】~
+
+⏰ 答疑时间：
+9月9日  20-21：00
+
+📍 答疑地址：
+https://stqaa.h5.xeknow.com/sl/2ZeYln
+
+📬 本周提问：   
+https://shimo.im/docs/wPAti0OJpAI0Solj/
+
+📚 DO书预习
+◎ 9月DO书《精力管理》大家准备好书籍，预习第1-3章~
+
+◎ #小程序://只管去做成长会/bViGZOiSbHODfTA
+
+别想太多，只管去做。
+答疑可回放，建议尽量听直播喔~
+
