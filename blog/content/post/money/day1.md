@@ -39,7 +39,7 @@ https://github.com/xifangczy/cat-catch
 
  没有针对任何一家网站进行解密操作，用户下载任何内容与扩展无关，请注意下载资源的权限和版权。
  1. 小鹅通不支持
- 
+
 
 
 #### ffmpeg
@@ -65,7 +65,7 @@ https://ffmpeg.org/
 
 nohup ffmpeg -re  -stream_loop -1 -i ./2.mp4 -vcodec copy -acodec copy -f flv -y  'rtmp://e' &
 ~~~
- 
+
 
 相关平台：
 
@@ -94,6 +94,13 @@ https://cp.kuaishou.com/profile
 
 - 视频号：需要认证没有。
 - 从斗鱼开始。
+
+ 
+
+### 定时发弹幕工具
+
+##### 斗鱼
+
 
 
 
