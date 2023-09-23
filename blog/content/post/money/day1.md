@@ -99,7 +99,9 @@ https://cp.kuaishou.com/profile
 
 ### 定时发弹幕工具
 
-##### 斗鱼
+##### 斗鱼: 已经支持。
+
+
 
 
 
