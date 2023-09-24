@@ -42,6 +42,12 @@ https://github.com/xifangczy/cat-catch
 
 
 
+
+
+
+
+
+
 #### ffmpeg
 
 
@@ -96,6 +102,18 @@ https://cp.kuaishou.com/profile
 - 从斗鱼开始。
 
  
+
+
+
+### 资源下载：
+
+#### youtube
+
+
+
+
+
+
 
 ### 定时发弹幕工具
 
