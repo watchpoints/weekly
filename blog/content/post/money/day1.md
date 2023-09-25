@@ -109,10 +109,26 @@ https://cp.kuaishou.com/profile
 
 #### youtube
 
+- 项目地址：
+https://github.com/ytdl-org/youtube-dl
+
+https://ytdl-org.github.io/youtube-dl/
+
+- fork 地址： 
+https://github.com/wangcy6/youtube-dl
+
+-- 用法：
+
+How to Install Youtube-DL on Windows
 
 
+~~~
+youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4' https://www.youtube.com/watch?v=sDsBAAV3tTk
 
+~~~
 
+在线：
+https://zh.savefrom.net/226/
 
 
 ### 定时发弹幕工具
