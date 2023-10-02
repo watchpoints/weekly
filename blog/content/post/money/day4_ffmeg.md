@@ -30,3 +30,8 @@ https://stackoverflow.com/questions/7333232/how-to-concatenate-two-mp4-files-usi
 提问2：/usr/local/qcloud/YunJing/YDEyes/YDService
 
 https://www.aiunk.com/1315/
+
+## 功能
+1. 用 FFmpeg 给 mp4 添加封面
+ffmpeg -i input.mp4 -i cover.png -map 0 -map 1 -c copy -disposition:v:1 attached_pic output.mp4
+
