@@ -110,20 +110,17 @@ https://cp.kuaishou.com/profile
 #### youtube
 
 - 项目地址：
-https://github.com/ytdl-org/youtube-dl
+  https://github.com/yt-dlp/yt-dlp
 
-https://ytdl-org.github.io/youtube-dl/
-
-- fork 地址： 
-https://github.com/wangcy6/youtube-dl
+  
 
 -- 用法：
 
-How to Install Youtube-DL on Windows
-
 
 ~~~
-youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4' https://www.youtube.com/watch?v=sDsBAAV3tTk
+yt-dlp -f ‘bv[ext=mp4]+ba[ext=m4a]’ –embed-metadata –merge-output-format mp4 "https://www.youtube.com/watch?v=O7EoUYdU-0o&list=PL9qKl7xXqC6-g8HlSBTGZQLY11BooMBcF"
+
+yt-dlp "https://www.youtube.com/watch?v=O7EoUYdU-0o&list=PL9qKl7xXqC6-g8HlSBTGZQLY11BooMBcF"
 
 ~~~
 

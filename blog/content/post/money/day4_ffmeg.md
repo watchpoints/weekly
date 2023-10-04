@@ -35,3 +35,19 @@ https://www.aiunk.com/1315/
 1. 用 FFmpeg 给 mp4 添加封面
 ffmpeg -i input.mp4 -i cover.png -map 0 -map 1 -c copy -disposition:v:1 attached_pic output.mp4
 
+2. 提取MP3
+
+~~~~ 
+ffmpeg -i .\2023-P01-如何做月目标.mp4 -vn   -f mp3 1.mp3
+~~~~
+
+-vn表示no video，
+
+https://ffmpeg.org/ffmpeg.html
+
+-vn (*input/output*)
+
+As an input option, blocks all video streams of a file from being filtered or being automatically selected or mapped for any output. See `-discard` option to disable streams individually.
+
+
+

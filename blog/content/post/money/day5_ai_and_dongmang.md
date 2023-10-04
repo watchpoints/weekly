@@ -48,17 +48,21 @@ BBDown 手册 【6】
 .\BBDown.exe login [5]
 
 - 手机
-bbdown -app  BV "https://www.bilibili.com/bangumi/play/ep756189?spm_id_from=333.337.0.0&from_spmid=666.25.episode.0" --use-aria2c 
 
-bbdown -tv "https://www.bilibili.com/bangumi/play/ep756190" --use-aria2c  -ia
-
-
-
+bbdown -tv "https://www.bilibili.com/bangumi/play/ep756193?spm_id_from=333.337.0.0&from_spmid=666.25.episode.0" --use-aria2c  -ia
 
 ~~~
 2. WeChatVideoDownloader.
 
 
+### 工具3：https://bibigpt.co/【界面很好看，无法使用】
+
+仅供学习交流,严禁用于商业用途,请于24小时内删除
+一键总结小宇音视频内容
+
+>画外音
+- https://github.com/yuezih/Movie101
+- https://github.com/kwsy/FictionAnalysis
 
 
 
