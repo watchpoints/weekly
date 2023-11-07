@@ -90,6 +90,12 @@ Embassy Documentation：Embassy is a project to make async/await a first-class o
 
 ## 任务一：Embassy文档翻译
 
+### 看教学视频：[并发与处理器、操作系统和编程语言](https://www.xuetangx.com/learn/THU0809100czxt/THU0809100czxt/14294493/video/25500376)
+
+
+
+
+
 # 200行代码讲透RUST FUTURES
 
 https://stevenbai.top/rust/futures_explained_in_200_lines_of_rust/
