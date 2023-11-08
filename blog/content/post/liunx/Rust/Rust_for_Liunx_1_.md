@@ -96,9 +96,32 @@ Embassy Documentation：Embassy is a project to make async/await a first-class o
 
 
 
-# 200行代码讲透RUST FUTURES
+### 200行代码讲透RUST FUTURES
 
-https://stevenbai.top/rust/futures_explained_in_200_lines_of_rust/
+
+
+目的：这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题 
+
+探索释Rust中的Futures， 为什么他们被设计成这样，以及他们如何工作。
+
+
+
+阅读资料：
+
+ Rust 中写的关于并发编程的第四文章
+
+- https://stevenbai.top/rust/futures_explained_in_200_lines_of_rust/
+- https://cfsamson.github.io/book-exploring-async-basics/
+- https://cfsamson.gitbook.io/green-threads-explained-in-200-lines-of-rust/
+- https://cfsamsonbooks.gitbook.io/epoll-kqueue-iocp-explained/
+
+
+
+线程为不写并发使用的
+
+语法：thread::spawn 与spawn闭包
+
+参数传递方式：同C++11 Lambda的变量捕获
 
 
 
