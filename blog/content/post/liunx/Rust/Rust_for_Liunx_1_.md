@@ -125,6 +125,15 @@ Embassy Documentation：Embassy is a project to make async/await a first-class o
 
 
 
+## 三 Rust中的Futures
+
+### 概述
+
+1. Rust中并发性的高级介绍
+2. 了解 Rust 在使用异步代码时能提供什么，不能提供什么
+3. 了解为什么我们需要 Rust 的运行时库
+4. 理解“leaf-future”和“non-leaf-future”的区别
+5. 了解如何处理 CPU 密集型任务
 
 
 
@@ -132,18 +141,76 @@ Embassy Documentation：Embassy is a project to make async/await a first-class o
 
 
 
+> 注解：
+>
+> 什么是`Future`? `Future`是一些将在未来完成的操作。 Rust中的异步实现基于轮询,每个异步任务分成三个阶
+>
+> 1. 轮询阶段 执行器(executor
+> 2. 等待阶段. 事件源(通常称为reactor)注册等待一个事件发生
+> 3. . 唤醒阶段
+
+回顾：IO模型
+
+- 面试经典题目：IO多路复用——深入浅出理解select、poll、epoll
+
+- 面试经典题目：高级IO模型之kqueue和epoll
+
+五种IO模型
+
+《*UNIX网络编程*》(第1卷)(套接口API第3版)第1版和第2络专家W. Richard Stevens博士独自编写。
+
+```text
+[1]blockingIO - 阻塞IO
+[2]nonblockingIO - 非阻塞IO
+[3]signaldrivenIO - 信号驱动IO
+[4]asynchronousIO - 异步IO
+[5]IOmultiplexing - IO多路复用
+```
+
+多路服用 事件完成通知 事件就绪通知
+
+面试经典题目：高级IO模型之kqueue和epol
+
+kqueue 不仅能够处理文件描述符事件，还可以用于各种其他通知，例如文件修改监视、信号、异步 I/O 事件 (AIO)、子进程状态更改监视和支持纳秒级分辨率的计时器，此外 kqueue 提供了一种方式除了内核提供的事件之外，还可以使用用户定义的事
+
+l
+
+产品：redis libevent
+
+- [根据事件类型分配（Dispatch）给某个进程 / 线程*](https://www.zhihu.com/question/26943938)
+
+> 疑问“
+
+- 与`leaf-future`相比，这些Future本身并不代表I/O资源。 当我们对这些Future进行轮询时, 有可能会运行一段时间或者因为等待相关资源而让度给调度器,然后等待相关资源ready的时候唤醒自己.
 
 
 
 
 
+- Rust 和其他语言的区别在于，在选择运行时时，您必须进行主动选择。大多数情况下，在其他语言中，你只会使用提供给你的那一种。
+
+异步运行时可以分为两部分: 1. 执行器(The Executor) 2. reactor (The Reactor)
+
+当 Rusts Futures 被设计出来的时候，有一个愿望，那就是将通知`Future`它可以做更多工作的工作与`Future`实际做工作分开。
 
 
 
+异步运行时可以分为两部分: 1. 执行器(The Executor) 2. reactor (The Reactor)
+
+当
+
+1. [async-std](https://github.com/async-rs/async-std)
+2. [Tokio](https://github.com/tokio-rs/tokio)
 
 
 
+这就是Rust标准库所做的。 正如你所看到的，不包括异步I/O的定义,这些异步任务是如何被创建的,如何运行的。
 
+
+
+https://github.com/async-rs/async-std
+
+https://github.com/tokio-rs/tokio
 
 
 
