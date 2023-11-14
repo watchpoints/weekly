@@ -6,7 +6,16 @@
     <description>Recent content in book on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 04 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/categories/book/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 01 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/categories/book/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>what is Paxos</title>
+      <link>https://wangcy6.github.io/post/book/NO1_what_is.Paxos/</link>
+      <pubDate>Fri, 01 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/book/NO1_what_is.Paxos/</guid>
+      <description>一句话读书摘要很难吗？ 难， 当我打卡浏览器，短视频app时候 第一眼 或者 总有一次无意间 看到 系统推荐各种新闻，电影解说各种炫耀。 这样方式重置我操作</description>
+    </item>
+    
     <item>
       <title>践行时间管理方法</title>
       <link>https://wangcy6.github.io/post/book/01_thing/</link>
@@ -23,15 +32,6 @@
       
       <guid>https://wangcy6.github.io/post/book/2021_book/</guid>
       <description>2021年 第一本：单核工作法图解：事多到事少,拖延变高效 高 帮助你解决问题：提供行动指南，非理论一本书 百度网盘：https://pan.bai</description>
-    </item>
-    
-    <item>
-      <title>Linux内核之旅社区</title>
-      <link>https://wangcy6.github.io/post/plan/02_kernel/</link>
-      <pubDate>Mon, 21 Jun 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/plan/02_kernel/</guid>
-      <description>资料 Linux内核之旅开源社区实验代码管理 https://github.com/linuxkerneltravel/LearningLinuxKernel 网站入口：http://kerneltravel.net/ 十多年前，陈老师和她的学生康华、陈逸飞</description>
     </item>
     
     <item>
@@ -68,15 +68,6 @@
       
       <guid>https://wangcy6.github.io/post/book/book_Algorithms-JeffE/</guid>
       <description>算法导论 递归 题目1 sort 题目2 Recursion Trees 回溯法 题目1 八皇后问题 &amp;ndash;已经解决 来源： 题目 2 Subset Sum &amp;ndash;正在解决 Let’s consider a more complicated problem, called SubsetSum : Given</description>
-    </item>
-    
-    <item>
-      <title>ARTS_weekly_5</title>
-      <link>https://wangcy6.github.io/post/plan/2020_04_toddo/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/plan/2020_04_toddo/</guid>
-      <description>项目实战 项目名称 描述 周期 平均每天 思考与行动 身边公司相关人士是谁 如何设计一个高可用，易扩展的视频服务 无法实现 废弃，还没开始接要夭折吗？ 分布式x</description>
     </item>
     
   </channel>

@@ -53,20 +53,20 @@
     </item>
     
     <item>
-      <title>oceanbase源码阅读（1）程序启动</title>
-      <link>https://wangcy6.github.io/post/plan/oceanbase_day1/</link>
-      <pubDate>Tue, 22 Jun 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/plan/oceanbase_day1/</guid>
-      <description>预备知识： 掌握gdb原理 源码编译 OceanBase Deploy （简称 OBD）是 OceanBase 开源软件的安装部署工具÷÷ 步骤1 源码编译OceanBase： 1 2 3 bash build.sh debug --init --make cd /app/data/oceanbase/build_debug make install 步</description>
-    </item>
-    
-    <item>
       <title>python入门教程</title>
       <link>https://wangcy6.github.io/post/2021/python01/</link>
       <pubDate>Sun, 06 Jun 2021 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/2021/python01/</guid>
+      <description>第一天 window python 环境安装 官网地址： https://www.python.org/downloads/release/python-396/ python环境变量：path D:\local\python3 pip环境变量 path D:\local\python3\Scripts window可以默认按照自动设置。其他手工设置 用于检测当前W</description>
+    </item>
+    
+    <item>
+      <title>python入门教程</title>
+      <link>https://wangcy6.github.io/post/leetcode/pytho3/python01/</link>
+      <pubDate>Sun, 06 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/leetcode/pytho3/python01/</guid>
       <description>第一天 window python 环境安装 官网地址： https://www.python.org/downloads/release/python-396/ python环境变量：path D:\local\python3 pip环境变量 path D:\local\python3\Scripts window可以默认按照自动设置。其他手工设置 用于检测当前W</description>
     </item>
     

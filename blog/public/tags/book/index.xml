@@ -6,7 +6,34 @@
     <description>Recent content in book on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 11 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/tags/book/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 06 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/tags/book/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rust For Linux</title>
+      <link>https://wangcy6.github.io/post/liunx/Rust/Rust_for_Liunx_1_/</link>
+      <pubDate>Mon, 06 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/liunx/Rust/Rust_for_Liunx_1_/</guid>
+      <description>如何学习 在本文中，我将试着去回答liunx 内核参数： Q1 (Why): 为什么需要协程？ 我们会一起回顾协程出现的历史背景，当时要解决什么问题；同时，现在是什</description>
+    </item>
+    
+    <item>
+      <title>从青铜到王者系列：Coding Interview</title>
+      <link>https://wangcy6.github.io/post/liunx/Coding-Interview/2022_11_29_liunx_memory_/</link>
+      <pubDate>Sat, 23 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/liunx/Coding-Interview/2022_11_29_liunx_memory_/</guid>
+      <description>Coding Interview Tutorial 1: Two Sum [LeetCode]</description>
+    </item>
+    
+    <item>
+      <title>what is Paxos</title>
+      <link>https://wangcy6.github.io/post/book/NO1_what_is.Paxos/</link>
+      <pubDate>Fri, 01 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/book/NO1_what_is.Paxos/</guid>
+      <description>一句话读书摘要很难吗？ 难， 当我打卡浏览器，短视频app时候 第一眼 或者 总有一次无意间 看到 系统推荐各种新闻，电影解说各种炫耀。 这样方式重置我操作</description>
+    </item>
+    
     <item>
       <title>git通关从青铜到王者</title>
       <link>https://wangcy6.github.io/post/liunx/git%E9%80%9A%E5%85%B3%E4%BB%8E%E9%9D%92%E9%93%9C%E5%88%B0%E7%8E%8B%E8%80%85/</link>

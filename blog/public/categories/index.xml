@@ -6,13 +6,22 @@
     <description>Recent content in Categories on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 25 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 31 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GTD</title>
       <link>https://wangcy6.github.io/categories/GTD/</link>
-      <pubDate>Fri, 25 Aug 2023 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 31 Oct 2023 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/categories/GTD/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>book</title>
+      <link>https://wangcy6.github.io/categories/book/</link>
+      <pubDate>Fri, 01 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/categories/book/</guid>
       <description></description>
     </item>
     
@@ -49,15 +58,6 @@
       <pubDate>Fri, 26 May 2023 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/categories/oceanbase/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>book</title>
-      <link>https://wangcy6.github.io/categories/book/</link>
-      <pubDate>Thu, 04 May 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/categories/book/</guid>
       <description></description>
     </item>
     
@@ -112,15 +112,6 @@
       <pubDate>Tue, 04 Jan 2022 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/categories/Leetcode/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>coding</title>
-      <link>https://wangcy6.github.io/categories/coding/</link>
-      <pubDate>Thu, 03 Jun 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/categories/coding/</guid>
       <description></description>
     </item>
     

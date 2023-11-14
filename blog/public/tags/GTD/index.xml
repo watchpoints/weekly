@@ -98,30 +98,12 @@
     </item>
     
     <item>
-      <title>Linux内核之旅社区</title>
-      <link>https://wangcy6.github.io/post/plan/02_kernel/</link>
-      <pubDate>Mon, 21 Jun 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/plan/02_kernel/</guid>
-      <description>资料 Linux内核之旅开源社区实验代码管理 https://github.com/linuxkerneltravel/LearningLinuxKernel 网站入口：http://kerneltravel.net/ 十多年前，陈老师和她的学生康华、陈逸飞</description>
-    </item>
-    
-    <item>
       <title>02_ARTS_2021_weekly</title>
       <link>https://wangcy6.github.io/post/ARTS/2_ARTS_2021_18_weekly/</link>
       <pubDate>Fri, 11 Jun 2021 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/ARTS/2_ARTS_2021_18_weekly/</guid>
       <description>GTD践行第2周（2021第9周） 本周视图 一. ARTS的初衷 周一 周二 周三 周四 周五 周六 周日 Algorithm Review Review/Tip Share 1. Algorithm **主要是为了编程训练和学习。**每周至</description>
-    </item>
-    
-    <item>
-      <title> OceanBase 开源社区</title>
-      <link>https://wangcy6.github.io/post/plan/oceanbase_read_01/</link>
-      <pubDate>Thu, 03 Jun 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/plan/oceanbase_read_01/</guid>
-      <description>day1 总结：Mac:使用 OBD 部署 OceanBase 数据库 参考文档：https://github.com/oceanbase/obdeploy 预备知识： OceanBase 不支持ma</description>
     </item>
     
     <item>
@@ -185,15 +167,6 @@
       
       <guid>https://wangcy6.github.io/post/ARTS/ARTS_weekly-7/</guid>
       <description>打卡GTD践行第七周（2019-12-11） 一周记录 本周主要问题，没有科学工作和沟通方法，和计划安排。 导致一直在迷茫中 一. ARTS的初衷 周一</description>
-    </item>
-    
-    <item>
-      <title>ARTS_weekly_5</title>
-      <link>https://wangcy6.github.io/post/plan/2020_04_toddo/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/plan/2020_04_toddo/</guid>
-      <description>项目实战 项目名称 描述 周期 平均每天 思考与行动 身边公司相关人士是谁 如何设计一个高可用，易扩展的视频服务 无法实现 废弃，还没开始接要夭折吗？ 分布式x</description>
     </item>
     
   </channel>
