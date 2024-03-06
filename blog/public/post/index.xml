@@ -6,7 +6,52 @@
     <description>Recent content in Posts on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 06 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 03 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>整理：强哥答疑</title>
+      <link>https://wangcy6.github.io/post/2024/2024-03-03-04_rust_vivo/</link>
+      <pubDate>Sun, 03 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2024/2024-03-03-04_rust_vivo/</guid>
+      <description>学习方法 1 2 3 4 5 6 7 8 9 10 11 一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题 二、这个技术的优势和劣势分别是什么 三、这</description>
+    </item>
+    
+    <item>
+      <title>整理：强哥答疑</title>
+      <link>https://wangcy6.github.io/post/2024/2024-03-03-ask/</link>
+      <pubDate>Sun, 03 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2024/2024-03-03-ask/</guid>
+      <description>学习方法 1 2 3 4 5 6 7 8 9 10 11 12 一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题 二、这个技术的优势和劣势分别是什么 三、</description>
+    </item>
+    
+    <item>
+      <title>只管去做践N0.7</title>
+      <link>https://wangcy6.github.io/post/ARTS/2024/%E5%8F%AA%E7%AE%A1%E5%8E%BB%E5%81%9A%E8%B7%B5%E8%A1%8C%E8%AE%B0%E5%BD%95%E7%AC%AC7%E5%91%A8-/</link>
+      <pubDate>Wed, 28 Feb 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ARTS/2024/%E5%8F%AA%E7%AE%A1%E5%8E%BB%E5%81%9A%E8%B7%B5%E8%A1%8C%E8%AE%B0%E5%BD%95%E7%AC%AC7%E5%91%A8-/</guid>
+      <description>只管去做 N0.7 # Part I 每月目标九宫格训练营 # Part 2 习惯卡片 一、环境场： 餐厅区&amp;ndash;吃饭专心吃饭 小故事：过去是吧10000次，今天想改造怎么做</description>
+    </item>
+    
+    <item>
+      <title>Rust For Linux02</title>
+      <link>https://wangcy6.github.io/post/liunx/Rust/Rust_for_Liunx_2/</link>
+      <pubDate>Wed, 06 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/liunx/Rust/Rust_for_Liunx_2/</guid>
+      <description>本文主要描述 第六章：文件系统 参考资料 https://github.com/LearningOS/2023a-rcore-watchpoints https://rcore-os.cn/rCore-Tutorial-Book-v3/chapter6/0intro.html#id2 https://rcore-os.cn/rCore-Tutorial-Book-v3/chapter6/index.html rcore-tutorial-book-v3.pdf https://github.com/learningos https://os.phil-opp.com/ 本章代码导读 本章涉及的代码量相对较多，且与进程执行相关的管理还有直接的关系。其实我们是参考经</description>
+    </item>
+    
+    <item>
+      <title>只管去做践N0.7</title>
+      <link>https://wangcy6.github.io/post/ARTS/2023/do_book_weekly7/</link>
+      <pubDate>Sun, 03 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ARTS/2023/do_book_weekly7/</guid>
+      <description>只管去做 N0.7 开始日期：2023-12-5 # Part I ![L1-1对自我否定say no](D:\db\daily-interview\blog\con</description>
+    </item>
+    
     <item>
       <title>Rust For Linux</title>
       <link>https://wangcy6.github.io/post/liunx/Rust/Rust_for_Liunx_1_/</link>
@@ -18,10 +63,10 @@
     
     <item>
       <title>使用 Clash 为 Linux 提供网络代理服务</title>
-      <link>https://wangcy6.github.io/post/year/2023/5_how_to_use_crash/</link>
+      <link>https://wangcy6.github.io/post/2023/5_how_to_use_crash/</link>
       <pubDate>Sat, 04 Nov 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://wangcy6.github.io/post/year/2023/5_how_to_use_crash/</guid>
+      <guid>https://wangcy6.github.io/post/2023/5_how_to_use_crash/</guid>
       <description>购买 云主机，竟然无法下载github上资源，鸡肋呀，解决方式就是网络代理 提示 请勿将其用作翻墙等违法行为！ 关于 Clash Clash for Windows 删库跑路 Clash Core（各大</description>
     </item>
     
@@ -50,15 +95,6 @@
       
       <guid>https://wangcy6.github.io/post/dream/day7_zhibo_luna/</guid>
       <description>1. 项目资料 https://luna.docs.ie.cx/ 1 2 3 4 5 6 7 8 9 Luna AI 是一个由 ChatterBot / GPT / Claude / langchain 本地 or 云端 / chatglm / text-generation-webui / 讯飞星火 / 智谱AI 做为 大脑 驱动的虚拟主播 Live2D / Vtube Studio / UE5 + Audio2Face ，可以在</description>
-    </item>
-    
-    <item>
-      <title>成为TDengine贡献者第一天</title>
-      <link>https://wangcy6.github.io/post/TDengine/20230905_day1/</link>
-      <pubDate>Tue, 26 Sep 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/TDengine/20230905_day1/</guid>
-      <description>开始时间：2023-09-22： 结束时间： 源码编译： 准备工作：https://github.com/watchpoints/TDengine</description>
     </item>
     
     <item>
@@ -107,15 +143,6 @@
     </item>
     
     <item>
-      <title>强哥答疑</title>
-      <link>https://wangcy6.github.io/post/do_book/ASK_README/</link>
-      <pubDate>Sat, 09 Sep 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/do_book/ASK_README/</guid>
-      <description>📝 提问规则： http://localhost:1313/post/do_book/ASK_README/ 1.周五到周六中午12点可提问 2.每位伙伴每周限提交1个问题； 3.提问请描述清楚问题背景、尝试、想要得到的帮助 ——【提问必读】</description>
-    </item>
-    
-    <item>
       <title>what is Paxos</title>
       <link>https://wangcy6.github.io/post/book/NO1_what_is.Paxos/</link>
       <pubDate>Fri, 01 Sep 2023 00:00:00 +0000</pubDate>
@@ -126,10 +153,10 @@
     
     <item>
       <title>2023的目标</title>
-      <link>https://wangcy6.github.io/post/year/2023/203_my_dream/</link>
+      <link>https://wangcy6.github.io/post/2023/203_my_dream/</link>
       <pubDate>Tue, 29 Aug 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://wangcy6.github.io/post/year/2023/203_my_dream/</guid>
+      <guid>https://wangcy6.github.io/post/2023/203_my_dream/</guid>
       <description>一次只使用一个工具，其他装作看不见。 学习方法 1 2 3 4 5 6 7 8 9 10 11 12 一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题 二</description>
     </item>
     
@@ -189,20 +216,20 @@
     
     <item>
       <title>do_book</title>
+      <link>https://wangcy6.github.io/post/2023/2_do_book/</link>
+      <pubDate>Mon, 19 Jun 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2023/2_do_book/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>do_book</title>
       <link>https://wangcy6.github.io/post/book/2_2023_do_book/</link>
       <pubDate>Mon, 19 Jun 2023 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/book/2_2023_do_book/</guid>
       <description>http://localhost:1313/post/2023/2_do_book/ 少有人走的路 https://www.holisticedu.us/wechat/The_Road_Less_Traveled.pdf D2-NO1-803-问题和痛苦 金句: 替代品带来的痛苦，甚至比逃避的痛苦更为强烈 真正的健康者 寥寥无几。有的逃避问题者，宁可躲</description>
-    </item>
-    
-    <item>
-      <title>do_book</title>
-      <link>https://wangcy6.github.io/post/year/2023/2_do_book/</link>
-      <pubDate>Mon, 19 Jun 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/year/2023/2_do_book/</guid>
-      <description></description>
     </item>
     
     <item>
@@ -252,29 +279,29 @@
     
     <item>
       <title>学会使用工具：ai</title>
-      <link>https://wangcy6.github.io/post/year/2023/1.git/</link>
+      <link>https://wangcy6.github.io/post/2023/1.git/</link>
       <pubDate>Sat, 13 May 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://wangcy6.github.io/post/year/2023/1.git/</guid>
+      <guid>https://wangcy6.github.io/post/2023/1.git/</guid>
       <description>cherry-pick git cherry-pick 可以理解为”挑拣”提交，它会获取某一个分支的单笔提交， 并作为一个新的提交引入到你当前分支上 学习方法 1 2 3 4 5 6 7 8 9 10 11 12 一、这个技术</description>
     </item>
     
     <item>
       <title>学会使用工具：ai</title>
-      <link>https://wangcy6.github.io/post/year/2023/13_ai_tool/</link>
+      <link>https://wangcy6.github.io/post/2023/13_ai_tool/</link>
       <pubDate>Sat, 13 May 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://wangcy6.github.io/post/year/2023/13_ai_tool/</guid>
+      <guid>https://wangcy6.github.io/post/2023/13_ai_tool/</guid>
       <description>一次只使用一个工具，其他装作看不见。 学习方法 1 2 3 4 5 6 7 8 9 10 11 12 一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题 二</description>
     </item>
     
     <item>
-      <title>tikv入门</title>
+      <title>跟着tikv源码学rust P01</title>
       <link>https://wangcy6.github.io/post/tidb/20230_05_05_tikv/</link>
       <pubDate>Fri, 05 May 2023 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/tidb/20230_05_05_tikv/</guid>
-      <description>一、问题是什么 阅读文章：https://asktug.com/t/topic/693645 【源码合集】TiKV 源码阅读三部曲 https://mp.weixin.qq.com/s/HgflwnZZMHXaIsFV3PdGAg 阅读 Rust 参考手册</description>
+      <description>环境搭建 提问： https://asktug.com/t/topic/1007869 https://download.pingcap.com/docs-cn%2FLesson07_quick_start.mp4 EP01-5分钟系列&amp;ndash;安装单节点tidb centos ： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33</description>
     </item>
     
     <item>

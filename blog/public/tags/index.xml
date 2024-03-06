@@ -6,7 +6,25 @@
     <description>Recent content in Tags on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 06 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 03 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>tools</title>
+      <link>https://wangcy6.github.io/tags/tools/</link>
+      <pubDate>Sun, 03 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/tags/tools/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rust</title>
+      <link>https://wangcy6.github.io/tags/Rust/</link>
+      <pubDate>Wed, 06 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/tags/Rust/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>book</title>
       <link>https://wangcy6.github.io/tags/book/</link>
@@ -35,24 +53,6 @@
     </item>
     
     <item>
-      <title>Dengine</title>
-      <link>https://wangcy6.github.io/tags/Dengine/</link>
-      <pubDate>Tue, 26 Sep 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/tags/Dengine/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>do_book</title>
-      <link>https://wangcy6.github.io/tags/do_book/</link>
-      <pubDate>Sat, 09 Sep 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/tags/do_book/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>目标九宫格</title>
       <link>https://wangcy6.github.io/tags/%E7%9B%AE%E6%A0%87%E4%B9%9D%E5%AE%AB%E6%A0%BC/</link>
       <pubDate>Tue, 29 Aug 2023 00:00:00 +0000</pubDate>
@@ -76,15 +76,6 @@
       <pubDate>Fri, 04 Aug 2023 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/tags/interview/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tools</title>
-      <link>https://wangcy6.github.io/tags/tools/</link>
-      <pubDate>Mon, 19 Jun 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/tags/tools/</guid>
       <description></description>
     </item>
     
