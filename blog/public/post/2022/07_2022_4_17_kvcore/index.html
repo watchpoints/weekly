@@ -46,8 +46,13 @@
 <meta property="article:modified_time" content="2022-04-17T00:00:00+00:00" />
 
 <meta itemprop="name" content="早起120小时写代码第一期：kvcore">
+<<<<<<< HEAD
 <meta itemprop="description" content="早睡：21点准备 22点上床，早起 6点准备 ，8点-10点 120分钟"><meta itemprop="datePublished" content="2022-04-17T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-04-17T00:00:00+00:00" />
+=======
+<meta itemprop="description" content="早睡：21点准备 22点上床，早起 6点准备 ，8点-10点 120分钟"><meta itemprop="datePublished" content="2022-04-17T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2022-04-17T00:00:00&#43;00:00" />
+>>>>>>> 9b7be310c3cd591c19d7bee95dee8ac1c437d9fa
 <meta itemprop="wordCount" content="2244">
 <meta itemprop="keywords" content="60秒问答," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="早起120小时写代码第一期：kvcore"/>
@@ -226,6 +231,7 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
+<<<<<<< HEAD
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">So red-black trees cause some problems for concurrent code:
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">It&#39;s hard to run updates truly concurrently because updates arbitrarily far apart in the tree can touch the same nodes—especially the root, but also other higher-level nodes to lesser degrees—and therefore contend with each other. We have lost the ability to make truly localized changes.
@@ -236,6 +242,18 @@
 </span></span><span class="line"><span class="cl">很难真正同时运行更新，因为在树中任意相隔很远的更新可能会触及相同的节点——尤其是根，但也会触及其他更高级别的节点，但程度较低——因此会相互竞争。 我们已经失去了进行真正本地化更改的能力。
 </span></span><span class="line"><span class="cl">树执行额外的内部管理写入。 这增加了需要跨缓存写入和同步的共享数据量，以发布另一个数据结构中的小更新
 </span></span></code></pre></td></tr></table>
+=======
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">So red-black trees cause some problems for concurrent code:
+
+It&#39;s hard to run updates truly concurrently because updates arbitrarily far apart in the tree can touch the same nodes—especially the root, but also other higher-level nodes to lesser degrees—and therefore contend with each other. We have lost the ability to make truly localized changes.
+
+The tree performs extra internal housekeeping writes. This increases the amount of shared data that needs to be written and synchronized across caches to publish what would be a small update in another data structure.
+
+所以红黑树给并发代码带来了一些问题：
+很难真正同时运行更新，因为在树中任意相隔很远的更新可能会触及相同的节点——尤其是根，但也会触及其他更高级别的节点，但程度较低——因此会相互竞争。 我们已经失去了进行真正本地化更改的能力。
+树执行额外的内部管理写入。 这增加了需要跨缓存写入和同步的共享数据量，以发布另一个数据结构中的小更新
+</code></pre></td></tr></table>
+>>>>>>> 9b7be310c3cd591c19d7bee95dee8ac1c437d9fa
 </div>
 </div><h2 id="day2--memory">day2:  memory</h2>
 <h3 id="阅读资料">阅读资料</h3>
@@ -303,7 +321,11 @@
 <p>atomic类
 多线程通过fetch__xx函数 一个变量进行 加减没有问题。</p>
 <p>多线程 对不同变量进行 做同步 load,store 使用条件是什么？</p>
+<<<<<<< HEAD
 <p>例如 
+=======
+<p>例如
+>>>>>>> 9b7be310c3cd591c19d7bee95dee8ac1c437d9fa
 x y 写操作必须在同一个线程内完成，才满足 happens-before and synchronizes-with。
 2个线程分别 x 和y写 肯定不满足</p>
 <p>The happens-before relationship</p>
@@ -324,10 +346,17 @@ x y 写操作必须在同一个线程内完成，才满足 happens-before and sy
 memory_order_consume：</p>
 <p>atomic_compare_exchange_strong</p>
 <p>知道c++提供原子操作类atomic<!-- raw HTML omitted --> 提供的接口有哪几个？</p>
+<<<<<<< HEAD
 <p>4个 
 atomic_fetch_add 
 atomic_load 
 atomic_store 
+=======
+<p>4个
+atomic_fetch_add
+atomic_load
+atomic_store
+>>>>>>> 9b7be310c3cd591c19d7bee95dee8ac1c437d9fa
 atomic_compare_exchange_strong</p>
 <p>memory_order_release:（可以理解为 mutex 的 unlock 操作）</p>
 <ol>
@@ -335,7 +364,11 @@ atomic_compare_exchange_strong</p>
 <p>对写入施加 release 语义（store），
 在代码中这条语句前面的所有读写操作都无法被重排到这个操作之后
 ，即 store-store 不能重排为 store
+<<<<<<< HEAD
 load-store 
+=======
+load-store
+>>>>>>> 9b7be310c3cd591c19d7bee95dee8ac1c437d9fa
 也无法重排为 store-load</p>
 </li>
 <li>

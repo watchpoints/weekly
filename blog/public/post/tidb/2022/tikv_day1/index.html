@@ -46,9 +46,15 @@
 <meta property="article:modified_time" content="2022-01-12T00:00:00+00:00" />
 
 <meta itemprop="name" content="源码解读第一天：raft 与Paxos">
+<<<<<<< HEAD
 <meta itemprop="description" content="Tidb"><meta itemprop="datePublished" content="2022-01-12T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-01-12T00:00:00+00:00" />
 <meta itemprop="wordCount" content="201">
+=======
+<meta itemprop="description" content="Tidb"><meta itemprop="datePublished" content="2022-01-12T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2022-01-12T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="203">
+>>>>>>> 9b7be310c3cd591c19d7bee95dee8ac1c437d9fa
 <meta itemprop="keywords" content="Tidb," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="源码解读第一天：raft 与Paxos"/>
 <meta name="twitter:description" content="Tidb"/>
@@ -128,7 +134,11 @@
       <div class="post-meta">
         <span class="post-time"> 2022-01-12 00:00 </span>
         
+<<<<<<< HEAD
           <span class="more-meta"> 约 201 字 </span>
+=======
+          <span class="more-meta"> 约 203 字 </span>
+>>>>>>> 9b7be310c3cd591c19d7bee95dee8ac1c437d9fa
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -166,7 +176,11 @@
 <h3 id="task01搭建tikv环境容器版本和源码版本">task01：搭建tikv环境（容器版本，和源码版本）</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
+<<<<<<< HEAD
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+=======
+<pre class="chroma"><code><span class="lnt"> 1
+>>>>>>> 9b7be310c3cd591c19d7bee95dee8ac1c437d9fa
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -182,6 +196,7 @@
 </span><span class="lnt">14
 </span><span class="lnt">15
 </span><span class="lnt">16
+<<<<<<< HEAD
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">在CentOS上进行TiDB/PD/TIKV编译分享
@@ -201,6 +216,31 @@
 </span></span><span class="line"><span class="cl">https://senzhangai.github.io/programming/build-tidb-by-source
 </span></span><span class="line"><span class="cl">https://tidb.net/blog/7e4c77a0
 </span></span></code></pre></td></tr></table>
+=======
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">在CentOS上进行TiDB/PD/TIKV编译分享
+
+路径：
+umount /dev/nvme1n1
+mkdir -p /data/kv
+mkfs.ext4 /dev/nvme1n1
+mount /dev/nvme1n1  /data/kv
+
+
+cd /data/kv
+
+cd tikv &amp;&amp; make &amp;&amp; mkdir -p ./bin &amp;&amp; cp ./target/release/tikv-server bin
+
+brew install rust
+https://senzhangai.github.io/programming/build-tidb-by-source
+https://tidb.net/blog/7e4c77a0
+
+
+</code></pre></td></tr></table>
+>>>>>>> 9b7be310c3cd591c19d7bee95dee8ac1c437d9fa
 </div>
 </div><ul>
 <li>容器</li>

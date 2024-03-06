@@ -6,7 +6,17 @@
     <description>Recent content on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 03 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/index.xml" rel="self" type="application/rss+xml" />
+<<<<<<< HEAD
+    <lastBuildDate>Wed, 06 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>只管去做践N0.7</title>
+      <link>https://wangcy6.github.io/post/ARTS/2024/%E5%8F%AA%E7%AE%A1%E5%8E%BB%E5%81%9A%E8%B7%B5%E8%A1%8C%E8%AE%B0%E5%BD%95%E7%AC%AC7%E5%91%A8-/</link>
+      <pubDate>Wed, 06 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ARTS/2024/%E5%8F%AA%E7%AE%A1%E5%8E%BB%E5%81%9A%E8%B7%B5%E8%A1%8C%E8%AE%B0%E5%BD%95%E7%AC%AC7%E5%91%A8-/</guid>
+      <description>只管去做 N0.7 # Part I 每月目标九宫格训练营 # Part 2 习惯卡片 一、环境场： 餐厅区&amp;ndash;吃饭专心吃饭 小故事：过去是吧10000次，今天想改造怎么做</description>
+    </item>
+    
     <item>
       <title>整理：强哥答疑</title>
       <link>https://wangcy6.github.io/post/2024/2024-03-03-04_rust_vivo/</link>
@@ -26,21 +36,31 @@
     </item>
     
     <item>
-      <title>只管去做践N0.7</title>
-      <link>https://wangcy6.github.io/post/ARTS/2024/%E5%8F%AA%E7%AE%A1%E5%8E%BB%E5%81%9A%E8%B7%B5%E8%A1%8C%E8%AE%B0%E5%BD%95%E7%AC%AC7%E5%91%A8-/</link>
-      <pubDate>Wed, 28 Feb 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/ARTS/2024/%E5%8F%AA%E7%AE%A1%E5%8E%BB%E5%81%9A%E8%B7%B5%E8%A1%8C%E8%AE%B0%E5%BD%95%E7%AC%AC7%E5%91%A8-/</guid>
-      <description>只管去做 N0.7 # Part I 每月目标九宫格训练营 # Part 2 习惯卡片 一、环境场： 餐厅区&amp;ndash;吃饭专心吃饭 小故事：过去是吧10000次，今天想改造怎么做</description>
-    </item>
-    
-    <item>
       <title>Rust For Linux02</title>
       <link>https://wangcy6.github.io/post/liunx/Rust/Rust_for_Liunx_2/</link>
       <pubDate>Wed, 06 Dec 2023 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/liunx/Rust/Rust_for_Liunx_2/</guid>
       <description>本文主要描述 第六章：文件系统 参考资料 https://github.com/LearningOS/2023a-rcore-watchpoints https://rcore-os.cn/rCore-Tutorial-Book-v3/chapter6/0intro.html#id2 https://rcore-os.cn/rCore-Tutorial-Book-v3/chapter6/index.html rcore-tutorial-book-v3.pdf https://github.com/learningos https://os.phil-opp.com/ 本章代码导读 本章涉及的代码量相对较多，且与进程执行相关的管理还有直接的关系。其实我们是参考经</description>
+=======
+    <lastBuildDate>Fri, 09 Feb 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>在一台电脑上同时使用多个github账号(亲测有效)</title>
+      <link>https://wangcy6.github.io/post/2024/2024-02-09-git-two-account/</link>
+      <pubDate>Fri, 09 Feb 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2024/2024-02-09-git-two-account/</guid>
+      <description>what：从现象提出问题 在一台电脑上有两个 github 账号 git 提交代码时候 fatal: 无法读取远程仓库。 尝试 密码登陆 今天是2021年8月13日（情人节），苦涩。 在</description>
+    </item>
+    
+    <item>
+      <title>小册子：互联网引流的100种手法</title>
+      <link>https://wangcy6.github.io/post/2024/2024-02-09-100-ways-add-funs/</link>
+      <pubDate>Fri, 09 Feb 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2024/2024-02-09-100-ways-add-funs/</guid>
+      <description>小册字：互联网引流的100种手法 学习笔记 微信号：watchpoints 点击蓝色字体：陪你终身成长丨限免星球， 自取310个新媒体运营工具 大纲 第</description>
+>>>>>>> 9b7be310c3cd591c19d7bee95dee8ac1c437d9fa
     </item>
     
     <item>
@@ -67,7 +87,11 @@
       <pubDate>Sat, 04 Nov 2023 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/2023/5_how_to_use_crash/</guid>
+<<<<<<< HEAD
       <description>购买 云主机，竟然无法下载github上资源，鸡肋呀，解决方式就是网络代理 提示 请勿将其用作翻墙等违法行为！ 关于 Clash Clash for Windows 删库跑路 Clash Core（各大</description>
+=======
+      <description>购买 云主机，竟然无法下载github上资源，鸡肋呀，解决方式就是网络代理 提示请勿将其用作翻墙等违法行为！ 关于 Clash Clash for Windows 删库跑路 Clash Core（各大</description>
+>>>>>>> 9b7be310c3cd591c19d7bee95dee8ac1c437d9fa
     </item>
     
     <item>
@@ -94,7 +118,11 @@
       <pubDate>Mon, 02 Oct 2023 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/dream/day7_zhibo_luna/</guid>
+<<<<<<< HEAD
       <description>1. 项目资料 https://luna.docs.ie.cx/ 1 2 3 4 5 6 7 8 9 Luna AI 是一个由 ChatterBot / GPT / Claude / langchain 本地 or 云端 / chatglm / text-generation-webui / 讯飞星火 / 智谱AI 做为 大脑 驱动的虚拟主播 Live2D / Vtube Studio / UE5 + Audio2Face ，可以在</description>
+=======
+      <description>1. 项目资料 https://luna.docs.ie.cx/ 1 2 3 4 5 6 7 8 9 10 Luna AI 是一个由 ChatterBot / GPT / Claude / langchain 本地 or 云端 / chatglm / text-generation-webui / 讯飞星火 / 智谱AI 做为 大脑 驱动的虚拟主播 Live2D / Vtube Studio / UE5 + Audio2Face ，可以</description>
+>>>>>>> 9b7be310c3cd591c19d7bee95dee8ac1c437d9fa
     </item>
     
     <item>
@@ -161,6 +189,18 @@
     </item>
     
     <item>
+<<<<<<< HEAD
+=======
+      <title>只管去做践N0.5</title>
+      <link>https://wangcy6.github.io/post/ARTS/2023/%E5%8F%AA%E7%AE%A1%E5%8E%BB%E5%81%9A%E8%B7%B5%E8%A1%8C%E8%AE%B0%E5%BD%95%E7%AC%AC5%E5%91%A8/</link>
+      <pubDate>Fri, 25 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ARTS/2023/%E5%8F%AA%E7%AE%A1%E5%8E%BB%E5%81%9A%E8%B7%B5%E8%A1%8C%E8%AE%B0%E5%BD%95%E7%AC%AC5%E5%91%A8/</guid>
+      <description>只管去做 N0.5 大家好，个人记录，可能不完整比较冷乱。 http://localhost:1313/post/ARTS/2023 第一部分 #203年 8月复盘# 一 、目标完成情况 本月完成目标0个，实现 年度目标0个 二 、令我高兴</description>
+    </item>
+    
+    <item>
+>>>>>>> 9b7be310c3cd591c19d7bee95dee8ac1c437d9fa
       <title>新手村打怪升级：技术周报N06</title>
       <link>https://wangcy6.github.io/post/ARTS/2023/%E6%96%B0%E6%89%8B%E6%9D%91%E6%89%93%E6%80%AA%E5%8D%87%E7%BA%A7N06/</link>
       <pubDate>Fri, 25 Aug 2023 00:00:00 +0000</pubDate>
@@ -179,12 +219,21 @@
     </item>
     
     <item>
+<<<<<<< HEAD
       <title>只管去做践N0.5</title>
       <link>https://wangcy6.github.io/post/ARTS/2023/%E5%8F%AA%E7%AE%A1%E5%8E%BB%E5%81%9A%E8%B7%B5%E8%A1%8C%E8%AE%B0%E5%BD%95%E7%AC%AC5%E5%91%A8/</link>
       <pubDate>Fri, 25 Aug 2023 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/ARTS/2023/%E5%8F%AA%E7%AE%A1%E5%8E%BB%E5%81%9A%E8%B7%B5%E8%A1%8C%E8%AE%B0%E5%BD%95%E7%AC%AC5%E5%91%A8/</guid>
       <description>只管去做 N0.5 大家好，个人记录，可能不完整比较冷乱。 http://localhost:1313/post/ARTS/2023 第一部分 #203年 8月复盘# 一 、目标完成情况 本月完成目标0个，实现 年度目标0个 二 、令我高兴</description>
+=======
+      <title>强哥答疑</title>
+      <link>https://wangcy6.github.io/post/book/ASK_README/</link>
+      <pubDate>Sat, 12 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/book/ASK_README/</guid>
+      <description>📝 提问规则： 1.周五到周六中午12点可提问 2.每位伙伴每周限提交1个问题； 3.提问请描述清楚问题背景、尝试、想要得到的帮助 ——【提问必读】—</description>
+>>>>>>> 9b7be310c3cd591c19d7bee95dee8ac1c437d9fa
     </item>
     
     <item>
@@ -296,12 +345,20 @@
     </item>
     
     <item>
+<<<<<<< HEAD
       <title>跟着tikv源码学rust P01</title>
+=======
+      <title>tikv入门</title>
+>>>>>>> 9b7be310c3cd591c19d7bee95dee8ac1c437d9fa
       <link>https://wangcy6.github.io/post/tidb/20230_05_05_tikv/</link>
       <pubDate>Fri, 05 May 2023 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/tidb/20230_05_05_tikv/</guid>
+<<<<<<< HEAD
       <description>环境搭建 提问： https://asktug.com/t/topic/1007869 https://download.pingcap.com/docs-cn%2FLesson07_quick_start.mp4 EP01-5分钟系列&amp;ndash;安装单节点tidb centos ： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33</description>
+=======
+      <description>一、问题是什么 阅读文章：https://asktug.com/t/topic/693645 【源码合集】TiKV 源码阅读三部曲 https://mp.weixin.qq.com/s/HgflwnZZMHXaIsFV3PdGAg 阅读 Rust 参考手册</description>
+>>>>>>> 9b7be310c3cd591c19d7bee95dee8ac1c437d9fa
     </item>
     
     <item>
@@ -391,7 +448,11 @@
       <pubDate>Tue, 18 Oct 2022 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/2022/12-how_to_read_liunx/</guid>
+<<<<<<< HEAD
       <description>学习方法 1 2 3 4 5 6 7 8 9 10 11 12 13 根据问题去阅读 一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题 二、这个技术的优势和劣</description>
+=======
+      <description>学习方法 1 2 3 4 5 6 7 8 9 10 11 12 13 14 根据问题去阅读 一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题 二、这个技术的优势和</description>
+>>>>>>> 9b7be310c3cd591c19d7bee95dee8ac1c437d9fa
     </item>
     
     <item>
@@ -557,12 +618,21 @@
     </item>
     
     <item>
+<<<<<<< HEAD
       <title>社区问题整理第一期</title>
       <link>https://wangcy6.github.io/post/oceanbase/2011/04_FQA/</link>
       <pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/oceanbase/2011/04_FQA/</guid>
       <description>慢慢来，多看、多问、多总结 沟通步骤 准备好一个ppt，在写代码之前演示最终目标 和架构设计 就是如何去实现的 【不要说公司部门环境不对 着就是最终结果</description>
+=======
+      <title>一周精彩内容分享（第11期）</title>
+      <link>https://wangcy6.github.io/post/ARTS/2022/2022-11/</link>
+      <pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ARTS/2022/2022-11/</guid>
+      <description>公网地址：https://wangcy6.github.io/post/ARTS/2022/2022-11/ 内网地址：http://1.11</description>
+>>>>>>> 9b7be310c3cd591c19d7bee95dee8ac1c437d9fa
     </item>
     
     <item>
@@ -602,6 +672,18 @@
     </item>
     
     <item>
+<<<<<<< HEAD
+=======
+      <title>社区问题整理第一期</title>
+      <link>https://wangcy6.github.io/post/oceanbase/2011/04_FQA/</link>
+      <pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/oceanbase/2011/04_FQA/</guid>
+      <description>慢慢来，多看、多问、多总结 沟通步骤 准备好一个ppt，在写代码之前演示最终目标 和架构设计 就是如何去实现的 【不要说公司部门环境不对 着就是最终结果</description>
+    </item>
+    
+    <item>
+>>>>>>> 9b7be310c3cd591c19d7bee95dee8ac1c437d9fa
       <title>阅读与写作第一期</title>
       <link>https://wangcy6.github.io/post/2021/06_ask_1/</link>
       <pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate>
@@ -688,7 +770,11 @@
       <pubDate>Tue, 25 Jan 2022 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/2022/2-2022-1-25-os/</guid>
+<<<<<<< HEAD
       <description>How sched_setaffinity works inside of Linux Kernel 1 2 3 4 5 6 7 8 9 YSCALL_DEFINE3(sched_setaffinity, pid_t, pid, unsigned int, len, unsigned long __user *, user_mask_ptr) -- sched_setaffinity(pid_t pid, const struct cpumask *in_mask) --- __set_cpus_allowed_ptr(struct task_struct *p, const struct cpumask *new_mask, bool check) ---- stop_one_cpu(unsigned int cpu, cpu_stop_fn_t fn, void *arg) ----- migration_cpu_stop(void *data) ------ __migrate_task(struct rq *rq, struct task_struct *p, int dest_cpu) ------- move_queued_task(struct rq *rq, struct task_struct</description>
+=======
+      <description>How sched_setaffinity works inside of Linux Kernel 1 2 3 4 5 6 7 8 9 10 11 YSCALL_DEFINE3(sched_setaffinity, pid_t, pid, unsigned int, len, unsigned long __user *, user_mask_ptr) -- sched_setaffinity(pid_t pid, const struct cpumask *in_mask) --- __set_cpus_allowed_ptr(struct task_struct *p, const struct cpumask *new_mask, bool check) ---- stop_one_cpu(unsigned int cpu, cpu_stop_fn_t fn, void *arg) ----- migration_cpu_stop(void *data) ------ __migrate_task(struct rq *rq, struct task_struct *p, int dest_cpu) ------- move_queued_task(struct rq *rq,</description>
+>>>>>>> 9b7be310c3cd591c19d7bee95dee8ac1c437d9fa
     </item>
     
     <item>
@@ -715,7 +801,11 @@
       <pubDate>Wed, 12 Jan 2022 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/tidb/2022/tikv_day1/</guid>
+<<<<<<< HEAD
       <description>Raft 学习记录 todo task01：搭建tikv环境 task01：搭建tikv环境（容器版本，和源码版本） 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 在CentO</description>
+=======
+      <description>Raft 学习记录 todo task01：搭建tikv环境 task01：搭建tikv环境（容器版本，和源码版本） 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 在Cen</description>
+>>>>>>> 9b7be310c3cd591c19d7bee95dee8ac1c437d9fa
     </item>
     
     <item>
@@ -877,7 +967,11 @@
       <pubDate>Sun, 18 Jul 2021 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/tidb/2022/parse/</guid>
+<<<<<<< HEAD
       <description>说明： parser 模块 第一天：环境搭建 GO 1 2 3 4 5 6 7 8 9 10 11 12 13 14 https://www.digitalocean.com/community/tutorials/how-to-install-go-1-7-on-centos-7 Step 1 – Downloading Go wget https://studygolang.com/dl/golang/go1.19.1.linux-amd64.tar.gz Step 2 – Setting Paths for Go export GOROOT=/root/local/go export PATH=$PATH:$GOROOT/bin export GOPATH=/root/src Step 3 – Downloading lib go env -w GO111MODULE=on go env -w GOPROXY=https://goproxy.cn,direct go get -v golang.org/x/tools/cmd/goimports pingcap/parser 1 2</description>
+=======
+      <description>说明： parser 模块 第一天：环境搭建 GO 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 https://www.digitalocean.com/community/tutorials/how-to-install-go-1-7-on-centos-7 Step 1 – Downloading Go wget https://studygolang.com/dl/golang/go1.19.1.linux-amd64.tar.gz Step 2 – Setting Paths for Go export GOROOT=/root/local/go export PATH=$PATH:$GOROOT/bin export GOPATH=/root/src Step 3 – Downloading lib go env -w GO111MODULE=on go env -w GOPROXY=https://goproxy.cn,direct go get -v golang.org/x/tools/cmd/goimports pingcap/parser 1</description>
+>>>>>>> 9b7be310c3cd591c19d7bee95dee8ac1c437d9fa
     </item>
     
     <item>
@@ -1490,6 +1584,7 @@
       
       <guid>https://wangcy6.github.io/post/plan/how_to_study/</guid>
       <description>title: &amp;ldquo;下班后如何学习&amp;rdquo; date: 2022-09-25 draft: false categories: [&amp;ldquo;oceanbase&amp;rdquo;] why 承诺书 反馈</description>
+<<<<<<< HEAD
     </item>
     
     <item>
@@ -1499,6 +1594,8 @@
       
       <guid>https://wangcy6.github.io/post/storage/3_ceph_help/</guid>
       <description>http://localhost:1313/post/storage/2_ceph_mon/ 服务平滑重启 任何一个成熟的项目，必须要提供出接口，就像探针一样，可以让我们探查进程内部的运行情况，进程不能是一个黑盒子。对于ceph而言，</description>
+=======
+>>>>>>> 9b7be310c3cd591c19d7bee95dee8ac1c437d9fa
     </item>
     
     <item>
@@ -1529,6 +1626,18 @@
     </item>
     
     <item>
+<<<<<<< HEAD
+=======
+      <title>《大话 Ceph》 之Ceph 运维手册&#34;</title>
+      <link>https://wangcy6.github.io/post/storage/3_ceph_help/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/storage/3_ceph_help/</guid>
+      <description>http://localhost:1313/post/storage/2_ceph_mon/ 服务平滑重启 任何一个成熟的项目，必须要提供出接口，就像探针一样，可以让我们探查进程内部的运行情况，进程不能是一个黑盒子。对于ceph而言，</description>
+    </item>
+    
+    <item>
+>>>>>>> 9b7be310c3cd591c19d7bee95dee8ac1c437d9fa
       <title>日拱一卒：操作手册</title>
       <link>https://wangcy6.github.io/post/storage/4_icfs_help/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

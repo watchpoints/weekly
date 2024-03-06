@@ -46,9 +46,15 @@
 <meta property="article:modified_time" content="2022-02-09T00:00:00+00:00" />
 
 <meta itemprop="name" content="gperftools">
+<<<<<<< HEAD
 <meta itemprop="description" content="gperftools"><meta itemprop="datePublished" content="2022-02-09T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-02-09T00:00:00+00:00" />
 <meta itemprop="wordCount" content="420">
+=======
+<meta itemprop="description" content="gperftools"><meta itemprop="datePublished" content="2022-02-09T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2022-02-09T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="425">
+>>>>>>> 9b7be310c3cd591c19d7bee95dee8ac1c437d9fa
 <meta itemprop="keywords" content="系统设计," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="gperftools"/>
 <meta name="twitter:description" content="gperftools"/>
@@ -128,7 +134,11 @@
       <div class="post-meta">
         <span class="post-time"> 2022-02-09 00:00 </span>
         
+<<<<<<< HEAD
           <span class="more-meta"> 约 420 字 </span>
+=======
+          <span class="more-meta"> 约 425 字 </span>
+>>>>>>> 9b7be310c3cd591c19d7bee95dee8ac1c437d9fa
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -157,7 +167,11 @@
   </div>
 </div>
   <div class="post-outdated">
+<<<<<<< HEAD
     <div class="warn">
+=======
+    <div class="hint">
+>>>>>>> 9b7be310c3cd591c19d7bee95dee8ac1c437d9fa
       <p>【注意】最后更新于 <span class="timeago" datetime="2022-02-09T00:00:00" title="February 9, 2022">February 9, 2022</span>，文中内容可能已过时，请谨慎使用。</p>
     </div>
   </div>
@@ -188,6 +202,77 @@
 </li>
 </ol>
 </li>
+<<<<<<< HEAD
+=======
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback"> 
+ sudo dnf install emacs
+ 
+ emacs --version
+ GNU Emacs 26.1 //版本不是最新版本
+
+依赖：
+yum install gnutls  gnutls-devel
+yum install ncurses-devel
+
+
+wget https://ftp.gnu.org/gnu/emacs/emacs-28.2.tar.gz
+
+ https://github.com/watchpoints/emacs.d/tree/master
+ git clone https://github.com/purcell/emacs.d.git ~/.emacs.d
+ 
+//sed -i &#39;s/https/http/g&#39; ~/.emacs.d/lisp/init-elpa.el
+//linux命令行代理神器-proxychains
+emacs --debug-init
+
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="heading"></h3>
+<ul>
+<li><a href="https://www.cnblogs.com/eat-and-die/p/10309681.html">https://www.cnblogs.com/eat-and-die/p/10309681.html</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/114329781">https://zhuanlan.zhihu.com/p/114329781</a></li>
+<li><a href="https://github.com/redguardtoo/emacs.d">https://github.com/redguardtoo/emacs.d</a></li>
+</ul>
+<h2 id="基本用法">基本用法</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">perf record -a -e kmem:kmalloc --filter &#39;bytes_alloc == 192&#39; -e kmem:kfree --filter &#39; ptr != 0&#39; sleep 200
+
+
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Perftools-Specific Install Notes</li>
+>>>>>>> 9b7be310c3cd591c19d7bee95dee8ac1c437d9fa
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -233,6 +318,7 @@
 </span></span><span class="line"><span class="cl">emacs --debug-init
 </span></span></code></pre></td></tr></table>
 </div>
+<<<<<<< HEAD
 </div><h3 id="heading"></h3>
 <ul>
 <li><a href="https://www.cnblogs.com/eat-and-die/p/10309681.html">https://www.cnblogs.com/eat-and-die/p/10309681.html</a></li>
@@ -294,6 +380,21 @@
 </span></span><span class="line"><span class="cl">perf record  -F 99  -g -e &#34;kmem:*&#34;  -- sleep 20
 </span></span></code></pre></td></tr></table>
 </div>
+=======
+</div><h2 id="问题-cpu-高怎么解决">问题 cpu 高怎么解决</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">perf record  -F 99  -g -a  -p 3830098 -- sleep 20
+perf report --stdio
+perf record  -F 99  -g -e &#34;kmem:*&#34;  -- sleep 20
+</code></pre></td></tr></table>
+</div>
+>>>>>>> 9b7be310c3cd591c19d7bee95dee8ac1c437d9fa
 </div><h3 id="青铜提问1">青铜提问1：</h3>
 <h3 id="用perf-report---stdio-跟踪看不到是地址不是函数如何根据-地址确定符号-python3调用了mpirun库">用perf report &ndash;stdio 跟踪看不到是地址，不是函数，如何根据 地址确定符号？ python3调用了mpirun库</h3>
 <p><img src="https://img-blog.csdnimg.cn/0487773d284f4bfa822014456a658454.png" alt=""></p>

@@ -46,9 +46,15 @@
 <meta property="article:modified_time" content="2022-01-25T00:00:00+00:00" />
 
 <meta itemprop="name" content="操作系统入门知识">
+<<<<<<< HEAD
 <meta itemprop="description" content="疑问"><meta itemprop="datePublished" content="2022-01-25T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-01-25T00:00:00+00:00" />
 <meta itemprop="wordCount" content="2728">
+=======
+<meta itemprop="description" content="疑问"><meta itemprop="datePublished" content="2022-01-25T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2022-01-25T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="2730">
+>>>>>>> 9b7be310c3cd591c19d7bee95dee8ac1c437d9fa
 <meta itemprop="keywords" content="book," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="操作系统入门知识"/>
 <meta name="twitter:description" content="疑问"/>
@@ -128,7 +134,11 @@
       <div class="post-meta">
         <span class="post-time"> 2022-01-25 00:00 </span>
         
+<<<<<<< HEAD
           <span class="more-meta"> 约 2728 字 </span>
+=======
+          <span class="more-meta"> 约 2730 字 </span>
+>>>>>>> 9b7be310c3cd591c19d7bee95dee8ac1c437d9fa
           <span class="more-meta"> 预计阅读 6 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -174,6 +184,109 @@
   </div>
     <div class="post-content">
       <h1 id="how-sched_setaffinity-works-inside-of-linux-kernel">How sched_setaffinity works inside of Linux Kernel</h1>
+<<<<<<< HEAD
+=======
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">YSCALL_DEFINE3(sched_setaffinity, pid_t, pid, unsigned int, len, unsigned long __user *, user_mask_ptr)
+-- sched_setaffinity(pid_t pid, const struct cpumask *in_mask)
+--- __set_cpus_allowed_ptr(struct task_struct *p, const struct cpumask *new_mask, bool check)
+---- stop_one_cpu(unsigned int cpu, cpu_stop_fn_t fn, void *arg)
+----- migration_cpu_stop(void *data)
+------ __migrate_task(struct rq *rq, struct task_struct *p, int dest_cpu)
+------- move_queued_task(struct rq *rq, struct task_struct *p, int new_cpu)
+-------- enqueue_task(struct rq *rq, struct task_struct *p, int flags)
+--------- returns the new run queue of destination CPU
+
+
+</code></pre></td></tr></table>
+</div>
+</div><p>[root@h12-storage03 ~]# dmesg|grep -i numa
+[    0.000000] NUMA: Initialized distance table, cnt=2
+[    0.000000] NUMA: Node 0 [mem 0x00000000-0x7fffffff] + [mem 0x100000000-0x807fffffff] -&gt; [mem 0x00000000-0x807fffffff]
+[    0.001000] mempolicy: Enabling automatic NUMA balancing. Configure with numa_balancing= or the kernel.numa_balancing sysctl
+[    1.151966] pci_bus 0000:00: on NUMA node 0
+[    1.154241] pci_bus 0000:16: on NUMA node 0
+[    1.155523] pci_bus 0000:30: on NUMA node 0
+[    1.156810] pci_bus 0000:4a: on NUMA node 0
+[    1.160095] pci_bus 0000:64: on NUMA node 0
+[    1.164343] pci_bus 0000:7e: on NUMA node 0
+[    1.176501] pci_bus 0000:7f: on NUMA node 0
+[    1.178741] pci_bus 0000:80: on NUMA node 1
+[    1.181500] pci_bus 0000:97: on NUMA node 1
+[    1.182764] pci_bus 0000:b0: on NUMA node 1
+[    1.183768] pci_bus 0000:c9: on NUMA node 1
+[    1.184760] pci_bus 0000:e2: on NUMA node 1
+[    1.188830] pci_bus 0000:fe: on NUMA node 1
+[    1.200504] pci_bus 0000:ff: on NUMA node 1
+[root@h12-storage03 ~]#</p>
+<h1 id="cpu">cpu</h1>
+<h3 id="疑问1--what-is-numa">疑问1  What is NUMA?</h3>
+<p>dmesg|grep -i numa</p>
+<p>[  0.000000] No NUMA configuration found</p>
+<h3 id="疑问2网卡软中断都集中在了一个cpu上导致cpu负载升高多余网络包被丢弃httpszhuanlanzhihucomp80619249">疑问2:<a href="https://zhuanlan.zhihu.com/p/80619249">网卡软中断都集中在了一个cpu上，导致cpu负载升高，多余网络包被丢弃？</a></h3>
+<p>X86系统采用中断机制协同处理CPU与其他设备工作。长久以来网卡的中断默认由cpu0处理，在大量小包的网络环境下可能出现cpu0负载高，而其他cpu空闲。后来出现网卡多队列技术解决这个问题。</p>
+<ul>
+<li>
+<p>ls /sys/class/net/eth0/queues/</p>
+<p>多队列网卡的好处是可以将每个队列产生的中断分布到cpu的多个核，实现负载均衡，避免了单个核被占用到100%而其他核还处于空闲的情况</p>
+</li>
+<li>
+<p>ethtool -l eth0  eth0网卡是否支持多队列，最多支持多少、当前开启多少</p>
+</li>
+<li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">service irqbalance stop
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h2 id="net">net</h2>
+<p>Google 对此做的统计显示，三次握手消耗的时间，在 HTTP 请求完成的时间占比在 10% 到 30% 之间</p>
+<p>疑问1.</p>
+<p>net.ipv4.tcp_syncookies = 1</p>
+<p>Linux 下怎样开启 syncookies 功能呢？修改 tcp_syncookies 参数即可，其中值为 0 时表示关闭该功能，2 表示无条件开启功能，而 1 则表示仅当 SYN 半连接队列放不下时，再启用它。由于 syncookie 仅用于应对 SYN 泛洪攻击（攻击者恶意构造大量的 SYN 报文发送给服务器，造成 SYN 半连接队列溢出，导致正常客户端的连接无法建立），这种方式建立的连接，许多 TCP 特性都无法使用。所以，应当把 tcp_syncookies 设置为 1，仅在队列满时再启用。</p>
+<p>tcp_max_tw_buckets 控制并发的 TIME_WAIT 的数量，默认值是 180000</p>
+<h2 id="file">file</h2>
+<p>疑问1: aio 我业务代码没写，需要内核调整吗？</p>
+<p>/etc/sysctl.conf</p>
+<p>## 修改内核异步 I/O 限制</p>
+<p>fs.aio-max-nr=1048576</p>
+<h3 id="一手资料">一手资料</h3>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> <a href="https://open.oceanbase.com/ask/detail?id=20400568&amp;pageNo=1&amp;query=NUMA#all">https://open.oceanbase.com/ask/detail?id=20400568&amp;pageNo=1&amp;query=NUMA#all</a></li>
+<li><input checked="" disabled="" type="checkbox"> <a href="https://zhuanlan.zhihu.com/p/336365600">每个程序员都应该知道的 CPU 知识：NUMA</a></li>
+<li><input checked="" disabled="" type="checkbox"> <a href="">以蚂蚁集团不同使用场景为例，分析如何调整和优化高性能 OceanBase</a></li>
+</ul>
+<p><img src="https://gw.alipayobjects.com/zos/oceanbase/cab256f1-ad0f-4a74-a434-07c2ad995948/image/2022-03-29/8d66c655-e16a-4a7f-859b-fc0a9cbf4047.png" alt=""></p>
+<ul>
+<li>
+<p>Linux 性能优化实战</p>
+<p>下半部用来延迟处理上半部未完成的工作，通常以内核线程的方式运行。</p>
+<p>上半部直接处理硬件请求，也就是我们常说的硬中断，特点是快速执行；（dma）</p>
+<p>而下半部则是由内核触发，也就是我们常说的软中断，特点是延迟执行。</p>
+<p>cat /proc/softirqs</p>
+<p>NET_RX 表示网络接收中断，而 NET_TX 表示网络发送中断。</p>
+<p>ps aux | grep softirq - &mdash;48内核。</p>
+<p>[ksoftirqd/47</p>
+>>>>>>> 9b7be310c3cd591c19d7bee95dee8ac1c437d9fa
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -337,6 +450,7 @@
 </span><span class="lnt">63
 </span></code></pre></td>
 <td class="lntd">
+<<<<<<< HEAD
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[root@spa-65-177-112 gadmin]# ps aux | grep softirq
 </span></span><span class="line"><span class="cl">root         6  0.0  0.0      0     0 ?        S     2021   0:20 [ksoftirqd/0]
 </span></span><span class="line"><span class="cl">root        14  0.0  0.0      0     0 ?        S     2021   0:21 [ksoftirqd/1]
@@ -401,6 +515,72 @@
 </span></span><span class="line"><span class="cl">watch -d cat /proc/softirqs
 </span></span><span class="line"><span class="cl">cat /proc/interrupts  
 </span></span></code></pre></td></tr></table>
+=======
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[root@spa-65-177-112 gadmin]# ps aux | grep softirq
+root         6  0.0  0.0      0     0 ?        S     2021   0:20 [ksoftirqd/0]
+root        14  0.0  0.0      0     0 ?        S     2021   0:21 [ksoftirqd/1]
+root        20  0.0  0.0      0     0 ?        S     2021   0:16 [ksoftirqd/2]
+root        25  0.0  0.0      0     0 ?        S     2021   0:19 [ksoftirqd/3]
+root        30  0.0  0.0      0     0 ?        S     2021   0:19 [ksoftirqd/4]
+root        35  0.0  0.0      0     0 ?        S     2021   0:30 [ksoftirqd/5]
+root        40  0.0  0.0      0     0 ?        S     2021   0:20 [ksoftirqd/6]
+root        45  0.0  0.0      0     0 ?        S     2021   0:33 [ksoftirqd/7]
+root        50  0.0  0.0      0     0 ?        S     2021   0:20 [ksoftirqd/8]
+root        55  0.0  0.0      0     0 ?        S     2021   0:17 [ksoftirqd/9]
+root        60  0.0  0.0      0     0 ?        S     2021   0:31 [ksoftirqd/10]
+root        65  0.0  0.0      0     0 ?        S     2021   0:23 [ksoftirqd/11]
+root        70  0.0  0.0      0     0 ?        S     2021   0:13 [ksoftirqd/12]
+root        76  0.0  0.0      0     0 ?        S     2021   0:22 [ksoftirqd/13]
+root        81  0.0  0.0      0     0 ?        S     2021   0:27 [ksoftirqd/14]
+root        86  0.0  0.0      0     0 ?        S     2021   0:32 [ksoftirqd/15]
+root        91  0.0  0.0      0     0 ?        S     2021   0:34 [ksoftirqd/16]
+root        96  0.0  0.0      0     0 ?        S     2021   0:18 [ksoftirqd/17]
+root       101  0.0  0.0      0     0 ?        S     2021   0:18 [ksoftirqd/18]
+root       106  0.0  0.0      0     0 ?        S     2021   0:16 [ksoftirqd/19]
+root       111  0.0  0.0      0     0 ?        S     2021   0:20 [ksoftirqd/20]
+root       116  0.0  0.0      0     0 ?        S     2021   0:23 [ksoftirqd/21]
+root       121  0.0  0.0      0     0 ?        S     2021   0:18 [ksoftirqd/22]
+root       126  0.0  0.0      0     0 ?        S     2021   0:14 [ksoftirqd/23]
+root       131  0.0  0.0      0     0 ?        S     2021   0:00 [ksoftirqd/24]
+root       136  0.0  0.0      0     0 ?        S     2021   0:06 [ksoftirqd/25]
+root       141  0.0  0.0      0     0 ?        S     2021   0:04 [ksoftirqd/26]
+root       146  0.0  0.0      0     0 ?        S     2021   0:03 [ksoftirqd/27]
+root       151  0.0  0.0      0     0 ?        S     2021   0:03 [ksoftirqd/28]
+root       156  0.0  0.0      0     0 ?        S     2021   0:02 [ksoftirqd/29]
+root       161  0.0  0.0      0     0 ?        S     2021   0:02 [ksoftirqd/30]
+root       166  0.0  0.0      0     0 ?        S     2021   0:02 [ksoftirqd/31]
+root       171  0.0  0.0      0     0 ?        S     2021   0:01 [ksoftirqd/32]
+root       176  0.0  0.0      0     0 ?        S     2021   0:01 [ksoftirqd/33]
+root       181  0.0  0.0      0     0 ?        S     2021   0:01 [ksoftirqd/34]
+root       186  0.0  0.0      0     0 ?        S     2021   0:01 [ksoftirqd/35]
+root       191  0.0  0.0      0     0 ?        S     2021   0:00 [ksoftirqd/36]
+root       196  0.0  0.0      0     0 ?        S     2021   0:06 [ksoftirqd/37]
+root       201  0.0  0.0      0     0 ?        S     2021   0:04 [ksoftirqd/38]
+root       206  0.0  0.0      0     0 ?        S     2021   0:03 [ksoftirqd/39]
+root       211  0.0  0.0      0     0 ?        S     2021   0:03 [ksoftirqd/40]
+root       216  0.0  0.0      0     0 ?        S     2021   0:02 [ksoftirqd/41]
+root       221  0.0  0.0      0     0 ?        S     2021   0:03 [ksoftirqd/42]
+root       226  0.0  0.0      0     0 ?        S     2021   0:02 [ksoftirqd/43]
+root       231  0.0  0.0      0     0 ?        S     2021   0:00 [ksoftirqd/44]
+root       236  0.0  0.0      0     0 ?        S     2021   0:00 [ksoftirqd/45]
+root       241  0.0  0.0      0     0 ?        S     2021   0:00 [ksoftirqd/46]
+root       246  0.0  0.0      0     0 ?        S     2021   0:00 [ksoftirqd/47]
+
+[ ~]# cat /proc/irq/24/smp_affinity
+0001
+[ ~]# cat /proc/irq/24/smp_affinity_list 
+0
+#上面表示0001对应cpu0，可以直接修改绑定关系
+[ ~]# echo 4 &gt; /proc/irq/24/smp_affinity
+[ ~]# cat /proc/irq/24/smp_affinity_list 
+2
+#此时中断号24对应的处理CPU为cpu2
+
+mpstat -P ALL 1 1
+watch -d cat /proc/softirqs
+cat /proc/interrupts  
+</code></pre></td></tr></table>
+>>>>>>> 9b7be310c3cd591c19d7bee95dee8ac1c437d9fa
 </div>
 </div><p>watch -d cat /proc/softirqs</p>
 <p>ET_RX（网络接收）、SCHED（内核调度）、RCU（RCU 锁）</p>
