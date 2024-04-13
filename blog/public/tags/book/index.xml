@@ -94,11 +94,7 @@
       <pubDate>Tue, 25 Jan 2022 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/2022/2-2022-1-25-os/</guid>
-<<<<<<< HEAD
       <description>How sched_setaffinity works inside of Linux Kernel 1 2 3 4 5 6 7 8 9 YSCALL_DEFINE3(sched_setaffinity, pid_t, pid, unsigned int, len, unsigned long __user *, user_mask_ptr) -- sched_setaffinity(pid_t pid, const struct cpumask *in_mask) --- __set_cpus_allowed_ptr(struct task_struct *p, const struct cpumask *new_mask, bool check) ---- stop_one_cpu(unsigned int cpu, cpu_stop_fn_t fn, void *arg) ----- migration_cpu_stop(void *data) ------ __migrate_task(struct rq *rq, struct task_struct *p, int dest_cpu) ------- move_queued_task(struct rq *rq, struct task_struct</description>
-=======
-      <description>How sched_setaffinity works inside of Linux Kernel 1 2 3 4 5 6 7 8 9 10 11 YSCALL_DEFINE3(sched_setaffinity, pid_t, pid, unsigned int, len, unsigned long __user *, user_mask_ptr) -- sched_setaffinity(pid_t pid, const struct cpumask *in_mask) --- __set_cpus_allowed_ptr(struct task_struct *p, const struct cpumask *new_mask, bool check) ---- stop_one_cpu(unsigned int cpu, cpu_stop_fn_t fn, void *arg) ----- migration_cpu_stop(void *data) ------ __migrate_task(struct rq *rq, struct task_struct *p, int dest_cpu) ------- move_queued_task(struct rq *rq,</description>
->>>>>>> 9b7be310c3cd591c19d7bee95dee8ac1c437d9fa
     </item>
     
     <item>

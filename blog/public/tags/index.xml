@@ -6,40 +6,22 @@
     <description>Recent content in Tags on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-<<<<<<< HEAD
-    <lastBuildDate>Sun, 03 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 12 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>tools</title>
       <link>https://wangcy6.github.io/tags/tools/</link>
-      <pubDate>Sun, 03 Mar 2024 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 12 Mar 2024 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/tags/tools/</guid>
-=======
-    <lastBuildDate>Fri, 09 Feb 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>GitHub</title>
-      <link>https://wangcy6.github.io/tags/GitHub/</link>
-      <pubDate>Fri, 09 Feb 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/tags/GitHub/</guid>
->>>>>>> 9b7be310c3cd591c19d7bee95dee8ac1c437d9fa
       <description></description>
     </item>
     
     <item>
-<<<<<<< HEAD
       <title>Rust</title>
       <link>https://wangcy6.github.io/tags/Rust/</link>
       <pubDate>Wed, 06 Dec 2023 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/tags/Rust/</guid>
-=======
-      <title>阅读与写作</title>
-      <link>https://wangcy6.github.io/tags/%E9%98%85%E8%AF%BB%E4%B8%8E%E5%86%99%E4%BD%9C/</link>
-      <pubDate>Fri, 09 Feb 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/tags/%E9%98%85%E8%AF%BB%E4%B8%8E%E5%86%99%E4%BD%9C/</guid>
->>>>>>> 9b7be310c3cd591c19d7bee95dee8ac1c437d9fa
       <description></description>
     </item>
     
@@ -98,18 +80,6 @@
     </item>
     
     <item>
-<<<<<<< HEAD
-=======
-      <title>tools</title>
-      <link>https://wangcy6.github.io/tags/tools/</link>
-      <pubDate>Mon, 19 Jun 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/tags/tools/</guid>
-      <description></description>
-    </item>
-    
-    <item>
->>>>>>> 9b7be310c3cd591c19d7bee95dee8ac1c437d9fa
       <title>song</title>
       <link>https://wangcy6.github.io/tags/song/</link>
       <pubDate>Sun, 18 Jun 2023 00:00:00 +0000</pubDate>
@@ -164,7 +134,6 @@
     </item>
     
     <item>
-<<<<<<< HEAD
       <title>阅读与写作</title>
       <link>https://wangcy6.github.io/tags/%E9%98%85%E8%AF%BB%E4%B8%8E%E5%86%99%E4%BD%9C/</link>
       <pubDate>Wed, 11 Jan 2023 00:00:00 +0000</pubDate>
@@ -174,8 +143,6 @@
     </item>
     
     <item>
-=======
->>>>>>> 9b7be310c3cd591c19d7bee95dee8ac1c437d9fa
       <title>从青铜到王者</title>
       <link>https://wangcy6.github.io/tags/%E4%BB%8E%E9%9D%92%E9%93%9C%E5%88%B0%E7%8E%8B%E8%80%85/</link>
       <pubDate>Sat, 29 Oct 2022 00:00:00 +0000</pubDate>
