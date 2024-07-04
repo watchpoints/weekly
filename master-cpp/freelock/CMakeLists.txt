@@ -6,6 +6,6 @@ add_executable (day1 "day1.cpp")
 
 # Specify libraries  to use when linking
 # target_link_libraries(<target> ... <item>... ...)
-target_link_libraries(day1 pthread leveldb)
+target_link_libraries(day1)
 
 
