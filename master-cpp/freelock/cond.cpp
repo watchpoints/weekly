@@ -23,6 +23,10 @@ void thead_a_wait(void)
         //why 导致了signal丢失，线程A无法唤醒
         cout << "get data " << endl;
 }
+//template< class Predicate >
+//void wait( std::unique_lock<std::mutex>& lock, Predicate pred );
+//https://en.cppreference.com/w/cpp/thread/condition_variable/wait
+//cv.wait(lk, []{ return i == 1; });
 
 void thread_b_notify(void)
 {       
