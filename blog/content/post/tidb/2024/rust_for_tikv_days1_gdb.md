@@ -6,8 +6,6 @@ draft: false
 tags: ["Tidb"]
 ---
 
-#
-
 
 
 [TiKV](https://github.com/tikv/tikv) 是一个支持事务的分布式 Key-Value 数据库，目前已经是 [CNCF 基金会](https://www.cncf.io/projects/) 的顶级项目。
@@ -25,11 +23,11 @@ tags: ["Tidb"]
 
 目标：
 
-- 小白如何学习一个开源项目，就是让它跑起来。
+- 小白如何学习一个开源项目，先让它跑起来。
 
 - 主要介绍 gdb如何调试tikv，运行单元测试。
 
-- 搭建一个单机TiKV 服务实例（网上例子很多）
+- 搭建一个单机TiKV 服务。
 
   
 
@@ -67,7 +65,7 @@ https://github.com/cicvedu/rustlings-semester-4-watchpoints
 
   
 
-  ~~~
+  ~~~shell
   这个我没有看呢，有一起的吗
   TP 101: Introduction to open source software
   TP 102: How to use Git and GitHub
@@ -109,7 +107,7 @@ make format
 make clippy
 
 // 03-编译 https://github.com/watchpoints/tikv
-make build //大约10分钟左右
+make build //我的配置大约10分钟左右
 
 cargo install cargo-watch
 cargo watch -s "cargo check"  
@@ -117,14 +115,23 @@ cargo watch -s "cargo check"
 //它可以帮助你在开发过程中快速发现编译错误，而不必每次手动运行 cargo check 或 cargo build
 
 // 当你准备测试修改的代码，可以使用 dev 指令，它将格式化你的代码库，在启用 clippy 的情况下构建，并运行测试
-make dev  //大约10分钟左右
+make dev  // 我的配置15分钟左右，有点慢 30G空间消耗没了
 
-允许特定单元测试
+
+
+运行特定单元测试
 cd /workspace/tikv/tests/integrations/server
 执行特定单元测试
 cargo test test_rawkv 
-
+//是否包含debug信息
+RUSTFLAGS=-Cdebuginfo=2 make dev
+RUSTFLAGS=-Cdebuginfo=2 cargo build
+//RUSTFLAGS=-Cdebuginfo=2 (for full debuginfo)
 ~~~
+
+
+
+
 
 
 
@@ -138,6 +145,10 @@ cargo watch -s "cargo check"
 # Rust LLDB 调试入门指北
 
 
+
+**部署**
+
+https://tikv.org/docs/7.1/deploy/install/test
 
 
 
@@ -172,6 +183,20 @@ cargo watch -s "cargo check"
 [7]https://kaige.org/2019/06/04/Learning-TiDB-4/
 
 [8] [`rust-gdb`是什么？](https://github.com/fucking-translation/blog/blob/main/src/lang/rust/14-%E4%BD%BF%E7%94%A8GDB%E8%B0%83%E8%AF%95Rust%E5%BA%94%E7%94%A8.md)
+
+【9】https://tikv.org/docs/7.1/deploy/install/test/#install-binary-manually
+
+​      https://tikv.org/docs/7.1/deploy/install/test/#install-binary-manually
+
+https://docs.pingcap.com/tidb/stable/tiup-playground
+
+
+
+
+
+
+
+
 
 
 
