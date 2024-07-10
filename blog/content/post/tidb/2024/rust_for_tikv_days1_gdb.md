@@ -107,7 +107,7 @@ make format
 make clippy
 
 // 03-编译 https://github.com/watchpoints/tikv
-make build //我的配置大约10分钟左右
+make build //
 
 cargo install cargo-watch
 cargo watch -s "cargo check"  
@@ -115,7 +115,7 @@ cargo watch -s "cargo check"
 //它可以帮助你在开发过程中快速发现编译错误，而不必每次手动运行 cargo check 或 cargo build
 
 // 当你准备测试修改的代码，可以使用 dev 指令，它将格式化你的代码库，在启用 clippy 的情况下构建，并运行测试
-make dev  // 我的配置15分钟左右，有点慢 30G空间消耗没了
+make dev  //执行全部单元测试，这个乌龟般的速度。 30分钟了还没有完成
 
 
 
