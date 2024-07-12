@@ -115,14 +115,14 @@ cargo watch -s "cargo check"
 //它可以帮助你在开发过程中快速发现编译错误，而不必每次手动运行 cargo check 或 cargo build
 
 // 当你准备测试修改的代码，可以使用 dev 指令，它将格式化你的代码库，在启用 clippy 的情况下构建，并运行测试
-make dev  //执行全部单元测试，这个乌龟般的速度。 30分钟了还没有完成
+make dev  //执行全部单元测试，有点慢
 
 
 
 运行特定单元测试
 cd /workspace/tikv/tests/integrations/server
 执行特定单元测试
-cargo test test_rawkv 
+cargo test test_rawkv  //LLVM ERROR: IO failure on output stream: No space left on device 30空间没有了。
 //是否包含debug信息
 RUSTFLAGS=-Cdebuginfo=2 make dev
 RUSTFLAGS=-Cdebuginfo=2 cargo build
@@ -146,15 +146,27 @@ cargo watch -s "cargo check"
 
 
 
-**部署**
+### 单节点集群部署
+
+ Github Codespaces 免费搭建本地开发测试环境
+
+什么是GitHub Codespaces 
+
+GitHub Codespaces 是一个基于云的即时开发环境，它使用容器为你提供用于开发的通用语言、工具和实用程序。
+
+ GitHub Codespaces 也是可配置的，通过它可为项目创建自定义的开发环境。 
+
+通过为项目配置自定义开发环境，可以为项目的所有用户提供可重复的代码空间配置。
+
+
+
+
+
+![image-20240711143133472](D:\db\daily-interview\blog\content\post\tidb\2024\assets\image-20240711143133472.png)
+
+
 
 https://tikv.org/docs/7.1/deploy/install/test
-
-
-
-
-
-
 
 
 

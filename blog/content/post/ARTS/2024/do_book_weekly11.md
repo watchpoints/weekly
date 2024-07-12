@@ -81,13 +81,121 @@ https://sploitfun.wordpress.com/2015/02/10/understanding-glibc-malloc/
 
 
 
-.gz文件是一种经过压缩的文件格式，通常用于减小文件的大小以便更方便地传输和存储
-
-gzip -d file.gz。
-
-*zgrep*命令用于从给定的文件中搜索表达式,即使该文件是压缩的。适用于grep命令的所有选项也适用于zgrep命令
 
 
+
+
+
+
+查看操作系统版本 
+
+cat /etc/os-release
+
+~~~
+显示操作系统相关信息，包括发行版、版本号、ID等
+NAME="kos"
+VERSION="5.8"
+ID="kos"
+ID_LIKE="anolis rhel fedora centos"
+VERSION_ID="5.8"
+PLATFORM_ID="platform:an8"
+PRETTY_NAME="kos 5.8"
+ANSI_COLOR="0;31"
+HOME_URL="https://openanolis.cn/"
+~~~
+
+
+
+
+
+如何使用git
+
+
+
+如何让代码回滚到之前的某个Commit，定位问题
+
+
+
+1. 用`git log`可以查看提交历史，以便确定要回退到哪个版本
+
+   
+
+2. 硬回滚：回到过去 和过去一样 
+
+   会撤销commit，并且会丢弃工作区的更改。这意味着执行硬回滚后，你的工作区将变得和指定Commit完全一致
+
+​      git reset --hard <commit-hash>
+
+
+
+3. 软回滚：回到过去 保留现在修改部分
+
+   
+
+   git reset –soft commit_id：
+
+​      仅仅将HEAD指针和当前分支指针指向指定的commit ID，保留修改的代码不会被删除，
+
+​    可以通过git status命令查看暂存区和工作区的状态，可以重新提交修改的代码
+
+4. Git中HEAD 是什么东西
+
+   
+
+![5819ab860001e6b120481446.jpg](https://github.com/zuopf769/how_to_use_git/blob/master/images/5819ab860001e6b120481446.jpg?raw=true)
+
+
+
+# git commit 规范
+
+````
+# git commit 规范
+
++ feat: 新功能
++ fix: 修复问题
++ docs: 修改文档
++ style: 修改代码格式，不影响代码逻辑
++ refactor: 重构代码，理论上不影响现有功能
++ perf: 提升性能
++ test: 增加修改测试用例
++ chore: 修改工具相关（包括但不限于文档、代码生成等）
++ deps: 升级依赖
+
+例如，
+```
+git commit -m 'fix:修复xxxbug'
+```
+````
+
+
+
+
+
+主机修改hostname生效怎么办？
+
+hostnamectl set-hostname new-hostname
+
+
+
+现场环境出现core，用同样安装包，同样镜像ios怎办？
+
+肯定又不一样地方
+
+1. debug包安装是否正确 
+
+调试符号分离通常指的是将调试信息（符号表和调试信息）与程序的可执行文件分开存放。
+
+这样做的好处包括减少可执行文件的大小
+
+
+
+https://blog.csdn.net/qazxlf/article/details/50385616
+
+
+
+
+
+跨网络传输，为了避免一个大的文件传输错误，反复返工，改为mds5sum校验。
 
 
 
@@ -99,7 +207,31 @@ gzip -d file.gz。
 
 >主要是为了建立你的影响力，能够输出价值观。分享一篇有观点和思考的技术文章。
 
- 累计阅读文章：4 篇， 摘抄文章 篇，输出理解0篇
+ 
+
+
+
+当别人问xx天解决这个问题怎么处理
+
+
+
+1. 累出我怎么做的，如实说出，
+
+2. 针对阻塞问题 我展开解决方式。
+
+3. 满足别人迎合别人快速完成，是一个方式
+
+   但是拿出你拿出专业解决问题方式，搜集环境，解决。接受原理，处理步骤
+
+   是处理，解决问题，处理很懂个考虑。那个方恨少
+
+   你生化 从架构，设计等方面考虑。
+
+   
+
+   
+
+   
 
 
 
