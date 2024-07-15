@@ -127,44 +127,18 @@ cargo test test_rawkv  //LLVM ERROR: IO failure on output stream: No space left 
 RUSTFLAGS=-Cdebuginfo=2 make dev
 RUSTFLAGS=-Cdebuginfo=2 cargo build
 //RUSTFLAGS=-Cdebuginfo=2 (for full debuginfo)
+
 ~~~
 
 
 
+### Rust LLDB 调试入门
+
+这个gdb方式实现，后面完善。
 
 
 
-
-
-
-
-
-cargo install cargo-watch
-cargo watch -s "cargo check" 
-
-# Rust LLDB 调试入门指北
-
-
-
-### 单节点集群部署
-
- Github Codespaces 免费搭建本地开发测试环境
-
-什么是GitHub Codespaces 
-
-GitHub Codespaces 是一个基于云的即时开发环境，它使用容器为你提供用于开发的通用语言、工具和实用程序。
-
- GitHub Codespaces 也是可配置的，通过它可为项目创建自定义的开发环境。 
-
-通过为项目配置自定义开发环境，可以为项目的所有用户提供可重复的代码空间配置。
-
-
-
-
-
-![image-20240711143133472](D:\db\daily-interview\blog\content\post\tidb\2024\assets\image-20240711143133472.png)
-
-
+### 单节点集群部署 这个网上很多例子
 
 https://tikv.org/docs/7.1/deploy/install/test
 
