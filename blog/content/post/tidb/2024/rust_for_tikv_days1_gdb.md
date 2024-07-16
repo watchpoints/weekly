@@ -8,6 +8,10 @@ tags: ["Tidb"]
 
 
 
+
+
+成为tikv贡献者第一天：搭建环节
+
 [TiKV](https://github.com/tikv/tikv) 是一个支持事务的分布式 Key-Value 数据库，目前已经是 [CNCF 基金会](https://www.cncf.io/projects/) 的顶级项目。
 
 需要一定的前期准备才能够有能力参与 TiKV 社区的代码开发，
@@ -120,27 +124,39 @@ make dev  //执行全部单元测试，有点慢
 
 
 运行特定单元测试
-cd /workspace/tikv/tests/integrations/server
+cd /workspace/tikv/tests/integrations/server/kv_service.rs
+#[test_case(test_raftstore::must_new_cluster_and_kv_client)]
+#[test_case(test_raftstore_v2::must_new_cluster_and_kv_client)]
+
 执行特定单元测试
 cargo test test_rawkv  //LLVM ERROR: IO failure on output stream: No space left on device 30空间没有了。
 //是否包含debug信息
 RUSTFLAGS=-Cdebuginfo=2 make dev
 RUSTFLAGS=-Cdebuginfo=2 cargo build
 //RUSTFLAGS=-Cdebuginfo=2 (for full debuginfo)
-
 ~~~
 
 
 
-### Rust LLDB 调试入门
-
-这个gdb方式实现，后面完善。
+TiKV 使用 test_raftstore 等组件作为测试和 mock 框架
 
 
 
-### 单节点集群部署 这个网上很多例子
 
-https://tikv.org/docs/7.1/deploy/install/test
+
+### 调试
+
+- rust-analyzer  运行单元测试
+
+![fc085c98eab6512353e065778e3b4a8](D:\db\daily-interview\blog\content\post\tidb\2024\assets\fc085c98eab6512353e065778e3b4a8.png)
+
+
+
+### 单节点集群部署 
+
+主要gipod 磁盘空间满了。这个网上例子很多 不在赘述。
+
+
 
 
 
@@ -176,7 +192,9 @@ https://tikv.org/docs/7.1/deploy/install/test
 
 https://docs.pingcap.com/tidb/stable/tiup-playground
 
+- 【10】 TiDB 社区技术月刊
 
+  https://tidb.net/book/tidb-monthly/2022/2022-10/feature-indepth/tikv-code-one
 
 
 
