@@ -12,7 +12,7 @@ tags: ["Tidb"]
 
 需要一定的前期准备才能够有能力参与 TiKV 社区的代码开发
 
-
+# Tikv源码解读 #Tikv、
 
 
 
@@ -20,7 +20,7 @@ tags: ["Tidb"]
 
  成为tikv贡献者第一天：搭建环境
 
- 介绍了 如何使用gitpod 设则断点方式 运行一个单元测试， 这样方面跟踪函数调用过程
+ 介绍了 如何使用gitpod 断点调试 运行一个单元测试， 这样方面跟踪函数调用过程
 
 
 
@@ -28,7 +28,12 @@ tags: ["Tidb"]
 
 主要介绍 以一条raw_get读请求为例，介绍当前版本读请求的全链路执行流程。
 
- Raw KV 系列接口是绕过事务直接操纵底层数据的接口，没有事务控制，比较简单。
+目标
+
+1. 通过断点调试了解RPC,KvService，Storage 之间分层关系。
+2. 快照与Storage 关系？
+
+
 
 
 
@@ -67,6 +72,8 @@ assert_eq!(get_resp.value, v0);
 ~~~
 
 
+
+说明：还有一个测试方式  使用官方提供的client-go/client-rust直接访问PD和TiKV
 
 
 
@@ -195,72 +202,25 @@ fn future_raw_get<E: Engine, L: LockManager, F: KvFormat>(
 
 
 
+看完上面代码，我第一个疑问是 tikv 中的 region是 与key 是什么关系？
+
+ Region 是数据分片的基本单元，这个概念看了还是不懂，不需要记这样概念。
+
+继续提问
+
+TiKV 使用 region 来划分数据，每个 region 包含一定范围的键值对。
+
+接下里问题就是region与Storage 关系？
+
+
+
+
+
 ### Storage 
 
+  
 
 
-> 根据问题去阅读：raw_get 是怎么被调用的?   
->
-> Raw KV 系列接口是绕过事务直接操纵底层数据的接口 获取快照 然后调用接口
-
-
-
-在 KVService 中， handle_request 宏将业务逻辑封装到了 future_get 函数中。
-
-在 future_get 函数中，主要使用了 `storage.get(req.take_context(), Key::from_raw(req.get_key()), req.get_version().into())` 函数将请求路由到 Storage 模块去执行。
-
-
-
-Storage 模块位于 Service 与底层 KV 存储引擎之间，主要负责事务的并发控制。TiKV 端事务相关的实现都在 Storage 模块中。
-
-
-
-Storage 定义在 storage/mod.rs文件中，下面我们介绍下 Storage 几个重要的成员
-
-- engine：代表的是底层的 KV 存储引擎，实际上就是 RaftKV。
-- sched：事务调度器，负责并发事务请求的调度工作。
-- read_pool：读取线程池，所有只读 KV 请求，包括事务的非事务的，如 raw get、txn kv get 等最终都会在这个线程池内执行。由于只读请求不需要获取 latches，所以为其分配一个独立的线程池直接执行，而不是与非只读事务共用事务调度器。
-
-
-
-raw get 只需要调用 engine 的 `async_snapshot` 拿到数据库快照，然后直接读取就可以
-
-
-
-
-
-在 Storage 模块的raw_get函数中，所有的 task 都会被 spawn 到 readPool 中执行，
-
-具体执行的任务主要包含以下两个工作：
-
-- raw get 只需要调用 engine 的 `async_snapshot` 拿到数据库快照，
-- 然后直接读取就可以
-
-
-
-
-
-
-
-/////////////////////////////////////////////最新模块发生了变化，不能100%对应//////////////
-
-有关 3.x 版本的 Storage 模块可以参照 [TiKV 源码解析系列文章（十一）Storage - 事务控制层](https://cn.pingcap.com/blog/tikv-source-code-reading-11)。
-
-- engine
-
-TiKV 把底层 KV 存储引擎抽象成一个 Engine trait
-
-定义见 `storage/kv/mod.rs`。Engine trait 主要提供了读和写两个接口，分别为 `async_snapshot` 和 `async_write`
-
-`async_snapshot` 通过回调的方式把数据库的快照返回给调用者。
-
-//////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-readPool 是什么？
 
 代码路径：
 
@@ -268,7 +228,94 @@ tikv-master\src\storage\mod.rs
 
 
 
+下面是KvGet流程
+
+TiKV作为gRPC的Server端，提供了KvGet接口的实现，相关调用堆栈为：
+
+```arduino
++TiKV::kv_get (grpc-poll-thread)
+ +future_get
+  +Storage::get
+   +Storage::snapshot (readpool-thread)
+   +SnapshotStore::get
+     +PointGetterBuilder::build
+     +PointGetter::get
+```
+
+在一次KvGet调用中，函数执行流程会在grpc-poll-thread和readpool-thread中切换，
+
+其中前者为gRPC的poll thread，请求在被路由到Storage层后，会根据读写属性路由到不同的线程池中，
+
+只读语义的Get/Scan请求都会被路由到ReadPool中执行，这是一个特定用于处理只读请求的线程
+
+
+
+
+
+future_raw_get怎么实现对账重写一次
+
+
+
+在 KVService 中， handle_request 宏将业务逻辑封装到了 future_raw_get函数中。
+
+在 future_raw_get函数中，主要使用了 `storage.get(req.take_context(), Key::from_raw(req.get_key()), req.get_version().into())` 函数将请求路由到 Storage 模块去执行。
+
+
+
+ Storage 模块的raw_get函数中，所有的 task 都会被 spawn 到 readPool 中执行，
+
+具体执行的任务主要包含以下两个工作：
+
+- raw get 只需要调用 engine 的 `async_snapshot` 拿到数据库快照，
+- 然后直接读取就可以.
+
+
+
+Storage 是什么？
+
+
+
+Storage 定义在 storage/mod.rs文件中，下面我们介绍下 Storage 几个重要的成员
+
+- engine：代表的是底层的 KV 存储引擎，实际上就是 RaftKV。
+
+- sched：事务调度器，负责并发事务请求的调度工作。
+
+- read_pool：读取线程池，所有只读 KV 请求，包括事务的非事务的，如 raw get、txn kv get 等最终都会在这个线程池内执行。
+
+  由于只读请求不需要获取 latches，所以为其分配一个独立的线程池直接执行，而不是与非只读事务共用事务调度器。
+
+- RawAPI仅支持最基本的针对单Key操作的Set/Get/Del及Scan语义
+- TxnAPI提供了基于ACID事务标准的接口，支持多Key写入的原子性
+
 ~~~
+
+/// [`Storage`](Storage) implements transactional KV APIs and raw KV APIs on a
+/// given [`Engine`]. An [`Engine`] provides low level KV functionality.
+
+/// [`Engine`] has multiple implementations. When a TiKV server is running, a
+/// [`RaftKv`](crate::server::raftkv::RaftKv) will be the underlying [`Engine`]
+/// of [`Storage`]. The other two types of engines are for test purpose.
+///
+/// [`Storage`] is reference counted and cloning [`Storage`] will just increase
+/// the reference counter. Storage resources (i.e. threads, engine) will be
+/// released when all references are dropped.
+///
+/// Notice that read and write methods may not be performed over full data in
+/// most cases, i.e. when underlying engine is
+/// [`RaftKv`](crate::server::raftkv::RaftKv), which limits data access in the
+/// range of a single region according to specified `ctx` parameter. However,
+/// [`unsafe_destroy_range`](crate::server::gc_worker::GcTask::
+/// UnsafeDestroyRange) is the only exception. It's always performed on the
+/// whole TiKV.
+///
+/// Operations of [`Storage`](Storage) can be divided into two types: MVCC
+/// operations and raw operations. MVCC operations uses MVCC keys, which usually
+/// consist of several physical keys in different CFs. In default CF and write
+/// CF, the key will be memcomparable-encoded and append the timestamp to it, so
+/// that multiple versions can be saved at the same time. Raw operations use raw
+/// keys, which are saved directly to the engine without memcomparable- encoding
+/// and appending timestamp.
 
 pub struct Storage<E: Engine, L: LockManager, F: KvFormat> {
     // TODO: Too many Arcs, would be slow when clone.
@@ -282,11 +329,11 @@ pub struct Storage<E: Engine, L: LockManager, F: KvFormat> {
 
 
 
+`storage` 结构实现了在给定的 [`Engine`] 上执行事务性键值（KV）API和原始键值（KV）API
+
+从raw_get开始，复杂的先不看。
 
 
-代码路径：
-
-tikv-master\src\storage\mod.rs
 
 ~~~
 /// Get the value of a raw key.
@@ -297,6 +344,149 @@ pub fn raw_get(
     key: Vec<u8>,
 ) -> impl Future<Output = Result<Option<Vec<u8>>>> {
 ~~~
+
+
+
+### Storage::raw_get流程分析
+
+
+
+参考文章：
+
+- PointGet的一生 https://tidb.net/blog/d6444c63
+
+  
+
+该方法主要执行以下几个步骤：
+1. 从上下文中提取必要的信息，如优先级、任务元数据等。
+2. 在一个异步块中执行命令，记录和检查相关指标和时间。
+3. 创建快照上下文并获取快照。
+4. 编码键、收集查询信息并从存储中获取键值。
+5. 收集和记录统计数据及命令执行时间。
+6. 最终返回结果。
+
+
+
+~~~rust
+
+/// 获取原始键的值。
+/// 
+/// 该方法接收一个上下文、列族cf和键key，返回一个Future，
+/// 输出是一个包含结果的Option<Vec<u8>>类型。
+pub fn raw_get(
+    &self,
+    ctx: Context,
+    cf: String,
+    key: Vec<u8>,
+) -> impl Future<Output = Result<Option<Vec<u8>>>> {
+ 
+    // 创建并启动带忙碌检查的读取池
+    self.read_pool_spawn_with_busy_check(
+        busy_threshold,
+        async move {
+            // 增加特定命令的计数
+            KV_COMMAND_COUNTER_VEC_STATIC.get(CMD).inc();
+            SCHED_COMMANDS_PRI_COUNTER_VEC_STATIC
+                .get(priority_tag)
+                .inc();
+
+            // 检查API版本是否匹配
+            Self::check_api_version(api_version, ctx.api_version, CMD, [&key])?;
+
+            // 记录命令持续时间
+            let command_duration = Instant::now();
+
+            // 创建快照上下文
+            let snap_ctx = SnapContext {
+                pb_ctx: &ctx,
+                ..Default::default()
+            };
+
+            // 获取快照
+            let snapshot =
+                Self::with_tls_engine(|engine| Self::snapshot(engine, snap_ctx)).await?;
+
+            // 获取桶信息
+            let buckets = snapshot.ext().get_buckets();
+
+            // 创建原始存储
+            let store = RawStore::new(snapshot, api_version);
+
+            // 获取列族信息
+            let cf = Self::rawkv_cf(&cf, api_version)?;
+
+            // 内部命令执行块
+            {
+                // 记录起始时间
+                let begin_instant = Instant::now();
+                let mut stats = Statistics::default();
+
+                // 编码原始键
+                let key = F::encode_raw_key_owned(key, None);
+
+                // 获取键值
+                let r = store
+                    .raw_get_key_value(cf, &key, &mut stats)
+                    .map_err(Error::from);
+
+}
+
+~~~
+
+
+
+克服语法问题
+
+~~~rust
+ // 获取快照
+let snapshot = Self::with_tls_engine(|engine| Self::snapshot(engine, snap_ctx)).await?;
+await? 用于等待异步操作完成并检查是否有错误发生。如果有错误，它将返回该错误，并使用.await?引发适当的错误处理
+
+pub type Result<T> = std::result::Result<T, Error>;
+pub type Callback<T> = Box<dyn FnOnce(Result<T>) + Send>;
+
+#[inline]
+fn with_tls_engine<R>(f: impl FnOnce(&mut E) -> R) -> R {
+    // Safety: the read pools ensure that a TLS engine exists.
+    unsafe { with_tls_engine(f) }
+}
+
+/// Get a snapshot of `engine`.
+    fn snapshot(
+        engine: &mut E,
+        ctx: SnapContext<'_>,
+    ) -> impl std::future::Future<Output = Result<E::Snap>> {
+        kv::snapshot(engine, ctx)
+            .map_err(txn::Error::from)
+            .map_err(Error::from)
+    }
+
+
+~~~
+
+
+
+## 小结
+
+```arduino
++TiKV::kv_get (grpc-poll-thread)
+ +future_get
+  +Storage::get
+   +Storage::snapshot (readpool-thread)
+   +SnapshotStore::get
+     +PointGetterBuilder::build
+     +PointGetter::get
+```
+
+
+
+
+
+## 参考文档
+
+- 【1】RaftStorage https://xieyu.github.io/blog/tikv/thread_local_engine.html
+- 【2】PointGet的一生  https://tidb.net/blog/d6444c63
+- 【3】[基于 Send 和 Sync 的线程安全](https://course.rs/advance/concurrency-with-threads/send-sync.html#基于-send-和-sync-的线程安全)
 
 
 
@@ -334,3 +524,11 @@ pub fn raw_get(
   - TiKV 线程池性能调优
 
 https://docs.pingcap.com/zh/tidb/stable/tune-tikv-thread-performance
+
+- [11] https://segmentfault.com/a/1190000044959813
+
+- [12]PointGet的一生
+
+     https://tidb.net/blog/d6444c63
+  
+  
