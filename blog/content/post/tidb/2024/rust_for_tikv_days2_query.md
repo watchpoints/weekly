@@ -12,8 +12,6 @@ tags: ["Tidb"]
 
 需要一定的前期准备才能够有能力参与 TiKV 社区的代码开发
 
-# Tikv源码解读 #Tikv、
-
 
 
 回顾：
@@ -217,10 +215,6 @@ TiKV 使用 region 来划分数据，每个 region 包含一定范围的键值�
 
 
 ### Storage 
-
-  
-
-
 
 代码路径：
 
@@ -530,5 +524,5 @@ https://docs.pingcap.com/zh/tidb/stable/tune-tikv-thread-performance
 - [12]PointGet的一生
 
      https://tidb.net/blog/d6444c63
-  
+
   
