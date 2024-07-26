@@ -212,17 +212,36 @@ TiKV 使用 region 来划分数据，每个 region 包含一定范围的键值�
 
 
 
-
-
-### Storage 
+**Storage** 
 
 代码路径：
 
 tikv-master\src\storage\mod.rs
 
+在 KVService 中， handle_request 宏将业务逻辑封装到了 future_raw_get函数中。
+
+ Storage 模块的raw_get函数中
+
+~~~
+/// Get the value of a raw key.
+    pub fn raw_get(
+        &self,
+        ctx: Context,
+        cf: String,
+        key: Vec<u8>,
+    ) -> impl Future<Output = Result<Option<Vec<u8>>>> s
+~~~
 
 
-下面是KvGet流程
+
+具体执行的任务主要包含以下两个工作：
+
+- raw get 只需要调用 engine 的 `async_snapshot` 拿到数据库快照，
+- 然后直接读取就可以.
+
+
+
+下面是KvGet流程参考对比
 
 TiKV作为gRPC的Server端，提供了KvGet接口的实现，相关调用堆栈为：
 
@@ -240,32 +259,13 @@ TiKV作为gRPC的Server端，提供了KvGet接口的实现，相关调用堆栈�
 
 其中前者为gRPC的poll thread，请求在被路由到Storage层后，会根据读写属性路由到不同的线程池中，
 
-只读语义的Get/Scan请求都会被路由到ReadPool中执行，这是一个特定用于处理只读请求的线程
+只读语义的Get/Scan请求都会被路由到ReadPool中执行
 
 
 
 
 
-future_raw_get怎么实现对账重写一次
-
-
-
-在 KVService 中， handle_request 宏将业务逻辑封装到了 future_raw_get函数中。
-
-在 future_raw_get函数中，主要使用了 `storage.get(req.take_context(), Key::from_raw(req.get_key()), req.get_version().into())` 函数将请求路由到 Storage 模块去执行。
-
-
-
- Storage 模块的raw_get函数中，所有的 task 都会被 spawn 到 readPool 中执行，
-
-具体执行的任务主要包含以下两个工作：
-
-- raw get 只需要调用 engine 的 `async_snapshot` 拿到数据库快照，
-- 然后直接读取就可以.
-
-
-
-Storage 是什么？
+**Storage 是什么？**
 
 
 
@@ -341,7 +341,7 @@ pub fn raw_get(
 
 
 
-### Storage::raw_get流程分析
+### 3. Storage::raw_get流程分析
 
 
 
@@ -457,6 +457,56 @@ fn with_tls_engine<R>(f: impl FnOnce(&mut E) -> R) -> R {
 
 
 ~~~
+
+
+
+
+
+`read_pool_spawn_with_busy_check` 的泛型函数，
+
+它的作用是将一个异步任务（`future`）提交给一个读取池（`read_pool`），
+
+并在提交前检查是否繁忙
+
+~~~rust
+// 定义一个泛型函数 read_pool_spawn_with_busy_check，它接受以下参数：
+fn read_pool_spawn_with_busy_check<Fut, T>(
+    &self, // &self 表示这是一个方法，它借用了当前实例。
+    busy_threshold: Duration, // busy_threshold 参数，表示繁忙阈值。
+    future: Fut, // future 参数，是一个异步任务。
+    priority: CommandPri, // priority 参数，表示任务的优先级。
+    task_id: u64, // task_id 参数，表示任务的唯一标识符。
+    metadata: TaskMetadata<'_>, // metadata 参数，包含任务的元数据。
+    resource_limiter: Option<Arc<ResourceLimiter>>, // resource_limiter 参数，表示资源限制器的可选引用。
+) -> impl Future<Output = Result<T>> // 返回一个实现了 Future trait 的类型，其输出是 Result<T> 类型。
+where
+    Fut: Future<Output = Result<T>> + Send + 'static, // Fut 必须是可发送的（Send）并且 'static 生命周期，且其输出必须是 Result<T>。
+    T: Send + 'static, // T 必须是可发送的（Send）并且 'static 生命周期。
+{
+    // 检查繁忙阈值，如果返回 Err，则构造一个错误并立即返回。
+    if let Err(busy_err) = self.read_pool.check_busy_threshold(busy_threshold) {
+        let mut err = kvproto::errorpb::Error::default();
+        err.set_server_is_busy(busy_err); // 设置错误为服务器繁忙。
+        return Either::Left(future::err(Error::from(ErrorInner::Kv(err.into()))));
+    }
+
+    // 如果检查通过，则将 future 任务提交给读取池。
+    Either::Right(
+        self.read_pool
+            .spawn_handle(
+                future, // 提交的异步任务。
+                priority, // 任务的优先级。
+                task_id, // 任务的唯一标识符。
+                metadata, // 任务的元数据。
+                resource_limiter, // 资源限制器的可选引用。
+            )
+            .map_err(|_| Error::from(ErrorInner::SchedTooBusy)) // 将 spawn_handle 可能的错误转换为统一的错误类型。
+            .and_then(|res| future::ready(res)), // 使用 and_then 来处理 spawn_handle 的结果。
+    )
+}
+~~~
+
+
 
 
 
