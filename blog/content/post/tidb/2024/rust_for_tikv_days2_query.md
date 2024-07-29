@@ -29,7 +29,7 @@ tags: ["Tidb"]
 目标
 
 1. 通过断点调试了解RPC,KvService，Storage 之间分层关系。
-2. 快照与Storage 关系？
+2. 快照与Storage 关系
 
 
 
@@ -508,7 +508,13 @@ where
 
 
 
+ ###   RocksDB Snapshot 
 
+
+
+ 这一块没有看懂 TiKV 功能介绍 – Lease Read
+
+ 
 
 ## 小结
 
@@ -531,6 +537,7 @@ where
 - 【1】RaftStorage https://xieyu.github.io/blog/tikv/thread_local_engine.html
 - 【2】PointGet的一生  https://tidb.net/blog/d6444c63
 - 【3】[基于 Send 和 Sync 的线程安全](https://course.rs/advance/concurrency-with-threads/send-sync.html#基于-send-和-sync-的线程安全)
+- [4] https://alexstocks.github.io/html/rocksdb.html
 
 
 
@@ -538,41 +545,3 @@ where
 
 
 
-# help
-
-[1]https://blog.csdn.net/weixin_42241611/article/details/130080867
-
-
-
-## tod02:学习资料
-
-- https://docs.pingcap.com/zh/tidb/stable/tikv-overview
-
-- 阅读文章：https://asktug.com/t/topic/693645
-
-- 【源码合集】TiKV 源码阅读三部曲
-
-  https://mp.weixin.qq.com/s/HgflwnZZMHXaIsFV3PdGAg
-
-- 阅读  Rust 参考手册 中文版
-  https://rustwiki.org/zh-CN/reference/expressions/if-expr.html
-
-- TiKV 源码阅读三部曲（一）重要模块
-
-本小节将简单介绍 KVService 及其启动流程，并顺带介绍 TiKV 若干重要结构的初始化流程
-
-- TiKV 源码阅读三部曲（二）读流程
-
-  https://cn.pingcap.com/blog/tikv-source-code-reading-read/
-  
-  - TiKV 线程池性能调优
-
-https://docs.pingcap.com/zh/tidb/stable/tune-tikv-thread-performance
-
-- [11] https://segmentfault.com/a/1190000044959813
-
-- [12]PointGet的一生
-
-     https://tidb.net/blog/d6444c63
-
-  
