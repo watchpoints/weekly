@@ -12,6 +12,6 @@ tags: ["Tidb"]
 
 https://github.com/tikv/tikv/issues/16658
 
-
-
+https://github.com/tikv/tikv/issues/16234
+https://github.com/tikv/tikv/issues/17260
 
