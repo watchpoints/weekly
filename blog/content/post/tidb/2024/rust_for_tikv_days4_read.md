@@ -20,21 +20,19 @@ tags: ["Tidb"]
 
 
 
-写完后我收益一下
+**阅读完你将收益融如下**
 
-1. 不管什么raft，什么rockdb，但是至少 了解  rust 用引用 生命周期用法。
-
-   先来个小甜点，完全是程序员思维。
-
-   因为回顾 std::move() 无论你传入的是左值还是右值，返回的都是右值引用？
-
-   
-
-   
+1. 容易题不丢分，先吃小甜点+1分，增加学习动力 掌握一个语法知识
+    std::move()实现原理 
+  - 为什么支持传入的是左值还是右值这2个参数是&&原因吗
+  -  为什么返回的都是右值引用，是static_cast功劳吗？
+  - forward怎么做到区分类型的，他做不到 还是依赖remove_reference吗？
+  -  了解rust 用引用 生命周期用法
+    不管什么raft，什么rockdb，本来不明白，完全当作黑盒，  完全是程序员思维。
 
 
 
-回顾：
+## **回顾：**
 
  [成为tikv贡献者第二天：读请求 全链路跟踪](https://asktug.com/t/topic/1029864?_gl=1*1hzzwb7*_ga*MTA4NDM3MTU5MC4xNzAzMDM2OTcz*_ga_5FQSB5GH7F*MTcyMjMzNjMzMC4zMi4xLjE3MjIzMzYzMzguMC4wLjA.)
 
@@ -61,15 +59,13 @@ fn snapshot(
 
 
 
+## **rust语法知识1   **
+
+**SnapContext<'_>  ，必须看懂这个语法, 看到它其他完全没心情看了，我是偏离主轨道，研究这个语法了 **
 
 
 
-
-**rust语法知识1   SnapContext<'_>  ，必须看懂这个语法, 看到它其他完全没心情看了，我是偏离主轨道 **
-
-
-
-- 回顾看看c++怎么处理的：stl 模板 这里不讨论 ，主要'a，不知道为什么这么规定。
+1. **回顾看看c++怎么处理的：**
 
 ​    C++ 没有 Rust 那样的生命周期系统，因此程序员需要更加小心地管引用的生命周期
 
@@ -85,12 +81,12 @@ int main() {
     std::cout << ref << std::endl; // 未定义行为：可能打印出 "Hello, World!"，也可能打印出垃圾数据
     return 0;
 }
-
+//返回局部变量的引 运行时候出错
 ~~~
 
 
 
-- rust怎么处理这个情况 编译时候语法检报错。
+2. **rust怎么处理这个情况** 
 
 ~~~rust
 
@@ -100,19 +96,19 @@ fn main() {
     let result = create_string_reference(&s); // 传入字符串的引用
     {
         let a = s;
-        // println!("{}", s) 语法报错
+        // println!("{}", s) 语法报错 
        // 在rust中，所有权规则主要有以下三条:
        //每个值都有一个所有者
        //每个值只能有一个所有者 等于c++ move 来的变量不再有效
        // 当所有者不在程序运行范围时，该值将被删除
    
-    } //s  到这里结束了
-    println!("{}", result); // result 依然在使用 
-    //borrow later used here
+    } //s 被销毁 
+    
+    println!("{}", result); // borrow result 依然指向 s
 }
 
 fn create_string_reference<'a>(s: &'a str) -> &'a str {
-    s
+    s //无分号 return s;
 }
 
 ~~~
@@ -125,14 +121,17 @@ fn create_string_reference<'a>(s: &'a str) -> &'a str {
 - 在rust 中 result 作用范围 和 s作用范围不一致，编译报错
 - 引用的生命周期至少应该与其所指向的值的生命周期相同。
 
-画外音：rust为了保证编译正确，结果代码可读性太差了，其实不用这些约束，还增加概念。
 
 
+3. **通过std::move 理解， T,T&&  template<T&&>**
 
-- c++类型推导  T,T&&  template<T&&>
+
 
 ~~~c++
-
+代码位置
+https://en.cppreference.com/w/cpp/types/remove_reference
+https://en.cppreference.com/w/cpp/utility/move
+https://en.cppreference.com/w/cpp/utility/forward
 
 /**
  *  @brief  Convert a value（left or right） to an rvalue.
@@ -142,10 +141,15 @@ fn create_string_reference<'a>(s: &'a str) -> &'a str {
 template<typename _Tp>
   constexpr typename std::remove_reference<_Tp>::type&&
   move(_Tp&& __t) noexcept  ---（1）  模板中的&&不代表右值引用，而是万能引用，其既能接收左值又能接收右值
-  { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); } -----（2）
+  {
+      return static_cast<typename std::remove_reference<_Tp>::type&&>(__t);  -----（2）
+  } 
   
- 
- 对于模板参数T, T&, T&&. 其type类型都为T, 而且T如果有const属性，则type也会保留     
+ C++11 typename remove_reference＜T＞::type（去除传入类型引用符号）-说人话
+  -啥意思 就是获取类T，
+  remove_reference 定义三次 c++语法应该报错了，注意是模板 在编译时候选择其中一个匹配
+      
+ 对于模板参数T, T&, T&&. 其type类型都为T,     
 /// remove_reference
 template<typename _Tp>
   struct remove_reference
@@ -158,6 +162,8 @@ template<typename _Tp>
 template<typename _Tp>
   struct remove_reference<_Tp&&>
   { typedef _Tp   type; };
+
+
 
 
 ~~~
@@ -179,9 +185,68 @@ template<typename _Tp>
 
 - std::remove_reference<_Tp>::type 通过作用域 萃取 type
 
--  move(_Tp&& ) 输入
+- 模板实例化简单举例 ，
+
+  int &&move(int)
+
+  int &&move(int &a)
+
+  int &&move(int && a)
+
+   C++11 typename remove_reference＜T＞::type（去除传入类型引用符号）-说人话
+
+   啥意思 就是获取类T，int 
 
   
+
+- 别被static_cast误导了，不是static_cast保证了返回的是右值。
+
+  
+
+4. **std::forward**
+
+~~~c++
+
+这些函数模板 forward 是 C++ 中的完美转发函数，
+通常与模板类模板参数一起使用，以实现转发机制。完美转发允许将函数的参数以原始的值类别（lvalue 或 rvalue）传递给另一个函数
+不是人话
+ 
+简化理解：为什么直接用不行
+template<class T>
+void wrapper(T&& arg)
+{
+    // arg is always lvalue
+    // 直接使用：arg 无论传递什么在使用过程中当作右值使用，丢失类型信息，
+    foo(std::forward<T>(arg)); 
+    //std::forward<T>(arg  Forward as lvalue or as rvalue, depending on T
+}
+
+简化理解：forward怎么做到区分类型的，他做不到 还是依赖remove_reference
+   
+template< class T >
+T&& forward( typename std::remove_reference<T>::type& t ) ;
+如果 T 是一个引用类型（例如 int&），std::remove_reference<T>::type 将变为 int。----这个地方就是lvalue
+    
+T&& forward( std::remove_reference_t<T>& t ) 
+ 这个函数模板同样接受一个左值引用 t，并且通过别名模板移除引用，然后以 T&&（右值引用）的形式转发
+ 
+T&& forward( std::remove_reference_t<T>&& t ) 
+通用引用（universal reference）
+如果 T 是一个左值引用类型（如 int&），T&& 将折叠为 T&；
+  
+如果 T 是一个右值引用类型（如 int&&），T&& 将折叠为 T
+~~~
+
+
+
+明白了，
+
+类型折叠 简单理解成 语文没有逗号中的断句，商家最终解释权
+
+从样板到最后实例化中间还有过程 
+这个编译器发挥作用了
+
+
 
 
 
