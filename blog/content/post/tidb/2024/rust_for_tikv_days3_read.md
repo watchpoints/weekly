@@ -1,6 +1,6 @@
 ---
-title: "TiKV Contributors day3："
-date: 2024-07-31
+title: "T成为tikv贡献者第三天："
+date: 2024-07-8
 description: "Tidb"
 draft: false
 tags: ["Tidb"] 
@@ -10,11 +10,7 @@ tags: ["Tidb"]
 
 
 
-<<<<<<< HEAD
  成为tikv贡献者第三天：存储
-=======
- 成为tikv贡献者第三天：存储引擎
->>>>>>> 857bc3896ac20c114bc5da7d3f38048d85e7ae58
 
 
 
@@ -63,7 +59,7 @@ fn snapshot(
 
 
 
-## rust语法知识
+## **rust语法知识1   **
 
 **SnapContext<'_>  ，必须看懂这个语法, 看到它其他完全没心情看了，我是偏离主轨道，研究这个语法了 **
 
@@ -254,160 +250,6 @@ T&& forward( std::remove_reference_t<T>&& t )
 
 
 
-## rust项目结构
-
-~~~
-/tikv-master/src/storage
-tree -d     
-├── kv
-├── mvcc
-│   └── reader
-│       └── scanner
-├── raw
-└── txn
-    ├── actions
-    └── commands
-
-~~~
-
-
-
-mod.rs 文件作用
-
-- tikv-master\src\storage\mod.rs
-
-- `mod.rs` 作用定义`storage`模块的公共接口和私有实现。
-
-  1. **公共接口**：使用`pub`关键字来声明**子模块**中哪些项是公共的，可以被其他模块访 
-
-     pub mod kv;      storage/kv 声明目录下模块被其他模块访
-
-     pub mod mvcc; 声明内部子模块是公共的，可以被其他模块
-
-     pub mod raw; 声明内部子模块是公共的，可以被其他模块
-
-     pub mod txn; 声明内部子模块是公共的，可以被其他模块
-
-     
-
-     类似 c++中 头文件 提供public 函数
-
-     
-
-     use crate::storage::mvcc::MvccReader;
-
-     
-
-     use：类似 c++中 头文件 using namespace std;
-
-     crate：**路径指定**：`crate::storage::mvcc`是`MvccReader`所在的路径
-
-     
-
-     
-
-  2. 定义类
-
-      pub struct Storage<E: Engine, L: LockManager
-
-  
-
-  
-
-  tikv-master\src\storage\kv\mod.rs 作用 
-
-  ~~~rust
-  kv % tree 
-  .
-  ├── mod.rs
-  └── test_engine_builder.rs
-  
-  
-  pub use tikv_kv::*; //引用 tikv_kv模块全部内容 
-  
-  
-  [package]
-  name = "tikv_kv"
-  version = "0.1.0"
-  authors = ["The TiKV Authors"]
-  description = "The key-value abstraction directly used by TiKV"
-  edition = "2018"
-  publish = false
-  
-  ~~~
-
-  > 为 什么：storage\kv 没有 任何代码，
-
-  pub use tikv_kv::*
-
-  
-
-  类似在C++中，头文件通常用于声明类的接口，包括虚函数，具体实现可能调用其他动态库
-
-  ~~~
-  class MyClass {
-  public:
-      MyClass();  // 构造函数
-      virtual ~MyClass();  // 虚析构函数
-      virtual void myFunction();  // 虚函数
-  }; 
-  ~~~
-
-  
-
-  
-
-  **tikv_kv是什么**
-
-  ~~~rust
-  tikv_kv % tree     
-  .
-  ├── Cargo.toml
-  └── src
-      ├── btree_engine.rs
-      ├── cursor.rs
-      ├── lib.rs
-      ├── raftstore_impls.rs
-      ├── rocksdb_engine.rs
-      └── stats.rs
-  
-  ~~~
-
-  
-
-  TiKV 支持了三种不同的 KV 存储引擎，
-
-  - 单机 RocksDB 引擎、 rocksdb_engine.rs RocksDB 是一个单机的 Key-Value Map。
-  - 内存 B 树引擎  btree_engine.rs
-  - RaftKV 引擎
-
-  
-
-  
-
-  ## 小结
-  
-  抛开一切概念 ，抛开 一切流程图，反正我是看不懂
-  
-  终于看到   rocksdb_engine 后面怎么看不清楚，有大神告诉一下吗/
-  
-  ~~~
-  tikv_kv % tree     
-  .
-  ├── Cargo.toml
-  └── src
-      ├── btree_engine.rs
-      ├── cursor.rs
-      ├── lib.rs
-      ├── raftstore_impls.rs
-      ├── rocksdb_engine.rs
-      └── stats.rs
-  
-  
-  ~~~
-  
-  
-
 
 
 ## 参考
@@ -418,22 +260,4 @@ mod.rs 文件作用
 
 - PointGet的一生
 
-- Rust 参考手册 中文版
-
-- TiKV RocksDB读写原理整理
-
-- TinyKV Course: RaftStore执行流程
-
-- TiDB 技术内幕 – 说存储
-
-- TiKV 源码解析系列 - Raft 的优化
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
+  Rust语言圣经(Rust Course)
