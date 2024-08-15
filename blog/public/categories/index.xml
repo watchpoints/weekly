@@ -6,13 +6,39 @@
     <description>Recent content in Categories on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
+<<<<<<< HEAD
     <lastBuildDate>Mon, 11 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GTD</title>
       <link>https://wangcy6.github.io/categories/GTD/</link>
       <pubDate>Mon, 11 Mar 2024 00:00:00 +0000</pubDate>
+=======
+    <lastBuildDate>Wed, 12 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GTD</title>
+      <link>https://wangcy6.github.io/categories/GTD/</link>
+      <pubDate>Wed, 12 Jun 2024 00:00:00 +0000</pubDate>
+>>>>>>> 5daac766421b18e4e49ca4e73a840eb6773fbf55
       
       <guid>https://wangcy6.github.io/categories/GTD/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CEPH</title>
+      <link>https://wangcy6.github.io/categories/CEPH/</link>
+      <pubDate>Thu, 28 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/categories/CEPH/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ARTS</title>
+      <link>https://wangcy6.github.io/categories/ARTS/</link>
+      <pubDate>Mon, 25 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/categories/ARTS/</guid>
       <description></description>
     </item>
     
@@ -31,15 +57,6 @@
       <pubDate>Sun, 18 Jun 2023 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/categories/Englis/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>CEPH</title>
-      <link>https://wangcy6.github.io/categories/CEPH/</link>
-      <pubDate>Fri, 02 Jun 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/categories/CEPH/</guid>
       <description></description>
     </item>
     
@@ -76,15 +93,6 @@
       <pubDate>Mon, 30 Jan 2023 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/categories/oceanbase%E6%8E%A2%E7%B4%A2%E4%B9%8B%E6%97%85/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ARTS</title>
-      <link>https://wangcy6.github.io/categories/ARTS/</link>
-      <pubDate>Fri, 14 Oct 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/categories/ARTS/</guid>
       <description></description>
     </item>
     
