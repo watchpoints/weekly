@@ -6,7 +6,155 @@
     <description>Recent content on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
+<<<<<<< HEAD
     <lastBuildDate>Tue, 12 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/index.xml" rel="self" type="application/rss+xml" />
+=======
+    <lastBuildDate>Fri, 02 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI正念｜睡前三小时精力回流提醒助手</title>
+      <link>https://wangcy6.github.io/post/ai/2024/01-2024-08-02-go-to-sleep/</link>
+      <pubDate>Fri, 02 Aug 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ai/2024/01-2024-08-02-go-to-sleep/</guid>
+      <description>AI正念｜睡前三小时精力回流提醒助手 大家好，我是watchpoints ，一个只为自己打工程序员， watchpoints是我github用户名</description>
+    </item>
+    
+    <item>
+      <title>TiKV Contributors day3：</title>
+      <link>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days4_read/</link>
+      <pubDate>Wed, 31 Jul 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days4_read/</guid>
+      <description>成为tikv贡献者第三天：存储引擎 本文是TiKV 源码阅读第三篇， 目标：snapshot进行进一步理解，一边理解rust语法，一边抽象模块之间</description>
+    </item>
+    
+    <item>
+      <title>TiKV Contributors day1</title>
+      <link>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days1_gdb/</link>
+      <pubDate>Mon, 08 Jul 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days1_gdb/</guid>
+      <description>成为tikv贡献者第一天：搭建环节 TiKV 是一个支持事务的分布式 Key-Value 数据库，目前已经是 CNCF 基金会 的顶级项目。 需要一定的前期准备才能够有能力参与 TiKV 社区的</description>
+    </item>
+    
+    <item>
+      <title>只管去做践N0.12</title>
+      <link>https://wangcy6.github.io/post/ARTS/2024/do_book_weekly11/</link>
+      <pubDate>Wed, 12 Jun 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ARTS/2024/do_book_weekly11/</guid>
+      <description>指定每月目标，拆分每周预先承诺的习惯卡片， 落实每天行动清单 文章地址：http://localhost:1313/post/ARTS/2024</description>
+    </item>
+    
+    <item>
+      <title>只管去做践N0.12</title>
+      <link>https://wangcy6.github.io/post/ARTS/2024/do_book_weekly12_20240803/</link>
+      <pubDate>Wed, 12 Jun 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ARTS/2024/do_book_weekly12_20240803/</guid>
+      <description>指定每月目标，拆分每周预先承诺的习惯卡片， 落实每天行动清单 文章地址：http://localhost:1313/post/ARTS/2024</description>
+    </item>
+    
+    <item>
+      <title>只管去做践N0.11</title>
+      <link>https://wangcy6.github.io/post/ARTS/2024/do_book_weekly10_20240605/</link>
+      <pubDate>Wed, 05 Jun 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ARTS/2024/do_book_weekly10_20240605/</guid>
+      <description>指定每月目标，拆分每周预先承诺的习惯卡片， 落实每天行动清单 文章地址：http://localhost:1313/post/ARTS/2024</description>
+    </item>
+    
+    <item>
+      <title>源码解读第一天：raft 与Paxos</title>
+      <link>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days100_1/</link>
+      <pubDate>Wed, 29 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days100_1/</guid>
+      <description>todo01：搭建tikv环境 task01：搭建tikv环境（容器版本，和源码版本） 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 在CentOS上进行</description>
+    </item>
+    
+    <item>
+      <title>源码解析：ceph数据读写</title>
+      <link>https://wangcy6.github.io/post/storage/2024-3-08-ceph-read/</link>
+      <pubDate>Thu, 28 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/storage/2024-3-08-ceph-read/</guid>
+      <description>导读 系列文章：https://www.jianshu.com/u/5c59bd9b10db MDS源码分析-3 LOOKUP &amp;amp; GETATTR 文件锁（filelock）</description>
+    </item>
+    
+    <item>
+      <title>ARTS_2024_weekly_13</title>
+      <link>https://wangcy6.github.io/post/ARTS/2024/arts_weekly_13/</link>
+      <pubDate>Mon, 25 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ARTS/2024/arts_weekly_13/</guid>
+      <description>什么是ARTS 我们可以看到，你听别人讲，或是自己看书，或是让别人演示给你，这些都不能让你真正获得学习能力，因为你是在被别人灌输，在听别人说。</description>
+    </item>
+    
+    <item>
+      <title>vivo蓝河操作系统创新赛准备材料</title>
+      <link>https://wangcy6.github.io/post/2024/2024-03-03-11-rust-ai/</link>
+      <pubDate>Tue, 12 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2024/2024-03-03-11-rust-ai/</guid>
+      <description>赛题1 - 蓝河代码转译工具 背景阐述 1.C/C++代码编写的系统大约70%的严重安全漏洞和内存使用不当相关，Rust语言一系列安全特性，可以在编</description>
+    </item>
+    
+    <item>
+      <title>只管去做践N0.9</title>
+      <link>https://wangcy6.github.io/post/ARTS/2024/do_book_weekly_8/</link>
+      <pubDate>Mon, 11 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ARTS/2024/do_book_weekly_8/</guid>
+      <description>指定每月目标，拆分每周预先承诺的习惯卡片， 落实每天行动清单 Part I 月初指定目标九宫格：一月一次 一、 我今天为目标做了什么 第一个青蛙 1. 工作·事业： 提</description>
+    </item>
+    
+    <item>
+      <title>只管去做践N0.9</title>
+      <link>https://wangcy6.github.io/post/ARTS/2024/do_book_weekly_9/</link>
+      <pubDate>Mon, 11 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ARTS/2024/do_book_weekly_9/</guid>
+      <description>指定每月目标，拆分每周预先承诺的习惯卡片， 落实每天行动清单 Part I 月初指定目标九宫格：一月一次 一、 我今天为目标做了什么 第一个青蛙 1. 工作·事业： 提</description>
+    </item>
+    
+    <item>
+      <title>只管去做践N0.7</title>
+      <link>https://wangcy6.github.io/post/ARTS/2024/%E5%8F%AA%E7%AE%A1%E5%8E%BB%E5%81%9A%E8%B7%B5%E8%A1%8C%E8%AE%B0%E5%BD%95%E7%AC%AC7%E5%91%A8-/</link>
+      <pubDate>Wed, 06 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ARTS/2024/%E5%8F%AA%E7%AE%A1%E5%8E%BB%E5%81%9A%E8%B7%B5%E8%A1%8C%E8%AE%B0%E5%BD%95%E7%AC%AC7%E5%91%A8-/</guid>
+      <description>只管去做 N0.7 # Part I 每月目标九宫格训练营 # Part 2 习惯卡片 一、环境场： 餐厅区&amp;ndash;吃饭专心吃饭 小故事：过去是吧10000次，今天想改造怎么做</description>
+    </item>
+    
+    <item>
+      <title>整理：强哥答疑</title>
+      <link>https://wangcy6.github.io/post/2024/2024-03-03-04_rust_vivo/</link>
+      <pubDate>Sun, 03 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2024/2024-03-03-04_rust_vivo/</guid>
+      <description>学习方法 1 2 3 4 5 6 7 8 9 10 11 一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题 二、这个技术的优势和劣势分别是什么 三、这</description>
+    </item>
+    
+    <item>
+      <title>整理：强哥答疑</title>
+      <link>https://wangcy6.github.io/post/2024/2024-03-03-ask/</link>
+      <pubDate>Sun, 03 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2024/2024-03-03-ask/</guid>
+      <description>学习方法 1 2 3 4 5 6 7 8 9 10 11 12 一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题 二、这个技术的优势和劣势分别是什么 三、</description>
+    </item>
+    
+    <item>
+      <title>源码阅读：请你设计一个线程池</title>
+      <link>https://wangcy6.github.io/post/2024/2024-03-06_readcode_ceph_threadpool/</link>
+      <pubDate>Sun, 03 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2024/2024-03-06_readcode_ceph_threadpool/</guid>
+      <description>在温和的春夜里，路灯投下淡淡的黄光，小王沿着柳树成荫的街道散步，思绪随着微风轻轻飘散。不远处，他的邻居老王也正慢慢踱步，一如既往地享受着夜的</description>
+    </item>
+    
+>>>>>>> 5daac766421b18e4e49ca4e73a840eb6773fbf55
     <item>
       <title>vivo蓝河操作系统创新赛准备材料</title>
       <link>https://wangcy6.github.io/post/2024/2024-03-03-11-rust-ai/</link>
@@ -68,6 +216,15 @@
       
       <guid>https://wangcy6.github.io/post/2024/2024-03-03-ask/</guid>
       <description>学习方法 1 2 3 4 5 6 7 8 9 10 11 12 一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题 二、这个技术的优势和劣势分别是什么 三、</description>
+    </item>
+    
+    <item>
+      <title>Rust For Linux02</title>
+      <link>https://wangcy6.github.io/post/liunx/Rust/Rust_for_Liunx_2/</link>
+      <pubDate>Wed, 06 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/liunx/Rust/Rust_for_Liunx_2/</guid>
+      <description>本文主要描述 第六章：文件系统 参考资料 https://github.com/LearningOS/2023a-rcore-watchpoints https://rcore-os.cn/rCore-Tutorial-Book-v3/chapter6/0intro.html#id2 https://rcore-os.cn/rCore-Tutorial-Book-v3/chapter6/index.html rcore-tutorial-book-v3.pdf https://github.com/learningos https://os.phil-opp.com/ 本章代码导读 本章涉及的代码量相对较多，且与进程执行相关的管理还有直接的关系。其实我们是参考经</description>
     </item>
     
     <item>
@@ -305,6 +462,18 @@
     </item>
     
     <item>
+<<<<<<< HEAD
+=======
+      <title>成为oceanbase贡献者第四天：内置函数</title>
+      <link>https://wangcy6.github.io/post/oceanbase/2024/01-2024-06-18-ob_study1/</link>
+      <pubDate>Fri, 26 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/oceanbase/2024/01-2024-06-18-ob_study1/</guid>
+      <description>#一、Overview 大家好， 本文主要描述是如何OceanBase 社区版实现一个 MySQL 5.7 新增的系统内建函数。 通过https://github.c</description>
+    </item>
+    
+    <item>
+>>>>>>> 5daac766421b18e4e49ca4e73a840eb6773fbf55
       <title>AI周刊</title>
       <link>https://wangcy6.github.io/post/2024/2024_03_10_ai_weekly_01/</link>
       <pubDate>Sat, 13 May 2023 00:00:00 +0000</pubDate>
@@ -1592,6 +1761,45 @@
     </item>
     
     <item>
+<<<<<<< HEAD
+=======
+      <title>TiKV 源码阅读三部曲（二）读流程</title>
+      <link>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days2_query/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days2_query/</guid>
+      <description>成为tikv贡献者第二天：读请求 全链路跟踪 TiKV 是一个支持事务的分布式 Key-Value 数据库， 需要一定的前期准备才能够有能力参与 TiKV 社区的代码开发 回顾： 成为ti</description>
+    </item>
+    
+    <item>
+      <title>TiKV 源码阅读三部曲（二）读流程</title>
+      <link>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days5_OOM/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days5_OOM/</guid>
+      <description>https://github.com/tikv/tikv/issues/16658 https://github.com/tikv/tikv/issues/16234 https://github.com/tikv/tikv/issues/17260</description>
+    </item>
+    
+    <item>
+      <title>《大话 Ceph》 之Ceph 运维手册&#34;</title>
+      <link>https://wangcy6.github.io/post/storage/3_ceph_help/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/storage/3_ceph_help/</guid>
+      <description>http://localhost:1313/post/storage/2_ceph_mon/ 服务平滑重启 任何一个成熟的项目，必须要提供出接口，就像探针一样，可以让我们探查进程内部的运行情况，进程不能是一个黑盒子。对于ceph而言，</description>
+    </item>
+    
+    <item>
+      <title>只管去做践N0.10</title>
+      <link>https://wangcy6.github.io/post/ARTS/2024/do_book_weekly_10/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ARTS/2024/do_book_weekly_10/</guid>
+      <description>指定每月目标，拆分每周预先承诺的习惯卡片， 落实每天行动清单 Part I 月初指定目标九宫格：一月一次 一、 我今天为目标做了什么 第一个青蛙 1. 工作·事业： 提</description>
+    </item>
+    
+    <item>
+>>>>>>> 5daac766421b18e4e49ca4e73a840eb6773fbf55
       <title>日拱一卒：操作手册</title>
       <link>https://wangcy6.github.io/post/storage/4_icfs_help/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

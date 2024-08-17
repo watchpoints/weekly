@@ -15,7 +15,9 @@ categories: ["do book"]
 
 
 
-> C++中通过new和delete两个关键字进行动态内存管理。
+> C++中通过new和delete两个关键字进行动态内存管理。 
+>
+> c语言通过 malloc 和free 两个关键字进行动态内存管理
 
 
 
@@ -71,6 +73,25 @@ std::cout << "3: ";
 new (p2) MyClass();
 delete p1;
 delete p2;
+~~~
+
+
+
+**malloc** 
+
+~~~c++
+https://en.cppreference.com/w/c/memory/malloc
+void *malloc( size_t size );
+Allocates size bytes of uninitialized storage，
+alloc is thread-safe
+    
+Parameters
+size	-	number of bytes to allocate 
+sizeof  Queries size of the object or type.
+
+On failure, returns a null pointer.
+
+ malloc(4*sizeof(int))
 ~~~
 
 
@@ -187,13 +208,6 @@ private:
 };
 
 
-
-能否提供一个完整的示例，展示如何在一个复杂的类中嵌入 `elist` 并使用它？
-完整代码：
-https://lab.forgefriends.org/ceph/ceph/-/blob/wip-rgw-placement-rule-empty/src/include/elist.h
-
-https://kimi.moonshot.cn/share/cqqc6ga1n4gqsenn4ur0
-https://kimi.moonshot.cn/share/cqqcdsdskq8g1pv5ces0
 ~~~
 
 
@@ -201,8 +215,6 @@ https://kimi.moonshot.cn/share/cqqcdsdskq8g1pv5ces0
 - c++ 内存模型 (了解)
 
 GCC 或 Clang，你可以使用 `__builtin_offsetof` 函数来获取成员的偏移量：
-
-
 
 ~~~c++
 #define member_offset(cls, member) ((size_t)(&((cls*)1)->member) - 1)
@@ -216,17 +228,101 @@ public:
  size_t offset_a = __builtin_offsetof(Example, a);__
 
  size_t offset_b = __builtin_offsetof(Example, b)
+     
+     
+ 
+能否提供一个完整的示例，展示如何在一个复杂的类中嵌入 `elist` 并使用它？
+完整代码：
+https://lab.forgefriends.org/ceph/ceph/-/blob/wip-rgw-placement-rule-empty/src/include/elist.h
+
+https://kimi.moonshot.cn/share/cqqc6ga1n4gqsenn4ur0
+https://kimi.moonshot.cn/share/cqqcdsdskq8g1pv5ces0
 ~~~
 
 
 
+### STL源码剖析 by 侯捷 提到一个同样技巧
+
+- what：关于STL中空间配置器中free_list的理解，理解不了_Obj 这个单链表怎么存储对象的数据的
+
+~~~c++
+union _Obj {
+        union _Obj* _M_free_list_link; // 单链表
+        char _M_client_data[1];    /* The client sees this.        */
+  }; 关于STL中空间配置器中free_list的理解
+
+~~~
 
 
 
+![img](https://images0.cnblogs.com/blog/621006/201411/172019016605172.png) 
 
 
 
+- how：参考资料
 
+~~~
+
+自己动手实现STL 01：内存配置器的实现(stl_alloc.h)
+https://github.com/wangcy6/sgi-stl/blob/master/stl_alloc.h
+https://www.cnblogs.com/wangjzh/p/4097355.html
+
+https://github.com/wangcy6/STLSourceCodeNote
+
+~~~
+
+
+
+第一级配置器malloc_alloc 就是，直接调用系统的malloc分配内存
+
+
+
+~~~c#
+//第一级配置器malloc_alloc 就是，直接调用系统的malloc分配内存
+typedef __malloc_alloc_template<0> malloc_alloc;
+
+template <int __inst> //这个模板没啥意义，区分一级二级区别
+class __malloc_alloc_template {
+private:
+  static void* _S_oom_malloc(size_t);
+  static void* _S_oom_realloc(void*, size_t);
+public:
+  static void* allocate(size_t __n)
+  {
+    void* __result = malloc(__n);
+    if (0 == __result)  //malloc是否返回0
+		 __result = _S_oom_malloc(__n); //分配失败继续分配
+    return __result;
+  }
+  static void deallocate(void* __p, size_t /* __n */)
+  {
+    free(__p);
+  }
+}
+
+~~~
+
+
+
+第二级配置器（Second-level allocator）：。
+
+default_alloc 尝试通过分配大块内存（称为 "chunks"）来减少内存碎片，并使用这些大块内存来满足较小的内存请求。
+ 它使用一个自由列表（free list）机制来管理这些大块内存中的小块内存。
+
+default_alloc 可以是线程安全的，并且提供了更好的内存局部性和缓存性能。
+
+~~~
+//第二级配置器
+
+typedef __default_alloc_template<__NODE_ALLOCATOR_THREADS, 0> alloc;
+
+~~~
+
+ 
+
+![img](https://images0.cnblogs.com/blog/621006/201411/172054058797622.png)
+
+![img](https://images0.cnblogs.com/blog/621006/201411/171953509416538.png)
 
 https://cplusplus.com/reference/new/operator%20new/
 
