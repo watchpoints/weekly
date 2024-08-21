@@ -41,13 +41,13 @@ categories: ["GTD"]
 
 
 
-### 1. Algorithm
+### 1. Algorithm（主要是为了编程训练和学习）
 
 > **主要是为了编程训练和学习。**每周至少做一个 leetcode 的算法题（先从Easy开始，然后再Medium，最后才Hard）。进行编程训练，如果不训练你看再多的算法书，你依然不会做算法题，看完书后，你需要训练。。
 
 
 
-### 2. Review 
+### 2. Review （如果你的英文不行，你基本上无缘技术高）
 
 > 主要是为了学习英文，如果你的英文不行，你基本上无缘技术高手。所以，需要你阅读并点评至少一篇英文技术文章，我个人最喜欢去的地方是[http://Medium.com](https://link.zhihu.com/?target=http%3A//Medium.com)
 
@@ -71,9 +71,7 @@ categories: ["GTD"]
 
 
 
-
-
-### 3. Tip
+### 3. Tip（总结和归纳你在是常工作中所遇到的知识点）
 
 > 主要是为了总结和归纳你在是常工作中所遇到的知识点。学习至少一个技术技巧。
 >
@@ -87,119 +85,9 @@ categories: ["GTD"]
 
 
 
-查看操作系统版本 
-
-cat /etc/os-release
-
-```
-显示操作系统相关信息，包括发行版、版本号、ID等
-NAME="kos"
-VERSION="5.8"
-ID="kos"
-ID_LIKE="anolis rhel fedora centos"
-VERSION_ID="5.8"
-PLATFORM_ID="platform:an8"
-PRETTY_NAME="kos 5.8"
-ANSI_COLOR="0;31"
-HOME_URL="https://openanolis.cn/"
-```
 
 
-
-
-
-如何使用git
-
-
-
-如何让代码回滚到之前的某个Commit，定位问题
-
-
-
-1. 用`git log`可以查看提交历史，以便确定要回退到哪个版本
-
-   
-
-2. 硬回滚：回到过去 和过去一样 
-
-   会撤销commit，并且会丢弃工作区的更改。这意味着执行硬回滚后，你的工作区将变得和指定Commit完全一致
-
-​      git reset --hard <commit-hash>
-
-
-
-3. 软回滚：回到过去 保留现在修改部分
-
-   
-
-   git reset –soft commit_id：
-
-​      仅仅将HEAD指针和当前分支指针指向指定的commit ID，保留修改的代码不会被删除，
-
-​    可以通过git status命令查看暂存区和工作区的状态，可以重新提交修改的代码
-
-4. Git中HEAD 是什么东西
-
-   
-
-![5819ab860001e6b120481446.jpg](https://github.com/zuopf769/how_to_use_git/blob/master/images/5819ab860001e6b120481446.jpg?raw=true)
-
-````
-# git commit 规范
-​
-+ feat: 新功能
-+ fix: 修复问题
-+ docs: 修改文档
-+ style: 修改代码格式，不影响代码逻辑
-+ refactor: 重构代码，理论上不影响现有功能
-+ perf: 提升性能
-+ test: 增加修改测试用例
-+ chore: 修改工具相关（包括但不限于文档、代码生成等）
-+ deps: 升级依赖
-​
-例如，
-```
-git commit -m 'fix:修复xxxbug'
-```
-````
-
-
-
-
-
-主机修改hostname生效怎么办？
-
-hostnamectl set-hostname new-hostname
-
-
-
-现场环境出现core，用同样安装包，同样镜像ios怎办？
-
-肯定又不一样地方
-
-1. debug包安装是否正确 
-
-调试符号分离通常指的是将调试信息（符号表和调试信息）与程序的可执行文件分开存放。
-
-这样做的好处包括减少可执行文件的大小
-
-
-
-https://blog.csdn.net/qazxlf/article/details/50385616
-
-
-
-
-
-跨网络传输，为了避免一个大的文件传输错误，反复返工，改为mds5sum校验。
-
-
-
-
-
-
-
-### 4.  Share
+### 4.  Share（为了建立你的影响力，能够输出价值观）
 
 > 主要是为了建立你的影响力，能够输出价值观。分享一篇有观点和思考的技术文章。
 
@@ -974,11 +862,11 @@ https://app.yinxiang.com/fx/192cc095-2b2b-4198-99ab-7dfd6f7fd1aa
 
 行动拆分01 :打开电脑--练习背靠椅子上抱枕，拒绝葛优躺  二郎腿 ， 高低肩，提高背部力量
 
-- 发现不自觉身体前倾次数，自己感觉是是舒适正确的    
+- 低头：不自觉身体前倾次数，看手机养成习惯     -10 
 
 - 高低肩 右手鼠标导致。-10   纠正 手离开鼠标
 
-- 二郎腿  -1 ，叉开
+- 二郎腿  -11 ，叉开
 
 - -绝葛优躺  -19  脊柱正
 
@@ -993,12 +881,6 @@ https://app.yinxiang.com/fx/192cc095-2b2b-4198-99ab-7dfd6f7fd1aa
   
 
   
-
-
-
-
-
-
 
 
 
