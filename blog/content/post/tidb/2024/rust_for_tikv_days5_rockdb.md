@@ -93,7 +93,7 @@ https://github.com/tikv/tikv/pull/16253
 
 https://github.com/tikv/tikv/issues/17309
 
-raftstore: larger region size for the compatibility to larger clusters. #17309
+
 
 
 
@@ -103,25 +103,52 @@ raftstore: larger region size for the compatibility to larger clusters. #17309
 
 https://github.com/tikv/tikv/pull/16253
 
-了解概念
+https://github.com/tikv/tikv/issues/16308
+
+
+
+- 了解概念
 
 <div  style="border: 2px solid  #add8e6;font-size: 17px; align-items: center;">  
 https://github.com/facebook/rocksdb/wiki 是由 Facebook 基于 LevelDB 开发的一款提供键值存储与读写功能的 LSM-tree 架构引擎。
 用户写入的键值对会先写入磁盘上的 WAL (Write Ahead Log)，然后再写入内存中的跳表（SkipList，这部分结构又被称作 MemTable）。
  LSM-tree 引擎由于将用户的随机修改（插入）转化为了对 WAL 文件的顺序写，因此具有比 B 树类存储引擎更高的写吞吐。
-内存中的数据达到一定阈值后，会刷到磁盘上生成 SST 文件 (Sorted String Table)，SST 又分为多层（默认至多 6 层），
+内存中的数据达到一定阈值后，会刷到磁盘上生成 SST 文件 (Sorted String Table)，
+ SST 又分为多层（默认至多 6 层），
 每一层的数据达到一定阈值后会挑选一部分 SST 合并到下一层，每一层的数据是上一层的 10 倍（因此 90% 的数据存储在最后一层） 
 </div>
 
 
 
-了解概念
 
 https://github.com/facebook/rocksdb/wiki/RocksDB-Overview#3-high-level-architecture
 
-
-
 ![img](https://user-images.githubusercontent.com/62277872/119747261-310fb300-be47-11eb-92c3-c11719fa8a0c.png)
+
+
+
+The three basic constructs of RocksDB are **memtable**, **sstfile** and **logfile**. 
+
+The [**memtable**](https://github.com/facebook/rocksdb/wiki/MemTable) is an in-memory data structure - new writes are inserted into the *memtable* and are optionally written to the [**logfile** (aka. Write Ahead Log(WAL))](https://github.com/facebook/rocksdb/wiki/Write-Ahead-Log-(WAL)). 
+
+The logfile is a sequentially-written file on storage. When the memtable fills up, it is flushed to a [**sstfile**](https://github.com/facebook/rocksdb/wiki/Rocksdb-BlockBasedTable-Format) on storage and the corresponding logfile can be safely deleted. The data in an sstfile is sorted to facilitate easy lookup of keys.
+
+
+
+- 阅读题目可以做到
+
+~~~R
+
+[2023/12/27 04:41:51.140 +08:00] [WARN] [event_listener.rs:127] ["detected rocksdb background error"] [err="Corruption: block checksum mismatch: stored = 2981909476, computed = 324654415, type = 1  in /data1/data/db/38457359.sst offset 8497742 size 3971"] [sst=/38457359.sst]
+
+[2023/12/27 04:41:52.381 +08:00] [WARN] [store.rs:243] ["detected damaged regions overlapping damaged file ranges"] [id="{592132084, 442186929, 607655650}"]
+
+[2023/12/27 04:42:01.909 +08:00] [FATAL] [lib.rs:509] ["Failed to recover sst file: /38457359.sst, error: file still exists, it may belong L0, damaged_files:[name:\"/38457359.sst\", smallest_key:[122, 116, 128, 0, 
+             at /home/jenkins/agent/workspace/build-common/go/src/github.com/pingcap/tikv/components/tikv_util/src/lib.rs:508:18
+   1: <alloc::boxed::Box<F,A> as core::ops::function::Fn<Args>>::call
+             at /rust/toolchains/nightly-2022-11-15-x86_64-unknown-linux-
+   4: rust_begin_unwind
+~~~
 
 
 
