@@ -207,7 +207,90 @@ tikv\components\engine_traits\src
 
 扩展阅读【2】
 
+~~~
+What we want to end up with, for the sake of compile time, and also simply maintaining abstraction boundaries, is one crate that defines what an engine is (its traits), and for each implemented engine, 
+another crate that implements those traits. 
 
+我们希望最终实现的是  一个库定义接口，另外一个库实现这个接口。确保代码的模块化和抽象化
+
+
+That way the common code will build very fast, from there all the engines will build in parallel, and the implementation details of the engines can't leak into the common code or each other.
+
+
+In other words…what you put up with, you end up with.
+换句话说……你所忍受的，你最终会得到什么。
+
+
+~~~
+
+
+
+**容易  阅读学习rust语法**
+
+
+
+~~~rust
+ tests/integrations/raftstore/test_update_region_size.rs
+// 定义闭包 `batch_put`，它接受一个可变引用的 `Cluster` 实例
+// `Cluster` 是一个泛型结构体，其引擎类型为 `RocksEngine`，泛型参数 `T` 未指定
+let batch_put = |cluster: &mut Cluster<RocksEngine, T>, mut start, end| {
+    // 使用 while 循环直到 `start` 大于或等于 `end`
+    while start < end {
+        // 计算下一次迭代的 `start` 位置，但不超过 `end`，且不超过 `start + 50`
+        let next = std::cmp::min(end, start + 50);
+        
+        // 使用 range 创建从 `start` 到 `next`（不包括 `next`）的序列
+        // 然后使用 `map` 方法转换序列中的每个索引 `i`：
+        // - 格式化字符串 "k{}" 和 "value{}" 为字节串，作为键和值
+        // - 创建一个新的 `PutCommand`（假设的 `new_put_cmd` 函数）
+        // 最后，使用 `collect` 将转换后的序列收集为集合
+        let requests = (start..next)
+            .map(|i| {
+                new_put_cmd(
+                    &format!("k{}", i).into_bytes(),
+                    &format!("value{}", i).into_bytes(),
+                )
+            })
+            .collect();
+        //https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.collect
+        
+        // 调用 `cluster` 的 `batch_put` 方法执行批量插入：
+        // - 第一个参数是起始键 "k{}" 的字节串
+        // - 第二个参数是收集到的请求集合 `requests`
+        // 使用 `unwrap` 处理可能的 `Result` 错误，假设我们确定它总是 `Ok`
+        cluster
+            .batch_put(&format!("k{}", start).into_bytes(), requests)
+            .unwrap();
+        
+        // 更新 `start` 的值为 `next`，准备下一次循环
+        start = next;
+    }
+};
+rust 闭包（closure） 参数 | | 是什么和c++lamber表达式语法区别
+
+在 Rust 中，闭包（closure）是一种匿名函数，可以捕获并使用其创建环境中的变量。闭包的参数列表使用竖线 | 来定义，这与函数定义中的圆括号 () 不同。Rust 中的闭包语法如下：
+
+rust
+let closure = |parameter1, parameter2, ...| {
+    // 闭包体
+};
+这里的竖线 | 是 Rust 特有的语法，用于定义闭包的参数
+c++
+[capture list] (parameter list) -> return type { function body }
+c++
+
+捕获环境：
+
+Rust 的闭包可以捕获外部环境中的变量，并且可以有多种捕获模式（如：移动、复制、引用等）。
+C++ 的 lambda 表达式也可以捕获外部变量，但捕获方式（如：值捕获、引用捕获等）需要在 lambda 表达式的捕获子句中明确指定。
+
+~~~
+
+
+
+
+
+components/engine_traits/src/engine.rs
 
 
 
