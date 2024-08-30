@@ -152,9 +152,72 @@ The logfile is a sequentially-written file on storage. When the memtable fills u
 
 
 
+
+
+Introduce engine_rocks component #5541
+
+https://github.com/tikv/tikv/pull/5541
+
+
+
+**简单 可以做到:当作一个英语文章学习英语**
+
+
+
+This is very easy to understand. I appreciate it.
+
+```
+这很容易理解。我很感激
+
+在这个句子中，"to understand" 作为形容词短语，用来说明 "This" 的特点，即 "This" 是容易理解的。这种结构在英语中很常见，不定式短语可以用作形容词，用来修饰名词或代词，提供关于它们的额外信息。
+
+
+在英语中，"I appreciate it." 这句话中的 "it" 是一个代词，它用来指代前面提到的某个行为、事物或情况。虽然在某些语境下 "it" 可能看起来是多余的，但实际上它起到了明确指代的作用，帮助听者或读者理解说话者是在感激什么。
+
+例如，如果有人帮助了你，你可能会说 "Thank you for your help. I appreciate it." 在这个例子中，"it" 指代的是 "your help"，即你感激的是对方的帮助。
+
+```
+
+
+
+
+
+Organizationally there's one change I would like to see here, and that's to put the RocksDB implementation in a different crate, such that engine_traits does not depend on rocksdb.
+
+翻译：
+在组织结构上，我想看到一个变化，那就是将 RocksDB 的实现放在一个不同的 crate 中，这样 engine_traits 就不会依赖于 rocksdb。
+
+解释重点理解：
+1. **Organizationally**：这个词表示从组织结构或代码结构的角度来看。
+2. **Change**：这里指的是代码库或项目结构的变更。
+3. **RocksDB implementation**：指的是 RocksDB 数据库的实现代码。
+4. **Different crate**：在 Rust 编程语言中，crate 是一个编译单元，可以包含库或可执行文件。这里建议将 RocksDB 的实现放入另一个 crate，以实现模块化和解耦。
+5. **Engine_traits**：这可能是一个定义了数据库引擎特性的 Rust trait（特质），它定义了数据库引擎应该实现的方法和属性。
+6. **Does not depend on rocksdb**：意味着 engine_traits 这个 trait 不应该直接依赖于 rocksdb 这个 crate。这样做可以减少模块间的耦合，提高代码的可维护性和可扩展性。
+
+总的来说，这句话是在讨论代码的组织和模块化，建议将 RocksDB 的实现与 engine_traits 这个 trait 分开，以减少依赖和提高代码的清晰度。
+
+
+
+engine_traits  是一个模块
+
+tikv\components\engine_traits\src 
+
+
+
+扩展阅读【2】
+
+
+
+
+
+
+
 ## 参考
 
 [1] https://docs.pingcap.com/zh/tidb/stable/rocksdb-overview
+
+【2】 https://zhuanlan.zhihu.com/p/581682627
 
 
 
