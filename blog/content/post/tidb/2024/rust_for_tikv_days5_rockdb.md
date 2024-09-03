@@ -1,17 +1,15 @@
 ---
 title: "TiKV Contributors day5"
-date: 2024-08-19
+date: 2024-08-u
+
 description: "Tidb"
 draft: false
-tags: ["Tidb"] 
+tags: ["Tidb"] hu
 ---
 
 
 
-
-
-
-
+~~~rust
 tikv_kv % tree     
 .
 ├── Cargo.toml
@@ -22,6 +20,9 @@ tikv_kv % tree
     ├── raftstore_impls.rs
     ├── rocksdb_engine.rs
     └── stats.rs
+~~~
+
+
 
 
 
@@ -29,7 +30,7 @@ tikv_kv % tree
 
 ## 背景:目的
 
-认同开源，但是迟迟不提交一个有价值pr很难，看不到成果中途放弃了，这是我遇到三个问题
+认同开源，但是因为忙 没时间迟迟不无法提交一个有价值pr，看不到结果就中途放弃了，这是我遇到三个问题
 
 1. 缺少资料，看这一头雾水，无法理解 描述项目是什么，遇到什么问题，怎么解决的，都是看不懂的名词解释。
 
@@ -105,6 +106,7 @@ https://github.com/facebook/rocksdb/wiki 是由 Facebook 基于 LevelDB 开发�
 
 
 
+
 https://github.com/facebook/rocksdb/wiki/RocksDB-Overview#3-high-level-architecture
 
 ![img](https://user-images.githubusercontent.com/62277872/119747261-310fb300-be47-11eb-92c3-c11719fa8a0c.png)
@@ -122,7 +124,6 @@ The logfile is a sequentially-written file on storage. When the memtable fills u
 - 阅读题目可以做到
 
 ~~~R
-
 [2023/12/27 04:41:51.140 +08:00] [WARN] [event_listener.rs:127] ["detected rocksdb background error"] [err="Corruption: block checksum mismatch: stored = 2981909476, computed = 324654415, type = 1  in /data1/data/db/38457359.sst offset 8497742 size 3971"] [sst=/38457359.sst]
 
 [2023/12/27 04:41:52.381 +08:00] [WARN] [store.rs:243] ["detected damaged regions overlapping damaged file ranges"] [id="{592132084, 442186929, 607655650}"]
@@ -138,7 +139,7 @@ The logfile is a sequentially-written file on storage. When the memtable fills u
 
 
 
-Introduce engine_rocks component #5541
+#### Introduce engine_rocks component #5541
 
 https://github.com/tikv/tikv/pull/5541
 
@@ -164,14 +165,13 @@ This is very easy to understand. I appreciate it.
 
 
 
-
-
 Organizationally there's one change I would like to see here, and that's to put the RocksDB implementation in a different crate, such that engine_traits does not depend on rocksdb.
 
 翻译：
 在组织结构上，我想看到一个变化，那就是将 RocksDB 的实现放在一个不同的 crate 中，这样 engine_traits 就不会依赖于 rocksdb。
 
 解释重点理解：
+
 1. **Organizationally**：这个词表示从组织结构或代码结构的角度来看。
 2. **Change**：这里指的是代码库或项目结构的变更。
 3. **RocksDB implementation**：指的是 RocksDB 数据库的实现代码。
@@ -203,7 +203,6 @@ That way the common code will build very fast, from there all the engines will b
 
 In other words…what you put up with, you end up with.
 换句话说……你所忍受的，你最终会得到什么。
-
 
 ~~~
 
@@ -266,17 +265,14 @@ c++
 捕获环境：
 
 Rust 的闭包可以捕获外部环境中的变量，并且可以有多种捕获模式（如：移动、复制、引用等）。
+
 C++ 的 lambda 表达式也可以捕获外部变量，但捕获方式（如：值捕获、引用捕获等）需要在 lambda 表达式的捕获子句中明确指定。
 
 ~~~
 
 
 
-
-
 components/engine_traits/src/engine.rs
-
-
 
 
 
@@ -285,6 +281,12 @@ components/engine_traits/src/engine.rs
 [1] https://docs.pingcap.com/zh/tidb/stable/rocksdb-overview
 
 【2】 https://zhuanlan.zhihu.com/p/581682627
+
+[3] C++ 中的 Pimpl 惯用法
+
+ 通过使用 Pimpl 惯用法和智能指针，我们能更有效地隐藏实现细节，提高编译速度，并使代码更易于维
+
+ https://www.cnblogs.com/tengzijian/p/17473602.html
 
 
 
