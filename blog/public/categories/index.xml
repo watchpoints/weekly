@@ -6,19 +6,20 @@
     <description>Recent content in Categories on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-<<<<<<< HEAD
-    <lastBuildDate>Mon, 11 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 07 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>GTD</title>
-      <link>https://wangcy6.github.io/categories/GTD/</link>
-      <pubDate>Mon, 11 Mar 2024 00:00:00 +0000</pubDate>
-=======
-    <lastBuildDate>Wed, 12 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+      <title>do book</title>
+      <link>https://wangcy6.github.io/categories/do-book/</link>
+      <pubDate>Wed, 07 Aug 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/categories/do-book/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>GTD</title>
       <link>https://wangcy6.github.io/categories/GTD/</link>
       <pubDate>Wed, 12 Jun 2024 00:00:00 +0000</pubDate>
->>>>>>> 5daac766421b18e4e49ca4e73a840eb6773fbf55
       
       <guid>https://wangcy6.github.io/categories/GTD/</guid>
       <description></description>
@@ -48,15 +49,6 @@
       <pubDate>Fri, 01 Sep 2023 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/categories/book/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Englis</title>
-      <link>https://wangcy6.github.io/categories/Englis/</link>
-      <pubDate>Sun, 18 Jun 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/categories/Englis/</guid>
       <description></description>
     </item>
     
@@ -93,15 +85,6 @@
       <pubDate>Mon, 30 Jan 2023 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/categories/oceanbase%E6%8E%A2%E7%B4%A2%E4%B9%8B%E6%97%85/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>habit</title>
-      <link>https://wangcy6.github.io/categories/habit/</link>
-      <pubDate>Mon, 22 Aug 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/categories/habit/</guid>
       <description></description>
     </item>
     
@@ -151,20 +134,20 @@
     </item>
     
     <item>
-      <title>xmind</title>
-      <link>https://wangcy6.github.io/categories/xmind/</link>
-      <pubDate>Mon, 16 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/categories/xmind/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>coures</title>
       <link>https://wangcy6.github.io/categories/coures/</link>
       <pubDate>Thu, 12 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/categories/coures/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>xmind</title>
+      <link>https://wangcy6.github.io/categories/xmind/</link>
+      <pubDate>Thu, 12 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/categories/xmind/</guid>
       <description></description>
     </item>
     

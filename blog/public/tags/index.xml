@@ -6,25 +6,31 @@
     <description>Recent content in Tags on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-<<<<<<< HEAD
-    <lastBuildDate>Tue, 12 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-=======
-    <lastBuildDate>Fri, 02 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 19 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>tidb</title>
+      <link>https://wangcy6.github.io/tags/tidb/</link>
+      <pubDate>Mon, 19 Aug 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/tags/tidb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>man</title>
+      <link>https://wangcy6.github.io/tags/man/</link>
+      <pubDate>Wed, 07 Aug 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/tags/man/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>AI</title>
       <link>https://wangcy6.github.io/tags/AI/</link>
       <pubDate>Fri, 02 Aug 2024 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/tags/AI/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tidb</title>
-      <link>https://wangcy6.github.io/tags/tidb/</link>
-      <pubDate>Wed, 31 Jul 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/tags/tidb/</guid>
       <description></description>
     </item>
     
@@ -64,22 +70,21 @@
       <description></description>
     </item>
     
->>>>>>> 5daac766421b18e4e49ca4e73a840eb6773fbf55
     <item>
-      <title>tools</title>
-      <link>https://wangcy6.github.io/tags/tools/</link>
-      <pubDate>Tue, 12 Mar 2024 00:00:00 +0000</pubDate>
+      <title>GitHub</title>
+      <link>https://wangcy6.github.io/tags/GitHub/</link>
+      <pubDate>Fri, 09 Feb 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://wangcy6.github.io/tags/tools/</guid>
+      <guid>https://wangcy6.github.io/tags/GitHub/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Rust</title>
-      <link>https://wangcy6.github.io/tags/Rust/</link>
-      <pubDate>Wed, 06 Dec 2023 00:00:00 +0000</pubDate>
+      <title>阅读与写作</title>
+      <link>https://wangcy6.github.io/tags/%E9%98%85%E8%AF%BB%E4%B8%8E%E5%86%99%E4%BD%9C/</link>
+      <pubDate>Fri, 09 Feb 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://wangcy6.github.io/tags/Rust/</guid>
+      <guid>https://wangcy6.github.io/tags/%E9%98%85%E8%AF%BB%E4%B8%8E%E5%86%99%E4%BD%9C/</guid>
       <description></description>
     </item>
     
@@ -111,20 +116,20 @@
     </item>
     
     <item>
-      <title>money</title>
-      <link>https://wangcy6.github.io/tags/money/</link>
-      <pubDate>Mon, 02 Oct 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/tags/money/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>目标九宫格</title>
       <link>https://wangcy6.github.io/tags/%E7%9B%AE%E6%A0%87%E4%B9%9D%E5%AE%AB%E6%A0%BC/</link>
       <pubDate>Tue, 29 Aug 2023 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/tags/%E7%9B%AE%E6%A0%87%E4%B9%9D%E5%AE%AB%E6%A0%BC/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>speak</title>
+      <link>https://wangcy6.github.io/tags/speak/</link>
+      <pubDate>Tue, 22 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/tags/speak/</guid>
       <description></description>
     </item>
     
@@ -147,15 +152,6 @@
     </item>
     
     <item>
-      <title>song</title>
-      <link>https://wangcy6.github.io/tags/song/</link>
-      <pubDate>Sun, 18 Jun 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/tags/song/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Cephfs</title>
       <link>https://wangcy6.github.io/tags/Cephfs/</link>
       <pubDate>Fri, 02 Jun 2023 00:00:00 +0000</pubDate>
@@ -165,29 +161,11 @@
     </item>
     
     <item>
-      <title>man</title>
-      <link>https://wangcy6.github.io/tags/man/</link>
-      <pubDate>Thu, 04 May 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/tags/man/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>file storage</title>
       <link>https://wangcy6.github.io/tags/file-storage/</link>
       <pubDate>Fri, 10 Feb 2023 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/tags/file-storage/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>阅读与写作</title>
-      <link>https://wangcy6.github.io/tags/%E9%98%85%E8%AF%BB%E4%B8%8E%E5%86%99%E4%BD%9C/</link>
-      <pubDate>Wed, 11 Jan 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/tags/%E9%98%85%E8%AF%BB%E4%B8%8E%E5%86%99%E4%BD%9C/</guid>
       <description></description>
     </item>
     
@@ -206,15 +184,6 @@
       <pubDate>Tue, 18 Oct 2022 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/tags/60%E7%A7%92%E9%97%AE%E7%AD%94/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>eat</title>
-      <link>https://wangcy6.github.io/tags/eat/</link>
-      <pubDate>Mon, 22 Aug 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/tags/eat/</guid>
       <description></description>
     </item>
     
@@ -296,15 +265,6 @@
       <pubDate>Sun, 20 Jun 2021 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>english</title>
-      <link>https://wangcy6.github.io/tags/english/</link>
-      <pubDate>Wed, 16 Jun 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/tags/english/</guid>
       <description></description>
     </item>
     

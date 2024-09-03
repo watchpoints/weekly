@@ -26,6 +26,15 @@
     </item>
     
     <item>
+      <title>成为oceanbase贡献者第四天：内置函数</title>
+      <link>https://wangcy6.github.io/post/oceanbase/2024/02_08-27-day2_paxos/</link>
+      <pubDate>Fri, 26 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/oceanbase/2024/02_08-27-day2_paxos/</guid>
+      <description>洞悉技术的本质，享受科技的乐趣 ，技术好的前提必然会高效沟通 #一、Overview 第一问题：你期望解决什么问题，核心问题是什么？ 对于paxos</description>
+    </item>
+    
+    <item>
       <title>成为oceanbase贡献者第四天：容器与分配器</title>
       <link>https://wangcy6.github.io/post/oceanbase/2022/oceanbase_day4/</link>
       <pubDate>Sun, 02 Oct 2022 00:00:00 +0000</pubDate>

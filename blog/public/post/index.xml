@@ -6,17 +6,41 @@
     <description>Recent content in Posts on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-<<<<<<< HEAD
-    <lastBuildDate>Tue, 12 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/post/index.xml" rel="self" type="application/rss+xml" />
-=======
-    <lastBuildDate>Fri, 02 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 19 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>AI正念｜睡前三小时精力回流提醒助手</title>
-      <link>https://wangcy6.github.io/post/ai/2024/01-2024-08-02-go-to-sleep/</link>
+      <title>TiKV Contributors day5</title>
+      <link>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days5_rockdb/</link>
+      <pubDate>Mon, 19 Aug 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days5_rockdb/</guid>
+      <description>tikv_kv % tree . ├── Cargo.toml └── src ├── btree_engine.rs ├── cursor.rs ├── lib.rs ├── raftstore_impls.rs ├── rocksdb_engine.rs └── stats.rs 背景:目的 认同开源，但是迟迟不提交一个有价值pr很难，看不到成果中途</description>
+    </item>
+    
+    <item>
+      <title>微信使用指南</title>
+      <link>https://wangcy6.github.io/post/habit/2024/2024-8-14-how-to-use-wechat/</link>
+      <pubDate>Wed, 14 Aug 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/habit/2024/2024-8-14-how-to-use-wechat/</guid>
+      <description>背景 问：现在还有人不知微信怎么使用吗？ 答：有，老娘，老爷 二大爷，父母不会用 问：他们为什么不会用？ 答: 他们辛苦挣钱，让小孩上学，可能有小孩在 小</description>
+    </item>
+    
+    <item>
+      <title>c&#43;&#43;入门指南</title>
+      <link>https://wangcy6.github.io/post/c&#43;&#43;/01_c&#43;&#43;_new/</link>
+      <pubDate>Wed, 07 Aug 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/c&#43;&#43;/01_c&#43;&#43;_new/</guid>
+      <description>内存管理 C++中通过new和delete两个关键字进行动态内存管理。 c语言通过 malloc 和free 两个关键字进行动态内存管理 函数支持重载，运算符同样</description>
+    </item>
+    
+    <item>
+      <title>ChatGPT从入门到精通</title>
+      <link>https://wangcy6.github.io/post/ai/2024/2024-08-02-sleep/</link>
       <pubDate>Fri, 02 Aug 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://wangcy6.github.io/post/ai/2024/01-2024-08-02-go-to-sleep/</guid>
-      <description>AI正念｜睡前三小时精力回流提醒助手 大家好，我是watchpoints ，一个只为自己打工程序员， watchpoints是我github用户名</description>
+      <guid>https://wangcy6.github.io/post/ai/2024/2024-08-02-sleep/</guid>
+      <description>AI正念｜睡前三小时精力回流提醒助手：手机远离卧室 大家好，我是watchpoints ，一个只为自己打工程序员， watchpoints是我gi</description>
     </item>
     
     <item>
@@ -70,7 +94,7 @@
       <pubDate>Wed, 29 May 2024 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days100_1/</guid>
-      <description>todo01：搭建tikv环境 task01：搭建tikv环境（容器版本，和源码版本） 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 在CentOS上进行</description>
+      <description>todo01：搭建tikv环境 task01：搭建tikv环境（容器版本，和源码版本） 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 在CentOS上进行Ti</description>
     </item>
     
     <item>
@@ -128,70 +152,6 @@
     </item>
     
     <item>
-      <title>整理：强哥答疑</title>
-      <link>https://wangcy6.github.io/post/2024/2024-03-03-04_rust_vivo/</link>
-      <pubDate>Sun, 03 Mar 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/2024/2024-03-03-04_rust_vivo/</guid>
-      <description>学习方法 1 2 3 4 5 6 7 8 9 10 11 一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题 二、这个技术的优势和劣势分别是什么 三、这</description>
-    </item>
-    
-    <item>
-      <title>整理：强哥答疑</title>
-      <link>https://wangcy6.github.io/post/2024/2024-03-03-ask/</link>
-      <pubDate>Sun, 03 Mar 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/2024/2024-03-03-ask/</guid>
-      <description>学习方法 1 2 3 4 5 6 7 8 9 10 11 12 一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题 二、这个技术的优势和劣势分别是什么 三、</description>
-    </item>
-    
-    <item>
-      <title>源码阅读：请你设计一个线程池</title>
-      <link>https://wangcy6.github.io/post/2024/2024-03-06_readcode_ceph_threadpool/</link>
-      <pubDate>Sun, 03 Mar 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/2024/2024-03-06_readcode_ceph_threadpool/</guid>
-      <description>在温和的春夜里，路灯投下淡淡的黄光，小王沿着柳树成荫的街道散步，思绪随着微风轻轻飘散。不远处，他的邻居老王也正慢慢踱步，一如既往地享受着夜的</description>
-    </item>
-    
->>>>>>> 5daac766421b18e4e49ca4e73a840eb6773fbf55
-    <item>
-      <title>vivo蓝河操作系统创新赛准备材料</title>
-      <link>https://wangcy6.github.io/post/2024/2024-03-03-11-rust-ai/</link>
-      <pubDate>Tue, 12 Mar 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/2024/2024-03-03-11-rust-ai/</guid>
-      <description>赛题1 - 蓝河代码转译工具 背景阐述 1.C/C++代码编写的系统大约70%的严重安全漏洞和内存使用不当相关，Rust语言一系列安全特性，可以在编</description>
-    </item>
-    
-    <item>
-      <title>只管去做践N0.9</title>
-      <link>https://wangcy6.github.io/post/ARTS/2024/do_book_weekly_8/</link>
-      <pubDate>Mon, 11 Mar 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/ARTS/2024/do_book_weekly_8/</guid>
-      <description>指定每月目标，拆分每周预先承诺的习惯卡片， 落实每天行动清单 Part I 月初指定目标九宫格：一月一次 一、 我今天为目标做了什么 第一个青蛙 1. 工作·事业： 提</description>
-    </item>
-    
-    <item>
-      <title>只管去做践N0.9</title>
-      <link>https://wangcy6.github.io/post/ARTS/2024/do_book_weekly_9/</link>
-      <pubDate>Mon, 11 Mar 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/ARTS/2024/do_book_weekly_9/</guid>
-      <description>指定每月目标，拆分每周预先承诺的习惯卡片， 落实每天行动清单 Part I 月初指定目标九宫格：一月一次 一、 我今天为目标做了什么 第一个青蛙 1. 工作·事业： 提</description>
-    </item>
-    
-    <item>
-      <title>只管去做践N0.7</title>
-      <link>https://wangcy6.github.io/post/ARTS/2024/%E5%8F%AA%E7%AE%A1%E5%8E%BB%E5%81%9A%E8%B7%B5%E8%A1%8C%E8%AE%B0%E5%BD%95%E7%AC%AC7%E5%91%A8-/</link>
-      <pubDate>Wed, 06 Mar 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/ARTS/2024/%E5%8F%AA%E7%AE%A1%E5%8E%BB%E5%81%9A%E8%B7%B5%E8%A1%8C%E8%AE%B0%E5%BD%95%E7%AC%AC7%E5%91%A8-/</guid>
-      <description>只管去做 N0.7 # Part I 每月目标九宫格训练营 # Part 2 习惯卡片 一、环境场： 餐厅区&amp;ndash;吃饭专心吃饭 小故事：过去是吧10000次，今天想改造怎么做</description>
-    </item>
-    
-    <item>
       <title>源码阅读：请你设计一个线程池</title>
       <link>https://wangcy6.github.io/post/2024/2024-03-06_readcode_ceph_threadpool/</link>
       <pubDate>Sun, 03 Mar 2024 00:00:00 +0000</pubDate>
@@ -219,12 +179,21 @@
     </item>
     
     <item>
-      <title>Rust For Linux02</title>
-      <link>https://wangcy6.github.io/post/liunx/Rust/Rust_for_Liunx_2/</link>
-      <pubDate>Wed, 06 Dec 2023 00:00:00 +0000</pubDate>
+      <title>小册子：互联网引流的100种手法</title>
+      <link>https://wangcy6.github.io/post/2024/2024-02-09-100-ways-add-funs/</link>
+      <pubDate>Fri, 09 Feb 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://wangcy6.github.io/post/liunx/Rust/Rust_for_Liunx_2/</guid>
-      <description>本文主要描述 第六章：文件系统 参考资料 https://github.com/LearningOS/2023a-rcore-watchpoints https://rcore-os.cn/rCore-Tutorial-Book-v3/chapter6/0intro.html#id2 https://rcore-os.cn/rCore-Tutorial-Book-v3/chapter6/index.html rcore-tutorial-book-v3.pdf https://github.com/learningos https://os.phil-opp.com/ 本章代码导读 本章涉及的代码量相对较多，且与进程执行相关的管理还有直接的关系。其实我们是参考经</description>
+      <guid>https://wangcy6.github.io/post/2024/2024-02-09-100-ways-add-funs/</guid>
+      <description>小册字：互联网引流的100种手法 学习笔记 微信号：watchpoints 点击蓝色字体：陪你终身成长丨限免星球， 自取310个新媒体运营工具 大纲 第</description>
+    </item>
+    
+    <item>
+      <title>在一台电脑上同时使用多个github账号(亲测有效)</title>
+      <link>https://wangcy6.github.io/post/2024/2024-02-09-git-two-account/</link>
+      <pubDate>Fri, 09 Feb 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2024/2024-02-09-git-two-account/</guid>
+      <description>what：从现象提出问题 在一台电脑上有两个 github 账号 git 提交代码时候 fatal: 无法读取远程仓库。 尝试 密码登陆 今天是2021年8月13日（情人节），苦涩。 在</description>
     </item>
     
     <item>
@@ -273,66 +242,12 @@
     </item>
     
     <item>
-      <title>how to create virtual</title>
-      <link>https://wangcy6.github.io/post/dream/day6_zhibo_shuziren/</link>
-      <pubDate>Mon, 02 Oct 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/dream/day6_zhibo_shuziren/</guid>
-      <description>Fay项目 1. fork 分支代码 在fork的项目里同步别人新增分支的方法 原创 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 git clone git@github.com:watchpoints/Fay.git git remote add upstream https://github.com/TheRamU/Fay.git $ git remote -v origin</description>
-    </item>
-    
-    <item>
-      <title>how to create virtual</title>
-      <link>https://wangcy6.github.io/post/dream/day7_zhibo_luna/</link>
-      <pubDate>Mon, 02 Oct 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/dream/day7_zhibo_luna/</guid>
-      <description>1. 项目资料 https://luna.docs.ie.cx/ 1 2 3 4 5 6 7 8 9 Luna AI 是一个由 ChatterBot / GPT / Claude / langchain 本地 or 云端 / chatglm / text-generation-webui / 讯飞星火 / 智谱AI 做为 大脑 驱动的虚拟主播 Live2D / Vtube Studio / UE5 + Audio2Face ，可以在</description>
-    </item>
-    
-    <item>
-      <title>day1:obs</title>
-      <link>https://wangcy6.github.io/post/dream/day4_ffmeg/</link>
-      <pubDate>Sun, 24 Sep 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/dream/day4_ffmeg/</guid>
-      <description>规则 歌曲类版权限制，不使用 相关组织，比如大家说的影视审核群？ 读书类的 ok 基本用啊 提问1：how-to-concatenate-two-mp4-</description>
-    </item>
-    
-    <item>
-      <title>day3:xmind</title>
-      <link>https://wangcy6.github.io/post/dream/day3_xmind/</link>
-      <pubDate>Sun, 24 Sep 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/dream/day3_xmind/</guid>
-      <description>基本使用技巧 提问1：Xmind思维导图如何隐藏线条？ 保姆级教程！手把手教你用5分钟做出一张竖版图｜Xmind思维导图 提问2：如何添加外框 需要</description>
-    </item>
-    
-    <item>
-      <title>day1:obs</title>
-      <link>https://wangcy6.github.io/post/dream/day2_obs/</link>
-      <pubDate>Sat, 23 Sep 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/dream/day2_obs/</guid>
-      <description>Live2D虚拟形象加载插件使用教程 https://vmmbvgdeeg.feishu.cn/docx/BAU3dVdI7oXiyjxXGusccntznV4</description>
-    </item>
-    
-    <item>
       <title>从青铜到王者系列：Coding Interview</title>
       <link>https://wangcy6.github.io/post/liunx/Coding-Interview/2022_11_29_liunx_memory_/</link>
       <pubDate>Sat, 23 Sep 2023 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/liunx/Coding-Interview/2022_11_29_liunx_memory_/</guid>
       <description>Coding Interview Tutorial 1: Two Sum [LeetCode]</description>
-    </item>
-    
-    <item>
-      <title>day1:</title>
-      <link>https://wangcy6.github.io/post/dream/day1_zhibo_v.0/</link>
-      <pubDate>Sat, 09 Sep 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/dream/day1_zhibo_v.0/</guid>
-      <description>第一个版本：云主机+FFmpeg工具 工具 猫抓 chrome资源嗅探扩展 ffmpeg 使用说明书： 猫抓 Cat Catch 项目描述: 是一款网页资源嗅探扩展，能帮你下载网页视</description>
     </item>
     
     <item>
@@ -381,6 +296,24 @@
     </item>
     
     <item>
+      <title>刻意练习：提高工作中的表达力</title>
+      <link>https://wangcy6.github.io/post/habit/2024/2024-08-05-speak/</link>
+      <pubDate>Tue, 22 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/habit/2024/2024-08-05-speak/</guid>
+      <description>只有口号，不解决遇到问题，就是空谈 周一 周二 周三 周四 周五 周六 周天 生活遇到问题写下来 寻找答案产生文案 练习技巧 室内朗读 室内朗读 户外朗读 编辑发布 投入</description>
+    </item>
+    
+    <item>
+      <title>强哥答疑</title>
+      <link>https://wangcy6.github.io/post/book/ASK_README/</link>
+      <pubDate>Sat, 12 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/book/ASK_README/</guid>
+      <description>📝 提问规则： 1.周五到周六中午12点可提问 2.每位伙伴每周限提交1个问题； 3.提问请描述清楚问题背景、尝试、想要得到的帮助 ——【提问必读】—</description>
+    </item>
+    
+    <item>
       <title>git通关从青铜到王者</title>
       <link>https://wangcy6.github.io/post/liunx/git%E9%80%9A%E5%85%B3%E4%BB%8E%E9%9D%92%E9%93%9C%E5%88%B0%E7%8E%8B%E8%80%85/</link>
       <pubDate>Fri, 11 Aug 2023 00:00:00 +0000</pubDate>
@@ -426,15 +359,6 @@
     </item>
     
     <item>
-      <title>通过对话学英语</title>
-      <link>https://wangcy6.github.io/post/English/02_learn_englis_from_chat/</link>
-      <pubDate>Sun, 18 Jun 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/English/02_learn_englis_from_chat/</guid>
-      <description>If you missed the Hackathon Idea Pool meetup a few hours ago, you can watch the recording at https://youtube.com/live/eZt7-Cz3Zs4 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 梦想是什么？ 梦想是每一个天还未亮， 你已悄然出门， 梦想，是不管身处何方， 你</description>
-    </item>
-    
-    <item>
       <title>日拱一卒：ceph-mds 业务操作</title>
       <link>https://wangcy6.github.io/post/storage/3_ceph_msd/</link>
       <pubDate>Fri, 02 Jun 2023 00:00:00 +0000</pubDate>
@@ -462,8 +386,6 @@
     </item>
     
     <item>
-<<<<<<< HEAD
-=======
       <title>成为oceanbase贡献者第四天：内置函数</title>
       <link>https://wangcy6.github.io/post/oceanbase/2024/01-2024-06-18-ob_study1/</link>
       <pubDate>Fri, 26 May 2023 00:00:00 +0000</pubDate>
@@ -473,7 +395,15 @@
     </item>
     
     <item>
->>>>>>> 5daac766421b18e4e49ca4e73a840eb6773fbf55
+      <title>成为oceanbase贡献者第四天：内置函数</title>
+      <link>https://wangcy6.github.io/post/oceanbase/2024/02_08-27-day2_paxos/</link>
+      <pubDate>Fri, 26 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/oceanbase/2024/02_08-27-day2_paxos/</guid>
+      <description>洞悉技术的本质，享受科技的乐趣 ，技术好的前提必然会高效沟通 #一、Overview 第一问题：你期望解决什么问题，核心问题是什么？ 对于paxos</description>
+    </item>
+    
+    <item>
       <title>AI周刊</title>
       <link>https://wangcy6.github.io/post/2024/2024_03_10_ai_weekly_01/</link>
       <pubDate>Sat, 13 May 2023 00:00:00 +0000</pubDate>
@@ -489,24 +419,6 @@
       
       <guid>https://wangcy6.github.io/post/ai/01_gpt_from_new_to_master/</guid>
       <description>一次只使用一个工具，其他装作看不见。 第一章：概念 ChatGPT是什么 https://mp.weixin.qq.com/s/Dns5GSsiledxCV2SIhNgrw 第二章：提示词 写专利 例如：绘制时序图 1 2 请绘制 mermaid sequence diagram ： mds 启动 recov</description>
-    </item>
-    
-    <item>
-      <title>跟我学ChatGPT使用技巧：</title>
-      <link>https://wangcy6.github.io/post/ai/2024-03-07-Ai-promt/</link>
-      <pubDate>Sat, 13 May 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/ai/2024-03-07-Ai-promt/</guid>
-      <description>协作 AIPrompter可帮助您快速完成提示词填写和翻译的浏览器插件工具。 适用于Stable Difussion、Midjourney、Com</description>
-    </item>
-    
-    <item>
-      <title>跟我学ChatGPT使用技巧：</title>
-      <link>https://wangcy6.github.io/post/ai/news/ai_new_weekly_01/</link>
-      <pubDate>Sat, 13 May 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/ai/news/ai_new_weekly_01/</guid>
-      <description>协作 # 每日练习 整理的 AI提示词（Prompt）网站，让AI工具效率翻倍！ 写作 https://xxlab.tech/archives/aigc-ti-shi-ci-prompt-wang-zhan 绘画 Drawing Prompt-AI驱动的绘图提示词生成器 Drawing Prompt是</description>
     </item>
     
     <item>
@@ -552,6 +464,15 @@
       
       <guid>https://wangcy6.github.io/post/storage/1_2023_02_13_day1_Cephfs/</guid>
       <description>Cephfs探索之旅第一天 文章地址：http://localhost:1313/post/storage/1_2023_02_13_day1</description>
+    </item>
+    
+    <item>
+      <title>Cephfs探索之旅第一天：基础结构 链表</title>
+      <link>https://wangcy6.github.io/post/storage/01_20240806_database_list/</link>
+      <pubDate>Mon, 20 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/storage/01_20240806_database_list/</guid>
+      <description>Cephfs探索之旅第一天：基础结构 链表 双向链表 elist.h 点击链接查看和 Kimi 智能助手的对话 https://kimi.moonshot.cn/share/cqoselkudu6brb7tmdt0</description>
     </item>
     
     <item>
@@ -672,12 +593,12 @@
     </item>
     
     <item>
-      <title>时间管理</title>
-      <link>https://wangcy6.github.io/post/habit/2022-8-22-GTD.life/</link>
+      <title>睡前3个小时准备工作</title>
+      <link>https://wangcy6.github.io/post/habit/2024/2024-08-12-sleep/</link>
       <pubDate>Mon, 22 Aug 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://wangcy6.github.io/post/habit/2022-8-22-GTD.life/</guid>
-      <description>锦囊一：改变从接受开始。 锦囊二：训练你的反馈系统。 锦囊三：找到温柔而坚定的力量。 第一，千万不要光学不练。 第二，千万不要光复制不进化。 第三，千</description>
+      <guid>https://wangcy6.github.io/post/habit/2024/2024-08-12-sleep/</guid>
+      <description>开始仿照&amp;laquo;只管去做&amp;raquo; &amp;laquo;小强升职记》动物方式 代替生活中任务 寒号鸟，人教版语文书二年级上册 寒号鸟重复着哀号：</description>
     </item>
     
     <item>
@@ -1050,15 +971,6 @@
     </item>
     
     <item>
-      <title>李永乐老师</title>
-      <link>https://wangcy6.github.io/post/class/liyongle/</link>
-      <pubDate>Sat, 07 Aug 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/class/liyongle/</guid>
-      <description># 视频 为什么久赌必输？股票加杠杆，风险为啥这么大？李永乐老师讲赌徒输光原理 https://www.youtube.com/watch?v=AadaEc6pJpw 什么是爱情？怎么谈恋爱，才能有效的找到自己的真命天子？李永乐老师</description>
-    </item>
-    
-    <item>
       <title>跟leveldb学C&#43;&#43;，跟rocksdb学做引擎</title>
       <link>https://wangcy6.github.io/post/2021/01_Rocksdb/</link>
       <pubDate>Mon, 02 Aug 2021 00:00:00 +0000</pubDate>
@@ -1167,15 +1079,6 @@
     </item>
     
     <item>
-      <title>english</title>
-      <link>https://wangcy6.github.io/post/English/01-2021-9-12-motto/</link>
-      <pubDate>Wed, 16 Jun 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/English/01-2021-9-12-motto/</guid>
-      <description>2021 If you&amp;rsquo;re going through hell, keep going. 如果你正在经历炼狱，那就继续吧 Procrastination is the thief of time. 拖延症是时间的窃贼。 Dreams don&amp;rsquo;t work unless you do. You need to exert effort in order to achieve the results you want. You can’t just wait around for things to</description>
-    </item>
-    
-    <item>
       <title>02_ARTS_2021_weekly</title>
       <link>https://wangcy6.github.io/post/ARTS/2_ARTS_2021_18_weekly/</link>
       <pubDate>Fri, 11 Jun 2021 00:00:00 +0000</pubDate>
@@ -1218,15 +1121,6 @@
       
       <guid>https://wangcy6.github.io/post/ARTS/100_life/</guid>
       <description>记录的目的 如果感觉距离目标 难于上青天，请回头看看你已经走了多少步 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 蜀道难 唐代：李白 噫吁嚱</description>
-    </item>
-    
-    <item>
-      <title>MIT 6.824 Distributed Systems 2020 Spring</title>
-      <link>https://wangcy6.github.io/post/class/6.824/</link>
-      <pubDate>Sat, 29 May 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/class/6.824/</guid>
-      <description>一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题 二、这个技术的优势和劣势分别是什么 三、这个技术适用的场景。任何技术都有</description>
     </item>
     
     <item>
@@ -1446,33 +1340,6 @@
     </item>
     
     <item>
-      <title>reat regularly</title>
-      <link>https://wangcy6.github.io/post/habit/eat_regularly/</link>
-      <pubDate>Mon, 16 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/habit/eat_regularly/</guid>
-      <description>Week 52, 2019 week Breakfast（6：30-7：30） Lunch(11:30-12:30) Dinner(5:30-6:30) Monday forget forget forget Tuesday forget forget forget Wednesday delay on time on time Thursday Friday Saturday Sunday Week 51, 2019 week Breakfast（6：30-7：30） Lunch(11:30-12:30) Dinner(5:30-6:30)</description>
-    </item>
-    
-    <item>
-      <title>reat regularly</title>
-      <link>https://wangcy6.github.io/post/habit/Good-Morning/</link>
-      <pubDate>Mon, 16 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/habit/Good-Morning/</guid>
-      <description>当你目标设定早起读书时候，你注定了失败,你任务这艰巨任务，自然无法完成 Week 52, 2019 week Put down your phone Keep Give a stretch Dressing clothes Reading Monday forget forget forget forget no Tuesday forget forget forget forget no Wednesday 21 :00 23: 50 6： 15</description>
-    </item>
-    
-    <item>
-      <title>Why You Can’t Stop Creating Problems in Your Mind</title>
-      <link>https://wangcy6.github.io/post/English/Why-You-Cant-Stop-Creating-Problems-in-Your-Mind/</link>
-      <pubDate>Mon, 16 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/English/Why-You-Cant-Stop-Creating-Problems-in-Your-Mind/</guid>
-      <description>原文地址：Why You Can’t Stop Creating Problems in Your Mind 原文作者：Brianna West 译文出自：通过技术学英语计划 本文永久链接：https://wangcy6.</description>
-    </item>
-    
-    <item>
       <title>night-reading-go</title>
       <link>https://wangcy6.github.io/post/2020/courses_night-reading-go/</link>
       <pubDate>Thu, 12 Dec 2019 00:00:00 +0000</pubDate>
@@ -1482,30 +1349,12 @@
     </item>
     
     <item>
-      <title>song of englis</title>
-      <link>https://wangcy6.github.io/post/English/song_englis/</link>
-      <pubDate>Thu, 12 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/English/song_englis/</guid>
-      <description>Try Everything I messed up tonight, I lost another fight 今晚簡直一團亂，又輸了一場戰 I still mess up but I&amp;rsquo;ll just start again 依舊亂糟糟，就重新開始 I keep falling down, I keep on hitting the ground 跌跌撞撞，挫折接踵而來 I always get up now</description>
-    </item>
-    
-    <item>
       <title>大脑的维修艺术</title>
       <link>https://wangcy6.github.io/post/book/%E5%A4%A7%E8%84%91%E7%9A%84%E7%BB%B4%E4%BF%AE%E8%89%BA%E6%9C%AF/</link>
       <pubDate>Thu, 12 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/book/%E5%A4%A7%E8%84%91%E7%9A%84%E7%BB%B4%E4%BF%AE%E8%89%BA%E6%9C%AF/</guid>
       <description>正念 #1 大脑的维修意识小程序课程 #2 四念处修行要领 Directory Check Cost 四念处修行要领 (30/44) &amp;ndash; 空海 one 四念处修行要领 (32/44) &amp;ndash; 空海 23 电影</description>
-    </item>
-    
-    <item>
-      <title>学习课程</title>
-      <link>https://wangcy6.github.io/post/English/courses/</link>
-      <pubDate>Thu, 12 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/English/courses/</guid>
-      <description>原文地址：Why You Can’t Stop Creating Problems in Your Mind 原文作者：Brianna West 译文出自：通过技术学英语计划 本文永久链接：https://github.c</description>
     </item>
     
     <item>
@@ -1752,8 +1601,6 @@
     </item>
     
     <item>
-<<<<<<< HEAD
-=======
       <title>TiKV 源码阅读三部曲（二）读流程</title>
       <link>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days2_query/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1763,21 +1610,21 @@
     </item>
     
     <item>
-      <title>TiKV 源码阅读三部曲（二）读流程</title>
-      <link>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days5_OOM/</link>
+      <title>T成为tikv贡献者第三天：</title>
+      <link>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days3_read/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days5_OOM/</guid>
-      <description>https://github.com/tikv/tikv/issues/16658 https://github.com/tikv/tikv/issues/16234 https://github.com/tikv/tikv/issues/17260</description>
+      <guid>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days3_read/</guid>
+      <description>成为tikv贡献者第三天：存储 本文是TiKV 源码阅读第三篇， 目标：snapshot进行进一步理解，一边理解rust语法，一边抽象模块之间关系</description>
     </item>
     
     <item>
-      <title>《大话 Ceph》 之Ceph 运维手册&#34;</title>
-      <link>https://wangcy6.github.io/post/storage/3_ceph_help/</link>
+      <title>日拱一卒：操作手册</title>
+      <link>https://wangcy6.github.io/post/storage/4_icfs_help/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://wangcy6.github.io/post/storage/3_ceph_help/</guid>
-      <description>http://localhost:1313/post/storage/2_ceph_mon/ 服务平滑重启 任何一个成熟的项目，必须要提供出接口，就像探针一样，可以让我们探查进程内部的运行情况，进程不能是一个黑盒子。对于ceph而言，</description>
+      <guid>https://wangcy6.github.io/post/storage/4_icfs_help/</guid>
+      <description>系统罐装 1. Linux 如何查看网络带宽是千兆还是万兆 1 2 ethtool ens160 Speed: 10000Mb/s 2 .CentOS 8 网络管理：使用 nmcli 和 nmtui 进行高效配置 3, ssh 设置远程登录 /etc/ssh/sshd_config cifs [mds减少mds 进程个数]</description>
     </item>
     
     <item>
@@ -1787,16 +1634,6 @@
       
       <guid>https://wangcy6.github.io/post/ARTS/2024/do_book_weekly_10/</guid>
       <description>指定每月目标，拆分每周预先承诺的习惯卡片， 落实每天行动清单 Part I 月初指定目标九宫格：一月一次 一、 我今天为目标做了什么 第一个青蛙 1. 工作·事业： 提</description>
-    </item>
-    
-    <item>
->>>>>>> 5daac766421b18e4e49ca4e73a840eb6773fbf55
-      <title>日拱一卒：操作手册</title>
-      <link>https://wangcy6.github.io/post/storage/4_icfs_help/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/storage/4_icfs_help/</guid>
-      <description>系统罐装 1. Linux 如何查看网络带宽是千兆还是万兆 1 2 ethtool ens160 Speed: 10000Mb/s 2 .CentOS 8 网络管理：使用 nmcli 和 nmtui 进行高效配置 3, ssh 设置远程登录 /etc/ssh/sshd_config cifs [mds减少mds 进程个数]</description>
     </item>
     
   </channel>

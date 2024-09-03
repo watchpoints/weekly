@@ -6,10 +6,17 @@
     <description>Recent content in tidb on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 31 Jul 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/tags/tidb/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 19 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/tags/tidb/index.xml" rel="self" type="application/rss+xml" />
     <item>
-<<<<<<< HEAD
-=======
+      <title>TiKV Contributors day5</title>
+      <link>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days5_rockdb/</link>
+      <pubDate>Mon, 19 Aug 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days5_rockdb/</guid>
+      <description>tikv_kv % tree . ├── Cargo.toml └── src ├── btree_engine.rs ├── cursor.rs ├── lib.rs ├── raftstore_impls.rs ├── rocksdb_engine.rs └── stats.rs 背景:目的 认同开源，但是迟迟不提交一个有价值pr很难，看不到成果中途</description>
+    </item>
+    
+    <item>
       <title>TiKV Contributors day3：</title>
       <link>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days4_read/</link>
       <pubDate>Wed, 31 Jul 2024 00:00:00 +0000</pubDate>
@@ -33,11 +40,10 @@
       <pubDate>Wed, 29 May 2024 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days100_1/</guid>
-      <description>todo01：搭建tikv环境 task01：搭建tikv环境（容器版本，和源码版本） 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 在CentOS上进行</description>
+      <description>todo01：搭建tikv环境 task01：搭建tikv环境（容器版本，和源码版本） 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 在CentOS上进行Ti</description>
     </item>
     
     <item>
->>>>>>> 5daac766421b18e4e49ca4e73a840eb6773fbf55
       <title>跟着tikv源码学rust P01</title>
       <link>https://wangcy6.github.io/post/tidb/20230_05_05_tikv/</link>
       <pubDate>Fri, 05 May 2023 00:00:00 +0000</pubDate>
@@ -101,12 +107,12 @@
     </item>
     
     <item>
-      <title>TiKV 源码阅读三部曲（二）读流程</title>
-      <link>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days5_OOM/</link>
+      <title>T成为tikv贡献者第三天：</title>
+      <link>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days3_read/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days5_OOM/</guid>
-      <description>https://github.com/tikv/tikv/issues/16658 https://github.com/tikv/tikv/issues/16234 https://github.com/tikv/tikv/issues/17260</description>
+      <guid>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days3_read/</guid>
+      <description>成为tikv贡献者第三天：存储 本文是TiKV 源码阅读第三篇， 目标：snapshot进行进一步理解，一边理解rust语法，一边抽象模块之间关系</description>
     </item>
     
   </channel>
