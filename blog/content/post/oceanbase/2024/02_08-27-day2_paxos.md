@@ -68,6 +68,62 @@ https://drmingdrmer.github.io/tech/distributed/2015/11/11/paxos-slide.html
 
 # 二 ceph 猜想验证
 
+
+
+
+
+### ceph mon 模块 结构图：Paxos + Leveldb
+
+
+
+
+
+
+
+![Ceph Monitor Architecture](http://i.imgur.com/pmj3VAj.png) 
+
+Monitor基本上是由三类结构支撑起来的，
+
+- 第一类是管理各种map和相关内容的PaxosService实例
+
+- 第二类是Paxos实例，
+
+- 第三类是对k/v store的封装，即MonitorDBStore实例。
+
+   MonitorDBStore是处理数据存储相关的封装，用来将update的数据进行持久化。
+
+
+
+Ceph Monitor的结构如上图所示，总体上分为PaxosService、Paxos、Leveldb三层，
+
+- 其中PaxosService层将不同的元信息封装成单条kv，Leveldb层则作为最终的数据和log存储。
+- 本文的关注重点在Paxos层，Paxos层对上层提供一致性的数据访问逻辑，在其看来所有的数据都是kv，上层的不同的元信息在这里共用同一个Paxos实例。基于Paxos算法，通过一系列的节点间通信来实现集群间一致性的读写以及故障检测和恢复。
+- Paxos将整个过程分解为多个阶段，每个阶段达成一定的目的进而进入不同的状态。通过分层的思路使得整个实现相对简单清晰。
+
+
+
+
+
+
+
+资料：
+
+https://catkang.github.io/2016/07/17/ceph-monitor-and-paxos.html
+
+
+
+https://tracker.ceph.com/issues/2805
+
+https://tracker.ceph.com/issues/2622
+
+
+
+
+
+
+
+
+
 Ceph 的 Paxos 算法在实际应用中遇到了哪些挑战，又是如何克服这些挑战的？
 
 Ceph 的 Paxos 算法在实际应用中遇到的挑战主要包括：
@@ -222,6 +278,10 @@ graph TD
 ```
 
 请注意，这个流程图是一个高层次的概述，实际的 Paxos 算法实现要复杂得多，涉及许多细节和错误处理。此外，Ceph 的 Paxos 实现还包括对日志截断、成员变化处理、数据同步和一致性检查的高级处理。 
+
+
+
+
 
 
 
