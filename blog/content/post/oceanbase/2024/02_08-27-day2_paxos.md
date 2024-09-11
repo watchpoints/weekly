@@ -72,7 +72,7 @@ https://drmingdrmer.github.io/tech/distributed/2015/11/11/paxos-slide.html
 
 
 
-### ceph mon 模块 结构图：Paxos + Leveldb
+### ceph mon协调高可用方案 ：Paxos + Leveldb
 
 
 
@@ -100,115 +100,99 @@ Ceph Monitor的结构如上图所示，总体上分为PaxosService、Paxos、Lev
 - 本文的关注重点在Paxos层，Paxos层对上层提供一致性的数据访问逻辑，在其看来所有的数据都是kv，上层的不同的元信息在这里共用同一个Paxos实例。基于Paxos算法，通过一系列的节点间通信来实现集群间一致性的读写以及故障检测和恢复。
 - Paxos将整个过程分解为多个阶段，每个阶段达成一定的目的进而进入不同的状态。通过分层的思路使得整个实现相对简单清晰。
 
-
-
-
-
-
-
-资料：
-
-https://catkang.github.io/2016/07/17/ceph-monitor-and-paxos.html
-
-
-
-https://tracker.ceph.com/issues/2805
-
-https://tracker.ceph.com/issues/2622
-
-
-
-
-
-
-
-
-
-Ceph 的 Paxos 算法在实际应用中遇到了哪些挑战，又是如何克服这些挑战的？
-
-Ceph 的 Paxos 算法在实际应用中遇到的挑战主要包括：
-
-1. **成员变化（Membership Change）**：Ceph Paxos 需要处理集群成员的变化，包括节点的加入和移除。这需要一个称为 Probing 的阶段来发现并更新集群节点信息，同时处理节点之间的数据差异。在 Probing 状态下，Monitor 节点会相互发送 prob 消息来探测对方存在并生成交互 Monmap 信息。这个过程可能会影响服务的连续性，因为整个 Paxos 集群在 Probing 过程中会停止对外提供服务。
-
-2. **日志截断（Log compaction）**：随着集群服务的进行，Paxos 的日志数据会不断增加，这不仅占用存储资源，还会增加日志回放的时间。为了解决这个问题，Ceph 引入了日志截断机制，通过删除旧的日志数据来节省空间。这个过程由参数 `paxos_min` 控制，默认保留的日志长度为 500。在需要恢复数据时，如果请求的数据版本小于 `first_committed`，则会在 Synchronizing 过程中进行数据的全同步。
-
-3. **数据同步（Data Synchronization）**：当 Leader 和 Peon 之间的日志差距较大时，拉取并重放 Log 的时间会很长。为了减少这种延迟，Ceph Monitor 在选主之前通过 Synchronizing 阶段将所有参与 Paxos 节点的日志信息差距缩小到一个较小的区间，这个区间的长度由 `paxos_max_join_drift` 参数配置，默认为 10。
-
-4. **性能与一致性的平衡**：Ceph Paxos 的实现中，为了简化 Recovery 逻辑，每次只能有一个提案在执行中，这可能会影响性能。但是，Ceph 通过上层的聚合提交等机制来减少对一致性协议执行的频率，从而在一定程度上弥补了性能的牺牲。
-
-5. **容错和恢复（Fault Tolerance and Recovery）**：在分布式系统中，节点故障是常见问题。Ceph Paxos 需要能够在节点故障后正确恢复，同时保持数据的一致性。这涉及到复杂的 Recovery 逻辑，包括从 Peon 到 Leader 和 Leader 到 Peon 的双向数据恢复。
-
-6. **网络分区和分区恢复**：在网络分区发生时，Ceph Paxos 需要能够处理这种情况，并在分区恢复后继续提供一致性服务。这可能需要额外的机制来检测分区并采取适当的恢复措施。
-
-为了克服这些挑战，Ceph Paxos 采取了一系列措施，包括使用 Lease 机制来优化只读请求，以及在 Leader 和 Peon 之间进行存活检测，以确保在 Lease 超时或 Leader 收不到 Lease Ack 时触发新的 Election。此外，Ceph 还通过 State Machine System 来处理幂等操作，并在 commit 后真正写入到状态机，从而简化了一致性算法的实现。
-
-
+![img](https://upload-images.jianshu.io/upload_images/530927-e14a844358ab05b0.png?imageMogr2/auto-orient/strip|imageView2/2/format/webp)
 
 文件：Paxos.h Paxos.cc
 
+~~~
+void Paxos::dispatch(MonOpRequestRef op)
+{
+  ceph_assert(op->is_type_paxos());
+  op->mark_paxos_event("dispatch");
+
+  if (op->get_req()->get_type() != MSG_MON_PAXOS) {
+    dout(0) << "Got unexpected message type " << op->get_req()->get_type()
+	    << " in Paxos::dispatch, aborting!" << dendl;
+    ceph_abort();
+  }
+  
+  auto *req = op->get_req<MMonPaxos>();
+
+  // election in progress?
+  if (!mon.is_leader() && !mon.is_peon()) {
+    dout(5) << "election in progress, dropping " << *req << dendl;
+    return;    
+  }
+
+  // check sanity
+  ceph_assert(mon.is_leader() || 
+	      (mon.is_peon() && req->get_source().num() == mon.get_leader()));  
+
+  // NOTE: these ops are defined in messages/MMonPaxos.h
+  switch (req->op) {
+    // learner
+  case MMonPaxos::OP_COLLECT:
+    handle_collect(op);
+    break;
+  case MMonPaxos::OP_LAST:
+    handle_last(op);
+    break;
+  case MMonPaxos::OP_BEGIN:
+    handle_begin(op);
+    break;
+  case MMonPaxos::OP_ACCEPT:
+    handle_accept(op);
+    break;		
+  case MMonPaxos::OP_COMMIT:
+    handle_commit(op);
+    break;
+  case MMonPaxos::OP_LEASE:
+    handle_lease(op);
+    break;
+  case MMonPaxos::OP_LEASE_ACK:
+    handle_lease_ack(op);
+    break;
+  default:
+    ceph_abort();
+  }
+}
 
 
-庖丁解Ceph之Paxos
-
-https://www.jianshu.com/p/7302e79ab534
-
-点击链接查看和 Kimi 智能助手的对话 https://kimi.moonshot.cn/share/cr7shc3df0jbga8amn50
-
-Kimi: 这段代码是 Ceph 分布式文件系统的一部分，具体来说是实现了 Paxos 一致性算法的 C++ 代码。Ceph 使用 Paxos 算法来达成分布式环境中多个节点之间的一致性。下面是对代码实现原理的分析和一些推荐的相关文章或数据：
-
-### 实现原理：
-
-1. **Paxos 算法的变体**：代码实现了 Paxos 算法的一个变体，用于在分布式系统中达成一致性。它主要处理在分布式环境中如何安全地更新状态。
-
-2. **状态机**：`Paxos` 类实现了一个状态机，其中包含多种状态（如 `STATE_RECOVERING`, `STATE_ACTIVE`, `STATE_UPDATING` 等），用于处理不同的操作阶段。
-
-3. **版本控制**：通过 `version_t` 类型来控制版本，确保每个提案（proposal）都有一个唯一的版本号。
-
-4. **读写操作**：代码处理了如何安全地进行读和写操作。在读操作中，系统需要检查是否有有效的租约（lease），在写操作中，系统需要确保当前节点是领导者（Leader）并且处于活动状态。
-
-5. **消息传递**：代码中包含了多种消息类型（如 `OP_COLLECT`, `OP_BEGIN`, `OP_ACCEPT`, `OP_COMMIT` 等），用于在 Paxos 算法的不同阶段中节点之间通信。
-
-6. **持久化存储**：通过 `MonitorDBStore` 类与键值存储进行交互，将提案的值持久化到磁盘。
-
-7. **租约机制**：使用租约（lease）机制来优化读操作，避免每次都进行完整的 Paxos 算法流程。
-
-8. **回调和事件**：使用 `Context` 类和条件变量来处理异步回调和事件，确保在特定条件下能够触发相应的操作。
-
-### 推荐的相关文章或数据：
-
-1. **Paxos 算法的详细介绍**：[Paxos Made Simple](https://www.cs.utexas.edu/users/lorenzo/corsi/fall2015/slides/paxos.pdf) - 这篇文章提供了 Paxos 算法的详细解释，有助于理解代码中的算法实现。
-
-2. **Ceph 官方文档**：[Ceph Documentation](https://docs.ceph.com/en/latest/) - Ceph 的官方文档提供了关于如何配置和使用 Ceph 的详细信息，包括 Paxos 算法在 Ceph 中的应用。
-
-3. **分布式一致性算法的比较**：[Distributed Consensus for Dummies](https://medium.com/@dgryski/distributed-consensus-for-dummies-71e4e6c6a65) - 这篇文章比较了不同的分布式一致性算法，包括 Paxos，有助于理解 Paxos 算法在更广泛的上下文中的位置。
-
-4. **Ceph 源代码**：[Ceph GitHub Repository](https://github.com/ceph/ceph) - Ceph 的源代码仓库，可以查看完整的 Paxos 实现和其他相关组件。
-
-5. **Paxos 算法的动画演示**：[The Secret Lives of Data](https://www.youtube.com/watch?v=s9yWVmPoLFs) - 这个视频通过动画形式展示了 Paxos 算法的工作原理，有助于直观理解算法流程。
-
-通过阅读这些资料，可以获得更深入的理解 Paxos 算法在 Ceph 中的实现和应用。 
-
-User: Ceph 的 Paxos 算法在实际应用中遇到了哪些挑战，又是如何克服这些挑战的？ 
-
-Kimi: Ceph 的 Paxos 算法在实际应用中遇到的挑战主要包括：
-
-1. **成员变化（Membership Change）**：Ceph Paxos 需要处理集群成员的变化，包括节点的加入和移除。这需要一个称为 Probing 的阶段来发现并更新集群节点信息，同时处理节点之间的数据差异。在 Probing 状态下，Monitor 节点会相互发送 prob 消息来探测对方存在并生成交互 Monmap 信息。这个过程可能会影响服务的连续性，因为整个 Paxos 集群在 Probing 过程中会停止对外提供服务。
-
-2. **日志截断（Log compaction）**：随着集群服务的进行，Paxos 的日志数据会不断增加，这不仅占用存储资源，还会增加日志回放的时间。为了解决这个问题，Ceph 引入了日志截断机制，通过删除旧的日志数据来节省空间。这个过程由参数 `paxos_min` 控制，默认保留的日志长度为 500。在需要恢复数据时，如果请求的数据版本小于 `first_committed`，则会在 Synchronizing 过程中进行数据的全同步。
-
-3. **数据同步（Data Synchronization）**：当 Leader 和 Peon 之间的日志差距较大时，拉取并重放 Log 的时间会很长。为了减少这种延迟，Ceph Monitor 在选主之前通过 Synchronizing 阶段将所有参与 Paxos 节点的日志信息差距缩小到一个较小的区间，这个区间的长度由 `paxos_max_join_drift` 参数配置，默认为 10。
-
-4. **性能与一致性的平衡**：Ceph Paxos 的实现中，为了简化 Recovery 逻辑，每次只能有一个提案在执行中，这可能会影响性能。但是，Ceph 通过上层的聚合提交等机制来减少对一致性协议执行的频率，从而在一定程度上弥补了性能的牺牲。
-
-5. **容错和恢复（Fault Tolerance and Recovery）**：在分布式系统中，节点故障是常见问题。Ceph Paxos 需要能够在节点故障后正确恢复，同时保持数据的一致性。这涉及到复杂的 Recovery 逻辑，包括从 Peon 到 Leader 和 Leader 到 Peon 的双向数据恢复。
-
-6. **网络分区和分区恢复**：在网络分区发生时，Ceph Paxos 需要能够处理这种情况，并在分区恢复后继续提供一致性服务。这可能需要额外的机制来检测分区并采取适当的恢复措施。
-
-为了克服这些挑战，Ceph Paxos 采取了一系列措施，包括使用 Lease 机制来优化只读请求，以及在 Leader 和 Peon 之间进行存活检测，以确保在 Lease 超时或 Leader 收不到 Lease Ack 时触发新的 Election。此外，Ceph 还通过 State Machine System 来处理幂等操作，并在 commit 后真正写入到状态机，从而简化了一致性算法的实现。
+uncommitted_value
+~~~
 
 
 
-Kimi: 由于代码量较大，我将重点描述 Paxos 算法在 Ceph 中的主要流程，并提供一个简化的流程图。
+
+
+~~~
+在 Paxos 协议的实现中，`uncommitted_value` 是一个重要的变量，它用于存储已经被接受但尚未提交的提案值（Proposal value）。这个变量在 Paxos 算法的不同阶段扮演着关键角色，特别是在领导者（Leader）和追随者（Peon）之间的通信和状态同步过程中。以下是 `uncommitted_value` 的主要作用和使用场景：
+
+1. **存储已接受但未提交的值**：
+   - 在 Paxos 的第二阶段（接受阶段），如果一个提案获得了多数追随者（Quorum）的接受，那么该提案的值会被存储在 `uncommitted_value` 中。此时，该值尚未被提交，因为 Paxos 协议要求在提交之前确保没有更高编号的提案存在。
+
+2. **领导者恢复过程中的值同步**：
+   - 在领导者的恢复过程中（例如，在 `collect` 和 `handle_last` 函数中），领导者会询问追随者是否有任何已接受但未提交的值。如果追随者返回了一个这样的值，领导者会更新自己的 `uncommitted_value`，以便在必要时提出这个值。
+
+3. **处理提案超时和重新选举**：
+   - 如果领导者在等待足够多的追随者接受其提案时超时（例如，在 `accept_timeout` 函数中），它可能会重新启动选举。在此过程中，`uncommitted_value` 可以确保即使在重新选举之后，先前被接受的值也不会丢失。
+
+4. **提交已接受的值**：
+   - 一旦领导者获得了多数追随者的接受，它会调用 `commit_start` 函数来提交提案。在提交过程中，`uncommitted_value` 中的值会被正式写入稳定存储，并更新 `last_committed` 版本号。
+
+5. **保持系统状态的一致性**：
+   - `uncommitted_value` 确保了即使在系统故障或领导者更换的情况下，已接受的值也不会丢失，从而保持了系统状态的一致性。当系统恢复时，可以通过 `uncommitted_value` 继续处理这些值，确保它们最终被提交。
+
+6. **优化系统性能**：
+   - 通过在 `uncommitted_value` 中存储已接受的值，Paxos 算法可以减少不必要的通信和提案重试，从而优化系统的性能。当系统恢复或重新选举后，可以直接使用 `uncommitted_value` 中的值，而不需要从头开始新的提案过程。
+
+总之，`uncommitted_value` 在 Paxos 协议中起到了至关重要的作用，它不仅确保了提案值在系统故障或领导者更换时不会丢失，还有助于维护系统状态的一致性和优化系统性能。
+
+~~~
+
+
+
+
 
 ### Paxos 算法在 Ceph 中的主要流程：
 
@@ -217,15 +201,22 @@ Kimi: 由于代码量较大，我将重点描述 Paxos 算法在 Ceph 中的主�
    - 初始化性能计数器。
 
 2. **选举（Election）**：
+
    - 确定 Leader 和 Peon。
    - Leader 初始化并开始恢复（Recovery）过程。
 
 3. **恢复（Recovery）**：
+
+   Ceph Paxos限制提案的发起按version顺序，前一条提案被commit后才能发起后一条，也就是说Recovery的时候最多只能有一条uncommitted数据，这种做法虽然牺牲了性能，但却很大程度的简化了Recovery阶段及整个一致性算法的实现，而这种性能的牺牲可以由Ceph层的聚合提交而弥补。
+
+   
+
    - Leader 发起 `collect` 阶段，向所有 Peon 发送 `OP_COLLECT` 消息。
    - Peon 响应 `OP_COLLECT` 消息，发送 `OP_LAST` 回复。
    - Leader 处理 `OP_LAST` 消息，同步数据，可能触发新的选举或进入活跃状态。
 
 4. **活跃状态（Active State）**：
+
    - Leader 和 Peon 处理读写请求。
    - 定期延长租约（Lease）。
 
@@ -235,6 +226,7 @@ Kimi: 由于代码量较大，我将重点描述 Paxos 算法在 Ceph 中的主�
    - Leader 收到足够的 `OP_ACCEPT` 消息后，进入 `commit` 阶段。
 
 6. **提交（Commit）**：
+
    - Leader 将新值提交到存储，并通知所有 Peon。
    - Peon 收到 `OP_COMMIT` 消息后，更新本地状态。
 
@@ -246,6 +238,7 @@ Kimi: 由于代码量较大，我将重点描述 Paxos 算法在 Ceph 中的主�
    - 如果在预定时间内未收到足够的响应，可能触发新的选举。
 
 9. **关闭（Shutdown）**：
+
    - 取消所有事件，释放资源。
 
 ### 流程图：
@@ -281,13 +274,46 @@ graph TD
 
 
 
+![img](https://images0.cnblogs.com/blog/571795/201410/081934320306301.jpg)
 
+
+
+
+
+## 资料：
+
+【1】 点击链接查看和 Kimi 智能助手的对话 https://kimi.moonshot.cn/share/crfbm8u0atp9b0sffim0
+
+
+
+https://catkang.github.io/2016/07/17/ceph-monitor-and-paxos.html
+
+
+
+https://tracker.ceph.com/issues/2805
+
+https://tracker.ceph.com/issues/2622
+
+
+
+文件：Paxos.h Paxos.cc
+
+庖丁解Ceph之Paxos
+
+https://www.jianshu.com/p/7302e79ab534
+
+点击链接查看和 Kimi 智能助手的对话 https://kimi.moonshot.cn/share/cr7shc3df0jbga8amn50
+
+
+
+- 
+- 点击链接查看和 Kimi 智能助手的对话 https://kimi.moonshot.cn/share/crfbd3hivtdfjeis0ojg
 
 
 
 ### 沟通步骤
 
-1. 准备一个图片，一段话，可以放在三页doc，三页ppt，或者文本计数器 描述清除
+1. 准备一个图片，一段话，可以放在三页doc，三页ppt 描述你方案
 
    一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题
 
@@ -312,7 +338,9 @@ graph TD
 
 
 
-## 参考
+## 三 参考
 
 
+
+【1】 [Ceph剖析：Paxos算法实现](https://www.cnblogs.com/shanno/p/4011920.html)
 
