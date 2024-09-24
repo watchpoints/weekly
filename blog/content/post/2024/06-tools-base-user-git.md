@@ -94,7 +94,40 @@ git puhs origin  xx:ref/for/XXX
 
 
 - 一次只提交一个功能
-- 
+
+
+
+
+
+
+
+## 查看 指定文件是谁提交的 变更历史
+
+
+
+- git-blame - 显示文件每一行的最后修改版本和作者
+
+~~~
+
+-L <start>,<end>
+
+
+git blame xxx
+git blame -L 58，100 xxxx
+
+git show commitd
+
+
+# 统计每位作者的作品数
+git blame --line-porcelain file |
+sed -n 's/^author //p' |
+sort | uniq -c | sort -rn
+https://git-scm.com/docs/git-blame/zh_HANS-CN
+~~~
+
+
+
+
 
 ## 参考
 
