@@ -266,15 +266,15 @@ min-slaves-max-lag 10
 
  一个机柜上 一个交换机 ，下面几个物理机组网
 
-
+![image-20240925134148766](D:\db\daily-interview\blog\content\post\oceanbase\2024\assets\image-20240925134148766.png)
 
 - 逻辑部署
 
 ![img](https://cdn.nlark.com/yuque/0/2024/jpeg/215144/1726643590754-0c0e3b6e-0bd7-47e4-94d0-e8a8571dccca.jpeg)
 
+![image-20240925134259142](D:\db\daily-interview\blog\content\post\oceanbase\2024\assets\image-20240925134259142.png) 
 
-
-
+![image-20240925134408392](D:\db\daily-interview\blog\content\post\oceanbase\2024\assets\image-20240925134408392.png) 
 
 - 全功能型副本具备以下特点：
 
@@ -320,6 +320,59 @@ min-slaves-max-lag 10
 
 ![img](https://cdn.nlark.com/yuque/0/2024/png/215144/1726644125651-8e25fb95-e4e8-4ce7-a3da-57f582033b54.png)
 
+
+
+
+
+
+
+
+
+### 理解：C城市作用
+
+
+
+如果C城市的节点失效，这将影响Paxos协议的多数派决策过程，因为C城市节点在投票过程中扮演重要角色
+
+
+
+1. **无法达成多数派共识**：由于C城市节点的失效，如果A和B城市的节点之间无法形成多数派，那么在没有额外机制的情况下，系统将无法选出新的领导节点，这可能导致无法进行新的数据写入操作。
+2. **数据写入停滞**：在Paxos协议中，新的数据写入需要多数派的同意。如果无法形成多数派，新的写入请求将无法执行，这可能导致业务中断
+
+
+
+同类产品对比：
+
+
+
+在Oracle ASM同城双活配置中，为了防止AB网络或机房中断导致的服务不可用，通常会引入第三方机房进行投票决策，这种配置也称为“仲裁”。
+
+第三方机房的作用是在两个主要机房之间发生网络中断或其他故障时，提供决策支持，以确保系统的高可用性。
+
+
+
+## 小结
+
+
+
+无法解决一个问题，至少明白这个问题是什么
+
+本文主要总，在实际物理部署情况下，在网络分区情况下，会出现
+
+客户端同时写双主情况，这个和Paxos多个提议者情况下类似，
+
+如何解决冲突，并不是说有了多数派就就"天然"避免者一切发生/
+
+
+
+回到题目  ，不同厂商做不同优化，这里明确给出Redis3.0
+
+其他产品并没有给出答案。
+
+会发生什么才是 这个题目重点？
+
+
+
 ### 参考
 
 
@@ -344,15 +397,9 @@ min-slaves-max-lag 10
 
 https://www.oceanbase.com/docs/common-ocp-1000000001406894
 
-https://www.oceanbase.com/docs/common-ocp-1000000001406894
-
-http://oceanbase.org.cn/archives/90
-
-https://www.oceanbase.com/docs/common-oceanbase-database-cn-1000000001050885
-
-https://www.oceanbase.com/docs/common-oceanbase-database-cn-100000000105305
-
-https://www.oceanbase.com/docs/common-ocp-1000000001406108
+- 【5】 obcp 第一章节
+- https://www.oceanbase.com/training/obc
+- 【6】 OceanBase的一致性协议为什么选择 Paxos 而不是 Raft?
 
 
 
