@@ -1,0 +1,171 @@
+{
+  "main": {
+    "id": "807f31f7fdce80d6",
+    "type": "split",
+    "children": [
+      {
+        "id": "eeef601026cc4dd1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "bdeccecddde8b935",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "07_make_ob_leader.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "07_make_ob_leader"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "3e6695acd1c0d560",
+    "type": "split",
+    "children": [
+      {
+        "id": "86467db75169b452",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d7a0d7530af87572",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "0b89ec63e6b626f2",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "09a18ffc9046f052",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "499e44961c3c9486",
+    "type": "split",
+    "children": [
+      {
+        "id": "27f3001d6026c54b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5050ad6abb2bf4ac",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "07_make_ob_leader.md"
+              },
+              "icon": "lucide-list",
+              "title": "07_make_ob_leader 的大纲"
+            }
+          },
+          {
+            "id": "11ac5bfbb73e41f7",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "07_make_ob_leader.md",
+                "collapseAll": true,
+                "extraContext": true,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": true,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "07_make_ob_leader 的反向链接列表"
+            }
+          },
+          {
+            "id": "90a7fdd0ae377f5c",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "07_make_ob_leader.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from 07_make_ob_leader"
+            }
+          },
+          {
+            "id": "34228c6e51ce201b",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "zk-prefixer:创建时间戳笔记": false
+    }
+  },
+  "active": "bdeccecddde8b935",
+  "lastOpenFiles": [
+    "02_08-27-day2_paxos.md",
+    "01-2024-06-18-ob_study1.md",
+    "07_make_ob_leader.md"
+  ]
+}
