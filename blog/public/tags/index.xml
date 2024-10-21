@@ -6,20 +6,20 @@
     <description>Recent content in Tags on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 19 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 20 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>tidb</title>
-      <link>https://wangcy6.github.io/tags/tidb/</link>
-      <pubDate>Mon, 19 Aug 2024 00:00:00 +0000</pubDate>
+      <title>GitHub</title>
+      <link>https://wangcy6.github.io/tags/GitHub/</link>
+      <pubDate>Fri, 20 Sep 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://wangcy6.github.io/tags/tidb/</guid>
+      <guid>https://wangcy6.github.io/tags/GitHub/</guid>
       <description></description>
     </item>
     
     <item>
       <title>man</title>
       <link>https://wangcy6.github.io/tags/man/</link>
-      <pubDate>Wed, 07 Aug 2024 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 07 Sep 2024 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/tags/man/</guid>
       <description></description>
@@ -31,6 +31,15 @@
       <pubDate>Fri, 02 Aug 2024 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/tags/AI/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tidb</title>
+      <link>https://wangcy6.github.io/tags/tidb/</link>
+      <pubDate>Wed, 31 Jul 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/tags/tidb/</guid>
       <description></description>
     </item>
     
@@ -67,15 +76,6 @@
       <pubDate>Tue, 12 Mar 2024 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/tags/tools/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>GitHub</title>
-      <link>https://wangcy6.github.io/tags/GitHub/</link>
-      <pubDate>Fri, 09 Feb 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/tags/GitHub/</guid>
       <description></description>
     </item>
     

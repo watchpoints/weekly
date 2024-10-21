@@ -6,7 +6,34 @@
     <description>Recent content in oceanbase on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 26 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/categories/oceanbase/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 19 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/categories/oceanbase/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>成为ob贡献者(07):leader</title>
+      <link>https://wangcy6.github.io/post/oceanbase/2024/07_make_ob_leader/</link>
+      <pubDate>Sat, 19 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/oceanbase/2024/07_make_ob_leader/</guid>
+      <description>为了整理思路，文章采用模拟2人对话方式，如有误，欢迎留言。 本文分为两个部分 捕捉想法: 一个节点故障后，假如上面有1万个分区，会经过1万次选举吗</description>
+    </item>
+    
+    <item>
+      <title>成为OB贡献者(5):</title>
+      <link>https://wangcy6.github.io/post/oceanbase/2024/06_day6/</link>
+      <pubDate>Fri, 26 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/oceanbase/2024/06_day6/</guid>
+      <description>为了整理思路，文章采用模拟2人对话方式，如有误，欢迎留言。 风和日丽下午，小王与老王在咖啡馆相遇了， 小王：我想学习oceanbase，但是笔记</description>
+    </item>
+    
+    <item>
+      <title>成为OB贡献者(5):从一道OBCE面试题再探Paxos</title>
+      <link>https://wangcy6.github.io/post/oceanbase/2024/05_day5-network/</link>
+      <pubDate>Fri, 26 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/oceanbase/2024/05_day5-network/</guid>
+      <description>为了整理思路，文章采用模拟2人对话方式，如有误，欢迎留言。 Basic-Paxos协议回顾 一天下午，小王同学正在津津有味回顾：&amp;laquo;成</description>
+    </item>
+    
     <item>
       <title>成为oceanbase贡献者第四天：内置函数</title>
       <link>https://wangcy6.github.io/post/oceanbase/1-2023-05-28-add-fun/</link>
@@ -31,7 +58,7 @@
       <pubDate>Fri, 26 May 2023 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/oceanbase/2024/02_08-27-day2_paxos/</guid>
-      <description>洞悉技术的本质，享受科技的乐趣 ，技术好的前提必然会高效沟通 #一、Overview 第一问题：你期望解决什么问题，核心问题是什么？ 对于paxos</description>
+      <description>洞悉技术的本质，享受科技的乐趣 ， #一、Overview 洞悉技术的本质，享受科技的乐趣 第一问题：你期望解决什么问题，核心问题是什么？ 对于pax</description>
     </item>
     
     <item>

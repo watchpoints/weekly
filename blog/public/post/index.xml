@@ -6,14 +6,32 @@
     <description>Recent content in Posts on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 19 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 19 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>TiKV Contributors day5</title>
-      <link>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days5_rockdb/</link>
-      <pubDate>Mon, 19 Aug 2024 00:00:00 +0000</pubDate>
+      <title>成为ob贡献者(07):leader</title>
+      <link>https://wangcy6.github.io/post/oceanbase/2024/07_make_ob_leader/</link>
+      <pubDate>Sat, 19 Oct 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days5_rockdb/</guid>
-      <description>tikv_kv % tree . ├── Cargo.toml └── src ├── btree_engine.rs ├── cursor.rs ├── lib.rs ├── raftstore_impls.rs ├── rocksdb_engine.rs └── stats.rs 背景:目的 认同开源，但是迟迟不提交一个有价值pr很难，看不到成果中途</description>
+      <guid>https://wangcy6.github.io/post/oceanbase/2024/07_make_ob_leader/</guid>
+      <description>为了整理思路，文章采用模拟2人对话方式，如有误，欢迎留言。 本文分为两个部分 捕捉想法: 一个节点故障后，假如上面有1万个分区，会经过1万次选举吗</description>
+    </item>
+    
+    <item>
+      <title>git常用命令手册</title>
+      <link>https://wangcy6.github.io/post/2024/06-tools-base-user-git/</link>
+      <pubDate>Fri, 20 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2024/06-tools-base-user-git/</guid>
+      <description>并发迁移代码实现，联调90% 支持存力测试演示 git撤销已经push到远端的commit git reset 是把HEAD向后移动了一下，而git revert是</description>
+    </item>
+    
+    <item>
+      <title>c&#43;&#43;代码编程规范</title>
+      <link>https://wangcy6.github.io/post/c&#43;&#43;/02_master_c&#43;&#43;_class/</link>
+      <pubDate>Sat, 07 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/c&#43;&#43;/02_master_c&#43;&#43;_class/</guid>
+      <description>函数 参数传递：值传递 与引用传递 1 2 3 4 5 void usage(const string &amp;amp;name) { } 谈谈你对 const string &amp;amp; 数据结构 数组 初始化 1 2 char buf[128]; memset(buf, 0xcc, sizeof(buf)); map c++ map查找key 1 2 3 4 5 6 7 8 9 10 11</description>
     </item>
     
     <item>
@@ -45,11 +63,11 @@
     
     <item>
       <title>TiKV Contributors day3：</title>
-      <link>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days4_read/</link>
+      <link>https://wangcy6.github.io/post/tidb/2024/raft-rs/</link>
       <pubDate>Wed, 31 Jul 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days4_read/</guid>
-      <description>成为tikv贡献者第三天：存储引擎 本文是TiKV 源码阅读第三篇， 目标：snapshot进行进一步理解，一边理解rust语法，一边抽象模块之间</description>
+      <guid>https://wangcy6.github.io/post/tidb/2024/raft-rs/</guid>
+      <description>跟着启动看，抛开一切的worker，只看主流程。看看怎么启动的。 了解batchsystem，router scheduler这些，只看这个是怎</description>
     </item>
     
     <item>
@@ -377,6 +395,24 @@
     </item>
     
     <item>
+      <title>成为OB贡献者(5):</title>
+      <link>https://wangcy6.github.io/post/oceanbase/2024/06_day6/</link>
+      <pubDate>Fri, 26 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/oceanbase/2024/06_day6/</guid>
+      <description>为了整理思路，文章采用模拟2人对话方式，如有误，欢迎留言。 风和日丽下午，小王与老王在咖啡馆相遇了， 小王：我想学习oceanbase，但是笔记</description>
+    </item>
+    
+    <item>
+      <title>成为OB贡献者(5):从一道OBCE面试题再探Paxos</title>
+      <link>https://wangcy6.github.io/post/oceanbase/2024/05_day5-network/</link>
+      <pubDate>Fri, 26 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/oceanbase/2024/05_day5-network/</guid>
+      <description>为了整理思路，文章采用模拟2人对话方式，如有误，欢迎留言。 Basic-Paxos协议回顾 一天下午，小王同学正在津津有味回顾：&amp;laquo;成</description>
+    </item>
+    
+    <item>
       <title>成为oceanbase贡献者第四天：内置函数</title>
       <link>https://wangcy6.github.io/post/oceanbase/1-2023-05-28-add-fun/</link>
       <pubDate>Fri, 26 May 2023 00:00:00 +0000</pubDate>
@@ -400,7 +436,7 @@
       <pubDate>Fri, 26 May 2023 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/oceanbase/2024/02_08-27-day2_paxos/</guid>
-      <description>洞悉技术的本质，享受科技的乐趣 ，技术好的前提必然会高效沟通 #一、Overview 第一问题：你期望解决什么问题，核心问题是什么？ 对于paxos</description>
+      <description>洞悉技术的本质，享受科技的乐趣 ， #一、Overview 洞悉技术的本质，享受科技的乐趣 第一问题：你期望解决什么问题，核心问题是什么？ 对于pax</description>
     </item>
     
     <item>
@@ -593,7 +629,7 @@
     </item>
     
     <item>
-      <title>睡前3个小时准备工作</title>
+      <title>成功习惯养成记(1)：24小时时起床一次</title>
       <link>https://wangcy6.github.io/post/habit/2024/2024-08-12-sleep/</link>
       <pubDate>Mon, 22 Aug 2022 00:00:00 +0000</pubDate>
       
