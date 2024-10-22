@@ -43,10 +43,16 @@ git@gitee.com:wang_cyi/note_tikv.git
 ## **回顾：**
 
 
-### 任务01：把项目运行起来，运行官方提供例子 
+### 任务01：把项目运行起来，运行examples提供例子 
 
-https://github.com/watchpoints/raft-rs/blob/master/examples/five_mem_node/main.rs
-仓库中的 `examples/five_mem_node/main.rs` 文件是一个包含了主要 API 用法的简单示例。它创建了一个 5 节点的 Raft 系统，并进行了 100 个 proposal 的请求和提交
+- https://github.com/watchpoints/raft-rs/blob/master/examples/five_mem_node/main.rs
+
+- TiKV 依赖的周边库 [raft-rs](https://github.com/pingcap/raft-rs) 是参照 ETCD 的 RAFT 库编写的 RUST 版本
+
+仓库中的 `examples/five_mem_node/main.rs` 
+
+
+它创建了一个 5 节点的 Raft 系统，并进行了 100 个 proposal 的请求和提交
 
 
 
