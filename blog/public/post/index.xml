@@ -31,7 +31,7 @@
       <pubDate>Sat, 07 Sep 2024 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/c&#43;&#43;/02_master_c&#43;&#43;_class/</guid>
-      <description>函数 参数传递：值传递 与引用传递 1 2 3 4 5 void usage(const string &amp;amp;name) { } 谈谈你对 const string &amp;amp; 数据结构 数组 初始化 1 2 char buf[128]; memset(buf, 0xcc, sizeof(buf)); map c++ map查找key 1 2 3 4 5 6 7 8 9 10 11</description>
+      <description>类 引用成员：在类中声明一个引用类型的成员变量，例如 int&amp;amp; ref;。 构造函数：通过初始化列表（MyClass(int&amp;amp; r) : ref(r) {}）绑定引用</description>
     </item>
     
     <item>

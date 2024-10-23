@@ -42,26 +42,100 @@ git@gitee.com:wang_cyi/note_tikv.git
 
 ## **回顾：**
 
+# Raft-rs最佳实践
+## 任务01:在gitpod.io环境，运行five_mem_node例子 。
 
-### 任务01：把项目运行起来，运行examples提供例子 
-
-- https://github.com/watchpoints/raft-rs/blob/master/examples/five_mem_node/main.rs
+- 代码地址：
+   https://github.com/watchpoints/raft-rs/blob/master/examples/five_mem_node/main.rs
 
 - TiKV 依赖的周边库 [raft-rs](https://github.com/pingcap/raft-rs) 是参照 ETCD 的 RAFT 库编写的 RUST 版本
 
 仓库中的 `examples/five_mem_node/main.rs` 
 
-
 它创建了一个 5 节点的 Raft 系统，并进行了 100 个 proposal 的请求和提交
 
 
+环境搭建：gitpod.io
 
 
--
+![image.png](https://s2.loli.net/2024/10/22/wKpRHMfThSZx6i7.png)
+
+- 明白一些命令
+
+~~~
+curl https://sh.rustup.rs -sSf | sh
+export PATH="/workspace/.cargo/bin:$PATH"
+source  ~/.bashrc
+rustc -V
+
+//02--Rust toolchain
+rustup toolchain install nightly
+
+rustc 1.80.0 (051478957 2024-07-21)
+~~~
+
+`Raft` is built using the latest version of `stable` Rust, using [the 2018 edition](https://doc.rust-lang.org/edition-guide/rust-2018/). Minimum supported version is `1.44.0`.
+
+Using `rustup` you can get started this way:
+
+```shell
+rustup component add clippy
+rustup component add rustfmt
+```
+
+In order to have your PR merged running the following must finish without error:
+
+```shell
+
+cargo run  //首先对项目进行编译， 然后再运行 cargo build
+cargo run --release 提高运行速度  
+./target/release/world_hello
+
+当项目大了后，cargo run 和 cargo build 不可避免的会变慢，那么有没有更快的方式来验证代码的正确性呢？
+cargo check //快速的检查一下代码能否编译通过
+
+cargo test --all && \  
+cargo clippy --all --all-targets -- -D clippy::all   && \ 
+//用于捕捉常见错误和改进 Rust 代码
+// Clippy 是一个 Rust 代码的静态分析工具，
+//用于检测代码中的潜在错误、不规范的代码风格以及其他问题
+
+//`--all`：这个选项告诉 Clippy 检查所有的包，包括依赖的包
+//`--all-targets`：这个选项指示 Clippy 不仅检查库代码，还会检查所有的二进制目标（
+
+// 并禁用 Clippy 的所有默认 lints，例如当开发者想要使用 Clippy 检查代码，但又不想受到 Clippy 默认 lints 的限制时
+cargo fmt --all -- --check    //通过 rustfmt 自动格式化
+```
+
+You may optionally want to install `cargo-watch` to allow for automated rebuilding while editing:
+
+```shell
+cargo watch -s "cargo check"
+
+gitpod /workspace/raft-rs (master) $ cargo watch -s "cargo check"
+[Running 'cargo check']
+    Checking crossbeam-utils v0.8.20
+   Compiling raft-proto v0.7.0 (/workspace/raft-rs/proto)
+    Checking crossbeam-channel v0.5.13
+    Checking slog-async v2.8.0
+    Checking slog-envlogger v2.2.0
+    Checking raft v0.7.0 (/workspace/raft-rs)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.76s
+[Finished running. Exit status: 0]
+```
+
+##   任务02 根据执行结果看代码怎么运行的
+
+信息来源：
+- TiKV 源码解析系列文章（二）raft-rs proposal 示例情景分析
+- https://cn.pingcap.com/blog/tikv-source-code-reading-2/
+- TiKV 源码解析系列文章（六）raft-rs 日志复制过程分析
+- https://cn.pingcap.com/blog/tikv-source-code-reading-6/
+-  etcd-raft 源码学习笔记
+- raft-rust 初体验
 
 
 
-  
 
   
 
