@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "post/c++/02_master_c++_class.md",
+                "file": "post/tidb/2024/Day4-raft-rs.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "02_master_c++_class"
+              "title": "Day4-raft-rs"
             }
           }
         ]
@@ -164,7 +164,8 @@
   },
   "active": "9ae58ca5251e53da",
   "lastOpenFiles": [
-    "post/tidb/2024/raft-rs.md",
+    "post/tidb/2024/Day4-raft-rs.md",
+    "post/c++/02_master_c++_class.md",
     "post/tidb/2024/rust_for_tikv_days1_gdb.md",
     "post/tidb/2024/rust_for_tikv_days3_read.md",
     "post/tidb/2024/rust_for_tikv_days2_query.md",

@@ -43,7 +43,7 @@ git@gitee.com:wang_cyi/note_tikv.git
 ## **回顾：**
 
 # Raft-rs最佳实践
-## 任务01:在gitpod.io环境，运行five_mem_node例子 。
+## 任务01:在gitpod.io 创建项目运行环境  [耗时5分钟]
 
 - 代码地址：
    https://github.com/watchpoints/raft-rs/blob/master/examples/five_mem_node/main.rs
@@ -124,7 +124,64 @@ gitpod /workspace/raft-rs (master) $ cargo watch -s "cargo check"
 [Finished running. Exit status: 0]
 ```
 
-##   任务02 根据执行结果看代码怎么运行的
+
+## 任务02:通过代码准备最少rust语法知识
+
+
+
+
+
+
+ **代码1：**
+
+ ~~~rust
+ 
+  let (tx_stop, rx_stop) = mpsc::channel();
+ 
+  pub fn channel<T>() -> (Sender<T>, Receiver<T>)
+ ~~~
+原文：
+
+Creates a new asynchronous channel, returning the sender/receiver halves. All data sent on the [`Sender`](https://doc.rust-lang.org/std/sync/mpsc/struct.Sender.html "struct std::sync::mpsc::Sender") will become available on the [`Receiver`](https://doc.rust-lang.org/std/sync/mpsc/struct.Receiver.html "struct std::sync::mpsc::Receiver") in the same order as it was sent, and no [`send`](https://doc.rust-lang.org/std/sync/mpsc/struct.Sender.html#method.send "method std::sync::mpsc::Sender::send") will block the calling thread (this channel has an “infinite buffer”, unlike [`sync_channel`](https://doc.rust-lang.org/std/sync/mpsc/fn.sync_channel.html "fn std::sync::mpsc::sync_channel"), which will block after its buffer limit is reached). [`recv`](https://doc.rust-lang.org/std/sync/mpsc/struct.Receiver.html#method.recv "method std::sync::mpsc::Receiver::recv") will block until a message is available while there is at least one [`Sender`](https://doc.rust-lang.org/std/sync/mpsc/struct.Sender.html "struct std::sync::mpsc::Sender") alive (including clones).  
+
+翻译：
+
+创建一个新的异步通道，返回发送方/接收方的一半。 [`Sender`](https://doc.rust-lang.org/std/sync/mpsc/struct.Sender.html "struct std::sync::mpsc::Sender")发送的所有数据将按照发送顺序在[`Receiver`](https://doc.rust-lang.org/std/sync/mpsc/struct.Receiver.html "struct std::sync::mpsc::Receiver")上可用，并且任何[`send`](https://doc.rust-lang.org/std/sync/mpsc/struct.Sender.html#method.send "method std::sync::mpsc::Sender::send")都不会阻塞调用线程（此通道具有“无限缓冲区”，与[`sync_channel`](https://doc.rust-lang.org/std/sync/mpsc/fn.sync_channel.html "fn std::sync::mpsc::sync_channel")不同，后者在其缓冲区限制达到后将阻塞）达到）。在至少有一个[`Sender`](https://doc.rust-lang.org/std/sync/mpsc/struct.Sender.html "struct std::sync::mpsc::Sender") （包括克隆）存在的情况下， [`recv`](https://doc.rust-lang.org/std/sync/mpsc/struct.Receiver.html#method.recv "method std::sync::mpsc::Receiver::recv")将阻塞，直到消息可用为止。
+
+
+**代码2** Arc::clone
+
+
+
+```
+ let proposals: Arc<Mutex<VecDeque<Proposal>>> = Arc::clone(&proposals);
+
+  
+  Stack                    Heap
+  -----                    ----
+
+
+  annas:
++--------+               +------------+
+| ptr: o-|-------------->| count: 3   |
++--------+    ^          | data: 🐢   |
+              |          +------------+
+ peters:      |
++--------+    |
+| ptr: o-|----+
++--------+    ^
+              |
+  bobs:       |
++--------+    |
+| ptr: o-|----+
++--------+
+```
+
+
+## 任务03: 描述five_mem_node功能，然后绘制流程图
+
+
+##   任务03 根据执行结果看代码怎么运行的
 
 信息来源：
 - TiKV 源码解析系列文章（二）raft-rs proposal 示例情景分析

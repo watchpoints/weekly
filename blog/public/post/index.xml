@@ -63,10 +63,10 @@
     
     <item>
       <title>TiKV Contributors day3：</title>
-      <link>https://wangcy6.github.io/post/tidb/2024/raft-rs/</link>
+      <link>https://wangcy6.github.io/post/tidb/2024/Day4-raft-rs/</link>
       <pubDate>Wed, 31 Jul 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://wangcy6.github.io/post/tidb/2024/raft-rs/</guid>
+      <guid>https://wangcy6.github.io/post/tidb/2024/Day4-raft-rs/</guid>
       <description>跟着启动看，抛开一切的worker，只看主流程。看看怎么启动的。 了解batchsystem，router scheduler这些，只看这个是怎</description>
     </item>
     
