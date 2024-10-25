@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wangcy6.github.io/post/</loc>
+    <lastmod>2024-10-25T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangcy6.github.io/tags/</loc>
+    <lastmod>2024-10-25T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangcy6.github.io/tags/tidb/</loc>
+    <lastmod>2024-10-25T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangcy6.github.io/</loc>
+    <lastmod>2024-10-25T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangcy6.github.io/post/tidb/2024/make_tidb_day6-raft-rs/</loc>
+    <lastmod>2024-10-25T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://wangcy6.github.io/categories/</loc>
     <lastmod>2024-10-19T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -10,20 +45,6 @@
   
   <url>
     <loc>https://wangcy6.github.io/categories/oceanbase/</loc>
-    <lastmod>2024-10-19T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangcy6.github.io/post/</loc>
-    <lastmod>2024-10-19T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangcy6.github.io/</loc>
     <lastmod>2024-10-19T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -45,13 +66,6 @@
   
   <url>
     <loc>https://wangcy6.github.io/post/2024/06-tools-base-user-git/</loc>
-    <lastmod>2024-09-20T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangcy6.github.io/tags/</loc>
     <lastmod>2024-09-20T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -102,20 +116,6 @@
   <url>
     <loc>https://wangcy6.github.io/post/ai/2024/2024-08-02-sleep/</loc>
     <lastmod>2024-08-02T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangcy6.github.io/tags/tidb/</loc>
-    <lastmod>2024-07-31T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangcy6.github.io/post/tidb/2024/Day4-raft-rs/</loc>
-    <lastmod>2024-07-31T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

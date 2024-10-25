@@ -6,14 +6,14 @@
     <description>Recent content in tidb on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 31 Jul 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/tags/tidb/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 25 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/tags/tidb/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>TiKV Contributors day3：</title>
-      <link>https://wangcy6.github.io/post/tidb/2024/Day4-raft-rs/</link>
-      <pubDate>Wed, 31 Jul 2024 00:00:00 +0000</pubDate>
+      <title>成为Tidb贡献者第四天: raft-rs最佳实践</title>
+      <link>https://wangcy6.github.io/post/tidb/2024/make_tidb_day6-raft-rs/</link>
+      <pubDate>Fri, 25 Oct 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://wangcy6.github.io/post/tidb/2024/Day4-raft-rs/</guid>
-      <description>跟着启动看，抛开一切的worker，只看主流程。看看怎么启动的。 了解batchsystem，router scheduler这些，只看这个是怎</description>
+      <guid>https://wangcy6.github.io/post/tidb/2024/make_tidb_day6-raft-rs/</guid>
+      <description>动机 动机分类 ：一个项目需求，一个客户不bug反馈，可能是拆解一个复杂任务。 你不能做什么 不要说价值百万项目必须完成，不要说vip客户问题必须解</description>
     </item>
     
     <item>
