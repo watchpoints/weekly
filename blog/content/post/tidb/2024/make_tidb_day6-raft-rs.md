@@ -7,51 +7,42 @@ tags:
   - Tidb
 ---
 
+## 一、 别想太多，只管去提问,所有问题，都会有答案
 
-## 动机
-> 动机分类 ：一个项目需求，一个客户不bug反馈，可能是拆解一个复杂任务。
-> 你不能做什么
 > 
-> 不要说价值百万项目必须完成，不要说vip客户问题必须解决，不要说这么简单事情还不会
-> 都是别人责任 ，
-> 你想一个人把公司推送100发展，发展为他们未来，你也没有这个权力。
-> 公司方式固定下来 他们业务是什，客户 是什么，怎么开发，怎么沟通，完全系统。根本不会改正。并且维持运转，就是最好证明。根本不可能事情。
-> 因为你提出建议之前：你提出方法不对，内容不对，自己抱怨一下。
-> 根本不完成，漏洞百出。
-> 你项目需求，设计，研发，解决，根本没有让别人信任能力。
-> 别人设计，不停完成一个一个任务。才是研发责任。
-> 就是螺丝钉。整个环节如此。
+> 一个项目需求，一个客户反馈，学习上遇到问题 都是提问来源
+
+> 把问题说清楚，就等于把问题解决了一半，
+ 但是不要抱怨说整个大环境都这样这样问题，
+ 作为程序员完全一切权力在客户，公司，测试，运维，
+ 改变他们不是你目的，加速公司100%发展你也没这个能力，也不是责任
+ 基于这样假设提问 就是无效沟通
+ 别人根本不接受，你在这方面根本没有经过他们考验
+ 你思考漏洞百出，拿不出更好方案，拿不出任何成果。
+ 相反他们在这样模式下构建百万千万项目，构建高楼大厦，构建成功案例
+>
+转变思路，你想自己提问，看看自己如何解决。
+
+>
 
 
-> 你能做什么。
-> 把一切转换一个项目管理步骤。
-> 你判断是：前进 选择优先级价值更大事情前进，只要是事情 无论多大多难就干
-> 你判断是：放弃，缺失各自资源，暂停。
-> 
-> 只要到说出合理原因 时间不够，功能多，等就延迟在延迟。
->  把一切转换一个项目管理步骤
+###  1.1 我遇到的问题：直接看TIkv BatchSystem模块有难度，看不懂呀，
+### 1.2 别人给出答案:
 
+> 思路1  `TIKV` 的 `BatchSystem` 是实现 `MultiRaft` 的关键模块。在阅读本文章前，大家可以先参
 
-
-
-1. 我遇到的问题：直接看TIkv BatchSystem模块有难度，看不懂呀，
-2. 别人给出答案:
-    1. `TIKV` 的 `BatchSystem` 是实现 `MultiRaft` 的关键模块。在阅读本文章前，大家可以先参考一些官方博客：
-    
-3.  采取行动1--rust：决定Raft-rs库开始降低开始。
-4. 采取行动2--golang：报名 Talent Plan 实战竞技赛之分布式数据库 TinyKV 开发
-     https://competition.atomgit.com/competitionInfo?id=234192bbf9b96466d67f25c585661d90
-
-  
-	TiKV 依赖的周边库 [raft-rs](https://github.com/pingcap/raft-rs) 是参照 ETCD 的 RAFT 库编写的 RUST 版本
+TiKV 依赖的周边库 [raft-rs](https://github.com/pingcap/raft-rs) 是参照 ETCD 的 RAFT 库编写的 RUST 版本
 	
-	翻译：
-	
+翻译：
+~~~
 	When we began to build TiKV, we researched and investigated many Raft implementations. We eventually decided to go with etcd’s Raft implementation and built our own [Raft](https://github.com/pingcap/raft-rs) using [Rust](https://www.rust-lang.org/),
 	
 	Although etcd’s Raft implementation is written in Go, it has a simple API with no specific Go feature, thus can be easily ported to Rust.
+~~~
+	
+> 思路2：Talent Plan 实战竞技赛之分布式数据库 TinyKV 开发
 
-
+    
 |                                     |                                                                                                                                                          |             |                        |         |
 | ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ---------------------- | ------- |
 | **程名称**                             | **主要内容**                                                                                                                                                 | **课时**      | **课程时间**               | **主讲人** |
@@ -65,6 +56,33 @@ tags:
 | TinyKV 项目总结                         | 1. 回顾之前课程主题要点  <br>2. 集中总结常见问题  <br>3. 介绍后期安排                                                                                                            | 45min～90min | 2024/10/29 19:00-20:30 | 董菲      |
 
 
+
+
+### 1.3 我采取行动：2个事情只能同时做一个
+
+
+-放弃思路2： 报名Talent Plan 实战竞技赛之分布式数据库 TinyKV 开发 但是你根本时间，最后完不成因此放弃，比赛放弃，但是 TinyKV难度相对低，资源多，从边做一题边写文章方式
+https://competition.atomgit.com/competitionInfo?id=234192bbf9b96466d67f25c585661d90
+https://github.com/watchpoints/tinykv/tree/course
+
+- 采取思路1：写一篇 raft-rs最佳实践，
+   https://github.com/watchpoints/raft-rs
+
+-
+
+
+# 二、当作项目一样管理 ，说出，那些功能，实现方案 ，需要代码量，多少人月完成 提供整体视图。
+
+
+> 根本无法说出什么功能，
+> 跟无法预估学习多次时间，
+> 完全行不通，也无法保证截至日期完成任务。
+> 
+> 这是看到哪里拿，完全小作坊模式，最后被预期投入很多时间，也完不成。
+> 比赛是1个月，但是上班根本没时间，里面大纲参考
+> https://competition.atomgit.com/competitionInfo?id=234192bbf9b96466d67f25c585661d90
+> https://learn.pingcap.cn/learner/course/390002
+> 
 ## 任务01:在gitpod.io 创建项目运行环境  [耗时5分钟]
 
 - 代码地址：
@@ -244,9 +262,6 @@ bluestore_ioring = true
 - raft-rust 初体验
 
 
-
-
-  
 
 
   

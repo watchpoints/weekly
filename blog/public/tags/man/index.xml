@@ -22,7 +22,7 @@
       <pubDate>Wed, 07 Aug 2024 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/c&#43;&#43;/01_c&#43;&#43;_new/</guid>
-      <description>内存管理 C++中通过new和delete两个关键字进行动态内存管理。 c语言通过 malloc 和free 两个关键字进行动态内存管理 函数支持重载，运算符同样</description>
+      <description># 代码评审（Code Review） 架构/设计 a. 单一职责原则 一个类只做一类相关的事情。 一个方法，最好只做一件事情。 b. 代码是否污染 代码是否对其他</description>
     </item>
     
     <item>
