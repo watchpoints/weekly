@@ -70,7 +70,6 @@ https://github.com/watchpoints/tinykv/tree/course
 
 -
 
-
 # 二、当作项目一样管理 ，说出，那些功能，实现方案 ，需要代码量，多少人月完成 提供整体视图。
 
 
@@ -165,13 +164,38 @@ gitpod /workspace/raft-rs (master) $ cargo watch -s "cargo check"
 ```
 
 
-## 任务02:通过代码准备最少rust语法知识
+## 任务02:通过代码准备最少rust语法知识【60分钟】
 
 
+Q1：vector 为什么不实例化就可以调用new
 
 
+~~~rust
+
+let (mut tx_vec, mut rx_vec) = (Vec::new(), Vec::new());
+
+impl<T> Vec<T> {
+
+    /// Constructs a new, empty `Vec<T>`.
+
+    ///
+
+    /// The vector will not allocate until elements are pushed onto it.
+
+    ///
+
+    /// # Examples
+
+    // 方法的参数并没有 &self
+    pub const fn new() -> Self {
+
+        Vec { buf: RawVec::NEW, len: 0 }
+
+    }
+~~~
 
 
+ 
  **代码1：**
 
  ~~~rust
