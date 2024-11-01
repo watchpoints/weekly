@@ -11,6 +11,8 @@ tags: ["book"]
 
 
 
+xmind 图片居中对齐
+
 
 
 

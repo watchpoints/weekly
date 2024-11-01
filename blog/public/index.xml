@@ -13,7 +13,7 @@
       <pubDate>Fri, 25 Oct 2024 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/tidb/2024/make_tidb_day6-raft-rs/</guid>
-      <description>动机：发现问题，并找到不完美解决方式才是闭环。 来源真实需求 ：一个项目需求，一个客户反馈，一个理解上遇到问题 你不能做什么 不要说价值百万项目必须</description>
+      <description>一、 别想太多，只管去提问,所有问题，都会有答案 一个项目需求，一个客户反馈，学习上遇到问题 都是提问来源 把问题说清楚，就等于把问题解决了一半， 但</description>
     </item>
     
     <item>
@@ -337,7 +337,7 @@
       <pubDate>Fri, 11 Aug 2023 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/liunx/git%E9%80%9A%E5%85%B3%E4%BB%8E%E9%9D%92%E9%93%9C%E5%88%B0%E7%8E%8B%E8%80%85/</guid>
-      <description>第一关：项目最新代码出现问题，你想回退，但是保留自己修改最新代码怎么办？ 期望结果 n1（正常状态）&amp;mdash;&amp;ndash;n2-（出现问题</description>
+      <description>xmind 图片居中对齐 第一关：项目最新代码出现问题，你想回退，但是保留自己修改最新代码怎么办？ 期望结果 n1（正常状态）&amp;mdash;&amp;ndash;n</description>
     </item>
     
     <item>
@@ -1386,11 +1386,11 @@
     
     <item>
       <title>大脑的维修艺术</title>
-      <link>https://wangcy6.github.io/post/book/%E5%A4%A7%E8%84%91%E7%9A%84%E7%BB%B4%E4%BF%AE%E8%89%BA%E6%9C%AF/</link>
+      <link>https://wangcy6.github.io/post/book/book5_%E9%87%8D%E5%A1%91%E5%BF%83%E7%81%B5/</link>
       <pubDate>Thu, 12 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://wangcy6.github.io/post/book/%E5%A4%A7%E8%84%91%E7%9A%84%E7%BB%B4%E4%BF%AE%E8%89%BA%E6%9C%AF/</guid>
-      <description>正念 #1 大脑的维修意识小程序课程 #2 四念处修行要领 Directory Check Cost 四念处修行要领 (30/44) &amp;ndash; 空海 one 四念处修行要领 (32/44) &amp;ndash; 空海 23 电影</description>
+      <guid>https://wangcy6.github.io/post/book/book5_%E9%87%8D%E5%A1%91%E5%BF%83%E7%81%B5/</guid>
+      <description>开始时间：2024-10-28 Day1-10-28 -5分钟 第二章信念系统 微信读书怎么对应原版书页码 这个事情 不处理，是微信事情 不是的事业，你按照章节记录 原文： 信</description>
     </item>
     
     <item>
@@ -1408,7 +1408,7 @@
       <pubDate>Mon, 02 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/book/book_thingin_c&#43;&#43;/</guid>
-      <description>来源： c++编程思想（两卷合订本） 提问的方式 Q1 动态转换和静态转换的区别是什么？ 小王第一次回答 一头雾水呀，平时没有自己用过， 唯一有印象的是写线</description>
+      <description>Q14 三句话描述 operator是重载运算符 operator new 是重载new运算符 类似 operaotr &amp;laquo; operator三个用法 普通用法： operator new(size),申请失败，抛出</description>
     </item>
     
     <item>

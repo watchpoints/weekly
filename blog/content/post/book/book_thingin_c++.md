@@ -7,7 +7,53 @@ tags: ["c++"]
 categories: ["每周阅读一本书"]
 ---
 
+### Q14
 
+
+三句话描述
+operator是重载运算符
+operator new 是重载new运算符 类似 operaotr <<
+
+operator三个用法
+
+1. 普通用法： operator new(size),申请失败，抛出异常，不会返回null
+2. 不抛异常用法，申请大内存时候使用，返回值null
+3. 自定义内存池使用，不申请内存，直接使用已有内容地址
+参考之前写文章：
+https://open.oceanbase.com/blog/13326755861
+
+
+### Q13: 知识点，无法构建一个方案，-kill进程kill不掉
+
+- 知识点，无法构建一个方案
+
+定位思路
+- 查看进程状态  top -p xxx
+
+
+**Linux进程状态：D (TASK_UNINTERRUPTIBLE)，不可中断的睡眠状态。**
+kill -9竟然杀不死一个正在睡眠的进程了！
+
+**Linux进程状态：Z (TASK_DEAD - EXIT_ZOMBIE)，退出状态，进程成为僵尸进程。**
+1号进程，pid为1的进程，又称init进程。
+收尸”过程中则处于TASK_RUNNING状态
+
+linux进程状态D和Z的处理
+
+ps -A -ostat,pid,ppid | grep -e '[zZ]'
+
+
+### Q12: 同一个函数在不同线程?
+
+
+
+## Q11：什么情况用异步，什么情况同步？
+
+
+不确定什么执行完成
+- 网络访问，
+- 写磁盘，
+- 调用其外部模块，用户态调用内核态
 
 
 

@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Troy" /><meta name="description" content="来源： c&#43;&#43;编程思想（两卷合订本） 提问的方式 Q1 动态转换和静态转换的区别是什么？ 小王第一次回答 一头雾水呀，平时没有自己用过， 唯一有印象的是写线" /><meta name="keywords" content="daily-interview-question, Github, c&#43;&#43;, Leetcode 题解, 后端面试" />
+<meta name="author" content="Troy" /><meta name="description" content="Q14 三句话描述 operator是重载运算符 operator new 是重载new运算符 类似 operaotr &amp;laquo; operator三个用法 普通用法： operator new(size),申请失败，抛出" /><meta name="keywords" content="daily-interview-question, Github, c&#43;&#43;, Leetcode 题解, 后端面试" />
 
 
 
@@ -39,19 +39,19 @@
 
 
 <meta property="og:title" content="c&#43;&#43;编程思想" />
-<meta property="og:description" content="来源： c&#43;&#43;编程思想（两卷合订本） 提问的方式 Q1 动态转换和静态转换的区别是什么？ 小王第一次回答 一头雾水呀，平时没有自己用过， 唯一有印象的是写线" />
+<meta property="og:description" content="Q14 三句话描述 operator是重载运算符 operator new 是重载new运算符 类似 operaotr &laquo; operator三个用法 普通用法： operator new(size),申请失败，抛出" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://wangcy6.github.io/post/book/book_thingin_c&#43;&#43;/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2019-12-02T00:00:00+00:00" />
 <meta property="article:modified_time" content="2019-12-02T00:00:00+00:00" />
 
 <meta itemprop="name" content="c&#43;&#43;编程思想">
-<meta itemprop="description" content="来源： c&#43;&#43;编程思想（两卷合订本） 提问的方式 Q1 动态转换和静态转换的区别是什么？ 小王第一次回答 一头雾水呀，平时没有自己用过， 唯一有印象的是写线"><meta itemprop="datePublished" content="2019-12-02T00:00:00+00:00" />
+<meta itemprop="description" content="Q14 三句话描述 operator是重载运算符 operator new 是重载new运算符 类似 operaotr &laquo; operator三个用法 普通用法： operator new(size),申请失败，抛出"><meta itemprop="datePublished" content="2019-12-02T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2019-12-02T00:00:00+00:00" />
-<meta itemprop="wordCount" content="3846">
+<meta itemprop="wordCount" content="4273">
 <meta itemprop="keywords" content="c&#43;&#43;," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="c&#43;&#43;编程思想"/>
-<meta name="twitter:description" content="来源： c&#43;&#43;编程思想（两卷合订本） 提问的方式 Q1 动态转换和静态转换的区别是什么？ 小王第一次回答 一头雾水呀，平时没有自己用过， 唯一有印象的是写线"/>
+<meta name="twitter:description" content="Q14 三句话描述 operator是重载运算符 operator new 是重载new运算符 类似 operaotr &laquo; operator三个用法 普通用法： operator new(size),申请失败，抛出"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -130,8 +130,8 @@
         <div class="post-category">
             <a href="/categories/%E6%AF%8F%E5%91%A8%E9%98%85%E8%AF%BB%E4%B8%80%E6%9C%AC%E4%B9%A6/"> 每周阅读一本书 </a>
             </div>
-          <span class="more-meta"> 约 3846 字 </span>
-          <span class="more-meta"> 预计阅读 8 分钟 </span>
+          <span class="more-meta"> 约 4273 字 </span>
+          <span class="more-meta"> 预计阅读 9 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
     </header>
@@ -140,6 +140,17 @@
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#q14">Q14</a></li>
+        <li><a href="#q13-知识点无法构建一个方案-kill进程kill不掉">Q13: 知识点，无法构建一个方案，-kill进程kill不掉</a></li>
+        <li><a href="#q12-同一个函数在不同线程">Q12: 同一个函数在不同线程?</a></li>
+      </ul>
+    </li>
+    <li><a href="#q11什么情况用异步什么情况同步">Q11：什么情况用异步，什么情况同步？</a></li>
+  </ul>
+
   <ul>
     <li><a href="#q1--动态转换和静态转换的区别是什么">Q1  动态转换和静态转换的区别是什么？</a></li>
     <li><a href="#q2-map和hashmap的使用场景">Q2 map和hashmap的使用场景？</a>
@@ -174,7 +185,42 @@
     </div>
   </div>
     <div class="post-content">
-      <p>来源： <a href="">c++编程思想（两卷合订本）</a></p>
+      <h3 id="q14">Q14</h3>
+<p>三句话描述
+operator是重载运算符
+operator new 是重载new运算符 类似 operaotr &laquo;</p>
+<p>operator三个用法</p>
+<ol>
+<li>普通用法： operator new(size),申请失败，抛出异常，不会返回null</li>
+<li>不抛异常用法，申请大内存时候使用，返回值null</li>
+<li>自定义内存池使用，不申请内存，直接使用已有内容地址
+参考之前写文章：
+<a href="https://open.oceanbase.com/blog/13326755861">https://open.oceanbase.com/blog/13326755861</a></li>
+</ol>
+<h3 id="q13-知识点无法构建一个方案-kill进程kill不掉">Q13: 知识点，无法构建一个方案，-kill进程kill不掉</h3>
+<ul>
+<li>知识点，无法构建一个方案</li>
+</ul>
+<p>定位思路</p>
+<ul>
+<li>查看进程状态  top -p xxx</li>
+</ul>
+<p><strong>Linux进程状态：D (TASK_UNINTERRUPTIBLE)，不可中断的睡眠状态。</strong>
+kill -9竟然杀不死一个正在睡眠的进程了！</p>
+<p><strong>Linux进程状态：Z (TASK_DEAD - EXIT_ZOMBIE)，退出状态，进程成为僵尸进程。</strong>
+1号进程，pid为1的进程，又称init进程。
+收尸”过程中则处于TASK_RUNNING状态</p>
+<p>linux进程状态D和Z的处理</p>
+<p>ps -A -ostat,pid,ppid | grep -e &lsquo;[zZ]&rsquo;</p>
+<h3 id="q12-同一个函数在不同线程">Q12: 同一个函数在不同线程?</h3>
+<h2 id="q11什么情况用异步什么情况同步">Q11：什么情况用异步，什么情况同步？</h2>
+<p>不确定什么执行完成</p>
+<ul>
+<li>网络访问，</li>
+<li>写磁盘，</li>
+<li>调用其外部模块，用户态调用内核态</li>
+</ul>
+<p>来源： <a href="">c++编程思想（两卷合订本）</a></p>
 <h1 id="提问的方式">提问的方式</h1>
 <h2 id="q1--动态转换和静态转换的区别是什么">Q1  动态转换和静态转换的区别是什么？</h2>
 <blockquote>

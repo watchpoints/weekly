@@ -22,7 +22,7 @@
       <pubDate>Mon, 02 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/book/book_thingin_c&#43;&#43;/</guid>
-      <description>来源： c++编程思想（两卷合订本） 提问的方式 Q1 动态转换和静态转换的区别是什么？ 小王第一次回答 一头雾水呀，平时没有自己用过， 唯一有印象的是写线</description>
+      <description>Q14 三句话描述 operator是重载运算符 operator new 是重载new运算符 类似 operaotr &amp;laquo; operator三个用法 普通用法： operator new(size),申请失败，抛出</description>
     </item>
     
   </channel>
