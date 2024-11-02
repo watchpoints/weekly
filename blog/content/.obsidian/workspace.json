@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "post/book/book5_重塑心灵.md",
+                "file": "post/tidb/2024/make_tidb_day6-raft-rs.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "book5_重塑心灵"
+              "title": "make_tidb_day6-raft-rs"
             }
           }
         ]
@@ -162,10 +162,10 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "dbd3e6b75cffcb91",
+  "active": "9ae58ca5251e53da",
   "lastOpenFiles": [
-    "post/liunx/git通关从青铜到王者.md",
     "post/book/book5_重塑心灵.md",
+    "post/liunx/git通关从青铜到王者.md",
     "post/book/man.md",
     "post/book/book_04_设计之禅.md",
     "post/book/book_Algorithms-JeffE.md",
