@@ -164,6 +164,9 @@
   },
   "active": "9ae58ca5251e53da",
   "lastOpenFiles": [
+    "post/tidb/2024/rust_for_tikv_days1_gdb.md",
+    "post/tidb/2024/rust_for_tikv_days100_1.md",
+    "post/tidb/2024/make_tidb_day6-raft-rs.md",
     "post/book/book5_重塑心灵.md",
     "post/liunx/git通关从青铜到王者.md",
     "post/book/man.md",
@@ -177,12 +180,9 @@
     "post/book/ASK_README.md",
     "post/book/01_thing.md",
     "post/oceanbase/2024/07_make_ob_leader.md",
-    "post/tidb/2024/make_tidb_day6-raft-rs.md",
     "post/c++/02_master_c++_class.md",
-    "post/tidb/2024/rust_for_tikv_days1_gdb.md",
     "post/tidb/2024/rust_for_tikv_days3_read.md",
     "post/tidb/2024/rust_for_tikv_days2_query.md",
-    "post/tidb/2024/rust_for_tikv_days100_1.md",
     "post/tidb/20230_05_05_tikv.md"
   ]
 }

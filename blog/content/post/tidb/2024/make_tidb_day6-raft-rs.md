@@ -270,6 +270,49 @@ bluestore_ioring = true
 ```
 
 
+>Q3:Rust创建线程中 move || 是什么含义
+
+https://course.rs/advance/concurrency-with-threads/thread.html
+
+
+- c++ lambda capture
+
+|     |               |
+| --- | ------------- |
+| [=] | 以值的形式捕获所有外部变量 |
+| [&] | 以引用形式捕获所有外部变量 |
+- rust ||  一个固定参数 类似c++捕获方式
+ - thread::spawn(move ||
+  在线程闭包中使用 move
+
+>Q4:  Ok(Msg::Raft(m)) ok是什么用法？
+
+- Understanding Rust Option and Result enums
+~~~rust
+pub enum Result<T, E> {
+
+    /// Contains the success value
+
+    #[lang = "Ok"]
+
+    #[stable(feature = "rust1", since = "1.0.0")]
+
+    Ok(#[stable(feature = "rust1", since = "1.0.0")] T),
+
+  
+
+    /// Contains the error value
+
+    #[lang = "Err"]
+
+    #[stable(feature = "rust1", since = "1.0.0")]
+
+    Err(#[stable(feature = "rust1", since = "1.0.0")] E),
+
+}
+
+~~~
+
 ## 任务03: 描述five_mem_node功能，然后绘制流程图
 
 ## 任务04: 通过例子看懂如何使用raft-rs（不是如何实现）
