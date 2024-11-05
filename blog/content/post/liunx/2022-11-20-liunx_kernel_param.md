@@ -9,8 +9,14 @@ tags: ["book"]
 
 
 
+Q1：nohup和&运行的后台命令，但是查找不到对应进程名字 该怎么处理
+
+```css
+nohup test.sh > test.log 2>&1 & 
 
 
+
+```
 
 
 

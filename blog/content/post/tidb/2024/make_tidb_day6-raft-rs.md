@@ -7,6 +7,8 @@ tags:
   - Tidb
 ---
 
+TiKV 源码解读
+
 ## 一、 别想太多，只管去提问,所有问题，都会有答案
 
 > 
@@ -313,20 +315,31 @@ pub enum Result<T, E> {
 
 ~~~
 
-## 任务03: 描述five_mem_node功能，然后绘制流程图
+## 任务03: 描述five_mem_node功能，然后绘制流程图[耗时120分钟]
 
-## 任务04: 通过例子看懂如何使用raft-rs（不是如何实现）
+
+
+
+
+
+**应用启动**
+
+Node 是使用 RAFT 的外部应用，代表 RAFT 的一个节点应用程序
+
+	
+**相关结接口**
+
+
+## 任务04: How to use raft-rs
+
+-  Step 1: Create the Raft node
+- Step 2: Drive and Run the Raft node
+- Step 3: Process the `Ready` State
+
+
 
 
 ##   任务04 根据执行结果看代码怎么运行的
-
-信息来源：
-- TiKV 源码解析系列文章（二）raft-rs proposal 示例情景分析
-- https://cn.pingcap.com/blog/tikv-source-code-reading-2/
-- TiKV 源码解析系列文章（六）raft-rs 日志复制过程分析
-- https://cn.pingcap.com/blog/tikv-source-code-reading-6/
--  etcd-raft 源码学习笔记
-- raft-rust 初体验
 
 
 
@@ -334,6 +347,13 @@ pub enum Result<T, E> {
   
 
 ## 参考
+信息来源：
+- TiKV 源码解析系列文章（二）raft-rs proposal 示例情景分析
+- https://cn.pingcap.com/blog/tikv-source-code-reading-2/
+- TiKV 源码解析系列文章（六）raft-rs 日志复制过程分析
+- https://cn.pingcap.com/blog/tikv-source-code-reading-6/
+-  etcd-raft 源码学习笔记
+- raft-rust 初体验
 
 **2024-10-25**
 
@@ -371,9 +391,11 @@ pub enum Result<T, E> {
 
 - TiKV 源码解析系列 - Raft 的优化
 
-  
-  
-  
+
+[11] # 浅谈Raft配置变更(成员变更)策略 [10%]
+- https://zhuanlan.zhihu.com/p/375059508
+- https://www.inlighting.org/archives/raft-membership-change
+  之前一直没有深入了解过 Raft 的成员变更，实现也就是在 TinyKV 中搞了一个单步成员变更，以至于在面试的时候，甚至想当然以为成员变更一定要被 apply 后才生效，结果就被挂了。故这里重新梳理一遍，内容是到处扒来的，不一定正确
   
   
   
