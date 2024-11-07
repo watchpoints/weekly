@@ -49,7 +49,7 @@
       <pubDate>Sun, 20 Nov 2022 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/liunx/2022-11-20-liunx_kernel_param/</guid>
-      <description>Q1：nohup和&amp;amp;运行的后台命令，但是查找不到对应进程名字 该怎么处理 1 nohup test.sh &amp;gt; test.log 2&amp;gt;&amp;amp;1 &amp;amp; 如何学习 在本文中，我将试着去回答liunx 内核参</description>
+      <description>Q2: 一个资源，被多线程操作，需要加锁吗? 只要涉及写的，就需要加锁处理 Q1：nohup和&amp;amp;运行的后台命令，但是查找不到对应进程名字 该怎么</description>
     </item>
     
     <item>

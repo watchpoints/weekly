@@ -329,6 +329,17 @@ Node 是使用 RAFT 的外部应用，代表 RAFT 的一个节点应用程�
 	
 **相关结接口**
 
+ // Propose some conf changes so that followers can be initialized.
+  add_all_followers(proposals.as_ref());
+
+配置变更指的是从当前集群中增加一部分节点或者删除一部分节点。
+节点上线，下线操作,当然hot-配置变更
+如果不加限制，直接往一个集群中增加或者删除一批节点，那可能会选举出两个leader出来，
+这破坏了raft的安全性。  
+
+
+
+
 
 ## 任务04: How to use raft-rs
 
