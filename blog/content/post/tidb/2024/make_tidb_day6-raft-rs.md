@@ -319,6 +319,7 @@ pub enum Result<T, E> {
 -  
 
 
+开始日期：2024-11-01  结束日期2024-11-?
 
 
 
@@ -326,6 +327,9 @@ pub enum Result<T, E> {
 **应用启动**
 
 Node 是使用 RAFT 的外部应用，代表 RAFT 的一个节点应用程序
+
+
+
 
 	
 **相关结接口**
@@ -339,7 +343,26 @@ Node 是使用 RAFT 的外部应用，代表 RAFT 的一个节点应用程�
 这破坏了raft的安全性。  
 
 
+**相关类定义**
 
+~~~rust
+
+struct Proposal {
+
+    normal: Option<(u16, String)>, // key is an u16 integer, and value is a string.
+
+    conf_change: Option<ConfChange>, // conf change.
+
+    transfer_leader: Option<u64>,
+
+    // If it's proposed, it will be set to the index of the entry.
+
+    proposed: u64,
+
+    propose_success: SyncSender<bool>,
+
+}
+~~~
 
 
 ## 任务04: How to use raft-rs

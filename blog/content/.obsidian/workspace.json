@@ -164,9 +164,12 @@
   },
   "active": "9ae58ca5251e53da",
   "lastOpenFiles": [
+    "post/2024/2024-11-09-how-to-user-gdb.md",
+    "post/2024/2024-02-09-git-two-account.md",
+    "post/2024/2024-02-09-100-ways-add-funs.md",
+    "post/tidb/2024/make_tidb_day6-raft-rs.md",
     "post/liunx/2022_11_29_liunx_memory_.md",
     "post/2024/06-tools-base-user-git.md",
-    "post/tidb/2024/make_tidb_day6-raft-rs.md",
     "post/2024/2024-03-03-11-rust-ai.md",
     "post/liunx/2022-11-20-liunx_kernel_param.md",
     "post/tidb/2024/rust_for_tikv_days1_gdb.md",
@@ -186,7 +189,6 @@
     "post/oceanbase/2024/07_make_ob_leader.md",
     "post/c++/02_master_c++_class.md",
     "post/tidb/2024/rust_for_tikv_days3_read.md",
-    "post/tidb/2024/rust_for_tikv_days2_query.md",
-    "post/tidb/20230_05_05_tikv.md"
+    "post/tidb/2024/rust_for_tikv_days2_query.md"
   ]
 }
