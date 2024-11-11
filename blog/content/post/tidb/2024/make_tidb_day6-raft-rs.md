@@ -319,8 +319,12 @@ pub enum Result<T, E> {
 -  
 
 
-开始日期：2024-11-01  结束日期2024-11-?
+开始日期：2024-11-01  
 
+结束日期2024-11-?
+
+主要资料
+- https://raft.github.io/
 
 
 
@@ -370,6 +374,7 @@ struct Proposal {
 -  Step 1: Create the Raft node
 - Step 2: Drive and Run the Raft node
 - Step 3: Process the `Ready` State
+
 
 
 
@@ -431,9 +436,8 @@ struct Proposal {
 - https://zhuanlan.zhihu.com/p/375059508
 - https://www.inlighting.org/archives/raft-membership-change
   之前一直没有深入了解过 Raft 的成员变更，实现也就是在 TinyKV 中搞了一个单步成员变更，以至于在面试的时候，甚至想当然以为成员变更一定要被 apply 后才生效，结果就被挂了。故这里重新梳理一遍，内容是到处扒来的，不一定正确
-  
-  
-  
-  
-  
+[12] https://www.zhaowenyu.com/etcd-doc/principle/what-is-raft.html
+
+
+  https://raft.github.io/raft.pdf
   

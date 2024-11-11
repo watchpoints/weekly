@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 25 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 09 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GDB调试指南（1）</title>
+      <link>https://wangcy6.github.io/post/2024/2024-11-09-how-to-user-gdb/</link>
+      <pubDate>Sat, 09 Nov 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2024/2024-11-09-how-to-user-gdb/</guid>
+      <description>GDB（GNU Debugger）是UNIX及UNIX-like下的强大调试工具，可以调试ada, c, c++, asm, minimal, d, fortran, objective-c, go, java,pascal等语言</description>
+    </item>
+    
     <item>
       <title>成为Tidb贡献者第四天: raft-rs最佳实践</title>
       <link>https://wangcy6.github.io/post/tidb/2024/make_tidb_day6-raft-rs/</link>
