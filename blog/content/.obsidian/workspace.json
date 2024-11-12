@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "post/c++/01_c++_new.md",
+                "file": "post/c++/02_master_c++_share_pointer.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "01_c++_new"
+              "title": "02_master_c++_share_pointer"
             }
           }
         ]
@@ -139,10 +139,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "post/c++/01_c++_new.md"
+                "file": "post/c++/02_master_c++_share_pointer.md"
               },
               "icon": "lucide-list",
-              "title": "01_c++_new 的大纲"
+              "title": "02_master_c++_share_pointer 的大纲"
             }
           }
         ],
@@ -165,6 +165,14 @@
   "active": "9ae58ca5251e53da",
   "lastOpenFiles": [
     "post/c++/02_master_c++_class.md",
+    "post/c++/02_master_c++_share_pointer.md",
+    "post/c++/01_c++_new.md",
+    "post/book/book_thingin_c++.md",
+    "post/book/2021_book.md",
+    "post/book/book_Algorithms-JeffE.md",
+    "post/book/操作系统原理_book.md",
+    "post/book/book5_重塑心灵.md",
+    "post/book/2_2023_do_book.md",
     "post/oceanbase/2024/07_make_ob_leader.md",
     "post/liunx/2022-11-20-liunx_kernel_param.md",
     "post/ARTS/2024/只管去做践行记：2024-11月-第46周.md",
@@ -181,14 +189,6 @@
     "post/tidb/2024/make_tidb_day6-raft-rs.md",
     "post/2024/2024-11-09-how-to-user-gdb.md",
     "post/2024/2024-02-09-git-two-account.md",
-    "post/2024/2024-02-09-100-ways-add-funs.md",
-    "post/liunx/2022_11_29_liunx_memory_.md",
-    "post/2024/06-tools-base-user-git.md",
-    "post/2024/2024-03-03-11-rust-ai.md",
-    "post/tidb/2024/rust_for_tikv_days1_gdb.md",
-    "post/tidb/2024/rust_for_tikv_days100_1.md",
-    "post/book/book5_重塑心灵.md",
-    "post/liunx/git通关从青铜到王者.md",
-    "post/book/man.md"
+    "post/2024/2024-02-09-100-ways-add-funs.md"
   ]
 }

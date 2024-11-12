@@ -22,7 +22,7 @@
       <pubDate>Mon, 02 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/book/book_thingin_c&#43;&#43;/</guid>
-      <description>Q14 三句话描述 operator是重载运算符 operator new 是重载new运算符 类似 operaotr &amp;laquo; operator三个用法 普通用法： operator new(size),申请失败，抛出</description>
+      <description>代码位置： 原子的一定是线程安全的吗？ To satisfy thread safety requirements, the reference counters are typically incremented using an equivalent of std::atomic::fetch_add with std::memory_order_relaxed (decrementing requires stronger ordering to safely destroy the control block). https://blog.noct.site/2024/03/22/gcc13_shared_ptr/ https://github.com/gcc-mirror/gcc/blob/master/libstdc++-v3/include/bits/shared_ptr.h C++一分钟之-原子操作与线程安全 https://cloud.tencent.com/developer/article/2432619 Q14 三句话</description>
     </item>
     
   </channel>

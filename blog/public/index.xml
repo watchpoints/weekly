@@ -6,7 +6,16 @@
     <description>Recent content on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 09 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 11 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>只管去做践行记：2024-11月-第46周</title>
+      <link>https://wangcy6.github.io/post/ARTS/2024/%E5%8F%AA%E7%AE%A1%E5%8E%BB%E5%81%9A%E8%B7%B5%E8%A1%8C%E8%AE%B02024-11%E6%9C%88-%E7%AC%AC46%E5%91%A8/</link>
+      <pubDate>Mon, 11 Nov 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ARTS/2024/%E5%8F%AA%E7%AE%A1%E5%8E%BB%E5%81%9A%E8%B7%B5%E8%A1%8C%E8%AE%B02024-11%E6%9C%88-%E7%AC%AC46%E5%91%A8/</guid>
+      <description>指定每月目标，拆分每周预先承诺的习惯卡片， 落实每天行动清单 文章地址：http://localhost:1313/post/ARTS/2024</description>
+    </item>
+    
     <item>
       <title>GDB调试指南（1）</title>
       <link>https://wangcy6.github.io/post/2024/2024-11-09-how-to-user-gdb/</link>
@@ -53,6 +62,15 @@
     </item>
     
     <item>
+      <title>c&#43;&#43;代码编程规范</title>
+      <link>https://wangcy6.github.io/post/c&#43;&#43;/02_master_c&#43;&#43;_share_pointer/</link>
+      <pubDate>Sat, 07 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/c&#43;&#43;/02_master_c&#43;&#43;_share_pointer/</guid>
+      <description>未了节省读者时间一句话解释 废话不多说直接看源码，以下基于gcc13版本shared_ptr实现 shared_ptr&amp;lt; T &amp;gt;继承自__shared_ptr&amp;l</description>
+    </item>
+    
+    <item>
       <title>微信使用指南</title>
       <link>https://wangcy6.github.io/post/habit/2024/2024-8-14-how-to-use-wechat/</link>
       <pubDate>Wed, 14 Aug 2024 00:00:00 +0000</pubDate>
@@ -86,6 +104,15 @@
       
       <guid>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days1_gdb/</guid>
       <description>成为tikv贡献者第一天：搭建环节 TiKV 是一个支持事务的分布式 Key-Value 数据库，目前已经是 CNCF 基金会 的顶级项目。 需要一定的前期准备才能够有能力参与 TiKV 社区的</description>
+    </item>
+    
+    <item>
+      <title>只管去做践N0.12</title>
+      <link>https://wangcy6.github.io/post/ARTS/2024/do_book_weekly11-1/</link>
+      <pubDate>Wed, 12 Jun 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ARTS/2024/do_book_weekly11-1/</guid>
+      <description>指定每月目标，拆分每周预先承诺的习惯卡片， 落实每天行动清单 文章地址：http://localhost:1313/post/ARTS/2024</description>
     </item>
     
     <item>
@@ -171,10 +198,10 @@
     
     <item>
       <title>只管去做践N0.7</title>
-      <link>https://wangcy6.github.io/post/ARTS/2024/%E5%8F%AA%E7%AE%A1%E5%8E%BB%E5%81%9A%E8%B7%B5%E8%A1%8C%E8%AE%B0%E5%BD%95%E7%AC%AC7%E5%91%A8-/</link>
+      <link>https://wangcy6.github.io/post/ARTS/2024/%E5%8F%AA%E7%AE%A1%E5%8E%BB%E5%81%9A%E8%B7%B5%E8%A1%8C%E8%AE%B0%E5%BD%95%E7%AC%AC7%E5%91%A8/</link>
       <pubDate>Wed, 06 Mar 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://wangcy6.github.io/post/ARTS/2024/%E5%8F%AA%E7%AE%A1%E5%8E%BB%E5%81%9A%E8%B7%B5%E8%A1%8C%E8%AE%B0%E5%BD%95%E7%AC%AC7%E5%91%A8-/</guid>
+      <guid>https://wangcy6.github.io/post/ARTS/2024/%E5%8F%AA%E7%AE%A1%E5%8E%BB%E5%81%9A%E8%B7%B5%E8%A1%8C%E8%AE%B0%E5%BD%95%E7%AC%AC7%E5%91%A8/</guid>
       <description>只管去做 N0.7 # Part I 每月目标九宫格训练营 # Part 2 习惯卡片 一、环境场： 餐厅区&amp;ndash;吃饭专心吃饭 小故事：过去是吧10000次，今天想改造怎么做</description>
     </item>
     
@@ -1417,7 +1444,7 @@
       <pubDate>Mon, 02 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/book/book_thingin_c&#43;&#43;/</guid>
-      <description>Q14 三句话描述 operator是重载运算符 operator new 是重载new运算符 类似 operaotr &amp;laquo; operator三个用法 普通用法： operator new(size),申请失败，抛出</description>
+      <description>代码位置： 原子的一定是线程安全的吗？ To satisfy thread safety requirements, the reference counters are typically incremented using an equivalent of std::atomic::fetch_add with std::memory_order_relaxed (decrementing requires stronger ordering to safely destroy the control block). https://blog.noct.site/2024/03/22/gcc13_shared_ptr/ https://github.com/gcc-mirror/gcc/blob/master/libstdc++-v3/include/bits/shared_ptr.h C++一分钟之-原子操作与线程安全 https://cloud.tencent.com/developer/article/2432619 Q14 三句话</description>
     </item>
     
     <item>

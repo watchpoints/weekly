@@ -7,6 +7,21 @@ tags: ["c++"]
 categories: ["每周阅读一本书"]
 ---
 
+代码位置：
+
+
+
+原子的一定是线程安全的吗？
+
+To satisfy thread safety requirements, the reference counters are typically incremented using an equivalent of [std::atomic::fetch_add](https://en.cppreference.com/w/cpp/atomic/atomic/fetch_add "cpp/atomic/atomic/fetch add") with [std::memory_order_relaxed](https://en.cppreference.com/w/cpp/atomic/memory_order "cpp/atomic/memory order") (decrementing requires stronger ordering to safely destroy the control block).
+https://blog.noct.site/2024/03/22/gcc13_shared_ptr/
+
+https://github.com/gcc-mirror/gcc/blob/master/libstdc++-v3/include/bits/shared_ptr.h
+
+
+# C++一分钟之-原子操作与线程安全
+
+https://cloud.tencent.com/developer/article/2432619
 ### Q14
 
 
