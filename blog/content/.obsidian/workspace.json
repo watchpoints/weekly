@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "post/c++/02_master_c++_class.md",
+                "file": "post/storage/03_2024-11-15  访问一个目录卡住怎办处理？.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "02_master_c++_class"
+              "title": "03_2024-11-15  访问一个目录卡住怎办处理？"
             }
           }
         ],
@@ -154,10 +154,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "post/c++/02_master_c++_class.md"
+                "file": "post/storage/03_2024-11-15  访问一个目录卡住怎办处理？.md"
               },
               "icon": "lucide-list",
-              "title": "02_master_c++_class 的大纲"
+              "title": "03_2024-11-15  访问一个目录卡住怎办处理？ 的大纲"
             }
           }
         ],
@@ -179,10 +179,18 @@
   },
   "active": "de4a8aada961a61e",
   "lastOpenFiles": [
-    "post/c++/01_c++_new.md",
+    "post/storage/1_2023_02_10_day1_curveFS.md",
+    "post/storage/03_2024-11-15  访问一个目录卡住怎办处理？.md",
+    "post/storage/1_2023_02_13_day1_Cephfs.md",
+    "post/storage/01_20240806_database_list.md",
+    "post/storage/2_ceph_mon.md",
+    "post/storage/4_icfs_help.md",
+    "post/2024/2024-11-09-how-to-user-gdb.md",
+    "post/2024/2024-03-03-ask.md",
     "post/c++/02_master_c++_share_pointer.md",
-    "post/book/book_thingin_c++.md",
     "post/c++/02_master_c++_class.md",
+    "post/c++/01_c++_new.md",
+    "post/book/book_thingin_c++.md",
     "post/book/2021_book.md",
     "post/book/book_Algorithms-JeffE.md",
     "post/book/操作系统原理_book.md",
@@ -196,14 +204,6 @@
     "post/ARTS/2024/arts_weekly_13.md",
     "post/ARTS/2024/do_book_weekly12_20240803.md",
     "post/ARTS/2_ARTS_2021_18_weekly.md",
-    "post/ARTS/2024/do_book_weekly11 1.md",
-    "post/ARTS/2024/do_book_weekly11.md",
-    "post/ARTS/2024/do_book_weekly_10.md",
-    "post/ARTS/2024/do_book_weekly10_20240605.md",
-    "post/ARTS/2024/do_book_weekly_9.md",
-    "post/tidb/2024/make_tidb_day6-raft-rs.md",
-    "post/2024/2024-11-09-how-to-user-gdb.md",
-    "post/2024/2024-02-09-git-two-account.md",
-    "post/2024/2024-02-09-100-ways-add-funs.md"
+    "post/ARTS/2024/do_book_weekly11 1.md"
   ]
 }

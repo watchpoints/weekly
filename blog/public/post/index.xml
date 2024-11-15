@@ -22,7 +22,7 @@
       <pubDate>Sat, 09 Nov 2024 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/2024/2024-11-09-how-to-user-gdb/</guid>
-      <description>GDB（GNU Debugger）是UNIX及UNIX-like下的强大调试工具，可以调试ada, c, c++, asm, minimal, d, fortran, objective-c, go, java,pascal等语言</description>
+      <description>目前仅有管软节点的backend参与元数据同步，元数据同步可仿gpair独立创建落盘的对象，并且实现多节点backend同时承接不同的任务，</description>
     </item>
     
     <item>
@@ -58,7 +58,7 @@
       <pubDate>Sat, 07 Sep 2024 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/c&#43;&#43;/02_master_c&#43;&#43;_class/</guid>
-      <description>类 引用成员：在类中声明一个引用类型的成员变量，例如 int&amp;amp; ref;。 构造函数：通过初始化列表（MyClass(int&amp;amp; r) : ref(r) {}）绑定引用</description>
+      <description>C++ string 成员函数 length() size() 和 C strlen() 的区别 当 string 中含有空字符’\0’，使用 strlen() 获取 string 的长度时会被截断，使用成员函数 length() 和 size() 可以返回 string 的真实长度。 // 构造时使用 string strTest(buf,</description>
     </item>
     
     <item>
@@ -67,7 +67,7 @@
       <pubDate>Sat, 07 Sep 2024 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/c&#43;&#43;/02_master_c&#43;&#43;_share_pointer/</guid>
-      <description>未了节省读者时间一句话解释 废话不多说直接看源码，以下基于gcc13版本shared_ptr实现 shared_ptr&amp;lt; T &amp;gt;继承自__shared_ptr&amp;l</description>
+      <description>未了节省读者时间一句话解释 shared_ptr 的引用计数本身是安全且无锁的，但对象的读写则不是， 因为 shared_ptr 有两个数据成员，读写操作不能原子 一个 shared_ptr 对象实体可被多个线</description>
     </item>
     
     <item>
@@ -545,6 +545,15 @@
       
       <guid>https://wangcy6.github.io/post/storage/01_20240806_database_list/</guid>
       <description>Cephfs探索之旅第一天：基础结构 链表 双向链表 elist.h 点击链接查看和 Kimi 智能助手的对话 https://kimi.moonshot.cn/share/cqoselkudu6brb7tmdt0</description>
+    </item>
+    
+    <item>
+      <title>CurveFS精通之旅第一天</title>
+      <link>https://wangcy6.github.io/post/storage/03_2024-11-15-%E8%AE%BF%E9%97%AE%E4%B8%80%E4%B8%AA%E7%9B%AE%E5%BD%95%E5%8D%A1%E4%BD%8F%E6%80%8E%E5%8A%9E%E5%A4%84%E7%90%86/</link>
+      <pubDate>Fri, 10 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/storage/03_2024-11-15-%E8%AE%BF%E9%97%AE%E4%B8%80%E4%B8%AA%E7%9B%AE%E5%BD%95%E5%8D%A1%E4%BD%8F%E6%80%8E%E5%8A%9E%E5%A4%84%E7%90%86/</guid>
+      <description>现象描述 df -h 卡住怎么出 第一需要解决事情 整个程序设计是怎么实现的</description>
     </item>
     
     <item>

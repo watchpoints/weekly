@@ -5,7 +5,7 @@ draft: false
 tags:
   - GitHub
 ---
-
+目前仅有管软节点的backend参与元数据同步，元数据同步可仿gpair独立创建落盘的对象，并且实现多节点backend同时承接不同的任务，由mds统一管理同时支持任务的自动分配、负载均衡。并且任意节点的backend都可以提供daemon命令支持对集群所有复制任务的管理操作
 GDB（GNU Debugger）是UNIX及UNIX-like下的强大调试工具，可以调试ada, c, c++, asm, minimal, d, fortran, objective-c, go, java,pascal等语言。本文以C程序为例，介绍GDB启动调试的多种方式。
 
 

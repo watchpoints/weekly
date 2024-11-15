@@ -13,7 +13,7 @@
       <pubDate>Sat, 07 Sep 2024 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/c&#43;&#43;/02_master_c&#43;&#43;_class/</guid>
-      <description>类 引用成员：在类中声明一个引用类型的成员变量，例如 int&amp;amp; ref;。 构造函数：通过初始化列表（MyClass(int&amp;amp; r) : ref(r) {}）绑定引用</description>
+      <description>C++ string 成员函数 length() size() 和 C strlen() 的区别 当 string 中含有空字符’\0’，使用 strlen() 获取 string 的长度时会被截断，使用成员函数 length() 和 size() 可以返回 string 的真实长度。 // 构造时使用 string strTest(buf,</description>
     </item>
     
     <item>
@@ -22,7 +22,7 @@
       <pubDate>Sat, 07 Sep 2024 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/c&#43;&#43;/02_master_c&#43;&#43;_share_pointer/</guid>
-      <description>未了节省读者时间一句话解释 废话不多说直接看源码，以下基于gcc13版本shared_ptr实现 shared_ptr&amp;lt; T &amp;gt;继承自__shared_ptr&amp;l</description>
+      <description>未了节省读者时间一句话解释 shared_ptr 的引用计数本身是安全且无锁的，但对象的读写则不是， 因为 shared_ptr 有两个数据成员，读写操作不能原子 一个 shared_ptr 对象实体可被多个线</description>
     </item>
     
     <item>
