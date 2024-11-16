@@ -1,11 +1,15 @@
 ---
-title: "c++代码编程规范"
+title: c++代码编程规范
 date: 2024-09-07
-description: "c++"
+description: c++
 draft: false
-tags: ["man"]
-categories: ["do book"]
+tags:
+  - man
+categories:
+  - do book
 ---
+
+成为面试官 第一练
 
 未了节省读者时间一句话解释
 

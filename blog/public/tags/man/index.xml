@@ -22,7 +22,7 @@
       <pubDate>Sat, 07 Sep 2024 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/c&#43;&#43;/02_master_c&#43;&#43;_share_pointer/</guid>
-      <description>未了节省读者时间一句话解释 shared_ptr 的引用计数本身是安全且无锁的，但对象的读写则不是， 因为 shared_ptr 有两个数据成员，读写操作不能原子 一个 shared_ptr 对象实体可被多个线</description>
+      <description>成为面试官 第一练 未了节省读者时间一句话解释 shared_ptr 的引用计数本身是安全且无锁的，但对象的读写则不是， 因为 shared_ptr 有两个数据成员，读写操作不能原子 一个 shared_ptr 对</description>
     </item>
     
     <item>

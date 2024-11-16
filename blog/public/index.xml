@@ -67,7 +67,7 @@
       <pubDate>Sat, 07 Sep 2024 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/c&#43;&#43;/02_master_c&#43;&#43;_share_pointer/</guid>
-      <description>未了节省读者时间一句话解释 shared_ptr 的引用计数本身是安全且无锁的，但对象的读写则不是， 因为 shared_ptr 有两个数据成员，读写操作不能原子 一个 shared_ptr 对象实体可被多个线</description>
+      <description>成为面试官 第一练 未了节省读者时间一句话解释 shared_ptr 的引用计数本身是安全且无锁的，但对象的读写则不是， 因为 shared_ptr 有两个数据成员，读写操作不能原子 一个 shared_ptr 对</description>
     </item>
     
     <item>
@@ -153,11 +153,11 @@
     
     <item>
       <title>源码解析：ceph数据读写</title>
-      <link>https://wangcy6.github.io/post/storage/2024-3-08-ceph-read/</link>
+      <link>https://wangcy6.github.io/post/storage/05-2024-3-08-ceph-read/</link>
       <pubDate>Thu, 28 Mar 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://wangcy6.github.io/post/storage/2024-3-08-ceph-read/</guid>
-      <description>导读 系列文章：https://www.jianshu.com/u/5c59bd9b10db MDS源码分析-3 LOOKUP &amp;amp; GETATTR 文件锁（filelock）</description>
+      <guid>https://wangcy6.github.io/post/storage/05-2024-3-08-ceph-read/</guid>
+      <description>entity_id 这个能改变吗？ 通过S3FS调用icfs_setxattr接口。 参数client_type=&amp;ldquo;S3&amp;rdquo; Entity_id 是 /var/run/icfs-client.XXXX 其中xxx</description>
     </item>
     
     <item>
