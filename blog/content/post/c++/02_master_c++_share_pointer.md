@@ -95,8 +95,3 @@ https://www.cnblogs.com/Solstice/archive/2013/01/28/2879366.html## [为什么多
 请注意，以上是 shared_ptr 对象本身的线程安全级别，不是它管理的对象的线程安全级别。
 
 后文（p.18）则介绍如何高效地加锁解锁。本文则具体分析一下为什么“因为 shared_ptr 有两个数据成员，读写操作不能原子化”使得多线程读写同一个 shared_ptr 对象需要加锁。这个在我看来显
-
-# C++ string 成员函数 length() size() 和 C strlen() 的区别
-
-当 string 中含有空字符’\0’，使用 strlen() 获取 string 的长度时会被截断，使用成员函数 length() 和 size() 可以返回 string 的真实长度。
-// 构造时使用 string strTest(buf, 6)
