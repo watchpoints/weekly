@@ -119,7 +119,7 @@ docker exec -it oceanbase-ce bash
 service sshd restart
 chkconfig sshd on
 ssh root@10.2.131.60 -p 22 （ mac 网络方式变化 宿主机器IP）
-ssh root@192.168.4.106 -p 22  （mac 网络方式变化 宿主机器IP）
+ssh root@192.168.3.3 -p 22  (宿主机器IP）
 
 
 
