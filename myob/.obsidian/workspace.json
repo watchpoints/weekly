@@ -1,28 +1,22 @@
 {
   "main": {
-    "id": "bc5637ae3fed92a9",
+    "id": "e56b833850b4bf98",
     "type": "split",
     "children": [
       {
-<<<<<<< HEAD
-        "id": "41fc02cac1e7ed60",
+        "id": "f083d14c5c256f85",
         "type": "tabs",
         "children": [
           {
-            "id": "1c681c94d214cc5e",
-=======
-        "id": "f179b02313cd6b66",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "f6801740ab821f60",
->>>>>>> 293f2e598d8da34a01eebf8c3ffae13524256be8
+            "id": "f8fabbad8e607cff",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.7.4"
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "Release Notes 1.7.4"
             }
           }
         ]
@@ -31,15 +25,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "7d0507da4ff674d8",
+    "id": "bcbaf8d23d49691d",
     "type": "split",
     "children": [
       {
-        "id": "497e81491a1e013d",
+        "id": "309ade832cb60e0f",
         "type": "tabs",
         "children": [
           {
-            "id": "d2bc1787f745df59",
+            "id": "09c263f37b3d54a1",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -51,7 +45,7 @@
             }
           },
           {
-            "id": "408035cd1ef89831",
+            "id": "d7f0e9f92e2e806b",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -68,7 +62,7 @@
             }
           },
           {
-            "id": "b8b55cf95f4f5093",
+            "id": "1755bb70d43467e6",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -84,35 +78,20 @@
     "width": 300
   },
   "right": {
-    "id": "27dc6eda7845369b",
+    "id": "2ab77f9d7e650b72",
     "type": "split",
     "children": [
       {
-        "id": "a934a1e93afc7135",
+        "id": "431b411e0c084119",
         "type": "tabs",
         "children": [
           {
-<<<<<<< HEAD
-            "id": "5050ad6abb2bf4ac",
-            "type": "leaf",
-            "state": {
-              "type": "outline",
-              "state": {},
-              "icon": "lucide-list",
-              "title": "大纲"
-            }
-          },
-          {
-            "id": "11ac5bfbb73e41f7",
-=======
-            "id": "a8040d795f27735b",
->>>>>>> 293f2e598d8da34a01eebf8c3ffae13524256be8
+            "id": "7dee0d79f9b03b5a",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "07_make_ob_leader.md",
-                "collapseAll": true,
+                "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
@@ -121,30 +100,29 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "07_make_ob_leader 的反向链接列表"
+              "title": "反向链接"
             }
           },
           {
-            "id": "e75bd3b0722055a1",
+            "id": "c90e18d2c10051a0",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "07_make_ob_leader.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "07_make_ob_leader 的出链列表"
+              "title": "出链"
             }
           },
           {
-            "id": "fd7c9862f341146e",
+            "id": "c31bfad24f0b927d",
             "type": "leaf",
             "state": {
               "type": "tag",
               "state": {
-                "sortOrder": "alphabetical",
+                "sortOrder": "frequency",
                 "useHierarchy": true
               },
               "icon": "lucide-tags",
@@ -152,15 +130,13 @@
             }
           },
           {
-            "id": "1cf12508f6330839",
+            "id": "73fc1754245a0686",
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "07_make_ob_leader.md"
-              },
+              "state": {},
               "icon": "lucide-list",
-              "title": "07_make_ob_leader 的大纲"
+              "title": "大纲"
             }
           }
         ],
@@ -168,11 +144,10 @@
       }
     ],
     "direction": "horizontal",
-    "width": 291.5
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
-      "zk-prefixer:创建时间戳笔记": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "canvas:新建白板": false,
@@ -181,34 +156,12 @@
       "command-palette:打开命令面板": false
     }
   },
-<<<<<<< HEAD
-  "active": "1c681c94d214cc5e",
+  "active": "f8fabbad8e607cff",
   "lastOpenFiles": [
-    "07_make_ob_leader.md",
-    "02_08-27-day2_paxos.md",
-    "01-2024-06-18-ob_study1.md"
-=======
-  "active": "f6801740ab821f60",
-  "lastOpenFiles": [
-    "day6_make_ob.md",
-    "().md",
-    "07_make_ob_leader.md",
-    "Pasted image 20241013145523.png",
-    "Pasted image 20241005110151.png",
-    "Pasted image 20241013170845.png",
-    "assets/image-20240926194315902.png",
-    "assets/image-20240925134408392.png",
-    "assets/image-20240925134259142.png",
-    "assets/image-20240925134148766.png",
-    "assets/image-20240925092155740.png",
-    "assets/image-20240925085507941.png",
-    "assets/image-20240925084746478.png",
-    "assets",
-    "06_day6.md",
-    "05_day5-network.md",
-    "02_08-27-day2_paxos.md",
-    "01-2024-06-18-ob_study1.md",
-    "02-make-day4.md"
->>>>>>> 293f2e598d8da34a01eebf8c3ffae13524256be8
+    "2024-10-04.md",
+    "未命名.md",
+    "未命名 2.canvas",
+    "未命名.canvas",
+    "未命名 1.canvas"
   ]
 }

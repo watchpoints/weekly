@@ -1,28 +1,24 @@
 {
   "main": {
-    "id": "bc5637ae3fed92a9",
+    "id": "47e9e9436372b927",
     "type": "split",
     "children": [
       {
-<<<<<<< HEAD
-        "id": "41fc02cac1e7ed60",
+        "id": "63d65333ae28724a",
         "type": "tabs",
         "children": [
           {
-            "id": "1c681c94d214cc5e",
-=======
-        "id": "f179b02313cd6b66",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "f6801740ab821f60",
->>>>>>> 293f2e598d8da34a01eebf8c3ffae13524256be8
+            "id": "e4e25f7959eee4a6",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "blog/content/post/2024/2024-11-10-build-my-appley-p1.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "2024-11-10-build-my-appley-p1"
             }
           }
         ]
@@ -31,15 +27,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "7d0507da4ff674d8",
+    "id": "fdb05be25de42b75",
     "type": "split",
     "children": [
       {
-        "id": "497e81491a1e013d",
+        "id": "0795531a43b35e37",
         "type": "tabs",
         "children": [
           {
-            "id": "d2bc1787f745df59",
+            "id": "a5bf594f371e84e4",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -51,7 +47,7 @@
             }
           },
           {
-            "id": "408035cd1ef89831",
+            "id": "7a510fc8b18ac535",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -68,7 +64,7 @@
             }
           },
           {
-            "id": "b8b55cf95f4f5093",
+            "id": "03ebad9b853f1f6a",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -81,38 +77,24 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 269.5
   },
   "right": {
-    "id": "27dc6eda7845369b",
+    "id": "2a6c74f663a0627e",
     "type": "split",
     "children": [
       {
-        "id": "a934a1e93afc7135",
+        "id": "12ec8677b21eea72",
         "type": "tabs",
         "children": [
           {
-<<<<<<< HEAD
-            "id": "5050ad6abb2bf4ac",
-            "type": "leaf",
-            "state": {
-              "type": "outline",
-              "state": {},
-              "icon": "lucide-list",
-              "title": "大纲"
-            }
-          },
-          {
-            "id": "11ac5bfbb73e41f7",
-=======
-            "id": "a8040d795f27735b",
->>>>>>> 293f2e598d8da34a01eebf8c3ffae13524256be8
+            "id": "6e8f919a63cdd278",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "07_make_ob_leader.md",
-                "collapseAll": true,
+                "file": "blog/content/post/2024/2024-11-10-build-my-appley-p1.md",
+                "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
@@ -121,30 +103,30 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "07_make_ob_leader 的反向链接列表"
+              "title": "2024-11-10-build-my-appley-p1 的反向链接列表"
             }
           },
           {
-            "id": "e75bd3b0722055a1",
+            "id": "c0ef882bfe941875",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "07_make_ob_leader.md",
+                "file": "blog/content/post/2024/2024-11-10-build-my-appley-p1.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "07_make_ob_leader 的出链列表"
+              "title": "2024-11-10-build-my-appley-p1 的出链列表"
             }
           },
           {
-            "id": "fd7c9862f341146e",
+            "id": "e45a4ebc8e2a86f6",
             "type": "leaf",
             "state": {
               "type": "tag",
               "state": {
-                "sortOrder": "alphabetical",
+                "sortOrder": "frequency",
                 "useHierarchy": true
               },
               "icon": "lucide-tags",
@@ -152,27 +134,26 @@
             }
           },
           {
-            "id": "1cf12508f6330839",
+            "id": "478e1a09f9739445",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "07_make_ob_leader.md"
+                "file": "blog/content/post/2024/2024-11-10-build-my-appley-p1.md"
               },
               "icon": "lucide-list",
-              "title": "07_make_ob_leader 的大纲"
+              "title": "2024-11-10-build-my-appley-p1 的大纲"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 291.5
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
-      "zk-prefixer:创建时间戳笔记": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "canvas:新建白板": false,
@@ -181,34 +162,16 @@
       "command-palette:打开命令面板": false
     }
   },
-<<<<<<< HEAD
-  "active": "1c681c94d214cc5e",
+  "active": "e4e25f7959eee4a6",
   "lastOpenFiles": [
-    "07_make_ob_leader.md",
-    "02_08-27-day2_paxos.md",
-    "01-2024-06-18-ob_study1.md"
-=======
-  "active": "f6801740ab821f60",
-  "lastOpenFiles": [
-    "day6_make_ob.md",
-    "().md",
-    "07_make_ob_leader.md",
-    "Pasted image 20241013145523.png",
-    "Pasted image 20241005110151.png",
-    "Pasted image 20241013170845.png",
-    "assets/image-20240926194315902.png",
-    "assets/image-20240925134408392.png",
-    "assets/image-20240925134259142.png",
-    "assets/image-20240925134148766.png",
-    "assets/image-20240925092155740.png",
-    "assets/image-20240925085507941.png",
-    "assets/image-20240925084746478.png",
-    "assets",
-    "06_day6.md",
-    "05_day5-network.md",
-    "02_08-27-day2_paxos.md",
-    "01-2024-06-18-ob_study1.md",
-    "02-make-day4.md"
->>>>>>> 293f2e598d8da34a01eebf8c3ffae13524256be8
+    "blog/content/post/2024/2024-11-10-cppd-day1.md",
+    "blog/content/post/2024/2024-03-03-ask.md",
+    "blog/content/post/2024/2024-03-03-11-rust-ai.md",
+    "blog/content/post/2024/2024-03-06_readcode_ceph_threadpool.md",
+    "blog/content/post/2024/2024-11-10-build-my-appley-p1.md",
+    "blog/content/post/c++/01_c++_new.md",
+    "blog/content/post/c++/02_master_c++_class.md",
+    "blog/content/post/oceanbase/2024/day6_make_ob.md",
+    "blog/content/post/2024/2024-03-03-04_rust_vivo.md"
   ]
 }
