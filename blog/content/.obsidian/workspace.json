@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "post/c++/02_master_c++_share_pointer.md",
+                "file": "post/c++/02_master_c++_class.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "02_master_c++_share_pointer"
+              "title": "02_master_c++_class"
             }
           }
         ],
@@ -154,10 +154,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "post/c++/02_master_c++_share_pointer.md"
+                "file": "post/c++/02_master_c++_class.md"
               },
               "icon": "lucide-list",
-              "title": "02_master_c++_share_pointer 的大纲"
+              "title": "02_master_c++_class 的大纲"
             }
           }
         ],
@@ -179,10 +179,12 @@
   },
   "active": "de4a8aada961a61e",
   "lastOpenFiles": [
+    "post/c++/02_master_c++_share_pointer.md",
+    "post/c++/02_master_c++_class.md",
+    "post/c++/01_c++_new.md",
     "post/storage/05-2024-3-08-ceph-read.md",
     "post/storage/4_icfs_help.md",
     "post/storage/3_ceph_help.md",
-    "post/c++/02_master_c++_share_pointer.md",
     "post/storage/03_2024-11-15  访问一个目录卡住怎办处理？.md",
     "post/storage/1_2023_02_10_day1_curveFS.md",
     "post/storage/1_2023_02_13_day1_Cephfs.md",
@@ -190,8 +192,6 @@
     "post/storage/2_ceph_mon.md",
     "post/2024/2024-11-09-how-to-user-gdb.md",
     "post/2024/2024-03-03-ask.md",
-    "post/c++/02_master_c++_class.md",
-    "post/c++/01_c++_new.md",
     "post/book/book_thingin_c++.md",
     "post/book/2021_book.md",
     "post/book/book_Algorithms-JeffE.md",
