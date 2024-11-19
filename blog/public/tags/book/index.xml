@@ -49,7 +49,7 @@
       <pubDate>Sun, 20 Nov 2022 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/liunx/2022-11-20-liunx_kernel_param/</guid>
-      <description>Q2: 一个资源，被多线程操作，需要加锁吗? 只要涉及写的，就需要加锁处理 Q1：nohup和&amp;amp;运行的后台命令，但是查找不到对应进程名字 该怎么</description>
+      <description>Q3 如何判断一个进程启动时间，什么时候启动的？ Q2: 一个资源，被多线程操作，需要加锁吗? 只要涉及写的，就需要加锁处理 Q1：nohup和&amp;amp;运</description>
     </item>
     
     <item>

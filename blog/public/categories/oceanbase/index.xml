@@ -17,6 +17,24 @@
     </item>
     
     <item>
+      <title>成为ob贡献者(6):如何阅读Paxos代码</title>
+      <link>https://wangcy6.github.io/post/oceanbase/2024/day6_make_ob/</link>
+      <pubDate>Fri, 04 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/oceanbase/2024/day6_make_ob/</guid>
+      <description>为了整理思路，文章采用模拟2人对话方式，文中比喻可能错误的，请注意区分。 本文主要内容 通过对学习数据库下 定义聚焦学习内容 如果关心代码，直接去看</description>
+    </item>
+    
+    <item>
+      <title>成为ob贡献者第四天</title>
+      <link>https://wangcy6.github.io/post/oceanbase/2024/02-make-day4/</link>
+      <pubDate>Sat, 17 Aug 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/oceanbase/2024/02-make-day4/</guid>
+      <description>#一、Overview 大家好， 成为ob贡献者第四篇文章。 本文主要对 内核实战教程第二期🥰认识数据库存储结构 学习进行记录 很容易可以了解内容部分 稍</description>
+    </item>
+    
+    <item>
       <title>成为OB贡献者(5):</title>
       <link>https://wangcy6.github.io/post/oceanbase/2024/06_day6/</link>
       <pubDate>Fri, 26 May 2023 00:00:00 +0000</pubDate>

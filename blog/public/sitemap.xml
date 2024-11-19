@@ -58,6 +58,34 @@
   </url>
   
   <url>
+    <loc>https://wangcy6.github.io/post/2024/2024-11-10-cppd-day1/</loc>
+    <lastmod>2024-11-10T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangcy6.github.io/tags/tools/</loc>
+    <lastmod>2024-11-10T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangcy6.github.io/post/2024/2024-11-10-build-my-appley-p1/</loc>
+    <lastmod>2024-11-10T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangcy6.github.io/tags/%E4%B8%80%E5%B9%B4%E5%AE%9E%E7%8E%B012%E4%B8%AA%E9%A1%B9%E7%9B%AE/</loc>
+    <lastmod>2024-11-10T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://wangcy6.github.io/post/2024/2024-11-09-how-to-user-gdb/</loc>
     <lastmod>2024-11-09T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -100,6 +128,13 @@
   </url>
   
   <url>
+    <loc>https://wangcy6.github.io/post/oceanbase/2024/day6_make_ob/</loc>
+    <lastmod>2024-10-04T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://wangcy6.github.io/post/2024/06-tools-base-user-git/</loc>
     <lastmod>2024-09-20T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -135,6 +170,13 @@
   </url>
   
   <url>
+    <loc>https://wangcy6.github.io/post/oceanbase/2024/02-make-day4/</loc>
+    <lastmod>2024-08-17T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://wangcy6.github.io/post/habit/2024/2024-8-14-how-to-use-wechat/</loc>
     <lastmod>2024-08-14T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -144,6 +186,13 @@
   <url>
     <loc>https://wangcy6.github.io/post/c&#43;&#43;/01_c&#43;&#43;_new/</loc>
     <lastmod>2024-08-07T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangcy6.github.io/post/man/markdown/1_how_to_use_marddown/</loc>
+    <lastmod>2024-08-03T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -235,13 +284,6 @@
   <url>
     <loc>https://wangcy6.github.io/post/ARTS/2024/arts_weekly_13/</loc>
     <lastmod>2024-03-25T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangcy6.github.io/tags/tools/</loc>
-    <lastmod>2024-03-12T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1794,6 +1836,12 @@
   
   <url>
     <loc>https://wangcy6.github.io/post/ARTS/2023/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C%E7%AC%AC%E5%9B%9B%E6%9C%9F/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangcy6.github.io/post/oceanbase/2024//</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

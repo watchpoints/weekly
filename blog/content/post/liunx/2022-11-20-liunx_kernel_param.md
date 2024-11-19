@@ -1,11 +1,15 @@
 ---
-title: "Linux内核参数配置入门"
+title: Linux内核参数配置入门
 date: 2022-11-20
 description: ""
 draft: false
-tags: ["book"]
+tags:
+  - book
+r:
 ---
 
+
+Q3 如何判断一个进程启动时间，什么时候启动的？
 
 
 

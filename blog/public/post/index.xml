@@ -17,6 +17,24 @@
     </item>
     
     <item>
+      <title>c&#43;&#43;面试题</title>
+      <link>https://wangcy6.github.io/post/2024/2024-11-10-cppd-day1/</link>
+      <pubDate>Sun, 10 Nov 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2024/2024-11-10-cppd-day1/</guid>
+      <description>面试官：C++中shared_ptr是线程安全的吗？-头条面试题 面试题：C++中shared_ptr是线程安全的吗？ 来源 ：一名毕业三年的女程</description>
+    </item>
+    
+    <item>
+      <title>构建个人应用第一天</title>
+      <link>https://wangcy6.github.io/post/2024/2024-11-10-build-my-appley-p1/</link>
+      <pubDate>Sun, 10 Nov 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2024/2024-11-10-build-my-appley-p1/</guid>
+      <description>学习方法 1 2 3 4 5 6 7 8 9 10 11 一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题 二、这个技术的优势和劣势分别是什么 三、这</description>
+    </item>
+    
+    <item>
       <title>GDB调试指南（1）</title>
       <link>https://wangcy6.github.io/post/2024/2024-11-09-how-to-user-gdb/</link>
       <pubDate>Sat, 09 Nov 2024 00:00:00 +0000</pubDate>
@@ -41,6 +59,15 @@
       
       <guid>https://wangcy6.github.io/post/oceanbase/2024/07_make_ob_leader/</guid>
       <description>为了整理思路，文章采用模拟2人对话方式，如有误，欢迎留言。 本文分为两个部分 捕捉想法: 一个节点故障后，假如上面有1万个分区，会经过1万次选举吗</description>
+    </item>
+    
+    <item>
+      <title>成为ob贡献者(6):如何阅读Paxos代码</title>
+      <link>https://wangcy6.github.io/post/oceanbase/2024/day6_make_ob/</link>
+      <pubDate>Fri, 04 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/oceanbase/2024/day6_make_ob/</guid>
+      <description>为了整理思路，文章采用模拟2人对话方式，文中比喻可能错误的，请注意区分。 本文主要内容 通过对学习数据库下 定义聚焦学习内容 如果关心代码，直接去看</description>
     </item>
     
     <item>
@@ -71,6 +98,15 @@
     </item>
     
     <item>
+      <title>成为ob贡献者第四天</title>
+      <link>https://wangcy6.github.io/post/oceanbase/2024/02-make-day4/</link>
+      <pubDate>Sat, 17 Aug 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/oceanbase/2024/02-make-day4/</guid>
+      <description>#一、Overview 大家好， 成为ob贡献者第四篇文章。 本文主要对 内核实战教程第二期🥰认识数据库存储结构 学习进行记录 很容易可以了解内容部分 稍</description>
+    </item>
+    
+    <item>
       <title>微信使用指南</title>
       <link>https://wangcy6.github.io/post/habit/2024/2024-8-14-how-to-use-wechat/</link>
       <pubDate>Wed, 14 Aug 2024 00:00:00 +0000</pubDate>
@@ -85,7 +121,16 @@
       <pubDate>Wed, 07 Aug 2024 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/c&#43;&#43;/01_c&#43;&#43;_new/</guid>
-      <description># 代码评审（Code Review） 架构/设计 a. 单一职责原则 一个类只做一类相关的事情。 一个方法，最好只做一件事情。 b. 代码是否污染 代码是否对其他</description>
+      <description>&amp;laquo;&amp;laquo;&amp;laquo;&amp;lt; HEAD # 代码评审（Code Review） ======= 14400 293f2e598d8da34a01eebf8c3ffae13524256be8 架构/设计 a. 单一职责原则 一个类只做一类相关的事情。 一个方法，最好只做一件事情。 b. 代码是否污染 代码</description>
+    </item>
+    
+    <item>
+      <title>Markdown 入门指南</title>
+      <link>https://wangcy6.github.io/post/man/markdown/1_how_to_use_marddown/</link>
+      <pubDate>Sat, 03 Aug 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/man/markdown/1_how_to_use_marddown/</guid>
+      <description>https://www.markdown.xyz/getting-started/ https://markdown.com.cn/ 应用：typora（已经开始收费） 整体修改CSS 依次点击Typora菜单栏的“文件”-“偏好设置”，然后点击“外观”-“打开主题文件夹”</description>
     </item>
     
     <item>
@@ -211,7 +256,7 @@
       <pubDate>Sun, 03 Mar 2024 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/2024/2024-03-06_readcode_ceph_threadpool/</guid>
-      <description>在温和的春夜里，路灯投下淡淡的黄光，小王沿着柳树成荫的街道散步，思绪随着微风轻轻飘散。不远处，他的邻居老王也正慢慢踱步，一如既往地享受着夜的</description>
+      <description>/Users/wangchuanyi/doc/daily-interview/blog 在温和的春夜里，路灯投下淡淡的黄光，小王沿着柳树成荫的街道散步，思绪随着微风轻轻飘散。不远处，他的邻居老王也正慢慢踱步，一如既往地享受着夜</description>
     </item>
     
     <item>
@@ -589,7 +634,7 @@
       <pubDate>Sun, 20 Nov 2022 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/liunx/2022-11-20-liunx_kernel_param/</guid>
-      <description>Q2: 一个资源，被多线程操作，需要加锁吗? 只要涉及写的，就需要加锁处理 Q1：nohup和&amp;amp;运行的后台命令，但是查找不到对应进程名字 该怎么</description>
+      <description>Q3 如何判断一个进程启动时间，什么时候启动的？ Q2: 一个资源，被多线程操作，需要加锁吗? 只要涉及写的，就需要加锁处理 Q1：nohup和&amp;amp;运</description>
     </item>
     
     <item>
@@ -1634,6 +1679,15 @@
       
       <guid>https://wangcy6.github.io/post/ARTS/2023/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C%E7%AC%AC%E5%9B%9B%E6%9C%9F/</guid>
       <description>本文分为三个部分 产品应用，行业应用 和基础知识 从完成到完美，别想太多，只管去做。 这一期没有什么内容，我依然发出来了，只为重启，上一阶段解释。 马</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://wangcy6.github.io/post/oceanbase/2024//</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/oceanbase/2024//</guid>
+      <description></description>
     </item>
     
     <item>
