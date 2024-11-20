@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "post/oceanbase/2024/07_make_ob_leader.md",
+                "file": "post/liunx/2022-11-20-liunx_kernel_param.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "07_make_ob_leader"
+              "title": "2022-11-20-liunx_kernel_param"
             }
           }
         ]
@@ -139,10 +139,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "post/oceanbase/2024/07_make_ob_leader.md"
+                "file": "post/liunx/2022-11-20-liunx_kernel_param.md"
               },
               "icon": "lucide-list",
-              "title": "07_make_ob_leader 的大纲"
+              "title": "2022-11-20-liunx_kernel_param 的大纲"
             }
           }
         ],
@@ -164,12 +164,20 @@
   },
   "active": "de4a8aada961a61e",
   "lastOpenFiles": [
-    "post/liunx/2022-11-20-liunx_kernel_param.md",
+    "post/oceanbase/2024/day6_make_ob.md",
     "post/oceanbase/2024/07_make_ob_leader.md",
+    "j.md",
+    "post/images/Pasted image 20241119213144.png",
+    "post/liunx/2022-11-20-liunx_kernel_param.md",
+    "post/c++/01_c++_new.md",
+    "post/interview/01_2023_08_04.md",
+    "post/liunx/git通关从青铜到王者.md",
+    "post/storage/05-2024-3-08-ceph-read.md",
+    "post/oceanbase/2024/Pasted image 20241013170845.png",
+    "post/oceanbase/2024/Pasted image 20241013145523.png",
+    "post/oceanbase/2024/Pasted image 20241005110151.png",
     "post/c++/02_master_c++_class.md",
     "post/c++/02_master_c++_share_pointer.md",
-    "post/c++/01_c++_new.md",
-    "post/storage/05-2024-3-08-ceph-read.md",
     "post/storage/4_icfs_help.md",
     "post/storage/3_ceph_help.md",
     "post/storage/03_2024-11-15  访问一个目录卡住怎办处理？.md",
@@ -185,10 +193,6 @@
     "post/book/操作系统原理_book.md",
     "post/book/book5_重塑心灵.md",
     "post/book/2_2023_do_book.md",
-    "post/ARTS/2024/只管去做践行记：2024-11月-第46周.md",
-    "post/ARTS/2024/只管去做践行记录(第7周).md",
-    "post/ARTS/2024/do_book_weekly_8.md",
-    "post/ARTS/2024/arts_weekly_13.md",
-    "post/ARTS/2024/do_book_weekly12_20240803.md"
+    "post/ARTS/2024/只管去做践行记：2024-11月-第46周.md"
   ]
 }
