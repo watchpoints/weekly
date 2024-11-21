@@ -1829,6 +1829,11 @@
   </url>
   
   <url>
+    <loc>https://wangcy6.github.io/j/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://wangcy6.github.io/post/2020/file/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

@@ -418,7 +418,7 @@
       <pubDate>Fri, 11 Aug 2023 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/liunx/git%E9%80%9A%E5%85%B3%E4%BB%8E%E9%9D%92%E9%93%9C%E5%88%B0%E7%8E%8B%E8%80%85/</guid>
-      <description>xmind 图片居中对齐 第一关：项目最新代码出现问题，你想回退，但是保留自己修改最新代码怎么办？ 期望结果 n1（正常状态）&amp;mdash;&amp;ndash;n</description>
+      <description>git: xmind 图片居中对齐 第一关：项目最新代码出现问题，你想回退，但是保留自己修改最新代码怎么办？ 期望结果 n1（正常状态）&amp;mdash;&amp;ndash;</description>
     </item>
     
     <item>
@@ -634,7 +634,7 @@
       <pubDate>Sun, 20 Nov 2022 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/liunx/2022-11-20-liunx_kernel_param/</guid>
-      <description>Q3 如何判断一个进程启动时间，什么时候启动的？ Q2: 一个资源，被多线程操作，需要加锁吗? 只要涉及写的，就需要加锁处理 Q1：nohup和&amp;amp;运</description>
+      <description>Q4： 什么情况kill -9 无效 d 1 zome 僵死 孤儿 obsidian保存图片到指定文件夹 Q3 如何判断一个进程启动时间，什么时候启动的？ 找到最下方的“新附</description>
     </item>
     
     <item>
