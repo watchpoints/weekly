@@ -17,15 +17,6 @@
     </item>
     
     <item>
-      <title>从青铜到王者系列：Coding Interview</title>
-      <link>https://wangcy6.github.io/post/liunx/Coding-Interview/2022_11_29_liunx_memory_/</link>
-      <pubDate>Sat, 23 Sep 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/liunx/Coding-Interview/2022_11_29_liunx_memory_/</guid>
-      <description>Coding Interview Tutorial 1: Two Sum [LeetCode]</description>
-    </item>
-    
-    <item>
       <title>what is Paxos</title>
       <link>https://wangcy6.github.io/post/book/NO1_what_is.Paxos/</link>
       <pubDate>Fri, 01 Sep 2023 00:00:00 +0000</pubDate>
@@ -58,6 +49,24 @@
       <pubDate>Sun, 20 Nov 2022 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/liunx/2022_11_29_liunx_memory_/</guid>
+      <description>如何学习 在本文中，我将试着去回答liunx 内核参数： Q1 (Why): 为什么需要协程？ 我们会一起回顾协程出现的历史背景，当时要解决什么问题；同时，现在是什</description>
+    </item>
+    
+    <item>
+      <title>从青铜到王者系列：故障定位</title>
+      <link>https://wangcy6.github.io/post/liunx/desgin/2022_11_29_liunx_memory_-1-1/</link>
+      <pubDate>Sun, 20 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/liunx/desgin/2022_11_29_liunx_memory_-1-1/</guid>
+      <description>cpu 高怎么看 如何学习 在本文中，我将试着去回答liunx 内核参数： Q1 (Why): 为什么需要协程？ 我们会一起回顾协程出现的历史背景，当时要解决什么问题；同时</description>
+    </item>
+    
+    <item>
+      <title>从青铜到王者系列：故障定位</title>
+      <link>https://wangcy6.github.io/post/liunx/docker/2022_11_29_liunx_memory_-1/</link>
+      <pubDate>Sun, 20 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/liunx/docker/2022_11_29_liunx_memory_-1/</guid>
       <description>如何学习 在本文中，我将试着去回答liunx 内核参数： Q1 (Why): 为什么需要协程？ 我们会一起回顾协程出现的历史背景，当时要解决什么问题；同时，现在是什</description>
     </item>
     

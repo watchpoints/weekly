@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "blog/content/post/2024/2024-11-10-build-my-appley-p1.md",
+                "file": "blog/content/about.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2024-11-10-build-my-appley-p1"
+              "title": "about"
             }
           }
         ]
@@ -164,11 +164,22 @@
   },
   "active": "e4e25f7959eee4a6",
   "lastOpenFiles": [
+    "blog/public/post/liunx/docker/2022_11_29_liunx_memory_-1/index.html",
+    "blog/public/post/liunx/docker/2022_11_29_liunx_memory_-1",
+    "blog/public/post/liunx/docker",
+    "blog/public/post/liunx/desgin/2022_11_29_liunx_memory_-1-1/index.html",
+    "blog/public/post/liunx/desgin/2022_11_29_liunx_memory_-1-1",
+    "blog/public/post/liunx/desgin",
+    "blog/content/post/liunx/desgin/2022_11_29_liunx_memory_ 1 1.md",
+    "blog/content/post/liunx/docker/2022_11_29_liunx_memory_ 1 1.md",
+    "blog/content/post/liunx/desgin",
+    "blog/content/post/liunx/未命名",
+    "blog/content/post/2024/2024-11-10-build-my-appley-p1.md",
+    "blog/content/j.md",
     "blog/content/post/2024/2024-11-10-cppd-day1.md",
     "blog/content/post/2024/2024-03-03-ask.md",
     "blog/content/post/2024/2024-03-03-11-rust-ai.md",
     "blog/content/post/2024/2024-03-06_readcode_ceph_threadpool.md",
-    "blog/content/post/2024/2024-11-10-build-my-appley-p1.md",
     "blog/content/post/c++/01_c++_new.md",
     "blog/content/post/c++/02_master_c++_class.md",
     "blog/content/post/oceanbase/2024/day6_make_ob.md",
