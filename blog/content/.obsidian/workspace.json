@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "post/liunx/desgin/2022_11_29_liunx_memory_ 1 1.md",
+                "file": "post/oceanbase/2024/07_make_ob_leader.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2022_11_29_liunx_memory_ 1 1"
+              "title": "07_make_ob_leader"
             }
           }
         ]
@@ -163,16 +163,18 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "dbd3e6b75cffcb91",
+  "active": "97c0d0af33ba8829",
   "lastOpenFiles": [
-    "post/liunx/docker/2022_11_29_liunx_memory_ 1.md",
+    "post/images/Pasted image 20241122215223.png",
+    "post/images/Pasted image 20241122215202.png",
+    "post/oceanbase/2024/day6_make_ob.md",
     "post/liunx/desgin/2022_11_29_liunx_memory_ 1 1.md",
+    "post/liunx/docker/2022_11_29_liunx_memory_ 1.md",
     "post/liunx/Coding Interview/2022_11_29_liunx_memory_.md",
     "post/liunx/desgin",
     "post/liunx/2022_11_29_liunx_memory_.md",
     "post/liunx/2022-11-20-liunx_kernel_param.md",
     "post/liunx/docker",
-    "post/oceanbase/2024/day6_make_ob.md",
     "post/oceanbase/2024/07_make_ob_leader.md",
     "j.md",
     "post/images/Pasted image 20241119213144.png",
@@ -195,7 +197,6 @@
     "post/2024/2024-11-09-how-to-user-gdb.md",
     "post/2024/2024-03-03-ask.md",
     "post/book/book_thingin_c++.md",
-    "post/book/2021_book.md",
-    "post/book/book_Algorithms-JeffE.md"
+    "post/book/2021_book.md"
   ]
 }
