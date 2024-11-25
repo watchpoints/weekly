@@ -1,5 +1,5 @@
 ---
-title: 成为ob贡献者(07):leader
+title: 成为ob贡献者(07):重新理解OB模块设计
 date: 2024-10-19
 description: 自我驱动学习
 draft: false
@@ -29,7 +29,7 @@ categories:
 但是引入分区后，数据会分布在多个节点， 这样 每个节点都有主副本，
 假如一个节点故障了，上面可能有很多主副本，每个分区都要做选举吗？
 
-假如上面有1万个分区，最坏情况会经过1万次选举吗？
+假如上面有一个节点上有1万个分区，最坏情况会经过1万次选举吗？
 
 >1.  简化问题：primary zone='z1,z2,z3"  leader副本的分布
 > 帮忙查看一下集群部署，主副本是怎么在observer节点分布的？
@@ -119,7 +119,7 @@ OBserver分区为单位，每个节点存储部分分区数据，整个虚拟节
 
 
  
-## 选举算法
+## 选举算法单独抽象出 用于不同组件
 
 > 老王：请停止在 上面细节不停的思考，至少明白了，要把一个obsever进程 看成三个进程，
   一个是：查询进程，这个无状态，挂了拉起来继续查询
@@ -145,7 +145,11 @@ OBserver分区为单位，每个节点存储部分分区数据，整个虚拟节
   分区的选举由选举模块负责，`rootservice`只是根据一些规则(如`primary_zone`或`locality`)影响分区的`leader`选举
 
 
+阅读资料
+1. 《PALF: Replicated Write-Ahead Logging for Distributed Databases》
 
+第一篇论文 PALF: Replicated Write-Ahead Logging for Distributed Databases 从技术视角，阐述了 OceanBase 4.0 分布式日志系统 PALF (Paxos-backed Append-only Log File System) 的架构设计，及其在有效支撑 OceanBase 高可用、高可靠、极致性能等特性方面的技术优势。
+2. 万字解析：从 OceanBase 源码剖析 paxos 选举原理
 
 
 

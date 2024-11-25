@@ -18,10 +18,10 @@
     
     <item>
       <title>docker入门教程</title>
-      <link>https://wangcy6.github.io/post/kubernetes/how_docker/</link>
+      <link>https://wangcy6.github.io/post/liunx/kubernetes/how_docker/</link>
       <pubDate>Wed, 25 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://wangcy6.github.io/post/kubernetes/how_docker/</guid>
+      <guid>https://wangcy6.github.io/post/liunx/kubernetes/how_docker/</guid>
       <description>docker 第一天 基本操作 https://hub.fastgit.org/docker https://github.com/docker 安装 1 2 3 4 5 6 7 8 9 10 11 [root@fhb ~]# cat /etc/redhat-release CentOS release 6.8 (Final) [root@fhb ~]# sudo rpm -iUvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm [root@fhb ~]# sudo yum update -y curl -sSL https://get.docker.com/ | sh docker version service docker start yum install -y nginx service nginx start docker 基本操作 启动 1 systemctl restart</description>
     </item>
     

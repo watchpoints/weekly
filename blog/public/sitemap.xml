@@ -3,56 +3,56 @@
   
   <url>
     <loc>https://wangcy6.github.io/categories/</loc>
-    <lastmod>2024-11-11T00:00:00+00:00</lastmod>
+    <lastmod>2024-11-23T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://wangcy6.github.io/tags/GTD/</loc>
-    <lastmod>2024-11-11T00:00:00+00:00</lastmod>
+    <lastmod>2024-11-23T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://wangcy6.github.io/categories/GTD/</loc>
-    <lastmod>2024-11-11T00:00:00+00:00</lastmod>
+    <lastmod>2024-11-23T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://wangcy6.github.io/post/</loc>
-    <lastmod>2024-11-11T00:00:00+00:00</lastmod>
+    <lastmod>2024-11-23T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://wangcy6.github.io/tags/</loc>
-    <lastmod>2024-11-11T00:00:00+00:00</lastmod>
+    <lastmod>2024-11-23T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://wangcy6.github.io/</loc>
-    <lastmod>2024-11-11T00:00:00+00:00</lastmod>
+    <lastmod>2024-11-23T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://wangcy6.github.io/tags/work/</loc>
-    <lastmod>2024-11-11T00:00:00+00:00</lastmod>
+    <lastmod>2024-11-23T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://wangcy6.github.io/post/ARTS/2024/%E5%8F%AA%E7%AE%A1%E5%8E%BB%E5%81%9A%E8%B7%B5%E8%A1%8C%E8%AE%B02024-11%E6%9C%88-%E7%AC%AC46%E5%91%A8/</loc>
-    <lastmod>2024-11-11T00:00:00+00:00</lastmod>
+    <lastmod>2024-11-23T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -186,13 +186,6 @@
   <url>
     <loc>https://wangcy6.github.io/post/c&#43;&#43;/01_c&#43;&#43;_new/</loc>
     <lastmod>2024-08-07T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangcy6.github.io/post/man/markdown/1_how_to_use_marddown/</loc>
-    <lastmod>2024-08-03T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -359,6 +352,13 @@
   </url>
   
   <url>
+    <loc>https://wangcy6.github.io/post/how/how-to-use-Obsidian/</loc>
+    <lastmod>2024-01-23T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://wangcy6.github.io/tags/Rust/</loc>
     <lastmod>2023-12-06T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -515,13 +515,6 @@
   <url>
     <loc>https://wangcy6.github.io/post/interview/01_2023_08_04/</loc>
     <lastmod>2023-08-04T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangcy6.github.io/post/2023/2_do_book/</loc>
-    <lastmod>2023-06-19T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1150,7 +1143,7 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/kubernetes/how_docker/</loc>
+    <loc>https://wangcy6.github.io/post/liunx/kubernetes/how_docker/</loc>
     <lastmod>2021-08-25T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

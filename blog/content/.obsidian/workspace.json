@@ -4,17 +4,18 @@
     "type": "split",
     "children": [
       {
-        "id": "56f27869569f9a50",
+        "id": "f7e7bd0d6569319a",
         "type": "tabs",
         "children": [
           {
-            "id": "97c0d0af33ba8829",
+            "id": "7669b9bd28774db3",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "post/oceanbase/2024/07_make_ob_leader.md",
                 "mode": "source",
+                "backlinks": false,
                 "source": false
               },
               "icon": "lucide-file",
@@ -77,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 241.50513076782227
+    "width": 352.50513076782227
   },
   "right": {
     "id": "b5ebdcfe052c9651",
@@ -139,10 +140,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "post/liunx/desgin/2022_11_29_liunx_memory_ 1 1.md"
+                "file": "post/oceanbase/2024/07_make_ob_leader.md"
               },
               "icon": "lucide-list",
-              "title": "2022_11_29_liunx_memory_ 1 1 的大纲"
+              "title": "07_make_ob_leader 的大纲"
             }
           }
         ],
@@ -150,8 +151,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -163,11 +163,36 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "97c0d0af33ba8829",
+  "active": "7669b9bd28774db3",
   "lastOpenFiles": [
+    "post/oceanbase/2024/06_day6.md",
+    "post/oceanbase/2024/07_make_ob_leader.md",
+    "post/oceanbase/2024/day6_make_ob.md",
+    "post/ARTS/2024/只管去做践行记：2024-11月-第46周.md",
+    "post/images/Pasted image 20241123110531.png",
+    "post/images/Pasted image 20241123110218.png",
+    "post/images/Pasted image 20241123110212.png",
+    "post/ARTS/2024/只管去做践行记录(第7周).md",
+    "post/images/Pasted image 20241123110206.png",
+    "post/images/Pasted image 20241123110149.png",
+    "post/how/how-to-use-Obsidian.md",
+    "post/how/未命名.md",
+    "post/habit/2024/2024-8-14-how-to-use-wechat.md",
+    "post/book/NO1_what_is.Paxos.md",
+    "post/how",
+    "how",
+    "post/liunx/kubernetes/how_docker.md",
+    "post/2024/2024-11-10-cppd-day1.md",
+    "post/2023/2_do_book.md",
+    "post/2024/2024-03-03-04_rust_vivo.md",
+    "post/2020/courses_night-reading-go.md",
+    "post/man/markdown/1_how_to_use_marddown.md",
+    "post/2020/提高工作效率的几个工具.md",
+    "post/2020/2019-10-10-被讨厌的勇气.md",
+    "post/ARTS/2024/do_book_weekly12_20240803.md",
+    "post/ARTS/2_ARTS_2021_18_weekly.md",
     "post/images/Pasted image 20241122215223.png",
     "post/images/Pasted image 20241122215202.png",
-    "post/oceanbase/2024/day6_make_ob.md",
     "post/liunx/desgin/2022_11_29_liunx_memory_ 1 1.md",
     "post/liunx/docker/2022_11_29_liunx_memory_ 1.md",
     "post/liunx/Coding Interview/2022_11_29_liunx_memory_.md",
@@ -175,28 +200,10 @@
     "post/liunx/2022_11_29_liunx_memory_.md",
     "post/liunx/2022-11-20-liunx_kernel_param.md",
     "post/liunx/docker",
-    "post/oceanbase/2024/07_make_ob_leader.md",
     "j.md",
     "post/images/Pasted image 20241119213144.png",
     "post/c++/01_c++_new.md",
-    "post/interview/01_2023_08_04.md",
-    "post/liunx/git通关从青铜到王者.md",
-    "post/storage/05-2024-3-08-ceph-read.md",
     "post/oceanbase/2024/Pasted image 20241013170845.png",
-    "post/oceanbase/2024/Pasted image 20241013145523.png",
-    "post/oceanbase/2024/Pasted image 20241005110151.png",
-    "post/c++/02_master_c++_class.md",
-    "post/c++/02_master_c++_share_pointer.md",
-    "post/storage/4_icfs_help.md",
-    "post/storage/3_ceph_help.md",
-    "post/storage/03_2024-11-15  访问一个目录卡住怎办处理？.md",
-    "post/storage/1_2023_02_10_day1_curveFS.md",
-    "post/storage/1_2023_02_13_day1_Cephfs.md",
-    "post/storage/01_20240806_database_list.md",
-    "post/storage/2_ceph_mon.md",
-    "post/2024/2024-11-09-how-to-user-gdb.md",
-    "post/2024/2024-03-03-ask.md",
-    "post/book/book_thingin_c++.md",
-    "post/book/2021_book.md"
+    "post/oceanbase/2024/Pasted image 20241013145523.png"
   ]
 }
