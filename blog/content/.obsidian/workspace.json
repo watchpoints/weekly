@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "post/oceanbase/2024/07_make_ob_leader.md",
+                "file": "post/liunx/docker/2022_11_29_liunx_memory_ 1.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "07_make_ob_leader"
+              "title": "2022_11_29_liunx_memory_ 1"
             }
           }
         ]
@@ -140,10 +140,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "post/oceanbase/2024/07_make_ob_leader.md"
+                "file": "post/liunx/docker/2022_11_29_liunx_memory_ 1.md"
               },
               "icon": "lucide-list",
-              "title": "07_make_ob_leader 的大纲"
+              "title": "2022_11_29_liunx_memory_ 1 的大纲"
             }
           }
         ],
@@ -165,8 +165,9 @@
   },
   "active": "7669b9bd28774db3",
   "lastOpenFiles": [
-    "post/oceanbase/2024/06_day6.md",
+    "post/liunx/kubernetes/how_docker.md",
     "post/oceanbase/2024/07_make_ob_leader.md",
+    "post/oceanbase/2024/06_day6.md",
     "post/oceanbase/2024/day6_make_ob.md",
     "post/ARTS/2024/只管去做践行记：2024-11月-第46周.md",
     "post/images/Pasted image 20241123110531.png",
@@ -181,7 +182,6 @@
     "post/book/NO1_what_is.Paxos.md",
     "post/how",
     "how",
-    "post/liunx/kubernetes/how_docker.md",
     "post/2024/2024-11-10-cppd-day1.md",
     "post/2023/2_do_book.md",
     "post/2024/2024-03-03-04_rust_vivo.md",
