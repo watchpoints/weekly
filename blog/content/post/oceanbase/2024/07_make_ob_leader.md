@@ -6,9 +6,9 @@ draft: false
 categories:
   - oceanbase
 ---
+2.2 Redesigned Architecture
 
-
-
+一天一行，一周一段，一月一篇
 
 
 为了整理思路，文章采用模拟2人对话方式，如有误，欢迎留言。
@@ -156,6 +156,16 @@ OBserver分区为单位，每个节点存储部分分区数据，整个虚拟节
 
 
 ## 参考
+
+一天一行，一周一段，一月一篇
+
+### [1] Oceanbase PaxosStore 源码阅读
+
+https://zhuanlan.zhihu.com/p/395197545
+
+开源数据库OceanBase代码导读（13）
+
+
 -  https://github.com/oceanbase/oceanbase-doc
 - [OBCP V3.0 培训教材](https://www.oceanbase.com/training/obcp)
 - https://console.oceanbase.com/instances

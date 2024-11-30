@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "post/liunx/docker/2022_11_29_liunx_memory_ 1.md",
+                "file": "post/oceanbase/2024/08_make_ob_leader 1.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2022_11_29_liunx_memory_ 1"
+              "title": "08_make_ob_leader 1"
             }
           }
         ]
@@ -140,10 +140,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "post/liunx/docker/2022_11_29_liunx_memory_ 1.md"
+                "file": "post/oceanbase/2024/08_make_ob_leader 1.md"
               },
               "icon": "lucide-list",
-              "title": "2022_11_29_liunx_memory_ 1 的大纲"
+              "title": "08_make_ob_leader 1 的大纲"
             }
           }
         ],
@@ -165,9 +165,11 @@
   },
   "active": "7669b9bd28774db3",
   "lastOpenFiles": [
-    "post/liunx/kubernetes/how_docker.md",
     "post/oceanbase/2024/07_make_ob_leader.md",
+    "post/oceanbase/2024/08_make_ob_leader 1.md",
     "post/oceanbase/2024/06_day6.md",
+    "post/liunx/docker/2022_11_29_liunx_memory_ 1.md",
+    "post/liunx/kubernetes/how_docker.md",
     "post/oceanbase/2024/day6_make_ob.md",
     "post/ARTS/2024/只管去做践行记：2024-11月-第46周.md",
     "post/images/Pasted image 20241123110531.png",
@@ -194,7 +196,6 @@
     "post/images/Pasted image 20241122215223.png",
     "post/images/Pasted image 20241122215202.png",
     "post/liunx/desgin/2022_11_29_liunx_memory_ 1 1.md",
-    "post/liunx/docker/2022_11_29_liunx_memory_ 1.md",
     "post/liunx/Coding Interview/2022_11_29_liunx_memory_.md",
     "post/liunx/desgin",
     "post/liunx/2022_11_29_liunx_memory_.md",
@@ -202,7 +203,6 @@
     "post/liunx/docker",
     "j.md",
     "post/images/Pasted image 20241119213144.png",
-    "post/c++/01_c++_new.md",
     "post/oceanbase/2024/Pasted image 20241013170845.png",
     "post/oceanbase/2024/Pasted image 20241013145523.png"
   ]

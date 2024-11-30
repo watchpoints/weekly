@@ -58,7 +58,16 @@
       <pubDate>Sat, 19 Oct 2024 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/oceanbase/2024/07_make_ob_leader/</guid>
-      <description>为了整理思路，文章采用模拟2人对话方式，如有误，欢迎留言。 本文分为两个部分 捕捉想法: 一个节点故障后，假如上面有1万个分区，会经过1万次选举吗</description>
+      <description>2.2 Redesigned Architecture 一天一行，一周一段，一月一篇 为了整理思路，文章采用模拟2人对话方式，如有误，欢迎留言。 本文分为两个部分 捕捉想法: 一个节点故障后，假如上</description>
+    </item>
+    
+    <item>
+      <title>成为ob贡献者(07):重新理解OB模块设计</title>
+      <link>https://wangcy6.github.io/post/oceanbase/2024/08_make_ob_leader-1/</link>
+      <pubDate>Sat, 19 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/oceanbase/2024/08_make_ob_leader-1/</guid>
+      <description>记录是为了更好的思考 一天一行，一周一段，一月一篇 为了整理思路，文章采用模拟2人对话方式，如有误，欢迎留言。 本文分为两个部分 捕捉想法: 一个节点</description>
     </item>
     
     <item>
