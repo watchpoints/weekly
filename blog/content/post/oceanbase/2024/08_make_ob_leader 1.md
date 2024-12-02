@@ -8,24 +8,26 @@ categories:
 ---
 
 
-记录是为了更好的思考 一天一行，一周一段，一月一篇
-
-
-为了整理思路，文章采用模拟2人对话方式，如有误，欢迎留言。
+记录是为了更好的思考 为了整理思路，文章采用模拟2人对话方式，如有误，欢迎留言。
 本文分为两个部分
 
-1. 捕捉想法:  一个节点故障后，假如上面有1万个分区，会经过1万次选举吗？
-   > 根据第一感受，无论是什么，都是真实发生的，都是捕捉来源,都可以大胆猜想
+1. 捕捉想法:  
+  无数个问题同时出现，让思路更加混乱，但是描述不出来具体是什么问题。
+  因此 集中精力 阅读  PALF: Replicated Write-Ahead Logging for Distributed Databases 开始。
+
 2. 动手验证
-  > 搜集已知 书籍，文章，代码  推理分析小心求证。
+  > 任务1：翻译：PALF: Replicated Write-Ahead Logging for Distributed Databases
+  > 任务2：做练习题：#Paxos 试题 看看你能得多少分
+  
+
 
 
 ```
-你是一位专业中文翻译，擅长对翻译结果进行二次修改和润色成通俗易懂的中文，我希望你能帮我将以下英文视频的中文翻译结果重新意译和润色。
+你是一位计算机专业翻译专家，掌握丰富的计算知识并且转化小白理解的语言，我希望你能帮我将以下英文视频的中文翻译结果重新意译和润色。
 
 规则：
-- 这些字幕包含机器学习或AI等专业知识相关，注意翻译时术语的准确性
-- 保留特定的英文术语、数字或名字，并在其前后加上空格，例如："生成式 AI 产品"，"不超过 10 秒"。
+- 这些字幕包含计算机等专业知识相关，注意翻译时术语的准确性
+- 保留特定的英文术语、数字或名字，并在其前后加上空格
 - 基于直译结果重新意译，意译时务必对照原始英文，不要添加也不要遗漏内容，并以让翻译结果通俗易懂，符合中文表达习惯
 
 英文原文：
@@ -33,10 +35,19 @@ categories:
 
 直译结果：
 { 第一直译的结果 }
+
+重新意译和润色：
+{ 润色的结果 }
+
+语法分析：
+{ }
+
+结合专业知识 给出自己理解 ### 整体理解
+
 ```
 
+## TODO1: 翻译PALF（个人理解，并非翻译全文）
 
-## 论文阅读 （下面是个人理解，并非翻译全文）
 
 2.2 Redesigned Architecture  重新设计架构设计
 
@@ -57,15 +68,49 @@ a set of partitions in a Stream, rather than a single partition
 流中的一组分区，而不是单个分区
 
 
-A table  
-partition simply represents a piece of data stored in the storage  
-engine. The transaction engine generates redo logs for recording  
-modifications of multiple partitions within a Stream and stores logs  
-in the WAL of the Stream. Multiple replicas of a Stream are created  
-on different servers. Only one of them will be elected as the leader  
-and serve data writing requests. The number of replication groups  
-in a cluster can be reduced to the number of servers to eliminate  
-the overhead incurred by massive replication groups
+
+The key insight of the Stream is that tables in a database
+Stream的关键见解是数据库中的表
+are still partitioned, but the basic unit of transaction and logging is
+仍然是分区的，但事务和日志记录的基本单元是
+a set of partitions in a Stream, rather than a single partition.
+流中的一组分区，而不是单个分区。
+
+
+A table partition simply represents a piece of data stored in the storage engine. 
+分区只存储数据
+
+The transaction engine generates redo logs for recording
+modifications of multiple partitions within a Stream and stores logs
+in the WAL of the Stream.
+
+多个分区修改存储在一个日志流，并且用redo logs 形式
+
+![[Pasted image 20241201162733.png]]
+
+Multiple replicas of a Stream are created on different servers.
+
+流的多个副本 分布在不同的服务器
+
+
+Only one of them will be elected as the leader and serve data writing requests.
+他们中只有一人会当选为领导人
+
+The number of replication groups
+
+in a cluster can be reduced to the number of servers to eliminate
+
+the overhead incurred by massive replication groups.
+
+集群中的服务器数量可以减少到消除
+
+并处理数据写入请求。复制组的数量
+大量复制组产生的开销。
+
+
+
+## TODO2:Paxos 试题，看看你能得多少分
+
 
 
 ## 参考
@@ -128,3 +173,4 @@ http://localhost:1313/post/oceanbase/2024/07_make_ob_leader/
 
 
 
+https://zhuanlan.zhihu.com/p/268558189
