@@ -86,7 +86,7 @@ in the WAL of the Stream.
 
 多个分区修改存储在一个日志流，并且用redo logs 形式
 
-![[Pasted image 20241201162733.png]]
+
 
 Multiple replicas of a Stream are created on different servers.
 
@@ -96,16 +96,26 @@ Multiple replicas of a Stream are created on different servers.
 Only one of them will be elected as the leader and serve data writing requests.
 他们中只有一人会当选为领导人
 
-The number of replication groups
+The number of replication groups in a cluster can be reduced to the number of servers to eliminate the overhead incurred by massive replication groups.
+集群中的复制组数量可以减少到与服务器数量相等，以消除由大量复制组带来的额外开销。
 
-in a cluster can be reduced to the number of servers to eliminate
+旁白：
 
-the overhead incurred by massive replication groups.
+如下图：P1--P4 组成一个 LS1，P4--P8 组成一个 LS2   ，三个节点调整三个LS.
 
-集群中的服务器数量可以减少到消除
 
-并处理数据写入请求。复制组的数量
-大量复制组产生的开销。
+
+
+![[Pasted image 20241201162733.png]]
+
+
+
+#### 3.1 DESIGN OF PALF(PAL 的设计)
+
+The design purpose of PALF is to provide a replicated write-ahead logging system
+
+PALF的设计旨在提供一个具备复制功能的预写日志系统。
+这种系统能够确保在数据写入之前，将变更记录在多个副本中，从而提高数据的安全性和一致性
 
 
 
