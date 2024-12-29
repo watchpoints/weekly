@@ -1,1 +1,7 @@
-{}
+{
+  "accentColor": "#4acd9b",
+  "theme": "moonstone",
+  "baseFontSize": 17,
+  "cssTheme": "Obsidian Nord",
+  "baseFontSizeAction": true
+}

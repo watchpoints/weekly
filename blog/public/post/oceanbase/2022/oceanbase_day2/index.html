@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.101.0 with theme even" />
+<meta name="generator" content="Hugo 0.83.1 with theme even" />
 
 
 <link rel="canonical" href="https://wangcy6.github.io/post/oceanbase/2022/oceanbase_day2/" />
@@ -42,13 +42,13 @@
 <meta property="og:description" content="自我驱动学习，专业上只能靠自己" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://wangcy6.github.io/post/oceanbase/2022/oceanbase_day2/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2022-09-03T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-09-03T00:00:00+00:00" />
+<meta property="article:published_time" content="2022-09-03T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2022-09-03T00:00:00&#43;00:00" />
 
 <meta itemprop="name" content="成为oceanbase贡献者第二天：源码解析 DDL语句执行过程">
-<meta itemprop="description" content="自我驱动学习，专业上只能靠自己"><meta itemprop="datePublished" content="2022-09-03T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-09-03T00:00:00+00:00" />
-<meta itemprop="wordCount" content="5624">
+<meta itemprop="description" content="自我驱动学习，专业上只能靠自己"><meta itemprop="datePublished" content="2022-09-03T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2022-09-03T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="5599">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="成为oceanbase贡献者第二天：源码解析 DDL语句执行过程"/>
 <meta name="twitter:description" content="自我驱动学习，专业上只能靠自己"/>
@@ -130,7 +130,7 @@
         <div class="post-category">
             <a href="/categories/oceanbase/"> oceanbase </a>
             </div>
-          <span class="more-meta"> 约 5624 字 </span>
+          <span class="more-meta"> 约 5599 字 </span>
           <span class="more-meta"> 预计阅读 12 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -229,21 +229,23 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
+</span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">oceanbase</span><span class="o">/</span><span class="n">oceanbase</span><span class="o">/</span><span class="n">issues</span><span class="o">/</span><span class="mi">1035</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">v0</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">v2</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">v1</span><span class="w"> </span><span class="n">VARCHARACTER</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">UNIQUE</span><span class="w"> </span><span class="n">v0</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">v1</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">obclient</span><span class="w"> </span><span class="p">[</span><span class="n">oceanbase</span><span class="p">]</span><span class="o">&gt;</span><span class="w"> </span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">v0</span><span class="w"> </span><span class="k">DROP</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="n">v2</span><span class="w"> </span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ERROR</span><span class="w"> </span><span class="mi">4016</span><span class="w"> </span><span class="p">(</span><span class="n">HY000</span><span class="p">):</span><span class="w"> </span><span class="n">Internal</span><span class="w"> </span><span class="n">error</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">oceanbase</span><span class="o">/</span><span class="n">oceanbase</span><span class="o">/</span><span class="n">issues</span><span class="o">/</span><span class="mi">1035</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">v0</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">v2</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">v1</span><span class="w"> </span><span class="n">VARCHARACTER</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">UNIQUE</span><span class="w"> </span><span class="n">v0</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">v1</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> 
+</span><span class="w">
+</span><span class="w"></span><span class="n">obclient</span><span class="w"> </span><span class="p">[</span><span class="n">oceanbase</span><span class="p">]</span><span class="o">&gt;</span><span class="w"> </span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">v0</span><span class="w"> </span><span class="k">DROP</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="n">v2</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="n">ERROR</span><span class="w"> </span><span class="mi">4016</span><span class="w"> </span><span class="p">(</span><span class="n">HY000</span><span class="p">):</span><span class="w"> </span><span class="n">Internal</span><span class="w"> </span><span class="n">error</span><span class="w">
+</span><span class="w">
+</span></code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>大纲</li>
@@ -268,20 +270,20 @@
 <p><img src="https://img-blog.csdnimg.cn/811f75e628944066963b50d662e9dc89.png" alt="ddl部分"></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">graph TB
-</span></span><span class="line"><span class="cl">    1[ObMPQuery::process]--&gt;2[ObMPQuery::do_process ]  --&gt;5[ObSql::handle_text_query] --&gt;4[handle_physical_plan] --&gt;5[ ObMPQuery::response_result] --&gt;6[ObMPQuery::register_callback_with_async] --&gt;7[ObCmdExecutor::execute] --&gt;8[ObDDLOperator::alter_table_column]
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">
+graph TB
+    1[ObMPQuery::process]--&gt;2[ObMPQuery::do_process ]  --&gt;5[ObSql::handle_text_query] --&gt;4[handle_physical_plan] --&gt;5[ ObMPQuery::response_result] --&gt;6[ObMPQuery::register_callback_with_async] --&gt;7[ObCmdExecutor::execute] --&gt;8[ObDDLOperator::alter_table_column]
+</code></pre></td></tr></table>
 </div>
 </div><h4 id="步骤1--函数统一入口-obmpqueryprocess-这个大家一看就懂就是这样">步骤1  函数统一入口 ObMPQuery::process() 这个大家一看就懂.就是这样</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -297,31 +299,33 @@
 </span><span class="lnt">14
 </span><span class="lnt">15
 </span><span class="lnt">16
+</span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">文件：src<span class="se">\o</span>bserver<span class="se">\m</span>ysql<span class="se">\o</span>bmp_query.cpp
-</span></span><span class="line"><span class="cl">函数：int ObMPQuery::process<span class="o">()</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">关键逻辑：
-</span></span><span class="line"><span class="cl"><span class="c1">## 解析网络包</span>
-</span></span><span class="line"><span class="cl">const ObMySQLRawPacket<span class="p">&amp;</span> <span class="nv">pkt</span> <span class="o">=</span> reinterpret_cast&lt;const ObMySQLRawPacket<span class="p">&amp;</span>&gt;<span class="o">(</span>req_-&gt;get_packet<span class="o">())</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="c1">## 单个sql执行 ，如果多个sql 变成单个SQL执行</span>
-</span></span><span class="line"><span class="cl"> <span class="nv">ret</span> <span class="o">=</span> process_single_stmt<span class="o">(</span>
-</span></span><span class="line"><span class="cl">                ObMultiStmtItem<span class="o">(</span>false, 0, sql_<span class="o">)</span>, session, has_more, force_sync_resp, async_resp_used, need_disconnect<span class="o">)</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">			
-</span></span><span class="line"><span class="cl"><span class="c1">## 封装一下 没有什么业务逻辑</span>
-</span></span><span class="line"><span class="cl">文件:src<span class="se">\o</span>bserver<span class="se">\m</span>ysql<span class="se">\o</span>bmp_query.cpp
-</span></span><span class="line"><span class="cl">函数： ObMPQuery::process_single_stmt<span class="o">(</span>
-</span></span><span class="line"><span class="cl">功能：单个函数执行
-</span></span><span class="line"><span class="cl">关键逻辑：
-</span></span><span class="line"><span class="cl"> ObMPQuery::do_process
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">文件：src<span class="se">\o</span>bserver<span class="se">\m</span>ysql<span class="se">\o</span>bmp_query.cpp
+函数：int ObMPQuery::process<span class="o">()</span>
+
+关键逻辑：
+<span class="c1">## 解析网络包</span>
+const ObMySQLRawPacket<span class="p">&amp;</span> <span class="nv">pkt</span> <span class="o">=</span> reinterpret_cast&lt;const ObMySQLRawPacket<span class="p">&amp;</span>&gt;<span class="o">(</span>req_-&gt;get_packet<span class="o">())</span><span class="p">;</span>
+<span class="c1">## 单个sql执行 ，如果多个sql 变成单个SQL执行</span>
+ <span class="nv">ret</span> <span class="o">=</span> process_single_stmt<span class="o">(</span>
+                ObMultiStmtItem<span class="o">(</span>false, 0, sql_<span class="o">)</span>, session, has_more, force_sync_resp, async_resp_used, need_disconnect<span class="o">)</span><span class="p">;</span>
+			
+<span class="c1">## 封装一下 没有什么业务逻辑</span>
+文件:src<span class="se">\o</span>bserver<span class="se">\m</span>ysql<span class="se">\o</span>bmp_query.cpp
+函数： ObMPQuery::process_single_stmt<span class="o">(</span>
+功能：单个函数执行
+关键逻辑：
+ ObMPQuery::do_process
+
+</code></pre></td></tr></table>
 </div>
 </div><h4 id="步骤2-调用sql引擎--输入sql语句字符串输出一个包含物理执行计划和元信息的resultset">步骤2： 调用sql引擎  输入sql语句字符串，输出一个包含物理执行计划和元信息的ResultSet。</h4>
 <p>ObMPQuery::do_process</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -337,26 +341,26 @@
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="err">核心逻辑：</span>
-</span></span><span class="line"><span class="cl"><span class="cp"># 获取sql语句
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">const</span> <span class="n">ObString</span><span class="o">&amp;</span> <span class="n">sql</span> <span class="o">=</span> <span class="n">ctx_</span><span class="p">.</span><span class="n">multi_stmt_item_</span><span class="p">.</span><span class="n">get_sql</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">ObPhysicalPlan</span><span class="o">*</span> <span class="n">plan</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span> <span class="c1">//物理计划
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">ObQueryExecCtx</span><span class="o">*</span> <span class="n">query_ctx</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">gctx_</span><span class="p">.</span><span class="n">sql_engine_</span><span class="o">-&gt;</span><span class="n">stmt_query</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">ctx_</span><span class="p">,</span> <span class="o">*</span><span class="n">result</span><span class="p">))</span> <span class="c1">//调用sql引擎 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    
-</span></span><span class="line"><span class="cl"><span class="n">stmt_query方法</span><span class="err">：</span>
-</span></span><span class="line"><span class="cl">    <span class="err">输入</span><span class="n">sql语句字符串</span><span class="err">，输出一个包含物理执行计划和元信息的</span><span class="n">ResultSet</span><span class="err">。</span>
-</span></span><span class="line"><span class="cl">    <span class="err">外层打开并迭代结果集，把每一行结果发送给客户端</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="err">核心逻辑：</span>
+<span class="cp"># 获取sql语句
+</span><span class="cp"></span><span class="k">const</span> <span class="n">ObString</span><span class="o">&amp;</span> <span class="n">sql</span> <span class="o">=</span> <span class="n">ctx_</span><span class="p">.</span><span class="n">multi_stmt_item_</span><span class="p">.</span><span class="n">get_sql</span><span class="p">();</span>
+
+<span class="n">ObPhysicalPlan</span><span class="o">*</span> <span class="n">plan</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span> <span class="c1">//物理计划
+</span><span class="c1"></span><span class="n">ObQueryExecCtx</span><span class="o">*</span> <span class="n">query_ctx</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+
+<span class="n">gctx_</span><span class="p">.</span><span class="n">sql_engine_</span><span class="o">-&gt;</span><span class="n">stmt_query</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">ctx_</span><span class="p">,</span> <span class="o">*</span><span class="n">result</span><span class="p">))</span> <span class="c1">//调用sql引擎 
+</span><span class="c1"></span>    
+<span class="n">stmt_query方法</span><span class="err">：</span>
+    <span class="err">输入</span><span class="n">sql语句字符串</span><span class="err">，输出一个包含物理执行计划和元信息的</span><span class="n">ResultSet</span><span class="err">。</span>
+    <span class="err">外层打开并迭代结果集，把每一行结果发送给客户端</span>
+
+  
+</code></pre></td></tr></table>
 </div>
 </div><p>​       -   位置：src\obmp_query.cpp &ndash;&gt;src\sql\ob_sql.cpp</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -374,23 +378,23 @@
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">ObSql</span><span class="o">::</span><span class="n">stmt_query</span><span class="p">(</span><span class="k">const</span> <span class="n">common</span><span class="o">::</span><span class="n">ObString</span> <span class="o">&amp;</span><span class="n">stmt</span><span class="p">,</span> <span class="n">ObSqlCtx</span> <span class="o">&amp;</span><span class="n">context</span><span class="p">,</span> <span class="n">ObResultSet</span> <span class="o">&amp;</span><span class="n">result</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">handle_text_query</span><span class="p">(</span><span class="n">stmt</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">resul</span><span class="p">)</span> <span class="c1">//名字奇怪，不管他，就是要给函数调用
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kr">inline</span> <span class="kt">int</span> <span class="n">ObSql</span><span class="o">::</span><span class="nl">handle_text_query</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl"><span class="c1">//SQL 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mf">1.</span> <span class="n">ObString</span> <span class="n">trimed_stmt</span> <span class="o">=</span> <span class="k">const_cast</span><span class="o">&lt;</span><span class="n">ObString</span> <span class="o">&amp;&gt;</span><span class="p">(</span><span class="n">stmt</span><span class="p">).</span><span class="n">trim</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl"><span class="n">init_result_set</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"><span class="mf">2.</span> <span class="n">ObPlanCacheCtx</span> <span class="o">*</span><span class="n">pc_ctx</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="mf">3.</span> <span class="n">handle_large_query</span>  <span class="c1">//名字奇怪，不管他，就是要给函数调用
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mf">4.</span> <span class="n">handle_physical_plan</span><span class="p">(</span><span class="n">trimed_stmt</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="o">*</span><span class="n">pc_ctx</span><span class="p">,</span> <span class="n">get_plan_err</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="mf">5.</span> <span class="n">after_get_plan</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">   
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="kt">int</span> <span class="n">ObSql</span><span class="o">::</span><span class="n">stmt_query</span><span class="p">(</span><span class="k">const</span> <span class="n">common</span><span class="o">::</span><span class="n">ObString</span> <span class="o">&amp;</span><span class="n">stmt</span><span class="p">,</span> <span class="n">ObSqlCtx</span> <span class="o">&amp;</span><span class="n">context</span><span class="p">,</span> <span class="n">ObResultSet</span> <span class="o">&amp;</span><span class="n">result</span><span class="p">)</span>
+
+<span class="n">handle_text_query</span><span class="p">(</span><span class="n">stmt</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">resul</span><span class="p">)</span> <span class="c1">//名字奇怪，不管他，就是要给函数调用
+</span><span class="c1"></span>
+
+<span class="kr">inline</span> <span class="kt">int</span> <span class="n">ObSql</span><span class="o">::</span><span class="nl">handle_text_query</span><span class="p">:</span>
+<span class="c1">//SQL 
+</span><span class="c1"></span><span class="mf">1.</span> <span class="n">ObString</span> <span class="n">trimed_stmt</span> <span class="o">=</span> <span class="k">const_cast</span><span class="o">&lt;</span><span class="n">ObString</span> <span class="o">&amp;&gt;</span><span class="p">(</span><span class="n">stmt</span><span class="p">).</span><span class="n">trim</span><span class="p">();</span>
+<span class="n">init_result_set</span>
+    
+<span class="mf">2.</span> <span class="n">ObPlanCacheCtx</span> <span class="o">*</span><span class="n">pc_ctx</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+<span class="mf">3.</span> <span class="n">handle_large_query</span>  <span class="c1">//名字奇怪，不管他，就是要给函数调用
+</span><span class="c1"></span><span class="mf">4.</span> <span class="n">handle_physical_plan</span><span class="p">(</span><span class="n">trimed_stmt</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="o">*</span><span class="n">pc_ctx</span><span class="p">,</span> <span class="n">get_plan_err</span><span class="p">))</span>
+<span class="mf">5.</span> <span class="n">after_get_plan</span>
+    
+   
+</code></pre></td></tr></table>
 </div>
 </div><blockquote>
 <p>提示： 看到这里，还是很清晰的。不涉及解析 物理计划等等，你看到什么就是什么</p>
@@ -400,7 +404,7 @@
 <li>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -418,27 +422,31 @@
 </span><span class="lnt">16
 </span><span class="lnt">17
 </span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">ObSql</span><span class="o">::</span><span class="n">handle_physical_plan</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">handle_parser</span> 
-</span></span><span class="line"><span class="cl"> <span class="n">ObParser</span> <span class="n">parser</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"> <span class="n">parser</span><span class="p">.</span><span class="n">parse</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">parse_result</span><span class="p">)</span> <span class="c1">//没继续看 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">ObSql</span><span class="o">::</span><span class="n">generate_physical_plan</span><span class="p">(</span><span class="n">ParseResult</span> <span class="o">&amp;</span><span class="n">parse_result</span><span class="p">,</span> <span class="n">ObPlanCacheCtx</span> <span class="o">*</span><span class="n">pc_ctx</span><span class="p">,</span> <span class="n">ObSqlCtx</span> <span class="o">&amp;</span><span class="n">sql_ctx</span><span class="p">,</span> <span class="n">ObResultSet</span> <span class="o">&amp;</span><span class="n">result</span><span class="err">）</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">      <span class="n">ObLogPlan</span> <span class="o">*</span><span class="n">logical_plan</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">      <span class="n">ObPhysicalPlan</span> <span class="o">*</span><span class="n">phy_plan</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>                        
-</span></span><span class="line"><span class="cl">      <span class="n">optimize_stmt</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="n">ObOptimizer</span> <span class="nf">optimizer</span><span class="p">(</span><span class="n">optctx</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">          <span class="n">transform_stmt</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">          <span class="n">code_generate</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="n">ObSql</span><span class="o">::</span><span class="n">handle_physical_plan</span>
+
+<span class="n">handle_parser</span> 
+ <span class="n">ObParser</span> <span class="n">parser</span><span class="p">()</span>
+ <span class="n">parser</span><span class="p">.</span><span class="n">parse</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">parse_result</span><span class="p">)</span> <span class="c1">//没继续看 
+</span><span class="c1"></span>
+
+<span class="n">ObSql</span><span class="o">::</span><span class="n">generate_physical_plan</span><span class="p">(</span><span class="n">ParseResult</span> <span class="o">&amp;</span><span class="n">parse_result</span><span class="p">,</span> <span class="n">ObPlanCacheCtx</span> <span class="o">*</span><span class="n">pc_ctx</span><span class="p">,</span> <span class="n">ObSqlCtx</span> <span class="o">&amp;</span><span class="n">sql_ctx</span><span class="p">,</span> <span class="n">ObResultSet</span> <span class="o">&amp;</span><span class="n">result</span><span class="err">）</span>
+
+      <span class="n">ObLogPlan</span> <span class="o">*</span><span class="n">logical_plan</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+      <span class="n">ObPhysicalPlan</span> <span class="o">*</span><span class="n">phy_plan</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>                        
+      <span class="n">optimize_stmt</span>
+
+        <span class="n">ObOptimizer</span> <span class="nf">optimizer</span><span class="p">(</span><span class="n">optctx</span><span class="p">);</span>
+
+          <span class="n">transform_stmt</span>
+
+          <span class="n">code_generate</span>
+
+
+</code></pre></td></tr></table>
 </div>
 </div><blockquote>
 <p>好奇： set ob_enable_trace_log = 1  show trace;跟踪查询sql执行过程，</p>
@@ -471,7 +479,7 @@
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -495,33 +503,33 @@
 </span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"> switch <span class="o">(</span>cmd.get_cmd_type<span class="o">())</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">case</span> stmt::T_CREATE_RESOURCE_POOL: <span class="o">{</span>
-</span></span><span class="line"><span class="cl">      DEFINE_EXECUTE_CMD<span class="o">(</span>ObCreateResourcePoolStmt, ObCreateResourcePoolExecutor<span class="o">)</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">      break<span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl">    <span class="k">case</span> stmt::T_DROP_RESOURCE_POOL: <span class="o">{</span>
-</span></span><span class="line"><span class="cl">      DEFINE_EXECUTE_CMD<span class="o">(</span>ObDropResourcePoolStmt, ObDropResourcePoolExecutor<span class="o">)</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">      break<span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl">    <span class="k">case</span> stmt::T_SPLIT_RESOURCE_POOL: <span class="o">{</span>
-</span></span><span class="line"><span class="cl">      DEFINE_EXECUTE_CMD<span class="o">(</span>ObSplitResourcePoolStmt, ObSplitResourcePoolExecutor<span class="o">)</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">      break<span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl">    <span class="k">case</span> stmt::T_MERGE_RESOURCE_POOL: <span class="o">{</span>
-</span></span><span class="line"><span class="cl">      DEFINE_EXECUTE_CMD<span class="o">(</span>ObMergeResourcePoolStmt, ObMergeResourcePoolExecutor<span class="o">)</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">      break<span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">## ALTER TABLE v0 DROP COLUMN v2 ;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">case</span> stmt::T_ALTER_TABLE: <span class="o">{</span>
-</span></span><span class="line"><span class="cl">      DEFINE_EXECUTE_CMD<span class="o">(</span>ObAlterTableStmt, ObAlterTableExecutor<span class="o">)</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">      break<span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell"> switch <span class="o">(</span>cmd.get_cmd_type<span class="o">())</span> <span class="o">{</span>
+    <span class="k">case</span> stmt::T_CREATE_RESOURCE_POOL: <span class="o">{</span>
+      DEFINE_EXECUTE_CMD<span class="o">(</span>ObCreateResourcePoolStmt, ObCreateResourcePoolExecutor<span class="o">)</span><span class="p">;</span>
+      break<span class="p">;</span>
+    <span class="o">}</span>
+    <span class="k">case</span> stmt::T_DROP_RESOURCE_POOL: <span class="o">{</span>
+      DEFINE_EXECUTE_CMD<span class="o">(</span>ObDropResourcePoolStmt, ObDropResourcePoolExecutor<span class="o">)</span><span class="p">;</span>
+      break<span class="p">;</span>
+    <span class="o">}</span>
+    <span class="k">case</span> stmt::T_SPLIT_RESOURCE_POOL: <span class="o">{</span>
+      DEFINE_EXECUTE_CMD<span class="o">(</span>ObSplitResourcePoolStmt, ObSplitResourcePoolExecutor<span class="o">)</span><span class="p">;</span>
+      break<span class="p">;</span>
+    <span class="o">}</span>
+    <span class="k">case</span> stmt::T_MERGE_RESOURCE_POOL: <span class="o">{</span>
+      DEFINE_EXECUTE_CMD<span class="o">(</span>ObMergeResourcePoolStmt, ObMergeResourcePoolExecutor<span class="o">)</span><span class="p">;</span>
+      break<span class="p">;</span>
+    <span class="o">}</span>
+    <span class="c1">## ALTER TABLE v0 DROP COLUMN v2 ;</span>
+    <span class="k">case</span> stmt::T_ALTER_TABLE: <span class="o">{</span>
+      DEFINE_EXECUTE_CMD<span class="o">(</span>ObAlterTableStmt, ObAlterTableExecutor<span class="o">)</span><span class="p">;</span>
+      break<span class="p">;</span>
+    <span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -531,19 +539,23 @@
 </span><span class="lnt"> 8
 </span><span class="lnt"> 9
 </span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">case stmt::T_ALTER_TABLE: {
-</span></span><span class="line"><span class="cl">      DEFINE_EXECUTE_CMD(ObAlterTableStmt, ObAlterTableExecutor);
-</span></span><span class="line"><span class="cl">      break;
-</span></span><span class="line"><span class="cl"> }   
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">#define DEFINE_EXECUTE_CMD(Statement, Executor)       \
-</span></span><span class="line"><span class="cl">  Statement&amp; stmt = *(static_cast&lt;Statement*&gt;(&amp;cmd)); \
-</span></span><span class="line"><span class="cl">  Executor executor;                                  \
-</span></span><span class="line"><span class="cl">  sql_text = stmt.get_sql_stmt();                     \
-</span></span><span class="line"><span class="cl">  ret = executor.execute(ctx, stmt);
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">case stmt::T_ALTER_TABLE: {
+      DEFINE_EXECUTE_CMD(ObAlterTableStmt, ObAlterTableExecutor);
+      break;
+ }   
+
+#define DEFINE_EXECUTE_CMD(Statement, Executor)       \
+  Statement&amp; stmt = *(static_cast&lt;Statement*&gt;(&amp;cmd)); \
+  Executor executor;                                  \
+  sql_text = stmt.get_sql_stmt();                     \
+  ret = executor.execute(ctx, stmt);
+
+
+</code></pre></td></tr></table>
 </div>
 </div><h4 id="步骤5-alter-sql执行过程">步骤5 alter sql执行过程</h4>
 <blockquote>
@@ -555,7 +567,7 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -570,20 +582,20 @@
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">每种语句类型有一个Resolver和一个Stmt
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">函数：int ObAlterTableExecutor::execute(ObExecContext&amp; ctx, ObAlterTableStmt&amp; stmt)
-</span></span><span class="line"><span class="cl">路径：src\sql\engine\cmd\ob_table_executor.cpp
-</span></span><span class="line"><span class="cl">逻辑：
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">1. ObTaskExecutorCtx* task_exec_ctx = NULL; 
-</span></span><span class="line"><span class="cl">obrpc::ObCommonRpcProxy* common_rpc_proxy = NULL; //rpc 这地方
-</span></span><span class="line"><span class="cl">ObMySQLProxy* sql_proxy = ctx.get_sql_proxy();
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl">2. ObAlterTableExecutor::alter_table_rpc_v2(alter_table_arg, res, allocator, common_rpc_proxy, my_session, is_sync_ddl_user))) {
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">3. set_drop_constraint_ddl_stmt_str
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">每种语句类型有一个Resolver和一个Stmt
+
+函数：int ObAlterTableExecutor::execute(ObExecContext&amp; ctx, ObAlterTableStmt&amp; stmt)
+路径：src\sql\engine\cmd\ob_table_executor.cpp
+逻辑：
+
+1. ObTaskExecutorCtx* task_exec_ctx = NULL; 
+obrpc::ObCommonRpcProxy* common_rpc_proxy = NULL; //rpc 这地方
+ObMySQLProxy* sql_proxy = ctx.get_sql_proxy();
+ 
+2. ObAlterTableExecutor::alter_table_rpc_v2(alter_table_arg, res, allocator, common_rpc_proxy, my_session, is_sync_ddl_user))) {
+
+3. set_drop_constraint_ddl_stmt_str
+</code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>
@@ -609,7 +621,7 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -617,13 +629,13 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c#" data-lang="c#"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">OB_FAIL</span><span class="p">(</span><span class="n">gctx_</span><span class="p">.</span><span class="n">sql_engine_</span><span class="p">-&gt;</span><span class="n">stmt_query</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">ctx_</span><span class="p">,</span> <span class="p">*</span><span class="n">result</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="cp">#define OB_FAIL(statement) (OB_UNLIKELY(::oceanbase::common::OB_SUCCESS != (ret = (statement))))</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">ret</span> <span class="p">=</span> <span class="n">gctx_</span><span class="p">.</span><span class="n">sql_engine_</span><span class="p">-&gt;</span><span class="n">stmt_query</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">ctx_</span><span class="p">,</span> <span class="p">*</span><span class="n">result</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-c#" data-lang="c#">
+<span class="n">OB_FAIL</span><span class="p">(</span><span class="n">gctx_</span><span class="p">.</span><span class="n">sql_engine_</span><span class="p">-&gt;</span><span class="n">stmt_query</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">ctx_</span><span class="p">,</span> <span class="p">*</span><span class="n">result</span><span class="p">))</span>
+
+<span class="cp">#define OB_FAIL(statement) (OB_UNLIKELY(::oceanbase::common::OB_SUCCESS != (ret = (statement))))
+</span><span class="cp"></span>
+<span class="n">ret</span> <span class="p">=</span> <span class="n">gctx_</span><span class="p">.</span><span class="n">sql_engine_</span><span class="p">-&gt;</span><span class="n">stmt_query</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">ctx_</span><span class="p">,</span> <span class="p">*</span><span class="n">result</span>
+</code></pre></td></tr></table>
 </div>
 </div><h4 id="步骤6-drop-col逻辑">步骤6 drop col逻辑</h4>
 <ul>
@@ -641,42 +653,7 @@ thread apply all break ob_ddl_operator.cpp:3006</p>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// cnolumn that has been alter, change or modify
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="n">ObColumnSchemaV2</span><span class="o">*</span> <span class="n">orig_column_schema</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">switch</span> <span class="p">(</span><span class="n">alter_column_schema</span><span class="o">-&gt;</span><span class="n">alter_type_</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="n">OB_DDL_ADD_COLUMN</span>
-</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="nl">OB_DDL_CHANGE_COLUMN</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="nl">OB_DDL_DROP_COLUMN</span><span class="p">:</span> <span class="c1">//看这里
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="n">alter_table_drop_aux_column</span>
-</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="nl">OB_DDL_MODIFY_COLUMN</span><span class="p">:</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="步骤7找到报错位置">步骤7：找到报错位置</h4>
-<ul>
-<li>gdd位置</li>
-</ul>
-<p>​		thread apply all break ob_ddl_operator.cpp:1459</p>
-<ul>
-<li>函数逻辑：alter_table_drop_aux_column</li>
-</ul>
-<p>ColumnSchem</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -689,18 +666,55 @@ thread apply all break ob_ddl_operator.cpp:3006</p>
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  const ObColumnSchemaV2* delete_column_schema =
-</span></span><span class="line"><span class="cl">          aux_table_schema-&gt;get_column_schema(orig_column_schema.get_column_id());
-</span></span><span class="line"><span class="cl">      if (NULL != delete_column_schema) {
-</span></span><span class="line"><span class="cl">        if (delete_column_schema-&gt;is_index_column()) {
-</span></span><span class="line"><span class="cl">          ret = OB_ERR_ALTER_INDEX_COLUMN;
-</span></span><span class="line"><span class="cl">          RS_LOG(WARN, &#34;can&#39;t not drop index column&#34;, K(ret));
-</span></span><span class="line"><span class="cl">        } 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  int64_t schema_version_;
-</span></span><span class="line"><span class="cl">  int64_t rowkey_position_;              // greater than zero if this is rowkey column, 0 if this is common column
-</span></span><span class="line"><span class="cl">  int64_t index_position_;               // greater than zero if this is index column       
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="c1">// cnolumn that has been alter, change or modify
+</span><span class="c1"></span>
+<span class="k">const</span> <span class="n">ObColumnSchemaV2</span><span class="o">*</span> <span class="n">orig_column_schema</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+
+<span class="k">switch</span> <span class="p">(</span><span class="n">alter_column_schema</span><span class="o">-&gt;</span><span class="n">alter_type_</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="n">OB_DDL_ADD_COLUMN</span>
+    <span class="k">case</span> <span class="nl">OB_DDL_CHANGE_COLUMN</span><span class="p">:</span>
+    <span class="k">case</span> <span class="nl">OB_DDL_DROP_COLUMN</span><span class="p">:</span> <span class="c1">//看这里
+</span><span class="c1"></span>     <span class="n">alter_table_drop_aux_column</span>
+    <span class="k">case</span> <span class="nl">OB_DDL_MODIFY_COLUMN</span><span class="p">:</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="步骤7找到报错位置">步骤7：找到报错位置</h4>
+<ul>
+<li>gdd位置</li>
+</ul>
+<p>​		thread apply all break ob_ddl_operator.cpp:1459</p>
+<ul>
+<li>函数逻辑：alter_table_drop_aux_column</li>
+</ul>
+<p>ColumnSchem</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">  const ObColumnSchemaV2* delete_column_schema =
+          aux_table_schema-&gt;get_column_schema(orig_column_schema.get_column_id());
+      if (NULL != delete_column_schema) {
+        if (delete_column_schema-&gt;is_index_column()) {
+          ret = OB_ERR_ALTER_INDEX_COLUMN;
+          RS_LOG(WARN, &#34;can&#39;t not drop index column&#34;, K(ret));
+        } 
+
+  int64_t schema_version_;
+  int64_t rowkey_position_;              // greater than zero if this is rowkey column, 0 if this is common column
+  int64_t index_position_;               // greater than zero if this is index column       
+</code></pre></td></tr></table>
 </div>
 </div><blockquote>
 <p>问 在schema中 primary key 如何表示</p>
@@ -710,7 +724,7 @@ thread apply all break ob_ddl_operator.cpp:3006</p>
 <h4 id="第六次">第六次</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -736,35 +750,37 @@ thread apply all break ob_ddl_operator.cpp:3006</p>
 </span><span class="lnt">24
 </span><span class="lnt">25
 </span><span class="lnt">26
+</span><span class="lnt">27
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">dir</span> <span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">oceanbase</span>
-</span></span><span class="line"><span class="cl"><span class="n">set</span> <span class="n">pagination</span> <span class="n">off</span> 
-</span></span><span class="line"><span class="cl"><span class="n">delete</span> 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">watch</span> <span class="n">ret</span>
-</span></span><span class="line"><span class="cl"><span class="n">Old</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span>
-</span></span><span class="line"><span class="cl"><span class="n">New</span> <span class="n">value</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4016</span>
-</span></span><span class="line"><span class="cl"><span class="n">ALTER</span> <span class="n">TABLE</span> <span class="n">v0</span> <span class="n">DROP</span> <span class="n">COLUMN</span> <span class="n">v2</span> <span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="n">ObDDLOperator</span><span class="o">::</span><span class="n">alter_table_drop_aux_column</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kr">thread</span> <span class="n">apply</span> <span class="n">all</span> <span class="k">break</span> <span class="n">ob_ddl_operator</span><span class="p">.</span><span class="nl">cpp</span><span class="p">:</span><span class="mi">3041</span>
-</span></span><span class="line"><span class="cl"><span class="kr">thread</span> <span class="n">apply</span> <span class="n">all</span> <span class="k">break</span> <span class="n">ob_ddl_operator</span><span class="p">.</span><span class="nl">cpp</span><span class="p">:</span><span class="mi">3006</span>
-</span></span><span class="line"><span class="cl"><span class="kr">thread</span> <span class="n">apply</span> <span class="n">all</span> <span class="k">break</span> <span class="n">ob_ddl_operator</span><span class="p">.</span><span class="nl">cpp</span><span class="p">:</span><span class="mi">2895</span>
-</span></span><span class="line"><span class="cl"><span class="kr">thread</span> <span class="n">apply</span> <span class="n">all</span> <span class="k">break</span> <span class="n">ob_ddl_operator</span><span class="p">.</span><span class="nl">cpp</span><span class="p">:</span><span class="mi">1460</span>
-</span></span><span class="line"><span class="cl"><span class="kr">thread</span> <span class="n">apply</span> <span class="n">all</span> <span class="k">break</span> <span class="n">ob_ddl_operator</span><span class="p">.</span><span class="nl">cpp</span><span class="p">:</span><span class="mi">1476</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"><span class="kr">thread</span> <span class="n">apply</span> <span class="n">all</span> <span class="k">break</span> <span class="n">ob_ddl_operator</span><span class="p">.</span><span class="nl">cpp</span><span class="p">:</span><span class="mi">1428</span>
-</span></span><span class="line"><span class="cl"><span class="kr">thread</span> <span class="n">apply</span> <span class="n">all</span> <span class="k">break</span> <span class="n">ob_ddl_operator</span><span class="p">.</span><span class="nl">cpp</span><span class="p">:</span><span class="mi">1445</span>
-</span></span><span class="line"><span class="cl"><span class="n">define</span> <span class="n">PRIMARY_VP_COLUMN_FLAG</span> <span class="p">(</span><span class="n">INT64_C</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">4</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"><span class="c1">// true: primary key/hidden primary key(pk_increment/cluster_id/parition_id)/partitioned key of no-pk tables
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kr">inline</span> <span class="kt">bool</span> <span class="n">is_rowkey_column</span><span class="p">()</span> <span class="k">const</span>
-</span></span><span class="line"><span class="cl">  <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">rowkey_position_</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="n">dir</span> <span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">oceanbase</span>
+<span class="n">set</span> <span class="n">pagination</span> <span class="n">off</span> 
+<span class="n">delete</span> 
+
+<span class="n">watch</span> <span class="n">ret</span>
+<span class="n">Old</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">New</span> <span class="n">value</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4016</span>
+<span class="n">ALTER</span> <span class="n">TABLE</span> <span class="n">v0</span> <span class="n">DROP</span> <span class="n">COLUMN</span> <span class="n">v2</span> <span class="p">;</span>
+<span class="n">ObDDLOperator</span><span class="o">::</span><span class="n">alter_table_drop_aux_column</span>
+
+<span class="kr">thread</span> <span class="n">apply</span> <span class="n">all</span> <span class="k">break</span> <span class="n">ob_ddl_operator</span><span class="p">.</span><span class="nl">cpp</span><span class="p">:</span><span class="mi">3041</span>
+<span class="kr">thread</span> <span class="n">apply</span> <span class="n">all</span> <span class="k">break</span> <span class="n">ob_ddl_operator</span><span class="p">.</span><span class="nl">cpp</span><span class="p">:</span><span class="mi">3006</span>
+<span class="kr">thread</span> <span class="n">apply</span> <span class="n">all</span> <span class="k">break</span> <span class="n">ob_ddl_operator</span><span class="p">.</span><span class="nl">cpp</span><span class="p">:</span><span class="mi">2895</span>
+<span class="kr">thread</span> <span class="n">apply</span> <span class="n">all</span> <span class="k">break</span> <span class="n">ob_ddl_operator</span><span class="p">.</span><span class="nl">cpp</span><span class="p">:</span><span class="mi">1460</span>
+<span class="kr">thread</span> <span class="n">apply</span> <span class="n">all</span> <span class="k">break</span> <span class="n">ob_ddl_operator</span><span class="p">.</span><span class="nl">cpp</span><span class="p">:</span><span class="mi">1476</span>
+    
+<span class="kr">thread</span> <span class="n">apply</span> <span class="n">all</span> <span class="k">break</span> <span class="n">ob_ddl_operator</span><span class="p">.</span><span class="nl">cpp</span><span class="p">:</span><span class="mi">1428</span>
+<span class="kr">thread</span> <span class="n">apply</span> <span class="n">all</span> <span class="k">break</span> <span class="n">ob_ddl_operator</span><span class="p">.</span><span class="nl">cpp</span><span class="p">:</span><span class="mi">1445</span>
+<span class="n">define</span> <span class="n">PRIMARY_VP_COLUMN_FLAG</span> <span class="p">(</span><span class="n">INT64_C</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">4</span><span class="p">)</span>
+    
+    
+<span class="c1">// true: primary key/hidden primary key(pk_increment/cluster_id/parition_id)/partitioned key of no-pk tables
+</span><span class="c1"></span>  <span class="kr">inline</span> <span class="kt">bool</span> <span class="n">is_rowkey_column</span><span class="p">()</span> <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">rowkey_position_</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="p">}</span>
+
+</code></pre></td></tr></table>
 </div>
 </div><p>case OB_DDL_DROP_COLUMN:</p>
 <ul>
@@ -773,7 +789,7 @@ thread apply all break ob_ddl_operator.cpp:3006</p>
 <h4 id="第五次测试">第五次测试</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -813,53 +829,55 @@ thread apply all break ob_ddl_operator.cpp:3006</p>
 </span><span class="lnt">38
 </span><span class="lnt">39
 </span><span class="lnt">40
+</span><span class="lnt">41
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">dir /root/oceanbase
-</span></span><span class="line"><span class="cl"><span class="nb">set</span> pagination off 
-</span></span><span class="line"><span class="cl">delete 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">watch ret
-</span></span><span class="line"><span class="cl">Old <span class="nv">value</span> <span class="o">=</span> <span class="m">0</span>
-</span></span><span class="line"><span class="cl">New <span class="nv">value</span> <span class="o">=</span> -4016
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">src<span class="se">\r</span>ootserver<span class="se">\o</span>b_ddl_operator.cpp
-</span></span><span class="line"><span class="cl">int ObDDLOperator::alter_table_column
-</span></span><span class="line"><span class="cl">ALTER TABLE v0 DROP COLUMN v2 <span class="p">;</span>
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_operator.cpp:3036
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_operator.cpp:3038
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">obclient <span class="o">[</span>test<span class="o">]</span>&gt; ALTER TABLE v0 DROP COLUMN v2 <span class="p">;</span>
-</span></span><span class="line"><span class="cl">ERROR <span class="m">4016</span> <span class="o">(</span>HY000<span class="o">)</span>: Internal error
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_operator.cpp:2269
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_operator.cpp:3003
-</span></span><span class="line"><span class="cl"><span class="c1"># here </span>
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_operator.cpp:3036
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_operator.cpp:3038
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="k">if</span> <span class="o">(</span>OB_FAIL<span class="o">(</span>alter_table_drop_aux_column<span class="o">(</span>
-</span></span><span class="line"><span class="cl">                      *schema_service, new_table_schema, *orig_column_schema, trans, USER_INDEX<span class="o">)))</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">                RS_LOG<span class="o">(</span>WARN, <span class="s2">&#34;failed to drop index column&#34;</span><span class="o">)</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">                
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">RS_LOG<span class="o">(</span>WARN, <span class="s2">&#34;failed to drop index column&#34;</span><span class="o">)</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">DML 语句. DML（Data Manipulation Language）语句：数据操纵语句。. 用途：用于添加、修改、删除和查询数据库记录，并检查数据完整性。. 常用关键字：insert、updat
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">DML 操作是指对数据库中表记录的操作，
-</span></span><span class="line"><span class="cl">主要包括表记录的插入（insert）、更新（update）、删除（delete）和查询（select），
-</span></span><span class="line"><span class="cl">是开发人员日常使用最频繁的操作。
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">
+dir /root/oceanbase
+<span class="nb">set</span> pagination off 
+delete 
+
+watch ret
+Old <span class="nv">value</span> <span class="o">=</span> <span class="m">0</span>
+New <span class="nv">value</span> <span class="o">=</span> -4016
+
+src<span class="se">\r</span>ootserver<span class="se">\o</span>b_ddl_operator.cpp
+int ObDDLOperator::alter_table_column
+ALTER TABLE v0 DROP COLUMN v2 <span class="p">;</span>
+thread apply all <span class="nb">break</span> ob_ddl_operator.cpp:3036
+thread apply all <span class="nb">break</span> ob_ddl_operator.cpp:3038
+
+
+obclient <span class="o">[</span>test<span class="o">]</span>&gt; ALTER TABLE v0 DROP COLUMN v2 <span class="p">;</span>
+ERROR <span class="m">4016</span> <span class="o">(</span>HY000<span class="o">)</span>: Internal error
+
+
+
+thread apply all <span class="nb">break</span> ob_ddl_operator.cpp:2269
+thread apply all <span class="nb">break</span> ob_ddl_operator.cpp:3003
+<span class="c1"># here </span>
+thread apply all <span class="nb">break</span> ob_ddl_operator.cpp:3036
+thread apply all <span class="nb">break</span> ob_ddl_operator.cpp:3038
+
+ <span class="k">if</span> <span class="o">(</span>OB_FAIL<span class="o">(</span>alter_table_drop_aux_column<span class="o">(</span>
+                      *schema_service, new_table_schema, *orig_column_schema, trans, USER_INDEX<span class="o">)))</span> <span class="o">{</span>
+                RS_LOG<span class="o">(</span>WARN, <span class="s2">&#34;failed to drop index column&#34;</span><span class="o">)</span><span class="p">;</span>
+                
+
+RS_LOG<span class="o">(</span>WARN, <span class="s2">&#34;failed to drop index column&#34;</span><span class="o">)</span><span class="p">;</span>
+
+DML 语句. DML（Data Manipulation Language）语句：数据操纵语句。. 用途：用于添加、修改、删除和查询数据库记录，并检查数据完整性。. 常用关键字：insert、updat
+
+
+DML 操作是指对数据库中表记录的操作，
+主要包括表记录的插入（insert）、更新（update）、删除（delete）和查询（select），
+是开发人员日常使用最频繁的操作。
+
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+<pre class="chroma"><code><span class="lnt">  1
 </span><span class="lnt">  2
 </span><span class="lnt">  3
 </span><span class="lnt">  4
@@ -1050,205 +1068,207 @@ thread apply all break ob_ddl_operator.cpp:3006</p>
 </span><span class="lnt">189
 </span><span class="lnt">190
 </span><span class="lnt">191
+</span><span class="lnt">192
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1">## 设置断点</span>
-</span></span><span class="line"><span class="cl"><span class="c1">## PROCESS</span>
-</span></span><span class="line"><span class="cl"><span class="o">=</span>
-</span></span><span class="line"><span class="cl">dir /oceanbase/oceanbase
-</span></span><span class="line"><span class="cl">dir /root/oceanbase
-</span></span><span class="line"><span class="cl"><span class="nb">set</span> pagination off //
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">//////////第五次测试
-</span></span><span class="line"><span class="cl">delete 
-</span></span><span class="line"><span class="cl">watch ret
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">src<span class="se">\r</span>ootserver<span class="se">\o</span>b_ddl_operator.cpp
-</span></span><span class="line"><span class="cl">int ObDDLOperator::alter_table_column
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_operator.cpp:2269
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_operator.cpp:3003
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_operator.cpp:30383
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">DML 语句. DML（Data Manipulation Language）语句：数据操纵语句。. 用途：用于添加、修改、删除和查询数据库记录，并检查数据完整性。. 常用关键字：insert、updat
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">DML 操作是指对数据库中表记录的操作，
-</span></span><span class="line"><span class="cl">主要包括表记录的插入（insert）、更新（update）、删除（delete）和查询（select），
-</span></span><span class="line"><span class="cl">是开发人员日常使用最频繁的操作。
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">-------------------------
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> ObDDLService::alter_table
-</span></span><span class="line"><span class="cl">delete
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:4456
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:4457
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:4458
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:4463
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:4464
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:4465 
-</span></span><span class="line"><span class="cl">obclient <span class="o">[</span>test<span class="o">]</span>&gt; ALTER TABLE v0 DROP COLUMN v2 <span class="p">;</span>
-</span></span><span class="line"><span class="cl">ERROR <span class="m">4016</span> <span class="o">(</span>HY000<span class="o">)</span>: Internal error
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:4473 
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:4480
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:4507 <span class="k">if</span> ret &lt;<span class="m">0</span>
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:4535 <span class="k">if</span> ret &lt;<span class="m">0</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:4726 <span class="k">if</span> ret &lt;<span class="m">0</span>
-</span></span><span class="line"><span class="cl">ERROR <span class="m">4550</span> <span class="o">(</span>HY000<span class="o">)</span>: check drop column failed
-</span></span><span class="line"><span class="cl">---------------------第四次测试 -----
-</span></span><span class="line"><span class="cl">delete
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6284
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6286
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6291
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6292  
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6304   <span class="k">if</span> ret &lt;<span class="m">0</span>  
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6304   <span class="k">if</span> ret &lt;<span class="m">0</span> 
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6350    <span class="k">if</span> ret &lt;<span class="m">0</span>
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6433 <span class="k">if</span> ret &lt;<span class="m">0</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">----
-</span></span><span class="line"><span class="cl">static const int32_t <span class="nv">OB_PARSER_ERR_UNEXPECTED</span> <span class="o">=</span> -4016<span class="p">;</span>
-</span></span><span class="line"><span class="cl">DEFINE_ERROR_EXT<span class="o">(</span>OB_ERR_UNEXPECTED, -4016, -1, <span class="s2">&#34;HY000&#34;</span>, <span class="s2">&#34;Internal error&#34;</span>, <span class="s2">&#34;%s&#34;</span><span class="o">)</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">int ObMultiVersionSchemaService::get_schema
-</span></span><span class="line"><span class="cl">int ObTableSqlService::add_single_column
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6284   
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6304   <span class="k">if</span> ret &lt;<span class="m">0</span>  //up
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6350    <span class="k">if</span> ret &lt;<span class="m">0</span>  //up
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">constexpr int <span class="nv">OB_NOT_ENOUGH_STORE</span> <span class="o">=</span> -4106<span class="p">;</span>
-</span></span><span class="line"><span class="cl"> ERROR_CAUSE<span class="o">[</span>-OB_NOT_ENOUGH_STORE<span class="o">]</span> <span class="o">=</span> <span class="s2">&#34;Internal Error&#34;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"> SQLSTATE<span class="o">[</span>-OB_NOT_ENOUGH_STORE<span class="o">]</span> <span class="o">=</span> <span class="s2">&#34;HY000&#34;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"> DEFINE_ERROR<span class="o">(</span>OB_NOT_ENOUGH_STORE, -4106, -1, <span class="s2">&#34;HY000&#34;</span>, <span class="s2">&#34;not enough commitlog store&#34;</span><span class="o">)</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6394    <span class="k">if</span> ret &lt;<span class="m">0</span>
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6433 <span class="k">if</span> ret &lt;<span class="m">0</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6081  <span class="k">if</span> <span class="nv">ret</span><span class="o">==</span>-4016 
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6291   f <span class="nv">ret</span><span class="o">==</span>-4016 
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6301   f <span class="nv">ret</span><span class="o">==</span>-4016 
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6823    <span class="k">if</span> <span class="nv">ret</span><span class="o">==</span>-4016 
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6349    <span class="k">if</span> <span class="nv">ret</span><span class="o">==</span>-4016 
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6394    <span class="k">if</span> <span class="nv">ret</span><span class="o">==</span>-4016 
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6433 <span class="k">if</span> <span class="nv">ret</span><span class="o">==</span>-4016  
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:5977
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6301
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6081
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6823   // <span class="k">do</span> alter table in transaction
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6349   // submit asyn
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6394   // submit asyn
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6433 <span class="k">if</span> ret &lt;<span class="m">0</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">which 函数
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span>  ob_log_part_mgr.cpp:213 ----设置断点段不上。
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_root_service.cpp:4659
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:5965
-</span></span><span class="line"><span class="cl">Cannot execute this <span class="nb">command</span> <span class="k">while</span> the selected thread is running.
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6433 <span class="k">if</span> ret &lt;<span class="m">0</span>
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6301
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:5965
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6081
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">fail to get schema guard with version in inner table
-</span></span><span class="line"><span class="cl"><span class="o">(</span>3<span class="o">)</span>只运行当前线程：set scheduler-locking on
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">(</span>4<span class="o">)</span>运行全部的线程：set scheduler-locking off
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">show scheduler-locking
-</span></span><span class="line"><span class="cl"><span class="nb">set</span> scheduler-locking on
-</span></span><span class="line"><span class="cl"><span class="nb">set</span> scheduler-locking off
-</span></span><span class="line"><span class="cl"><span class="nb">set</span> scheduler-locking step
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> obmp_query.cpp:414
-</span></span><span class="line"><span class="cl">OB_INLINE int ObMPQuery::do_process
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> obmp_query.cpp:554
-</span></span><span class="line"><span class="cl"><span class="c1">## handle_physical_plan （(这个断点不能设置)）</span>
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_sql.cpp:1200
-</span></span><span class="line"><span class="cl">//thread apply all <span class="nb">break</span> ob_sql.cpp:3160 （<span class="o">(</span>这个断点不能设置<span class="o">)</span>）
-</span></span><span class="line"><span class="cl">int ObSql::handle_physical_plan
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_sql.cpp:3217<span class="o">(</span>这个断点不能设置<span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="k">else</span> <span class="k">if</span> <span class="o">(</span>OB_FAIL<span class="o">(</span>generate_physical_plan<span class="o">(</span>parse_result, <span class="p">&amp;</span>pc_ctx, context, result<span class="o">)))</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">create table sex <span class="o">(</span>sex bit<span class="o">(</span>60<span class="o">)</span> primary key,name bit<span class="o">(</span>60<span class="o">))</span> partition by hash<span class="o">(</span>sex<span class="o">)</span> partitions 4<span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">inline int ObSql::handle_text_query 不合适太多内部函数
-</span></span><span class="line"><span class="cl"> thread apply all <span class="nb">break</span> ob_sql.cpp:1144
-</span></span><span class="line"><span class="cl"><span class="c1">## handle_large_query</span>
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_sql.cpp:1197 <span class="k">if</span> <span class="nv">ret</span><span class="o">==</span>-4016  
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">##stmt_query</span>
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_sql.cpp:628 <span class="k">if</span> <span class="nv">ret</span><span class="o">==</span>-4016  
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">## handle_physical_plan</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">## 问题 其他sql 干扰</span>
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_sql.cpp:1205 <span class="k">if</span> <span class="nv">ret</span><span class="o">==</span>-4016  
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_sql.cpp:1206 <span class="k">if</span> <span class="nv">ret</span><span class="o">==</span>-4016 
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_sql.cpp:1217 <span class="k">if</span> <span class="nv">ret</span><span class="o">==</span>-4016  
-</span></span><span class="line"><span class="cl">d 【6】
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">ObAlterTableExecutor::execute
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_table_executor.cpp:696  <span class="c1"># </span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_table_executor.cpp:703  <span class="c1"># // 5 = -4016 $7 = -4018</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_table_executor.cpp:744 <span class="k">if</span> <span class="nv">ret</span><span class="o">==</span>-4016  不是这里
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_table_executor.cpp:1021 <span class="k">if</span> <span class="nv">ret</span><span class="o">==</span>-4016 
-</span></span><span class="line"><span class="cl">ERROR <span class="m">4018</span> <span class="o">(</span>HY000<span class="o">)</span>: Entry not exist
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_table_executor.cpp:785
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">ObAlterTableExecutor::alter_table_rpc_v2
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_table_executor.cpp:670 
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_table_executor.cpp:698 
-</span></span><span class="line"><span class="cl">common_rpc_proxy-&gt;alter_table
-</span></span><span class="line"><span class="cl">alter_table_rpc_v2<span class="o">(</span>alter_table_arg, res, allocator, common_rpc_proxy, my_session, is_sync_ddl_user<span class="o">))</span> 【问题不在这里】
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">int ObDDLService::alter_table
-</span></span><span class="line"><span class="cl">D:<span class="se">\o</span>ceanbase<span class="se">\s</span>rc<span class="se">\r</span>ootserver<span class="se">\o</span>b_ddl_service.cpp
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:5967
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6090
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6120
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6291
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6350
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6285  kaaaa
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6294
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6301 //up 
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6433 <span class="k">if</span> ret &lt;<span class="m">0</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">dir /oceanbase/oceanbase
-</span></span><span class="line"><span class="cl"><span class="nb">set</span> pagination off /
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span> ob_cmd_executor.cpp:130 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">//RPC_S<span class="o">(</span>PRD alter_table, obrpc::OB_ALTER_TABLE, <span class="o">(</span>ObAlterTableArg<span class="o">)</span>, ObAlterTableRes<span class="o">)</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">which 函数
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span>  ob_log_part_mgr.cpp:213
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span>  ob_root_service.cpp:4659
-</span></span><span class="line"><span class="cl">thread apply all <span class="nb">break</span>  ob_ddl_service.cpp:5965
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1">## 设置断点</span>
+<span class="c1">## PROCESS</span>
+<span class="o">=</span>
+dir /oceanbase/oceanbase
+dir /root/oceanbase
+<span class="nb">set</span> pagination off //
+
+//////////第五次测试
+delete 
+watch ret
+
+src<span class="se">\r</span>ootserver<span class="se">\o</span>b_ddl_operator.cpp
+int ObDDLOperator::alter_table_column
+thread apply all <span class="nb">break</span> ob_ddl_operator.cpp:2269
+thread apply all <span class="nb">break</span> ob_ddl_operator.cpp:3003
+thread apply all <span class="nb">break</span> ob_ddl_operator.cpp:30383
+
+
+DML 语句. DML（Data Manipulation Language）语句：数据操纵语句。. 用途：用于添加、修改、删除和查询数据库记录，并检查数据完整性。. 常用关键字：insert、updat
+
+
+DML 操作是指对数据库中表记录的操作，
+主要包括表记录的插入（insert）、更新（update）、删除（delete）和查询（select），
+是开发人员日常使用最频繁的操作。
+
+
+-------------------------
+
+ ObDDLService::alter_table
+delete
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:4456
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:4457
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:4458
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:4463
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:4464
+
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:4465 
+obclient <span class="o">[</span>test<span class="o">]</span>&gt; ALTER TABLE v0 DROP COLUMN v2 <span class="p">;</span>
+ERROR <span class="m">4016</span> <span class="o">(</span>HY000<span class="o">)</span>: Internal error
+
+
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:4473 
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:4480
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:4507 <span class="k">if</span> ret &lt;<span class="m">0</span>
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:4535 <span class="k">if</span> ret &lt;<span class="m">0</span>
+
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:4726 <span class="k">if</span> ret &lt;<span class="m">0</span>
+ERROR <span class="m">4550</span> <span class="o">(</span>HY000<span class="o">)</span>: check drop column failed
+---------------------第四次测试 -----
+delete
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6284
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6286
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6291
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6292  
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6304   <span class="k">if</span> ret &lt;<span class="m">0</span>  
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6304   <span class="k">if</span> ret &lt;<span class="m">0</span> 
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6350    <span class="k">if</span> ret &lt;<span class="m">0</span>
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6433 <span class="k">if</span> ret &lt;<span class="m">0</span>
+
+----
+static const int32_t <span class="nv">OB_PARSER_ERR_UNEXPECTED</span> <span class="o">=</span> -4016<span class="p">;</span>
+DEFINE_ERROR_EXT<span class="o">(</span>OB_ERR_UNEXPECTED, -4016, -1, <span class="s2">&#34;HY000&#34;</span>, <span class="s2">&#34;Internal error&#34;</span>, <span class="s2">&#34;%s&#34;</span><span class="o">)</span><span class="p">;</span>
+int ObMultiVersionSchemaService::get_schema
+int ObTableSqlService::add_single_column
+
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6284   
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6304   <span class="k">if</span> ret &lt;<span class="m">0</span>  //up
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6350    <span class="k">if</span> ret &lt;<span class="m">0</span>  //up
+
+constexpr int <span class="nv">OB_NOT_ENOUGH_STORE</span> <span class="o">=</span> -4106<span class="p">;</span>
+ ERROR_CAUSE<span class="o">[</span>-OB_NOT_ENOUGH_STORE<span class="o">]</span> <span class="o">=</span> <span class="s2">&#34;Internal Error&#34;</span><span class="p">;</span>
+ SQLSTATE<span class="o">[</span>-OB_NOT_ENOUGH_STORE<span class="o">]</span> <span class="o">=</span> <span class="s2">&#34;HY000&#34;</span><span class="p">;</span>
+ DEFINE_ERROR<span class="o">(</span>OB_NOT_ENOUGH_STORE, -4106, -1, <span class="s2">&#34;HY000&#34;</span>, <span class="s2">&#34;not enough commitlog store&#34;</span><span class="o">)</span><span class="p">;</span>
+ 
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6394    <span class="k">if</span> ret &lt;<span class="m">0</span>
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6433 <span class="k">if</span> ret &lt;<span class="m">0</span>
+
+
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6081  <span class="k">if</span> <span class="nv">ret</span><span class="o">==</span>-4016 
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6291   f <span class="nv">ret</span><span class="o">==</span>-4016 
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6301   f <span class="nv">ret</span><span class="o">==</span>-4016 
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6823    <span class="k">if</span> <span class="nv">ret</span><span class="o">==</span>-4016 
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6349    <span class="k">if</span> <span class="nv">ret</span><span class="o">==</span>-4016 
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6394    <span class="k">if</span> <span class="nv">ret</span><span class="o">==</span>-4016 
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6433 <span class="k">if</span> <span class="nv">ret</span><span class="o">==</span>-4016  
+
+
+
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:5977
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6301
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6081
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6823   // <span class="k">do</span> alter table in transaction
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6349   // submit asyn
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6394   // submit asyn
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6433 <span class="k">if</span> ret &lt;<span class="m">0</span>
+
+which 函数
+thread apply all <span class="nb">break</span>  ob_log_part_mgr.cpp:213 ----设置断点段不上。
+thread apply all <span class="nb">break</span> ob_root_service.cpp:4659
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:5965
+Cannot execute this <span class="nb">command</span> <span class="k">while</span> the selected thread is running.
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6433 <span class="k">if</span> ret &lt;<span class="m">0</span>
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6301
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:5965
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6081
+
+fail to get schema guard with version in inner table
+<span class="o">(</span>3<span class="o">)</span>只运行当前线程：set scheduler-locking on
+
+<span class="o">(</span>4<span class="o">)</span>运行全部的线程：set scheduler-locking off
+
+show scheduler-locking
+<span class="nb">set</span> scheduler-locking on
+<span class="nb">set</span> scheduler-locking off
+<span class="nb">set</span> scheduler-locking step
+ 
+thread apply all <span class="nb">break</span> obmp_query.cpp:414
+OB_INLINE int ObMPQuery::do_process
+thread apply all <span class="nb">break</span> obmp_query.cpp:554
+<span class="c1">## handle_physical_plan （(这个断点不能设置)）</span>
+thread apply all <span class="nb">break</span> ob_sql.cpp:1200
+//thread apply all <span class="nb">break</span> ob_sql.cpp:3160 （<span class="o">(</span>这个断点不能设置<span class="o">)</span>）
+int ObSql::handle_physical_plan
+
+thread apply all <span class="nb">break</span> ob_sql.cpp:3217<span class="o">(</span>这个断点不能设置<span class="o">)</span>
+<span class="k">else</span> <span class="k">if</span> <span class="o">(</span>OB_FAIL<span class="o">(</span>generate_physical_plan<span class="o">(</span>parse_result, <span class="p">&amp;</span>pc_ctx, context, result<span class="o">)))</span> <span class="o">{</span>
+
+create table sex <span class="o">(</span>sex bit<span class="o">(</span>60<span class="o">)</span> primary key,name bit<span class="o">(</span>60<span class="o">))</span> partition by hash<span class="o">(</span>sex<span class="o">)</span> partitions 4<span class="p">;</span>
+
+    
+inline int ObSql::handle_text_query 不合适太多内部函数
+ thread apply all <span class="nb">break</span> ob_sql.cpp:1144
+<span class="c1">## handle_large_query</span>
+thread apply all <span class="nb">break</span> ob_sql.cpp:1197 <span class="k">if</span> <span class="nv">ret</span><span class="o">==</span>-4016  
+
+
+<span class="c1">##stmt_query</span>
+thread apply all <span class="nb">break</span> ob_sql.cpp:628 <span class="k">if</span> <span class="nv">ret</span><span class="o">==</span>-4016  
+
+<span class="c1">## handle_physical_plan</span>
+
+<span class="c1">## 问题 其他sql 干扰</span>
+thread apply all <span class="nb">break</span> ob_sql.cpp:1205 <span class="k">if</span> <span class="nv">ret</span><span class="o">==</span>-4016  
+thread apply all <span class="nb">break</span> ob_sql.cpp:1206 <span class="k">if</span> <span class="nv">ret</span><span class="o">==</span>-4016 
+thread apply all <span class="nb">break</span> ob_sql.cpp:1217 <span class="k">if</span> <span class="nv">ret</span><span class="o">==</span>-4016  
+d 【6】
+
+ObAlterTableExecutor::execute
+thread apply all <span class="nb">break</span> ob_table_executor.cpp:696  <span class="c1"># </span>
+
+thread apply all <span class="nb">break</span> ob_table_executor.cpp:703  <span class="c1"># // 5 = -4016 $7 = -4018</span>
+
+
+thread apply all <span class="nb">break</span> ob_table_executor.cpp:744 <span class="k">if</span> <span class="nv">ret</span><span class="o">==</span>-4016  不是这里
+thread apply all <span class="nb">break</span> ob_table_executor.cpp:1021 <span class="k">if</span> <span class="nv">ret</span><span class="o">==</span>-4016 
+ERROR <span class="m">4018</span> <span class="o">(</span>HY000<span class="o">)</span>: Entry not exist
+
+thread apply all <span class="nb">break</span> ob_table_executor.cpp:785
+
+ObAlterTableExecutor::alter_table_rpc_v2
+thread apply all <span class="nb">break</span> ob_table_executor.cpp:670 
+thread apply all <span class="nb">break</span> ob_table_executor.cpp:698 
+common_rpc_proxy-&gt;alter_table
+alter_table_rpc_v2<span class="o">(</span>alter_table_arg, res, allocator, common_rpc_proxy, my_session, is_sync_ddl_user<span class="o">))</span> 【问题不在这里】
+
+
+int ObDDLService::alter_table
+D:<span class="se">\o</span>ceanbase<span class="se">\s</span>rc<span class="se">\r</span>ootserver<span class="se">\o</span>b_ddl_service.cpp
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:5967
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6090
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6120
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6291
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6350
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6285  kaaaa
+
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6294
+
+
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6301 //up 
+thread apply all <span class="nb">break</span> ob_ddl_service.cpp:6433 <span class="k">if</span> ret &lt;<span class="m">0</span>
+
+dir /oceanbase/oceanbase
+<span class="nb">set</span> pagination off /
+thread apply all <span class="nb">break</span> ob_cmd_executor.cpp:130 
+
+//RPC_S<span class="o">(</span>PRD alter_table, obrpc::OB_ALTER_TABLE, <span class="o">(</span>ObAlterTableArg<span class="o">)</span>, ObAlterTableRes<span class="o">)</span><span class="p">;</span>
+
+which 函数
+thread apply all <span class="nb">break</span>  ob_log_part_mgr.cpp:213
+thread apply all <span class="nb">break</span>  ob_root_service.cpp:4659
+thread apply all <span class="nb">break</span>  ob_ddl_service.cpp:5965
+
+</code></pre></td></tr></table>
 </div>
 </div><p>D:\oceanbase\src\sql\executor\ob_cmd_executor.cpp</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1274,48 +1294,50 @@ thread apply all break ob_ddl_operator.cpp:3006</p>
 </span><span class="lnt">24
 </span><span class="lnt">25
 </span><span class="lnt">26
+</span><span class="lnt">27
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">set ob_enable_trace_log = 1
-</span></span><span class="line"><span class="cl">show trace;
-</span></span><span class="line"><span class="cl">obclient [oceanbase]&gt; select * from __all_server_event_history;
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">obclient [test]&gt; ALTER TABLE v0 DROP COLUMN v2;
-</span></span><span class="line"><span class="cl">No connection. Trying to reconnect...
-</span></span><span class="line"><span class="cl">Connection id:    3221487617
-</span></span><span class="line"><span class="cl">Current database: test
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">ERROR 4694 (HY000): check drop column failed
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">(gdb) bt
-</span></span><span class="line"><span class="cl">#0  oceanbase::rootserver::ObDDLService::alter_table (this=0xc5f4550 &lt;oceanbase::observer::ObServer::get_instance()::THE_ONE+9585616&gt;, alter_table_arg=..., frozen_version=1) at ./src/rootserver/ob_ddl_service.cpp:6433
-</span></span><span class="line"><span class="cl">#1  0x000000000809aaf1 in oceanbase::rootserver::ObRootService::alter_table (this=0xbe37e80 &lt;oceanbase::observer::ObServer::get_instance()::THE_ONE+1473792&gt;, arg=..., res=...) at ./src/rootserver/ob_root_service.cpp:4684
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">#2  0x000000000a7d36d2 in oceanbase::rootserver::ObRpcAlterTableP::leader_process (this=0x7f1642a6d1d0) at ./src/rootserver/ob_rs_rpc_processor.h:364
-</span></span><span class="line"><span class="cl">#3  0x000000000a7b1edd in oceanbase::rootserver::ObRootServerRPCProcessorBase::process_ (this=0x7f1642a6f6f0, pcode=oceanbase::obrpc::OB_ALTER_TABLE) at ./src/rootserver/ob_rs_rpc_processor.h:181
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">#4  0x000000000a7d35a3 in oceanbase::rootserver::ObRootServerRPCProcessor&lt;(oceanbase::obrpc::ObRpcPacketCode)517&gt;::process (this=0x7f1642a6d1d0) at ./src/rootserver/ob_rs_rpc_processor.h:249
-</span></span><span class="line"><span class="cl">#5  0x000000000b6c492d in oceanbase::rpc::frame::ObReqProcessor::run (this=0x7f1642a6d1d0) at ./deps/oblib/src/rpc/frame/ob_req_processor.cpp:50
-</span></span><span class="line"><span class="cl">#6  0x000000000b6c58ae in oceanbase::rpc::frame::ObReqQHandler::handlePacketQueue (this=0xbdb8470 &lt;oceanbase::observer::ObServer::get_instance()::THE_ONE+951024&gt;, req=0x7f172a8e1f40) at ./deps/oblib/src/rpc/frame/ob_req_qhandler.cpp:78
-</span></span><span class="line"><span class="cl">#7  0x000000000b6c625e in oceanbase::rpc::frame::ObReqQueue::process_task (this=0x7f1833fd1ff0, task=0x7f172a8e1f40) at ./deps/oblib/src/rpc/frame/ob_req_queue_thread.cpp:124
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">set ob_enable_trace_log = 1
+show trace;
+obclient [oceanbase]&gt; select * from __all_server_event_history;
+
+
+
+obclient [test]&gt; ALTER TABLE v0 DROP COLUMN v2;
+No connection. Trying to reconnect...
+Connection id:    3221487617
+Current database: test
+
+ERROR 4694 (HY000): check drop column failed
+
+
+
+(gdb) bt
+#0  oceanbase::rootserver::ObDDLService::alter_table (this=0xc5f4550 &lt;oceanbase::observer::ObServer::get_instance()::THE_ONE+9585616&gt;, alter_table_arg=..., frozen_version=1) at ./src/rootserver/ob_ddl_service.cpp:6433
+#1  0x000000000809aaf1 in oceanbase::rootserver::ObRootService::alter_table (this=0xbe37e80 &lt;oceanbase::observer::ObServer::get_instance()::THE_ONE+1473792&gt;, arg=..., res=...) at ./src/rootserver/ob_root_service.cpp:4684
+
+#2  0x000000000a7d36d2 in oceanbase::rootserver::ObRpcAlterTableP::leader_process (this=0x7f1642a6d1d0) at ./src/rootserver/ob_rs_rpc_processor.h:364
+#3  0x000000000a7b1edd in oceanbase::rootserver::ObRootServerRPCProcessorBase::process_ (this=0x7f1642a6f6f0, pcode=oceanbase::obrpc::OB_ALTER_TABLE) at ./src/rootserver/ob_rs_rpc_processor.h:181
+
+#4  0x000000000a7d35a3 in oceanbase::rootserver::ObRootServerRPCProcessor&lt;(oceanbase::obrpc::ObRpcPacketCode)517&gt;::process (this=0x7f1642a6d1d0) at ./src/rootserver/ob_rs_rpc_processor.h:249
+#5  0x000000000b6c492d in oceanbase::rpc::frame::ObReqProcessor::run (this=0x7f1642a6d1d0) at ./deps/oblib/src/rpc/frame/ob_req_processor.cpp:50
+#6  0x000000000b6c58ae in oceanbase::rpc::frame::ObReqQHandler::handlePacketQueue (this=0xbdb8470 &lt;oceanbase::observer::ObServer::get_instance()::THE_ONE+951024&gt;, req=0x7f172a8e1f40) at ./deps/oblib/src/rpc/frame/ob_req_qhandler.cpp:78
+#7  0x000000000b6c625e in oceanbase::rpc::frame::ObReqQueue::process_task (this=0x7f1833fd1ff0, task=0x7f172a8e1f40) at ./deps/oblib/src/rpc/frame/ob_req_queue_thread.cpp:124
+
+</code></pre></td></tr></table>
 </div>
 </div><h3 id="32-单元测试">3.2 单元测试</h3>
 <h3 id="1-流程图">1. 流程图：</h3>
 <p><img src="https://img-blog.csdnimg.cn/558ffaa34d7e4e4590d395d2e51ca4b2.png" alt=""></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph TB
-</span></span><span class="line"><span class="cl">    1[begin] --&gt; 2[sql::test_resolver_alter_table.test] --&gt;3[resolver::test_resolver.cpp] --&gt;4[sql执行过程:  do_load_sql--do_resolve --do_drop_table]--&gt;5[result::test_resolver_alter_table.result]
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">graph TB
+    1[begin] --&gt; 2[sql::test_resolver_alter_table.test] --&gt;3[resolver::test_resolver.cpp] --&gt;4[sql执行过程:  do_load_sql--do_resolve --do_drop_table]--&gt;5[result::test_resolver_alter_table.result]
+</code></pre></td></tr></table>
 </div>
 </div><h3 id="2-代码分析">2. 代码分析：</h3>
 <ul>
@@ -1330,15 +1352,15 @@ thread apply all break ob_ddl_operator.cpp:3006</p>
 <p>执行命令 输出到第二个文件 ：test_resolver_alter_table.temp</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c#" data-lang="c#"><span class="line"><span class="cl"><span class="n">TestSqlUtils</span><span class="p">::</span><span class="n">do_load_sql</span>
-</span></span><span class="line"><span class="cl"><span class="n">TestSqlUtils</span><span class="p">::</span><span class="n">do_resolve</span>
-</span></span><span class="line"><span class="cl"><span class="n">TestSqlUtils</span><span class="p">::</span><span class="n">do_drop_table</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-c#" data-lang="c#"><span class="n">TestSqlUtils</span><span class="p">::</span><span class="n">do_load_sql</span>
+<span class="n">TestSqlUtils</span><span class="p">::</span><span class="n">do_resolve</span>
+<span class="n">TestSqlUtils</span><span class="p">::</span><span class="n">do_drop_table</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
@@ -1358,7 +1380,7 @@ thread apply all break ob_ddl_operator.cpp:3006</p>
 <p>测试结果：自己写代码没有生效 是不是不正确呀</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -1367,14 +1389,14 @@ thread apply all break ob_ddl_operator.cpp:3006</p>
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> if (delete_column_schema-&gt;is_index_column()) {
-</span></span><span class="line"><span class="cl">          ret = OB_ERR_ALTER_INDEX_COLUMN;
-</span></span><span class="line"><span class="cl">          RS_LOG(WARN, &#34;can&#39;t not drop index column&#34;, K(ret));
-</span></span><span class="line"><span class="cl">        } else if (delete_column_schema-&gt;is_rowkey_column()) {
-</span></span><span class="line"><span class="cl">          ret = OB_ERR_ALTER_PRIMARY_KEY_COLUMN;
-</span></span><span class="line"><span class="cl">          RS_LOG(WARN, &#34;can&#39;t not drop primary key column&#34;, K(ret));
-</span></span><span class="line"><span class="cl">        } else {
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback"> if (delete_column_schema-&gt;is_index_column()) {
+          ret = OB_ERR_ALTER_INDEX_COLUMN;
+          RS_LOG(WARN, &#34;can&#39;t not drop index column&#34;, K(ret));
+        } else if (delete_column_schema-&gt;is_rowkey_column()) {
+          ret = OB_ERR_ALTER_PRIMARY_KEY_COLUMN;
+          RS_LOG(WARN, &#34;can&#39;t not drop primary key column&#34;, K(ret));
+        } else {
+</code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>执行 run_tests.sh 通过</li>
@@ -1382,7 +1404,7 @@ thread apply all break ob_ddl_operator.cpp:3006</p>
 <h3 id="33-开发环境">3.3 开发环境</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+<pre class="chroma"><code><span class="lnt">  1
 </span><span class="lnt">  2
 </span><span class="lnt">  3
 </span><span class="lnt">  4
@@ -1506,140 +1528,144 @@ thread apply all break ob_ddl_operator.cpp:3006</p>
 </span><span class="lnt">122
 </span><span class="lnt">123
 </span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[root@node1 oceanbase]# obd cluster list
-</span></span><span class="line"><span class="cl">+--------------------------------------------------+
-</span></span><span class="line"><span class="cl">|                   Cluster List                   |
-</span></span><span class="line"><span class="cl">+------+-------------------------+-----------------+
-</span></span><span class="line"><span class="cl">| Name | Configuration Path      | Status (Cached) |
-</span></span><span class="line"><span class="cl">+------+-------------------------+-----------------+
-</span></span><span class="line"><span class="cl">| test | /root/.obd/cluster/test | stopped         |
-</span></span><span class="line"><span class="cl">+------+-------------------------+-----------------+
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">VMware虚拟机解决空间不足，增加磁盘空间(磁盘扩容)
-</span></span><span class="line"><span class="cl">[root@node1 oceanbase]# lsblk
-</span></span><span class="line"><span class="cl">NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
-</span></span><span class="line"><span class="cl">sda           8:0    0   60G  0 disk
-</span></span><span class="line"><span class="cl">├─sda1        8:1    0    1G  0 part /boot
-</span></span><span class="line"><span class="cl">├─sda2        8:2    0   19G  0 part
-</span></span><span class="line"><span class="cl">│ ├─rl-root 253:0    0   17G  0 lvm  /
-</span></span><span class="line"><span class="cl">│ └─rl-swap 253:1    0    2G  0 lvm  [SWAP]
-</span></span><span class="line"><span class="cl">└─sda3        8:3    0 37.2G  0 part
-</span></span><span class="line"><span class="cl">sr0          11:0    1 10.4G  0 rom
-</span></span><span class="line"><span class="cl">mount /dev/sda3  /oceanbase
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">如何查看和修改 OceanBase 参数集群
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">源码编译的安装依赖
-</span></span><span class="line"><span class="cl">https://www.oceanbase.com/docs/community/observer-cn/V3.1.4/10000000000449658
-</span></span><span class="line"><span class="cl">yum install wget rpm* cpio make glibc-devel glibc-headers
-</span></span><span class="line"><span class="cl">yum install -y flex bison
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"># 在源码目录下执行debug版的预制构建命令
-</span></span><span class="line"><span class="cl">sh build.sh debug
-</span></span><span class="line"><span class="cl"># 进入生成的 debug 构建目录
-</span></span><span class="line"><span class="cl">cd build_debug
-</span></span><span class="line"><span class="cl"># 进行构建
-</span></span><span class="line"><span class="cl">make -j{N} observer
-</span></span><span class="line"><span class="cl"># 查看构建产物
-</span></span><span class="line"><span class="cl">stat src/observer/observer
-</span></span><span class="line"><span class="cl">bash build.sh debug --init 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">debug mode
-</span></span><span class="line"><span class="cl">bash build.sh debug --init --make -j8
-</span></span><span class="line"><span class="cl">cd build_debug
-</span></span><span class="line"><span class="cl">/oceanbase/oceanbase/build_debug
-</span></span><span class="line"><span class="cl">以本地目录为基础创建一个镜像。此命令主要用于使用 OBD 启动自行编译的 OceanBase 开源软件，您可以通过此命令将编译产物加入本地仓库，之后就可以使用 obd cluster 相关的命令启动它
-</span></span><span class="line"><span class="cl">make DESTDIR=./ install 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">1.1 在线安装 OBD
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">sudo yum install -y yum-utils
-</span></span><span class="line"><span class="cl">sudo yum-config-manager --add-repo https://mirrors.aliyun.com/oceanbase/OceanBase.repo
-</span></span><span class="line"><span class="cl">sudo yum install -y ob-deploy # 该操作只需要在 OB 中控机上执行，因为 OBD 是一个黑屏部署、管理和运维工具，统一从一台机器上发起操作，所以不需要每台机器均安装
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">obd mirror create -n oceanbase-ce -V 3.1.4-1 -p ./usr/local -t my-oceanbase
-</span></span><span class="line"><span class="cl">obd mirror list
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">+------------------------------------------------------------------+
-</span></span><span class="line"><span class="cl">|                      Mirror Repository List                      |
-</span></span><span class="line"><span class="cl">+----------------------------+--------+---------+------------------+
-</span></span><span class="line"><span class="cl">| SectionName                | Type   | Enabled | Update Time      |
-</span></span><span class="line"><span class="cl">+----------------------------+--------+---------+------------------+
-</span></span><span class="line"><span class="cl">| oceanbase.community.stable | remote | False   | 2022-08-01 19:49 |
-</span></span><span class="line"><span class="cl">| oceanbase.development-kit  | remote | False   | 2022-08-01 19:49 |
-</span></span><span class="line"><span class="cl">| local                      | local  | -       | 2022-08-02 10:59 |
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">离线安装部署，必须禁用远程仓库：
-</span></span><span class="line"><span class="cl">禁用远程仓库
-</span></span><span class="line"><span class="cl">obd mirror disable remote
-</span></span><span class="line"><span class="cl">Disable remote ok
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">[ERROR] Repository(/root/.obd/repository/my-oceanbase/3.1.4-1/my-oceanbase) existed
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">[root@node1 build_debug]# obd mirror create -n oceanbase-ce -V 3.1.4-1 -p ./usr/local -t 
-</span></span><span class="line"><span class="cl">[root@node1 build_debug]# obd mirror create -n oceanbase-ce -V 3.1.4-1 -p ./usr/local -t my-oceanbase
-</span></span><span class="line"><span class="cl">Package ok
-</span></span><span class="line"><span class="cl">name: oceanbase-ce
-</span></span><span class="line"><span class="cl">version: 3.1.4-1
-</span></span><span class="line"><span class="cl">release:20220814195653
-</span></span><span class="line"><span class="cl">arch: x86_64
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">配置文件：【1】
-</span></span><span class="line"><span class="cl">https://gitee.com/oceanbase/obdeploy/blob/master/example/mini-distributed-example.yaml
-</span></span><span class="line"><span class="cl">echo &#39;fs.aio-max-nr=1048576&#39; &gt;&gt; /etc/sysctl.conf
-</span></span><span class="line"><span class="cl">sysctl -p
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">echo -e &#34;root soft nofile 655350\nroot hard nofile 655350\n* soft nofile 655350\n* hard nofile 655350&#34;&gt;&gt; /etc/security/limits.conf
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">echo -e &#34;root soft nofile 655350\nroot hard nofile 655350\n* soft nofile 655350\n* hard nofile 655350&#34;&gt;&gt; /etc/security/limits.conf
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">obd cluster deploy test -c /oceanbase/mini-local-example.yaml
-</span></span><span class="line"><span class="cl">obd cluster deploy test -c ./mini-local-example.yaml
-</span></span><span class="line"><span class="cl">obd cluster start test
-</span></span><span class="line"><span class="cl"># Connect to the OceanBase Database by using a MySQL client.
-</span></span><span class="line"><span class="cl">mysql -h127.1 -uroot -P2883
-</span></span><span class="line"><span class="cl">alias cdob=&#34;obclient -uroot@sys -h127.0.0.1 -P2881 oceanbase&#34;
-</span></span><span class="line"><span class="cl">+----------------------------------------------------------------------------+
-</span></span><span class="line"><span class="cl">|                                  Packages                                  |
-</span></span><span class="line"><span class="cl">+--------------+---------+----------------+----------------------------------+
-</span></span><span class="line"><span class="cl">| Repository   | Version | Release        | Md5                              |
-</span></span><span class="line"><span class="cl">+--------------+---------+----------------+----------------------------------+
-</span></span><span class="line"><span class="cl">| oceanbase-ce | 3.1.4-1 | 20220814195653 | f22bfe957eedf03bf5858c035cae8526 |
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">sudo yum install -y libobclient
-</span></span><span class="line"><span class="cl">sudo yum install -y obclient
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">cd /root/oceanbase/build_debug/src/observer
-</span></span><span class="line"><span class="cl">cp /observer /root/.obd/repository/oceanbase-ce/3.1.4-1/my-oceanbase/bin/
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"># 在源码目录下执行 release 版的预制构建命令
-</span></span><span class="line"><span class="cl">sh build.sh release
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"># 进入生成的 release 构建目录
-</span></span><span class="line"><span class="cl">cd build_release
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"># 进行构建
-</span></span><span class="line"><span class="cl">make -j{N} observer
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"># 查看构建产物
-</span></span><span class="line"><span class="cl">stat src/observer/observer
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[root@node1 oceanbase]# obd cluster list
++--------------------------------------------------+
+|                   Cluster List                   |
++------+-------------------------+-----------------+
+| Name | Configuration Path      | Status (Cached) |
++------+-------------------------+-----------------+
+| test | /root/.obd/cluster/test | stopped         |
++------+-------------------------+-----------------+
+
+VMware虚拟机解决空间不足，增加磁盘空间(磁盘扩容)
+[root@node1 oceanbase]# lsblk
+NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda           8:0    0   60G  0 disk
+├─sda1        8:1    0    1G  0 part /boot
+├─sda2        8:2    0   19G  0 part
+│ ├─rl-root 253:0    0   17G  0 lvm  /
+│ └─rl-swap 253:1    0    2G  0 lvm  [SWAP]
+└─sda3        8:3    0 37.2G  0 part
+sr0          11:0    1 10.4G  0 rom
+mount /dev/sda3  /oceanbase
+
+如何查看和修改 OceanBase 参数集群
+
+源码编译的安装依赖
+https://www.oceanbase.com/docs/community/observer-cn/V3.1.4/10000000000449658
+yum install wget rpm* cpio make glibc-devel glibc-headers
+yum install -y flex bison
+
+# 在源码目录下执行debug版的预制构建命令
+sh build.sh debug
+# 进入生成的 debug 构建目录
+cd build_debug
+# 进行构建
+make -j{N} observer
+# 查看构建产物
+stat src/observer/observer
+bash build.sh debug --init 
+
+debug mode
+bash build.sh debug --init --make -j8
+cd build_debug
+/oceanbase/oceanbase/build_debug
+以本地目录为基础创建一个镜像。此命令主要用于使用 OBD 启动自行编译的 OceanBase 开源软件，您可以通过此命令将编译产物加入本地仓库，之后就可以使用 obd cluster 相关的命令启动它
+make DESTDIR=./ install 
+
+1.1 在线安装 OBD
+
+sudo yum install -y yum-utils
+sudo yum-config-manager --add-repo https://mirrors.aliyun.com/oceanbase/OceanBase.repo
+sudo yum install -y ob-deploy # 该操作只需要在 OB 中控机上执行，因为 OBD 是一个黑屏部署、管理和运维工具，统一从一台机器上发起操作，所以不需要每台机器均安装
+
+obd mirror create -n oceanbase-ce -V 3.1.4-1 -p ./usr/local -t my-oceanbase
+obd mirror list
+
++------------------------------------------------------------------+
+|                      Mirror Repository List                      |
++----------------------------+--------+---------+------------------+
+| SectionName                | Type   | Enabled | Update Time      |
++----------------------------+--------+---------+------------------+
+| oceanbase.community.stable | remote | False   | 2022-08-01 19:49 |
+| oceanbase.development-kit  | remote | False   | 2022-08-01 19:49 |
+| local                      | local  | -       | 2022-08-02 10:59 |
+
+离线安装部署，必须禁用远程仓库：
+禁用远程仓库
+obd mirror disable remote
+Disable remote ok
+
+[ERROR] Repository(/root/.obd/repository/my-oceanbase/3.1.4-1/my-oceanbase) existed
+
+[root@node1 build_debug]# obd mirror create -n oceanbase-ce -V 3.1.4-1 -p ./usr/local -t 
+[root@node1 build_debug]# obd mirror create -n oceanbase-ce -V 3.1.4-1 -p ./usr/local -t my-oceanbase
+Package ok
+name: oceanbase-ce
+version: 3.1.4-1
+release:20220814195653
+arch: x86_64
+
+
+配置文件：【1】
+https://gitee.com/oceanbase/obdeploy/blob/master/example/mini-distributed-example.yaml
+echo &#39;fs.aio-max-nr=1048576&#39; &gt;&gt; /etc/sysctl.conf
+sysctl -p
+
+echo -e &#34;root soft nofile 655350\nroot hard nofile 655350\n* soft nofile 655350\n* hard nofile 655350&#34;&gt;&gt; /etc/security/limits.conf
+
+
+echo -e &#34;root soft nofile 655350\nroot hard nofile 655350\n* soft nofile 655350\n* hard nofile 655350&#34;&gt;&gt; /etc/security/limits.conf
+
+
+obd cluster deploy test -c /oceanbase/mini-local-example.yaml
+obd cluster deploy test -c ./mini-local-example.yaml
+obd cluster start test
+# Connect to the OceanBase Database by using a MySQL client.
+mysql -h127.1 -uroot -P2883
+alias cdob=&#34;obclient -uroot@sys -h127.0.0.1 -P2881 oceanbase&#34;
++----------------------------------------------------------------------------+
+|                                  Packages                                  |
++--------------+---------+----------------+----------------------------------+
+| Repository   | Version | Release        | Md5                              |
++--------------+---------+----------------+----------------------------------+
+| oceanbase-ce | 3.1.4-1 | 20220814195653 | f22bfe957eedf03bf5858c035cae8526 |
+
+
+
+sudo yum install -y libobclient
+sudo yum install -y obclient
+
+
+cd /root/oceanbase/build_debug/src/observer
+cp /observer /root/.obd/repository/oceanbase-ce/3.1.4-1/my-oceanbase/bin/
+
+
+# 在源码目录下执行 release 版的预制构建命令
+sh build.sh release
+
+# 进入生成的 release 构建目录
+cd build_release
+
+# 进行构建
+make -j{N} observer
+
+# 查看构建产物
+stat src/observer/observer
+
+
+</code></pre></td></tr></table>
 </div>
 </div><h3 id="34-提交代码">3.4 提交代码</h3>
-<p>git config user.name 
+<p>git config user.name
 git config user.email</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1669,35 +1695,35 @@ git config user.email</p>
 </span><span class="lnt">28
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker exec -it oceanbase-ce bash
-</span></span><span class="line"><span class="cl">service sshd restart
-</span></span><span class="line"><span class="cl">ssh root@10.2.131.60 -p 22 （宿主机器IP）
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">## 关联远程仓库，保证代码可以和远程更新和提交
-</span></span><span class="line"><span class="cl">git remote add oceanbase https://github.com/oceanbase/oceanbase.git
-</span></span><span class="line"><span class="cl">git remote -v
-</span></span><span class="line"><span class="cl">#把远程仓库最新的代码及分支拉取一下 
-</span></span><span class="line"><span class="cl">git fetch oceanbase 
-</span></span><span class="line"><span class="cl">git merge oceanbase/master
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">#查看远程分支
-</span></span><span class="line"><span class="cl">git branch -r 
-</span></span><span class="line"><span class="cl">git branch -a
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">## 本地创建分支，进行开发
-</span></span><span class="line"><span class="cl">git checkout -b issue1014
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">## 提交
-</span></span><span class="line"><span class="cl">git commit -m &#34;fix Rocky is not supported yet #1014&#34;
-</span></span><span class="line"><span class="cl">git push -u  origin issue_1035 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">## 冲突解决
-</span></span><span class="line"><span class="cl">git reset --hard HEAD  （不建议）
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">cp /root/oceanbase/build_debug/src/observer/observer /root/observer/bin/observer 
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">docker exec -it oceanbase-ce bash
+service sshd restart
+ssh root@10.2.131.60 -p 22 （宿主机器IP）
+
+
+## 关联远程仓库，保证代码可以和远程更新和提交
+git remote add oceanbase https://github.com/oceanbase/oceanbase.git
+git remote -v
+#把远程仓库最新的代码及分支拉取一下 
+git fetch oceanbase 
+git merge oceanbase/master
+
+#查看远程分支
+git branch -r 
+git branch -a
+
+## 本地创建分支，进行开发
+git checkout -b issue1014
+
+
+## 提交
+git commit -m &#34;fix Rocky is not supported yet #1014&#34;
+git push -u  origin issue_1035 
+
+## 冲突解决
+git reset --hard HEAD  （不建议）
+
+cp /root/oceanbase/build_debug/src/observer/observer /root/observer/bin/observer 
+</code></pre></td></tr></table>
 </div>
 </div><p>问题描述：</p>
 <p><img src="https://s2.loli.net/2022/09/01/l9ZrhaUEy4dgfqN.png" alt="lQLPJxalWB4_ZoXMhM0CS7Bkz6aHA9uu5AMP910mwMoA_587_132.png"></p>
@@ -1726,7 +1752,7 @@ git config user.email</p>
 <p>题目：https://github.com/oceanbase/oceanbase/issues/1034</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -1735,21 +1761,21 @@ git config user.email</p>
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">CREATE TABLE v0 ( v2 VARCHARACTER ( 3 ) PRIMARY KEY , v1 VARCHARACTER ( 26 ) ) COLLATE utf8_general_ci ;
-</span></span><span class="line"><span class="cl">ALTER TABLE v0 ;
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">SET @@sql_mode = X&#39;00FFFFFF&#39; ;
-</span></span><span class="line"><span class="cl">ERROR 1231 (42000): Variable &#39;sql_mode&#39; can&#39;t be set to the value of &#39;\x00\xFF\xFF\xFF&#39;
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">select @@sql_mode;
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">CREATE TABLE v0 ( v2 VARCHARACTER ( 3 ) PRIMARY KEY , v1 VARCHARACTER ( 26 ) ) COLLATE utf8_general_ci ;
+ALTER TABLE v0 ;
+
+SET @@sql_mode = X&#39;00FFFFFF&#39; ;
+ERROR 1231 (42000): Variable &#39;sql_mode&#39; can&#39;t be set to the value of &#39;\x00\xFF\xFF\xFF&#39;
+
+select @@sql_mode;
+</code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>理解这个概念</li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1762,18 +1788,18 @@ git config user.email</p>
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">https://www.cnblogs.com/kiko2014551511/p/11527480.html
-</span></span><span class="line"><span class="cl">https://developer.aliyun.com/article/710525
-</span></span><span class="line"><span class="cl">select @@sql_mode;
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">ANSI_QUOTES：
-</span></span><span class="line"><span class="cl">启用后，不能用双引号来引用字符串，因为&#34;（双引号）将被解释为标识符
-</span></span><span class="line"><span class="cl">CREATE TABLE a ( a char(5));
-</span></span><span class="line"><span class="cl">INSERT INTO a SELECT &#39;abc&#39;;
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">cd /root/oceanbase/build_debug/src/observer
-</span></span><span class="line"><span class="cl">cp observer /root/observer/bin/observer 
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">https://www.cnblogs.com/kiko2014551511/p/11527480.html
+https://developer.aliyun.com/article/710525
+select @@sql_mode;
+
+ANSI_QUOTES：
+启用后，不能用双引号来引用字符串，因为&#34;（双引号）将被解释为标识符
+CREATE TABLE a ( a char(5));
+INSERT INTO a SELECT &#39;abc&#39;;
+
+cd /root/oceanbase/build_debug/src/observer
+cp observer /root/observer/bin/observer 
+</code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>
@@ -1820,7 +1846,7 @@ git config user.email</p>
             <span class="prev-text nav-mobile">上一篇</span>
           </a>
         <a class="next" href="/post/habit/2024/2024-08-12-sleep/">
-            <span class="next-text nav-default">睡前3个小时准备工作</span>
+            <span class="next-text nav-default">成功习惯养成记(1)：24小时时起床一次</span>
             <span class="next-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
           </a>

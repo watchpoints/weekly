@@ -1,0 +1,58 @@
+{
+  "collapse-filter": false,
+  "search": "-path:\"900 其他\"  ",
+  "showTags": false,
+  "showAttachments": false,
+  "hideUnresolved": false,
+  "showOrphans": true,
+  "collapse-color-groups": false,
+  "colorGroups": [
+    {
+      "query": "tag:#类型/划线同步  ",
+      "color": {
+        "a": 1,
+        "rgb": 10395294
+      }
+    },
+    {
+      "query": "tag:#类型/划线整理  ",
+      "color": {
+        "a": 1,
+        "rgb": 16766597
+      }
+    },
+    {
+      "query": "tag:#类型/话题笔记  ",
+      "color": {
+        "a": 1,
+        "rgb": 11657298
+      }
+    },
+    {
+      "query": "tag:#类型/主题笔记  ",
+      "color": {
+        "a": 1,
+        "rgb": 14711890
+      }
+    },
+    {
+      "query": "tag:#类型/内容创作  ",
+      "color": {
+        "a": 1,
+        "rgb": 15224795
+      }
+    }
+  ],
+  "collapse-display": true,
+  "showArrow": false,
+  "textFadeMultiplier": 0,
+  "nodeSizeMultiplier": 1,
+  "lineSizeMultiplier": 1,
+  "collapse-forces": true,
+  "centerStrength": 0.518713248970312,
+  "repelStrength": 10,
+  "linkStrength": 1,
+  "linkDistance": 250,
+  "scale": 0.06477150696005647,
+  "close": true
+}

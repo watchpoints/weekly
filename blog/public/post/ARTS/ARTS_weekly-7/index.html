@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.101.0 with theme even" />
+<meta name="generator" content="Hugo 0.83.1 with theme even" />
 
 
 <link rel="canonical" href="https://wangcy6.github.io/post/ARTS/ARTS_weekly-7/" />
@@ -42,12 +42,12 @@
 <meta property="og:description" content="GTD践行第七周" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://wangcy6.github.io/post/ARTS/ARTS_weekly-7/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2019-12-19T00:00:00+00:00" />
-<meta property="article:modified_time" content="2019-12-19T00:00:00+00:00" />
+<meta property="article:published_time" content="2019-12-19T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2019-12-19T00:00:00&#43;00:00" />
 
 <meta itemprop="name" content="ARTS_weekly_7">
-<meta itemprop="description" content="GTD践行第七周"><meta itemprop="datePublished" content="2019-12-19T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2019-12-19T00:00:00+00:00" />
+<meta itemprop="description" content="GTD践行第七周"><meta itemprop="datePublished" content="2019-12-19T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-12-19T00:00:00&#43;00:00" />
 <meta itemprop="wordCount" content="3298">
 <meta itemprop="keywords" content="GTD,work," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="ARTS_weekly_7"/>
@@ -279,7 +279,7 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -299,25 +299,25 @@
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="err">于挂掉的</span><span class="n">master可能会有多个slave</span><span class="err">，从而存在多个</span><span class="n">slave竞争成为master节点的过程</span><span class="err">，</span> <span class="err">其过程如下：</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="mf">1.</span><span class="n">slave发现自己的master变为FAIL</span>
-</span></span><span class="line"><span class="cl"><span class="mf">2.</span><span class="err">将自己记录的集群</span><span class="n">currentEpoch加1</span><span class="err">，并广播</span><span class="n">FAILOVER_AUTH_REQUEST信息</span>
-</span></span><span class="line"><span class="cl"><span class="mf">3.</span><span class="err">其他节点收到该信息，只有</span><span class="n">master响应</span><span class="err">，判断请求者的合法性，并发送</span><span class="n">FAILOVER_AUTH</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="mf">4.</span><span class="err">尝试</span><span class="n">failover的slave收集FAILOVER_AUTH_ACK</span>
-</span></span><span class="line"><span class="cl"><span class="mf">5.</span><span class="err">超过半数后变成新</span><span class="n">Master</span>
-</span></span><span class="line"><span class="cl"><span class="mf">6.</span><span class="err">广播</span><span class="n">Pong通知其他集群节点</span><span class="err">。</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="err">主节点接收到来自于从节点、要求以</span> <span class="n">FAILOVER_AUTH_REQUEST</span> <span class="err">请求的形式投票的请求。</span> <span class="err">要授予一个投票，必须要满足以下条件：</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="mi">1</span><span class="p">)</span> <span class="err">在一个给定的时段（</span><span class="n">epoch</span><span class="err">）里，一个主节点只能投一次票，并且拒绝给以前时段投票：每个主节点都有一个</span> <span class="n">lastVoteEpoch</span> <span class="err">域，一旦认证请求数据包（</span><span class="n">auth</span> <span class="n">request</span> <span class="n">packet</span><span class="err">）里的</span> <span class="n">currentEpoch</span> <span class="err">小于</span> <span class="n">lastVoteEpoch</span><span class="err">，那么主节点就会拒绝再次投票。</span>
-</span></span><span class="line"><span class="cl">  <span class="err">当一个主节点积极响应一个投票请求，那么</span> <span class="n">lastVoteEpoch</span> <span class="err">会相应地进行更新。</span>
-</span></span><span class="line"><span class="cl"><span class="mi">2</span><span class="p">)</span> <span class="err">一个主节点投票给某个从节点当且仅当该从节点的主节点被标记为</span> <span class="n">FAIL</span><span class="err">。</span>
-</span></span><span class="line"><span class="cl"><span class="mi">3</span><span class="p">)</span> <span class="err">如果认证请求里的</span> <span class="n">currentEpoch</span> <span class="err">小于主节点里的</span> <span class="n">currentEpoch</span> <span class="err">的话，那么该请求会被忽视掉。</span>
-</span></span><span class="line"><span class="cl">    <span class="err">因此，主节点的回应总是带着和认证请求一致的</span> <span class="n">currentEpoch</span><span class="err">。</span>
-</span></span><span class="line"><span class="cl">    <span class="err">如果同一个从节点在增加</span> <span class="n">currentEpoch</span> <span class="err">后再次请求投票，那么保证一个来自于主节点的、旧的延迟回复不会被新一轮选举接受。</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="err">于挂掉的</span><span class="n">master可能会有多个slave</span><span class="err">，从而存在多个</span><span class="n">slave竞争成为master节点的过程</span><span class="err">，</span> <span class="err">其过程如下：</span>
+
+<span class="mf">1.</span><span class="n">slave发现自己的master变为FAIL</span>
+<span class="mf">2.</span><span class="err">将自己记录的集群</span><span class="n">currentEpoch加1</span><span class="err">，并广播</span><span class="n">FAILOVER_AUTH_REQUEST信息</span>
+<span class="mf">3.</span><span class="err">其他节点收到该信息，只有</span><span class="n">master响应</span><span class="err">，判断请求者的合法性，并发送</span><span class="n">FAILOVER_AUTH</span>
+
+<span class="mf">4.</span><span class="err">尝试</span><span class="n">failover的slave收集FAILOVER_AUTH_ACK</span>
+<span class="mf">5.</span><span class="err">超过半数后变成新</span><span class="n">Master</span>
+<span class="mf">6.</span><span class="err">广播</span><span class="n">Pong通知其他集群节点</span><span class="err">。</span>
+
+<span class="err">主节点接收到来自于从节点、要求以</span> <span class="n">FAILOVER_AUTH_REQUEST</span> <span class="err">请求的形式投票的请求。</span> <span class="err">要授予一个投票，必须要满足以下条件：</span>
+
+<span class="mi">1</span><span class="p">)</span> <span class="err">在一个给定的时段（</span><span class="n">epoch</span><span class="err">）里，一个主节点只能投一次票，并且拒绝给以前时段投票：每个主节点都有一个</span> <span class="n">lastVoteEpoch</span> <span class="err">域，一旦认证请求数据包（</span><span class="n">auth</span> <span class="n">request</span> <span class="n">packet</span><span class="err">）里的</span> <span class="n">currentEpoch</span> <span class="err">小于</span> <span class="n">lastVoteEpoch</span><span class="err">，那么主节点就会拒绝再次投票。</span>
+  <span class="err">当一个主节点积极响应一个投票请求，那么</span> <span class="n">lastVoteEpoch</span> <span class="err">会相应地进行更新。</span>
+<span class="mi">2</span><span class="p">)</span> <span class="err">一个主节点投票给某个从节点当且仅当该从节点的主节点被标记为</span> <span class="n">FAIL</span><span class="err">。</span>
+<span class="mi">3</span><span class="p">)</span> <span class="err">如果认证请求里的</span> <span class="n">currentEpoch</span> <span class="err">小于主节点里的</span> <span class="n">currentEpoch</span> <span class="err">的话，那么该请求会被忽视掉。</span>
+    <span class="err">因此，主节点的回应总是带着和认证请求一致的</span> <span class="n">currentEpoch</span><span class="err">。</span>
+    <span class="err">如果同一个从节点在增加</span> <span class="n">currentEpoch</span> <span class="err">后再次请求投票，那么保证一个来自于主节点的、旧的延迟回复不会被新一轮选举接受。</span>
+</code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>
@@ -335,7 +335,7 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -344,14 +344,14 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1、选中B2到B9单元格，也就是你需要添加&#34;√&#34;和&#34;X&#34;的地方，然后右键并选择【设置单元格格式】。
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">2、将单元格的格式内容自定义为以下内容：
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">[=1]&#34;√&#34;;[=0]&#34;X&#34;
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">然后保存。
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">1、选中B2到B9单元格，也就是你需要添加&#34;√&#34;和&#34;X&#34;的地方，然后右键并选择【设置单元格格式】。
+
+2、将单元格的格式内容自定义为以下内容：
+
+[=1]&#34;√&#34;;[=0]&#34;X&#34;
+
+然后保存。
+</code></pre></td></tr></table>
 </div>
 </div><h3 id="4--share">4.  Share</h3>
 <blockquote>

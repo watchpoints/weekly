@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.101.0 with theme even" />
+<meta name="generator" content="Hugo 0.83.1 with theme even" />
 
 
 <link rel="canonical" href="https://wangcy6.github.io/post/2020/FQA_Service_Mesh/" />
@@ -42,13 +42,13 @@
 <meta property="og:description" content="Service Mesh" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://wangcy6.github.io/post/2020/FQA_Service_Mesh/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2019-11-13T00:00:00+00:00" />
-<meta property="article:modified_time" content="2019-11-13T00:00:00+00:00" />
+<meta property="article:published_time" content="2019-11-13T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2019-11-13T00:00:00&#43;00:00" />
 
 <meta itemprop="name" content="FQA_Service_Mesh">
-<meta itemprop="description" content="Service Mesh"><meta itemprop="datePublished" content="2019-11-13T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2019-11-13T00:00:00+00:00" />
-<meta itemprop="wordCount" content="2877">
+<meta itemprop="description" content="Service Mesh"><meta itemprop="datePublished" content="2019-11-13T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-11-13T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="2879">
 <meta itemprop="keywords" content="book,reading," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="FQA_Service_Mesh"/>
 <meta name="twitter:description" content="Service Mesh"/>
@@ -130,7 +130,7 @@
         <div class="post-category">
             <a href="/categories/FQA/"> FQA </a>
             </div>
-          <span class="more-meta"> 约 2877 字 </span>
+          <span class="more-meta"> 约 2879 字 </span>
           <span class="more-meta"> 预计阅读 6 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -320,7 +320,7 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -350,35 +350,35 @@
 </span><span class="lnt">28
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Coordinator                                         Participant
-</span></span><span class="line"><span class="cl">                              QUERY TO COMMIT
-</span></span><span class="line"><span class="cl">                --------------------------------&gt;
-</span></span><span class="line"><span class="cl">                              VOTE YES/NO           prepare*/abort*
-</span></span><span class="line"><span class="cl">                &lt;-------------------------------
-</span></span><span class="line"><span class="cl">commit*/abort*                COMMIT/ROLLBACK
-</span></span><span class="line"><span class="cl">                --------------------------------&gt;
-</span></span><span class="line"><span class="cl">                              ACKNOWLEDGMENT        commit*/abort*
-</span></span><span class="line"><span class="cl">                &lt;--------------------------------  
-</span></span><span class="line"><span class="cl">end
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">https://cseweb.ucsd.edu/classes/sp16/cse291-e/applications/ln/lecture8.html
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">牧师：”你愿意娶这个女人吗?爱她、忠诚于她，无论她贫困、患病或者残疾，直至死亡。Doyou(你愿意吗)?”
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">新郎：”Ido(我愿意)!”
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">牧师：”你愿意嫁给这个男人吗?爱他、忠诚于他，无论他贫困、患病或者残疾，直至死亡。Doyou(你愿意吗)?”
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">新娘：”Ido(我愿意)!”
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">牧师：现在请你们面向对方，握住对方的双手，作为妻子和丈夫向对方宣告誓言。
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">新郎：我——某某某，全心全意娶你做我的妻子，无论是顺境或逆境，富裕或贫穷，健康或疾病，快乐或忧愁，我都将毫无保留地爱你，我将努力去理解你，完完全全信任你。我们将成为一个整体，互为彼此的一部分，我们将一起面对人生的一切，去分享我们的梦想，作为平等的忠实伴侣，度过今后的一生。
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">新娘：我全心全意嫁给你作为你的妻子，无论是顺境或逆境，富裕或贫穷，健康或疾病，快乐或忧愁，我都将毫无保留的爱你，我将努力去理解你，完完全全信任你，我们将成为一个整体，互为彼此的一部分，我们将一起面对人生的一切，去分享我们的梦想，作为平等的忠实伴侣，度过今后的一生。
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Coordinator                                         Participant
+                              QUERY TO COMMIT
+                --------------------------------&gt;
+                              VOTE YES/NO           prepare*/abort*
+                &lt;-------------------------------
+commit*/abort*                COMMIT/ROLLBACK
+                --------------------------------&gt;
+                              ACKNOWLEDGMENT        commit*/abort*
+                &lt;--------------------------------  
+end
+
+https://cseweb.ucsd.edu/classes/sp16/cse291-e/applications/ln/lecture8.html
+
+
+
+牧师：”你愿意娶这个女人吗?爱她、忠诚于她，无论她贫困、患病或者残疾，直至死亡。Doyou(你愿意吗)?”
+
+新郎：”Ido(我愿意)!”
+
+牧师：”你愿意嫁给这个男人吗?爱他、忠诚于他，无论他贫困、患病或者残疾，直至死亡。Doyou(你愿意吗)?”
+
+新娘：”Ido(我愿意)!”
+
+牧师：现在请你们面向对方，握住对方的双手，作为妻子和丈夫向对方宣告誓言。
+
+新郎：我——某某某，全心全意娶你做我的妻子，无论是顺境或逆境，富裕或贫穷，健康或疾病，快乐或忧愁，我都将毫无保留地爱你，我将努力去理解你，完完全全信任你。我们将成为一个整体，互为彼此的一部分，我们将一起面对人生的一切，去分享我们的梦想，作为平等的忠实伴侣，度过今后的一生。
+
+新娘：我全心全意嫁给你作为你的妻子，无论是顺境或逆境，富裕或贫穷，健康或疾病，快乐或忧愁，我都将毫无保留的爱你，我将努力去理解你，完完全全信任你，我们将成为一个整体，互为彼此的一部分，我们将一起面对人生的一切，去分享我们的梦想，作为平等的忠实伴侣，度过今后的一生。
+</code></pre></td></tr></table>
 </div>
 </div><p>An * next to the record type means that the record is forced to stable storage.[<a href="https://en.wikipedia.org/wiki/Two-phase_commit_protocol#cite_note-mohan1986-4">4]</a></p>
 <p><img src="https://i.loli.net/2019/11/20/Lhza6UytbmeZ7pQ.png" alt="image.png"></p>
@@ -386,7 +386,7 @@
 <h4 id="阻塞的httpsilolinet201911135rvzhuk9qlcikebpng-3pchttpsappyinxiangcomshards39nl822682959f28292-cd0c-4c99-b43a-4405c133154c"><img src="https://i.loli.net/2019/11/13/5rVZHuK9QLcikEb.png" alt="阻塞的"> <a href="https://app.yinxiang.com/shard/s39/nl/8226829/59f28292-cd0c-4c99-b43a-4405c133154c">3PC</a></h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -414,37 +414,41 @@
 </span><span class="lnt">26
 </span><span class="lnt">27
 </span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="err">一个节点故障，写入操作全部失败，整个系统崩溃？</span>
-</span></span><span class="line"><span class="cl"><span class="nl">https</span><span class="p">:</span><span class="c1">//en.wikipedia.org/wiki/Three-phase_commit_protocol
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">A</span> <span class="n">two</span><span class="o">-</span><span class="n">phase</span> <span class="n">commit</span> <span class="n">protocol</span> <span class="n">cannot</span> <span class="n">dependably</span> <span class="n">recover</span> <span class="n">from</span> <span class="n">a</span> <span class="n">failure</span> <span class="n">of</span> <span class="n">both</span> <span class="n">the</span> <span class="n">coordinator</span> <span class="n">and</span> <span class="n">a</span> <span class="n">cohort</span> <span class="n">member</span> <span class="n">during</span> <span class="n">the</span> <span class="n">Commit</span> <span class="n">phase</span> <span class="err">【这里说是第二阶段】</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">If</span> <span class="n">only</span> <span class="n">the</span> <span class="n">coordinator</span> <span class="n">had</span> <span class="n">failed</span><span class="p">,</span> <span class="n">and</span> <span class="n">no</span> <span class="n">cohort</span> <span class="n">members</span> <span class="n">had</span> <span class="n">received</span> <span class="n">a</span> <span class="n">commit</span> <span class="n">message</span><span class="p">,</span> <span class="n">it</span> <span class="n">could</span> <span class="n">safely</span> <span class="n">be</span> <span class="n">inferred</span> <span class="n">that</span> <span class="n">no</span> <span class="n">commit</span> <span class="n">had</span> <span class="n">happened</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="n">send</span> <span class="err">发送失败，不会提交业务的，原子操作，提交成功</span> <span class="err">然后返回结果</span><span class="p">)</span> <span class="err">原子操作类别</span><span class="n">pthread_cond_wait</span><span class="err">（</span><span class="mi">1</span> <span class="n">wait</span> <span class="mi">2u</span><span class="n">nlock</span><span class="err">）</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="n">Even</span> <span class="k">if</span> <span class="n">a</span> <span class="k">new</span> <span class="n">coordinator</span> <span class="n">is</span> <span class="n">selected</span><span class="p">,</span> <span class="n">it</span> <span class="n">cannot</span> <span class="n">confidently</span> <span class="n">proceed</span> <span class="n">with</span> <span class="n">the</span> <span class="n">operation</span> <span class="n">until</span> <span class="n">it</span> <span class="n">has</span> <span class="n">received</span> <span class="n">an</span> <span class="n">agreement</span> <span class="n">from</span> <span class="n">all</span> <span class="n">cohort</span> <span class="n">members</span><span class="p">,</span> <span class="n">and</span> <span class="n">hence</span> <span class="n">must</span> <span class="n">block</span> <span class="n">until</span> <span class="n">all</span> <span class="n">cohort</span> <span class="n">members</span> <span class="n">respond</span><span class="p">.</span>
-</span></span><span class="line"><span class="cl">   
-</span></span><span class="line"><span class="cl">        <span class="n">The</span> <span class="n">three</span><span class="o">-</span><span class="n">phase</span> <span class="n">commit</span> <span class="n">protocol</span> <span class="n">eliminates</span> <span class="k">this</span> <span class="n">problem</span> <span class="n">by</span> <span class="n">introducing</span> <span class="n">the</span> <span class="n">Prepared</span> <span class="n">to</span> <span class="n">commit</span> <span class="n">state</span> <span class="p">(</span><span class="err">多了一个状态</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        <span class="n">If</span> <span class="n">the</span> <span class="n">coordinator</span> <span class="n">fails</span> <span class="n">before</span> <span class="n">sending</span> <span class="n">preCommit</span> <span class="n">messages</span><span class="p">,</span> <span class="n">the</span> <span class="n">cohort</span> <span class="n">will</span> <span class="n">unanimously</span> <span class="n">agree</span> <span class="n">that</span> <span class="n">the</span> <span class="n">operation</span> <span class="n">was</span> <span class="n">aborted</span><span class="err">（没有准备，可以放弃）</span>
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        <span class="n">The</span> <span class="n">coordinator</span> <span class="n">will</span> <span class="n">not</span> <span class="n">send</span> <span class="n">out</span> <span class="n">a</span> <span class="n">doCommit</span> <span class="n">message</span> <span class="n">until</span> <span class="n">all</span> <span class="n">cohort</span> <span class="n">members</span> <span class="n">have</span> <span class="n">ACKed</span> <span class="n">that</span> <span class="n">they</span> <span class="n">are</span> <span class="n">Prepared</span> <span class="n">to</span> <span class="n">commit</span><span class="p">.</span><span class="err">（这里不发送）</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">   <span class="nl">https</span><span class="p">:</span><span class="c1">//cseweb.ucsd.edu/classes/sp16/cse291-e/applications/ln/lecture8.html     
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="n">Recovery</span> <span class="n">in</span> <span class="mi">3</span><span class="n">PC</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"> <span class="err">脑洞</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="err">如果有至少一个返回</span><span class="n">commit了</span><span class="err">，那么挂掉的节点只可能是</span><span class="n">prepare</span><span class="o">-</span><span class="n">commit和commit状态</span><span class="err">，这样整个系统状态也是可以提交的</span> 
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="o">&gt;</span> <span class="err">一个节点故障，写入操作全部失败，整个系统崩溃？</span>
+<span class="nl">https</span><span class="p">:</span><span class="c1">//en.wikipedia.org/wiki/Three-phase_commit_protocol
+</span><span class="c1"></span><span class="n">A</span> <span class="n">two</span><span class="o">-</span><span class="n">phase</span> <span class="n">commit</span> <span class="n">protocol</span> <span class="n">cannot</span> <span class="n">dependably</span> <span class="n">recover</span> <span class="n">from</span> <span class="n">a</span> <span class="n">failure</span> <span class="n">of</span> <span class="n">both</span> <span class="n">the</span> <span class="n">coordinator</span> <span class="n">and</span> <span class="n">a</span> <span class="n">cohort</span> <span class="n">member</span> <span class="n">during</span> <span class="n">the</span> <span class="n">Commit</span> <span class="n">phase</span> <span class="err">【这里说是第二阶段】</span>
+
+<span class="n">If</span> <span class="n">only</span> <span class="n">the</span> <span class="n">coordinator</span> <span class="n">had</span> <span class="n">failed</span><span class="p">,</span> <span class="n">and</span> <span class="n">no</span> <span class="n">cohort</span> <span class="n">members</span> <span class="n">had</span> <span class="n">received</span> <span class="n">a</span> <span class="n">commit</span> <span class="n">message</span><span class="p">,</span> <span class="n">it</span> <span class="n">could</span> <span class="n">safely</span> <span class="n">be</span> <span class="n">inferred</span> <span class="n">that</span> <span class="n">no</span> <span class="n">commit</span> <span class="n">had</span> <span class="n">happened</span>
+    
+<span class="p">(</span><span class="n">send</span> <span class="err">发送失败，不会提交业务的，原子操作，提交成功</span> <span class="err">然后返回结果</span><span class="p">)</span> <span class="err">原子操作类别</span><span class="n">pthread_cond_wait</span><span class="err">（</span><span class="mi">1</span> <span class="n">wait</span> <span class="mi">2u</span><span class="n">nlock</span><span class="err">）</span>
+    
+    <span class="n">Even</span> <span class="k">if</span> <span class="n">a</span> <span class="k">new</span> <span class="n">coordinator</span> <span class="n">is</span> <span class="n">selected</span><span class="p">,</span> <span class="n">it</span> <span class="n">cannot</span> <span class="n">confidently</span> <span class="n">proceed</span> <span class="n">with</span> <span class="n">the</span> <span class="n">operation</span> <span class="n">until</span> <span class="n">it</span> <span class="n">has</span> <span class="n">received</span> <span class="n">an</span> <span class="n">agreement</span> <span class="n">from</span> <span class="n">all</span> <span class="n">cohort</span> <span class="n">members</span><span class="p">,</span> <span class="n">and</span> <span class="n">hence</span> <span class="n">must</span> <span class="n">block</span> <span class="n">until</span> <span class="n">all</span> <span class="n">cohort</span> <span class="n">members</span> <span class="n">respond</span><span class="p">.</span>
+   
+        <span class="n">The</span> <span class="n">three</span><span class="o">-</span><span class="n">phase</span> <span class="n">commit</span> <span class="n">protocol</span> <span class="n">eliminates</span> <span class="k">this</span> <span class="n">problem</span> <span class="n">by</span> <span class="n">introducing</span> <span class="n">the</span> <span class="n">Prepared</span> <span class="n">to</span> <span class="n">commit</span> <span class="n">state</span> <span class="p">(</span><span class="err">多了一个状态</span><span class="p">)</span>
+        
+        
+        <span class="n">If</span> <span class="n">the</span> <span class="n">coordinator</span> <span class="n">fails</span> <span class="n">before</span> <span class="n">sending</span> <span class="n">preCommit</span> <span class="n">messages</span><span class="p">,</span> <span class="n">the</span> <span class="n">cohort</span> <span class="n">will</span> <span class="n">unanimously</span> <span class="n">agree</span> <span class="n">that</span> <span class="n">the</span> <span class="n">operation</span> <span class="n">was</span> <span class="n">aborted</span><span class="err">（没有准备，可以放弃）</span>
+        
+        
+        <span class="n">The</span> <span class="n">coordinator</span> <span class="n">will</span> <span class="n">not</span> <span class="n">send</span> <span class="n">out</span> <span class="n">a</span> <span class="n">doCommit</span> <span class="n">message</span> <span class="n">until</span> <span class="n">all</span> <span class="n">cohort</span> <span class="n">members</span> <span class="n">have</span> <span class="n">ACKed</span> <span class="n">that</span> <span class="n">they</span> <span class="n">are</span> <span class="n">Prepared</span> <span class="n">to</span> <span class="n">commit</span><span class="p">.</span><span class="err">（这里不发送）</span>
+
+   <span class="nl">https</span><span class="p">:</span><span class="c1">//cseweb.ucsd.edu/classes/sp16/cse291-e/applications/ln/lecture8.html     
+</span><span class="c1"></span> <span class="n">Recovery</span> <span class="n">in</span> <span class="mi">3</span><span class="n">PC</span>
+
+    
+    
+    
+ <span class="err">脑洞</span>
+
+
+ <span class="err">如果有至少一个返回</span><span class="n">commit了</span><span class="err">，那么挂掉的节点只可能是</span><span class="n">prepare</span><span class="o">-</span><span class="n">commit和commit状态</span><span class="err">，这样整个系统状态也是可以提交的</span> 
+
+
+</code></pre></td></tr></table>
 </div>
 </div><p><img src="https://cseweb.ucsd.edu/classes/sp16/cse291-e/applications/ln/3pc-part.jpg" alt="img"></p>
 <p><img src="https://cseweb.ucsd.edu/classes/sp16/cse291-e/applications/ln/3pc-coord.jpg" alt="img"></p>

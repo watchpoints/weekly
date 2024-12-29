@@ -6,16 +6,7 @@
     <description>Recent content in tidb on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 19 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/tags/tidb/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>TiKV Contributors day5</title>
-      <link>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days5_rockdb/</link>
-      <pubDate>Mon, 19 Aug 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days5_rockdb/</guid>
-      <description>tikv_kv % tree . ├── Cargo.toml └── src ├── btree_engine.rs ├── cursor.rs ├── lib.rs ├── raftstore_impls.rs ├── rocksdb_engine.rs └── stats.rs 背景:目的 认同开源，但是迟迟不提交一个有价值pr很难，看不到成果中途</description>
-    </item>
-    
+    <lastBuildDate>Wed, 31 Jul 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/tags/tidb/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>TiKV Contributors day3：</title>
       <link>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days4_read/</link>
@@ -40,7 +31,7 @@
       <pubDate>Wed, 29 May 2024 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days100_1/</guid>
-      <description>todo01：搭建tikv环境 task01：搭建tikv环境（容器版本，和源码版本） 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 在CentOS上进行Ti</description>
+      <description>todo01：搭建tikv环境 task01：搭建tikv环境（容器版本，和源码版本） 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 在CentOS上进行</description>
     </item>
     
     <item>
@@ -76,7 +67,7 @@
       <pubDate>Wed, 12 Jan 2022 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/tidb/2022/tikv_day1/</guid>
-      <description>Raft 学习记录 todo task01：搭建tikv环境 task01：搭建tikv环境（容器版本，和源码版本） 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 在CentO</description>
+      <description>Raft 学习记录 todo task01：搭建tikv环境 task01：搭建tikv环境（容器版本，和源码版本） 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 在Cen</description>
     </item>
     
     <item>

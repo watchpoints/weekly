@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.101.0 with theme even" />
+<meta name="generator" content="Hugo 0.83.1 with theme even" />
 
 
 <link rel="canonical" href="https://wangcy6.github.io/post/leetcode/leetcode_hard/" />
@@ -42,12 +42,12 @@
 <meta property="og:description" content="开始日期 更新日期 备注 2020-6-10 2020-6-10 300-400中等难度总结 题目汇总 查找和最小的K对数字 合并K个排序链表 寻找两个有序数组的中位数 K个有序数组的中位数 m" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://wangcy6.github.io/post/leetcode/leetcode_hard/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2020-06-10T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-06-10T00:00:00+00:00" />
+<meta property="article:published_time" content="2020-06-10T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2020-06-10T00:00:00&#43;00:00" />
 
 <meta itemprop="name" content="leetcode_medium_300-400">
-<meta itemprop="description" content="开始日期 更新日期 备注 2020-6-10 2020-6-10 300-400中等难度总结 题目汇总 查找和最小的K对数字 合并K个排序链表 寻找两个有序数组的中位数 K个有序数组的中位数 m"><meta itemprop="datePublished" content="2020-06-10T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2020-06-10T00:00:00+00:00" />
+<meta itemprop="description" content="开始日期 更新日期 备注 2020-6-10 2020-6-10 300-400中等难度总结 题目汇总 查找和最小的K对数字 合并K个排序链表 寻找两个有序数组的中位数 K个有序数组的中位数 m"><meta itemprop="datePublished" content="2020-06-10T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-06-10T00:00:00&#43;00:00" />
 <meta itemprop="wordCount" content="3555">
 <meta itemprop="keywords" content="Interview Question," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="leetcode_medium_300-400"/>
@@ -263,7 +263,7 @@
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -287,29 +287,29 @@
 </span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> * 我们正在玩一个猜数游戏，游戏规则如下：
-</span></span><span class="line"><span class="cl"> * 
-</span></span><span class="line"><span class="cl"> * 我从 1 到 n 之间选择一个数字，你来猜我选了哪个数字。
-</span></span><span class="line"><span class="cl"> * 
-</span></span><span class="line"><span class="cl"> * 每次你猜错了，我都会告诉你，我选的数字比你的大了或者小了。
-</span></span><span class="line"><span class="cl"> * 
-</span></span><span class="line"><span class="cl"> * 然而，当你猜了数字 x 并且猜错了的时候，你需要支付金额为 x 的现金。直到你猜到我选的数字，你才算赢得了这个游戏。
-</span></span><span class="line"><span class="cl"> * 
-</span></span><span class="line"><span class="cl"> * 示例:
-</span></span><span class="line"><span class="cl"> * 
-</span></span><span class="line"><span class="cl"> * n = 10的, 我选择了8.
-</span></span><span class="line"><span class="cl"> * 
-</span></span><span class="line"><span class="cl"> * 第一轮: 你猜我选择的数字是5，我会告诉你，我的数字更大一些，然后你需要支付5块。
-</span></span><span class="line"><span class="cl"> * 第二轮: 你猜是7，我告诉你，我的数字更大一些，你支付7块。
-</span></span><span class="line"><span class="cl"> * 第三轮: 你猜是9，我告诉你，我数字更小一些，你支付9块。
-</span></span><span class="line"><span class="cl"> * 
-</span></span><span class="line"><span class="cl"> * 游戏结束。8 就是我选的数字。
-</span></span><span class="line"><span class="cl"> * 
-</span></span><span class="line"><span class="cl"> * 你最终要支付 5 + 7 + 9 = 21 块钱。
-</span></span><span class="line"><span class="cl"> * 
-</span></span><span class="line"><span class="cl"> * 
-</span></span><span class="line"><span class="cl"> * 给定 n ≥ 1，计算你至少需要拥有多少现金才能确保你能赢得这个游戏。
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback"> * 我们正在玩一个猜数游戏，游戏规则如下：
+ * 
+ * 我从 1 到 n 之间选择一个数字，你来猜我选了哪个数字。
+ * 
+ * 每次你猜错了，我都会告诉你，我选的数字比你的大了或者小了。
+ * 
+ * 然而，当你猜了数字 x 并且猜错了的时候，你需要支付金额为 x 的现金。直到你猜到我选的数字，你才算赢得了这个游戏。
+ * 
+ * 示例:
+ * 
+ * n = 10的, 我选择了8.
+ * 
+ * 第一轮: 你猜我选择的数字是5，我会告诉你，我的数字更大一些，然后你需要支付5块。
+ * 第二轮: 你猜是7，我告诉你，我的数字更大一些，你支付7块。
+ * 第三轮: 你猜是9，我告诉你，我数字更小一些，你支付9块。
+ * 
+ * 游戏结束。8 就是我选的数字。
+ * 
+ * 你最终要支付 5 + 7 + 9 = 21 块钱。
+ * 
+ * 
+ * 给定 n ≥ 1，计算你至少需要拥有多少现金才能确保你能赢得这个游戏。
+</code></pre></td></tr></table>
 </div>
 </div><h3 id="三算法描述-1">三、<strong>算法描述</strong></h3>
 <blockquote>
@@ -325,7 +325,7 @@ n是模糊数据。
 <p>画外音：在此阅读题目要求，自己理解题目了吗？对不明白地方，我跳过了吗?</p>
 </blockquote>
 <p>给定 n ≥ 1，计算你至少需要拥有多少现金才能确保你能赢得这个游戏
-&lt;&mdash;&gt; 
+&lt;&mdash;&gt;
 需要考虑最坏情况下的代价。也就是说要算每次都猜错的情况下的总体最大开销。</p>
 <h3 id="四参考代码-1">四、<strong>参考代码</strong></h3>
 <blockquote>
@@ -384,7 +384,7 @@ target = 4</p>
 </blockquote>
 <ul>
 <li>Solution1  递归回溯&ndash;当n过大时超时
-<img src="https://i.loli.net/2020/06/14/IpgnfK91PHJrBVq.png" alt="递归回溯&amp;ndash;当n过大时超时"></li>
+<img src="https://i.loli.net/2020/06/14/IpgnfK91PHJrBVq.png" alt="递归回溯&ndash;当n过大时超时"></li>
 </ul>
 <p>循环条件是：target 大于0</p>
 <ul>
@@ -401,7 +401,7 @@ target = 4</p>
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -470,74 +470,74 @@ target = 4</p>
 </span><span class="lnt">67
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">class Solution
-</span></span><span class="line"><span class="cl">{
-</span></span><span class="line"><span class="cl">public:
-</span></span><span class="line"><span class="cl">    int combinationSum4(vector&lt;int&gt; &amp;nums, int target)
-</span></span><span class="line"><span class="cl">    {
-</span></span><span class="line"><span class="cl">        vector&lt;unsigned int&gt; dp(target + 1, 0); //默认为0
-</span></span><span class="line"><span class="cl">        dp[0] = 1;                              // target=4 集合{4} 4-4=0;
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        //动态规划，从小到大每个Indextarget都要计算,全部要计算。
-</span></span><span class="line"><span class="cl">        for (int targetIndex = 1; targetIndex &lt;= target; targetIndex++)
-</span></span><span class="line"><span class="cl">        {
-</span></span><span class="line"><span class="cl">            //分叉
-</span></span><span class="line"><span class="cl">            for (int j = 0; j &lt; nums.size(); j++)
-</span></span><span class="line"><span class="cl">            {
-</span></span><span class="line"><span class="cl">                //和为给定目标正整数的组合
-</span></span><span class="line"><span class="cl">                if (targetIndex &gt;= nums[j])
-</span></span><span class="line"><span class="cl">                {
-</span></span><span class="line"><span class="cl">                    dp[targetIndex] += dp[targetIndex - nums[j]];
-</span></span><span class="line"><span class="cl">                }
-</span></span><span class="line"><span class="cl">            }
-</span></span><span class="line"><span class="cl">        }
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        return dp[target];
-</span></span><span class="line"><span class="cl">    }
-</span></span><span class="line"><span class="cl">};
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">//@lc code=start
-</span></span><span class="line"><span class="cl">// 用map代替vector 虽然节省空间，但是时间增加了
-</span></span><span class="line"><span class="cl">// 40 ms  8.2 MB
-</span></span><span class="line"><span class="cl">class Solution4
-</span></span><span class="line"><span class="cl">{
-</span></span><span class="line"><span class="cl">private:
-</span></span><span class="line"><span class="cl">    unordered_map&lt;int, int&gt; map;
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">public:
-</span></span><span class="line"><span class="cl">    //驱动点
-</span></span><span class="line"><span class="cl">    int combinationSum4(vector&lt;int&gt; &amp;nums, int target)
-</span></span><span class="line"><span class="cl">    {
-</span></span><span class="line"><span class="cl">        if (target &lt; 0 || nums.empty())
-</span></span><span class="line"><span class="cl">            return 0;
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        if (target == 0)
-</span></span><span class="line"><span class="cl">        {
-</span></span><span class="line"><span class="cl">            return 1;
-</span></span><span class="line"><span class="cl">        }
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        if (map.count(target))
-</span></span><span class="line"><span class="cl">        {
-</span></span><span class="line"><span class="cl">            return map[target];
-</span></span><span class="line"><span class="cl">        }
-</span></span><span class="line"><span class="cl">        int count = 0;
-</span></span><span class="line"><span class="cl">        for (int i = 0; i &lt; nums.size(); i++)
-</span></span><span class="line"><span class="cl">        {
-</span></span><span class="line"><span class="cl">            if (target &gt;= nums[i])
-</span></span><span class="line"><span class="cl">            {
-</span></span><span class="line"><span class="cl">                cout &lt;&lt; &#34;-------------&#34; &lt;&lt; count &lt;&lt; endl;
-</span></span><span class="line"><span class="cl">                count += combinationSum4(nums, target - nums[i]);
-</span></span><span class="line"><span class="cl">            }
-</span></span><span class="line"><span class="cl">        }
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        map[target] = count;
-</span></span><span class="line"><span class="cl">        cout &lt;&lt; target &lt;&lt; &#34;:&#34; &lt;&lt; count &lt;&lt; endl;
-</span></span><span class="line"><span class="cl">        return count;
-</span></span><span class="line"><span class="cl">    }
-</span></span><span class="line"><span class="cl">};
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">
+class Solution
+{
+public:
+    int combinationSum4(vector&lt;int&gt; &amp;nums, int target)
+    {
+        vector&lt;unsigned int&gt; dp(target + 1, 0); //默认为0
+        dp[0] = 1;                              // target=4 集合{4} 4-4=0;
+
+        //动态规划，从小到大每个Indextarget都要计算,全部要计算。
+        for (int targetIndex = 1; targetIndex &lt;= target; targetIndex++)
+        {
+            //分叉
+            for (int j = 0; j &lt; nums.size(); j++)
+            {
+                //和为给定目标正整数的组合
+                if (targetIndex &gt;= nums[j])
+                {
+                    dp[targetIndex] += dp[targetIndex - nums[j]];
+                }
+            }
+        }
+
+        return dp[target];
+    }
+};
+
+
+//@lc code=start
+// 用map代替vector 虽然节省空间，但是时间增加了
+// 40 ms  8.2 MB
+class Solution4
+{
+private:
+    unordered_map&lt;int, int&gt; map;
+
+public:
+    //驱动点
+    int combinationSum4(vector&lt;int&gt; &amp;nums, int target)
+    {
+        if (target &lt; 0 || nums.empty())
+            return 0;
+
+        if (target == 0)
+        {
+            return 1;
+        }
+
+        if (map.count(target))
+        {
+            return map[target];
+        }
+        int count = 0;
+        for (int i = 0; i &lt; nums.size(); i++)
+        {
+            if (target &gt;= nums[i])
+            {
+                cout &lt;&lt; &#34;-------------&#34; &lt;&lt; count &lt;&lt; endl;
+                count += combinationSum4(nums, target - nums[i]);
+            }
+        }
+
+        map[target] = count;
+        cout &lt;&lt; target &lt;&lt; &#34;:&#34; &lt;&lt; count &lt;&lt; endl;
+        return count;
+    }
+};
+</code></pre></td></tr></table>
 </div>
 </div><h3 id="五举一反三-2">五、举一反三</h3>
 <blockquote>
@@ -572,7 +572,7 @@ target = 4</p>
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+<pre class="chroma"><code><span class="lnt">  1
 </span><span class="lnt">  2
 </span><span class="lnt">  3
 </span><span class="lnt">  4
@@ -714,147 +714,147 @@ target = 4</p>
 </span><span class="lnt">140
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">//168 ms
-</span></span><span class="line"><span class="cl">class Solution
-</span></span><span class="line"><span class="cl">{
-</span></span><span class="line"><span class="cl">public:
-</span></span><span class="line"><span class="cl">    //仿函数
-</span></span><span class="line"><span class="cl">    struct compare
-</span></span><span class="line"><span class="cl">    {
-</span></span><span class="line"><span class="cl">        bool operator()(pair&lt;int, pair&lt;int, int&gt;&gt; &amp;p1, pair&lt;int, pair&lt;int, int&gt;&gt; &amp;p2)
-</span></span><span class="line"><span class="cl">        {
-</span></span><span class="line"><span class="cl">            // “大于” 构造的是最小堆
-</span></span><span class="line"><span class="cl">            return p1.first &gt; p2.first;
-</span></span><span class="line"><span class="cl">        }
-</span></span><span class="line"><span class="cl">    };
-</span></span><span class="line"><span class="cl">    int kthSmallest(vector&lt;vector&lt;int&gt;&gt; &amp;matrix, int k)
-</span></span><span class="line"><span class="cl">    {
-</span></span><span class="line"><span class="cl">        priority_queue&lt;pair&lt;int, pair&lt;int, int&gt;&gt;, vector&lt;pair&lt;int, pair&lt;int, int&gt;&gt;&gt;, compare&gt; pq;
-</span></span><span class="line"><span class="cl">        int cols, rows;
-</span></span><span class="line"><span class="cl">        rows = matrix.size();
-</span></span><span class="line"><span class="cl">        cols = matrix[0].size();
-</span></span><span class="line"><span class="cl">        //将每一行的第0列入队
-</span></span><span class="line"><span class="cl">        for (int i = 0; i &lt; rows; ++i)
-</span></span><span class="line"><span class="cl">            pq.push(make_pair(matrix[i][0], make_pair(i, 0)));
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        int res = 0;
-</span></span><span class="line"><span class="cl">        while (k)
-</span></span><span class="line"><span class="cl">        {
-</span></span><span class="line"><span class="cl">            res = pq.top().first;
-</span></span><span class="line"><span class="cl">            //记录堆顶元素所在的行、列
-</span></span><span class="line"><span class="cl">            int r = pq.top().second.first;
-</span></span><span class="line"><span class="cl">            int c = pq.top().second.second;
-</span></span><span class="line"><span class="cl">            pq.pop();
-</span></span><span class="line"><span class="cl">            --k;
-</span></span><span class="line"><span class="cl">            if (c + 1 &lt; cols)
-</span></span><span class="line"><span class="cl">                pq.push(make_pair(matrix[r][c + 1], make_pair(r, c + 1)));
-</span></span><span class="line"><span class="cl">        }
-</span></span><span class="line"><span class="cl">        return res;
-</span></span><span class="line"><span class="cl">    }
-</span></span><span class="line"><span class="cl">};
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">class Solution2
-</span></span><span class="line"><span class="cl">{
-</span></span><span class="line"><span class="cl">public:
-</span></span><span class="line"><span class="cl">    int kthSmallest(vector&lt;vector&lt;int&gt;&gt; &amp;matrix, int k)
-</span></span><span class="line"><span class="cl">    {
-</span></span><span class="line"><span class="cl">        auto comp = [&amp;matrix](pair&lt;int, int&gt; p1, pair&lt;int, int&gt; p2) {
-</span></span><span class="line"><span class="cl">            return matrix[p1.first][p1.second] &gt; matrix[p2.first][p2.second];
-</span></span><span class="line"><span class="cl">        };
-</span></span><span class="line"><span class="cl">        priority_queue&lt;pair&lt;int, int&gt;, vector&lt;pair&lt;int, int&gt;&gt;, decltype(comp)&gt; que(comp);
-</span></span><span class="line"><span class="cl">        que.push(make_pair(0, 0));
-</span></span><span class="line"><span class="cl">        int count = 1;
-</span></span><span class="line"><span class="cl">        while (count &lt; k)
-</span></span><span class="line"><span class="cl">        {
-</span></span><span class="line"><span class="cl">            auto temp = que.top();
-</span></span><span class="line"><span class="cl">            que.pop();
-</span></span><span class="line"><span class="cl">            cout &lt;&lt; &#34;temp.first= &#34; &lt;&lt; temp.first &lt;&lt; &#34; temp.second &#34; &lt;&lt; temp.second &lt;&lt; &#34; value= &#34; &lt;&lt; matrix[temp.first][temp.second] &lt;&lt; endl;
-</span></span><span class="line"><span class="cl">            if (temp.first + 1 &lt; matrix.size())
-</span></span><span class="line"><span class="cl">            {
-</span></span><span class="line"><span class="cl">                que.push(make_pair(temp.first + 1, temp.second));
-</span></span><span class="line"><span class="cl">            }
-</span></span><span class="line"><span class="cl">            //if (temp.first == 0 &amp;&amp; temp.second + 1 &lt; matrix[0].size())
-</span></span><span class="line"><span class="cl">            if (temp.first == 0 &amp;&amp; temp.second + 1 &lt; matrix[0].size())
-</span></span><span class="line"><span class="cl">            {
-</span></span><span class="line"><span class="cl">                que.push(make_pair(temp.first, temp.second + 1));
-</span></span><span class="line"><span class="cl">            }
-</span></span><span class="line"><span class="cl">            count++;
-</span></span><span class="line"><span class="cl">        }
-</span></span><span class="line"><span class="cl">        auto t = que.top();
-</span></span><span class="line"><span class="cl">        return matrix[t.first][t.second];
-</span></span><span class="line"><span class="cl">    }
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    /***  次方法虽然秒，但是我看不懂，并且体会里面好出，为什么大家都这样做。
-</span></span><span class="line"><span class="cl">      *  利用题目给出条件：有序  采用二分查找。
-</span></span><span class="line"><span class="cl">      *  
-</span></span><span class="line"><span class="cl">      *  二分查找关键 最大值，最小值,和中间值（卡住了）
-</span></span><span class="line"><span class="cl">      *  求top k  k是索引。array{k} ==中间值
-</span></span><span class="line"><span class="cl">      *  
-</span></span><span class="line"><span class="cl">      * 时间复杂度其实也是很高的
-</span></span><span class="line"><span class="cl">      * 1.找出二维矩阵中最小的数left，最大的数right，那么第k小的数必定在left~right之间
-</span></span><span class="line"><span class="cl">        2.mid=(left+right) / 2；在二维矩阵中寻找小于等于mid的元素个数count
-</span></span><span class="line"><span class="cl">        3.若这个count小于k，表明第k小的数在右半部分且不包含mid，即left=mid+1, right=right，又保证了第k小的数在left~right之间
-</span></span><span class="line"><span class="cl">        4.若这个count大于k，表明第k小的数在左半部分且可能包含mid，即left=left, right=mid，又保证了第k小的数在left~right之间
-</span></span><span class="line"><span class="cl">        5.因为每次循环中都保证了第k小的数在left~right之间，当left==right时，第k小的数即被找出，等于right 
-</span></span><span class="line"><span class="cl">          (76 ms ）
-</span></span><span class="line"><span class="cl">      */
-</span></span><span class="line"><span class="cl">    int kthSmallest1(vector&lt;vector&lt;int&gt;&gt; &amp;matrix, int k)
-</span></span><span class="line"><span class="cl">    {
-</span></span><span class="line"><span class="cl">        int rows = matrix.size();
-</span></span><span class="line"><span class="cl">        if (0 == rows)
-</span></span><span class="line"><span class="cl">            return -1; //不存在
-</span></span><span class="line"><span class="cl">        int cols = matrix[0].size();
-</span></span><span class="line"><span class="cl">        //1 5 9 10 11 11 12 13 13 15
-</span></span><span class="line"><span class="cl">        // k=8 13
-</span></span><span class="line"><span class="cl">        // matrix = [
-</span></span><span class="line"><span class="cl">        //     *⁠[1, 5, 9],
-</span></span><span class="line"><span class="cl">        //     *⁠[10, 11, 13],
-</span></span><span class="line"><span class="cl">        //     *⁠[12, 13, 15] *
-</span></span><span class="line"><span class="cl">        // ],
-</span></span><span class="line"><span class="cl">        int low = matrix[0][0];
-</span></span><span class="line"><span class="cl">        int high = matrix[rows - 1][cols - 1];
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        int mid = 0; //中间数值，array中是不存在的，通过计算是否第k小，变化low 和high的范围。
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        while (low &lt; high)
-</span></span><span class="line"><span class="cl">        {
-</span></span><span class="line"><span class="cl">            cout &lt;&lt; low &lt;&lt; &#34;aaa&#34; &lt;&lt; mid &lt;&lt; &#34; &#34; &lt;&lt; high &lt;&lt; endl;
-</span></span><span class="line"><span class="cl">            mid = low + (high - low) / 2;
-</span></span><span class="line"><span class="cl">            int count = findNotBiggerThanMid(matrix, mid);
-</span></span><span class="line"><span class="cl">            if (k &gt; count)
-</span></span><span class="line"><span class="cl">            {
-</span></span><span class="line"><span class="cl">                low = mid + 1; //此时 low 变成可能不存。
-</span></span><span class="line"><span class="cl">            }
-</span></span><span class="line"><span class="cl">            else
-</span></span><span class="line"><span class="cl">            {
-</span></span><span class="line"><span class="cl">                high = mid;
-</span></span><span class="line"><span class="cl">            }
-</span></span><span class="line"><span class="cl">            cout &lt;&lt; low &lt;&lt; &#34;bbb&#34; &lt;&lt; mid &lt;&lt; &#34; &#34; &lt;&lt; high &lt;&lt; endl;
-</span></span><span class="line"><span class="cl">        }
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        return low;
-</span></span><span class="line"><span class="cl">    }
-</span></span><span class="line"><span class="cl">    //查找一个元素
-</span></span><span class="line"><span class="cl">    int findNotBiggerThanMid(vector&lt;vector&lt;int&gt;&gt; &amp;matrix, int x)
-</span></span><span class="line"><span class="cl">    {
-</span></span><span class="line"><span class="cl">        int N = matrix.size();
-</span></span><span class="line"><span class="cl">        int i = N - 1, j = 0, count = 0;
-</span></span><span class="line"><span class="cl">        while (i &gt;= 0 &amp;&amp; j &lt; N)
-</span></span><span class="line"><span class="cl">        {
-</span></span><span class="line"><span class="cl">            if (matrix[i][j] &lt;= x)
-</span></span><span class="line"><span class="cl">            {
-</span></span><span class="line"><span class="cl">                count += (i + 1);
-</span></span><span class="line"><span class="cl">                //排除列
-</span></span><span class="line"><span class="cl">                j++;
-</span></span><span class="line"><span class="cl">            }
-</span></span><span class="line"><span class="cl">            else
-</span></span><span class="line"><span class="cl">                //排除行
-</span></span><span class="line"><span class="cl">                i--;
-</span></span><span class="line"><span class="cl">        }
-</span></span><span class="line"><span class="cl">        return count;
-</span></span><span class="line"><span class="cl">    }
-</span></span><span class="line"><span class="cl">};
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">//168 ms
+class Solution
+{
+public:
+    //仿函数
+    struct compare
+    {
+        bool operator()(pair&lt;int, pair&lt;int, int&gt;&gt; &amp;p1, pair&lt;int, pair&lt;int, int&gt;&gt; &amp;p2)
+        {
+            // “大于” 构造的是最小堆
+            return p1.first &gt; p2.first;
+        }
+    };
+    int kthSmallest(vector&lt;vector&lt;int&gt;&gt; &amp;matrix, int k)
+    {
+        priority_queue&lt;pair&lt;int, pair&lt;int, int&gt;&gt;, vector&lt;pair&lt;int, pair&lt;int, int&gt;&gt;&gt;, compare&gt; pq;
+        int cols, rows;
+        rows = matrix.size();
+        cols = matrix[0].size();
+        //将每一行的第0列入队
+        for (int i = 0; i &lt; rows; ++i)
+            pq.push(make_pair(matrix[i][0], make_pair(i, 0)));
+
+        int res = 0;
+        while (k)
+        {
+            res = pq.top().first;
+            //记录堆顶元素所在的行、列
+            int r = pq.top().second.first;
+            int c = pq.top().second.second;
+            pq.pop();
+            --k;
+            if (c + 1 &lt; cols)
+                pq.push(make_pair(matrix[r][c + 1], make_pair(r, c + 1)));
+        }
+        return res;
+    }
+};
+
+class Solution2
+{
+public:
+    int kthSmallest(vector&lt;vector&lt;int&gt;&gt; &amp;matrix, int k)
+    {
+        auto comp = [&amp;matrix](pair&lt;int, int&gt; p1, pair&lt;int, int&gt; p2) {
+            return matrix[p1.first][p1.second] &gt; matrix[p2.first][p2.second];
+        };
+        priority_queue&lt;pair&lt;int, int&gt;, vector&lt;pair&lt;int, int&gt;&gt;, decltype(comp)&gt; que(comp);
+        que.push(make_pair(0, 0));
+        int count = 1;
+        while (count &lt; k)
+        {
+            auto temp = que.top();
+            que.pop();
+            cout &lt;&lt; &#34;temp.first= &#34; &lt;&lt; temp.first &lt;&lt; &#34; temp.second &#34; &lt;&lt; temp.second &lt;&lt; &#34; value= &#34; &lt;&lt; matrix[temp.first][temp.second] &lt;&lt; endl;
+            if (temp.first + 1 &lt; matrix.size())
+            {
+                que.push(make_pair(temp.first + 1, temp.second));
+            }
+            //if (temp.first == 0 &amp;&amp; temp.second + 1 &lt; matrix[0].size())
+            if (temp.first == 0 &amp;&amp; temp.second + 1 &lt; matrix[0].size())
+            {
+                que.push(make_pair(temp.first, temp.second + 1));
+            }
+            count++;
+        }
+        auto t = que.top();
+        return matrix[t.first][t.second];
+    }
+
+    /***  次方法虽然秒，但是我看不懂，并且体会里面好出，为什么大家都这样做。
+      *  利用题目给出条件：有序  采用二分查找。
+      *  
+      *  二分查找关键 最大值，最小值,和中间值（卡住了）
+      *  求top k  k是索引。array{k} ==中间值
+      *  
+      * 时间复杂度其实也是很高的
+      * 1.找出二维矩阵中最小的数left，最大的数right，那么第k小的数必定在left~right之间
+        2.mid=(left+right) / 2；在二维矩阵中寻找小于等于mid的元素个数count
+        3.若这个count小于k，表明第k小的数在右半部分且不包含mid，即left=mid+1, right=right，又保证了第k小的数在left~right之间
+        4.若这个count大于k，表明第k小的数在左半部分且可能包含mid，即left=left, right=mid，又保证了第k小的数在left~right之间
+        5.因为每次循环中都保证了第k小的数在left~right之间，当left==right时，第k小的数即被找出，等于right 
+          (76 ms ）
+      */
+    int kthSmallest1(vector&lt;vector&lt;int&gt;&gt; &amp;matrix, int k)
+    {
+        int rows = matrix.size();
+        if (0 == rows)
+            return -1; //不存在
+        int cols = matrix[0].size();
+        //1 5 9 10 11 11 12 13 13 15
+        // k=8 13
+        // matrix = [
+        //     *⁠[1, 5, 9],
+        //     *⁠[10, 11, 13],
+        //     *⁠[12, 13, 15] *
+        // ],
+        int low = matrix[0][0];
+        int high = matrix[rows - 1][cols - 1];
+
+        int mid = 0; //中间数值，array中是不存在的，通过计算是否第k小，变化low 和high的范围。
+
+        while (low &lt; high)
+        {
+            cout &lt;&lt; low &lt;&lt; &#34;aaa&#34; &lt;&lt; mid &lt;&lt; &#34; &#34; &lt;&lt; high &lt;&lt; endl;
+            mid = low + (high - low) / 2;
+            int count = findNotBiggerThanMid(matrix, mid);
+            if (k &gt; count)
+            {
+                low = mid + 1; //此时 low 变成可能不存。
+            }
+            else
+            {
+                high = mid;
+            }
+            cout &lt;&lt; low &lt;&lt; &#34;bbb&#34; &lt;&lt; mid &lt;&lt; &#34; &#34; &lt;&lt; high &lt;&lt; endl;
+        }
+
+        return low;
+    }
+    //查找一个元素
+    int findNotBiggerThanMid(vector&lt;vector&lt;int&gt;&gt; &amp;matrix, int x)
+    {
+        int N = matrix.size();
+        int i = N - 1, j = 0, count = 0;
+        while (i &gt;= 0 &amp;&amp; j &lt; N)
+        {
+            if (matrix[i][j] &lt;= x)
+            {
+                count += (i + 1);
+                //排除列
+                j++;
+            }
+            else
+                //排除行
+                i--;
+        }
+        return count;
+    }
+};
+</code></pre></td></tr></table>
 </div>
 </div><h3 id="五举一反三-3">五、举一反三</h3>
 <blockquote>

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.101.0 with theme even" />
+<meta name="generator" content="Hugo 0.83.1 with theme even" />
 
 
 <link rel="canonical" href="https://wangcy6.github.io/post/2022/6-tool-gperftools/" />
@@ -42,13 +42,13 @@
 <meta property="og:description" content="gperftools" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://wangcy6.github.io/post/2022/6-tool-gperftools/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2022-02-09T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-02-09T00:00:00+00:00" />
+<meta property="article:published_time" content="2022-02-09T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2022-02-09T00:00:00&#43;00:00" />
 
 <meta itemprop="name" content="gperftools">
-<meta itemprop="description" content="gperftools"><meta itemprop="datePublished" content="2022-02-09T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-02-09T00:00:00+00:00" />
-<meta itemprop="wordCount" content="420">
+<meta itemprop="description" content="gperftools"><meta itemprop="datePublished" content="2022-02-09T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2022-02-09T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="425">
 <meta itemprop="keywords" content="系统设计," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="gperftools"/>
 <meta name="twitter:description" content="gperftools"/>
@@ -128,7 +128,7 @@
       <div class="post-meta">
         <span class="post-time"> 2022-02-09 00:00 </span>
         
-          <span class="more-meta"> 约 420 字 </span>
+          <span class="more-meta"> 约 425 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -191,7 +191,7 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -210,28 +210,30 @@
 </span><span class="lnt">17
 </span><span class="lnt">18
 </span><span class="lnt">19
+</span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl"> sudo dnf install emacs
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl"> emacs --version
-</span></span><span class="line"><span class="cl"> GNU Emacs 26.1 //版本不是最新版本
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">依赖：
-</span></span><span class="line"><span class="cl">yum install gnutls  gnutls-devel
-</span></span><span class="line"><span class="cl">yum install ncurses-devel
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">wget https://ftp.gnu.org/gnu/emacs/emacs-28.2.tar.gz
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> https://github.com/watchpoints/emacs.d/tree/master
-</span></span><span class="line"><span class="cl"> git clone https://github.com/purcell/emacs.d.git ~/.emacs.d
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl">//sed -i &#39;s/https/http/g&#39; ~/.emacs.d/lisp/init-elpa.el
-</span></span><span class="line"><span class="cl">//linux命令行代理神器-proxychains
-</span></span><span class="line"><span class="cl">emacs --debug-init
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback"> 
+ sudo dnf install emacs
+ 
+ emacs --version
+ GNU Emacs 26.1 //版本不是最新版本
+
+依赖：
+yum install gnutls  gnutls-devel
+yum install ncurses-devel
+
+
+wget https://ftp.gnu.org/gnu/emacs/emacs-28.2.tar.gz
+
+ https://github.com/watchpoints/emacs.d/tree/master
+ git clone https://github.com/purcell/emacs.d.git ~/.emacs.d
+ 
+//sed -i &#39;s/https/http/g&#39; ~/.emacs.d/lisp/init-elpa.el
+//linux命令行代理神器-proxychains
+emacs --debug-init
+
+</code></pre></td></tr></table>
 </div>
 </div><h3 id="heading"></h3>
 <ul>
@@ -242,18 +244,22 @@
 <h2 id="基本用法">基本用法</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">perf record -a -e kmem:kmalloc --filter &#39;bytes_alloc == 192&#39; -e kmem:kfree --filter &#39; ptr != 0&#39; sleep 200
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">perf record -a -e kmem:kmalloc --filter &#39;bytes_alloc == 192&#39; -e kmem:kfree --filter &#39; ptr != 0&#39; sleep 200
+
+
+</code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>Perftools-Specific Install Notes</li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -265,34 +271,38 @@
 </span><span class="lnt">10
 </span><span class="lnt">11
 </span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">https://github.com/gperftools/gperftools/blob/master/INSTALL
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">yum install libunwind<span class="o">(</span>否者heap profiler产生的数据文件都会是空的<span class="o">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">if</span> you use a 64-bit system, we strongly recommend you
-</span></span><span class="line"><span class="cl">install libunwind before trying to configure or install gperftools.
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">yum install autoconf automake libtool
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">git clone https://github.com/gperftools/gperftools
-</span></span><span class="line"><span class="cl">sh autogen.sh
-</span></span><span class="line"><span class="cl">./configure 
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">https://github.com/gperftools/gperftools/blob/master/INSTALL
+
+yum install libunwind<span class="o">(</span>否者heap profiler产生的数据文件都会是空的<span class="o">)</span>
+
+<span class="k">if</span> you use a 64-bit system, we strongly recommend you
+install libunwind before trying to configure or install gperftools.
+
+yum install autoconf automake libtool
+
+git clone https://github.com/gperftools/gperftools
+sh autogen.sh
+./configure 
+
+
+</code></pre></td></tr></table>
 </div>
 </div><h2 id="问题-cpu-高怎么解决">问题 cpu 高怎么解决</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">perf record  -F 99  -g -a  -p 3830098 -- sleep 20
-</span></span><span class="line"><span class="cl">perf report --stdio
-</span></span><span class="line"><span class="cl">perf record  -F 99  -g -e &#34;kmem:*&#34;  -- sleep 20
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">perf record  -F 99  -g -a  -p 3830098 -- sleep 20
+perf report --stdio
+perf record  -F 99  -g -e &#34;kmem:*&#34;  -- sleep 20
+</code></pre></td></tr></table>
 </div>
 </div><h3 id="青铜提问1">青铜提问1：</h3>
 <h3 id="用perf-report---stdio-跟踪看不到是地址不是函数如何根据-地址确定符号-python3调用了mpirun库">用perf report &ndash;stdio 跟踪看不到是地址，不是函数，如何根据 地址确定符号？ python3调用了mpirun库</h3>

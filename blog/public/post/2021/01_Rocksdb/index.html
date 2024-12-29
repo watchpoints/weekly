@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.101.0 with theme even" />
+<meta name="generator" content="Hugo 0.83.1 with theme even" />
 
 
 <link rel="canonical" href="https://wangcy6.github.io/post/2021/01_Rocksdb/" />
@@ -42,13 +42,13 @@
 <meta property="og:description" content="跟leveldb学C&#43;&#43;，跟rocksdb学做引擎" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://wangcy6.github.io/post/2021/01_Rocksdb/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-08-02T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-08-02T00:00:00+00:00" />
+<meta property="article:published_time" content="2021-08-02T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2021-08-02T00:00:00&#43;00:00" />
 
 <meta itemprop="name" content="跟leveldb学C&#43;&#43;，跟rocksdb学做引擎">
-<meta itemprop="description" content="跟leveldb学C&#43;&#43;，跟rocksdb学做引擎"><meta itemprop="datePublished" content="2021-08-02T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2021-08-02T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1850">
+<meta itemprop="description" content="跟leveldb学C&#43;&#43;，跟rocksdb学做引擎"><meta itemprop="datePublished" content="2021-08-02T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-08-02T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1852">
 <meta itemprop="keywords" content="book," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="跟leveldb学C&#43;&#43;，跟rocksdb学做引擎"/>
 <meta name="twitter:description" content="跟leveldb学C&#43;&#43;，跟rocksdb学做引擎"/>
@@ -128,7 +128,7 @@
       <div class="post-meta">
         <span class="post-time"> 2021-08-02 00:00 </span>
         
-          <span class="more-meta"> 约 1850 字 </span>
+          <span class="more-meta"> 约 1852 字 </span>
           <span class="more-meta"> 预计阅读 4 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -197,15 +197,15 @@
 <p>ubuntu</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">mkdir build &amp;&amp; cd build
-</span></span><span class="line"><span class="cl">cmake -DCMAKE_INSTALL_PREFIX=/usr/local/rocksdb ..
-</span></span><span class="line"><span class="cl">make &amp;&amp; make install
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">mkdir build &amp;&amp; cd build
+cmake -DCMAKE_INSTALL_PREFIX=/usr/local/rocksdb ..
+make &amp;&amp; make install
+</code></pre></td></tr></table>
 </div>
 </div><p>查看：</p>
 <p>virtual void Get(const LookupKey&amp; k, void* callback_args,</p>
@@ -247,15 +247,15 @@
 <h3 id="1-查看别人的文档">1. 查看别人的文档</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git clone git@github.com:watchpoints/leveldb.git
-</span></span><span class="line"><span class="cl">mkdir -p build &amp;&amp; cd build
-</span></span><span class="line"><span class="cl">cmake -DCMAKE_BUILD_TYPE=Release .. &amp;&amp; cmake --build .
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">git clone git@github.com:watchpoints/leveldb.git
+mkdir -p build &amp;&amp; cd build
+cmake -DCMAKE_BUILD_TYPE=Release .. &amp;&amp; cmake --build .
+</code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>
@@ -282,7 +282,7 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -292,15 +292,15 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">项目结构
-</span></span><span class="line"><span class="cl">db/, 数据库逻辑
-</span></span><span class="line"><span class="cl">doc/, MD文档
-</span></span><span class="line"><span class="cl">helpers/, LevelDB内存版, 通过namespace覆盖
-</span></span><span class="line"><span class="cl">port/, 平台相关代码
-</span></span><span class="line"><span class="cl">table/, LSM有关的
-</span></span><span class="line"><span class="cl">LevelDB选择用跳跃表（skiplist）实现memtable和immemtable, 用有序行组来实现SSTable。
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">
+项目结构
+db/, 数据库逻辑
+doc/, MD文档
+helpers/, LevelDB内存版, 通过namespace覆盖
+port/, 平台相关代码
+table/, LSM有关的
+LevelDB选择用跳跃表（skiplist）实现memtable和immemtable, 用有序行组来实现SSTable。
+</code></pre></td></tr></table>
 </div>
 </div><p>leveldb的写入速度很快，主要因为它将随机写转化为顺序写，</p>
 <p>一个写入操作会首先在log文件中顺序写oplog，然后在内存的memtable中插入该数据就可返回</p>
@@ -311,21 +311,25 @@
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">DBImpl::Put -&gt; DB::Put -&gt; DBImpl::Write
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">/Users/wangchuanyi/doc/daily_read_coding/leveldb/db/db_impl.cc
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">Status DBImpl::Write(
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">
+DBImpl::Put -&gt; DB::Put -&gt; DBImpl::Write
+
+/Users/wangchuanyi/doc/daily_read_coding/leveldb/db/db_impl.cc
+
+Status DBImpl::Write(
+
+
+</code></pre></td></tr></table>
 </div>
 </div><h3 id="3-leveldb之lsm-tree">3 LevelDB之LSM-Tree</h3>
 <p><a href="https://zouzls.github.io/2016/11/23/LevelDB%E4%B9%8BLSM-Tree/">https://zouzls.github.io/2016/11/23/LevelDB%E4%B9%8BLSM-Tree/</a></p>

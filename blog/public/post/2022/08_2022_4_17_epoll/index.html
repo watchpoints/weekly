@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.101.0 with theme even" />
+<meta name="generator" content="Hugo 0.83.1 with theme even" />
 
 
 <link rel="canonical" href="https://wangcy6.github.io/post/2022/08_2022_4_17_epoll/" />
@@ -42,13 +42,13 @@
 <meta property="og:description" content="day1 :请一定要有自信。你就是一道风景，没必要在别人风景里面仰视。 问题：直觉 为了快速掌握本文所要表达的思想，我们可以带着以下问题阅读。 Busy loop when poll/epoll is" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://wangcy6.github.io/post/2022/08_2022_4_17_epoll/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2022-04-23T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-04-23T00:00:00+00:00" />
+<meta property="article:published_time" content="2022-04-23T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2022-04-23T00:00:00&#43;00:00" />
 
 <meta itemprop="name" content="操作系统入门知识--网络">
-<meta itemprop="description" content="day1 :请一定要有自信。你就是一道风景，没必要在别人风景里面仰视。 问题：直觉 为了快速掌握本文所要表达的思想，我们可以带着以下问题阅读。 Busy loop when poll/epoll is"><meta itemprop="datePublished" content="2022-04-23T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-04-23T00:00:00+00:00" />
-<meta itemprop="wordCount" content="4599">
+<meta itemprop="description" content="day1 :请一定要有自信。你就是一道风景，没必要在别人风景里面仰视。 问题：直觉 为了快速掌握本文所要表达的思想，我们可以带着以下问题阅读。 Busy loop when poll/epoll is"><meta itemprop="datePublished" content="2022-04-23T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2022-04-23T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="4598">
 <meta itemprop="keywords" content="book," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="操作系统入门知识--网络"/>
 <meta name="twitter:description" content="day1 :请一定要有自信。你就是一道风景，没必要在别人风景里面仰视。 问题：直觉 为了快速掌握本文所要表达的思想，我们可以带着以下问题阅读。 Busy loop when poll/epoll is"/>
@@ -128,7 +128,7 @@
       <div class="post-meta">
         <span class="post-time"> 2022-04-23 00:00 </span>
         
-          <span class="more-meta"> 约 4599 字 </span>
+          <span class="more-meta"> 约 4598 字 </span>
           <span class="more-meta"> 预计阅读 10 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -255,7 +255,7 @@
 <p>SO_BUSY_POLL is a socket option, that allows precise enabling of busy polling,</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -297,47 +297,47 @@
 </span><span class="lnt">40
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">BUSY POLLING, What is that ?
-</span></span><span class="line"><span class="cl">As Jesse Brandeburg first stated in Linux Plumber
-</span></span><span class="line"><span class="cl">Conference 2012 [1], busy polling has been first defined as
-</span></span><span class="line"><span class="cl">the ability for user thread waiting for some incoming
-</span></span><span class="line"><span class="cl">network message to directly poll the device ring buffer,
-</span></span><span class="line"><span class="cl">instead of traditional way of waiting on a socket receive !!!!
-</span></span><span class="line"><span class="cl">buffer being feeded by normal RX handling.
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">Linux 4.5 changes
-</span></span><span class="line"><span class="cl">sk_busy_loop() was changed to let Soft IRQ (BH) being!!!!
-</span></span><span class="line"><span class="cl">serviced. Hint : Look at the back of the Netdev 2.1 t-shirt ;)
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">Main idea was that if we were burning cpu cycles, !!!!
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">we could at the same time
-</span></span><span class="line"><span class="cl">spend them for more useful things, that would have added extra latencies
-</span></span><span class="line"><span class="cl">anyway right before returning from the system call.
-</span></span><span class="line"><span class="cl">Some drivers (eg mlx4) use different NAPI contexts for RX and TX, this change
-</span></span><span class="line"><span class="cl">permitted to handle TX completions smoothly.
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">堆排序时间复杂度误解
-</span></span><span class="line"><span class="cl">老王：堆排序时间复杂度多少？
-</span></span><span class="line"><span class="cl">小王：O(nlog n)脱口而生 记住了
-</span></span><span class="line"><span class="cl">老王：不对 堆排序的时间复杂度是O(nlog n + n) =O(nlog n)。()
-</span></span><span class="line"><span class="cl">小王：和我记住有什么区别？一样呀
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">老忘：top k 问题 用堆实现 时间复杂度多少？
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">建堆的时间复杂度是O(n)
-</span></span><span class="line"><span class="cl">堆调整的时间复杂度是O(log n) 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">执行次数：k +(n-k)logk
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">https://chihminh.github.io/2016/08/08/heap-sort/
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">BUSY POLLING, What is that ?
+As Jesse Brandeburg first stated in Linux Plumber
+Conference 2012 [1], busy polling has been first defined as
+the ability for user thread waiting for some incoming
+network message to directly poll the device ring buffer,
+instead of traditional way of waiting on a socket receive !!!!
+buffer being feeded by normal RX handling.
+
+
+
+Linux 4.5 changes
+sk_busy_loop() was changed to let Soft IRQ (BH) being!!!!
+serviced. Hint : Look at the back of the Netdev 2.1 t-shirt ;)
+
+Main idea was that if we were burning cpu cycles, !!!!
+
+we could at the same time
+spend them for more useful things, that would have added extra latencies
+anyway right before returning from the system call.
+Some drivers (eg mlx4) use different NAPI contexts for RX and TX, this change
+permitted to handle TX completions smoothly.
+
+
+堆排序时间复杂度误解
+老王：堆排序时间复杂度多少？
+小王：O(nlog n)脱口而生 记住了
+老王：不对 堆排序的时间复杂度是O(nlog n + n) =O(nlog n)。()
+小王：和我记住有什么区别？一样呀
+
+老忘：top k 问题 用堆实现 时间复杂度多少？
+
+建堆的时间复杂度是O(n)
+堆调整的时间复杂度是O(log n) 
+
+执行次数：k +(n-k)logk
+
+
+
+
+https://chihminh.github.io/2016/08/08/heap-sort/
+</code></pre></td></tr></table>
 </div>
 </div><p>理解：</p>
 <p>，同样一个网络包要在三个主体之间交接。</p>
@@ -350,7 +350,7 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -371,26 +371,26 @@
 </span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Incoming network message, DMA from NIC to host memory.
-</span></span><span class="line"><span class="cl">&lt;variable delay, caused by interrupt mitigation strategy&gt;
-</span></span><span class="line"><span class="cl">Hard Interrupt.
-</span></span><span class="line"><span class="cl">&lt;variable delay, caused by host scheduling constraints&gt;
-</span></span><span class="line"><span class="cl">SoftIRQ (BH) NAPI poll(), IP/TCP stack processing.
-</span></span><span class="line"><span class="cl">Packet queued into socket receive buffer, wakeup of application.
-</span></span><span class="line"><span class="cl">&lt;variable delay, caused by host scheduling other constraints&gt;
-</span></span><span class="line"><span class="cl">Application reads the packet, process it, and eventually block again for the
-</span></span><span class="line"><span class="cl">next one
-</span></span><span class="line"><span class="cl"> DMA--&gt; ring buf interrupt---&gt;socket receive buffer---&gt;wakeup ---&gt;read
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl"> Why is the Traditional Model hurting ? 
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl"> Two global sysctls were added in μs units :
-</span></span><span class="line"><span class="cl">/proc/sys/net/core/busy_read
-</span></span><span class="line"><span class="cl">/proc/sys/net/core/busy_poll
-</span></span><span class="line"><span class="cl">Suggested settings are in the 30 to 100 μs range
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Incoming network message, DMA from NIC to host memory.
+&lt;variable delay, caused by interrupt mitigation strategy&gt;
+Hard Interrupt.
+&lt;variable delay, caused by host scheduling constraints&gt;
+SoftIRQ (BH) NAPI poll(), IP/TCP stack processing.
+Packet queued into socket receive buffer, wakeup of application.
+&lt;variable delay, caused by host scheduling other constraints&gt;
+Application reads the packet, process it, and eventually block again for the
+next one
+ DMA--&gt; ring buf interrupt---&gt;socket receive buffer---&gt;wakeup ---&gt;read
+ 
+ 
+ Why is the Traditional Model hurting ? 
+ 
+ 
+ Two global sysctls were added in μs units :
+/proc/sys/net/core/busy_read
+/proc/sys/net/core/busy_poll
+Suggested settings are in the 30 to 100 μs range
+</code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>句子3：</li>
@@ -475,7 +475,9 @@ system calls : recv() and friends , poll() and select()</p>
 <p>若有就绪则直接将
 事件和fd返回给用户空间，没有就绪的话先把自己调度出去，然后等待socket那边有事件后通过
 回调 ep_poll_callback()来唤醒。</p>
-<p>4.</p>
+<ol start="4">
+<li></li>
+</ol>
 <p>the incoming connections</p>
 <p>New API (also referred to as NAPI) is an interface to use interrupt mitigation techniques for networking devices in the Linux kernel. Such an approach is intended to reduce the overhead of packet receiving. T</p>
 <p>he idea is to defer incoming message</p>
@@ -483,7 +485,7 @@ system calls : recv() and friends , poll() and select()</p>
 <p>What Does “Busy Waiting” Mean in Operating Systems?</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -493,15 +495,15 @@ system calls : recv() and friends , poll() and select()</p>
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">+#ifdef CONFIG_NET_RX_BUSY_POLL
-</span></span><span class="line"><span class="cl">+static bool ep_busy_loop_end(void *p, unsigned long start_time)
-</span></span><span class="line"><span class="cl">+{
-</span></span><span class="line"><span class="cl">+	struct eventpoll *ep = p;
-</span></span><span class="line"><span class="cl">+
-</span></span><span class="line"><span class="cl">+	return ep_events_available(ep) || busy_loop_timeout(start_time);
-</span></span><span class="line"><span class="cl">+}
-</span></span><span class="line"><span class="cl">+#endif /* CONFIG_NET_RX_BUSY_POLL */
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">+#ifdef CONFIG_NET_RX_BUSY_POLL
++static bool ep_busy_loop_end(void *p, unsigned long start_time)
++{
++	struct eventpoll *ep = p;
++
++	return ep_events_available(ep) || busy_loop_timeout(start_time);
++}
++#endif /* CONFIG_NET_RX_BUSY_POLL */
+</code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>设计模式之访问者模式</li>
@@ -517,17 +519,17 @@ system calls : recv() and friends , poll() and select()</p>
 <p>因此，当应用程序调用 epoll_wait() 并且没有可报告的事件时，会在关联队列上进行繁忙轮询以拉取数据包。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">epoll_wait(2) waits for I/O events, blocking the calling thread
-</span></span><span class="line"><span class="cl">         if no events are currently available.  (This system call can be
-</span></span><span class="line"><span class="cl">         thought of as fetching items from the ready list of the epoll
-</span></span><span class="line"><span class="cl">         instance.)
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">epoll_wait(2) waits for I/O events, blocking the calling thread
+         if no events are currently available.  (This system call can be
+         thought of as fetching items from the ready list of the epoll
+         instance.)
+</code></pre></td></tr></table>
 </div>
 </div><p>calls:</p>
 <p>pull :</p>
@@ -561,7 +563,7 @@ system calls : recv() and friends , poll() and select()</p>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -573,17 +575,17 @@ system calls : recv() and friends , poll() and select()</p>
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">A用的是最老式的鱼竿，所以呢，得一直守着，等到鱼上钩了再拉杆；（同步阻塞）
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">B的鱼竿有个功能，能够显示是否有鱼上钩，所以呢，B就和旁边的MM聊天，隔会再看看有没有鱼上钩，有的话就迅速拉杆；（非阻塞）
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">C用的鱼竿和B差不多，但他想了一个好办法，就是同时放好几根鱼竿，然后守在旁边，一旦有显示说鱼上钩了，它就将对应的鱼竿拉起来；（io多路复用机制）
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">D是个有钱人，干脆雇了一个人帮他钓鱼，一旦那个人把鱼钓上来了，就给D发个短信。（异步机制）
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">D是个有钱人，干脆雇了一个人帮他钓鱼，一旦那个人把鱼钓上来了，就给D发个短信。（异步机制）
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">
+A用的是最老式的鱼竿，所以呢，得一直守着，等到鱼上钩了再拉杆；（同步阻塞）
+
+B的鱼竿有个功能，能够显示是否有鱼上钩，所以呢，B就和旁边的MM聊天，隔会再看看有没有鱼上钩，有的话就迅速拉杆；（非阻塞）
+
+C用的鱼竿和B差不多，但他想了一个好办法，就是同时放好几根鱼竿，然后守在旁边，一旦有显示说鱼上钩了，它就将对应的鱼竿拉起来；（io多路复用机制）
+
+D是个有钱人，干脆雇了一个人帮他钓鱼，一旦那个人把鱼钓上来了，就给D发个短信。（异步机制）
+
+D是个有钱人，干脆雇了一个人帮他钓鱼，一旦那个人把鱼钓上来了，就给D发个短信。（异步机制）
+</code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>

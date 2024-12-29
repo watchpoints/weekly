@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.101.0 with theme even" />
+<meta name="generator" content="Hugo 0.83.1 with theme even" />
 
 
 <link rel="canonical" href="https://wangcy6.github.io/post/2020/file/" />
@@ -48,7 +48,7 @@
 <meta itemprop="name" content="">
 <meta itemprop="description" content="文件系统-知识地图 知识卡 https://github.com/wangcy6/weekly/blob/master/KM/01%E7%B3%BB%E7%BB%9F%E7%9F%A5%E8%AF%86/file.md 阅读相关书籍 Linux 0.11内核完全注释 Linux内核设计与实现(第三版中文高清带目录) Linux设备驱动程序. Understanding the Linux Kernel,">
 
-<meta itemprop="wordCount" content="4442">
+<meta itemprop="wordCount" content="4449">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
 <meta name="twitter:description" content="文件系统-知识地图 知识卡 https://github.com/wangcy6/weekly/blob/master/KM/01%E7%B3%BB%E7%BB%9F%E7%9F%A5%E8%AF%86/file.md 阅读相关书籍 Linux 0.11内核完全注释 Linux内核设计与实现(第三版中文高清带目录) Linux设备驱动程序. Understanding the Linux Kernel,"/>
@@ -128,7 +128,7 @@
       <div class="post-meta">
         <span class="post-time"> 0001-01-01 00:00 </span>
         
-          <span class="more-meta"> 约 4442 字 </span>
+          <span class="more-meta"> 约 4449 字 </span>
           <span class="more-meta"> 预计阅读 9 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -243,7 +243,7 @@
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -261,23 +261,23 @@
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"> df -h
-</span></span><span class="line"><span class="cl">Filesystem                Size  Used Avail Use% Mounted on
-</span></span><span class="line"><span class="cl">/dev/mapper/vg_root-root   19G  6.5G   12G  37% /
-</span></span><span class="line"><span class="cl">devtmpfs                  7.8G     <span class="m">0</span>  7.8G   0% /dev
-</span></span><span class="line"><span class="cl">tmpfs                     7.8G     <span class="m">0</span>  7.8G   0% /dev/shm
-</span></span><span class="line"><span class="cl">tmpfs                     7.8G  4.3G  3.6G  55% /run
-</span></span><span class="line"><span class="cl">tmpfs                     7.8G     <span class="m">0</span>  7.8G   0% /sys/fs/cgroup
-</span></span><span class="line"><span class="cl">/dev/sda1                 190M  100M   77M  57% /boot
-</span></span><span class="line"><span class="cl">/dev/vda1                 493G  350M  467G   1% /app
-</span></span><span class="line"><span class="cl">tmpfs                     1.6G     <span class="m">0</span>  1.6G   0% /run/user/0
-</span></span><span class="line"><span class="cl">tmpfs                     1.6G     <span class="m">0</span>  1.6G   0% /run/user/888
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">tmpfs是最好的基于RAM的文件系统。是一种基于内存的文件系
-</span></span><span class="line"><span class="cl">/dev目录下的每一个文件都对应的是一个设备
-</span></span><span class="line"><span class="cl">proc文件系统为操作系统本身和应用程序之间的通信提供了一个安全的接口
-</span></span><span class="line"><span class="cl">https://blog.csdn.net/qq_27840681/article/details/77567094
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell"> df -h
+Filesystem                Size  Used Avail Use% Mounted on
+/dev/mapper/vg_root-root   19G  6.5G   12G  37% /
+devtmpfs                  7.8G     <span class="m">0</span>  7.8G   0% /dev
+tmpfs                     7.8G     <span class="m">0</span>  7.8G   0% /dev/shm
+tmpfs                     7.8G  4.3G  3.6G  55% /run
+tmpfs                     7.8G     <span class="m">0</span>  7.8G   0% /sys/fs/cgroup
+/dev/sda1                 190M  100M   77M  57% /boot
+/dev/vda1                 493G  350M  467G   1% /app
+tmpfs                     1.6G     <span class="m">0</span>  1.6G   0% /run/user/0
+tmpfs                     1.6G     <span class="m">0</span>  1.6G   0% /run/user/888
+
+tmpfs是最好的基于RAM的文件系统。是一种基于内存的文件系
+/dev目录下的每一个文件都对应的是一个设备
+proc文件系统为操作系统本身和应用程序之间的通信提供了一个安全的接口
+https://blog.csdn.net/qq_27840681/article/details/77567094
+</code></pre></td></tr></table>
 </div>
 </div><p>.上层应用如何调用底层驱动？</p>
 <h1 id="vfs">VFS</h1>
@@ -361,7 +361,7 @@
 <h5 id="vfs-中的-inode-与-inode_operations-结构体">VFS 中的 inode 与 inode_operations 结构体</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -380,32 +380,36 @@
 </span><span class="lnt">17
 </span><span class="lnt">18
 </span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">inode</span> <span class="p">{</span> 
-</span></span><span class="line"><span class="cl">   <span class="p">...</span> 
-</span></span><span class="line"><span class="cl">   <span class="k">const</span> <span class="k">struct</span> <span class="n">inode_operations</span>   <span class="o">*</span><span class="n">i_op</span><span class="p">;</span> <span class="c1">// 索引节点操作
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="kt">unsigned</span> <span class="kt">long</span>           <span class="n">i_ino</span><span class="p">;</span>      <span class="c1">// 索引节点号
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">atomic_t</span>                <span class="n">i_count</span><span class="p">;</span>    <span class="c1">// 引用计数器
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="kt">unsigned</span> <span class="kt">int</span>            <span class="n">i_nlink</span><span class="p">;</span>    <span class="c1">// 硬链接数目
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="p">...</span> 
-</span></span><span class="line"><span class="cl"><span class="p">}</span> 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">inode_operations</span> <span class="p">{</span> 
-</span></span><span class="line"><span class="cl">   <span class="p">...</span> 
-</span></span><span class="line"><span class="cl">   <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">create</span><span class="p">)</span> <span class="p">(</span><span class="k">struct</span> <span class="n">inode</span> <span class="o">*</span><span class="p">,</span><span class="k">struct</span> <span class="n">dentry</span> <span class="o">*</span><span class="p">,</span><span class="kt">int</span><span class="p">,</span> <span class="k">struct</span> <span class="n">nameidata</span> <span class="o">*</span><span class="p">);</span> 
-</span></span><span class="line"><span class="cl">   <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">link</span><span class="p">)</span> <span class="p">(</span><span class="k">struct</span> <span class="n">dentry</span> <span class="o">*</span><span class="p">,</span><span class="k">struct</span> <span class="n">inode</span> <span class="o">*</span><span class="p">,</span><span class="k">struct</span> <span class="n">dentry</span> <span class="o">*</span><span class="p">);</span> 
-</span></span><span class="line"><span class="cl">   <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">unlink</span><span class="p">)</span> <span class="p">(</span><span class="k">struct</span> <span class="n">inode</span> <span class="o">*</span><span class="p">,</span><span class="k">struct</span> <span class="n">dentry</span> <span class="o">*</span><span class="p">);</span> 
-</span></span><span class="line"><span class="cl">   <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">symlink</span><span class="p">)</span> <span class="p">(</span><span class="k">struct</span> <span class="n">inode</span> <span class="o">*</span><span class="p">,</span><span class="k">struct</span> <span class="n">dentry</span> <span class="o">*</span><span class="p">,</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="p">);</span> 
-</span></span><span class="line"><span class="cl">   <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">mkdir</span><span class="p">)</span> <span class="p">(</span><span class="k">struct</span> <span class="n">inode</span> <span class="o">*</span><span class="p">,</span><span class="k">struct</span> <span class="n">dentry</span> <span class="o">*</span><span class="p">,</span><span class="kt">int</span><span class="p">);</span> 
-</span></span><span class="line"><span class="cl">   <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">rmdir</span><span class="p">)</span> <span class="p">(</span><span class="k">struct</span> <span class="n">inode</span> <span class="o">*</span><span class="p">,</span><span class="k">struct</span> <span class="n">dentry</span> <span class="o">*</span><span class="p">);</span> 
-</span></span><span class="line"><span class="cl">   <span class="p">...</span> 
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="k">struct</span> <span class="n">inode</span> <span class="p">{</span> 
+   <span class="p">...</span> 
+   <span class="k">const</span> <span class="k">struct</span> <span class="n">inode_operations</span>   <span class="o">*</span><span class="n">i_op</span><span class="p">;</span> <span class="c1">// 索引节点操作
+</span><span class="c1"></span>   <span class="kt">unsigned</span> <span class="kt">long</span>           <span class="n">i_ino</span><span class="p">;</span>      <span class="c1">// 索引节点号
+</span><span class="c1"></span>   <span class="n">atomic_t</span>                <span class="n">i_count</span><span class="p">;</span>    <span class="c1">// 引用计数器
+</span><span class="c1"></span>   <span class="kt">unsigned</span> <span class="kt">int</span>            <span class="n">i_nlink</span><span class="p">;</span>    <span class="c1">// 硬链接数目
+</span><span class="c1"></span>   <span class="p">...</span> 
+<span class="p">}</span> 
+
+<span class="k">struct</span> <span class="n">inode_operations</span> <span class="p">{</span> 
+   <span class="p">...</span> 
+   <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">create</span><span class="p">)</span> <span class="p">(</span><span class="k">struct</span> <span class="n">inode</span> <span class="o">*</span><span class="p">,</span><span class="k">struct</span> <span class="n">dentry</span> <span class="o">*</span><span class="p">,</span><span class="kt">int</span><span class="p">,</span> <span class="k">struct</span> <span class="n">nameidata</span> <span class="o">*</span><span class="p">);</span> 
+   <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">link</span><span class="p">)</span> <span class="p">(</span><span class="k">struct</span> <span class="n">dentry</span> <span class="o">*</span><span class="p">,</span><span class="k">struct</span> <span class="n">inode</span> <span class="o">*</span><span class="p">,</span><span class="k">struct</span> <span class="n">dentry</span> <span class="o">*</span><span class="p">);</span> 
+   <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">unlink</span><span class="p">)</span> <span class="p">(</span><span class="k">struct</span> <span class="n">inode</span> <span class="o">*</span><span class="p">,</span><span class="k">struct</span> <span class="n">dentry</span> <span class="o">*</span><span class="p">);</span> 
+   <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">symlink</span><span class="p">)</span> <span class="p">(</span><span class="k">struct</span> <span class="n">inode</span> <span class="o">*</span><span class="p">,</span><span class="k">struct</span> <span class="n">dentry</span> <span class="o">*</span><span class="p">,</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="p">);</span> 
+   <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">mkdir</span><span class="p">)</span> <span class="p">(</span><span class="k">struct</span> <span class="n">inode</span> <span class="o">*</span><span class="p">,</span><span class="k">struct</span> <span class="n">dentry</span> <span class="o">*</span><span class="p">,</span><span class="kt">int</span><span class="p">);</span> 
+   <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">rmdir</span><span class="p">)</span> <span class="p">(</span><span class="k">struct</span> <span class="n">inode</span> <span class="o">*</span><span class="p">,</span><span class="k">struct</span> <span class="n">dentry</span> <span class="o">*</span><span class="p">);</span> 
+   <span class="p">...</span> 
+<span class="p">}</span>
+
+
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -417,17 +421,17 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">ext4_inode</span> <span class="p">{</span> 
-</span></span><span class="line"><span class="cl">   <span class="err">``</span><span class="p">...</span> 
-</span></span><span class="line"><span class="cl">   <span class="err">``</span><span class="n">__le32</span>  <span class="n">i_atime</span><span class="p">;</span>        <span class="c1">// 文件内容最后一次访问时间
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="err">``</span><span class="n">__le32</span>  <span class="n">i_ctime</span><span class="p">;</span>        <span class="c1">// inode 修改时间
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="err">``</span><span class="n">__le32</span>  <span class="n">i_mtime</span><span class="p">;</span>        <span class="c1">// 文件内容最后一次修改时间
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="err">``</span><span class="n">__le16</span>  <span class="n">i_links_count</span><span class="p">;</span>  <span class="c1">// 硬链接计数
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="err">``</span><span class="n">__le32</span>  <span class="n">i_blocks_lo</span><span class="p">;</span>    <span class="c1">// Block 计数
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="err">``</span><span class="n">__le32</span>  <span class="n">i_block</span><span class="p">[</span><span class="n">EXT4_N_BLOCKS</span><span class="p">];</span>  <span class="c1">// 指向具体的 block 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="err">``</span><span class="p">...</span> 
-</span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="k">struct</span> <span class="n">ext4_inode</span> <span class="p">{</span> 
+   <span class="err">``</span><span class="p">...</span> 
+   <span class="err">``</span><span class="n">__le32</span>  <span class="n">i_atime</span><span class="p">;</span>        <span class="c1">// 文件内容最后一次访问时间
+</span><span class="c1"></span>   <span class="err">``</span><span class="n">__le32</span>  <span class="n">i_ctime</span><span class="p">;</span>        <span class="c1">// inode 修改时间
+</span><span class="c1"></span>   <span class="err">``</span><span class="n">__le32</span>  <span class="n">i_mtime</span><span class="p">;</span>        <span class="c1">// 文件内容最后一次修改时间
+</span><span class="c1"></span>   <span class="err">``</span><span class="n">__le16</span>  <span class="n">i_links_count</span><span class="p">;</span>  <span class="c1">// 硬链接计数
+</span><span class="c1"></span>   <span class="err">``</span><span class="n">__le32</span>  <span class="n">i_blocks_lo</span><span class="p">;</span>    <span class="c1">// Block 计数
+</span><span class="c1"></span>   <span class="err">``</span><span class="n">__le32</span>  <span class="n">i_block</span><span class="p">[</span><span class="n">EXT4_N_BLOCKS</span><span class="p">];</span>  <span class="c1">// 指向具体的 block 
+</span><span class="c1"></span>   <span class="err">``</span><span class="p">...</span> 
+<span class="p">};</span>
+</code></pre></td></tr></table>
 </div>
 </div><p>画外音：</p>
 <p>通过 inode 找到数据快才是重点，这样数据库 可能存储在任何一个角落里</p>
@@ -435,7 +439,7 @@
 <h4 id="superblock-超级区块">Superblock （超级区块）</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -449,23 +453,25 @@
 </span><span class="lnt">12
 </span><span class="lnt">13
 </span><span class="lnt">14
+</span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">block 与 inode 的总量；
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">未使用与已使用的 inode / block 数量；
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">block 与 inode 的大小 （block 为 1, 2, 4K，inode 为 128Bytes 或 256Bytes） ；
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">filesystem 的挂载时间、最近一次写入数据的时间、最近一次检验磁盘 （fsck） 的时间
-</span></span><span class="line"><span class="cl">等文件系统的相关信息；
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">一个 val
-</span></span><span class="line"><span class="cl">id bit 数值，若此文件系统已被挂载，则 valid bit 为 0 ，若未被挂载，则 valid bit
-</span></span><span class="line"><span class="cl">为
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">dumpe2fs -h /dev/sda2
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">block 与 inode 的总量；
+
+未使用与已使用的 inode / block 数量；
+
+block 与 inode 的大小 （block 为 1, 2, 4K，inode 为 128Bytes 或 256Bytes） ；
+
+filesystem 的挂载时间、最近一次写入数据的时间、最近一次检验磁盘 （fsck） 的时间
+等文件系统的相关信息；
+
+一个 val
+id bit 数值，若此文件系统已被挂载，则 valid bit 为 0 ，若未被挂载，则 valid bit
+为
+
+dumpe2fs -h /dev/sda2
+
+</code></pre></td></tr></table>
 </div>
 </div><h3 id="2-目录项对象directory-entry">2. 目录项对象（directory entry）</h3>
 <blockquote>
@@ -577,7 +583,7 @@ kernel</p>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -601,36 +607,36 @@ kernel</p>
 </span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp"># 按下 c 按照缓存大小排序，按下 a 按照活跃对象数排序 
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
-</span></span><span class="line"><span class="cl"><span class="err">$</span> <span class="n">slabtop</span> 
-</span></span><span class="line"><span class="cl"><span class="n">Active</span> <span class="o">/</span> <span class="n">Total</span> <span class="n">Objects</span> <span class="p">(</span><span class="o">%</span> <span class="n">used</span><span class="p">)</span>    <span class="o">:</span> <span class="mi">277970</span> <span class="o">/</span> <span class="mi">358914</span> <span class="p">(</span><span class="mf">77.4</span><span class="o">%</span><span class="p">)</span> 
-</span></span><span class="line"><span class="cl"><span class="n">Active</span> <span class="o">/</span> <span class="n">Total</span> <span class="n">Slabs</span> <span class="p">(</span><span class="o">%</span> <span class="n">used</span><span class="p">)</span>      <span class="o">:</span> <span class="mi">12414</span> <span class="o">/</span> <span class="mi">12414</span> <span class="p">(</span><span class="mf">100.0</span><span class="o">%</span><span class="p">)</span> 
-</span></span><span class="line"><span class="cl"><span class="n">Active</span> <span class="o">/</span> <span class="n">Total</span> <span class="n">Caches</span> <span class="p">(</span><span class="o">%</span> <span class="n">used</span><span class="p">)</span>     <span class="o">:</span> <span class="mi">83</span> <span class="o">/</span> <span class="mi">135</span> <span class="p">(</span><span class="mf">61.5</span><span class="o">%</span><span class="p">)</span> 
-</span></span><span class="line"><span class="cl"><span class="n">Active</span> <span class="o">/</span> <span class="n">Total</span> <span class="n">Size</span> <span class="p">(</span><span class="o">%</span> <span class="n">used</span><span class="p">)</span>       <span class="o">:</span> <span class="mf">57816.88</span><span class="n">K</span> <span class="o">/</span> <span class="mf">73307.70</span><span class="n">K</span> <span class="p">(</span><span class="mf">78.9</span><span class="o">%</span><span class="p">)</span> 
-</span></span><span class="line"><span class="cl"><span class="n">Minimum</span> <span class="o">/</span> <span class="n">Average</span> <span class="o">/</span> <span class="n">Maximum</span> <span class="nl">Object</span> <span class="p">:</span> <span class="mf">0.01</span><span class="n">K</span> <span class="o">/</span> <span class="mf">0.20</span><span class="n">K</span> <span class="o">/</span> <span class="mf">22.88</span><span class="n">K</span> 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="n">OBJS</span> <span class="n">ACTIVE</span>  <span class="n">USE</span> <span class="n">OBJ</span> <span class="n">SIZE</span>  <span class="n">SLABS</span> <span class="n">OBJ</span><span class="o">/</span><span class="n">SLAB</span> <span class="n">CACHE</span> <span class="n">SIZE</span> <span class="n">NAME</span> 
-</span></span><span class="line"><span class="cl"><span class="mi">69804</span>  <span class="mi">23094</span>   <span class="mi">0</span><span class="o">%</span>    <span class="mf">0.19</span><span class="n">K</span>   <span class="mi">3324</span>       <span class="mi">21</span>     <span class="mi">13296</span><span class="n">K</span> <span class="n">dentry</span> 
-</span></span><span class="line"><span class="cl"><span class="mi">16380</span>  <span class="mi">15854</span>   <span class="mi">0</span><span class="o">%</span>    <span class="mf">0.59</span><span class="n">K</span>   <span class="mi">1260</span>       <span class="mi">13</span>     <span class="mi">10080</span><span class="n">K</span> <span class="n">inode_cache</span> 
-</span></span><span class="line"><span class="cl"><span class="mi">58260</span>  <span class="mi">55397</span>   <span class="mi">0</span><span class="o">%</span>    <span class="mf">0.13</span><span class="n">K</span>   <span class="mi">1942</span>       <span class="mi">30</span>      <span class="mi">7768</span><span class="n">K</span> <span class="n">kernfs_node_cache</span> 
-</span></span><span class="line"><span class="cl">   <span class="mi">485</span>    <span class="mi">413</span>   <span class="mi">0</span><span class="o">%</span>    <span class="mf">5.69</span><span class="n">K</span>     <span class="mi">97</span>        <span class="mi">5</span>      <span class="mi">3104</span><span class="n">K</span> <span class="n">task_struct</span> 
-</span></span><span class="line"><span class="cl">  <span class="mi">1472</span>   <span class="mi">1397</span>   <span class="mi">0</span><span class="o">%</span>    <span class="mf">2.00</span><span class="n">K</span>     <span class="mi">92</span>       <span class="mi">16</span>      <span class="mi">2944</span><span class="n">K</span> <span class="n">kmalloc</span><span class="o">-</span><span class="mi">2048</span> 
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">   <span class="n">dentry</span> <span class="err">行表示目录项缓存，</span><span class="n">inode_cache</span> <span class="err">行，表示</span> <span class="n">VFS</span> <span class="err">索引节点缓存，其余的则是各种文件系统的索引节点缓存。</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"> <span class="err">目录项和索引节点占用了最多的</span> <span class="n">Slab</span> <span class="err">缓存。</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="err">不过它们占用的内存其实并不大，加起来也只有</span> <span class="mi">23</span><span class="n">MB</span> <span class="err">左右</span>
-</span></span><span class="line"><span class="cl">    
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp"># 按下 c 按照缓存大小排序，按下 a 按照活跃对象数排序 
+</span><span class="cp"></span>
+<span class="err">$</span> <span class="n">slabtop</span> 
+<span class="n">Active</span> <span class="o">/</span> <span class="n">Total</span> <span class="n">Objects</span> <span class="p">(</span><span class="o">%</span> <span class="n">used</span><span class="p">)</span>    <span class="o">:</span> <span class="mi">277970</span> <span class="o">/</span> <span class="mi">358914</span> <span class="p">(</span><span class="mf">77.4</span><span class="o">%</span><span class="p">)</span> 
+<span class="n">Active</span> <span class="o">/</span> <span class="n">Total</span> <span class="n">Slabs</span> <span class="p">(</span><span class="o">%</span> <span class="n">used</span><span class="p">)</span>      <span class="o">:</span> <span class="mi">12414</span> <span class="o">/</span> <span class="mi">12414</span> <span class="p">(</span><span class="mf">100.0</span><span class="o">%</span><span class="p">)</span> 
+<span class="n">Active</span> <span class="o">/</span> <span class="n">Total</span> <span class="n">Caches</span> <span class="p">(</span><span class="o">%</span> <span class="n">used</span><span class="p">)</span>     <span class="o">:</span> <span class="mi">83</span> <span class="o">/</span> <span class="mi">135</span> <span class="p">(</span><span class="mf">61.5</span><span class="o">%</span><span class="p">)</span> 
+<span class="n">Active</span> <span class="o">/</span> <span class="n">Total</span> <span class="n">Size</span> <span class="p">(</span><span class="o">%</span> <span class="n">used</span><span class="p">)</span>       <span class="o">:</span> <span class="mf">57816.88</span><span class="n">K</span> <span class="o">/</span> <span class="mf">73307.70</span><span class="n">K</span> <span class="p">(</span><span class="mf">78.9</span><span class="o">%</span><span class="p">)</span> 
+<span class="n">Minimum</span> <span class="o">/</span> <span class="n">Average</span> <span class="o">/</span> <span class="n">Maximum</span> <span class="nl">Object</span> <span class="p">:</span> <span class="mf">0.01</span><span class="n">K</span> <span class="o">/</span> <span class="mf">0.20</span><span class="n">K</span> <span class="o">/</span> <span class="mf">22.88</span><span class="n">K</span> 
+
+  <span class="n">OBJS</span> <span class="n">ACTIVE</span>  <span class="n">USE</span> <span class="n">OBJ</span> <span class="n">SIZE</span>  <span class="n">SLABS</span> <span class="n">OBJ</span><span class="o">/</span><span class="n">SLAB</span> <span class="n">CACHE</span> <span class="n">SIZE</span> <span class="n">NAME</span> 
+<span class="mi">69804</span>  <span class="mi">23094</span>   <span class="mi">0</span><span class="o">%</span>    <span class="mf">0.19</span><span class="n">K</span>   <span class="mi">3324</span>       <span class="mi">21</span>     <span class="mi">13296</span><span class="n">K</span> <span class="n">dentry</span> 
+<span class="mi">16380</span>  <span class="mi">15854</span>   <span class="mi">0</span><span class="o">%</span>    <span class="mf">0.59</span><span class="n">K</span>   <span class="mi">1260</span>       <span class="mi">13</span>     <span class="mi">10080</span><span class="n">K</span> <span class="n">inode_cache</span> 
+<span class="mi">58260</span>  <span class="mi">55397</span>   <span class="mi">0</span><span class="o">%</span>    <span class="mf">0.13</span><span class="n">K</span>   <span class="mi">1942</span>       <span class="mi">30</span>      <span class="mi">7768</span><span class="n">K</span> <span class="n">kernfs_node_cache</span> 
+   <span class="mi">485</span>    <span class="mi">413</span>   <span class="mi">0</span><span class="o">%</span>    <span class="mf">5.69</span><span class="n">K</span>     <span class="mi">97</span>        <span class="mi">5</span>      <span class="mi">3104</span><span class="n">K</span> <span class="n">task_struct</span> 
+  <span class="mi">1472</span>   <span class="mi">1397</span>   <span class="mi">0</span><span class="o">%</span>    <span class="mf">2.00</span><span class="n">K</span>     <span class="mi">92</span>       <span class="mi">16</span>      <span class="mi">2944</span><span class="n">K</span> <span class="n">kmalloc</span><span class="o">-</span><span class="mi">2048</span> 
+    
+   <span class="n">dentry</span> <span class="err">行表示目录项缓存，</span><span class="n">inode_cache</span> <span class="err">行，表示</span> <span class="n">VFS</span> <span class="err">索引节点缓存，其余的则是各种文件系统的索引节点缓存。</span>
+    
+ <span class="err">目录项和索引节点占用了最多的</span> <span class="n">Slab</span> <span class="err">缓存。</span>
+
+<span class="err">不过它们占用的内存其实并不大，加起来也只有</span> <span class="mi">23</span><span class="n">MB</span> <span class="err">左右</span>
+    
+</code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>free 输出的 Cache，是页缓存和可回收 Slab 缓存的和  （vmstat free）</li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -642,21 +648,21 @@ kernel</p>
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">$ cat /proc/meminfo <span class="p">|</span> grep -E <span class="s2">&#34;SReclaimable|Cached&#34;</span> 
-</span></span><span class="line"><span class="cl">Cached:           <span class="m">748316</span> kB 
-</span></span><span class="line"><span class="cl">SwapCached:            <span class="m">0</span> kB 
-</span></span><span class="line"><span class="cl">SReclaimable:     <span class="m">179508</span> kB 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
-</span></span><span class="line"><span class="cl"> r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
-</span></span><span class="line"><span class="cl"> <span class="m">1</span>  <span class="m">0</span>  <span class="m">81196</span> <span class="m">13122800</span> <span class="m">239084</span> <span class="m">2126152</span>    <span class="m">0</span>    <span class="m">0</span>     <span class="m">0</span>     <span class="m">1</span>    <span class="m">0</span>    <span class="m">0</span>  <span class="m">1</span>  <span class="m">0</span> <span class="m">99</span>  <span class="m">0</span>  <span class="m">0</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">
+$ cat /proc/meminfo <span class="p">|</span> grep -E <span class="s2">&#34;SReclaimable|Cached&#34;</span> 
+Cached:           <span class="m">748316</span> kB 
+SwapCached:            <span class="m">0</span> kB 
+SReclaimable:     <span class="m">179508</span> kB 
+
+
+procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
+ <span class="m">1</span>  <span class="m">0</span>  <span class="m">81196</span> <span class="m">13122800</span> <span class="m">239084</span> <span class="m">2126152</span>    <span class="m">0</span>    <span class="m">0</span>     <span class="m">0</span>     <span class="m">1</span>    <span class="m">0</span>    <span class="m">0</span>  <span class="m">1</span>  <span class="m">0</span> <span class="m">99</span>  <span class="m">0</span>  <span class="m">0</span>
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -705,61 +711,61 @@ kernel</p>
 </span><span class="lnt">47
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">cat </span><span class="p">/</span><span class="n">proc</span><span class="p">/</span><span class="n">meminfo</span>
-</span></span><span class="line"><span class="cl"><span class="n">MemTotal</span><span class="err">:</span>       <span class="n">16267884</span> <span class="n">kB</span>
-</span></span><span class="line"><span class="cl"><span class="n">MemFree</span><span class="err">:</span>        <span class="n">13119460</span> <span class="n">kB</span>
-</span></span><span class="line"><span class="cl"><span class="n">MemAvailable</span><span class="err">:</span>   <span class="n">13798228</span> <span class="n">kB</span>
-</span></span><span class="line"><span class="cl"><span class="n">Buffers</span><span class="err">:</span>          <span class="n">240324</span> <span class="n">kB</span>
-</span></span><span class="line"><span class="cl"><span class="n">Cached</span><span class="err">:</span>          <span class="n">1648252</span> <span class="n">kB</span>
-</span></span><span class="line"><span class="cl"><span class="n">SwapCached</span><span class="err">:</span>         <span class="n">9644</span> <span class="n">kB</span>
-</span></span><span class="line"><span class="cl"><span class="n">Active</span><span class="err">:</span>           <span class="n">802676</span> <span class="n">kB</span>
-</span></span><span class="line"><span class="cl"><span class="n">Inactive</span><span class="err">:</span>        <span class="n">1733356</span> <span class="n">kB</span>
-</span></span><span class="line"><span class="cl"><span class="n">Active</span><span class="p">(</span><span class="n">anon</span><span class="p">)</span><span class="err">:</span>     <span class="n">510300</span> <span class="n">kB</span>
-</span></span><span class="line"><span class="cl"><span class="n">Inactive</span><span class="p">(</span><span class="n">anon</span><span class="p">)</span><span class="err">:</span>  <span class="n">1449420</span> <span class="n">kB</span>
-</span></span><span class="line"><span class="cl"><span class="n">Active</span><span class="p">(</span><span class="n">file</span><span class="p">)</span><span class="err">:</span>     <span class="n">292376</span> <span class="n">kB</span>
-</span></span><span class="line"><span class="cl"><span class="n">Inactive</span><span class="p">(</span><span class="n">file</span><span class="p">)</span><span class="err">:</span>   <span class="n">283936</span> <span class="n">kB</span>
-</span></span><span class="line"><span class="cl"><span class="n">Unevictable</span><span class="err">:</span>           <span class="n">0</span> <span class="n">kB</span>
-</span></span><span class="line"><span class="cl"><span class="n">Mlocked</span><span class="err">:</span>               <span class="n">0</span> <span class="n">kB</span>
-</span></span><span class="line"><span class="cl"><span class="n">SwapTotal</span><span class="err">:</span>       <span class="n">1048572</span> <span class="n">kB</span>
-</span></span><span class="line"><span class="cl"><span class="n">SwapFree</span><span class="err">:</span>         <span class="n">967376</span> <span class="n">kB</span>
-</span></span><span class="line"><span class="cl"><span class="n">Dirty</span><span class="err">:</span>               <span class="n">108</span> <span class="n">kB</span>
-</span></span><span class="line"><span class="cl"><span class="n">Writeback</span><span class="err">:</span>             <span class="n">0</span> <span class="n">kB</span>
-</span></span><span class="line"><span class="cl"><span class="n">AnonPages</span><span class="err">:</span>        <span class="n">639208</span> <span class="n">kB</span>
-</span></span><span class="line"><span class="cl"><span class="n">Mapped</span><span class="err">:</span>           <span class="n">109460</span> <span class="n">kB</span>
-</span></span><span class="line"><span class="cl"><span class="n">Shmem</span><span class="err">:</span>           <span class="n">1312244</span> <span class="n">kB</span>
-</span></span><span class="line"><span class="cl"><span class="n">Slab</span><span class="err">:</span>             <span class="n">478768</span> <span class="n">kB</span>
-</span></span><span class="line"><span class="cl"><span class="n">SReclaimable</span><span class="err">:</span>     <span class="n">355860</span> <span class="n">kB</span>
-</span></span><span class="line"><span class="cl"><span class="n">SUnreclaim</span><span class="err">:</span>       <span class="n">122908</span> <span class="n">kB</span>
-</span></span><span class="line"><span class="cl"><span class="n">KernelStack</span><span class="err">:</span>        <span class="n">5376</span> <span class="n">kB</span>
-</span></span><span class="line"><span class="cl"><span class="n">PageTables</span><span class="err">:</span>        <span class="n">10860</span> <span class="n">kB</span>
-</span></span><span class="line"><span class="cl"><span class="n">NFS_Unstable</span><span class="err">:</span>          <span class="n">0</span> <span class="n">kB</span>
-</span></span><span class="line"><span class="cl"><span class="n">Bounce</span><span class="err">:</span>                <span class="n">0</span> <span class="n">kB</span>
-</span></span><span class="line"><span class="cl"><span class="n">WritebackTmp</span><span class="err">:</span>          <span class="n">0</span> <span class="n">kB</span>
-</span></span><span class="line"><span class="cl"><span class="n">CommitLimit</span><span class="err">:</span>     <span class="n">9182512</span> <span class="n">kB</span>
-</span></span><span class="line"><span class="cl"><span class="n">Committed_AS</span><span class="err">:</span>    <span class="n">3782272</span> <span class="n">kB</span>
-</span></span><span class="line"><span class="cl"><span class="n">VmallocTotal</span><span class="err">:</span>   <span class="n">34359738367</span> <span class="n">kB</span>
-</span></span><span class="line"><span class="cl"><span class="n">VmallocUsed</span><span class="err">:</span>       <span class="n">34736</span> <span class="n">kB</span>
-</span></span><span class="line"><span class="cl"><span class="n">VmallocChunk</span><span class="err">:</span>   <span class="n">34359698684</span> <span class="n">kB</span>
-</span></span><span class="line"><span class="cl"><span class="n">HardwareCorrupted</span><span class="err">:</span>     <span class="n">0</span> <span class="n">kB</span>
-</span></span><span class="line"><span class="cl"><span class="n">AnonHugePages</span><span class="err">:</span>    <span class="n">253952</span> <span class="n">kB</span>
-</span></span><span class="line"><span class="cl"><span class="n">HugePages_Total</span><span class="err">:</span>       <span class="n">0</span>
-</span></span><span class="line"><span class="cl"><span class="n">HugePages_Free</span><span class="err">:</span>        <span class="n">0</span>
-</span></span><span class="line"><span class="cl"><span class="n">HugePages_Rsvd</span><span class="err">:</span>        <span class="n">0</span>
-</span></span><span class="line"><span class="cl"><span class="n">HugePages_Surp</span><span class="err">:</span>        <span class="n">0</span>
-</span></span><span class="line"><span class="cl"><span class="n">Hugepagesize</span><span class="err">:</span>       <span class="n">2048</span> <span class="n">kB</span>
-</span></span><span class="line"><span class="cl"><span class="n">DirectMap4k</span><span class="err">:</span>      <span class="n">108416</span> <span class="n">kB</span>
-</span></span><span class="line"><span class="cl"><span class="n">DirectMap2M</span><span class="err">:</span>    <span class="n">10377216</span> <span class="n">kB</span>
-</span></span><span class="line"><span class="cl"><span class="n">DirectMap1G</span><span class="err">:</span>     <span class="n">8388608</span> <span class="n">kB</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-powershell" data-lang="powershell">
+
+<span class="nb">cat </span><span class="p">/</span><span class="n">proc</span><span class="p">/</span><span class="n">meminfo</span>
+<span class="n">MemTotal</span><span class="err">:</span>       <span class="n">16267884</span> <span class="n">kB</span>
+<span class="n">MemFree</span><span class="err">:</span>        <span class="n">13119460</span> <span class="n">kB</span>
+<span class="n">MemAvailable</span><span class="err">:</span>   <span class="n">13798228</span> <span class="n">kB</span>
+<span class="n">Buffers</span><span class="err">:</span>          <span class="n">240324</span> <span class="n">kB</span>
+<span class="n">Cached</span><span class="err">:</span>          <span class="n">1648252</span> <span class="n">kB</span>
+<span class="n">SwapCached</span><span class="err">:</span>         <span class="n">9644</span> <span class="n">kB</span>
+<span class="n">Active</span><span class="err">:</span>           <span class="n">802676</span> <span class="n">kB</span>
+<span class="n">Inactive</span><span class="err">:</span>        <span class="n">1733356</span> <span class="n">kB</span>
+<span class="n">Active</span><span class="p">(</span><span class="n">anon</span><span class="p">)</span><span class="err">:</span>     <span class="n">510300</span> <span class="n">kB</span>
+<span class="n">Inactive</span><span class="p">(</span><span class="n">anon</span><span class="p">)</span><span class="err">:</span>  <span class="n">1449420</span> <span class="n">kB</span>
+<span class="n">Active</span><span class="p">(</span><span class="n">file</span><span class="p">)</span><span class="err">:</span>     <span class="n">292376</span> <span class="n">kB</span>
+<span class="n">Inactive</span><span class="p">(</span><span class="n">file</span><span class="p">)</span><span class="err">:</span>   <span class="n">283936</span> <span class="n">kB</span>
+<span class="n">Unevictable</span><span class="err">:</span>           <span class="n">0</span> <span class="n">kB</span>
+<span class="n">Mlocked</span><span class="err">:</span>               <span class="n">0</span> <span class="n">kB</span>
+<span class="n">SwapTotal</span><span class="err">:</span>       <span class="n">1048572</span> <span class="n">kB</span>
+<span class="n">SwapFree</span><span class="err">:</span>         <span class="n">967376</span> <span class="n">kB</span>
+<span class="n">Dirty</span><span class="err">:</span>               <span class="n">108</span> <span class="n">kB</span>
+<span class="n">Writeback</span><span class="err">:</span>             <span class="n">0</span> <span class="n">kB</span>
+<span class="n">AnonPages</span><span class="err">:</span>        <span class="n">639208</span> <span class="n">kB</span>
+<span class="n">Mapped</span><span class="err">:</span>           <span class="n">109460</span> <span class="n">kB</span>
+<span class="n">Shmem</span><span class="err">:</span>           <span class="n">1312244</span> <span class="n">kB</span>
+<span class="n">Slab</span><span class="err">:</span>             <span class="n">478768</span> <span class="n">kB</span>
+<span class="n">SReclaimable</span><span class="err">:</span>     <span class="n">355860</span> <span class="n">kB</span>
+<span class="n">SUnreclaim</span><span class="err">:</span>       <span class="n">122908</span> <span class="n">kB</span>
+<span class="n">KernelStack</span><span class="err">:</span>        <span class="n">5376</span> <span class="n">kB</span>
+<span class="n">PageTables</span><span class="err">:</span>        <span class="n">10860</span> <span class="n">kB</span>
+<span class="n">NFS_Unstable</span><span class="err">:</span>          <span class="n">0</span> <span class="n">kB</span>
+<span class="n">Bounce</span><span class="err">:</span>                <span class="n">0</span> <span class="n">kB</span>
+<span class="n">WritebackTmp</span><span class="err">:</span>          <span class="n">0</span> <span class="n">kB</span>
+<span class="n">CommitLimit</span><span class="err">:</span>     <span class="n">9182512</span> <span class="n">kB</span>
+<span class="n">Committed_AS</span><span class="err">:</span>    <span class="n">3782272</span> <span class="n">kB</span>
+<span class="n">VmallocTotal</span><span class="err">:</span>   <span class="n">34359738367</span> <span class="n">kB</span>
+<span class="n">VmallocUsed</span><span class="err">:</span>       <span class="n">34736</span> <span class="n">kB</span>
+<span class="n">VmallocChunk</span><span class="err">:</span>   <span class="n">34359698684</span> <span class="n">kB</span>
+<span class="n">HardwareCorrupted</span><span class="err">:</span>     <span class="n">0</span> <span class="n">kB</span>
+<span class="n">AnonHugePages</span><span class="err">:</span>    <span class="n">253952</span> <span class="n">kB</span>
+<span class="n">HugePages_Total</span><span class="err">:</span>       <span class="n">0</span>
+<span class="n">HugePages_Free</span><span class="err">:</span>        <span class="n">0</span>
+<span class="n">HugePages_Rsvd</span><span class="err">:</span>        <span class="n">0</span>
+<span class="n">HugePages_Surp</span><span class="err">:</span>        <span class="n">0</span>
+<span class="n">Hugepagesize</span><span class="err">:</span>       <span class="n">2048</span> <span class="n">kB</span>
+<span class="n">DirectMap4k</span><span class="err">:</span>      <span class="n">108416</span> <span class="n">kB</span>
+<span class="n">DirectMap2M</span><span class="err">:</span>    <span class="n">10377216</span> <span class="n">kB</span>
+<span class="n">DirectMap1G</span><span class="err">:</span>     <span class="n">8388608</span> <span class="n">kB</span>
+</code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>可以用stat命令，查看某个文件的inode信息</li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -784,41 +790,43 @@ kernel</p>
 </span><span class="lnt">23
 </span><span class="lnt">24
 </span><span class="lnt">25
+</span><span class="lnt">26
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"> stat cmd.txt 
-</span></span><span class="line"><span class="cl">  File: ‘cmd.txt’
-</span></span><span class="line"><span class="cl">  Size: <span class="m">131</span>             Blocks: <span class="m">8</span>          IO Block: <span class="m">4096</span>   regular file
-</span></span><span class="line"><span class="cl">Device: fd00h/64768d    Inode: <span class="m">482</span>         Links: <span class="m">1</span>
-</span></span><span class="line"><span class="cl">Access: <span class="o">(</span>0644/-rw-r--r--<span class="o">)</span>  Uid: <span class="o">(</span>    0/    root<span class="o">)</span>   Gid: <span class="o">(</span>    0/    root<span class="o">)</span>
-</span></span><span class="line"><span class="cl">Access: 2019-01-22 17:22:54.685741395 +0800
-</span></span><span class="line"><span class="cl">Modify: 2019-01-22 16:34:25.993178846 +0800
-</span></span><span class="line"><span class="cl">Change: 2019-01-22 16:34:25.993178846 +0800
-</span></span><span class="line"><span class="cl"> Birth: -
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">stat - display file or file system status
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">stat -f cmd.txt 
-</span></span><span class="line"><span class="cl">  File: <span class="s2">&#34;cmd.txt&#34;</span>
-</span></span><span class="line"><span class="cl">    ID: 37fc5f360777ebb Namelen: <span class="m">255</span>     Type: ext2/ext3
-</span></span><span class="line"><span class="cl">Block size: <span class="m">4096</span>       Fundamental block size: <span class="m">4096</span>
-</span></span><span class="line"><span class="cl">Blocks: Total: <span class="m">4817666</span>    Free: <span class="m">2971792</span>    Available: <span class="m">2748308</span>
-</span></span><span class="line"><span class="cl">Inodes: Total: <span class="m">1227328</span>    Free: <span class="m">1148127</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">df -i
-</span></span><span class="line"><span class="cl">Filesystem                 Inodes  IUsed    IFree IUse% Mounted on
-</span></span><span class="line"><span class="cl">/dev/mapper/vg_root-root  <span class="m">1227328</span>  <span class="m">79201</span>  <span class="m">1148127</span>    7% /
-</span></span><span class="line"><span class="cl">devtmpfs                  <span class="m">2030909</span>    <span class="m">422</span>  <span class="m">2030487</span>    1% /dev
-</span></span><span class="line"><span class="cl">tmpfs                     <span class="m">2033485</span>      <span class="m">1</span>  <span class="m">2033484</span>    1% /dev/shm
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell"> stat cmd.txt 
+  File: ‘cmd.txt’
+  Size: <span class="m">131</span>             Blocks: <span class="m">8</span>          IO Block: <span class="m">4096</span>   regular file
+Device: fd00h/64768d    Inode: <span class="m">482</span>         Links: <span class="m">1</span>
+Access: <span class="o">(</span>0644/-rw-r--r--<span class="o">)</span>  Uid: <span class="o">(</span>    0/    root<span class="o">)</span>   Gid: <span class="o">(</span>    0/    root<span class="o">)</span>
+Access: 2019-01-22 17:22:54.685741395 +0800
+Modify: 2019-01-22 16:34:25.993178846 +0800
+Change: 2019-01-22 16:34:25.993178846 +0800
+ Birth: -
+
+stat - display file or file system status
+
+stat -f cmd.txt 
+  File: <span class="s2">&#34;cmd.txt&#34;</span>
+    ID: 37fc5f360777ebb Namelen: <span class="m">255</span>     Type: ext2/ext3
+Block size: <span class="m">4096</span>       Fundamental block size: <span class="m">4096</span>
+Blocks: Total: <span class="m">4817666</span>    Free: <span class="m">2971792</span>    Available: <span class="m">2748308</span>
+Inodes: Total: <span class="m">1227328</span>    Free: <span class="m">1148127</span>
+
+
+df -i
+Filesystem                 Inodes  IUsed    IFree IUse% Mounted on
+/dev/mapper/vg_root-root  <span class="m">1227328</span>  <span class="m">79201</span>  <span class="m">1148127</span>    7% /
+devtmpfs                  <span class="m">2030909</span>    <span class="m">422</span>  <span class="m">2030487</span>    1% /dev
+tmpfs                     <span class="m">2033485</span>      <span class="m">1</span>  <span class="m">2033484</span>    1% /dev/shm
+
+</code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>是否缓存 1631&ndash;&gt;112</li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -856,66 +864,72 @@ kernel</p>
 </span><span class="lnt">36
 </span><span class="lnt">37
 </span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">To free pagecache:
-</span></span><span class="line"><span class="cl"><span class="c1"># echo 1 &gt; /proc/sys/vm/drop_caches</span>
-</span></span><span class="line"><span class="cl">To free dentries and inodes:
-</span></span><span class="line"><span class="cl"><span class="c1"># echo 2 &gt; /proc/sys/vm/drop_caches</span>
-</span></span><span class="line"><span class="cl">To free pagecache, dentries and inodes:
-</span></span><span class="line"><span class="cl"><span class="c1"># echo 3 &gt; /proc/sys/vm/drop_caches</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">root@work:~# free -m
-</span></span><span class="line"><span class="cl">              total        used        free      shared  buff/cache   available
-</span></span><span class="line"><span class="cl">Mem:           <span class="m">2009</span>         <span class="m">276</span>         <span class="m">101</span>           <span class="m">3</span>        <span class="m">1631</span>        <span class="m">1545</span>
-</span></span><span class="line"><span class="cl">Swap:           <span class="m">425</span>     
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">root@work:~# <span class="nb">echo</span> <span class="m">3</span> &gt; /proc/sys/vm/drop_caches
-</span></span><span class="line"><span class="cl">root@work:~# free -m
-</span></span><span class="line"><span class="cl">              total        used        free      shared  buff/cache   available
-</span></span><span class="line"><span class="cl">Mem:           <span class="m">2009</span>         <span class="m">250</span>        <span class="m">1646</span>           <span class="m">1</span>         <span class="m">112</span>        <span class="m">1628</span>
-</span></span><span class="line"><span class="cl">Swap:
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">命令slabtop查看slab占用情况
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">Slab的两个主要作用：
-</span></span><span class="line"><span class="cl">Slab对小对象进行分配，不用为每个小对象分配一个页，节省了空间。
-</span></span><span class="line"><span class="cl">内核中一些小对象创建析构很频繁，Slab对这些小对象做缓存，可以重复利用一些相同的对象，减少内存分配次
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">https://fivezh.github.io/2017/06/25/Linux-slab-info/
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">[</span>root@vm-10-115-37-60 bin<span class="o">]</span><span class="c1">#  cat /proc/slabinfo |awk &#39;{print $1,$3*$4/1024,&#34;KB&#34;}&#39; | sort -k2 -n | tail</span>
-</span></span><span class="line"><span class="cl">sysfs_dir_cache 2019.94 KB
-</span></span><span class="line"><span class="cl">kmalloc-1024 <span class="m">2080</span> KB
-</span></span><span class="line"><span class="cl">kmalloc-2048 <span class="m">2304</span> KB
-</span></span><span class="line"><span class="cl">kmalloc-4096 <span class="m">2528</span> KB
-</span></span><span class="line"><span class="cl">buffer_head 6515.74 KB
-</span></span><span class="line"><span class="cl">ext4_inode_cache 8439.27 KB
-</span></span><span class="line"><span class="cl">inode_cache 9396.84 KB
-</span></span><span class="line"><span class="cl">radix_tree_node 11705.1 KB
-</span></span><span class="line"><span class="cl">shmem_inode_cache <span class="m">91290</span> KB
-</span></span><span class="line"><span class="cl">dentry <span class="m">309050</span> KB
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">To free pagecache:
+<span class="c1"># echo 1 &gt; /proc/sys/vm/drop_caches</span>
+To free dentries and inodes:
+<span class="c1"># echo 2 &gt; /proc/sys/vm/drop_caches</span>
+To free pagecache, dentries and inodes:
+<span class="c1"># echo 3 &gt; /proc/sys/vm/drop_caches</span>
+
+
+root@work:~# free -m
+              total        used        free      shared  buff/cache   available
+Mem:           <span class="m">2009</span>         <span class="m">276</span>         <span class="m">101</span>           <span class="m">3</span>        <span class="m">1631</span>        <span class="m">1545</span>
+Swap:           <span class="m">425</span>     
+
+root@work:~# <span class="nb">echo</span> <span class="m">3</span> &gt; /proc/sys/vm/drop_caches
+root@work:~# free -m
+              total        used        free      shared  buff/cache   available
+Mem:           <span class="m">2009</span>         <span class="m">250</span>        <span class="m">1646</span>           <span class="m">1</span>         <span class="m">112</span>        <span class="m">1628</span>
+Swap:
+
+命令slabtop查看slab占用情况
+
+Slab的两个主要作用：
+Slab对小对象进行分配，不用为每个小对象分配一个页，节省了空间。
+内核中一些小对象创建析构很频繁，Slab对这些小对象做缓存，可以重复利用一些相同的对象，减少内存分配次
+
+https://fivezh.github.io/2017/06/25/Linux-slab-info/
+
+<span class="o">[</span>root@vm-10-115-37-60 bin<span class="o">]</span><span class="c1">#  cat /proc/slabinfo |awk &#39;{print $1,$3*$4/1024,&#34;KB&#34;}&#39; | sort -k2 -n | tail</span>
+sysfs_dir_cache 2019.94 KB
+kmalloc-1024 <span class="m">2080</span> KB
+kmalloc-2048 <span class="m">2304</span> KB
+kmalloc-4096 <span class="m">2528</span> KB
+buffer_head 6515.74 KB
+ext4_inode_cache 8439.27 KB
+inode_cache 9396.84 KB
+radix_tree_node 11705.1 KB
+shmem_inode_cache <span class="m">91290</span> KB
+dentry <span class="m">309050</span> KB
+
+
+</code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>nmon</li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
+</span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">wget http://sourceforge.net/projects/nmon/files/nmon16e_mpginc.tar.gz
-</span></span><span class="line"><span class="cl">tar -zxvf nmon16e_mpginc.tar.gz
-</span></span><span class="line"><span class="cl">cp nmon_x86_64_centos7 /usr/local/bin/nmon
-</span></span><span class="line"><span class="cl"><span class="nb">cd</span> /usr/local/bin
-</span></span><span class="line"><span class="cl">chmod <span class="m">777</span> nmon
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">wget http://sourceforge.net/projects/nmon/files/nmon16e_mpginc.tar.gz
+tar -zxvf nmon16e_mpginc.tar.gz
+cp nmon_x86_64_centos7 /usr/local/bin/nmon
+<span class="nb">cd</span> /usr/local/bin
+chmod <span class="m">777</span> nmon
+
+</code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>vmtouch</li>
@@ -971,9 +985,9 @@ kernel</p>
 <footer class="post-footer">
       
       <nav class="post-nav">
-        <a class="prev" href="/post/leetcode/%E6%B1%BD%E6%B0%B4%E7%93%B6/">
+        <a class="prev" href="/post/book/book_Algorithms-JeffE/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">智力题</span>
+            <span class="prev-text nav-default">算法导论</span>
             <span class="prev-text nav-mobile">上一篇</span>
           </a>
         <a class="next" href="/post/ARTS/2023/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C%E7%AC%AC%E5%9B%9B%E6%9C%9F/">

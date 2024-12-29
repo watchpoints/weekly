@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.101.0 with theme even" />
+<meta name="generator" content="Hugo 0.83.1 with theme even" />
 
 
 <link rel="canonical" href="https://wangcy6.github.io/post/2020/MySQL%E5%AE%9E%E6%88%9845%E8%AE%B2/" />
@@ -42,13 +42,13 @@
 <meta property="og:description" content="你明明知道数据库是你弱点，你为什么不现在补救一下 必须掌握" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://wangcy6.github.io/post/2020/MySQL%E5%AE%9E%E6%88%9845%E8%AE%B2/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2020-05-13T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-05-13T00:00:00+00:00" />
+<meta property="article:published_time" content="2020-05-13T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2020-05-13T00:00:00&#43;00:00" />
 
 <meta itemprop="name" content="MySQL实战45讲">
-<meta itemprop="description" content="你明明知道数据库是你弱点，你为什么不现在补救一下 必须掌握"><meta itemprop="datePublished" content="2020-05-13T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2020-05-13T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1667">
+<meta itemprop="description" content="你明明知道数据库是你弱点，你为什么不现在补救一下 必须掌握"><meta itemprop="datePublished" content="2020-05-13T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-05-13T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="2510">
 <meta itemprop="keywords" content="mysql," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="MySQL实战45讲"/>
 <meta name="twitter:description" content="你明明知道数据库是你弱点，你为什么不现在补救一下 必须掌握"/>
@@ -130,8 +130,8 @@
         <div class="post-category">
             <a href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/"> 中间件 </a>
             </div>
-          <span class="more-meta"> 约 1667 字 </span>
-          <span class="more-meta"> 预计阅读 4 分钟 </span>
+          <span class="more-meta"> 约 2510 字 </span>
+          <span class="more-meta"> 预计阅读 6 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
     </header>
@@ -217,15 +217,15 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="k">select</span><span class="w"> </span><span class="n">class_id</span><span class="p">,</span><span class="w"> </span><span class="n">gender</span><span class="p">,</span><span class="nf">AVG</span><span class="p">(</span><span class="n">score</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">students</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">class_id</span><span class="p">,</span><span class="n">gender</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="k">select</span><span class="w"> </span><span class="n">class_id</span><span class="p">,</span><span class="w"> </span><span class="n">gender</span><span class="p">,</span><span class="nf">AVG</span><span class="p">(</span><span class="n">score</span><span class="p">)</span><span class="w">
+</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">students</span><span class="w">
+</span><span class="w"> </span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">class_id</span><span class="p">,</span><span class="n">gender</span><span class="w">
+</span></code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>多个列进行分组 using-group-by-on-multiple-columns</li>
@@ -237,7 +237,7 @@
 <h3 id="12-部署安装">1.2 部署安装</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -269,45 +269,47 @@
 </span><span class="lnt">30
 </span><span class="lnt">31
 </span><span class="lnt">32
+</span><span class="lnt">33
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">centos6.8
-</span></span><span class="line"><span class="cl">yum -y install mysql mysql-server mysql-devel //从yum库中的安装mysql
-</span></span><span class="line"><span class="cl">rpm -qi mysql-server //验证是否安装成功
-</span></span><span class="line"><span class="cl"> service mysqld start //启动mysql服务
-</span></span><span class="line"><span class="cl">输入命令： 
-</span></span><span class="line"><span class="cl"> mysql -u root
-</span></span><span class="line"><span class="cl">mysql -u root -p
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">建立远程root用户
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">GRANT ALL PRIVILEGES ON *.* TO <span class="s1">&#39;root&#39;</span>@<span class="s1">&#39;%&#39;</span> IDENTIFIED BY <span class="s1">&#39;123456&#39;</span> WITH GRANT OPTION<span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">flush privileges<span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">修改密码
-</span></span><span class="line"><span class="cl">更改mysql密码，要FLUSH PRIVILEGES<span class="p">;</span> 才生效
-</span></span><span class="line"><span class="cl">mysql -u root 
-</span></span><span class="line"><span class="cl">mysql&gt; use mysql<span class="p">;</span> 
-</span></span><span class="line"><span class="cl">mysql&gt; update user <span class="nb">set</span> <span class="nv">password</span><span class="o">=</span>password<span class="o">(</span><span class="s1">&#39;123456&#39;</span><span class="o">)</span> where <span class="nv">user</span><span class="o">=</span><span class="s1">&#39;root&#39;</span><span class="p">;</span> 
-</span></span><span class="line"><span class="cl">mysql&gt; FLUSH PRIVILEGES<span class="p">;</span> 
-</span></span><span class="line"><span class="cl">mysql&gt; quit<span class="p">;</span> 
-</span></span><span class="line"><span class="cl"><span class="c1"># service mysqld restart</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">mysql -u root -p  <span class="m">123456</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">sudo apt-get install mysql-client mysql-server
-</span></span><span class="line"><span class="cl">sudo service mysql status
-</span></span><span class="line"><span class="cl">sudo service mysqld start
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">/etc/init.d/networking restart
-</span></span><span class="line"><span class="cl"><span class="k">select</span> user, plugin from mysql.user<span class="p">;</span>	
-</span></span><span class="line"><span class="cl">update mysql.user <span class="nb">set</span> <span class="nv">authentication_string</span><span class="o">=</span>PASSWORD<span class="o">(</span><span class="s1">&#39;123456&#39;</span><span class="o">)</span>, <span class="nv">plugin</span><span class="o">=</span><span class="s1">&#39;mysql_native_password&#39;</span> where <span class="nv">user</span><span class="o">=</span><span class="s1">&#39;root&#39;</span><span class="p">;</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">centos6.8
+yum -y install mysql mysql-server mysql-devel //从yum库中的安装mysql
+rpm -qi mysql-server //验证是否安装成功
+ service mysqld start //启动mysql服务
+输入命令： 
+ mysql -u root
+mysql -u root -p
+
+建立远程root用户
+
+GRANT ALL PRIVILEGES ON *.* TO <span class="s1">&#39;root&#39;</span>@<span class="s1">&#39;%&#39;</span> IDENTIFIED BY <span class="s1">&#39;123456&#39;</span> WITH GRANT OPTION<span class="p">;</span>
+
+flush privileges<span class="p">;</span>
+
+修改密码
+更改mysql密码，要FLUSH PRIVILEGES<span class="p">;</span> 才生效
+mysql -u root 
+mysql&gt; use mysql<span class="p">;</span> 
+mysql&gt; update user <span class="nb">set</span> <span class="nv">password</span><span class="o">=</span>password<span class="o">(</span><span class="s1">&#39;123456&#39;</span><span class="o">)</span> where <span class="nv">user</span><span class="o">=</span><span class="s1">&#39;root&#39;</span><span class="p">;</span> 
+mysql&gt; FLUSH PRIVILEGES<span class="p">;</span> 
+mysql&gt; quit<span class="p">;</span> 
+<span class="c1"># service mysqld restart</span>
+
+mysql -u root -p  <span class="m">123456</span>
+
+sudo apt-get install mysql-client mysql-server
+sudo service mysql status
+sudo service mysqld start
+
+/etc/init.d/networking restart
+<span class="k">select</span> user, plugin from mysql.user<span class="p">;</span>	
+update mysql.user <span class="nb">set</span> <span class="nv">authentication_string</span><span class="o">=</span>PASSWORD<span class="o">(</span><span class="s1">&#39;123456&#39;</span><span class="o">)</span>, <span class="nv">plugin</span><span class="o">=</span><span class="s1">&#39;mysql_native_password&#39;</span> where <span class="nv">user</span><span class="o">=</span><span class="s1">&#39;root&#39;</span><span class="p">;</span>
+
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -321,29 +323,31 @@
 </span><span class="lnt">12
 </span><span class="lnt">13
 </span><span class="lnt">14
+</span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> mysql&gt; create database  dream<span class="p">;</span>
-</span></span><span class="line"><span class="cl">Query OK, <span class="m">1</span> row affected <span class="o">(</span>0.01 sec<span class="o">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">mysql&gt; use dream<span class="p">;</span>
-</span></span><span class="line"><span class="cl">Database changed
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">mysql+5.7+设置远程登录
-</span></span><span class="line"><span class="cl">在ubuntu14.04上安装好mysql5.7之后，本地可以连接mysql服务器。
-</span></span><span class="line"><span class="cl">远程就不行。
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">注释掉在/etc/mysql/mysql.conf.d/mysqld.cnf里面的bind-address <span class="o">=</span> 127.0.0.1
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">GRANT ALL PRIVILEGES ON *.* TO <span class="s1">&#39;root&#39;</span>@<span class="s1">&#39;%&#39;</span> IDENTIFIED BY <span class="s1">&#39;root&#39;</span> WITH GRANT OPTION<span class="p">;</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">
+ mysql&gt; create database  dream<span class="p">;</span>
+Query OK, <span class="m">1</span> row affected <span class="o">(</span>0.01 sec<span class="o">)</span>
+
+mysql&gt; use dream<span class="p">;</span>
+Database changed
+
+mysql+5.7+设置远程登录
+在ubuntu14.04上安装好mysql5.7之后，本地可以连接mysql服务器。
+远程就不行。
+
+注释掉在/etc/mysql/mysql.conf.d/mysqld.cnf里面的bind-address <span class="o">=</span> 127.0.0.1
+
+GRANT ALL PRIVILEGES ON *.* TO <span class="s1">&#39;root&#39;</span>@<span class="s1">&#39;%&#39;</span> IDENTIFIED BY <span class="s1">&#39;root&#39;</span> WITH GRANT OPTION<span class="p">;</span>
+
+</code></pre></td></tr></table>
 </div>
 </div><h4 id="ubuntu-mysql-57">ubuntu mysql 5.7</h4>
 <p><a href="https://cloud.tencent.com/developer/article/1392435">https://cloud.tencent.com/developer/article/1392435</a></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -382,44 +386,44 @@
 </span><span class="lnt">37
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo apt-get autoremove --purge mysql-server-5.0
-</span></span><span class="line"><span class="cl">sudo apt-get remove mysql-server
-</span></span><span class="line"><span class="cl">sudo apt-get autoremove mysql-server
-</span></span><span class="line"><span class="cl">sudo apt-get remove mysql-common //这个很重要
-</span></span><span class="line"><span class="cl">上面的其实有一些是多余的
-</span></span><span class="line"><span class="cl">dpkg -l <span class="p">|</span>grep ^rc<span class="p">|</span>awk <span class="s1">&#39;{print $2}&#39;</span> <span class="p">|</span>sudo xargs dpkg -P
-</span></span><span class="line"><span class="cl">sudo apt-get install mysql-server
-</span></span><span class="line"><span class="cl">sudo apt-get install mysql-client
-</span></span><span class="line"><span class="cl">sudo apt-get install php5-mysql 
-</span></span><span class="line"><span class="cl">// 安装php5-mysql 是将php和mysql连接起来
-</span></span><span class="line"><span class="cl">一旦安装完成，MySQL 服务器应该自动启动。您可以在终端提示符后运行以下命令来检查 MySQL 服务器是否正在运行：
-</span></span><span class="line"><span class="cl">sudo netstat -tap <span class="p">|</span> grep mysql
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> mysql -V
-</span></span><span class="line"><span class="cl">mysql  Ver 14.14 Distrib 5.7.29, <span class="k">for</span> Linux <span class="o">(</span>x86_64<span class="o">)</span> using  EditLine wrapper
-</span></span><span class="line"><span class="cl">root@work:~# 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">mysqladmin -uroot -p password <span class="m">123456</span> 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">#查看mysql状态</span>
-</span></span><span class="line"><span class="cl">/etc/init.d/mysql status 或者 service mysql status
-</span></span><span class="line"><span class="cl"><span class="c1">#启动mysql</span>
-</span></span><span class="line"><span class="cl">/etc/init.d/mysql start 或者 service mysql start
-</span></span><span class="line"><span class="cl"><span class="c1">#停止mysql</span>
-</span></span><span class="line"><span class="cl">/etc/init.d/mysql stop 或者 service mysql stop
-</span></span><span class="line"><span class="cl"><span class="c1">#重新启动mysql</span>
-</span></span><span class="line"><span class="cl">/etc/init.d/mysql restart 或者 service mysql restart
-</span></span><span class="line"><span class="cl">查看mysql服务说明启动成功
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">————————————————
-</span></span><span class="line"><span class="cl">版权声明：本文为CSDN博主「南有乔木灬」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
-</span></span><span class="line"><span class="cl">原文链接：https://blog.csdn.net/wudawei071193/java/article/details/100777206
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> /etc/init.d/networking restart
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">sudo apt-get autoremove --purge mysql-server-5.0
+sudo apt-get remove mysql-server
+sudo apt-get autoremove mysql-server
+sudo apt-get remove mysql-common //这个很重要
+上面的其实有一些是多余的
+dpkg -l <span class="p">|</span>grep ^rc<span class="p">|</span>awk <span class="s1">&#39;{print $2}&#39;</span> <span class="p">|</span>sudo xargs dpkg -P
+sudo apt-get install mysql-server
+sudo apt-get install mysql-client
+sudo apt-get install php5-mysql 
+// 安装php5-mysql 是将php和mysql连接起来
+一旦安装完成，MySQL 服务器应该自动启动。您可以在终端提示符后运行以下命令来检查 MySQL 服务器是否正在运行：
+sudo netstat -tap <span class="p">|</span> grep mysql
+
+ mysql -V
+mysql  Ver 14.14 Distrib 5.7.29, <span class="k">for</span> Linux <span class="o">(</span>x86_64<span class="o">)</span> using  EditLine wrapper
+root@work:~# 
+
+
+mysqladmin -uroot -p password <span class="m">123456</span> 
+
+
+
+<span class="c1">#查看mysql状态</span>
+/etc/init.d/mysql status 或者 service mysql status
+<span class="c1">#启动mysql</span>
+/etc/init.d/mysql start 或者 service mysql start
+<span class="c1">#停止mysql</span>
+/etc/init.d/mysql stop 或者 service mysql stop
+<span class="c1">#重新启动mysql</span>
+/etc/init.d/mysql restart 或者 service mysql restart
+查看mysql服务说明启动成功
+
+————————————————
+版权声明：本文为CSDN博主「南有乔木灬」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/wudawei071193/java/article/details/100777206
+
+ /etc/init.d/networking restart
+</code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>多个列进行分组 using-group-by-on-multiple-columns</li>
@@ -456,7 +460,7 @@
 <h3 id="第一天幻读是什么幻读有什么问题">第一天：幻读是什么，幻读有什么问题？</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -526,79 +530,81 @@
 </span><span class="lnt">68
 </span><span class="lnt">69
 </span><span class="lnt">70
+</span><span class="lnt">71
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-MySQL" data-lang="MySQL"><span class="line"><span class="cl"><span class="n">mysql</span><span class="w"> </span><span class="o">-</span><span class="n">u</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">-</span><span class="n">p</span><span class="w">  </span><span class="mi">123456</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="o">`</span><span class="n">t</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="no">NULL</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">`</span><span class="n">c</span><span class="o">`</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="no">NULL</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">`</span><span class="n">d</span><span class="o">`</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="no">NULL</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">),</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">KEY</span><span class="w"> </span><span class="o">`</span><span class="n">c</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">c</span><span class="o">`</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="kp">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">),(</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">),(</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">),(</span><span class="mi">25</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">25</span><span class="p">);</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">session</span><span class="w"> </span><span class="n">a</span><span class="err">：</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="n">begin</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Query</span><span class="w"> </span><span class="n">OK</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">rows</span><span class="w"> </span><span class="nf">affected</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">d</span><span class="o">=</span><span class="mi">5</span><span class="w"> </span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+----+------+------+</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">c</span><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="n">d</span><span class="w">    </span><span class="o">|</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+----+------+------+</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="w">  </span><span class="mi">5</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">5</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">5</span><span class="w"> </span><span class="o">|</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+----+------+------+</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="mi">1</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="kt">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="n">commit</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Query</span><span class="w"> </span><span class="n">OK</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">rows</span><span class="w"> </span><span class="nf">affected</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">d</span><span class="o">=</span><span class="mi">5</span><span class="w"> </span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+----+------+------+</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">c</span><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="n">d</span><span class="w">    </span><span class="o">|</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+----+------+------+</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="w">  </span><span class="mi">0</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">0</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">5</span><span class="w"> </span><span class="o">|</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">5</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">5</span><span class="w"> </span><span class="o">|</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="w">  </span><span class="mi">5</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">5</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">5</span><span class="w"> </span><span class="o">|</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+----+------+------+</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="mi">3</span><span class="w"> </span><span class="n">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="kt">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">session</span><span class="w"> </span><span class="n">b</span><span class="err">：</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">mysql</span><span class="o">&gt;</span><span class="w">  </span><span class="k">update</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="kt">set</span><span class="w"> </span><span class="n">d</span><span class="o">=</span><span class="mi">5</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Query</span><span class="w"> </span><span class="n">OK</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="nf">affected</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Rows</span><span class="w"> </span><span class="n">matched</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">  </span><span class="n">Changed</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">  </span><span class="n">Warnings</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">d</span><span class="o">=</span><span class="mi">5</span><span class="w"> </span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+----+------+------+</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">c</span><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="n">d</span><span class="w">    </span><span class="o">|</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+----+------+------+</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="w">  </span><span class="mi">0</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">0</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">5</span><span class="w"> </span><span class="o">|</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="w">  </span><span class="mi">5</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">5</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">5</span><span class="w"> </span><span class="o">|</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+----+------+------+</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">d</span><span class="o">=</span><span class="mi">5</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">update</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">update</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="kt">set</span><span class="w"> </span><span class="n">d</span><span class="o">=</span><span class="mi">5</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ERROR</span><span class="w"> </span><span class="mi">1205</span><span class="w"> </span><span class="p">(</span><span class="n">HY000</span><span class="p">):</span><span class="w"> </span><span class="k">Lock</span><span class="w"> </span><span class="n">wait</span><span class="w"> </span><span class="n">timeout</span><span class="w"> </span><span class="n">exceeded</span><span class="p">;</span><span class="w"> </span><span class="n">try</span><span class="w"> </span><span class="n">restarting</span><span class="w"> </span><span class="n">transaction</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">session</span><span class="w"> </span><span class="n">c</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">);</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">update</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="kt">SET</span><span class="w"> </span><span class="n">C</span><span class="o">=</span><span class="mi">5</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">ID</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">mysql</span><span class="w"> </span><span class="err">查询有分段加锁的设计。</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">&lt;</span><span class="mi">10</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">update</span><span class="w"> </span><span class="err">，</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="mi">16</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">update</span><span class="w"> </span><span class="err">不存在）</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ConcurrentHashMap</span><span class="w"> </span><span class="err">同样有分段锁策略</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">在</span><span class="w"> </span><span class="n">JDK1</span><span class="p">.</span><span class="mi">7</span><span class="w"> </span><span class="err">中，</span><span class="n">ConcurrentHashMap</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">将一个</span><span class="w"> </span><span class="n">HashMap</span><span class="w"> </span><span class="err">切割成</span><span class="w"> </span><span class="n">Segment</span><span class="w"> </span><span class="err">数组，其中</span><span class="w"> </span><span class="n">Segment</span><span class="w"> </span><span class="err">可以看成一个</span><span class="w"> </span><span class="n">HashMap</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-MySQL" data-lang="MySQL"><span class="n">mysql</span><span class="w"> </span><span class="o">-</span><span class="n">u</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">-</span><span class="n">p</span><span class="w">  </span><span class="mi">123456</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="o">`</span><span class="n">t</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span><span class="w"></span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="no">NULL</span><span class="p">,</span><span class="w">
+</span><span class="w"></span><span class="o">`</span><span class="n">c</span><span class="o">`</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="no">NULL</span><span class="p">,</span><span class="w">
+</span><span class="w"></span><span class="o">`</span><span class="n">d</span><span class="o">`</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="no">NULL</span><span class="p">,</span><span class="w">
+</span><span class="w"></span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">),</span><span class="w">
+</span><span class="w"></span><span class="k">KEY</span><span class="w"> </span><span class="o">`</span><span class="n">c</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">c</span><span class="o">`</span><span class="p">)</span><span class="w">
+</span><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="kp">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="w">
+</span><span class="w"></span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">),(</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">),(</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">),(</span><span class="mi">25</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">25</span><span class="p">);</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="n">session</span><span class="w"> </span><span class="n">a</span><span class="err">：</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="n">begin</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="n">Query</span><span class="w"> </span><span class="n">OK</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">rows</span><span class="w"> </span><span class="nf">affected</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">d</span><span class="o">=</span><span class="mi">5</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="o">+----+------+------+</span><span class="w">
+</span><span class="w"></span><span class="o">|</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">c</span><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="n">d</span><span class="w">    </span><span class="o">|</span><span class="w">
+</span><span class="w"></span><span class="o">+----+------+------+</span><span class="w">
+</span><span class="w"></span><span class="o">|</span><span class="w">  </span><span class="mi">5</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">5</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">5</span><span class="w"> </span><span class="o">|</span><span class="w">
+</span><span class="w"></span><span class="o">+----+------+------+</span><span class="w">
+</span><span class="w"></span><span class="mi">1</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="kt">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="n">commit</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="n">Query</span><span class="w"> </span><span class="n">OK</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">rows</span><span class="w"> </span><span class="nf">affected</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">d</span><span class="o">=</span><span class="mi">5</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="o">+----+------+------+</span><span class="w">
+</span><span class="w"></span><span class="o">|</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">c</span><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="n">d</span><span class="w">    </span><span class="o">|</span><span class="w">
+</span><span class="w"></span><span class="o">+----+------+------+</span><span class="w">
+</span><span class="w"></span><span class="o">|</span><span class="w">  </span><span class="mi">0</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">0</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">5</span><span class="w"> </span><span class="o">|</span><span class="w">
+</span><span class="w"></span><span class="o">|</span><span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">5</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">5</span><span class="w"> </span><span class="o">|</span><span class="w">
+</span><span class="w"></span><span class="o">|</span><span class="w">  </span><span class="mi">5</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">5</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">5</span><span class="w"> </span><span class="o">|</span><span class="w">
+</span><span class="w"></span><span class="o">+----+------+------+</span><span class="w">
+</span><span class="w"></span><span class="mi">3</span><span class="w"> </span><span class="n">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="kt">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w">
+</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="n">session</span><span class="w"> </span><span class="n">b</span><span class="err">：</span><span class="w">
+</span><span class="w"></span><span class="n">mysql</span><span class="o">&gt;</span><span class="w">  </span><span class="k">update</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="kt">set</span><span class="w"> </span><span class="n">d</span><span class="o">=</span><span class="mi">5</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="n">Query</span><span class="w"> </span><span class="n">OK</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="nf">affected</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w">
+</span><span class="w"></span><span class="n">Rows</span><span class="w"> </span><span class="n">matched</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">  </span><span class="n">Changed</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">  </span><span class="n">Warnings</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">d</span><span class="o">=</span><span class="mi">5</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="o">+----+------+------+</span><span class="w">
+</span><span class="w"></span><span class="o">|</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">c</span><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="n">d</span><span class="w">    </span><span class="o">|</span><span class="w">
+</span><span class="w"></span><span class="o">+----+------+------+</span><span class="w">
+</span><span class="w"></span><span class="o">|</span><span class="w">  </span><span class="mi">0</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">0</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">5</span><span class="w"> </span><span class="o">|</span><span class="w">
+</span><span class="w"></span><span class="o">|</span><span class="w">  </span><span class="mi">5</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">5</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">5</span><span class="w"> </span><span class="o">|</span><span class="w">
+</span><span class="w"></span><span class="o">+----+------+------+</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">d</span><span class="o">=</span><span class="mi">5</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">update</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">update</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="kt">set</span><span class="w"> </span><span class="n">d</span><span class="o">=</span><span class="mi">5</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="n">ERROR</span><span class="w"> </span><span class="mi">1205</span><span class="w"> </span><span class="p">(</span><span class="n">HY000</span><span class="p">):</span><span class="w"> </span><span class="k">Lock</span><span class="w"> </span><span class="n">wait</span><span class="w"> </span><span class="n">timeout</span><span class="w"> </span><span class="n">exceeded</span><span class="p">;</span><span class="w"> </span><span class="n">try</span><span class="w"> </span><span class="n">restarting</span><span class="w"> </span><span class="n">transaction</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="n">session</span><span class="w"> </span><span class="n">c</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">update</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="kt">SET</span><span class="w"> </span><span class="n">C</span><span class="o">=</span><span class="mi">5</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">ID</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="n">mysql</span><span class="w"> </span><span class="err">查询有分段加锁的设计。</span><span class="w">
+</span><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">&lt;</span><span class="mi">10</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">update</span><span class="w"> </span><span class="err">，</span><span class="w">
+</span><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="mi">16</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">update</span><span class="w"> </span><span class="err">不存在）</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="n">ConcurrentHashMap</span><span class="w"> </span><span class="err">同样有分段锁策略</span><span class="w">
+</span><span class="w"></span><span class="err">在</span><span class="w"> </span><span class="n">JDK1</span><span class="p">.</span><span class="mi">7</span><span class="w"> </span><span class="err">中，</span><span class="n">ConcurrentHashMap</span><span class="w"> 
+</span><span class="w"></span><span class="err">将一个</span><span class="w"> </span><span class="n">HashMap</span><span class="w"> </span><span class="err">切割成</span><span class="w"> </span><span class="n">Segment</span><span class="w"> </span><span class="err">数组，其中</span><span class="w"> </span><span class="n">Segment</span><span class="w"> </span><span class="err">可以看成一个</span><span class="w"> </span><span class="n">HashMap</span><span class="w">
+</span><span class="w">
+</span></code></pre></td></tr></table>
 </div>
 </div><p><img src="../images/image-20210409101215302.png" alt="image-20210409101215302"></p>
 
