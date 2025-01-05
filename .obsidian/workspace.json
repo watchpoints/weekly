@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "blog/content/post/oceanbase/2022/oceanbase_day5.md",
+                "file": "blog/content/post/ARTS/2024/只管去做践行记录(第7周) .md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "oceanbase_day5"
+              "title": "只管去做践行记录(第7周)"
             }
           }
         ]
@@ -139,10 +139,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "blog/content/post/oceanbase/2022/oceanbase_day5.md"
+                "file": "blog/content/post/ARTS/2024/只管去做践行记录(第7周) .md"
               },
               "icon": "lucide-list",
-              "title": "oceanbase_day5 的大纲"
+              "title": "只管去做践行记录(第7周)  的大纲"
             }
           }
         ],
@@ -166,6 +166,7 @@
   },
   "active": "9abf23ee9eba384a",
   "lastOpenFiles": [
+    "blog/content/post/oceanbase/2022/oceanbase_day5.md",
     "mylife/ppt/02-data-struct.key.sb-e0c30a08-5NXZjm",
     "mylife/ppt/02-data-struct.key",
     "blog/content/post/oceanbase/2024/01-2024-06-18-ob_study1.md",
@@ -189,7 +190,6 @@
     "blog/public/tags/一年实现12个项目/page/1/index.html",
     "blog/public/tags/一年实现12个项目/page/1",
     "blog/public/tags/一年实现12个项目/page",
-    "blog/public/tags/一年实现12个项目/index.html",
     "blog/public/post/oceanbase/2024/assets/image-20240926194315902.png",
     "blog/public/post/oceanbase/2024/assets/image-20240925134408392.png",
     "blog/public/post/oceanbase/2024/assets/image-20240925134259142.png",
