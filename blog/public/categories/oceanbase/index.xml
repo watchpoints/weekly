@@ -6,7 +6,25 @@
     <description>Recent content in oceanbase on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 19 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/categories/oceanbase/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 21 Dec 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/categories/oceanbase/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>成为ob贡献者(09):如何证明采用了PALF设计就是安全的</title>
+      <link>https://wangcy6.github.io/post/oceanbase/2024/day09_make_ob/</link>
+      <pubDate>Sat, 21 Dec 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/oceanbase/2024/day09_make_ob/</guid>
+      <description>title: 成为ob贡献者(6):如何阅读Paxos代码 date: 2024-10-04 description: 自我驱动学习，专业上只能靠自己 categories: oceanbase 温故而知新： 成为ob贡献者(08):接口层 PALF回顾</description>
+    </item>
+    
+    <item>
+      <title>成为ob贡献者(09):如何证明采用了PALF设计就是安全的</title>
+      <link>https://wangcy6.github.io/post/oceanbase/2024/day10/</link>
+      <pubDate>Sat, 21 Dec 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/oceanbase/2024/day10/</guid>
+      <description>标签： status: confirmed https://github.com/oceanbase/oceanbase/issues/2181 记录是为了更好的思考 沟通步骤 准备一个图片，一段话，可以放在三页doc，三页ppt 描述你方案 一、这个技术出现的背景、初衷和要达到什</description>
+    </item>
+    
     <item>
       <title>成为ob贡献者(07):重新理解OB模块设计</title>
       <link>https://wangcy6.github.io/post/oceanbase/2024/07_make_ob_leader/</link>
@@ -17,12 +35,12 @@
     </item>
     
     <item>
-      <title>成为ob贡献者(07):重新理解OB模块设计</title>
+      <title>成为ob贡献者(08):PALF: Replicated Write-Ahead Logging for Distributed Databases</title>
       <link>https://wangcy6.github.io/post/oceanbase/2024/08_make_ob_leader-1/</link>
       <pubDate>Sat, 19 Oct 2024 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/oceanbase/2024/08_make_ob_leader-1/</guid>
-      <description>记录是为了更好的思考 为了整理思路，文章采用模拟2人对话方式，如有误，欢迎留言。 本文分为两个部分 捕捉想法: 无数个问题同时出现，让思路更加混乱，</description>
+      <description>问题描述： 问题描述： Mds 通过 dump indo查看 文件 in-&amp;gt;snaprealm 存在 通过 ll_get_inode() 查询返回in-&amp;gt;snaprealm 不存在。 这个什么情况下发生，现场环境 3万个文</description>
     </item>
     
     <item>

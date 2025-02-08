@@ -7,7 +7,13 @@ tags: ["book"]
 ---
 
 
-git:
+
+```shell
+git cherry-pick <commit-hash>
+git cherry-pick --continue
+```
+
+
 
 
 

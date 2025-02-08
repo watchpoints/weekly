@@ -2,8 +2,64 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wangcy6.github.io/post/</loc>
+    <lastmod>2025-02-07T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangcy6.github.io/</loc>
+    <lastmod>2025-02-07T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangcy6.github.io/post/habit/2025-habit-health-get-up/</loc>
+    <lastmod>2025-02-07T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://wangcy6.github.io/categories/</loc>
-    <lastmod>2024-11-23T00:00:00+00:00</lastmod>
+    <lastmod>2025-01-02T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangcy6.github.io/categories/GTD/</loc>
+    <lastmod>2025-01-02T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangcy6.github.io/post/ARTS/2024/%E5%8F%AA%E7%AE%A1%E5%8E%BB%E5%81%9A%E8%B7%B5N0.14-2025-1-2/</loc>
+    <lastmod>2025-01-02T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangcy6.github.io/categories/oceanbase/</loc>
+    <lastmod>2024-12-21T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangcy6.github.io/post/oceanbase/2024/day09_make_ob/</loc>
+    <lastmod>2024-12-21T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangcy6.github.io/post/oceanbase/2024/day10/</loc>
+    <lastmod>2024-12-21T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -16,28 +72,7 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/categories/GTD/</loc>
-    <lastmod>2024-11-23T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangcy6.github.io/post/</loc>
-    <lastmod>2024-11-23T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://wangcy6.github.io/tags/</loc>
-    <lastmod>2024-11-23T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangcy6.github.io/</loc>
     <lastmod>2024-11-23T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -109,13 +144,6 @@
   <url>
     <loc>https://wangcy6.github.io/post/tidb/2024/make_tidb_day6-raft-rs/</loc>
     <lastmod>2024-10-25T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangcy6.github.io/categories/oceanbase/</loc>
-    <lastmod>2024-10-19T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -205,7 +233,7 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/ai/2024/2024-08-02-sleep/</loc>
+    <loc>https://wangcy6.github.io/post/money/2024/2024-08-02-sleep/</loc>
     <lastmod>2024-08-02T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -269,6 +297,13 @@
   
   <url>
     <loc>https://wangcy6.github.io/post/storage/05-2024-3-08-ceph-read/</loc>
+    <lastmod>2024-03-28T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangcy6.github.io/post/storage/06-mds_sumbit_thread/</loc>
     <lastmod>2024-03-28T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -499,15 +534,8 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/tags/mysql/</loc>
-    <lastmod>2023-08-09T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangcy6.github.io/post/mysql/mysql%E4%BB%8E%E9%9D%92%E9%93%9C%E5%88%B0%E7%8E%8B%E8%80%85%E7%AC%AC%E4%B8%80%E5%A4%A9/</loc>
-    <lastmod>2023-08-09T00:00:00+00:00</lastmod>
+    <loc>https://wangcy6.github.io/post/liunx/shell%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8/</loc>
+    <lastmod>2023-08-11T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -522,13 +550,6 @@
   <url>
     <loc>https://wangcy6.github.io/post/interview/01_2023_08_04/</loc>
     <lastmod>2023-08-04T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangcy6.github.io/post/book/2_2023_do_book/</loc>
-    <lastmod>2023-06-19T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -604,7 +625,14 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/ai/01_gpt_from_new_to_master/</loc>
+    <loc>https://wangcy6.github.io/post/money/002_/</loc>
+    <lastmod>2023-05-13T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangcy6.github.io/post/money/01_gpt_from_new_to_master/</loc>
     <lastmod>2023-05-13T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -632,7 +660,7 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/book/01_thing/</loc>
+    <loc>https://wangcy6.github.io/post/book/101_thing/</loc>
     <lastmod>2023-05-04T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -717,6 +745,13 @@
   
   <url>
     <loc>https://wangcy6.github.io/post/liunx/desgin/2022_11_29_liunx_memory_-1-1/</loc>
+    <lastmod>2022-11-20T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangcy6.github.io/post/liunx/desgin/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8%E5%85%A5%E9%97%A8%E7%AC%AC%E4%B8%80%E5%A4%A9/</loc>
     <lastmod>2022-11-20T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -1108,13 +1143,6 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/ARTS/34/</loc>
-    <lastmod>2021-10-14T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://wangcy6.github.io/post/2021/04_2021-10-10.2021.years/</loc>
     <lastmod>2021-10-10T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -1187,6 +1215,13 @@
   <url>
     <loc>https://wangcy6.github.io/post/ARTS/day_03_run/</loc>
     <lastmod>2021-07-23T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangcy6.github.io/tags/mysql/</loc>
+    <lastmod>2021-07-18T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1542,6 +1577,13 @@
   </url>
   
   <url>
+    <loc>https://wangcy6.github.io/post/book/100-%E5%86%99%E4%BD%9C%E8%AE%AD%E7%BB%83%E8%90%A5%E7%AC%AC1%E6%9C%9F/</loc>
+    <lastmod>2019-12-12T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://wangcy6.github.io/post/book/book5_%E9%87%8D%E5%A1%91%E5%BF%83%E7%81%B5/</loc>
     <lastmod>2019-12-12T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -1848,13 +1890,13 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/oceanbase/2024//</loc>
+    <loc>https://wangcy6.github.io/post/plan/how_to_study/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/plan/how_to_study/</loc>
+    <loc>https://wangcy6.github.io/post/plan/%E6%8F%90%E9%AB%98%E6%95%88%E7%8E%87%E6%98%8E%E7%A1%AE%E4%BB%BB%E5%8A%A1%E5%8A%A0%E5%BC%BA%E6%B2%9F%E9%80%9A/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

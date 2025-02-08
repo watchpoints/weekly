@@ -6,7 +6,43 @@
     <description>Recent content on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 23 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 07 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>微小到不可能失败的起床日记</title>
+      <link>https://wangcy6.github.io/post/habit/2025-habit-health-get-up/</link>
+      <pubDate>Fri, 07 Feb 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/habit/2025-habit-health-get-up/</guid>
+      <description>开始仿照&amp;laquo;只管去做&amp;raquo; &amp;laquo;小强升职记》动物对外方式 代替生活中真实故事 寒号鸟，人教版语文书二年级上册 寒号鸟重复</description>
+    </item>
+    
+    <item>
+      <title>只管去做践N0.14</title>
+      <link>https://wangcy6.github.io/post/ARTS/2024/%E5%8F%AA%E7%AE%A1%E5%8E%BB%E5%81%9A%E8%B7%B5N0.14-2025-1-2/</link>
+      <pubDate>Thu, 02 Jan 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ARTS/2024/%E5%8F%AA%E7%AE%A1%E5%8E%BB%E5%81%9A%E8%B7%B5N0.14-2025-1-2/</guid>
+      <description>指定每月目标，拆分每周预先承诺的习惯卡片， 落实每天行动清单 一. ARTS的初衷 周一 周二 周三 周四 周五 周六 周日 Algorithm Review Review/Tip Share 1. Algorithm **主要是为了编程训练和</description>
+    </item>
+    
+    <item>
+      <title>成为ob贡献者(09):如何证明采用了PALF设计就是安全的</title>
+      <link>https://wangcy6.github.io/post/oceanbase/2024/day09_make_ob/</link>
+      <pubDate>Sat, 21 Dec 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/oceanbase/2024/day09_make_ob/</guid>
+      <description>title: 成为ob贡献者(6):如何阅读Paxos代码 date: 2024-10-04 description: 自我驱动学习，专业上只能靠自己 categories: oceanbase 温故而知新： 成为ob贡献者(08):接口层 PALF回顾</description>
+    </item>
+    
+    <item>
+      <title>成为ob贡献者(09):如何证明采用了PALF设计就是安全的</title>
+      <link>https://wangcy6.github.io/post/oceanbase/2024/day10/</link>
+      <pubDate>Sat, 21 Dec 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/oceanbase/2024/day10/</guid>
+      <description>标签： status: confirmed https://github.com/oceanbase/oceanbase/issues/2181 记录是为了更好的思考 沟通步骤 准备一个图片，一段话，可以放在三页doc，三页ppt 描述你方案 一、这个技术出现的背景、初衷和要达到什</description>
+    </item>
+    
     <item>
       <title>只管去做践行记：2024-11月-第46周</title>
       <link>https://wangcy6.github.io/post/ARTS/2024/%E5%8F%AA%E7%AE%A1%E5%8E%BB%E5%81%9A%E8%B7%B5%E8%A1%8C%E8%AE%B02024-11%E6%9C%88-%E7%AC%AC46%E5%91%A8/</link>
@@ -22,7 +58,7 @@
       <pubDate>Sun, 10 Nov 2024 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/2024/2024-11-10-cppd-day1/</guid>
-      <description>面试官：C++中shared_ptr是线程安全的吗？-头条面试题 面试题：C++中shared_ptr是线程安全的吗？ 来源 ：一名毕业三年的女程</description>
+      <description>没有行动拆分出来，无法目标转换行动，意志力这个时候失效了 今天一天安排（写不清楚就就无法行动） 起床仪式整理：10分钟完成 不用闹钟 6点自动起来，</description>
     </item>
     
     <item>
@@ -62,12 +98,12 @@
     </item>
     
     <item>
-      <title>成为ob贡献者(07):重新理解OB模块设计</title>
+      <title>成为ob贡献者(08):PALF: Replicated Write-Ahead Logging for Distributed Databases</title>
       <link>https://wangcy6.github.io/post/oceanbase/2024/08_make_ob_leader-1/</link>
       <pubDate>Sat, 19 Oct 2024 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/oceanbase/2024/08_make_ob_leader-1/</guid>
-      <description>记录是为了更好的思考 为了整理思路，文章采用模拟2人对话方式，如有误，欢迎留言。 本文分为两个部分 捕捉想法: 无数个问题同时出现，让思路更加混乱，</description>
+      <description>问题描述： 问题描述： Mds 通过 dump indo查看 文件 in-&amp;gt;snaprealm 存在 通过 ll_get_inode() 查询返回in-&amp;gt;snaprealm 不存在。 这个什么情况下发生，现场环境 3万个文</description>
     </item>
     
     <item>
@@ -135,10 +171,10 @@
     
     <item>
       <title>ChatGPT从入门到精通</title>
-      <link>https://wangcy6.github.io/post/ai/2024/2024-08-02-sleep/</link>
+      <link>https://wangcy6.github.io/post/money/2024/2024-08-02-sleep/</link>
       <pubDate>Fri, 02 Aug 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://wangcy6.github.io/post/ai/2024/2024-08-02-sleep/</guid>
+      <guid>https://wangcy6.github.io/post/money/2024/2024-08-02-sleep/</guid>
       <description>AI正念｜睡前三小时精力回流提醒助手：手机远离卧室 大家好，我是watchpoints ，一个只为自己打工程序员， watchpoints是我gi</description>
     </item>
     
@@ -203,6 +239,15 @@
       
       <guid>https://wangcy6.github.io/post/storage/05-2024-3-08-ceph-read/</guid>
       <description>entity_id 这个能改变吗？ 通过S3FS调用icfs_setxattr接口。 参数client_type=&amp;ldquo;S3&amp;rdquo; Entity_id 是 /var/run/icfs-client.XXXX 其中xxx</description>
+    </item>
+    
+    <item>
+      <title>源码解析：ceph数据读写</title>
+      <link>https://wangcy6.github.io/post/storage/06-mds_sumbit_thread/</link>
+      <pubDate>Thu, 28 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/storage/06-mds_sumbit_thread/</guid>
+      <description>1. 需求 【ceph】ceph-mds journal模块解读 Journaler类负责将内存中已经序列化的数据写入到对应metadata pool中</description>
     </item>
     
     <item>
@@ -418,16 +463,16 @@
       <pubDate>Fri, 11 Aug 2023 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/liunx/git%E9%80%9A%E5%85%B3%E4%BB%8E%E9%9D%92%E9%93%9C%E5%88%B0%E7%8E%8B%E8%80%85/</guid>
-      <description>git: xmind 图片居中对齐 第一关：项目最新代码出现问题，你想回退，但是保留自己修改最新代码怎么办？ 期望结果 n1（正常状态）&amp;mdash;&amp;ndash;</description>
+      <description>1 2 git cherry-pick &amp;lt;commit-hash&amp;gt; git cherry-pick --continue xmind 图片居中对齐 第一关：项目最新代码出现问题，你想回退，但是保留自己修改最新代码怎么办？ 期望结果 n1（正常状态）&amp;mdash;</description>
     </item>
     
     <item>
-      <title>mysql从青铜到王者第一天</title>
-      <link>https://wangcy6.github.io/post/mysql/mysql%E4%BB%8E%E9%9D%92%E9%93%9C%E5%88%B0%E7%8E%8B%E8%80%85%E7%AC%AC%E4%B8%80%E5%A4%A9/</link>
-      <pubDate>Wed, 09 Aug 2023 00:00:00 +0000</pubDate>
+      <title>shell从青铜到王者</title>
+      <link>https://wangcy6.github.io/post/liunx/shell%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8/</link>
+      <pubDate>Fri, 11 Aug 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://wangcy6.github.io/post/mysql/mysql%E4%BB%8E%E9%9D%92%E9%93%9C%E5%88%B0%E7%8E%8B%E8%80%85%E7%AC%AC%E4%B8%80%E5%A4%A9/</guid>
-      <description>day1 一、问题 msyql 忘记root密码怎么办？ 二、过程 mysql8.0安装 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38</description>
+      <guid>https://wangcy6.github.io/post/liunx/shell%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8/</guid>
+      <description>在文件中第一行添加 key sed -i &amp;rsquo;s/^/key/g&amp;rsquo; xx 查看进程启动时间 Shell脚本实用小技巧-教你屏蔽执行命令的所有显示信息，包含错误信息 标准输入（STDIN），文</description>
     </item>
     
     <item>
@@ -437,15 +482,6 @@
       
       <guid>https://wangcy6.github.io/post/interview/01_2023_08_04/</guid>
       <description>提问1：什么是右移动？ 学习方法 1 2 3 4 5 6 7 8 9 10 11 12 一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题 二、这个技术的优</description>
-    </item>
-    
-    <item>
-      <title>do_book</title>
-      <link>https://wangcy6.github.io/post/book/2_2023_do_book/</link>
-      <pubDate>Mon, 19 Jun 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/book/2_2023_do_book/</guid>
-      <description>http://localhost:1313/post/2023/2_do_book/ 少有人走的路 https://www.holisticedu.us/wechat/The_Road_Less_Traveled.pdf D2-NO1-803-问题和痛苦 金句: 替代品带来的痛苦，甚至比逃避的痛苦更为强烈 真正的健康者 寥寥无几。有的逃避问题者，宁可躲</description>
     </item>
     
     <item>
@@ -522,10 +558,19 @@
     
     <item>
       <title>ChatGPT从入门到精通</title>
-      <link>https://wangcy6.github.io/post/ai/01_gpt_from_new_to_master/</link>
+      <link>https://wangcy6.github.io/post/money/002_/</link>
       <pubDate>Sat, 13 May 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://wangcy6.github.io/post/ai/01_gpt_from_new_to_master/</guid>
+      <guid>https://wangcy6.github.io/post/money/002_/</guid>
+      <description>魔改小爱音箱 打造你的专属语音助手（保姆级教程建议收藏） 大家好，我是小王同学，希望本文在AIGC赋能小米音响上对你有帮助 昵称：一个只会写代码程</description>
+    </item>
+    
+    <item>
+      <title>ChatGPT从入门到精通</title>
+      <link>https://wangcy6.github.io/post/money/01_gpt_from_new_to_master/</link>
+      <pubDate>Sat, 13 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/money/01_gpt_from_new_to_master/</guid>
       <description>一次只使用一个工具，其他装作看不见。 第一章：概念 ChatGPT是什么 https://mp.weixin.qq.com/s/Dns5GSsiledxCV2SIhNgrw 第二章：提示词 写专利 例如：绘制时序图 1 2 请绘制 mermaid sequence diagram ： mds 启动 recov</description>
     </item>
     
@@ -558,10 +603,10 @@
     
     <item>
       <title>践行时间管理方法</title>
-      <link>https://wangcy6.github.io/post/book/01_thing/</link>
+      <link>https://wangcy6.github.io/post/book/101_thing/</link>
       <pubDate>Thu, 04 May 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://wangcy6.github.io/post/book/01_thing/</guid>
+      <guid>https://wangcy6.github.io/post/book/101_thing/</guid>
       <description>个人学习使用 强哥思考笔记 1. 关于改变 很多人所谓的“改变”，其实都是在做“无用功”，比如说希望这次能够升职加薪，怎么办呢？要跟老板好好沟通，所以</description>
     </item>
     
@@ -643,7 +688,16 @@
       <pubDate>Sun, 20 Nov 2022 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/liunx/desgin/2022_11_29_liunx_memory_-1-1/</guid>
-      <description>cpu 高怎么看 如何学习 在本文中，我将试着去回答liunx 内核参数： Q1 (Why): 为什么需要协程？ 我们会一起回顾协程出现的历史背景，当时要解决什么问题；同时</description>
+      <description>cpu 高怎么看 版本兼容性： Ceph 的序列化格式设计时考虑了版本兼容性，可以在不中断服务的情况下升级系统。它可以通过类型版本号来处理不同版本之间的数据兼</description>
+    </item>
+    
+    <item>
+      <title>从青铜到王者系列：故障定位</title>
+      <link>https://wangcy6.github.io/post/liunx/desgin/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8%E5%85%A5%E9%97%A8%E7%AC%AC%E4%B8%80%E5%A4%A9/</link>
+      <pubDate>Sun, 20 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/liunx/desgin/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8%E5%85%A5%E9%97%A8%E7%AC%AC%E4%B8%80%E5%A4%A9/</guid>
+      <description>为什么 RPC库在序列化库时候要考虑版本兼容性？ 接口变化 版本兼容性： Ceph 的序列化格式设计时考虑了版本兼容性，可以在不中断服务的情况下升级系统。它</description>
     </item>
     
     <item>
@@ -1049,15 +1103,6 @@
       
       <guid>https://wangcy6.github.io/post/leetcode/leetcode_medium_mac/</guid>
       <description>开始日期 更新日期 备注 2020-6-10 2020-6-10 中等难度总结 地址： http://localhost:1313/post/leetcode/leetcode_medium/ 题目汇总 螺旋矩阵 https://leetcode-cn.com/problems/spiral-matrix/solution/yi-zhou-yi-ti-di-san-bian-by-aleafboat-23zg/ 螺旋矩阵 II https://leetcode-cn.com/problems/spiral-matrix-ii/ 61 旋转链表 ok https://leetcode-cn.com/problems/rotate-list/description/ 奇偶链表 https://leetcode-cn.com/problems/odd-even-linked-list 不同路径 https://leetcode-cn.com/problems/unique-paths/description/ 同类题目 https://leetcode-cn.com/problems/longest-increasing-path-in-a-matrix/ 543 二叉树中两节点的最长</description>
-    </item>
-    
-    <item>
-      <title>一周精彩内容分享（第四期）</title>
-      <link>https://wangcy6.github.io/post/ARTS/34/</link>
-      <pubDate>Thu, 14 Oct 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/ARTS/34/</guid>
-      <description>地址： https://wangcy6.github.io/post/ARTS/34/ https://wangcy6.github.io/post/ARTS/34/ 第一部分：work输出 流媒体：http://wiki.intra.gomeplus.com/pages/viewpage.acti</description>
     </item>
     
     <item>
@@ -1485,11 +1530,20 @@
     
     <item>
       <title>大脑的维修艺术</title>
+      <link>https://wangcy6.github.io/post/book/100-%E5%86%99%E4%BD%9C%E8%AE%AD%E7%BB%83%E8%90%A5%E7%AC%AC1%E6%9C%9F/</link>
+      <pubDate>Thu, 12 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/book/100-%E5%86%99%E4%BD%9C%E8%AE%AD%E7%BB%83%E8%90%A5%E7%AC%AC1%E6%9C%9F/</guid>
+      <description>第 34 期 50 字日更来啦， 从今天开始截至到 12 月 30 号 ： 要求文字 50 字以上，主题随意，不知道写什么就写当天感受，目的跨出第一步 1 2 3 4 润色： 保持原文意思</description>
+    </item>
+    
+    <item>
+      <title>大脑的维修艺术</title>
       <link>https://wangcy6.github.io/post/book/book5_%E9%87%8D%E5%A1%91%E5%BF%83%E7%81%B5/</link>
       <pubDate>Thu, 12 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/book/book5_%E9%87%8D%E5%A1%91%E5%BF%83%E7%81%B5/</guid>
-      <description>开始时间：2024-10-28 Day1-10-28 -5分钟 第二章信念系统 微信读书怎么对应原版书页码 这个事情 不处理，是微信事情 不是的事业，你按照章节记录 提问：为</description>
+      <description>第 34 期 50 字日更来啦， 从今天开始截至到 12 月 30 号 ： 要求文字 50 字以上，主题随意，不知道写什么就写当天感受，目的跨出第一步 开始时间：2024-10-</description>
     </item>
     
     <item>
@@ -1701,20 +1755,20 @@
     
     <item>
       <title></title>
-      <link>https://wangcy6.github.io/post/oceanbase/2024//</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/oceanbase/2024//</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title></title>
       <link>https://wangcy6.github.io/post/plan/how_to_study/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/plan/how_to_study/</guid>
       <description>title: &amp;ldquo;下班后如何学习&amp;rdquo; date: 2022-09-25 draft: false categories: [&amp;ldquo;oceanbase&amp;rdquo;] why 承诺书 反馈</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://wangcy6.github.io/post/plan/%E6%8F%90%E9%AB%98%E6%95%88%E7%8E%87%E6%98%8E%E7%A1%AE%E4%BB%BB%E5%8A%A1%E5%8A%A0%E5%BC%BA%E6%B2%9F%E9%80%9A/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/plan/%E6%8F%90%E9%AB%98%E6%95%88%E7%8E%87%E6%98%8E%E7%A1%AE%E4%BB%BB%E5%8A%A1%E5%8A%A0%E5%BC%BA%E6%B2%9F%E9%80%9A/</guid>
+      <description>title: &amp;ldquo;工作日志：日报，周报，月，季度&amp;rdquo; date: 2022-09-25 draft: false categories: [&amp;ldquo;work&amp;rdquo;] 12月 //伪代码示例 这是什么用法 lock.unlock(); helo() lock.lock();</description>
     </item>
     
     <item>

@@ -31,7 +31,16 @@
       <pubDate>Fri, 11 Aug 2023 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/liunx/git%E9%80%9A%E5%85%B3%E4%BB%8E%E9%9D%92%E9%93%9C%E5%88%B0%E7%8E%8B%E8%80%85/</guid>
-      <description>git: xmind 图片居中对齐 第一关：项目最新代码出现问题，你想回退，但是保留自己修改最新代码怎么办？ 期望结果 n1（正常状态）&amp;mdash;&amp;ndash;</description>
+      <description>1 2 git cherry-pick &amp;lt;commit-hash&amp;gt; git cherry-pick --continue xmind 图片居中对齐 第一关：项目最新代码出现问题，你想回退，但是保留自己修改最新代码怎么办？ 期望结果 n1（正常状态）&amp;mdash;</description>
+    </item>
+    
+    <item>
+      <title>shell从青铜到王者</title>
+      <link>https://wangcy6.github.io/post/liunx/shell%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8/</link>
+      <pubDate>Fri, 11 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/liunx/shell%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8/</guid>
+      <description>在文件中第一行添加 key sed -i &amp;rsquo;s/^/key/g&amp;rsquo; xx 查看进程启动时间 Shell脚本实用小技巧-教你屏蔽执行命令的所有显示信息，包含错误信息 标准输入（STDIN），文</description>
     </item>
     
     <item>
@@ -58,7 +67,16 @@
       <pubDate>Sun, 20 Nov 2022 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/liunx/desgin/2022_11_29_liunx_memory_-1-1/</guid>
-      <description>cpu 高怎么看 如何学习 在本文中，我将试着去回答liunx 内核参数： Q1 (Why): 为什么需要协程？ 我们会一起回顾协程出现的历史背景，当时要解决什么问题；同时</description>
+      <description>cpu 高怎么看 版本兼容性： Ceph 的序列化格式设计时考虑了版本兼容性，可以在不中断服务的情况下升级系统。它可以通过类型版本号来处理不同版本之间的数据兼</description>
+    </item>
+    
+    <item>
+      <title>从青铜到王者系列：故障定位</title>
+      <link>https://wangcy6.github.io/post/liunx/desgin/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8%E5%85%A5%E9%97%A8%E7%AC%AC%E4%B8%80%E5%A4%A9/</link>
+      <pubDate>Sun, 20 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/liunx/desgin/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8%E5%85%A5%E9%97%A8%E7%AC%AC%E4%B8%80%E5%A4%A9/</guid>
+      <description>为什么 RPC库在序列化库时候要考虑版本兼容性？ 接口变化 版本兼容性： Ceph 的序列化格式设计时考虑了版本兼容性，可以在不中断服务的情况下升级系统。它</description>
     </item>
     
     <item>
