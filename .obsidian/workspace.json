@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "blog/content/post/money/002_.md",
+                "file": "blog/content/post/oceanbase/2024/day11.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "002_"
+              "title": "day11"
             }
           }
         ],
@@ -154,10 +154,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "blog/content/post/money/002_.md"
+                "file": "blog/content/post/oceanbase/2024/day11.md"
               },
               "icon": "lucide-list",
-              "title": "002_ 的大纲"
+              "title": "day11 的大纲"
             }
           }
         ],
@@ -179,12 +179,16 @@
   },
   "active": "3a2257bfe940e1ef",
   "lastOpenFiles": [
+    "blog/content/post/oceanbase/2024/day10.md",
+    "blog/content/post/oceanbase/2024/day11.md",
+    "blog/content/post/oceanbase/2024/day09_make_ob.md",
+    "blog/content/post/oceanbase/day3_ob.md",
+    "blog/content/post/money/002_.md",
     "mylife/ppt/02-data-struct.key",
     "master-cpp/demo/day1/hello.cpp",
     "master-cpp/demo/day1",
     "master-cpp/demo",
     "blog/content/post/money/01_gpt_from_new_to_master.md",
-    "blog/content/post/money/002_.md",
     "blog/content/post/money/2024/2024-08-02-sleep.md",
     "blog/content/post/04_2021-10-10.2021.years.md",
     "blog/content/post/habit/2025-habit-health-get-up.md",
@@ -205,7 +209,6 @@
     "blog/content/post/images/Pasted image 20241122215223.png",
     "blog/content/post/images/Pasted image 20241122215202.png",
     "blog/public/post/liunx/docker/2022_11_29_liunx_memory_-1/index.html",
-    "blog/public/post/liunx/docker/2022_11_29_liunx_memory_-1",
     "blog/content/post/liunx/desgin/2022_11_29_liunx_memory_ 1 1.md",
     "blog/content/post/liunx/docker/2022_11_29_liunx_memory_ 1 1.md",
     "blog/content/post/2024/2024-11-10-build-my-appley-p1.md",
@@ -214,9 +217,6 @@
     "blog/content/post/2024/2024-03-03-ask.md",
     "blog/content/post/2024/2024-03-03-11-rust-ai.md",
     "blog/content/post/2024/2024-03-06_readcode_ceph_threadpool.md",
-    "blog/content/post/c++/01_c++_new.md",
-    "blog/content/post/c++/02_master_c++_class.md",
-    "blog/content/post/oceanbase/2024/day6_make_ob.md",
-    "blog/content/post/2024/2024-03-03-04_rust_vivo.md"
+    "blog/content/post/c++/01_c++_new.md"
   ]
 }
