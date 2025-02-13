@@ -44,6 +44,15 @@
     </item>
     
     <item>
+      <title>成为ob贡献者(09):如何证明采用了PALF设计就是安全的</title>
+      <link>https://wangcy6.github.io/post/oceanbase/2024/day11/</link>
+      <pubDate>Sat, 21 Dec 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/oceanbase/2024/day11/</guid>
+      <description>第5章节：数据变更同步 原文： Besides serving transactions, distributed databases also act as the source of data flow. Downstream applications can be deployed to provide various services by synchronizing data changes recorded in physical logs. This section introduces two typical physical log synchronization scenarios in OceanBase, describes what challenges they bring to PALF, and depicts how to address these challenges by</description>
+    </item>
+    
+    <item>
       <title>只管去做践行记：2024-11月-第46周</title>
       <link>https://wangcy6.github.io/post/ARTS/2024/%E5%8F%AA%E7%AE%A1%E5%8E%BB%E5%81%9A%E8%B7%B5%E8%A1%8C%E8%AE%B02024-11%E6%9C%88-%E7%AC%AC46%E5%91%A8/</link>
       <pubDate>Sat, 23 Nov 2024 00:00:00 +0000</pubDate>
