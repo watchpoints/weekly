@@ -317,6 +317,13 @@
   </url>
   
   <url>
+    <loc>https://wangcy6.github.io/post/storage/2025/01-ceph-feature-getfattr/</loc>
+    <lastmod>2024-03-28T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://wangcy6.github.io/categories/ARTS/</loc>
     <lastmod>2024-03-25T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
