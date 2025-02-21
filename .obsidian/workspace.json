@@ -48,9 +48,21 @@
               "icon": "lucide-file",
               "title": "01-ceph-feature-getfattr"
             }
+          },
+          {
+            "id": "00f41fdad001f953",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.8.7"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.8.7"
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -169,13 +181,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "blog/content/post/storage/2025/01-ceph-feature-getfattr.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "01-ceph-feature-getfattr 的大纲"
+              "title": "大纲"
             }
           }
         ],
@@ -195,7 +206,7 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "a709f645f7faa329",
+  "active": "00f41fdad001f953",
   "lastOpenFiles": [
     "blog/content/post/storage/06-mds_sumbit_thread.md",
     "blog/content/post/storage/2025/01-ceph-feature-getfattr.md",
