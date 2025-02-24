@@ -53,12 +53,14 @@
             "id": "00f41fdad001f953",
             "type": "leaf",
             "state": {
-              "type": "release-notes",
+              "type": "markdown",
               "state": {
-                "currentVersion": "1.8.7"
+                "file": "blog/content/post/plan/如何睡个好觉.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-book-up",
-              "title": "Release Notes 1.8.7"
+              "icon": "lucide-file",
+              "title": "如何睡个好觉"
             }
           }
         ],
@@ -181,12 +183,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "blog/content/post/plan/如何睡个好觉.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "大纲"
+              "title": "如何睡个好觉 的大纲"
             }
           }
         ],
@@ -208,6 +211,8 @@
   },
   "active": "00f41fdad001f953",
   "lastOpenFiles": [
+    "blog/content/post/plan/提高效率：明确任务，加强沟通.md",
+    "blog/content/post/plan/如何睡个好觉.md",
     "blog/content/post/storage/06-mds_sumbit_thread.md",
     "blog/content/post/storage/2025/01-ceph-feature-getfattr.md",
     "blog/content/post/storage/4_icfs_help.md",
@@ -244,8 +249,6 @@
     "blog/content/about.md",
     "work",
     "blog/content/post/images/Pasted image 20241122215223.png",
-    "blog/content/post/images/Pasted image 20241122215202.png",
-    "blog/content/post/liunx/desgin/2022_11_29_liunx_memory_ 1 1.md",
-    "blog/content/post/liunx/docker/2022_11_29_liunx_memory_ 1 1.md"
+    "blog/content/post/images/Pasted image 20241122215202.png"
   ]
 }
