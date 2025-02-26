@@ -55,12 +55,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "blog/content/post/plan/如何睡个好觉.md",
+                "file": "blog/content/post/liunx/git通关从青铜到王者.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "如何睡个好觉"
+              "title": "git通关从青铜到王者"
             }
           }
         ],
@@ -183,13 +183,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "blog/content/post/plan/如何睡个好觉.md",
+                "file": "blog/content/post/liunx/git通关从青铜到王者.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "如何睡个好觉 的大纲"
+              "title": "git通关从青铜到王者 的大纲"
             }
           }
         ],
@@ -211,8 +211,9 @@
   },
   "active": "00f41fdad001f953",
   "lastOpenFiles": [
-    "blog/content/post/plan/提高效率：明确任务，加强沟通.md",
+    "blog/content/post/c++/02_master_c++_share_pointer.md",
     "blog/content/post/plan/如何睡个好觉.md",
+    "blog/content/post/plan/提高效率：明确任务，加强沟通.md",
     "blog/content/post/storage/06-mds_sumbit_thread.md",
     "blog/content/post/storage/2025/01-ceph-feature-getfattr.md",
     "blog/content/post/storage/4_icfs_help.md",
@@ -246,7 +247,6 @@
     "work/read_coding/read_ceph_mon.cc.md",
     "QA1.md",
     "work/read_coding",
-    "blog/content/about.md",
     "work",
     "blog/content/post/images/Pasted image 20241122215223.png",
     "blog/content/post/images/Pasted image 20241122215202.png"
