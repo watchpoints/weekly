@@ -55,12 +55,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "blog/content/post/liunx/git通关从青铜到王者.md",
+                "file": "blog/content/post/liunx/shell有什么用.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "git通关从青铜到王者"
+              "title": "shell有什么用"
             }
           }
         ],
@@ -183,13 +183,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "blog/content/post/liunx/git通关从青铜到王者.md",
+                "file": "blog/content/post/liunx/shell有什么用.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "git通关从青铜到王者 的大纲"
+              "title": "shell有什么用 的大纲"
             }
           }
         ],
@@ -211,6 +211,7 @@
   },
   "active": "00f41fdad001f953",
   "lastOpenFiles": [
+    "blog/content/post/liunx/git通关从青铜到王者.md",
     "blog/content/post/c++/02_master_c++_share_pointer.md",
     "blog/content/post/plan/如何睡个好觉.md",
     "blog/content/post/plan/提高效率：明确任务，加强沟通.md",
@@ -245,7 +246,6 @@
     "work/read_coding/read_ceph_mds.cc.md",
     "Pasted image 20250205145801.png",
     "work/read_coding/read_ceph_mon.cc.md",
-    "QA1.md",
     "work/read_coding",
     "work",
     "blog/content/post/images/Pasted image 20241122215223.png",
