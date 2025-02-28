@@ -55,12 +55,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "blog/content/post/liunx/shell有什么用.md",
+                "file": "blog/content/post/liunx/docker/2025-2-28-对象存储服务性能调优.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "shell有什么用"
+              "title": "2025-2-28-对象存储服务性能调优"
             }
           }
         ],
@@ -183,13 +183,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "blog/content/post/liunx/shell有什么用.md",
+                "file": "blog/content/post/liunx/docker/2025-2-28-对象存储服务性能调优.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "shell有什么用 的大纲"
+              "title": "2025-2-28-对象存储服务性能调优 的大纲"
             }
           }
         ],
@@ -211,6 +211,11 @@
   },
   "active": "00f41fdad001f953",
   "lastOpenFiles": [
+    "blog/public/page/42/index.html",
+    "blog/public/page/42",
+    "blog/content/post/liunx/docker/2022_11_29_liunx_memory_ 1.md",
+    "blog/content/post/liunx/docker/2025-2-28-对象存储服务性能调优.md",
+    "blog/content/post/liunx/shell有什么用.md",
     "blog/content/post/liunx/git通关从青铜到王者.md",
     "blog/content/post/c++/02_master_c++_share_pointer.md",
     "blog/content/post/plan/如何睡个好觉.md",
@@ -240,14 +245,9 @@
     "blog/public/post/habit/2025-habit-health-get-up",
     "blog/content/post/habit/2024/2024-08-12-sleep.md",
     "blog/content/post/habit/2024/2024-8-14-how-to-use-wechat.md",
-    "blog/content/post/habit/2024/2024-08-05-speak.md",
-    "blog/content/post/ARTS/2024/只管去做践行记：2024-11月-第46周.md",
     "blog/content/post/未命名",
-    "work/read_coding/read_ceph_mds.cc.md",
     "Pasted image 20250205145801.png",
-    "work/read_coding/read_ceph_mon.cc.md",
     "work/read_coding",
-    "work",
     "blog/content/post/images/Pasted image 20241122215223.png",
     "blog/content/post/images/Pasted image 20241122215202.png"
   ]
