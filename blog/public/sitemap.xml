@@ -338,14 +338,14 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/categories/CEPH/</loc>
+    <loc>https://wangcy6.github.io/tags/CEPH/</loc>
     <lastmod>2024-03-28T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/tags/CEPH/</loc>
+    <loc>https://wangcy6.github.io/categories/CEPH/</loc>
     <lastmod>2024-03-28T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -515,6 +515,13 @@
   <url>
     <loc>https://wangcy6.github.io/post/ARTS/2023/%E5%8F%AA%E7%AE%A1%E5%8E%BB%E5%81%9A%E8%B7%B5%E8%A1%8C%E8%AE%B0%E5%BD%95%E7%AC%AC6%E5%91%A8-/</loc>
     <lastmod>2023-10-31T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangcy6.github.io/categories/book/</loc>
+    <lastmod>2023-09-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -744,14 +751,14 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/tags/file-storage/</loc>
+    <loc>https://wangcy6.github.io/categories/file-storage/</loc>
     <lastmod>2023-02-10T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/categories/file-storage/</loc>
+    <loc>https://wangcy6.github.io/tags/file-storage/</loc>
     <lastmod>2023-02-10T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -1724,14 +1731,14 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/tags/%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
+    <loc>https://wangcy6.github.io/categories/%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
     <lastmod>2019-11-27T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/categories/%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
+    <loc>https://wangcy6.github.io/tags/%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
     <lastmod>2019-11-27T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -1836,13 +1843,6 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/categories/Book/</loc>
-    <lastmod>2019-10-11T17:02:43+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://wangcy6.github.io/tags/Leetcode/</loc>
     <lastmod>2019-10-11T17:02:43+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -1899,14 +1899,14 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/tags/Memcached/</loc>
+    <loc>https://wangcy6.github.io/categories/Memcached/</loc>
     <lastmod>2019-10-10T17:02:43+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/categories/Memcached/</loc>
+    <loc>https://wangcy6.github.io/tags/Memcached/</loc>
     <lastmod>2019-10-10T17:02:43+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
