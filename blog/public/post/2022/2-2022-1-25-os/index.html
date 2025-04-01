@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.101.0 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
 <link rel="canonical" href="https://wangcy6.github.io/post/2022/2-2022-1-25-os/" />
@@ -41,14 +41,17 @@
 <meta property="og:title" content="操作系统入门知识" />
 <meta property="og:description" content="疑问" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://wangcy6.github.io/post/2022/2-2022-1-25-os/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://wangcy6.github.io/post/2022/2-2022-1-25-os/" />
 <meta property="article:published_time" content="2022-01-25T00:00:00+00:00" />
 <meta property="article:modified_time" content="2022-01-25T00:00:00+00:00" />
-
 <meta itemprop="name" content="操作系统入门知识">
-<meta itemprop="description" content="疑问"><meta itemprop="datePublished" content="2022-01-25T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-01-25T00:00:00+00:00" />
-<meta itemprop="wordCount" content="2728">
+<meta itemprop="description" content="疑问">
+<meta itemprop="datePublished" content="2022-01-25T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2022-01-25T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="2730">
+
+
+
 <meta itemprop="keywords" content="book," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="操作系统入门知识"/>
 <meta name="twitter:description" content="疑问"/>
@@ -128,7 +131,7 @@
       <div class="post-meta">
         <span class="post-time"> 2022-01-25 00:00 </span>
         
-          <span class="more-meta"> 约 2728 字 </span>
+          <span class="more-meta"> 约 2730 字 </span>
           <span class="more-meta"> 预计阅读 6 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -141,26 +144,26 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#疑问1--what-is-numa">疑问1  What is NUMA?</a></li>
-        <li><a href="#疑问2网卡软中断都集中在了一个cpu上导致cpu负载升高多余网络包被丢弃httpszhuanlanzhihucomp80619249">疑问2:<a href="https://zhuanlan.zhihu.com/p/80619249">网卡软中断都集中在了一个cpu上，导致cpu负载升高，多余网络包被丢弃？</a></a></li>
+        <li><a href="#1--what-is-numa">疑问1  What is NUMA?</a></li>
+        <li><a href="#2cpucpuhttpszhuanlanzhihucomp80619249">疑问2:网卡软中断都集中在了一个cpu上，导致cpu负载升高，多余网络包被丢弃？</a></li>
       </ul>
     </li>
     <li><a href="#net">net</a></li>
     <li><a href="#file">file</a>
       <ul>
-        <li><a href="#一手资料">一手资料</a></li>
+        <li><a href="#heading">一手资料</a></li>
       </ul>
     </li>
-    <li><a href="#-方法">## 方法</a>
+    <li><a href="#-">## 方法</a>
       <ul>
-        <li><a href="#1-沟通步骤">1. 沟通步骤：</a></li>
-        <li><a href="#2-知识点">2. 知识点</a></li>
-        <li><a href="#一这个技术出现的背景初衷和要达到什么样的目标或是要解决什么样的问题">一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题</a></li>
-        <li><a href="#二这个技术的优势和劣势分别是什么">二、这个技术的优势和劣势分别是什么</a></li>
-        <li><a href="#三这技术适用的场景任何技术都有其适用的场景离开了这个场景">三、这技术适用的场景。任何技术都有其适用的场景，离开了这个场景</a></li>
-        <li><a href="#四技术的组成部分和关键点">四、技术的组成部分和关键点。</a></li>
-        <li><a href="#五技术的底层原理和关键实现">五、技术的底层原理和关键实现</a></li>
-        <li><a href="#六已有的实现和它之间的对比">六、已有的实现和它之间的对比</a></li>
+        <li><a href="#1-">1. 沟通步骤：</a></li>
+        <li><a href="#2-">2. 知识点</a></li>
+        <li><a href="#heading-1">一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题</a></li>
+        <li><a href="#heading-2">二、这个技术的优势和劣势分别是什么</a></li>
+        <li><a href="#heading-3">三、这技术适用的场景。任何技术都有其适用的场景，离开了这个场景</a></li>
+        <li><a href="#heading-4">四、技术的组成部分和关键点。</a></li>
+        <li><a href="#heading-5">五、技术的底层原理和关键实现</a></li>
+        <li><a href="#heading-6">六、已有的实现和它之间的对比</a></li>
       </ul>
     </li>
   </ul>
@@ -173,30 +176,34 @@
     </div>
   </div>
     <div class="post-content">
-      <h1 id="how-sched_setaffinity-works-inside-of-linux-kernel">How sched_setaffinity works inside of Linux Kernel</h1>
+      <h1 id="how-sched-setaffinity-works-inside-of-linux-kernel">How sched_setaffinity works inside of Linux Kernel</h1>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">YSCALL_DEFINE3(sched_setaffinity, pid_t, pid, unsigned int, len, unsigned long __user *, user_mask_ptr)
-</span></span><span class="line"><span class="cl">-- sched_setaffinity(pid_t pid, const struct cpumask *in_mask)
-</span></span><span class="line"><span class="cl">--- __set_cpus_allowed_ptr(struct task_struct *p, const struct cpumask *new_mask, bool check)
-</span></span><span class="line"><span class="cl">---- stop_one_cpu(unsigned int cpu, cpu_stop_fn_t fn, void *arg)
-</span></span><span class="line"><span class="cl">----- migration_cpu_stop(void *data)
-</span></span><span class="line"><span class="cl">------ __migrate_task(struct rq *rq, struct task_struct *p, int dest_cpu)
-</span></span><span class="line"><span class="cl">------- move_queued_task(struct rq *rq, struct task_struct *p, int new_cpu)
-</span></span><span class="line"><span class="cl">-------- enqueue_task(struct rq *rq, struct task_struct *p, int flags)
-</span></span><span class="line"><span class="cl">--------- returns the new run queue of destination CPU
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">YSCALL_DEFINE3(sched_setaffinity, pid_t, pid, unsigned int, len, unsigned long __user *, user_mask_ptr)
+-- sched_setaffinity(pid_t pid, const struct cpumask *in_mask)
+--- __set_cpus_allowed_ptr(struct task_struct *p, const struct cpumask *new_mask, bool check)
+---- stop_one_cpu(unsigned int cpu, cpu_stop_fn_t fn, void *arg)
+----- migration_cpu_stop(void *data)
+------ __migrate_task(struct rq *rq, struct task_struct *p, int dest_cpu)
+------- move_queued_task(struct rq *rq, struct task_struct *p, int new_cpu)
+-------- enqueue_task(struct rq *rq, struct task_struct *p, int flags)
+--------- returns the new run queue of destination CPU
+
+
+</code></pre></td></tr></table>
 </div>
 </div><p>[root@h12-storage03 ~]# dmesg|grep -i numa
 [    0.000000] NUMA: Initialized distance table, cnt=2
@@ -218,10 +225,10 @@
 [    1.200504] pci_bus 0000:ff: on NUMA node 1
 [root@h12-storage03 ~]#</p>
 <h1 id="cpu">cpu</h1>
-<h3 id="疑问1--what-is-numa">疑问1  What is NUMA?</h3>
+<h3 id="1--what-is-numa">疑问1  What is NUMA?</h3>
 <p>dmesg|grep -i numa</p>
 <p>[  0.000000] No NUMA configuration found</p>
-<h3 id="疑问2网卡软中断都集中在了一个cpu上导致cpu负载升高多余网络包被丢弃httpszhuanlanzhihucomp80619249">疑问2:<a href="https://zhuanlan.zhihu.com/p/80619249">网卡软中断都集中在了一个cpu上，导致cpu负载升高，多余网络包被丢弃？</a></h3>
+<h3 id="2cpucpuhttpszhuanlanzhihucomp80619249">疑问2:<a href="https://zhuanlan.zhihu.com/p/80619249">网卡软中断都集中在了一个cpu上，导致cpu负载升高，多余网络包被丢弃？</a></h3>
 <p>X86系统采用中断机制协同处理CPU与其他设备工作。长久以来网卡的中断默认由cpu0处理，在大量小包的网络环境下可能出现cpu0负载高，而其他cpu空闲。后来出现网卡多队列技术解决这个问题。</p>
 <ul>
 <li>
@@ -234,11 +241,11 @@
 <li>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">service irqbalance stop
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-text" data-lang="text">service irqbalance stop
+</code></pre></td></tr></table>
 </div>
 </div></li>
 </ul>
@@ -253,11 +260,11 @@
 <p>/etc/sysctl.conf</p>
 <p>## 修改内核异步 I/O 限制</p>
 <p>fs.aio-max-nr=1048576</p>
-<h3 id="一手资料">一手资料</h3>
+<h3 id="heading">一手资料</h3>
 <ul>
-<li><input checked="" disabled="" type="checkbox"> <a href="https://open.oceanbase.com/ask/detail?id=20400568&amp;pageNo=1&amp;query=NUMA#all">https://open.oceanbase.com/ask/detail?id=20400568&amp;pageNo=1&amp;query=NUMA#all</a></li>
-<li><input checked="" disabled="" type="checkbox"> <a href="https://zhuanlan.zhihu.com/p/336365600">每个程序员都应该知道的 CPU 知识：NUMA</a></li>
-<li><input checked="" disabled="" type="checkbox"> <a href="">以蚂蚁集团不同使用场景为例，分析如何调整和优化高性能 OceanBase</a></li>
+<li><input checked="" disabled="" type="checkbox"><a href="https://open.oceanbase.com/ask/detail?id=20400568&amp;pageNo=1&amp;query=NUMA#all">https://open.oceanbase.com/ask/detail?id=20400568&amp;pageNo=1&amp;query=NUMA#all</a></li>
+<li><input checked="" disabled="" type="checkbox"><a href="https://zhuanlan.zhihu.com/p/336365600">每个程序员都应该知道的 CPU 知识：NUMA</a></li>
+<li><input checked="" disabled="" type="checkbox"><a href="">以蚂蚁集团不同使用场景为例，分析如何调整和优化高性能 OceanBase</a></li>
 </ul>
 <p><img src="https://gw.alipayobjects.com/zos/oceanbase/cab256f1-ad0f-4a74-a434-07c2ad995948/image/2022-03-29/8d66c655-e16a-4a7f-859b-fc0a9cbf4047.png" alt=""></p>
 <ul>
@@ -272,7 +279,7 @@
 <p>[ksoftirqd/47</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -337,77 +344,77 @@
 </span><span class="lnt">63
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[root@spa-65-177-112 gadmin]# ps aux | grep softirq
-</span></span><span class="line"><span class="cl">root         6  0.0  0.0      0     0 ?        S     2021   0:20 [ksoftirqd/0]
-</span></span><span class="line"><span class="cl">root        14  0.0  0.0      0     0 ?        S     2021   0:21 [ksoftirqd/1]
-</span></span><span class="line"><span class="cl">root        20  0.0  0.0      0     0 ?        S     2021   0:16 [ksoftirqd/2]
-</span></span><span class="line"><span class="cl">root        25  0.0  0.0      0     0 ?        S     2021   0:19 [ksoftirqd/3]
-</span></span><span class="line"><span class="cl">root        30  0.0  0.0      0     0 ?        S     2021   0:19 [ksoftirqd/4]
-</span></span><span class="line"><span class="cl">root        35  0.0  0.0      0     0 ?        S     2021   0:30 [ksoftirqd/5]
-</span></span><span class="line"><span class="cl">root        40  0.0  0.0      0     0 ?        S     2021   0:20 [ksoftirqd/6]
-</span></span><span class="line"><span class="cl">root        45  0.0  0.0      0     0 ?        S     2021   0:33 [ksoftirqd/7]
-</span></span><span class="line"><span class="cl">root        50  0.0  0.0      0     0 ?        S     2021   0:20 [ksoftirqd/8]
-</span></span><span class="line"><span class="cl">root        55  0.0  0.0      0     0 ?        S     2021   0:17 [ksoftirqd/9]
-</span></span><span class="line"><span class="cl">root        60  0.0  0.0      0     0 ?        S     2021   0:31 [ksoftirqd/10]
-</span></span><span class="line"><span class="cl">root        65  0.0  0.0      0     0 ?        S     2021   0:23 [ksoftirqd/11]
-</span></span><span class="line"><span class="cl">root        70  0.0  0.0      0     0 ?        S     2021   0:13 [ksoftirqd/12]
-</span></span><span class="line"><span class="cl">root        76  0.0  0.0      0     0 ?        S     2021   0:22 [ksoftirqd/13]
-</span></span><span class="line"><span class="cl">root        81  0.0  0.0      0     0 ?        S     2021   0:27 [ksoftirqd/14]
-</span></span><span class="line"><span class="cl">root        86  0.0  0.0      0     0 ?        S     2021   0:32 [ksoftirqd/15]
-</span></span><span class="line"><span class="cl">root        91  0.0  0.0      0     0 ?        S     2021   0:34 [ksoftirqd/16]
-</span></span><span class="line"><span class="cl">root        96  0.0  0.0      0     0 ?        S     2021   0:18 [ksoftirqd/17]
-</span></span><span class="line"><span class="cl">root       101  0.0  0.0      0     0 ?        S     2021   0:18 [ksoftirqd/18]
-</span></span><span class="line"><span class="cl">root       106  0.0  0.0      0     0 ?        S     2021   0:16 [ksoftirqd/19]
-</span></span><span class="line"><span class="cl">root       111  0.0  0.0      0     0 ?        S     2021   0:20 [ksoftirqd/20]
-</span></span><span class="line"><span class="cl">root       116  0.0  0.0      0     0 ?        S     2021   0:23 [ksoftirqd/21]
-</span></span><span class="line"><span class="cl">root       121  0.0  0.0      0     0 ?        S     2021   0:18 [ksoftirqd/22]
-</span></span><span class="line"><span class="cl">root       126  0.0  0.0      0     0 ?        S     2021   0:14 [ksoftirqd/23]
-</span></span><span class="line"><span class="cl">root       131  0.0  0.0      0     0 ?        S     2021   0:00 [ksoftirqd/24]
-</span></span><span class="line"><span class="cl">root       136  0.0  0.0      0     0 ?        S     2021   0:06 [ksoftirqd/25]
-</span></span><span class="line"><span class="cl">root       141  0.0  0.0      0     0 ?        S     2021   0:04 [ksoftirqd/26]
-</span></span><span class="line"><span class="cl">root       146  0.0  0.0      0     0 ?        S     2021   0:03 [ksoftirqd/27]
-</span></span><span class="line"><span class="cl">root       151  0.0  0.0      0     0 ?        S     2021   0:03 [ksoftirqd/28]
-</span></span><span class="line"><span class="cl">root       156  0.0  0.0      0     0 ?        S     2021   0:02 [ksoftirqd/29]
-</span></span><span class="line"><span class="cl">root       161  0.0  0.0      0     0 ?        S     2021   0:02 [ksoftirqd/30]
-</span></span><span class="line"><span class="cl">root       166  0.0  0.0      0     0 ?        S     2021   0:02 [ksoftirqd/31]
-</span></span><span class="line"><span class="cl">root       171  0.0  0.0      0     0 ?        S     2021   0:01 [ksoftirqd/32]
-</span></span><span class="line"><span class="cl">root       176  0.0  0.0      0     0 ?        S     2021   0:01 [ksoftirqd/33]
-</span></span><span class="line"><span class="cl">root       181  0.0  0.0      0     0 ?        S     2021   0:01 [ksoftirqd/34]
-</span></span><span class="line"><span class="cl">root       186  0.0  0.0      0     0 ?        S     2021   0:01 [ksoftirqd/35]
-</span></span><span class="line"><span class="cl">root       191  0.0  0.0      0     0 ?        S     2021   0:00 [ksoftirqd/36]
-</span></span><span class="line"><span class="cl">root       196  0.0  0.0      0     0 ?        S     2021   0:06 [ksoftirqd/37]
-</span></span><span class="line"><span class="cl">root       201  0.0  0.0      0     0 ?        S     2021   0:04 [ksoftirqd/38]
-</span></span><span class="line"><span class="cl">root       206  0.0  0.0      0     0 ?        S     2021   0:03 [ksoftirqd/39]
-</span></span><span class="line"><span class="cl">root       211  0.0  0.0      0     0 ?        S     2021   0:03 [ksoftirqd/40]
-</span></span><span class="line"><span class="cl">root       216  0.0  0.0      0     0 ?        S     2021   0:02 [ksoftirqd/41]
-</span></span><span class="line"><span class="cl">root       221  0.0  0.0      0     0 ?        S     2021   0:03 [ksoftirqd/42]
-</span></span><span class="line"><span class="cl">root       226  0.0  0.0      0     0 ?        S     2021   0:02 [ksoftirqd/43]
-</span></span><span class="line"><span class="cl">root       231  0.0  0.0      0     0 ?        S     2021   0:00 [ksoftirqd/44]
-</span></span><span class="line"><span class="cl">root       236  0.0  0.0      0     0 ?        S     2021   0:00 [ksoftirqd/45]
-</span></span><span class="line"><span class="cl">root       241  0.0  0.0      0     0 ?        S     2021   0:00 [ksoftirqd/46]
-</span></span><span class="line"><span class="cl">root       246  0.0  0.0      0     0 ?        S     2021   0:00 [ksoftirqd/47]
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">[ ~]# cat /proc/irq/24/smp_affinity
-</span></span><span class="line"><span class="cl">0001
-</span></span><span class="line"><span class="cl">[ ~]# cat /proc/irq/24/smp_affinity_list 
-</span></span><span class="line"><span class="cl">0
-</span></span><span class="line"><span class="cl">#上面表示0001对应cpu0，可以直接修改绑定关系
-</span></span><span class="line"><span class="cl">[ ~]# echo 4 &gt; /proc/irq/24/smp_affinity
-</span></span><span class="line"><span class="cl">[ ~]# cat /proc/irq/24/smp_affinity_list 
-</span></span><span class="line"><span class="cl">2
-</span></span><span class="line"><span class="cl">#此时中断号24对应的处理CPU为cpu2
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">mpstat -P ALL 1 1
-</span></span><span class="line"><span class="cl">watch -d cat /proc/softirqs
-</span></span><span class="line"><span class="cl">cat /proc/interrupts  
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[root@spa-65-177-112 gadmin]# ps aux | grep softirq
+root         6  0.0  0.0      0     0 ?        S     2021   0:20 [ksoftirqd/0]
+root        14  0.0  0.0      0     0 ?        S     2021   0:21 [ksoftirqd/1]
+root        20  0.0  0.0      0     0 ?        S     2021   0:16 [ksoftirqd/2]
+root        25  0.0  0.0      0     0 ?        S     2021   0:19 [ksoftirqd/3]
+root        30  0.0  0.0      0     0 ?        S     2021   0:19 [ksoftirqd/4]
+root        35  0.0  0.0      0     0 ?        S     2021   0:30 [ksoftirqd/5]
+root        40  0.0  0.0      0     0 ?        S     2021   0:20 [ksoftirqd/6]
+root        45  0.0  0.0      0     0 ?        S     2021   0:33 [ksoftirqd/7]
+root        50  0.0  0.0      0     0 ?        S     2021   0:20 [ksoftirqd/8]
+root        55  0.0  0.0      0     0 ?        S     2021   0:17 [ksoftirqd/9]
+root        60  0.0  0.0      0     0 ?        S     2021   0:31 [ksoftirqd/10]
+root        65  0.0  0.0      0     0 ?        S     2021   0:23 [ksoftirqd/11]
+root        70  0.0  0.0      0     0 ?        S     2021   0:13 [ksoftirqd/12]
+root        76  0.0  0.0      0     0 ?        S     2021   0:22 [ksoftirqd/13]
+root        81  0.0  0.0      0     0 ?        S     2021   0:27 [ksoftirqd/14]
+root        86  0.0  0.0      0     0 ?        S     2021   0:32 [ksoftirqd/15]
+root        91  0.0  0.0      0     0 ?        S     2021   0:34 [ksoftirqd/16]
+root        96  0.0  0.0      0     0 ?        S     2021   0:18 [ksoftirqd/17]
+root       101  0.0  0.0      0     0 ?        S     2021   0:18 [ksoftirqd/18]
+root       106  0.0  0.0      0     0 ?        S     2021   0:16 [ksoftirqd/19]
+root       111  0.0  0.0      0     0 ?        S     2021   0:20 [ksoftirqd/20]
+root       116  0.0  0.0      0     0 ?        S     2021   0:23 [ksoftirqd/21]
+root       121  0.0  0.0      0     0 ?        S     2021   0:18 [ksoftirqd/22]
+root       126  0.0  0.0      0     0 ?        S     2021   0:14 [ksoftirqd/23]
+root       131  0.0  0.0      0     0 ?        S     2021   0:00 [ksoftirqd/24]
+root       136  0.0  0.0      0     0 ?        S     2021   0:06 [ksoftirqd/25]
+root       141  0.0  0.0      0     0 ?        S     2021   0:04 [ksoftirqd/26]
+root       146  0.0  0.0      0     0 ?        S     2021   0:03 [ksoftirqd/27]
+root       151  0.0  0.0      0     0 ?        S     2021   0:03 [ksoftirqd/28]
+root       156  0.0  0.0      0     0 ?        S     2021   0:02 [ksoftirqd/29]
+root       161  0.0  0.0      0     0 ?        S     2021   0:02 [ksoftirqd/30]
+root       166  0.0  0.0      0     0 ?        S     2021   0:02 [ksoftirqd/31]
+root       171  0.0  0.0      0     0 ?        S     2021   0:01 [ksoftirqd/32]
+root       176  0.0  0.0      0     0 ?        S     2021   0:01 [ksoftirqd/33]
+root       181  0.0  0.0      0     0 ?        S     2021   0:01 [ksoftirqd/34]
+root       186  0.0  0.0      0     0 ?        S     2021   0:01 [ksoftirqd/35]
+root       191  0.0  0.0      0     0 ?        S     2021   0:00 [ksoftirqd/36]
+root       196  0.0  0.0      0     0 ?        S     2021   0:06 [ksoftirqd/37]
+root       201  0.0  0.0      0     0 ?        S     2021   0:04 [ksoftirqd/38]
+root       206  0.0  0.0      0     0 ?        S     2021   0:03 [ksoftirqd/39]
+root       211  0.0  0.0      0     0 ?        S     2021   0:03 [ksoftirqd/40]
+root       216  0.0  0.0      0     0 ?        S     2021   0:02 [ksoftirqd/41]
+root       221  0.0  0.0      0     0 ?        S     2021   0:03 [ksoftirqd/42]
+root       226  0.0  0.0      0     0 ?        S     2021   0:02 [ksoftirqd/43]
+root       231  0.0  0.0      0     0 ?        S     2021   0:00 [ksoftirqd/44]
+root       236  0.0  0.0      0     0 ?        S     2021   0:00 [ksoftirqd/45]
+root       241  0.0  0.0      0     0 ?        S     2021   0:00 [ksoftirqd/46]
+root       246  0.0  0.0      0     0 ?        S     2021   0:00 [ksoftirqd/47]
+  
+[ ~]# cat /proc/irq/24/smp_affinity
+0001
+[ ~]# cat /proc/irq/24/smp_affinity_list 
+0
+#上面表示0001对应cpu0，可以直接修改绑定关系
+[ ~]# echo 4 &gt; /proc/irq/24/smp_affinity
+[ ~]# cat /proc/irq/24/smp_affinity_list 
+2
+#此时中断号24对应的处理CPU为cpu2
+  
+mpstat -P ALL 1 1
+watch -d cat /proc/softirqs
+cat /proc/interrupts  
+</code></pre></td></tr></table>
 </div>
 </div><p>watch -d cat /proc/softirqs</p>
 <p>ET_RX（网络接收）、SCHED（内核调度）、RCU（RCU 锁）</p>
 <ul>
-<li><input checked="" disabled="" type="checkbox"> 10 | 案例篇：系统的软中断CPU使用率升高，我该怎么办？</li>
-<li><input checked="" disabled="" type="checkbox"> <a href="https://linuxhint.com/understanding_numa_architecture/">https://linuxhint.com/understanding_numa_architecture/</a></li>
-<li><input checked="" disabled="" type="checkbox"> <a href="https://www.jianshu.com/p/6dfde8331380">https://www.jianshu.com/p/6dfde8331380</a></li>
+<li><input checked="" disabled="" type="checkbox">10 | 案例篇：系统的软中断CPU使用率升高，我该怎么办？</li>
+<li><input checked="" disabled="" type="checkbox"><a href="https://linuxhint.com/understanding_numa_architecture/">https://linuxhint.com/understanding_numa_architecture/</a></li>
+<li><input checked="" disabled="" type="checkbox"><a href="https://www.jianshu.com/p/6dfde8331380">https://www.jianshu.com/p/6dfde8331380</a></li>
 </ul>
 </li>
 <li>
@@ -464,8 +471,8 @@
 </ul>
 </li>
 </ul>
-<h2 id="-方法">## 方法</h2>
-<h3 id="1-沟通步骤">1. 沟通步骤：</h3>
+<h2 id="-">## 方法</h2>
+<h3 id="1-">1. 沟通步骤：</h3>
 <ol>
 <li>准备好一个ppt，在写代码之前演示最终目标 和架构设计 就是如何去实现的</li>
 </ol>
@@ -483,13 +490,13 @@
 <p>我的回答</p>
 <p>xx点评：</p>
 <p>完善流程：</p>
-<h3 id="2-知识点">2. 知识点</h3>
-<h3 id="一这个技术出现的背景初衷和要达到什么样的目标或是要解决什么样的问题">一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题</h3>
-<h3 id="二这个技术的优势和劣势分别是什么">二、这个技术的优势和劣势分别是什么</h3>
-<h3 id="三这技术适用的场景任何技术都有其适用的场景离开了这个场景">三、这技术适用的场景。任何技术都有其适用的场景，离开了这个场景</h3>
-<h3 id="四技术的组成部分和关键点">四、技术的组成部分和关键点。</h3>
-<h3 id="五技术的底层原理和关键实现">五、技术的底层原理和关键实现</h3>
-<h3 id="六已有的实现和它之间的对比">六、已有的实现和它之间的对比</h3>
+<h3 id="2-">2. 知识点</h3>
+<h3 id="heading-1">一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题</h3>
+<h3 id="heading-2">二、这个技术的优势和劣势分别是什么</h3>
+<h3 id="heading-3">三、这技术适用的场景。任何技术都有其适用的场景，离开了这个场景</h3>
+<h3 id="heading-4">四、技术的组成部分和关键点。</h3>
+<h3 id="heading-5">五、技术的底层原理和关键实现</h3>
+<h3 id="heading-6">六、已有的实现和它之间的对比</h3>
 
     </div>
 

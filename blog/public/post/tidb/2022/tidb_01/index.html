@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.101.0 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
 <link rel="canonical" href="https://wangcy6.github.io/post/tidb/2022/tidb_01/" />
@@ -41,14 +41,17 @@
 <meta property="og:title" content="Tidb入门1" />
 <meta property="og:description" content="Tidb" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://wangcy6.github.io/post/tidb/2022/tidb_01/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://wangcy6.github.io/post/tidb/2022/tidb_01/" />
 <meta property="article:published_time" content="2022-01-11T00:00:00+00:00" />
 <meta property="article:modified_time" content="2022-01-11T00:00:00+00:00" />
-
 <meta itemprop="name" content="Tidb入门1">
-<meta itemprop="description" content="Tidb"><meta itemprop="datePublished" content="2022-01-11T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-01-11T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1203">
+<meta itemprop="description" content="Tidb">
+<meta itemprop="datePublished" content="2022-01-11T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2022-01-11T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1212">
+
+
+
 <meta itemprop="keywords" content="Tidb," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Tidb入门1"/>
 <meta name="twitter:description" content="Tidb"/>
@@ -128,7 +131,7 @@
       <div class="post-meta">
         <span class="post-time"> 2022-01-11 00:00 </span>
         
-          <span class="more-meta"> 约 1203 字 </span>
+          <span class="more-meta"> 约 1212 字 </span>
           <span class="more-meta"> 预计阅读 3 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -139,17 +142,17 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#管理配置">管理配置</a>
+    <li><a href="#heading">管理配置</a>
       <ul>
         <li><a href="#tiup">tiup</a></li>
       </ul>
     </li>
-    <li><a href="#调试技巧">调试技巧</a></li>
-    <li><a href="#优化器">优化器</a>
+    <li><a href="#heading-1">调试技巧</a></li>
+    <li><a href="#heading-2">优化器</a>
       <ul>
-        <li><a href="#逻辑优化">逻辑优化</a></li>
-        <li><a href="#物理优化">物理优化</a></li>
-        <li><a href="#q2同城两中心-采用raft-复制存在的问题是">Q2同城两中心 采用raft 复制存在的问题是？</a></li>
+        <li><a href="#heading-3">逻辑优化</a></li>
+        <li><a href="#heading-4">物理优化</a></li>
+        <li><a href="#q2-raft-">Q2同城两中心 采用raft 复制存在的问题是？</a></li>
       </ul>
     </li>
   </ul>
@@ -171,7 +174,7 @@
 <p><a href="https://wangcy6.github.io/post/tidb/2022/tidb_01/">https://wangcy6.github.io/post/tidb/2022/tidb_01/</a></p>
 </li>
 </ul>
-<h2 id="管理配置">管理配置</h2>
+<h2 id="heading">管理配置</h2>
 <h3 id="tiup">tiup</h3>
 <ul>
 <li>拓扑结构</li>
@@ -179,7 +182,7 @@
 <p><a href="https://docs.pingcap.com/zh/tidb/stable/minimal-deployment-topology/">https://docs.pingcap.com/zh/tidb/stable/minimal-deployment-topology/</a></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -242,79 +245,79 @@
 </span><span class="lnt">61
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl --proto <span class="s1">&#39;=https&#39;</span> --tlsv1.2 -sSf https://tiup-mirrors.pingcap.com/install.sh <span class="p">|</span> sh
-</span></span><span class="line"><span class="cl"><span class="nb">source</span> .bash_profile
-</span></span><span class="line"><span class="cl">tiup install cluster
-</span></span><span class="line"><span class="cl">https://github.com/pingcap/docs-cn/tree/master/config-templates
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">lsblk
-</span></span><span class="line"><span class="cl">mkfs.ext4 /dev/nvme0n2 
-</span></span><span class="line"><span class="cl">mount /dev/nvme0n2  /mnt/tidb
-</span></span><span class="line"><span class="cl">df -h
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">tiup cluster deploy watchpoints v6.5.2 ./topology.yaml -uroot -p123456
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">Cluster type:    tidb
-</span></span><span class="line"><span class="cl">Cluster name:    watchpoints
-</span></span><span class="line"><span class="cl">Cluster version: v6.5.2
-</span></span><span class="line"><span class="cl">Role          Host       Ports                            OS/Arch       Directories
-</span></span><span class="line"><span class="cl">----          ----       -----                            -------       -----------
-</span></span><span class="line"><span class="cl">pd            127.0.0.1  2379/2380                        linux/x86_64  /mnt/tidb/tidb-deploy/pd-2379,/mnt/tidb/tidb-data/pd-2379
-</span></span><span class="line"><span class="cl">tikv          127.0.0.1  20160/20180                      linux/x86_64  /mnt/tidb/tidb-deploy/tikv-20160,/mnt/tidb/tidb-data/tikv-20160
-</span></span><span class="line"><span class="cl">tidb          127.0.0.1  4000/10080                       linux/x86_64  /mnt/todb/tidb-deploy/tidb-4000
-</span></span><span class="line"><span class="cl">tiflash       127.0.0.1  9000/8123/3930/20170/20292/8234  linux/x86_64  /mnt/tidb/tidb-deploy/tiflash-9000,/mnt/tidb/tidb-data/tiflash-9000
-</span></span><span class="line"><span class="cl">prometheus    127.0.0.1  9090/12020                       linux/x86_64  /mnt/tidb/tidb-deploy/prometheus-9090,/mnt/tidb/tidb-data/prometheus-8249
-</span></span><span class="line"><span class="cl">grafana       127.0.0.1  <span class="m">3000</span>                             linux/x86_64  /mnt/tidb/tidb-deploy/grafana-3000
-</span></span><span class="line"><span class="cl">alertmanager  127.0.0.1  9093/9094                        linux/x86_64  /mnt/tidb/tidb-deploy/alertmanager-9093,/mnt/tidb/tidb-data/alertmanager-9093
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">tiup cluster start watchpoints --init
-</span></span><span class="line"><span class="cl">tiup cluster display watchpoints
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">The root password of TiDB database has been changed.
-</span></span><span class="line"><span class="cl">The new password is: <span class="s1">&#39;BW07-+5vE36q@b*9RA&#39;</span>.
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">tiup cluster display watchpoints
-</span></span><span class="line"><span class="cl">tiup is checking updates <span class="k">for</span> component cluster ...
-</span></span><span class="line"><span class="cl">Starting component <span class="sb">`</span>cluster<span class="sb">`</span>: /root/.tiup/components/cluster/v1.12.1/tiup-cluster display watchpoints
-</span></span><span class="line"><span class="cl">Cluster type:       tidb
-</span></span><span class="line"><span class="cl">Cluster name:       watchpoints
-</span></span><span class="line"><span class="cl">Cluster version:    v6.5.2
-</span></span><span class="line"><span class="cl">Deploy user:        root
-</span></span><span class="line"><span class="cl">SSH type:           <span class="nb">builtin</span>
-</span></span><span class="line"><span class="cl">Dashboard URL:      http://127.0.0.1:2379/dashboard
-</span></span><span class="line"><span class="cl">Grafana URL:        http://127.0.0.1:3000
-</span></span><span class="line"><span class="cl">ID               Role          Host       Ports                            OS/Arch       Status   Data Dir                               Deploy Dir
-</span></span><span class="line"><span class="cl">--               ----          ----       -----                            -------       ------   --------                               ----------
-</span></span><span class="line"><span class="cl">127.0.0.1:9093   alertmanager  127.0.0.1  9093/9094                        linux/x86_64  Up       /mnt/tidb/tidb-data/alertmanager-9093  /mnt/tidb/tidb-deploy/alertmanager-9093
-</span></span><span class="line"><span class="cl">127.0.0.1:3000   grafana       127.0.0.1  <span class="m">3000</span>                             linux/x86_64  Up       -                                      /mnt/tidb/tidb-deploy/grafana-3000
-</span></span><span class="line"><span class="cl">127.0.0.1:2379   pd            127.0.0.1  2379/2380                        linux/x86_64  Up<span class="p">|</span>L<span class="p">|</span>UI  /mnt/tidb/tidb-data/pd-2379            /mnt/tidb/tidb-deploy/pd-2379
-</span></span><span class="line"><span class="cl">127.0.0.1:9090   prometheus    127.0.0.1  9090/12020                       linux/x86_64  Up       /mnt/tidb/tidb-data/prometheus-8249    /mnt/tidb/tidb-deploy/prometheus-9090
-</span></span><span class="line"><span class="cl">127.0.0.1:4000   tidb          127.0.0.1  4000/10080                       linux/x86_64  Up       -                                      /mnt/todb/tidb-deploy/tidb-4000
-</span></span><span class="line"><span class="cl">127.0.0.1:9000   tiflash       127.0.0.1  9000/8123/3930/20170/20292/8234  linux/x86_64  Up       /mnt/tidb/tidb-data/tiflash-9000       /mnt/tidb/tidb-deploy/tiflash-9000
-</span></span><span class="line"><span class="cl">127.0.0.1:20160  tikv          127.0.0.1  20160/20180                      linux/x86_64  Up       /mnt/tidb/tidb-data/tikv-20160         /mnt/tidb/tidb-deploy/tikv-20160
-</span></span><span class="line"><span class="cl">Total nodes: <span class="m">7</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">安装 MySQL 客户端并连接
-</span></span><span class="line"><span class="cl">yum install mysql -y
-</span></span><span class="line"><span class="cl">OceanBase性能测试 https://juejin.cn/post/7203523120988717114
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">curl --proto <span class="s1">&#39;=https&#39;</span> --tlsv1.2 -sSf https://tiup-mirrors.pingcap.com/install.sh <span class="p">|</span> sh
+<span class="nb">source</span> .bash_profile
+tiup install cluster
+https://github.com/pingcap/docs-cn/tree/master/config-templates
+
+lsblk
+mkfs.ext4 /dev/nvme0n2 
+mount /dev/nvme0n2  /mnt/tidb
+df -h
+
+tiup cluster deploy watchpoints v6.5.2 ./topology.yaml -uroot -p123456
+
+
+Cluster type:    tidb
+Cluster name:    watchpoints
+Cluster version: v6.5.2
+Role          Host       Ports                            OS/Arch       Directories
+----          ----       -----                            -------       -----------
+pd            127.0.0.1  2379/2380                        linux/x86_64  /mnt/tidb/tidb-deploy/pd-2379,/mnt/tidb/tidb-data/pd-2379
+tikv          127.0.0.1  20160/20180                      linux/x86_64  /mnt/tidb/tidb-deploy/tikv-20160,/mnt/tidb/tidb-data/tikv-20160
+tidb          127.0.0.1  4000/10080                       linux/x86_64  /mnt/todb/tidb-deploy/tidb-4000
+tiflash       127.0.0.1  9000/8123/3930/20170/20292/8234  linux/x86_64  /mnt/tidb/tidb-deploy/tiflash-9000,/mnt/tidb/tidb-data/tiflash-9000
+prometheus    127.0.0.1  9090/12020                       linux/x86_64  /mnt/tidb/tidb-deploy/prometheus-9090,/mnt/tidb/tidb-data/prometheus-8249
+grafana       127.0.0.1  <span class="m">3000</span>                             linux/x86_64  /mnt/tidb/tidb-deploy/grafana-3000
+alertmanager  127.0.0.1  9093/9094                        linux/x86_64  /mnt/tidb/tidb-deploy/alertmanager-9093,/mnt/tidb/tidb-data/alertmanager-9093
+
+tiup cluster start watchpoints --init
+tiup cluster display watchpoints
+
+The root password of TiDB database has been changed.
+The new password is: <span class="s1">&#39;BW07-+5vE36q@b*9RA&#39;</span>.
+
+
+
+
+
+
+tiup cluster display watchpoints
+tiup is checking updates <span class="k">for</span> component cluster ...
+Starting component <span class="sb">`</span>cluster<span class="sb">`</span>: /root/.tiup/components/cluster/v1.12.1/tiup-cluster display watchpoints
+Cluster type:       tidb
+Cluster name:       watchpoints
+Cluster version:    v6.5.2
+Deploy user:        root
+SSH type:           <span class="nb">builtin</span>
+Dashboard URL:      http://127.0.0.1:2379/dashboard
+Grafana URL:        http://127.0.0.1:3000
+ID               Role          Host       Ports                            OS/Arch       Status   Data Dir                               Deploy Dir
+--               ----          ----       -----                            -------       ------   --------                               ----------
+127.0.0.1:9093   alertmanager  127.0.0.1  9093/9094                        linux/x86_64  Up       /mnt/tidb/tidb-data/alertmanager-9093  /mnt/tidb/tidb-deploy/alertmanager-9093
+127.0.0.1:3000   grafana       127.0.0.1  <span class="m">3000</span>                             linux/x86_64  Up       -                                      /mnt/tidb/tidb-deploy/grafana-3000
+127.0.0.1:2379   pd            127.0.0.1  2379/2380                        linux/x86_64  Up<span class="p">|</span>L<span class="p">|</span>UI  /mnt/tidb/tidb-data/pd-2379            /mnt/tidb/tidb-deploy/pd-2379
+127.0.0.1:9090   prometheus    127.0.0.1  9090/12020                       linux/x86_64  Up       /mnt/tidb/tidb-data/prometheus-8249    /mnt/tidb/tidb-deploy/prometheus-9090
+127.0.0.1:4000   tidb          127.0.0.1  4000/10080                       linux/x86_64  Up       -                                      /mnt/todb/tidb-deploy/tidb-4000
+127.0.0.1:9000   tiflash       127.0.0.1  9000/8123/3930/20170/20292/8234  linux/x86_64  Up       /mnt/tidb/tidb-data/tiflash-9000       /mnt/tidb/tidb-deploy/tiflash-9000
+127.0.0.1:20160  tikv          127.0.0.1  20160/20180                      linux/x86_64  Up       /mnt/tidb/tidb-data/tikv-20160         /mnt/tidb/tidb-deploy/tikv-20160
+Total nodes: 7
+
+安装 MySQL 客户端并连接
+yum install mysql -y
+OceanBase性能测试 https://juejin.cn/post/7203523120988717114
+</code></pre></td></tr></table>
 </div>
 </div><p>连接到 TiDB 集群：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">mysql --comments -h 127.0.0.1 -P <span class="m">4000</span> -u root -pBW07-+5vE36q@b*9RA
-</span></span><span class="line"><span class="cl">show database<span class="p">;</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-sh" data-lang="sh">mysql --comments -h 127.0.0.1 -P <span class="m">4000</span> -u root -pBW07-+5vE36q@b*9RA
+show database<span class="p">;</span>
+</code></pre></td></tr></table>
 </div>
 </div><p><img src="assets/image-20230517201440168.png" alt="image-20230517201440168"></p>
 <p>http://74.120.174.137:2379/dashboard/#/overview</p>
@@ -323,17 +326,19 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
+</span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Name       User  Version  Path                                            PrivateKey
-</span></span><span class="line"><span class="cl">----       ----  -------  ----                                            ----------
-</span></span><span class="line"><span class="cl">tidb-test  tidb  v5.0.2   /root/.tiup/storage/cluster/clusters/tidb-test  /root/.tiup/storage/cluster/clusters/tidb-test/ssh/id_rsa
-</span></span><span class="line"><span class="cl">root@money:~#
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Name       User  Version  Path                                            PrivateKey
+----       ----  -------  ----                                            ----------
+tidb-test  tidb  v5.0.2   /root/.tiup/storage/cluster/clusters/tidb-test  /root/.tiup/storage/cluster/clusters/tidb-test/ssh/id_rsa
+root@money:~#
+
+</code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>tiup cluster start tidb-test</li>
@@ -343,7 +348,7 @@ tiup cluster display watchpoints</li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -357,86 +362,96 @@ tiup cluster display watchpoints</li>
 </span><span class="lnt">12
 </span><span class="lnt">13
 </span><span class="lnt">14
+</span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Cluster type:       tidb
-</span></span><span class="line"><span class="cl">Cluster name:       tidb-test
-</span></span><span class="line"><span class="cl">Cluster version:    v5.0.2
-</span></span><span class="line"><span class="cl">Deploy user:        tidb
-</span></span><span class="line"><span class="cl">SSH type:           builtin
-</span></span><span class="line"><span class="cl">Dashboard URL:      http://127.0.0.1:2379/dashboard
-</span></span><span class="line"><span class="cl">ID               Role        Host       Ports        OS/Arch       Status   Data Dir                                   Deploy Dir
-</span></span><span class="line"><span class="cl">--               ----        ----       -----        -------       ------   --------                                   ----------
-</span></span><span class="line"><span class="cl">127.0.0.1:3000   grafana     127.0.0.1  3000         linux/x86_64  Up       -                                          /data/tidb/tiup/tidb-deploy/grafana-3000
-</span></span><span class="line"><span class="cl">127.0.0.1:2379   pd          127.0.0.1  2379/2380    linux/x86_64  Up|L|UI  /data/tidb/tiup/tidb-data/pd-2379          /data/tidb/tiup/tidb-deploy/pd-2379
-</span></span><span class="line"><span class="cl">127.0.0.1:9090   prometheus  127.0.0.1  9090         linux/x86_64  Up       /data/tidb/tiup/tidb-data/prometheus-9090  /data/tidb/tiup/tidb-deploy/prometheus-9090
-</span></span><span class="line"><span class="cl">127.0.0.1:4000   tidb        127.0.0.1  4000/10080   linux/x86_64  Up       -                                          /data/tidb/tiup/tidb-deploy/tidb-4000
-</span></span><span class="line"><span class="cl">127.0.0.1:20170  tikv        127.0.0.1  20170/20180  linux/x86_64  Up       /data/tidb/tiup/tidb-data/tikv-20170       /data/tidb/tiup/tidb-deploy/tikv-20170
-</span></span><span class="line"><span class="cl">Total nodes: 5
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Cluster type:       tidb
+Cluster name:       tidb-test
+Cluster version:    v5.0.2
+Deploy user:        tidb
+SSH type:           builtin
+Dashboard URL:      http://127.0.0.1:2379/dashboard
+ID               Role        Host       Ports        OS/Arch       Status   Data Dir                                   Deploy Dir
+--               ----        ----       -----        -------       ------   --------                                   ----------
+127.0.0.1:3000   grafana     127.0.0.1  3000         linux/x86_64  Up       -                                          /data/tidb/tiup/tidb-deploy/grafana-3000
+127.0.0.1:2379   pd          127.0.0.1  2379/2380    linux/x86_64  Up|L|UI  /data/tidb/tiup/tidb-data/pd-2379          /data/tidb/tiup/tidb-deploy/pd-2379
+127.0.0.1:9090   prometheus  127.0.0.1  9090         linux/x86_64  Up       /data/tidb/tiup/tidb-data/prometheus-9090  /data/tidb/tiup/tidb-deploy/prometheus-9090
+127.0.0.1:4000   tidb        127.0.0.1  4000/10080   linux/x86_64  Up       -                                          /data/tidb/tiup/tidb-deploy/tidb-4000
+127.0.0.1:20170  tikv        127.0.0.1  20170/20180  linux/x86_64  Up       /data/tidb/tiup/tidb-data/tikv-20170       /data/tidb/tiup/tidb-deploy/tikv-20170
+Total nodes: 5
+
+</code></pre></td></tr></table>
 </div>
-</div><h2 id="调试技巧">调试技巧</h2>
+</div><h2 id="heading-1">调试技巧</h2>
 <ul>
 <li>启动 mdb后，客户度连接</li>
 </ul>
-<h2 id="优化器">优化器</h2>
+<h2 id="heading-2">优化器</h2>
 <ul>
 <li>子查询相关的优化</li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">mysql&gt; explain select * from t1 where exists (select * from t2);
-</span></span><span class="line"><span class="cl">+-----------------------+----------+-----------+---------------+--------------------------------+
-</span></span><span class="line"><span class="cl">| id                    | estRows  | task      | access object | operator info                  |
-</span></span><span class="line"><span class="cl">+-----------------------+----------+-----------+---------------+--------------------------------+
-</span></span><span class="line"><span class="cl">| TableReader_10        | 10000.00 | root      |               | data:TableFullScan_9           |
-</span></span><span class="line"><span class="cl">| └─TableFullScan_9     | 10000.00 | cop[tikv] | table:t1      | keep order:false, stats:pseudo |
-</span></span><span class="line"><span class="cl">+-----------------------+----------+-----------+---------------+--------------------------------+
-</span></span><span class="line"><span class="cl">2 rows in set (0.01 sec)
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">mysql&gt; explain select * from t1 where exists (select * from t2);
++-----------------------+----------+-----------+---------------+--------------------------------+
+| id                    | estRows  | task      | access object | operator info                  |
++-----------------------+----------+-----------+---------------+--------------------------------+
+| TableReader_10        | 10000.00 | root      |               | data:TableFullScan_9           |
+| └─TableFullScan_9     | 10000.00 | cop[tikv] | table:t1      | keep order:false, stats:pseudo |
++-----------------------+----------+-----------+---------------+--------------------------------+
+2 rows in set (0.01 sec)
+
+
+</code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>谓词下推</li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
+</span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">create table t12(id int primary key, a int);
-</span></span><span class="line"><span class="cl">explain select * from t12 where a &lt; 1;
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">create table t12(id int primary key, a int);
+explain select * from t12 where a &lt; 1;
+
+</code></pre></td></tr></table>
 </div>
-</div><h3 id="逻辑优化">逻辑优化</h3>
+</div><h3 id="heading-3">逻辑优化</h3>
 <p>阅读资料</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
+</span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Max/Min 函数消除规则
-</span></span><span class="line"><span class="cl">https://docs.pingcap.com/zh/tidb/stable/max-min-eliminate
-</span></span><span class="line"><span class="cl">explain select max(a) from t12; TopN_19
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">https://docs.pingcap.com/zh/tidb/stable/predicate-push-down
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Max/Min 函数消除规则
+https://docs.pingcap.com/zh/tidb/stable/max-min-eliminate
+explain select max(a) from t12; TopN_19
+
+https://docs.pingcap.com/zh/tidb/stable/predicate-push-down
+
+</code></pre></td></tr></table>
 </div>
-</div><h3 id="物理优化">物理优化</h3>
+</div><h3 id="heading-4">物理优化</h3>
 <ol>
 <li>
 <pre><code>优化器会为逻辑执行计划中的每个算子选择具体的物理实现 
@@ -449,7 +464,7 @@ tiup cluster display watchpoints</li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -471,39 +486,41 @@ tiup cluster display watchpoints</li>
 </span><span class="lnt">20
 </span><span class="lnt">21
 </span><span class="lnt">22
+</span><span class="lnt">23
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">CREATE TABLE t13(a INT PRIMARY KEY, b INT, c INT, UNIQUE INDEX idx_b(b));
-</span></span><span class="line"><span class="cl">EXPLAIN  SELECT b, c FROM t13 WHERE b = 3 OR b = 6;
-</span></span><span class="line"><span class="cl">EXPLAIN  SELECT * FROM t13 USE index(PRIMARY);
-</span></span><span class="line"><span class="cl">EXPLAIN  SELECT * FROM t13 USE index(idx_b);
-</span></span><span class="line"><span class="cl">SHOW WARNINGS;
-</span></span><span class="line"><span class="cl">一个表只能有一个PRIMARY KEY，但可以有多个UNIQUE KEY 
-</span></span><span class="line"><span class="cl">SHOW INDEX FROM t13;
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">TableReader_5
-</span></span><span class="line"><span class="cl">CREATE TABLE t14(a INT PRIMARY KEY, b INT, c INT, d INT, e INT, INDEX idx_b(b), INDEX idx_b_c(b, c), INDEX idx_e(e));
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">EXPLAIN  SELECT * FROM t14 WHERE b = 2 AND c &gt; 4;
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">create table t15(id int primary key, a int not null);
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">//执行
-</span></span><span class="line"><span class="cl">EXPLAIN ANALYZE SELECT * FROM t USE INDEX(a);
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">CREATE TABLE t16 (id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, c1 INT NOT NULL);
-</span></span><span class="line"><span class="cl">INSERT INTO t16 (c1) VALUES (1), (2), (3);
-</span></span><span class="line"><span class="cl">EXPLAIN ANALYZE SELECT * FROM t16 WHERE id = 1 \G;
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">
+CREATE TABLE t13(a INT PRIMARY KEY, b INT, c INT, UNIQUE INDEX idx_b(b));
+EXPLAIN  SELECT b, c FROM t13 WHERE b = 3 OR b = 6;
+EXPLAIN  SELECT * FROM t13 USE index(PRIMARY);
+EXPLAIN  SELECT * FROM t13 USE index(idx_b);
+SHOW WARNINGS;
+一个表只能有一个PRIMARY KEY，但可以有多个UNIQUE KEY 
+SHOW INDEX FROM t13;
+
+TableReader_5
+CREATE TABLE t14(a INT PRIMARY KEY, b INT, c INT, d INT, e INT, INDEX idx_b(b), INDEX idx_b_c(b, c), INDEX idx_e(e));
+
+EXPLAIN  SELECT * FROM t14 WHERE b = 2 AND c &gt; 4;
+
+create table t15(id int primary key, a int not null);
+
+//执行
+EXPLAIN ANALYZE SELECT * FROM t USE INDEX(a);
+
+CREATE TABLE t16 (id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, c1 INT NOT NULL);
+INSERT INTO t16 (c1) VALUES (1), (2), (3);
+EXPLAIN ANALYZE SELECT * FROM t16 WHERE id = 1 \G;
+
+</code></pre></td></tr></table>
 </div>
 </div><p>同城两中心</p>
 <p>Data Replication Auto Synchronous，简称 DR Auto-Sync。</p>
 <p><img src="https://lh3.googleusercontent.com/xJ3HeTecqs8ZdC76aYMZJRdN9C2_Vy6Wzx_iP3Pr3K-qjWezzOkUFVHsTHNREPuPMqqX0w6fj4EFfpzHml_9vYP4fdYcOv3JkBe5YLmpS4mgYKJNb8IcSiQZcgD0FrQSclSERSnB=s1600" alt=""></p>
-<h3 id="q2同城两中心-采用raft-复制存在的问题是">Q2同城两中心 采用raft 复制存在的问题是？</h3>
+<h3 id="q2-raft-">Q2同城两中心 采用raft 复制存在的问题是？</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -529,35 +546,39 @@ tiup cluster display watchpoints</li>
 </span><span class="lnt">24
 </span><span class="lnt">25
 </span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-gas" data-lang="gas"><span class="line"><span class="cl"><span class="err">5副本：</span>
-</span></span><span class="line"><span class="cl"><span class="err">[</span><span class="na">rep</span><span class="nf">lication-mode</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="na">rep</span><span class="nf">lication-mode</span> <span class="err">=</span> <span class="err">&#34;</span><span class="no">dr-auto-sync</span><span class="err">&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="err">[</span><span class="na">rep</span><span class="nf">lication-mode.dr-auto-sync</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="nf">label-key</span> <span class="err">=</span> <span class="err">&#34;</span><span class="no">zone</span><span class="err">&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="nf">primary</span> <span class="err">=</span> <span class="err">&#34;</span><span class="no">east</span><span class="err">&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="nf">dr</span> <span class="err">=</span> <span class="err">&#34;</span><span class="no">west</span><span class="err">&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="nf">primary-replicas</span> <span class="err">=</span> <span class="mi">2</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">dr-replicas</span> <span class="err">=</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl"><span class="nf">wait-store-timeout</span> <span class="err">=</span> <span class="err">&#34;</span><span class="mi">1</span><span class="no">m</span><span class="err">&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="nf">wait-sync-timeout</span> <span class="err">=</span> <span class="err">&#34;</span><span class="mi">1</span><span class="no">m</span><span class="err">&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nl">https:</span><span class="err">//</span><span class="nf">asktug.com</span><span class="err">/</span><span class="no">t</span><span class="err">/</span><span class="no">topic</span><span class="err">/</span><span class="mi">212812</span>
-</span></span><span class="line"><span class="cl"><span class="err">同步切异步</span>
-</span></span><span class="line"><span class="cl"><span class="nl">https:</span><span class="err">//</span><span class="nf">docs.pingcap.com</span><span class="err">/</span><span class="no">zh</span><span class="err">/</span><span class="no">tidb</span><span class="err">/</span><span class="no">dev</span><span class="err">/</span><span class="no">two-data-centers-in-one-city-deployment</span><span class="err">/</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">DR</span><span class="err">（</span><span class="no">Disaster</span> <span class="no">Recovery</span><span class="err">），代指同城容灾数据中心</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">sync</span><span class="err">：同步复制，此时</span> <span class="no">DR</span> <span class="err">与</span> <span class="no">Primary</span> <span class="err">至少有一个节点与</span> <span class="no">Primary</span> <span class="err">同步，</span><span class="no">Raft</span> <span class="err">保证每条</span> <span class="no">log</span> <span class="err">按</span> <span class="no">label</span> <span class="err">同步复制到</span> <span class="no">DR</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">async</span><span class="err">：</span>
-</span></span><span class="line"><span class="cl"><span class="err">异步复制，此时不保证</span> <span class="nf">DR</span> <span class="err">与</span> <span class="no">Primary</span> <span class="err">完全同步，</span>
-</span></span><span class="line"><span class="cl"><span class="nf">Raft</span> <span class="err">使用经典的</span> <span class="no">majority</span> <span class="err">方式复制</span> <span class="no">log</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nf">sync-recover</span><span class="err">：恢复同步，此时不保证</span> <span class="no">DR</span> <span class="err">与</span> <span class="no">Primary</span> <span class="err">完全同步，</span><span class="no">Raft</span> <span class="err">逐步切换成</span> <span class="no">label</span> <span class="err">复制，切换成功后汇报给</span> <span class="no">PD</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-gas" data-lang="gas"><span class="err">5</span><span class="err">副</span><span class="err">本</span><span class="err">：</span>
+<span class="err">[</span><span class="na">rep</span><span class="nf">lication-mode</span><span class="p">]</span>
+<span class="na">rep</span><span class="nf">lication-mode</span> <span class="err">=</span> <span class="err">&#34;</span><span class="no">dr-auto-sync</span><span class="err">&#34;</span>
+<span class="err">[</span><span class="na">rep</span><span class="nf">lication-mode.dr-auto-sync</span><span class="p">]</span>
+<span class="nf">label-key</span> <span class="err">=</span> <span class="err">&#34;</span><span class="no">zone</span><span class="err">&#34;</span>
+<span class="nf">primary</span> <span class="err">=</span> <span class="err">&#34;</span><span class="no">east</span><span class="err">&#34;</span>
+<span class="nf">dr</span> <span class="err">=</span> <span class="err">&#34;</span><span class="no">west</span><span class="err">&#34;</span>
+<span class="nf">primary-replicas</span> <span class="err">=</span> <span class="mi">2</span>
+
+<span class="nf">dr-replicas</span> <span class="err">=</span> <span class="mi">1</span>
+<span class="nf">wait-store-timeout</span> <span class="err">=</span> <span class="err">&#34;</span><span class="mi">1</span><span class="no">m</span><span class="err">&#34;</span>
+<span class="nf">wait-sync-timeout</span> <span class="err">=</span> <span class="err">&#34;</span><span class="mi">1</span><span class="no">m</span><span class="err">&#34;</span>
+
+<span class="nl">https:</span><span class="err">/</span><span class="err">/</span><span class="nf">asktug.com</span><span class="err">/</span><span class="no">t</span><span class="err">/</span><span class="no">topic</span><span class="err">/</span><span class="mi">212812</span>
+<span class="err">同</span><span class="err">步</span><span class="err">切</span><span class="err">异</span><span class="err">步</span>
+<span class="nl">https:</span><span class="err">/</span><span class="err">/</span><span class="nf">docs.pingcap.com</span><span class="err">/</span><span class="no">zh</span><span class="err">/</span><span class="no">tidb</span><span class="err">/</span><span class="no">dev</span><span class="err">/</span><span class="no">two-data-centers-in-one-city-deployment</span><span class="err">/</span>
+
+<span class="nf">DR</span><span class="err">（</span><span class="no">Disaster</span> <span class="no">Recovery</span><span class="err">）</span><span class="err">，</span><span class="err">代</span><span class="err">指</span><span class="err">同</span><span class="err">城</span><span class="err">容</span><span class="err">灾</span><span class="err">数</span><span class="err">据</span><span class="err">中</span><span class="err">心</span>
+
+<span class="nf">sync</span><span class="err">：</span><span class="err">同</span><span class="err">步</span><span class="err">复</span><span class="err">制</span><span class="err">，</span><span class="err">此</span><span class="err">时</span> <span class="no">DR</span> <span class="err">与</span> <span class="no">Primary</span> <span class="err">至</span><span class="err">少</span><span class="err">有</span><span class="err">一</span><span class="err">个</span><span class="err">节</span><span class="err">点</span><span class="err">与</span> <span class="no">Primary</span> <span class="err">同</span><span class="err">步</span><span class="err">，</span><span class="no">Raft</span> <span class="err">保</span><span class="err">证</span><span class="err">每</span><span class="err">条</span> <span class="no">log</span> <span class="err">按</span> <span class="no">label</span> <span class="err">同</span><span class="err">步</span><span class="err">复</span><span class="err">制</span><span class="err">到</span> <span class="no">DR</span>
+
+<span class="nf">async</span><span class="err">：</span>
+<span class="err">异</span><span class="err">步</span><span class="err">复</span><span class="err">制</span><span class="err">，</span><span class="err">此</span><span class="err">时</span><span class="err">不</span><span class="err">保</span><span class="err">证</span> <span class="nf">DR</span> <span class="err">与</span> <span class="no">Primary</span> <span class="err">完</span><span class="err">全</span><span class="err">同</span><span class="err">步</span><span class="err">，</span>
+<span class="nf">Raft</span> <span class="err">使</span><span class="err">用</span><span class="err">经</span><span class="err">典</span><span class="err">的</span> <span class="no">majority</span> <span class="err">方</span><span class="err">式</span><span class="err">复</span><span class="err">制</span> <span class="no">log</span>
+
+<span class="nf">sync-recover</span><span class="err">：</span><span class="err">恢</span><span class="err">复</span><span class="err">同</span><span class="err">步</span><span class="err">，</span><span class="err">此</span><span class="err">时</span><span class="err">不</span><span class="err">保</span><span class="err">证</span> <span class="no">DR</span> <span class="err">与</span> <span class="no">Primary</span> <span class="err">完</span><span class="err">全</span><span class="err">同</span><span class="err">步</span><span class="err">，</span><span class="no">Raft</span> <span class="err">逐</span><span class="err">步</span><span class="err">切</span><span class="err">换</span><span class="err">成</span> <span class="no">label</span> <span class="err">复</span><span class="err">制</span><span class="err">，</span><span class="err">切</span><span class="err">换</span><span class="err">成</span><span class="err">功</span><span class="err">后</span><span class="err">汇</span><span class="err">报</span><span class="err">给</span> <span class="no">PD</span>
+
+
+</code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.101.0 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
 <link rel="canonical" href="https://wangcy6.github.io/post/2020/k8s/" />
@@ -41,14 +41,17 @@
 <meta property="og:title" content="k8s入门" />
 <meta property="og:description" content="协调者ZooKeeper 一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题 二、这个技术的优势和劣势分别是什么 三、这个技术" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://wangcy6.github.io/post/2020/k8s/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://wangcy6.github.io/post/2020/k8s/" />
 <meta property="article:published_time" content="2022-01-20T00:00:00+00:00" />
 <meta property="article:modified_time" content="2022-01-20T00:00:00+00:00" />
-
 <meta itemprop="name" content="k8s入门">
-<meta itemprop="description" content="协调者ZooKeeper 一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题 二、这个技术的优势和劣势分别是什么 三、这个技术"><meta itemprop="datePublished" content="2022-01-20T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-01-20T00:00:00+00:00" />
-<meta itemprop="wordCount" content="162">
+<meta itemprop="description" content="协调者ZooKeeper 一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题 二、这个技术的优势和劣势分别是什么 三、这个技术">
+<meta itemprop="datePublished" content="2022-01-20T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2022-01-20T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="163">
+
+
+
 <meta itemprop="keywords" content="云原生," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="k8s入门"/>
 <meta name="twitter:description" content="协调者ZooKeeper 一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题 二、这个技术的优势和劣势分别是什么 三、这个技术"/>
@@ -128,7 +131,7 @@
       <div class="post-meta">
         <span class="post-time"> 2022-01-20 00:00 </span>
         
-          <span class="more-meta"> 约 162 字 </span>
+          <span class="more-meta"> 约 163 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -139,17 +142,17 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#协调者zookeeper">协调者ZooKeeper</a>
+    <li><a href="#zookeeper">协调者ZooKeeper</a>
       <ul>
-        <li><a href="#一这个技术出现的背景初衷和要达到什么样的目标或是要解决什么样的问题">一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题</a></li>
-        <li><a href="#二这个技术的优势和劣势分别是什么">二、这个技术的优势和劣势分别是什么</a></li>
-        <li><a href="#三这个技术适用的场景任何技术都有其适用的场景离开了这个场景">三、这个技术适用的场景。任何技术都有其适用的场景，离开了这个场景</a></li>
-        <li><a href="#四技术的组成部分和关键点">四、技术的组成部分和关键点。</a></li>
-        <li><a href="#五技术的底层原理和关键实现">五、技术的底层原理和关键实现</a></li>
-        <li><a href="#六已有的实现和它之间的对比">六、已有的实现和它之间的对比</a></li>
+        <li><a href="#heading">一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题</a></li>
+        <li><a href="#heading-1">二、这个技术的优势和劣势分别是什么</a></li>
+        <li><a href="#heading-2">三、这个技术适用的场景。任何技术都有其适用的场景，离开了这个场景</a></li>
+        <li><a href="#heading-3">四、技术的组成部分和关键点。</a></li>
+        <li><a href="#heading-4">五、技术的底层原理和关键实现</a></li>
+        <li><a href="#heading-5">六、已有的实现和它之间的对比</a></li>
       </ul>
     </li>
-    <li><a href="#青铜技能-熟悉docker">青铜技能-熟悉docker</a></li>
+    <li><a href="#-docker">青铜技能-熟悉docker</a></li>
   </ul>
 </nav>
   </div>
@@ -160,23 +163,25 @@
     </div>
   </div>
     <div class="post-content">
-      <h2 id="协调者zookeeper">协调者ZooKeeper</h2>
-<h3 id="一这个技术出现的背景初衷和要达到什么样的目标或是要解决什么样的问题">一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题</h3>
-<h3 id="二这个技术的优势和劣势分别是什么">二、这个技术的优势和劣势分别是什么</h3>
-<h3 id="三这个技术适用的场景任何技术都有其适用的场景离开了这个场景">三、这个技术适用的场景。任何技术都有其适用的场景，离开了这个场景</h3>
-<h3 id="四技术的组成部分和关键点">四、技术的组成部分和关键点。</h3>
-<h3 id="五技术的底层原理和关键实现">五、技术的底层原理和关键实现</h3>
-<h3 id="六已有的实现和它之间的对比">六、已有的实现和它之间的对比</h3>
-<h2 id="青铜技能-熟悉docker">青铜技能-熟悉docker</h2>
+      <h2 id="zookeeper">协调者ZooKeeper</h2>
+<h3 id="heading">一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题</h3>
+<h3 id="heading-1">二、这个技术的优势和劣势分别是什么</h3>
+<h3 id="heading-2">三、这个技术适用的场景。任何技术都有其适用的场景，离开了这个场景</h3>
+<h3 id="heading-3">四、技术的组成部分和关键点。</h3>
+<h3 id="heading-4">五、技术的底层原理和关键实现</h3>
+<h3 id="heading-5">六、已有的实现和它之间的对比</h3>
+<h2 id="-docker">青铜技能-熟悉docker</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
+</span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1">## 登陆</span>
-</span></span><span class="line"><span class="cl">docker <span class="nb">exec</span> -i -t 56bd78306b21  /bin/sh 
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1">## 登陆</span>
+docker <span class="nb">exec</span> -i -t 56bd78306b21  /bin/sh 
+
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>

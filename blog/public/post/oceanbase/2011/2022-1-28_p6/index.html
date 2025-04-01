@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.101.0 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
 <link rel="canonical" href="https://wangcy6.github.io/post/oceanbase/2011/2022-1-28_p6/" />
@@ -41,14 +41,17 @@
 <meta property="og:title" content="实践练习六（必选）：查看 OceanBase 执行计划" />
 <meta property="og:description" content="多看、多问、多总结，肯定是可以攻克的。 文章结构 http://127.0.0.1:1313/post/oceanbase/2022-1-28_p6/ 实践练习六（必选）：查看 OceanBase 执行计划 环境说明 单机单节点部署 1 2 3 4 5 6 7 8 9 10 11 12 obd cluster display test &#43;---------------------------------------------&#43; |" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://wangcy6.github.io/post/oceanbase/2011/2022-1-28_p6/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://wangcy6.github.io/post/oceanbase/2011/2022-1-28_p6/" />
 <meta property="article:published_time" content="2022-01-28T00:00:00+00:00" />
 <meta property="article:modified_time" content="2022-01-28T00:00:00+00:00" />
-
 <meta itemprop="name" content="实践练习六（必选）：查看 OceanBase 执行计划">
-<meta itemprop="description" content="多看、多问、多总结，肯定是可以攻克的。 文章结构 http://127.0.0.1:1313/post/oceanbase/2022-1-28_p6/ 实践练习六（必选）：查看 OceanBase 执行计划 环境说明 单机单节点部署 1 2 3 4 5 6 7 8 9 10 11 12 obd cluster display test &#43;---------------------------------------------&#43; |"><meta itemprop="datePublished" content="2022-01-28T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-01-28T00:00:00+00:00" />
-<meta itemprop="wordCount" content="2431">
+<meta itemprop="description" content="多看、多问、多总结，肯定是可以攻克的。 文章结构 http://127.0.0.1:1313/post/oceanbase/2022-1-28_p6/ 实践练习六（必选）：查看 OceanBase 执行计划 环境说明 单机单节点部署 1 2 3 4 5 6 7 8 9 10 11 12 obd cluster display test &#43;---------------------------------------------&#43; |">
+<meta itemprop="datePublished" content="2022-01-28T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2022-01-28T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="2438">
+
+
+
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="实践练习六（必选）：查看 OceanBase 执行计划"/>
 <meta name="twitter:description" content="多看、多问、多总结，肯定是可以攻克的。 文章结构 http://127.0.0.1:1313/post/oceanbase/2022-1-28_p6/ 实践练习六（必选）：查看 OceanBase 执行计划 环境说明 单机单节点部署 1 2 3 4 5 6 7 8 9 10 11 12 obd cluster display test &#43;---------------------------------------------&#43; |"/>
@@ -130,7 +133,7 @@
         <div class="post-category">
             <a href="/categories/code_reading/"> code_reading </a>
             </div>
-          <span class="more-meta"> 约 2431 字 </span>
+          <span class="more-meta"> 约 2438 字 </span>
           <span class="more-meta"> 预计阅读 5 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -141,31 +144,31 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#环境说明">环境说明</a>
+    <li><a href="#heading">环境说明</a>
       <ul>
-        <li><a href="#一-使用-benmarksql-运行-tpc-c">一、 使用 BenmarkSQL 运行 TPC-C</a></li>
-        <li><a href="#11-准备">1.1 准备:</a></li>
-        <li><a href="#12-操作过程">1.2. 操作过程</a></li>
+        <li><a href="#--benmarksql--tpc-c">一、 使用 BenmarkSQL 运行 TPC-C</a></li>
+        <li><a href="#11-">1.1 准备:</a></li>
+        <li><a href="#12-">1.2. 操作过程</a></li>
       </ul>
     </li>
-    <li><a href="#12--安装benchmarksql">1.2  安装benchmarksql</a>
+    <li><a href="#12--benchmarksql">1.2  安装benchmarksql</a>
       <ul>
-        <li><a href="#13-运行tpcc测试">1.3 运行TPCC测试</a></li>
+        <li><a href="#13-tpcc">1.3 运行TPCC测试</a></li>
       </ul>
     </li>
-    <li><a href="#二分析-tpc-c-top-sql并查看-3条-sql-的-解析执行计划-和-实际执行计划">二、分析 TPC-C TOP SQL，并查看 3条 SQL 的 解析执行计划 和 实际执行计划。</a>
+    <li><a href="#-tpc-c-top-sql-3-sql----">二、分析 TPC-C TOP SQL，并查看 3条 SQL 的 解析执行计划 和 实际执行计划。</a>
       <ul>
-        <li><a href="#21-查询top3-sql-实际执行计划">2.1 查询TOP3 sql 实际执行计划</a></li>
-        <li><a href="#22-执行计划没有执行">2.2 执行计划（没有执行）</a></li>
-        <li><a href="#24-优化">2.4 优化</a></li>
-        <li><a href="#三可选使用-oceanbase-的-outline-对-其中一条-sql-进行限流限制并发为-1-">三、（可选）使用 OceanBase 的 Outline 对 其中一条 SQL 进行限流（限制并发为 1 ）。</a></li>
-        <li><a href="#四可选导入-tpc-h-schema-和数据数据量不用太大-100m-即可查看-tpc-h-5条-sql-的解析执行计划和实际执行计划">四、（可选）导入 TPC-H schema 和数据，数据量不用太大 100M 即可。查看 TPC-H 5条 SQL 的解析执行计划和实际执行计划。</a></li>
+        <li><a href="#21-top3-sql-">2.1 查询TOP3 sql 实际执行计划</a></li>
+        <li><a href="#22-">2.2 执行计划（没有执行）</a></li>
+        <li><a href="#24-">2.4 优化</a></li>
+        <li><a href="#-oceanbase--outline---sql--1-">三、（可选）使用 OceanBase 的 Outline 对 其中一条 SQL 进行限流（限制并发为 1 ）。</a></li>
+        <li><a href="#-tpc-h-schema--100m--tpc-h-5-sql-">四、（可选）导入 TPC-H schema 和数据，数据量不用太大 100M 即可。查看 TPC-H 5条 SQL 的解析执行计划和实际执行计划。</a></li>
       </ul>
     </li>
-    <li><a href="#五--学习笔记">五 、 学习笔记</a></li>
-    <li><a href="#heading"></a>
+    <li><a href="#--">五 、 学习笔记</a></li>
+    <li><a href="#heading-1"></a>
       <ul>
-        <li><a href="#参考资料"><strong>参考资料</strong></a></li>
+        <li><a href="#heading-2">参考资料</a></li>
       </ul>
     </li>
   </ul>
@@ -184,13 +187,13 @@
 <p>文章结构</p>
 <p>http://127.0.0.1:1313/post/oceanbase/2022-1-28_p6/</p>
 <p><a href="https://open.oceanbase.com/answer/detail?id=20400276">实践练习六（必选）：查看 OceanBase 执行计划</a></p>
-<h2 id="环境说明">环境说明</h2>
+<h2 id="heading">环境说明</h2>
 <ul>
 <li>单机单节点部署</li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -204,29 +207,29 @@
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">obd cluster display <span class="nb">test</span>
-</span></span><span class="line"><span class="cl">+---------------------------------------------+
-</span></span><span class="line"><span class="cl"><span class="p">|</span>                   observer                  <span class="p">|</span>
-</span></span><span class="line"><span class="cl">+-----------+---------+------+-------+--------+
-</span></span><span class="line"><span class="cl"><span class="p">|</span> ip        <span class="p">|</span> version <span class="p">|</span> port <span class="p">|</span> zone  <span class="p">|</span> status <span class="p">|</span>
-</span></span><span class="line"><span class="cl">+-----------+---------+------+-------+--------+
-</span></span><span class="line"><span class="cl"><span class="p">|</span> 127.0.0.1 <span class="p">|</span> 3.1.1   <span class="p">|</span> <span class="m">2881</span> <span class="p">|</span> zone1 <span class="p">|</span> active <span class="p">|</span>
-</span></span><span class="line"><span class="cl">+-----------+---------+------+-------+--------+
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> /etc/sysctl.conf 
-</span></span><span class="line"><span class="cl"> fs.aio-max-nr <span class="o">=</span> <span class="m">1048576</span> <span class="c1">##文件系统最大异步io</span>
-</span></span><span class="line"><span class="cl"> fs.file-max <span class="o">=</span> <span class="m">6815744</span> <span class="c1">##文件系统中文件的最大个数</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">obd cluster display <span class="nb">test</span>
++---------------------------------------------+
+<span class="p">|</span>                   observer                  <span class="p">|</span>
++-----------+---------+------+-------+--------+
+<span class="p">|</span> ip        <span class="p">|</span> version <span class="p">|</span> port <span class="p">|</span> zone  <span class="p">|</span> status <span class="p">|</span>
++-----------+---------+------+-------+--------+
+<span class="p">|</span> 127.0.0.1 <span class="p">|</span> 3.1.1   <span class="p">|</span> <span class="m">2881</span> <span class="p">|</span> zone1 <span class="p">|</span> active <span class="p">|</span>
++-----------+---------+------+-------+--------+
+
+ /etc/sysctl.conf 
+ fs.aio-max-nr <span class="o">=</span> <span class="m">1048576</span> <span class="c1">##文件系统最大异步io</span>
+ fs.file-max <span class="o">=</span> <span class="m">6815744</span> <span class="c1">##文件系统中文件的最大个数</span>
+</code></pre></td></tr></table>
 </div>
-</div><h3 id="一-使用-benmarksql-运行-tpc-c">一、 使用 BenmarkSQL 运行 TPC-C</h3>
-<h3 id="11-准备">1.1 准备:</h3>
+</div><h3 id="--benmarksql--tpc-c">一、 使用 BenmarkSQL 运行 TPC-C</h3>
+<h3 id="11-">1.1 准备:</h3>
 <p><strong>创建tpcc租户</strong>（不建议用sys租户）</p>
 <ul>
 <li>
 <p>单机扩容</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -234,13 +237,13 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">oceanbase默认sys租户使用了2.5-5个CPU，1G内存.剩余1.5个cpu 3G内存。
-</span></span><span class="line"><span class="cl">根本不够使用的。因此修改配置进行扩容 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">obd cluster edit-config test
-</span></span><span class="line"><span class="cl">obd cluster reload  test
-</span></span><span class="line"><span class="cl">obd cluster restart test
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">oceanbase默认sys租户使用了2.5-5个CPU，1G内存.剩余1.5个cpu 3G内存。
+根本不够使用的。因此修改配置进行扩容 
+  
+obd cluster edit-config test
+obd cluster reload  test
+obd cluster restart test
+</code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
@@ -249,7 +252,7 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -265,23 +268,23 @@
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="n">obclient</span><span class="w"> </span><span class="o">-</span><span class="n">uroot</span><span class="o">@</span><span class="n">sys</span><span class="w"> </span><span class="o">-</span><span class="n">h127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="n">P2881</span><span class="w"> </span><span class="n">oceanbase</span><span class="w">  </span><span class="c1"># 这里没有obproxy，因此端口不是2883
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">#创建资源单元规格
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">create</span><span class="w"> </span><span class="n">resource</span><span class="w"> </span><span class="n">unit</span><span class="w"> </span><span class="n">tpcc_unit_2c2g</span><span class="w"> </span><span class="n">max_cpu</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">min_cpu</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">max_memory</span><span class="o">=</span><span class="s1">&#39;2g&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">min_memory</span><span class="o">=</span><span class="s1">&#39;2g&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">max_iops</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span><span class="w"> </span><span class="n">min_iops</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span><span class="w"> </span><span class="n">max_session_num</span><span class="o">=</span><span class="mi">1000000</span><span class="p">,</span><span class="w"> </span><span class="n">max_disk_size</span><span class="o">=</span><span class="s1">&#39;10g&#39;</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">#创建资源池
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">create</span><span class="w"> </span><span class="n">resource</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="n">tpcc_pool_test</span><span class="w"> </span><span class="n">unit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;tpcc_unit_2c2g&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">unit_num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">#创建租户：
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">obclient</span><span class="w"> </span><span class="o">-</span><span class="n">uroot</span><span class="o">@</span><span class="n">tpcc</span><span class="w"> </span><span class="o">-</span><span class="n">h127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="n">P2881</span><span class="w"> </span><span class="o">-</span><span class="n">p123456</span><span class="w"> </span><span class="o">-</span><span class="n">Doceanbase</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">create</span><span class="w"> </span><span class="n">tenant</span><span class="w"> </span><span class="n">tpcc</span><span class="w"> </span><span class="n">resource_pool_list</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;sys_pool&#39;</span><span class="p">);</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">alter</span><span class="w"> </span><span class="k">user</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="k">identified</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="s1">&#39;123456&#39;</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">## 创建数据库
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">create</span><span class="w"> </span><span class="k">database</span><span class="w"> </span><span class="n">tpcc</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">obclient</span><span class="w"> </span><span class="o">-</span><span class="n">uroot</span><span class="o">@</span><span class="n">tpcc</span><span class="w"> </span><span class="o">-</span><span class="n">h127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="n">P2881</span><span class="w"> </span><span class="o">-</span><span class="n">p123456</span><span class="w"> </span><span class="o">-</span><span class="n">Dtpcc</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="n">obclient</span> <span class="o">-</span><span class="n">uroot</span><span class="o">@</span><span class="n">sys</span> <span class="o">-</span><span class="n">h127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span> <span class="o">-</span><span class="n">P2881</span> <span class="n">oceanbase</span>  <span class="c1"># 这里没有obproxy，因此端口不是2883
+</span><span class="c1"></span>
+
+<span class="c1">#创建资源单元规格
+</span><span class="c1"></span><span class="k">create</span> <span class="n">resource</span> <span class="n">unit</span> <span class="n">tpcc_unit_2c2g</span> <span class="n">max_cpu</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">min_cpu</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">max_memory</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">2g</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">min_memory</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">2g</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">max_iops</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">min_iops</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">max_session_num</span><span class="o">=</span><span class="mi">1000000</span><span class="p">,</span> <span class="n">max_disk_size</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">10g</span><span class="s1">&#39;</span><span class="p">;</span>
+<span class="c1">#创建资源池
+</span><span class="c1"></span><span class="k">create</span> <span class="n">resource</span> <span class="n">pool</span> <span class="n">tpcc_pool_test</span> <span class="n">unit</span> <span class="o">=</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">tpcc_unit_2c2g</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">unit_num</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="c1">#创建租户：
+</span><span class="c1"></span><span class="n">obclient</span> <span class="o">-</span><span class="n">uroot</span><span class="o">@</span><span class="n">tpcc</span> <span class="o">-</span><span class="n">h127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span> <span class="o">-</span><span class="n">P2881</span> <span class="o">-</span><span class="n">p123456</span> <span class="o">-</span><span class="n">Doceanbase</span>
+<span class="k">create</span> <span class="n">tenant</span> <span class="n">tpcc</span> <span class="n">resource_pool_list</span><span class="o">=</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">sys_pool</span><span class="s1">&#39;</span><span class="p">)</span><span class="p">;</span>
+<span class="k">alter</span> <span class="k">user</span> <span class="n">root</span> <span class="k">identified</span> <span class="k">by</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">123456</span><span class="s1">&#39;</span><span class="p">;</span>
+<span class="c1">## 创建数据库
+</span><span class="c1"></span><span class="k">create</span> <span class="k">database</span> <span class="n">tpcc</span><span class="p">;</span>
+<span class="n">obclient</span> <span class="o">-</span><span class="n">uroot</span><span class="o">@</span><span class="n">tpcc</span> <span class="o">-</span><span class="n">h127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span> <span class="o">-</span><span class="n">P2881</span> <span class="o">-</span><span class="n">p123456</span> <span class="o">-</span><span class="n">Dtpcc</span>
+</code></pre></td></tr></table>
 </div>
-</div><h3 id="12-操作过程">1.2. 操作过程</h3>
+</div><h3 id="12-">1.2. 操作过程</h3>
 <ul>
 <li>
 <p>集群参数调优：无</p>
@@ -290,7 +293,7 @@
 <p>设置事务超时时间</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -301,23 +304,23 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-SAS" data-lang="SAS"><span class="line"><span class="cl">Worker <span class="m">001</span>: <span class="k">ERROR</span>: Transaction is timeout
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">ob_query_timeout 用于设置查询超时时间，单位是微秒。
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">set</span> global ob_query_timeout=<span class="m">36000000000</span>;
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">ob_trx_timeout 用于设置事务超时时间，单位为微秒。
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">set</span> global ob_trx_timeout=<span class="m">36000000000</span>;
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Worker 001: ERROR: Transaction is timeout
+  
+ob_query_timeout 用于设置查询超时时间，单位是微秒。
+  
+set global ob_query_timeout=36000000000;
+  
+ob_trx_timeout 用于设置事务超时时间，单位为微秒。
+  
+set global ob_trx_timeout=36000000000;
+</code></pre></td></tr></table>
 </div>
 </div></li>
 </ul>
-<h2 id="12--安装benchmarksql">1.2  安装benchmarksql</h2>
+<h2 id="12--benchmarksql">1.2  安装benchmarksql</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -377,71 +380,73 @@
 </span><span class="lnt">58
 </span><span class="lnt">59
 </span><span class="lnt">60
+</span><span class="lnt">61
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">##java环境配置</span>
-</span></span><span class="line"><span class="cl">yum install java-1.8.0-openjdk  java-1.8.0-openjdk-devel  
-</span></span><span class="line"><span class="cl">java  -version
-</span></span><span class="line"><span class="cl">openjdk version <span class="s2">&#34;1.8.0_322&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">## 下载benchmarksql</span>
-</span></span><span class="line"><span class="cl">git clone https://github.com/obpilot/benchmarksql-5.0.git
-</span></span><span class="line"><span class="cl">/app/local/2022/benchmarksql-5.0
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">## 修改配置：</span>
-</span></span><span class="line"><span class="cl"><span class="nb">cd</span> /app/local/2022/benchmarksql-5.0/run
-</span></span><span class="line"><span class="cl">cat  tpcc.props.ob
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nv">conn</span><span class="o">=</span>jdbc:oceanbase://127.1:2881/tpcc?useUnicode<span class="o">=</span>true<span class="p">&amp;</span><span class="nv">characterEncoding</span><span class="o">=</span>utf-8
-</span></span><span class="line"><span class="cl"><span class="c1">#这里没有obproxy jdbc 2283改为2281</span>
-</span></span><span class="line"><span class="cl"><span class="nv">user</span><span class="o">=</span>root@tpcc
-</span></span><span class="line"><span class="cl"><span class="c1">#tpcc租户 root用户</span>
-</span></span><span class="line"><span class="cl"><span class="nv">password</span><span class="o">=</span><span class="m">123456</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">## Build the schema and initial database load</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">sh runSQL.sh tpcc.props.ob sql.common/tableCreates.sql
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">./runSQL.sh props.ob ./sql.oceanbase/tableCreates.sql
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">Worker 001: Loading Warehouse      <span class="m">1</span> <span class="k">done</span>
-</span></span><span class="line"><span class="cl">Worker 001: Loading Warehouse      <span class="m">2</span>
-</span></span><span class="line"><span class="cl">Worker 001: Loading Warehouse      <span class="m">2</span> <span class="k">done</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">## 查看数据</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">obclient -uroot@tpcc -h127.0.0.1 -P2881 -p123456 -Dtpcc
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">MySQL <span class="o">[</span>tpcc<span class="o">]</span>&gt; show tables<span class="p">;</span>
-</span></span><span class="line"><span class="cl">+------------------+
-</span></span><span class="line"><span class="cl"><span class="p">|</span> Tables_in_tpcc   <span class="p">|</span>
-</span></span><span class="line"><span class="cl">+------------------+
-</span></span><span class="line"><span class="cl"><span class="p">|</span> bmsql_config     <span class="p">|</span>
-</span></span><span class="line"><span class="cl"><span class="p">|</span> bmsql_customer   <span class="p">|</span>
-</span></span><span class="line"><span class="cl"><span class="p">|</span> bmsql_district   <span class="p">|</span>
-</span></span><span class="line"><span class="cl"><span class="p">|</span> bmsql_history    <span class="p">|</span>
-</span></span><span class="line"><span class="cl"><span class="p">|</span> bmsql_item       <span class="p">|</span>
-</span></span><span class="line"><span class="cl"><span class="p">|</span> bmsql_new_order  <span class="p">|</span>
-</span></span><span class="line"><span class="cl"><span class="p">|</span> bmsql_oorder     <span class="p">|</span>
-</span></span><span class="line"><span class="cl"><span class="p">|</span> bmsql_order_line <span class="p">|</span>
-</span></span><span class="line"><span class="cl"><span class="p">|</span> bmsql_stock      <span class="p">|</span>
-</span></span><span class="line"><span class="cl"><span class="p">|</span> bmsql_warehouse  <span class="p">|</span>
-</span></span><span class="line"><span class="cl">+------------------+
-</span></span><span class="line"><span class="cl"><span class="m">10</span> rows in <span class="nb">set</span> <span class="o">(</span>0.002 sec<span class="o">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">MySQL <span class="o">[</span>tpcc<span class="o">]</span>&gt; <span class="k">select</span> count<span class="o">(</span>*<span class="o">)</span> from bmsql_oorder<span class="p">;</span>
-</span></span><span class="line"><span class="cl">+----------+
-</span></span><span class="line"><span class="cl"><span class="p">|</span> count<span class="o">(</span>*<span class="o">)</span> <span class="p">|</span>
-</span></span><span class="line"><span class="cl">+----------+
-</span></span><span class="line"><span class="cl"><span class="p">|</span>    <span class="m">60000</span> <span class="p">|</span>
-</span></span><span class="line"><span class="cl">+----------+
-</span></span><span class="line"><span class="cl"><span class="m">1</span> row in <span class="nb">set</span> <span class="o">(</span>0.066 sec<span class="o">)</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">
+
+<span class="c1">##java环境配置</span>
+yum install java-1.8.0-openjdk  java-1.8.0-openjdk-devel  
+java  -version
+openjdk version <span class="s2">&#34;1.8.0_322&#34;</span>
+
+<span class="c1">## 下载benchmarksql</span>
+git clone https://github.com/obpilot/benchmarksql-5.0.git
+/app/local/2022/benchmarksql-5.0
+
+<span class="c1">## 修改配置：</span>
+<span class="nb">cd</span> /app/local/2022/benchmarksql-5.0/run
+cat  tpcc.props.ob
+
+<span class="nv">conn</span><span class="o">=</span>jdbc:oceanbase://127.1:2881/tpcc?useUnicode<span class="o">=</span>true<span class="p">&amp;</span><span class="nv">characterEncoding</span><span class="o">=</span>utf-8
+<span class="c1">#这里没有obproxy jdbc 2283改为2281</span>
+<span class="nv">user</span><span class="o">=</span>root@tpcc
+<span class="c1">#tpcc租户 root用户</span>
+<span class="nv">password</span><span class="o">=</span>123456
+
+<span class="c1">## Build the schema and initial database load</span>
+
+sh runSQL.sh tpcc.props.ob sql.common/tableCreates.sql
+
+./runSQL.sh props.ob ./sql.oceanbase/tableCreates.sql
+
+Worker 001: Loading Warehouse      <span class="m">1</span> <span class="k">done</span>
+Worker 001: Loading Warehouse      2
+Worker 001: Loading Warehouse      <span class="m">2</span> <span class="k">done</span>
+
+<span class="c1">## 查看数据</span>
+
+
+obclient -uroot@tpcc -h127.0.0.1 -P2881 -p123456 -Dtpcc
+
+MySQL <span class="o">[</span>tpcc<span class="o">]</span>&gt; show tables<span class="p">;</span>
++------------------+
+<span class="p">|</span> Tables_in_tpcc   <span class="p">|</span>
++------------------+
+<span class="p">|</span> bmsql_config     <span class="p">|</span>
+<span class="p">|</span> bmsql_customer   <span class="p">|</span>
+<span class="p">|</span> bmsql_district   <span class="p">|</span>
+<span class="p">|</span> bmsql_history    <span class="p">|</span>
+<span class="p">|</span> bmsql_item       <span class="p">|</span>
+<span class="p">|</span> bmsql_new_order  <span class="p">|</span>
+<span class="p">|</span> bmsql_oorder     <span class="p">|</span>
+<span class="p">|</span> bmsql_order_line <span class="p">|</span>
+<span class="p">|</span> bmsql_stock      <span class="p">|</span>
+<span class="p">|</span> bmsql_warehouse  <span class="p">|</span>
++------------------+
+<span class="m">10</span> rows in <span class="nb">set</span> <span class="o">(</span>0.002 sec<span class="o">)</span>
+
+MySQL <span class="o">[</span>tpcc<span class="o">]</span>&gt; <span class="k">select</span> count<span class="o">(</span>*<span class="o">)</span> from bmsql_oorder<span class="p">;</span>
++----------+
+<span class="p">|</span> count<span class="o">(</span>*<span class="o">)</span> <span class="p">|</span>
++----------+
+<span class="p">|</span>    <span class="m">60000</span> <span class="p">|</span>
++----------+
+<span class="m">1</span> row in <span class="nb">set</span> <span class="o">(</span>0.066 sec<span class="o">)</span>
+
+</code></pre></td></tr></table>
 </div>
-</div><h3 id="13-运行tpcc测试">1.3 运行TPCC测试</h3>
+</div><h3 id="13-tpcc">1.3 运行TPCC测试</h3>
 <blockquote>
 <p>sh runBenchmark.sh tpcc.props.ob</p>
 </blockquote>
@@ -450,22 +455,24 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
+</span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">obclient -uroot@sys -h127.0.0.1 -P2881 oceanbase
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">alter system major freeze;
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">obclient -uroot@sys -h127.0.0.1 -P2881 oceanbase
+
+alter system major freeze;
+
+</code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>pmc 每秒事务数</li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -481,31 +488,35 @@
 </span><span class="lnt">14
 </span><span class="lnt">15
 </span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">cat runBenchmark.sh 
-</span></span><span class="line"><span class="cl"><span class="nb">source</span> ./funcs.sh <span class="nv">$1</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">sh runBenchmark.sh tpcc.props.ob
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">Term-00, Running Average tpmTOTAL: 14.43  Current tpmTOTAL: <span class="m">96</span>  Memory Usage: 111MB / 1928MB 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">17:22:44,157 <span class="o">[</span>Thread-2<span class="o">]</span> INFO  jTPCC : Term-00, Measured tpmC <span class="o">(</span>NewOrders<span class="o">)</span> <span class="o">=</span> 8.81
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">17:22:44,157 <span class="o">[</span>Thread-2<span class="o">]</span> INFO  jTPCC : Term-00, Measured <span class="nv">tpmTOTAL</span> <span class="o">=</span> 14.43
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">17:22:44,157 <span class="o">[</span>Thread-2<span class="o">]</span> INFO  jTPCC : Term-00, Session <span class="nv">Start</span>   <span class="o">=</span> 2022-02-11 17:21:29
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">17:22:44,157 <span class="o">[</span>Thread-2<span class="o">]</span> INFO  jTPCC : Term-00, Session <span class="nv">End</span>    <span class="o">=</span> 2022-02-11 17:22:44
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">17:22:44,158 <span class="o">[</span>Thread-2<span class="o">]</span> INFO  jTPCC : Term-00, Transaction <span class="nv">Count</span> <span class="o">=</span> <span class="m">17</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">cat runBenchmark.sh 
+<span class="nb">source</span> ./funcs.sh <span class="nv">$1</span>
+
+sh runBenchmark.sh tpcc.props.ob
+
+Term-00, Running Average tpmTOTAL: 14.43  Current tpmTOTAL: <span class="m">96</span>  Memory Usage: 111MB / 1928MB 
+
+17:22:44,157 <span class="o">[</span>Thread-2<span class="o">]</span> INFO  jTPCC : Term-00, Measured tpmC <span class="o">(</span>NewOrders<span class="o">)</span> <span class="o">=</span> 8.81
+
+17:22:44,157 <span class="o">[</span>Thread-2<span class="o">]</span> INFO  jTPCC : Term-00, Measured <span class="nv">tpmTOTAL</span> <span class="o">=</span> 14.43
+
+17:22:44,157 <span class="o">[</span>Thread-2<span class="o">]</span> INFO  jTPCC : Term-00, Session <span class="nv">Start</span>   <span class="o">=</span> 2022-02-11 17:21:29
+
+17:22:44,157 <span class="o">[</span>Thread-2<span class="o">]</span> INFO  jTPCC : Term-00, Session <span class="nv">End</span>    <span class="o">=</span> 2022-02-11 17:22:44
+
+17:22:44,158 <span class="o">[</span>Thread-2<span class="o">]</span> INFO  jTPCC : Term-00, Transaction <span class="nv">Count</span> <span class="o">=</span> 17
+
+
+</code></pre></td></tr></table>
 </div>
-</div><h2 id="二分析-tpc-c-top-sql并查看-3条-sql-的-解析执行计划-和-实际执行计划">二、分析 TPC-C TOP SQL，并查看 3条 SQL 的 解析执行计划 和 实际执行计划。</h2>
-<h3 id="21-查询top3-sql-实际执行计划">2.1 查询TOP3 sql 实际执行计划</h3>
+</div><h2 id="-tpc-c-top-sql-3-sql----">二、分析 TPC-C TOP SQL，并查看 3条 SQL 的 解析执行计划 和 实际执行计划。</h2>
+<h3 id="21-top3-sql-">2.1 查询TOP3 sql 实际执行计划</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -581,88 +592,88 @@
 </span><span class="lnt">74
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">obclient</span><span class="w"> </span><span class="o">-</span><span class="n">uroot</span><span class="o">@</span><span class="n">tpcc</span><span class="w"> </span><span class="o">-</span><span class="n">h127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="n">P2881</span><span class="w"> </span><span class="o">-</span><span class="n">p123456</span><span class="w"> </span><span class="o">-</span><span class="n">Doceanbase</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="cm">/*+ parallel(15)*/</span><span class="w"> </span><span class="n">SQL_ID</span><span class="p">,</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">QPS</span><span class="p">,</span><span class="w"> </span><span class="k">avg</span><span class="p">(</span><span class="n">t1</span><span class="p">.</span><span class="n">elapsed_time</span><span class="p">)</span><span class="o">/</span><span class="mi">1000</span><span class="w"> </span><span class="n">RT_MS</span><span class="p">,</span><span class="k">sum</span><span class="p">(</span><span class="n">t1</span><span class="p">.</span><span class="n">elapsed_time</span><span class="p">)</span><span class="o">/</span><span class="mi">1000</span><span class="w"> </span><span class="n">Total_MS</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="n">oceanbase</span><span class="p">.</span><span class="n">gv$sql_audit</span><span class="w"> </span><span class="n">t1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">where</span><span class="w"> </span><span class="n">IS_EXECUTOR_RPC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">and</span><span class="w"> </span><span class="n">request_time</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">time_to_usec</span><span class="p">(</span><span class="n">now</span><span class="p">())</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">600000000</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">and</span><span class="w"> </span><span class="n">request_time</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">time_to_usec</span><span class="p">(</span><span class="n">now</span><span class="p">())</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">t1</span><span class="p">.</span><span class="n">sql_id</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">Total_MS</span><span class="w"> </span><span class="k">desc</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">limit</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">sql_id</span><span class="p">,</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w">  </span><span class="n">round</span><span class="p">(</span><span class="k">avg</span><span class="p">(</span><span class="n">elapsed_time</span><span class="p">))</span><span class="w"> </span><span class="n">avg_elapsed_time</span><span class="p">,</span><span class="w">   </span><span class="n">round</span><span class="p">(</span><span class="k">avg</span><span class="p">(</span><span class="n">QUEUE_TIME</span><span class="p">))</span><span class="w"> </span><span class="n">QUEUE_TIME</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">                      </span><span class="n">round</span><span class="p">(</span><span class="k">avg</span><span class="p">(</span><span class="n">execute_time</span><span class="p">))</span><span class="w"> </span><span class="n">avg_exec_time</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">                      </span><span class="n">s</span><span class="p">.</span><span class="n">svr_ip</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">                      </span><span class="n">s</span><span class="p">.</span><span class="n">svr_port</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">                      </span><span class="n">s</span><span class="p">.</span><span class="n">tenant_id</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">                      </span><span class="n">s</span><span class="p">.</span><span class="n">plan_id</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">                     </span><span class="k">FROM</span><span class="w"> </span><span class="n">oceanbase</span><span class="p">.</span><span class="n">gv$sql_audit</span><span class="w"> </span><span class="n">s</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">                     </span><span class="k">WHERE</span><span class="w"> </span><span class="n">request_time</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">time_to_usec</span><span class="p">(</span><span class="n">DATE_SUB</span><span class="p">(</span><span class="k">current_timestamp</span><span class="p">,</span><span class="w"> </span><span class="nb">INTERVAL</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="k">MINUTE</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">                     </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">sql_id</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">avg_elapsed_time</span><span class="w"> </span><span class="k">desc</span><span class="w"> </span><span class="k">limit</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">***********************</span><span class="w"> </span><span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="o">***************************</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="n">sql_id</span><span class="p">:</span><span class="w"> </span><span class="n">F59A700FA168324279B0DBC25E19760F</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">):</span><span class="w"> </span><span class="mi">1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">avg_elapsed_time</span><span class="p">:</span><span class="w"> </span><span class="mi">640709</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="n">avg_exec_time</span><span class="p">:</span><span class="w"> </span><span class="mi">635456</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="n">svr_ip</span><span class="p">:</span><span class="w"> </span><span class="mi">127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">svr_port</span><span class="p">:</span><span class="w"> </span><span class="mi">2882</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">       </span><span class="n">tenant_id</span><span class="p">:</span><span class="w"> </span><span class="mi">1002</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="n">plan_id</span><span class="p">:</span><span class="w"> </span><span class="mi">655</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">#</span><span class="w"> </span><span class="n">EC66B09D06D688727D0F999BFCFF5348</span><span class="w"> </span><span class="err">为例子分析</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">##</span><span class="w"> </span><span class="err">查看</span><span class="k">sql</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="k">distinct</span><span class="w"> </span><span class="n">query_sql</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">gv$sql_audit</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">sql_id</span><span class="o">=</span><span class="s1">&#39;EC66B09D06D688727D0F999BFCFF5348&#39;</span><span class="w"> </span><span class="err">\</span><span class="k">G</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">oceanbase</span><span class="p">.</span><span class="n">gv$sql_audit</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">sql_id</span><span class="o">=</span><span class="s1">&#39;482BA7822AE7BE644CEBEB55213E7284&#39;</span><span class="w"> </span><span class="err">\</span><span class="k">G</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">UPDATE</span><span class="w"> </span><span class="n">bmsql_order_line</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">ol_delivery_d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;2022-02-21 10:32:29.502&#39;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">ol_w_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">ol_d_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">ol_o_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2101</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">###</span><span class="w"> </span><span class="k">OPERATOR</span><span class="w"> </span><span class="k">Operator</span><span class="w"> </span><span class="err">的名称</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">ol_amount</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">sum_ol_amount</span><span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">bmsql_order_line</span><span class="w">     </span><span class="k">WHERE</span><span class="w"> </span><span class="n">ol_w_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">ol_d_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">ol_o_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2101</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">##</span><span class="w"> </span><span class="err">实际执行计划</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">ip</span><span class="p">,</span><span class="w"> </span><span class="n">plan_depth</span><span class="p">,</span><span class="w"> </span><span class="n">plan_line_id</span><span class="p">,</span><span class="k">operator</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="k">rows</span><span class="p">,</span><span class="n">cost</span><span class="p">,</span><span class="n">property</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">oceanbase</span><span class="p">.</span><span class="o">`</span><span class="n">gv$plan_cache_plan_explain</span><span class="o">`</span><span class="w">  
-</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="k">where</span><span class="w"> </span><span class="n">tenant_id</span><span class="o">=</span><span class="mi">1002</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">ip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;127.0.0.1&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">port</span><span class="o">=</span><span class="mi">2882</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">plan_id</span><span class="o">=</span><span class="mi">667</span><span class="w"> </span><span class="err">\</span><span class="k">G</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">***********************</span><span class="w"> </span><span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="o">***************************</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="n">ip</span><span class="p">:</span><span class="w"> </span><span class="mi">127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">plan_depth</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">plan_line_id</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">operator</span><span class="p">:</span><span class="w"> </span><span class="n">PHY_SCALAR_AGGREGATE</span><span class="w">  </span><span class="err">聚合操作</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="k">NULL</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">rows</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">cost</span><span class="p">:</span><span class="w"> </span><span class="mi">499581</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">property</span><span class="p">:</span><span class="w"> </span><span class="k">NULL</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">***************************</span><span class="w"> </span><span class="mi">2</span><span class="p">.</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="o">***************************</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="n">ip</span><span class="p">:</span><span class="w"> </span><span class="mi">127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">plan_depth</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">plan_line_id</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">operator</span><span class="p">:</span><span class="w">  </span><span class="n">PHY_TABLE_SCAN</span><span class="w"> </span><span class="err">扫描</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="n">bmsql_order_line</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">rows</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">cost</span><span class="p">:</span><span class="w"> </span><span class="mi">499579</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        
-</span></span></span><span class="line"><span class="cl"><span class="w">  
-</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">oceanbase</span><span class="p">.</span><span class="n">gv$plan_cache_plan_stat</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">sql_id</span><span class="o">=</span><span class="s1">&#39;482BA7822AE7BE644CEBEB55213E7284&#39;</span><span class="w"> </span><span class="err">\</span><span class="k">G</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">//</span><span class="n">gv$plan_cache_plan_stat</span><span class="w"> </span><span class="err">视图记录了当前租户在所有</span><span class="w"> </span><span class="n">Server</span><span class="w"> </span><span class="err">上的计划缓存中缓存的每一个缓存对象的状态</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"> 
-</span></span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">obclient</span> <span class="o">-</span><span class="n">uroot</span><span class="o">@</span><span class="n">tpcc</span> <span class="o">-</span><span class="n">h127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span> <span class="o">-</span><span class="n">P2881</span> <span class="o">-</span><span class="n">p123456</span> <span class="o">-</span><span class="n">Doceanbase</span>
+
+
+<span class="k">select</span><span class="cm">/*</span><span class="cm">+ parallel(15)</span><span class="cm">*/</span> <span class="n">SQL_ID</span><span class="p">,</span> <span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">as</span> <span class="n">QPS</span><span class="p">,</span> <span class="k">avg</span><span class="p">(</span><span class="n">t1</span><span class="p">.</span><span class="n">elapsed_time</span><span class="p">)</span><span class="o">/</span><span class="mi">1000</span> <span class="n">RT_MS</span><span class="p">,</span><span class="k">sum</span><span class="p">(</span><span class="n">t1</span><span class="p">.</span><span class="n">elapsed_time</span><span class="p">)</span><span class="o">/</span><span class="mi">1000</span> <span class="n">Total_MS</span>
+<span class="k">from</span> <span class="n">oceanbase</span><span class="p">.</span><span class="n">gv$sql_audit</span> <span class="n">t1</span>
+
+<span class="k">where</span> <span class="n">IS_EXECUTOR_RPC</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">and</span> <span class="n">request_time</span> <span class="o">&gt;</span> <span class="p">(</span><span class="n">time_to_usec</span><span class="p">(</span><span class="n">now</span><span class="p">(</span><span class="p">)</span><span class="p">)</span> <span class="o">-</span> <span class="mi">600000000</span><span class="p">)</span>
+<span class="k">and</span> <span class="n">request_time</span> <span class="o">&lt;</span> <span class="n">time_to_usec</span><span class="p">(</span><span class="n">now</span><span class="p">(</span><span class="p">)</span><span class="p">)</span>
+<span class="k">group</span> <span class="k">by</span> <span class="n">t1</span><span class="p">.</span><span class="n">sql_id</span>
+<span class="k">order</span> <span class="k">by</span> <span class="n">Total_MS</span> <span class="k">desc</span>
+<span class="k">limit</span> <span class="mi">10</span><span class="p">;</span>
+
+
+<span class="k">SELECT</span> <span class="n">sql_id</span><span class="p">,</span> <span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="p">,</span>  <span class="n">round</span><span class="p">(</span><span class="k">avg</span><span class="p">(</span><span class="n">elapsed_time</span><span class="p">)</span><span class="p">)</span> <span class="n">avg_elapsed_time</span><span class="p">,</span>   <span class="n">round</span><span class="p">(</span><span class="k">avg</span><span class="p">(</span><span class="n">QUEUE_TIME</span><span class="p">)</span><span class="p">)</span> <span class="n">QUEUE_TIME</span>
+                      <span class="n">round</span><span class="p">(</span><span class="k">avg</span><span class="p">(</span><span class="n">execute_time</span><span class="p">)</span><span class="p">)</span> <span class="n">avg_exec_time</span><span class="p">,</span>
+                      <span class="n">s</span><span class="p">.</span><span class="n">svr_ip</span><span class="p">,</span>
+                      <span class="n">s</span><span class="p">.</span><span class="n">svr_port</span><span class="p">,</span>
+                      <span class="n">s</span><span class="p">.</span><span class="n">tenant_id</span><span class="p">,</span>
+                      <span class="n">s</span><span class="p">.</span><span class="n">plan_id</span>
+                     <span class="k">FROM</span> <span class="n">oceanbase</span><span class="p">.</span><span class="n">gv$sql_audit</span> <span class="n">s</span>
+                     <span class="k">WHERE</span> <span class="n">request_time</span> <span class="o">&gt;</span><span class="o">=</span> <span class="n">time_to_usec</span><span class="p">(</span><span class="n">DATE_SUB</span><span class="p">(</span><span class="k">current_timestamp</span><span class="p">,</span> <span class="nb">INTERVAL</span> <span class="mi">30</span> <span class="k">MINUTE</span><span class="p">)</span> <span class="p">)</span>
+                     <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">sql_id</span>
+                    <span class="k">order</span> <span class="k">by</span> <span class="n">avg_elapsed_time</span> <span class="k">desc</span> <span class="k">limit</span> <span class="mi">3</span><span class="p">;</span>
+
+
+<span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span> <span class="mi">1</span><span class="p">.</span> <span class="k">row</span> <span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span>
+          <span class="n">sql_id</span><span class="p">:</span> <span class="n">F59A700FA168324279B0DBC25E19760F</span>
+        <span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="p">:</span> <span class="mi">1</span>
+<span class="n">avg_elapsed_time</span><span class="p">:</span> <span class="mi">640709</span>
+   <span class="n">avg_exec_time</span><span class="p">:</span> <span class="mi">635456</span>
+          <span class="n">svr_ip</span><span class="p">:</span> <span class="mi">127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span>
+        <span class="n">svr_port</span><span class="p">:</span> <span class="mi">2882</span>
+       <span class="n">tenant_id</span><span class="p">:</span> <span class="mi">1002</span>
+         <span class="n">plan_id</span><span class="p">:</span> <span class="mi">655</span>
+
+
+<span class="o">#</span> <span class="n">EC66B09D06D688727D0F999BFCFF5348</span> <span class="err">为</span><span class="err">例</span><span class="err">子</span><span class="err">分</span><span class="err">析</span>
+<span class="o">#</span><span class="o">#</span> <span class="err">查</span><span class="err">看</span><span class="k">sql</span>
+<span class="k">select</span> <span class="k">distinct</span> <span class="n">query_sql</span> <span class="k">from</span> <span class="n">gv$sql_audit</span> <span class="k">where</span> <span class="n">sql_id</span><span class="o">=</span><span class="s1">&#39;</span><span class="s1">EC66B09D06D688727D0F999BFCFF5348</span><span class="s1">&#39;</span> <span class="err">\</span><span class="k">G</span><span class="p">;</span>
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">oceanbase</span><span class="p">.</span><span class="n">gv$sql_audit</span> <span class="k">where</span> <span class="n">sql_id</span><span class="o">=</span><span class="s1">&#39;</span><span class="s1">482BA7822AE7BE644CEBEB55213E7284</span><span class="s1">&#39;</span> <span class="err">\</span><span class="k">G</span><span class="p">;</span>
+
+<span class="k">UPDATE</span> <span class="n">bmsql_order_line</span> <span class="k">SET</span> <span class="n">ol_delivery_d</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s1">2022-02-21 10:32:29.502</span><span class="s1">&#39;</span>
+<span class="k">WHERE</span> <span class="n">ol_w_id</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">AND</span> <span class="n">ol_d_id</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">AND</span> <span class="n">ol_o_id</span> <span class="o">=</span> <span class="mi">2101</span>
+
+
+<span class="o">#</span><span class="o">#</span><span class="o">#</span> <span class="k">OPERATOR</span> <span class="k">Operator</span> <span class="err">的</span><span class="err">名</span><span class="err">称</span>
+<span class="k">SELECT</span> <span class="k">sum</span><span class="p">(</span><span class="n">ol_amount</span><span class="p">)</span> <span class="k">AS</span> <span class="n">sum_ol_amount</span>  <span class="k">FROM</span> <span class="n">bmsql_order_line</span>     <span class="k">WHERE</span> <span class="n">ol_w_id</span> <span class="o">=</span> <span class="mi">2</span> <span class="k">AND</span> <span class="n">ol_d_id</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">AND</span> <span class="n">ol_o_id</span> <span class="o">=</span> <span class="mi">2101</span>
+
+<span class="o">#</span><span class="o">#</span> <span class="err">实</span><span class="err">际</span><span class="err">执</span><span class="err">行</span><span class="err">计</span><span class="err">划</span>
+<span class="k">SELECT</span> <span class="n">ip</span><span class="p">,</span> <span class="n">plan_depth</span><span class="p">,</span> <span class="n">plan_line_id</span><span class="p">,</span><span class="k">operator</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="k">rows</span><span class="p">,</span><span class="n">cost</span><span class="p">,</span><span class="n">property</span> <span class="k">from</span> <span class="n">oceanbase</span><span class="p">.</span><span class="o">`</span><span class="n">gv$plan_cache_plan_explain</span><span class="o">`</span>  
+                        <span class="k">where</span> <span class="n">tenant_id</span><span class="o">=</span><span class="mi">1002</span> <span class="k">AND</span> <span class="n">ip</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s1">127.0.0.1</span><span class="s1">&#39;</span> <span class="k">AND</span> <span class="n">port</span><span class="o">=</span><span class="mi">2882</span> <span class="k">AND</span> <span class="n">plan_id</span><span class="o">=</span><span class="mi">667</span> <span class="err">\</span><span class="k">G</span><span class="p">;</span>
+ <span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span> <span class="mi">1</span><span class="p">.</span> <span class="k">row</span> <span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span>
+          <span class="n">ip</span><span class="p">:</span> <span class="mi">127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span>
+  <span class="n">plan_depth</span><span class="p">:</span> <span class="mi">0</span>
+<span class="n">plan_line_id</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="k">operator</span><span class="p">:</span> <span class="n">PHY_SCALAR_AGGREGATE</span>  <span class="err">聚</span><span class="err">合</span><span class="err">操</span><span class="err">作</span>
+        <span class="n">name</span><span class="p">:</span> <span class="k">NULL</span>
+        <span class="k">rows</span><span class="p">:</span> <span class="mi">1</span>
+        <span class="n">cost</span><span class="p">:</span> <span class="mi">499581</span>
+    <span class="n">property</span><span class="p">:</span> <span class="k">NULL</span>
+<span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span> <span class="mi">2</span><span class="p">.</span> <span class="k">row</span> <span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span>
+          <span class="n">ip</span><span class="p">:</span> <span class="mi">127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span>
+  <span class="n">plan_depth</span><span class="p">:</span> <span class="mi">1</span>
+<span class="n">plan_line_id</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="k">operator</span><span class="p">:</span>  <span class="n">PHY_TABLE_SCAN</span> <span class="err">扫</span><span class="err">描</span>
+        <span class="n">name</span><span class="p">:</span> <span class="n">bmsql_order_line</span>
+        <span class="k">rows</span><span class="p">:</span> <span class="mi">11</span>
+        <span class="n">cost</span><span class="p">:</span> <span class="mi">499579</span>
+        
+  
+ <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">oceanbase</span><span class="p">.</span><span class="n">gv$plan_cache_plan_stat</span> <span class="k">where</span> <span class="n">sql_id</span><span class="o">=</span><span class="s1">&#39;</span><span class="s1">482BA7822AE7BE644CEBEB55213E7284</span><span class="s1">&#39;</span> <span class="err">\</span><span class="k">G</span><span class="p">;</span>
+ <span class="o">/</span><span class="o">/</span><span class="n">gv$plan_cache_plan_stat</span> <span class="err">视</span><span class="err">图</span><span class="err">记</span><span class="err">录</span><span class="err">了</span><span class="err">当</span><span class="err">前</span><span class="err">租</span><span class="err">户</span><span class="err">在</span><span class="err">所</span><span class="err">有</span> <span class="n">Server</span> <span class="err">上</span><span class="err">的</span><span class="err">计</span><span class="err">划</span><span class="err">缓</span><span class="err">存</span><span class="err">中</span><span class="err">缓</span><span class="err">存</span><span class="err">的</span><span class="err">每</span><span class="err">一</span><span class="err">个</span><span class="err">缓</span><span class="err">存</span><span class="err">对</span><span class="err">象</span><span class="err">的</span><span class="err">状</span><span class="err">态</span>
+ 
+</code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>查看请求次数最多的SQL【执行多次sql】</li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -683,38 +694,40 @@
 </span><span class="lnt">19
 </span><span class="lnt">20
 </span><span class="lnt">21
+</span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="k">local</span><span class="o">/</span><span class="mi">2022</span><span class="o">/</span><span class="n">benchmarksql</span><span class="o">-</span><span class="mi">5</span><span class="p">.</span><span class="mi">0</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">sh</span><span class="w"> </span><span class="n">runBenchmark</span><span class="p">.</span><span class="n">sh</span><span class="w"> </span><span class="n">tpcc</span><span class="p">.</span><span class="n">props</span><span class="p">.</span><span class="n">ob</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">obclient</span><span class="w"> </span><span class="o">-</span><span class="n">uroot</span><span class="o">@</span><span class="n">tpcc</span><span class="w"> </span><span class="o">-</span><span class="n">h127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="n">P2881</span><span class="w"> </span><span class="o">-</span><span class="n">p123456</span><span class="w"> </span><span class="o">-</span><span class="n">Doceanbase</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">sql_id</span><span class="p">,</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">cnt</span><span class="p">,</span><span class="w"> </span><span class="n">round</span><span class="p">(</span><span class="k">avg</span><span class="p">(</span><span class="n">elapsed_time</span><span class="p">))</span><span class="w"> </span><span class="n">avg_elapsed_time</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">round</span><span class="p">(</span><span class="k">avg</span><span class="p">(</span><span class="n">execute_time</span><span class="p">))</span><span class="w"> </span><span class="n">avg_exec_time</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">svr_ip</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">svr_port</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">tenant_id</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">plan_id</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">oceanbase</span><span class="p">.</span><span class="n">gv$sql_audit</span><span class="w"> </span><span class="n">s</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">TENANT_NAME</span><span class="o">=</span><span class="s1">&#39;tpcc&#39;</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">DB_NAME</span><span class="o">=</span><span class="s1">&#39;tpcc&#39;</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">plan_id</span><span class="o">&gt;</span><span class="mi">0</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">sql_id</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">cnt</span><span class="w"> </span><span class="k">desc</span><span class="w"> </span><span class="k">limit</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="err">\</span><span class="k">G</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">***************************</span><span class="w"> </span><span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="o">***************************</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="n">sql_id</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">             </span><span class="n">cnt</span><span class="p">:</span><span class="w"> </span><span class="mi">9460</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">avg_elapsed_time</span><span class="p">:</span><span class="w"> </span><span class="mi">142</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="n">avg_exec_time</span><span class="p">:</span><span class="w"> </span><span class="mi">93</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="n">svr_ip</span><span class="p">:</span><span class="w"> </span><span class="mi">127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">svr_port</span><span class="p">:</span><span class="w"> </span><span class="mi">2882</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">       </span><span class="n">tenant_id</span><span class="p">:</span><span class="w"> </span><span class="mi">1002</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="n">plan_id</span><span class="p">:</span><span class="w"> </span><span class="mi">310</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="k">local</span><span class="o">/</span><span class="mi">2022</span><span class="o">/</span><span class="n">benchmarksql</span><span class="o">-</span><span class="mi">5</span><span class="p">.</span><span class="mi">0</span>
+
+<span class="n">sh</span> <span class="n">runBenchmark</span><span class="p">.</span><span class="n">sh</span> <span class="n">tpcc</span><span class="p">.</span><span class="n">props</span><span class="p">.</span><span class="n">ob</span>
+
+<span class="n">obclient</span> <span class="o">-</span><span class="n">uroot</span><span class="o">@</span><span class="n">tpcc</span> <span class="o">-</span><span class="n">h127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span> <span class="o">-</span><span class="n">P2881</span> <span class="o">-</span><span class="n">p123456</span> <span class="o">-</span><span class="n">Doceanbase</span>
+
+<span class="k">SELECT</span> <span class="n">sql_id</span><span class="p">,</span> <span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="n">cnt</span><span class="p">,</span> <span class="n">round</span><span class="p">(</span><span class="k">avg</span><span class="p">(</span><span class="n">elapsed_time</span><span class="p">)</span><span class="p">)</span> <span class="n">avg_elapsed_time</span><span class="p">,</span>
+    <span class="n">round</span><span class="p">(</span><span class="k">avg</span><span class="p">(</span><span class="n">execute_time</span><span class="p">)</span><span class="p">)</span> <span class="n">avg_exec_time</span><span class="p">,</span> <span class="n">s</span><span class="p">.</span><span class="n">svr_ip</span><span class="p">,</span> <span class="n">s</span><span class="p">.</span><span class="n">svr_port</span><span class="p">,</span> <span class="n">s</span><span class="p">.</span><span class="n">tenant_id</span><span class="p">,</span> <span class="n">s</span><span class="p">.</span><span class="n">plan_id</span>
+<span class="k">FROM</span> <span class="n">oceanbase</span><span class="p">.</span><span class="n">gv$sql_audit</span> <span class="n">s</span>
+<span class="k">WHERE</span> <span class="n">TENANT_NAME</span><span class="o">=</span><span class="s1">&#39;</span><span class="s1">tpcc</span><span class="s1">&#39;</span> <span class="k">and</span> <span class="n">DB_NAME</span><span class="o">=</span><span class="s1">&#39;</span><span class="s1">tpcc</span><span class="s1">&#39;</span> <span class="k">and</span> <span class="n">plan_id</span><span class="o">&gt;</span><span class="mi">0</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">sql_id</span>
+<span class="k">order</span> <span class="k">by</span> <span class="n">cnt</span> <span class="k">desc</span> <span class="k">limit</span> <span class="mi">10</span> <span class="err">\</span><span class="k">G</span><span class="p">;</span>
+<span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span> <span class="mi">1</span><span class="p">.</span> <span class="k">row</span> <span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span>
+          <span class="n">sql_id</span><span class="p">:</span>
+             <span class="n">cnt</span><span class="p">:</span> <span class="mi">9460</span>
+<span class="n">avg_elapsed_time</span><span class="p">:</span> <span class="mi">142</span>
+   <span class="n">avg_exec_time</span><span class="p">:</span> <span class="mi">93</span>
+          <span class="n">svr_ip</span><span class="p">:</span> <span class="mi">127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span>
+        <span class="n">svr_port</span><span class="p">:</span> <span class="mi">2882</span>
+       <span class="n">tenant_id</span><span class="p">:</span> <span class="mi">1002</span>
+         <span class="n">plan_id</span><span class="p">:</span> <span class="mi">310</span>
+
+</code></pre></td></tr></table>
 </div>
-</div><h3 id="22-执行计划没有执行">2.2 执行计划（没有执行）</h3>
+</div><h3 id="22-">2.2 执行计划（没有执行）</h3>
 <ul>
 <li>EC66B09D06D688727D0F999BFCFF5348 sql 为例子</li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -733,28 +746,30 @@
 </span><span class="lnt">17
 </span><span class="lnt">18
 </span><span class="lnt">19
+</span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="w"> </span><span class="k">explain</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">ol_amount</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">sum_ol_amount</span><span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">bmsql_order_line</span><span class="w">  </span><span class="k">WHERE</span><span class="w"> </span><span class="n">ol_w_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">ol_d_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">ol_o_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2101</span><span class="w"> </span><span class="err">\</span><span class="k">G</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">***************************</span><span class="w"> </span><span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="o">***************************</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Query</span><span class="w"> </span><span class="n">Plan</span><span class="p">:</span><span class="w"> </span><span class="o">======================================================</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="n">ID</span><span class="o">|</span><span class="k">OPERATOR</span><span class="w">       </span><span class="o">|</span><span class="n">NAME</span><span class="w">            </span><span class="o">|</span><span class="n">EST</span><span class="p">.</span><span class="w"> </span><span class="k">ROWS</span><span class="o">|</span><span class="n">COST</span><span class="w">  </span><span class="o">|</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">------------------------------------------------------
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">|</span><span class="mi">0</span><span class="w"> </span><span class="o">|</span><span class="n">SCALAR</span><span class="w"> </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="o">|</span><span class="w">                </span><span class="o">|</span><span class="mi">1</span><span class="w">        </span><span class="o">|</span><span class="mi">499691</span><span class="o">|</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">SCAN</span><span class="w">    </span><span class="o">|</span><span class="n">bmsql_order_line</span><span class="o">|</span><span class="mi">11</span><span class="w">       </span><span class="o">|</span><span class="mi">499689</span><span class="o">|</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">======================================================</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Outputs</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">filters</span><span class="p">:</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-------------------------------------
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">  </span><span class="mi">0</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="k">output</span><span class="p">([</span><span class="n">T_FUN_SUM</span><span class="p">(</span><span class="n">bmsql_order_line</span><span class="p">.</span><span class="n">ol_amount</span><span class="p">)]),</span><span class="w"> </span><span class="n">filter</span><span class="p">(</span><span class="n">nil</span><span class="p">),</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="k">group</span><span class="p">(</span><span class="n">nil</span><span class="p">),</span><span class="w"> </span><span class="n">agg_func</span><span class="p">([</span><span class="n">T_FUN_SUM</span><span class="p">(</span><span class="n">bmsql_order_line</span><span class="p">.</span><span class="n">ol_amount</span><span class="p">)])</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="k">output</span><span class="p">([</span><span class="n">bmsql_order_line</span><span class="p">.</span><span class="n">ol_amount</span><span class="p">]),</span><span class="w"> </span><span class="n">filter</span><span class="p">([</span><span class="n">bmsql_order_line</span><span class="p">.</span><span class="n">ol_o_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2101</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="n">bmsql_order_line</span><span class="p">.</span><span class="n">ol_d_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="n">bmsql_order_line</span><span class="p">.</span><span class="n">ol_w_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">]),</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="k">access</span><span class="p">([</span><span class="n">bmsql_order_line</span><span class="p">.</span><span class="n">ol_w_id</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="n">bmsql_order_line</span><span class="p">.</span><span class="n">ol_d_id</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="n">bmsql_order_line</span><span class="p">.</span><span class="n">ol_o_id</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="n">bmsql_order_line</span><span class="p">.</span><span class="n">ol_amount</span><span class="p">]),</span><span class="w"> </span><span class="n">partitions</span><span class="p">(</span><span class="n">p0</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">oceanbase</span><span class="p">.</span><span class="n">__all_virtual_lock_wait_stat</span><span class="w"> </span><span class="err">\</span><span class="k">G</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-sql" data-lang="sql"> <span class="k">explain</span> <span class="k">SELECT</span> <span class="k">sum</span><span class="p">(</span><span class="n">ol_amount</span><span class="p">)</span> <span class="k">AS</span> <span class="n">sum_ol_amount</span>  <span class="k">FROM</span> <span class="n">bmsql_order_line</span>  <span class="k">WHERE</span> <span class="n">ol_w_id</span> <span class="o">=</span> <span class="mi">2</span> <span class="k">AND</span> <span class="n">ol_d_id</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">AND</span> <span class="n">ol_o_id</span> <span class="o">=</span> <span class="mi">2101</span> <span class="err">\</span><span class="k">G</span><span class="p">;</span>
+ 
+<span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span> <span class="mi">1</span><span class="p">.</span> <span class="k">row</span> <span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span><span class="o">*</span>
+<span class="n">Query</span> <span class="n">Plan</span><span class="p">:</span> <span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span>
+<span class="o">|</span><span class="n">ID</span><span class="o">|</span><span class="k">OPERATOR</span>       <span class="o">|</span><span class="n">NAME</span>            <span class="o">|</span><span class="n">EST</span><span class="p">.</span> <span class="k">ROWS</span><span class="o">|</span><span class="n">COST</span>  <span class="o">|</span>
+<span class="c1">------------------------------------------------------
+</span><span class="c1"></span><span class="o">|</span><span class="mi">0</span> <span class="o">|</span><span class="n">SCALAR</span> <span class="k">GROUP</span> <span class="k">BY</span><span class="o">|</span>                <span class="o">|</span><span class="mi">1</span>        <span class="o">|</span><span class="mi">499691</span><span class="o">|</span>
+<span class="o">|</span><span class="mi">1</span> <span class="o">|</span> <span class="k">TABLE</span> <span class="n">SCAN</span>    <span class="o">|</span><span class="n">bmsql_order_line</span><span class="o">|</span><span class="mi">11</span>       <span class="o">|</span><span class="mi">499689</span><span class="o">|</span>
+<span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span><span class="o">=</span>
+
+<span class="n">Outputs</span> <span class="o">&amp;</span> <span class="n">filters</span><span class="p">:</span> 
+<span class="c1">-------------------------------------
+</span><span class="c1"></span>  <span class="mi">0</span> <span class="o">-</span> <span class="k">output</span><span class="p">(</span><span class="p">[</span><span class="n">T_FUN_SUM</span><span class="p">(</span><span class="n">bmsql_order_line</span><span class="p">.</span><span class="n">ol_amount</span><span class="p">)</span><span class="p">]</span><span class="p">)</span><span class="p">,</span> <span class="n">filter</span><span class="p">(</span><span class="n">nil</span><span class="p">)</span><span class="p">,</span> 
+      <span class="k">group</span><span class="p">(</span><span class="n">nil</span><span class="p">)</span><span class="p">,</span> <span class="n">agg_func</span><span class="p">(</span><span class="p">[</span><span class="n">T_FUN_SUM</span><span class="p">(</span><span class="n">bmsql_order_line</span><span class="p">.</span><span class="n">ol_amount</span><span class="p">)</span><span class="p">]</span><span class="p">)</span>
+  <span class="mi">1</span> <span class="o">-</span> <span class="k">output</span><span class="p">(</span><span class="p">[</span><span class="n">bmsql_order_line</span><span class="p">.</span><span class="n">ol_amount</span><span class="p">]</span><span class="p">)</span><span class="p">,</span> <span class="n">filter</span><span class="p">(</span><span class="p">[</span><span class="n">bmsql_order_line</span><span class="p">.</span><span class="n">ol_o_id</span> <span class="o">=</span> <span class="mi">2101</span><span class="p">]</span><span class="p">,</span> <span class="p">[</span><span class="n">bmsql_order_line</span><span class="p">.</span><span class="n">ol_d_id</span> <span class="o">=</span> <span class="mi">1</span><span class="p">]</span><span class="p">,</span> <span class="p">[</span><span class="n">bmsql_order_line</span><span class="p">.</span><span class="n">ol_w_id</span> <span class="o">=</span> <span class="mi">2</span><span class="p">]</span><span class="p">)</span><span class="p">,</span> 
+      <span class="k">access</span><span class="p">(</span><span class="p">[</span><span class="n">bmsql_order_line</span><span class="p">.</span><span class="n">ol_w_id</span><span class="p">]</span><span class="p">,</span> <span class="p">[</span><span class="n">bmsql_order_line</span><span class="p">.</span><span class="n">ol_d_id</span><span class="p">]</span><span class="p">,</span> <span class="p">[</span><span class="n">bmsql_order_line</span><span class="p">.</span><span class="n">ol_o_id</span><span class="p">]</span><span class="p">,</span> <span class="p">[</span><span class="n">bmsql_order_line</span><span class="p">.</span><span class="n">ol_amount</span><span class="p">]</span><span class="p">)</span><span class="p">,</span> <span class="n">partitions</span><span class="p">(</span><span class="n">p0</span><span class="p">)</span>
+
+
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">oceanbase</span><span class="p">.</span><span class="n">__all_virtual_lock_wait_stat</span> <span class="err">\</span><span class="k">G</span>
+
+</code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>解释</li>
@@ -768,28 +783,28 @@
 <p>SCALAR GROUP BY&mdash;PHY_SCALAR_AGGREGATE</p>
 </li>
 </ol>
-<h3 id="24-优化">2.4 优化</h3>
+<h3 id="24-">2.4 优化</h3>
 <ul>
 <li>优化 bmsql_order_line 增加索引</li>
 </ul>
 <p>小贴士：这里添加索引 并没有提高 为什么呢？</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">create index bmsql_customer_idx1 on bmsql_customer (c_w_id, c_d_id, c_last, c_first) local;
-</span></span><span class="line"><span class="cl">create index bmsql_oorder_idx1 on bmsql_oorder (o_w_id, o_d_id, o_carrier_id, o_id) local;
-</span></span><span class="line"><span class="cl">   
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">create index bmsql_customer_idx1 on bmsql_customer (c_w_id, c_d_id, c_last, c_first) local;
+create index bmsql_oorder_idx1 on bmsql_oorder (o_w_id, o_d_id, o_carrier_id, o_id) local;
+   
+</code></pre></td></tr></table>
 </div>
-</div><h3 id="三可选使用-oceanbase-的-outline-对-其中一条-sql-进行限流限制并发为-1-">三、（可选）使用 OceanBase 的 Outline 对 其中一条 SQL 进行限流（限制并发为 1 ）。</h3>
+</div><h3 id="-oceanbase--outline---sql--1-">三、（可选）使用 OceanBase 的 Outline 对 其中一条 SQL 进行限流（限制并发为 1 ）。</h3>
 <p>&ndash; 正在学习中</p>
-<h3 id="四可选导入-tpc-h-schema-和数据数据量不用太大-100m-即可查看-tpc-h-5条-sql-的解析执行计划和实际执行计划">四、（可选）导入 TPC-H schema 和数据，数据量不用太大 100M 即可。查看 TPC-H 5条 SQL 的解析执行计划和实际执行计划。</h3>
+<h3 id="-tpc-h-schema--100m--tpc-h-5-sql-">四、（可选）导入 TPC-H schema 和数据，数据量不用太大 100M 即可。查看 TPC-H 5条 SQL 的解析执行计划和实际执行计划。</h3>
 <p>&ndash; 正在学习中</p>
-<h2 id="五--学习笔记">五 、 学习笔记</h2>
+<h2 id="--">五 、 学习笔记</h2>
 <blockquote>
 <p>视频资料：</p>
 <p>OceanBase 功能和性能测试概述</p>
@@ -817,7 +832,7 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -851,52 +866,54 @@
 </span><span class="lnt">32
 </span><span class="lnt">33
 </span><span class="lnt">34
+</span><span class="lnt">35
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">db</span><span class="k">=</span><span class="n">oracle</span>
-</span></span><span class="line"><span class="cl"><span class="n">driver</span><span class="k">=</span><span class="n">com</span><span class="o">.</span><span class="n">alipay</span><span class="o">.</span><span class="n">oceanbase</span><span class="o">.</span><span class="n">obproxy</span><span class="o">.</span><span class="n">mysql</span><span class="o">.</span><span class="n">jdbc</span><span class="o">.</span><span class="nc">Driver</span>
-</span></span><span class="line"><span class="cl"><span class="n">conn</span><span class="k">=</span><span class="n">jdbc</span><span class="k">:</span><span class="kt">oceanbase://</span><span class="err">127</span><span class="kt">.</span><span class="err">1</span><span class="kt">:</span><span class="err">2881</span><span class="kt">/tpcc?useUnicode</span><span class="o">=</span><span class="kc">true</span><span class="o">&amp;</span><span class="n">characterEncoding</span><span class="k">=</span><span class="n">utf</span><span class="o">-</span><span class="mi">8</span>
-</span></span><span class="line"><span class="cl"><span class="n">user</span><span class="k">=</span><span class="n">tpcc</span><span class="nd">@oracle0_85</span><span class="k">#</span><span class="n">obv22_stable</span>
-</span></span><span class="line"><span class="cl"><span class="n">password</span><span class="k">=</span><span class="mi">123456</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">warehouses</span><span class="k">=</span><span class="mi">2</span> <span class="c1">//仓库数
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">loadWorkers</span><span class="k">=</span><span class="mi">2</span><span class="c1">//数据加载的性能
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl"><span class="n">terminals</span><span class="k">=</span><span class="mi">2</span> <span class="c1">//客户端并发数
-</span></span></span><span class="line"><span class="cl"><span class="c1">//To run specified transactions per terminal- runMins must equal zero
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">runTxnsPerTerminal</span><span class="k">=</span><span class="mi">0</span>
-</span></span><span class="line"><span class="cl"><span class="c1">//To run for specified minutes- runTxnsPerTerminal must equal zero
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">runMins</span><span class="k">=</span><span class="mi">1</span> <span class="c1">//压测时间
-</span></span></span><span class="line"><span class="cl"><span class="c1">//Number of total transactions per minute
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">limitTxnsPerMin</span><span class="k">=</span><span class="mi">0</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">//Set to true to run in 4.x compatible mode. Set to false to use the
-</span></span></span><span class="line"><span class="cl"><span class="c1">//entire configured database evenly.
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">terminalWarehouseFixed</span><span class="k">=</span><span class="kc">true</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">//The following five values must add up to 100
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">newOrderWeight</span><span class="k">=</span><span class="mi">45</span>
-</span></span><span class="line"><span class="cl"><span class="n">paymentWeight</span><span class="k">=</span><span class="mi">43</span>
-</span></span><span class="line"><span class="cl"><span class="n">orderStatusWeight</span><span class="k">=</span><span class="mi">4</span>
-</span></span><span class="line"><span class="cl"><span class="n">deliveryWeight</span><span class="k">=</span><span class="mi">4</span>
-</span></span><span class="line"><span class="cl"><span class="n">stockLevelWeight</span><span class="k">=</span><span class="mi">4</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// Directory name to create for collecting detailed result data.
-</span></span></span><span class="line"><span class="cl"><span class="c1">// Comment this out to suppress.
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">resultDirectory</span><span class="k">=</span><span class="n">my_result_%tY</span><span class="o">-%</span><span class="n">tm</span><span class="o">-%</span><span class="n">td_%tH</span><span class="o">%</span><span class="n">tM</span><span class="o">%</span><span class="n">tS</span>
-</span></span><span class="line"><span class="cl"><span class="n">osCollectorScript</span><span class="o">=./</span><span class="n">misc</span><span class="o">/</span><span class="n">os_collector_linux</span><span class="o">.</span><span class="n">py</span>
-</span></span><span class="line"><span class="cl"><span class="n">osCollectorInterval</span><span class="k">=</span><span class="mi">1</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-scala" data-lang="scala">
+<span class="n">db</span><span class="k">=</span><span class="n">oracle</span>
+<span class="n">driver</span><span class="k">=</span><span class="n">com</span><span class="o">.</span><span class="n">alipay</span><span class="o">.</span><span class="n">oceanbase</span><span class="o">.</span><span class="n">obproxy</span><span class="o">.</span><span class="n">mysql</span><span class="o">.</span><span class="n">jdbc</span><span class="o">.</span><span class="nc">Driver</span>
+<span class="n">conn</span><span class="k">=</span><span class="n">jdbc</span><span class="k">:</span><span class="kt">oceanbase</span><span class="kt">://</span><span class="err">1</span><span class="err">2</span><span class="err">7</span><span class="kt">.</span><span class="err">1</span><span class="kt">:</span><span class="err">2</span><span class="err">8</span><span class="err">8</span><span class="err">1</span><span class="kt">/</span><span class="kt">tpcc</span><span class="kt">?</span><span class="kt">useUnicode</span><span class="o">=</span><span class="kc">true</span><span class="o">&amp;</span><span class="n">characterEncoding</span><span class="k">=</span><span class="n">utf</span><span class="o">-</span><span class="mi">8</span>
+<span class="n">user</span><span class="k">=</span><span class="n">tpcc</span><span class="nd">@oracle0_85</span><span class="k">#</span><span class="n">obv22_stable</span>
+<span class="n">password</span><span class="k">=</span><span class="mi">123456</span>
+
+<span class="n">warehouses</span><span class="k">=</span><span class="mi">2</span> <span class="c1">//仓库数
+</span><span class="c1"></span><span class="n">loadWorkers</span><span class="k">=</span><span class="mi">2</span><span class="c1">//数据加载的性能
+</span><span class="c1"></span>
+<span class="n">terminals</span><span class="k">=</span><span class="mi">2</span> <span class="c1">//客户端并发数
+</span><span class="c1"></span><span class="c1">//To run specified transactions per terminal- runMins must equal zero
+</span><span class="c1"></span><span class="n">runTxnsPerTerminal</span><span class="k">=</span><span class="mi">0</span>
+<span class="c1">//To run for specified minutes- runTxnsPerTerminal must equal zero
+</span><span class="c1"></span><span class="n">runMins</span><span class="k">=</span><span class="mi">1</span> <span class="c1">//压测时间
+</span><span class="c1"></span><span class="c1">//Number of total transactions per minute
+</span><span class="c1"></span><span class="n">limitTxnsPerMin</span><span class="k">=</span><span class="mi">0</span>
+
+<span class="c1">//Set to true to run in 4.x compatible mode. Set to false to use the
+</span><span class="c1"></span><span class="c1">//entire configured database evenly.
+</span><span class="c1"></span><span class="n">terminalWarehouseFixed</span><span class="k">=</span><span class="kc">true</span>
+
+<span class="c1">//The following five values must add up to 100
+</span><span class="c1"></span><span class="n">newOrderWeight</span><span class="k">=</span><span class="mi">45</span>
+<span class="n">paymentWeight</span><span class="k">=</span><span class="mi">43</span>
+<span class="n">orderStatusWeight</span><span class="k">=</span><span class="mi">4</span>
+<span class="n">deliveryWeight</span><span class="k">=</span><span class="mi">4</span>
+<span class="n">stockLevelWeight</span><span class="k">=</span><span class="mi">4</span>
+
+<span class="c1">// Directory name to create for collecting detailed result data.
+</span><span class="c1"></span><span class="c1">// Comment this out to suppress.
+</span><span class="c1"></span><span class="n">resultDirectory</span><span class="k">=</span><span class="n">my_result_%</span><span class="n">tY</span><span class="o">-%</span><span class="n">tm</span><span class="o">-%</span><span class="n">td_%</span><span class="n">tH</span><span class="o">%</span><span class="n">tM</span><span class="o">%</span><span class="n">tS</span>
+<span class="n">osCollectorScript</span><span class="o">=</span><span class="o">.</span><span class="o">/</span><span class="n">misc</span><span class="o">/</span><span class="n">os_collector_linux</span><span class="o">.</span><span class="n">py</span>
+<span class="n">osCollectorInterval</span><span class="k">=</span><span class="mi">1</span>
+
+</code></pre></td></tr></table>
 </div>
 </div><p><img src="https://images.gitee.com/uploads/images/2022/0129/112609_d287c7ee_116887.png" alt="测试"></p>
-<h2 id="heading"></h2>
+<h2 id="heading-1"></h2>
 <p>.1 OceanBase 数据库 SQL 诊断和优化</p>
 <p><code>gv$sql_audit</code> :视图用于展示所有 Server 上每一次 SQL 请求的来源、执行状态等统计信息</p>
 <p>**gv$plan_cache_plan_explain **:该视图用于展示缓存在全部的 Server 中的计划缓存中的物理执行计划。</p>
 <p><img src="https://s2.loli.net/2022/02/11/smCHu4IKnxXRq69.png" alt="image.png"></p>
 <p><img src="https://s2.loli.net/2022/02/11/2ETndZ8cQfGO67B.png" alt="image.png"></p>
-<h3 id="参考资料"><strong>参考资料</strong></h3>
+<h3 id="heading-2"><strong>参考资料</strong></h3>
 <ul>
 <li>
 <p>社区版官网-文档-学习中心-入门教程：<a href="https://open.oceanbase.com/docs/tutorials/quickstart/V1.0.0/chapter-1-overview-of-the-oceanbase-database">OceanBase 入门到实战教程</a></p>

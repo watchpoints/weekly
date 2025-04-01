@@ -6,7 +6,11 @@
     <description>Recent content in ARTS on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 25 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/categories/ARTS/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 25 Mar 2024 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://wangcy6.github.io/categories/ARTS/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>ARTS_2024_weekly_13</title>
       <link>https://wangcy6.github.io/post/ARTS/2024/arts_weekly_13/</link>

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.101.0 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
 <link rel="canonical" href="https://wangcy6.github.io/post/2020/MySQL%E5%AE%9E%E6%88%9845%E8%AE%B2-%E5%8A%A8%E6%89%8B%E5%AE%9E%E9%AA%8C/" />
@@ -41,14 +41,17 @@
 <meta property="og:title" content="MySQL实战45讲" />
 <meta property="og:description" content="你明明知道数据库是你弱点，你为什么不现在补救一下 必须掌握" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://wangcy6.github.io/post/2020/MySQL%E5%AE%9E%E6%88%9845%E8%AE%B2-%E5%8A%A8%E6%89%8B%E5%AE%9E%E9%AA%8C/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://wangcy6.github.io/post/2020/MySQL%E5%AE%9E%E6%88%9845%E8%AE%B2-%E5%8A%A8%E6%89%8B%E5%AE%9E%E9%AA%8C/" />
 <meta property="article:published_time" content="2020-05-13T00:00:00+00:00" />
 <meta property="article:modified_time" content="2020-05-13T00:00:00+00:00" />
-
 <meta itemprop="name" content="MySQL实战45讲">
-<meta itemprop="description" content="你明明知道数据库是你弱点，你为什么不现在补救一下 必须掌握"><meta itemprop="datePublished" content="2020-05-13T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2020-05-13T00:00:00+00:00" />
-<meta itemprop="wordCount" content="471">
+<meta itemprop="description" content="你明明知道数据库是你弱点，你为什么不现在补救一下 必须掌握">
+<meta itemprop="datePublished" content="2020-05-13T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-05-13T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="472">
+
+
+
 <meta itemprop="keywords" content="mysql," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="MySQL实战45讲"/>
 <meta name="twitter:description" content="你明明知道数据库是你弱点，你为什么不现在补救一下 必须掌握"/>
@@ -130,7 +133,7 @@
         <div class="post-category">
             <a href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/"> 中间件 </a>
             </div>
-          <span class="more-meta"> 约 471 字 </span>
+          <span class="more-meta"> 约 472 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -143,8 +146,8 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#17-如何正确地显示随机消息">17 如何正确地显示随机消息</a></li>
-        <li><a href="#18-为什么这些sql语句逻辑相同性能却差异巨大">18 为什么这些SQL语句逻辑相同，性能却差异巨大？</a></li>
+        <li><a href="#17-">17 如何正确地显示随机消息</a></li>
+        <li><a href="#18-sql">18 为什么这些SQL语句逻辑相同，性能却差异巨大？</a></li>
       </ul>
     </li>
   </ul>
@@ -164,11 +167,11 @@
 <p>作为普通it来说，必须掌握技能，从陌生到熟悉然后到精通。</p>
 <p>你目标也不是DBA,你只需要完成下面四个步骤就可以了。</p>
 </blockquote>
-<h1 id="具体例子">具体例子</h1>
-<h3 id="17-如何正确地显示随机消息">17 如何正确地显示随机消息</h3>
+<h1 id="heading">具体例子</h1>
+<h3 id="17-">17 如何正确地显示随机消息</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -190,31 +193,31 @@
 </span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="o">`</span><span class="n">words</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="no">NULL</span><span class="w"> </span><span class="kp">AUTO_INCREMENT</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">`</span><span class="n">word</span><span class="o">`</span><span class="w"> </span><span class="kt">varchar</span><span class="p">(</span><span class="mi">64</span><span class="p">)</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="no">NULL</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="kp">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">delimiter</span><span class="w"> </span><span class="p">;;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">create</span><span class="w"> </span><span class="k">procedure</span><span class="w"> </span><span class="nf">idata</span><span class="p">()</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">begin</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">declare</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="kt">int</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kt">set</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">while</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="mi">10000</span><span class="w"> </span><span class="n">do</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="nf">words</span><span class="p">(</span><span class="n">word</span><span class="p">)</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="nf">concat</span><span class="p">(</span><span class="kt">char</span><span class="p">(</span><span class="mi">97</span><span class="o">+</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">div</span><span class="w"> </span><span class="mi">1000</span><span class="p">)),</span><span class="w"> </span><span class="kt">char</span><span class="p">(</span><span class="mi">97</span><span class="o">+</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">1000</span><span class="w"> </span><span class="k">div</span><span class="w"> </span><span class="mi">1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kt">set</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">end</span><span class="w"> </span><span class="k">while</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">end</span><span class="p">;;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">delimiter</span><span class="w"> </span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">call</span><span class="w"> </span><span class="nf">idata</span><span class="p">();</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="n">word</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">words</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="nf">rand</span><span class="p">()</span><span class="w"> </span><span class="k">limit</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">CREATE TABLE `words` (
+`id` int(11) NOT NULL AUTO_INCREMENT,
+`word` varchar(64) DEFAULT NULL,
+PRIMARY KEY (`id`)
+) ENGINE=InnoDB;
+
+delimiter ;;
+create procedure idata()
+begin
+declare i int;
+set i=0;
+while i&lt;10000 do
+insert into words(word) values(concat(char(97+(i div 1000)), char(97+(i % 1000 div 1
+set i=i+1;
+end while;
+end;;
+delimiter ;
+call idata();
+
+select word from words order by rand() limit 3;
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -230,30 +233,32 @@
 </span><span class="lnt">14
 </span><span class="lnt">15
 </span><span class="lnt">16
+</span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="c1"># Query_time: 0.900376 Lock_time: 0.000347 Rows_sent: 3 Rows_examined: 20003
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">SET</span><span class="w"> </span><span class="kt">timestamp</span><span class="o">=</span><span class="mi">1541402277</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="n">word</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">words</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="nf">rand</span><span class="p">()</span><span class="w"> </span><span class="k">limit</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">tmp_table_size</span><span class="w"> </span><span class="err">这个配置限制了内存临时表的大小，默认值是</span><span class="w"> </span><span class="mi">16</span><span class="n">M</span><span class="err">。如果</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">临时表大小超过了</span><span class="w"> </span><span class="n">tmp_table_size</span><span class="err">，那么内存临时表就会转成磁盘临时表</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kt">set</span><span class="w"> </span><span class="n">tmp_table_size</span><span class="o">=</span><span class="mi">1024</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kt">set</span><span class="w"> </span><span class="n">sort_buffer_size</span><span class="o">=</span><span class="mi">32768</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kt">set</span><span class="w"> </span><span class="n">max_length_for_sort_data</span><span class="o">=</span><span class="mi">16</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/* 打开 optimizer_trace，只对本线程有效 */</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kt">SET</span><span class="w"> </span><span class="n">optimizer_trace</span><span class="o">=</span><span class="s1">&#39;enabled=on&#39;</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/* 执行语句 */</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="n">word</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">words</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="nf">rand</span><span class="p">()</span><span class="w"> </span><span class="k">limit</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/* 查看 OPTIMIZER_TRACE 输出 */</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="o">`</span><span class="n">information_schema</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">OPTIMIZER_TRACE</span><span class="o">`</span><span class="err">\</span><span class="n">G</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback"># Query_time: 0.900376 Lock_time: 0.000347 Rows_sent: 3 Rows_examined: 20003
+SET timestamp=1541402277;
+select word from words order by rand() limit 3;
+
+tmp_table_size 这个配置限制了内存临时表的大小，默认值是 16M。如果
+临时表大小超过了 tmp_table_size，那么内存临时表就会转成磁盘临时表
+
+set tmp_table_size=1024;
+set sort_buffer_size=32768;
+set max_length_for_sort_data=16;
+/* 打开 optimizer_trace，只对本线程有效 */
+SET optimizer_trace=&#39;enabled=on&#39;;
+/* 执行语句 */
+select word from words order by rand() limit 3;
+/* 查看 OPTIMIZER_TRACE 输出 */
+SELECT * FROM `information_schema`.`OPTIMIZER_TRACE`\G
+
+</code></pre></td></tr></table>
 </div>
-</div><h3 id="18-为什么这些sql语句逻辑相同性能却差异巨大">18 为什么这些SQL语句逻辑相同，性能却差异巨大？</h3>
+</div><h3 id="18-sql">18 为什么这些SQL语句逻辑相同，性能却差异巨大？</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -267,19 +272,19 @@
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="w"> </span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="o">`</span><span class="n">tradelog</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="no">NULL</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">`</span><span class="n">tradeid</span><span class="o">`</span><span class="w"> </span><span class="kt">varchar</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="no">NULL</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">`</span><span class="n">operator</span><span class="o">`</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="no">NULL</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">`</span><span class="n">t_modified</span><span class="o">`</span><span class="w"> </span><span class="kt">datetime</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="no">NULL</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">),</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">KEY</span><span class="w"> </span><span class="o">`</span><span class="n">tradeid</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">tradeid</span><span class="o">`</span><span class="p">),</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">KEY</span><span class="w"> </span><span class="o">`</span><span class="n">t_modified</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">t_modified</span><span class="o">`</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="kp">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="kp">CHARSET</span><span class="o">=</span><span class="n">utf8mb4</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="nf">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">tradelog</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="nf">month</span><span class="p">(</span><span class="n">t_modified</span><span class="p">)</span><span class="o">=</span><span class="mi">7</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback"> CREATE TABLE `tradelog` (
+`id` int(11) NOT NULL,
+`tradeid` varchar(32) DEFAULT NULL,
+`operator` int(11) DEFAULT NULL,
+`t_modified` datetime DEFAULT NULL,
+PRIMARY KEY (`id`),
+KEY `tradeid` (`tradeid`),
+KEY `t_modified` (`t_modified`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+select count(*) from tradelog where month(t_modified)=7;
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>

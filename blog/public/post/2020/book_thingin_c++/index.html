@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.101.0 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
 <link rel="canonical" href="https://wangcy6.github.io/post/2020/book_thingin_c&#43;&#43;/" />
@@ -41,14 +41,17 @@
 <meta property="og:title" content="c&#43;&#43;编程思想" />
 <meta property="og:description" content="来源： c&#43;&#43;编程思想（两卷合订本） 提问的方式 Q1 动态转换和静态转换的区别是什么？ 小王第一次回答 一头雾水呀，平时没有自己用过， 唯一有印象的是写线" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://wangcy6.github.io/post/2020/book_thingin_c&#43;&#43;/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://wangcy6.github.io/post/2020/book_thingin_c&#43;&#43;/" />
 <meta property="article:published_time" content="2019-12-02T00:00:00+00:00" />
 <meta property="article:modified_time" content="2019-12-02T00:00:00+00:00" />
-
 <meta itemprop="name" content="c&#43;&#43;编程思想">
-<meta itemprop="description" content="来源： c&#43;&#43;编程思想（两卷合订本） 提问的方式 Q1 动态转换和静态转换的区别是什么？ 小王第一次回答 一头雾水呀，平时没有自己用过， 唯一有印象的是写线"><meta itemprop="datePublished" content="2019-12-02T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2019-12-02T00:00:00+00:00" />
+<meta itemprop="description" content="来源： c&#43;&#43;编程思想（两卷合订本） 提问的方式 Q1 动态转换和静态转换的区别是什么？ 小王第一次回答 一头雾水呀，平时没有自己用过， 唯一有印象的是写线">
+<meta itemprop="datePublished" content="2019-12-02T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-12-02T00:00:00&#43;00:00" />
 <meta itemprop="wordCount" content="4608">
+
+
+
 <meta itemprop="keywords" content="c&#43;&#43;," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="c&#43;&#43;编程思想"/>
 <meta name="twitter:description" content="来源： c&#43;&#43;编程思想（两卷合订本） 提问的方式 Q1 动态转换和静态转换的区别是什么？ 小王第一次回答 一头雾水呀，平时没有自己用过， 唯一有印象的是写线"/>
@@ -141,37 +144,37 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#q1--动态转换和静态转换的区别是什么">Q1  动态转换和静态转换的区别是什么？</a>
+    <li><a href="#q1--">Q1  动态转换和静态转换的区别是什么？</a>
       <ul>
-        <li><a href="#小王第三次理解">#小王第三次理解</a></li>
+        <li><a href="#heading-1">#小王第三次理解</a></li>
       </ul>
     </li>
-    <li><a href="#q2-map和hashmap的使用场景">Q2 map和hashmap的使用场景？</a>
+    <li><a href="#q2-maphashmap">Q2 map和hashmap的使用场景？</a>
       <ul>
-        <li><a href="#小王第一次回答">小王第一次回答：</a></li>
-        <li><a href="#小王第二次理解">小王第二次理解：</a></li>
-        <li><a href="#advantagesedithttpsenwikipediaorgwindexphptitlehash_tableactioneditsection25">Advantages[<a href="https://en.wikipedia.org/w/index.php?title=Hash_table&amp;action=edit&amp;section=25">edit</a>]</a></li>
-        <li><a href="#drawbacksedithttpsenwikipediaorgwindexphptitlehash_tableactioneditsection26">Drawbacks[<a href="https://en.wikipedia.org/w/index.php?title=Hash_table&amp;action=edit&amp;section=26">edit</a>]</a></li>
+        <li><a href="#heading-2">小王第一次回答：</a></li>
+        <li><a href="#heading-3">小王第二次理解：</a></li>
+        <li><a href="#advantagesedithttpsenwikipediaorgwindexphptitlehash-tableactioneditsection25">Advantages[edit]</a></li>
+        <li><a href="#drawbacksedithttpsenwikipediaorgwindexphptitlehash-tableactioneditsection26">Drawbacks[edit]</a></li>
       </ul>
     </li>
     <li><a href="#ordered-retrieval-issue">Ordered retrieval issue</a></li>
     <li><a href="#problems-with-hash-tables">Problems with hash tables</a>
       <ul>
-        <li><a href="#小王第二次回答">小王第二次回答</a></li>
-        <li><a href="#q2-class-bab-ab-发生了什么-assignment-operator-c">Q2 class b,a(b), a=b 发生了什么？ Assignment operator (C++)</a></li>
+        <li><a href="#heading-5">小王第二次回答</a></li>
+        <li><a href="#q2-class-bab-ab--assignment-operator-c">Q2 class b,a(b), a=b 发生了什么？ Assignment operator (C++)</a></li>
       </ul>
     </li>
-    <li><a href="#q3-new-原理是什么">Q3 new 原理是什么？</a>
+    <li><a href="#q3-new-">Q3 new 原理是什么？</a>
       <ul>
-        <li><a href="#小王第一次回答被重复问过3次-动态数组vector-">小王第一次回答（被重复问过3次 动态数组，vector ）</a></li>
-        <li><a href="#小王收到第一次反馈">小王收到第一次反馈:</a></li>
+        <li><a href="#3-vector-">小王第一次回答（被重复问过3次 动态数组，vector ）</a></li>
+        <li><a href="#heading-7">小王收到第一次反馈:</a></li>
       </ul>
     </li>
-    <li><a href="#q4--什么是虚函数被重复问过3次-过一段时间回到当初错误理解上">Q4  什么是虚函数？(被重复问过3次 ,过一段时间，回到当初错误理解上)？</a></li>
-    <li><a href="#q5内存问题">Q5:内存问题</a>
+    <li><a href="#q4--3-">Q4  什么是虚函数？(被重复问过3次 ,过一段时间，回到当初错误理解上)？</a></li>
+    <li><a href="#q5">Q5:内存问题</a>
       <ul>
-        <li><a href="#第一次回答只要内心想道死锁内存泄露内心意识彻底崩溃尤其是valgrind原理时候为难呀--不你已经彻底清除不要陷入面试官全套白银别人知道的你也知道">第一次回答：只要内心想道死锁，内存泄露内心意识彻底崩溃，尤其是valgrind原理时候。为难呀。&ndash;不你已经彻底清除，不要陷入面试官全套。【白银：别人知道的，你也知道】</a></li>
-        <li><a href="#原理是什么">原理是什么？</a></li>
+        <li><a href="#valgrind--">第一次回答：只要内心想道死锁，内存泄露内心意识彻底崩溃，尤其是valgrind原理时候。为难呀。&ndash;不你已经彻底清除，不要陷入面试官全套。【白银：别人知道的，你也知道】</a></li>
+        <li><a href="#heading-8">原理是什么？</a></li>
         <li><a href="#interpreting-race-error-messages">Interpreting Race Error Messages</a></li>
       </ul>
     </li>
@@ -180,10 +183,10 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#引用类型变量保存的地址是存在哪儿的">引用类型变量保存的地址是存在哪儿的</a></li>
+        <li><a href="#heading-9">引用类型变量保存的地址是存在哪儿的</a></li>
       </ul>
     </li>
-    <li><a href="#塔山">塔山</a></li>
+    <li><a href="#heading-10">塔山</a></li>
   </ul>
 </nav>
   </div>
@@ -195,8 +198,8 @@
   </div>
     <div class="post-content">
       <p>来源： <a href="">c++编程思想（两卷合订本）</a></p>
-<h1 id="提问的方式">提问的方式</h1>
-<h2 id="q1--动态转换和静态转换的区别是什么">Q1  动态转换和静态转换的区别是什么？</h2>
+<h1 id="heading">提问的方式</h1>
+<h2 id="q1--">Q1  动态转换和静态转换的区别是什么？</h2>
 <blockquote>
 <p>小王第一次回答</p>
 </blockquote>
@@ -253,8 +256,8 @@
 <p>static_cast依然转换成功，dynamic_cast能避免这个问题。</p>
 <p>需要采用dynamic_cast【程序员来保证写代码正确】</p>
 <blockquote>
-<p>If you guarantee the precondition, it&rsquo;s fine.</p>
-<p>If you don&rsquo;t guarantee the precondition, then your code isn&rsquo;t safe.</p>
+<p>If you guarantee the precondition, it's fine.</p>
+<p>If you don't guarantee the precondition, then your code isn't safe.</p>
 </blockquote>
 <ul>
 <li>再有虚继承情况下 ，必须采用dynamic_cast 【独有习惯】</li>
@@ -263,7 +266,7 @@
 <blockquote>
 <p>If <em>new_type</em> is a pointer or reference to some class <code>D</code> and the type of <em>expression</em> is a pointer or reference to its non-virtual base <code>B</code>, <code>static_cast</code> performs a <em>downcast</em>.</p>
 <p>This downcast is ill-formed if <code>B</code> is ambiguous, inaccessible, or virtual base (or a base of a virtual base) of <code>D</code>.</p>
-<p>Such <code>static_cast</code> makes no runtime checks to ensure that the object&rsquo;s runtime type is actually <code>D</code>,（为什么不确定，这从对象模型来判断）</p>
+<p>Such <code>static_cast</code> makes no runtime checks to ensure that the object's runtime type is actually <code>D</code>,（为什么不确定，这从对象模型来判断）</p>
 <p>and may only be used safely if this precondition is guaranteed by other means, such as when implementing <a href="https://en.wikipedia.org/wiki/Curiously_recurring_template_pattern#Static_polymorphism">static polymorphism</a>.</p>
 <p>Safe downcast may be done with <a href="https://en.cppreference.com/w/cpp/language/dynamic_cast"><code>dynamic_cast</code></a>.</p>
 <p><a href="https://en.cppreference.com/w/cpp/language/static_cast">https://en.cppreference.com/w/cpp/language/static_cast</a></p>
@@ -274,16 +277,16 @@
 </ul>
 <blockquote>
 <p><a href="https://stackoverflow.com/questions/49399783/is-it-undefined-behavior-to-static-cast-down-a-type-that-isnt-actually-the-type">https://stackoverflow.com/questions/49399783/is-it-undefined-behavior-to-static-cast-down-a-type-that-isnt-actually-the-type</a></p>
-<p>Such <code>static_cast</code> makes no runtime checks to ensure that the object&rsquo;s runtime type is actually <code>D</code>,（</p>
+<p>Such <code>static_cast</code> makes no runtime checks to ensure that the object's runtime type is actually <code>D</code>,（</p>
 <p><a href="http://eel.is/c++draft/expr.static.cast#11">http://eel.is/c++draft/expr.static.cast#11</a></p>
 </blockquote>
-<h3 id="小王第三次理解">#小王第三次理解</h3>
+<h3 id="heading-1">#小王第三次理解</h3>
 <p>在有继承关键的类行向下转换上</p>
 <p>(1) static_cast 在编译阶段，能根据判断定义类型 判断转换释放成立，编译器保证代码正确行</p>
 <p>​    dynamic_cast 则不能</p>
 <p>（2） dynamic_cast 对虚继承 能根据运行具体类型来识别</p>
 <p>（3） 在安全上 static_cast依靠代码实现正确性，可能同一个接口不同类之间转换 可能转换成功。不提示错误。</p>
-<h2 id="q2-map和hashmap的使用场景">Q2 map和hashmap的使用场景？</h2>
+<h2 id="q2-maphashmap">Q2 map和hashmap的使用场景？</h2>
 <blockquote>
 <p>小王第一次理解：</p>
 </blockquote>
@@ -301,7 +304,7 @@
 <li>这是stl提供结构，我直接用行了，区别是什么，各种优缺点什么，我不知道关键点在哪里呀？系统提供还有确定吗？</li>
 <li>用法内部排序规则上。一个自定义函数对象来比较（有序），一个输入值随机的（无序）。但是平时也不怎么map做有序操作，key value</li>
 </ol>
-<h3 id="小王第一次回答">小王第一次回答：</h3>
+<h3 id="heading-2">小王第一次回答：</h3>
 <blockquote>
 <p>内部数据结构不一样，一个红黑树，一个桶，遇到冲突元素时候桶通过链表来解决的。</p>
 <p>然后时间复杂度不一样。和空间复杂度不一样</p>
@@ -316,8 +319,8 @@
 <p>这人人想到。这个人人都知道。</p>
 </li>
 </ul>
-<h3 id="小王第二次理解">小王第二次理解：</h3>
-<h6 id="阅读文章">阅读文章</h6>
+<h3 id="heading-3">小王第二次理解：</h3>
+<h6 id="heading-4">阅读文章</h6>
 <p>第1文章：  ok耗时 45分钟</p>
 <p><a href="https://en.wikipedia.org/wiki/Hash_table">https://en.wikipedia.org/wiki/Hash_table</a></p>
 <p><a href="http://occcwiki.org/index.php/Data_Structures/Hash_Tables">http://occcwiki.org/index.php/Data_Structures/Hash_Tables</a></p>
@@ -333,7 +336,7 @@
 <p><a href="https://www.zhihu.com/question/28092327">https://www.zhihu.com/question/28092327</a> [没看懂，知乎人太利好了]</p>
 <p>7个示例科普CPU CACHEhttps://coolshell.cn/articles/10249.html[厉害，这个写清楚具体，看懂了]</p>
 <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Hash_table_3_1_1_0_1_0_0_SP.svg/473px-Hash_table_3_1_1_0_1_0_0_SP.svg.png" alt=""></p>
-<h3 id="advantagesedithttpsenwikipediaorgwindexphptitlehash_tableactioneditsection25">Advantages[<a href="https://en.wikipedia.org/w/index.php?title=Hash_table&amp;action=edit&amp;section=25">edit</a>]</h3>
+<h3 id="advantagesedithttpsenwikipediaorgwindexphptitlehash-tableactioneditsection25">Advantages[<a href="https://en.wikipedia.org/w/index.php?title=Hash_table&amp;action=edit&amp;section=25">edit</a>]</h3>
 <ul>
 <li>
 <p>The main advantage of hash tables over other table data structures is speed. This advantage is more apparent when the number of entries is large. Hash tables are particularly efficient when the maximum number of entries can be predicted in advance, so that the bucket array can be allocated once with the optimum size and never resized.</p>
@@ -342,7 +345,7 @@
 <p>If the set of key-value pairs is fixed and known ahead of time (so insertions and deletions are not allowed), one may reduce the average lookup cost by a careful choice of the hash function, bucket table size, and internal data structures. In particular, one may be able to devise a hash function that is collision-free, or even perfect. In this case the keys need not be stored in the table.</p>
 </li>
 </ul>
-<h3 id="drawbacksedithttpsenwikipediaorgwindexphptitlehash_tableactioneditsection26">Drawbacks[<a href="https://en.wikipedia.org/w/index.php?title=Hash_table&amp;action=edit&amp;section=26">edit</a>]</h3>
+<h3 id="drawbacksedithttpsenwikipediaorgwindexphptitlehash-tableactioneditsection26">Drawbacks[<a href="https://en.wikipedia.org/w/index.php?title=Hash_table&amp;action=edit&amp;section=26">edit</a>]</h3>
 <ul>
 <li>
 <p>Although operations on a hash table take constant time on average, the cost of a good hash function can be significantly higher than the inner loop of the lookup algorithm for a sequential list or search tree. Thus hash tables are not effective when the number of entries is very small. (However, in some cases the high cost of computing the hash function can be mitigated by saving the hash value together with the key.)</p>
@@ -387,9 +390,9 @@
 <p>Hash tables store data in pseudo-random locations, so accessing the data in a sorted manner is a very time consuming operation. Other data structures such as <a href="http://occcwiki.org/index.php?title=Self-balancing_binary_search_tree&amp;action=edit&amp;redlink=1">self-balancing binary search trees</a> generally operate more slowly (since their lookup time is O(log <em>n</em>)) and are rather more complex to implement than hash tables but maintain a sorted data structure at all times. See <a href="http://occcwiki.org/index.php?title=Associative_array&amp;action=edit&amp;redlink=1">a comparison of hash tables and self-balancing binary search trees</a>.</p>
 <h2 id="problems-with-hash-tables">Problems with hash tables</h2>
 <p>Although hash table lookups use constant time on average, the time spent can be significant. Evaluating a good hash function can be a slow operation. In particular, if simple array indexing can be used instead, this is usually faster.</p>
-<p>Hash tables in general exhibit poor <a href="http://occcwiki.org/index.php?title=Locality_of_reference&amp;action=edit&amp;redlink=1">locality of reference</a>—that is, the data to be accessed is distributed seemingly at random in memory. Because hash tables cause access patterns that jump around, this can trigger <a href="http://occcwiki.org/index.php?title=CPU_cache&amp;action=edit&amp;redlink=1">microprocessor cache</a> misses that cause long delays. Compact data structures such as arrays, searched with <a href="http://occcwiki.org/index.php?title=Linear_search&amp;action=edit&amp;redlink=1">linear search</a>, may be faster if the table is relatively small and keys are cheap to compare, such as with simple integer keys. According to <a href="http://occcwiki.org/index.php?title=Moore's_Law&amp;action=edit&amp;redlink=1">Moore&rsquo;s Law</a>, cache sizes are growing exponentially and so what is considered &ldquo;small&rdquo; may be increasing. The optimal performance point varies from system to system; for example, a trial on <a href="http://occcwiki.org/index.php?title=Parrot_virtual_machine&amp;action=edit&amp;redlink=1">Parrot</a> shows that its hash tables outperform linear search in all but the most trivial cases (one to three entries).</p>
-<p>More significantly, hash tables are more difficult and error-prone to write and use. Hash tables require the design of an effective hash function for each key type, which in many situations is more difficult and time-consuming to design and debug than the mere comparison function required for a <a href="http://occcwiki.org/index.php?title=Self-balancing_binary_search_tree&amp;action=edit&amp;redlink=1">self-balancing binary search tree</a>. In open-addressed hash tables it&rsquo;s even easier to create a poor hash function.</p>
-<p>Additionally, in some applications, a <a href="http://occcwiki.org/index.php?title=Black_hat&amp;action=edit&amp;redlink=1">black hat</a> with knowledge of the hash function may be able to supply information to a hash which creates worst-case behavior by causing excessive collisions, resulting in very poor performance (i.e., a <a href="http://occcwiki.org/index.php?title=Denial_of_service_attack&amp;action=edit&amp;redlink=1">denial of service attack</a>). In critical applications, either <a href="http://occcwiki.org/index.php?title=Universal_hashing&amp;action=edit&amp;redlink=1">universal hashing</a> can be used or a data structure with better worst-case guarantees may be preferable. For details, see Crosby and Wallach&rsquo;s <em><a href="http://www.cs.rice.edu/~scrosby/hash/CrosbyWallach_UsenixSec2003.pdf">Denial of Service via Algorithmic Complexity Attacks</a></em>.</p>
+<p>Hash tables in general exhibit poor <a href="http://occcwiki.org/index.php?title=Locality_of_reference&amp;action=edit&amp;redlink=1">locality of reference</a>—that is, the data to be accessed is distributed seemingly at random in memory. Because hash tables cause access patterns that jump around, this can trigger <a href="http://occcwiki.org/index.php?title=CPU_cache&amp;action=edit&amp;redlink=1">microprocessor cache</a> misses that cause long delays. Compact data structures such as arrays, searched with <a href="http://occcwiki.org/index.php?title=Linear_search&amp;action=edit&amp;redlink=1">linear search</a>, may be faster if the table is relatively small and keys are cheap to compare, such as with simple integer keys. According to <a href="http://occcwiki.org/index.php?title=Moore's_Law&amp;action=edit&amp;redlink=1">Moore's Law</a>, cache sizes are growing exponentially and so what is considered &ldquo;small&rdquo; may be increasing. The optimal performance point varies from system to system; for example, a trial on <a href="http://occcwiki.org/index.php?title=Parrot_virtual_machine&amp;action=edit&amp;redlink=1">Parrot</a> shows that its hash tables outperform linear search in all but the most trivial cases (one to three entries).</p>
+<p>More significantly, hash tables are more difficult and error-prone to write and use. Hash tables require the design of an effective hash function for each key type, which in many situations is more difficult and time-consuming to design and debug than the mere comparison function required for a <a href="http://occcwiki.org/index.php?title=Self-balancing_binary_search_tree&amp;action=edit&amp;redlink=1">self-balancing binary search tree</a>. In open-addressed hash tables it's even easier to create a poor hash function.</p>
+<p>Additionally, in some applications, a <a href="http://occcwiki.org/index.php?title=Black_hat&amp;action=edit&amp;redlink=1">black hat</a> with knowledge of the hash function may be able to supply information to a hash which creates worst-case behavior by causing excessive collisions, resulting in very poor performance (i.e., a <a href="http://occcwiki.org/index.php?title=Denial_of_service_attack&amp;action=edit&amp;redlink=1">denial of service attack</a>). In critical applications, either <a href="http://occcwiki.org/index.php?title=Universal_hashing&amp;action=edit&amp;redlink=1">universal hashing</a> can be used or a data structure with better worst-case guarantees may be preferable. For details, see Crosby and Wallach's <em><a href="http://www.cs.rice.edu/~scrosby/hash/CrosbyWallach_UsenixSec2003.pdf">Denial of Service via Algorithmic Complexity Attacks</a></em>.</p>
 <p>第2文章</p>
 <p><a href="https://stackoverflow.com/questions/2196995/is-there-any-advantage-of-using-map-over-unordered-map-in-case-of-trivial-keys">https://stackoverflow.com/questions/2196995/is-there-any-advantage-of-using-map-over-unordered-map-in-case-of-trivial-keys</a></p>
 <p><a href="https://stackoverflow.com/questions/13799593/how-to-choose-between-map-and-unordered-map/13799886#13799886">https://stackoverflow.com/questions/13799593/how-to-choose-between-map-and-unordered-map/13799886#13799886</a></p>
@@ -407,7 +410,7 @@
 <blockquote>
 <p>When does a map get more time efficient than unordered_map?</p>
 </blockquote>
-<p>It is just different structures. You&rsquo;d better to make a chiose to use one of them depending on your typical use cases (takeing in account what kind of data do you have and its amount)</p>
+<p>It is just different structures. You'd better to make a chiose to use one of them depending on your typical use cases (takeing in account what kind of data do you have and its amount)</p>
 <blockquote>
 <p>Does it hppaen when n is small?</p>
 </blockquote>
@@ -429,15 +432,15 @@
 <p>在删除相应的键之前，哈希表中的键和值的引用和指针必须保持有效</p>
 <p><a href="https://leveldb-handbook.readthedocs.io/zh/latest/cache.html">https://leveldb-handbook.readthedocs.io/zh/latest/cache.html</a></p>
 <p><a href="https://github.com/rockeet/nark-hashmap">https://github.com/rockeet/nark-hashmap</a></p>
-<h3 id="小王第二次回答">小王第二次回答</h3>
-<h3 id="q2-class-bab-ab-发生了什么-assignment-operator-c">Q2 class b,a(b), a=b 发生了什么？ Assignment operator (C++)</h3>
+<h3 id="heading-5">小王第二次回答</h3>
+<h3 id="q2-class-bab-ab--assignment-operator-c">Q2 class b,a(b), a=b 发生了什么？ Assignment operator (C++)</h3>
 <p><img src="https://i.loli.net/2019/12/06/UM6gxGhQtTV2CJH.png" alt="image.png"></p>
 <p><img src="https://i.loli.net/2019/12/06/6Q1pqSxlgOyhAfR.png" alt="image.png"></p>
 <p><img src="https://i.loli.net/2019/12/06/UZri32JYC8hSIxn.png" alt="image.png"></p>
 <p><img src="https://i.loli.net/2019/12/06/X2md35UjistqfeR.png" alt="image.png"></p>
 <p><img src="https://i.loli.net/2019/12/05/wKiAk5g9SHqnda1.png" alt="image.png"></p>
 <p><img src="../../images/image-20191205191958259.png" alt="image-20191205191958259"></p>
-<h4 id="辟谣">辟谣：</h4>
+<h4 id="heading-6">辟谣：</h4>
 <ul>
 <li><a href="https://my.oschina.net/yepanl/blog/1588421">https://my.oschina.net/yepanl/blog/1588421</a> C++拷贝构造函数和拷贝赋值运算符 说法有错误的 不是分开的。</li>
 </ul>
@@ -445,8 +448,8 @@
 <ul>
 <li></li>
 </ul>
-<h2 id="q3-new-原理是什么">Q3 new 原理是什么？</h2>
-<h3 id="小王第一次回答被重复问过3次-动态数组vector-">小王第一次回答（被重复问过3次 动态数组，vector ）</h3>
+<h2 id="q3-new-">Q3 new 原理是什么？</h2>
+<h3 id="3-vector-">小王第一次回答（被重复问过3次 动态数组，vector ）</h3>
 <blockquote>
 <p>被重复问过3次 ,1个月之后，回到当初错误理解上，被别人KO ,问题重点是什么不清楚，你牢牢记住过去记忆内容？别人参考和单纯 就是 c++ 课本上基本理论，你扩展操作系统，原理什么概念解释 他们一脸蒙蔽</p>
 </blockquote>
@@ -455,7 +458,7 @@
 <p>小王是这样想的</p>
 <p>我感觉用内存池，里面提前申请，小内存，大内存，划分接线不清楚，大小不清楚</p>
 <p>小王二次回答（弄清楚里tree结构的关系每个节点术语？）</p>
-<h3 id="小王收到第一次反馈">小王收到第一次反馈:</h3>
+<h3 id="heading-7">小王收到第一次反馈:</h3>
 <p>画外音：</p>
 <p>【你像别人介绍内存池原理，虚拟内存原理，里面各种知识点？你说半天别人根本不知道说什么，别人说根本不懂】 ！！！</p>
 <table>
@@ -493,18 +496,18 @@
 <p><a href="https://docs.huihoo.com/ace_tao/ACE-2002-12/Part-Two/Chapter-3.htm">https://docs.huihoo.com/ace_tao/ACE-2002-12/Part-Two/Chapter-3.htm</a></p>
 <p><a href="https://my.oschina.net/zengjs275/blog/1068850">https://my.oschina.net/zengjs275/blog/1068850</a></p>
 <p><a href="http://blog.sina.com.cn/s/blog_a459dcf50101692b.html">http://blog.sina.com.cn/s/blog_a459dcf50101692b.html</a></p>
-<h2 id="q4--什么是虚函数被重复问过3次-过一段时间回到当初错误理解上">Q4  什么是虚函数？(被重复问过3次 ,过一段时间，回到当初错误理解上)？</h2>
+<h2 id="q4--3-">Q4  什么是虚函数？(被重复问过3次 ,过一段时间，回到当初错误理解上)？</h2>
 <blockquote>
 <p>被重复问过3次 ,1个月之后，回到当初错误理解上，被别人KO ,问题重点是什么不清楚，你牢牢记住过去记忆内容？别人参考和单纯 就是 c++ 课本上基本理论，你扩展操作系统，原理什么概念解释 他们一脸蒙蔽</p>
 </blockquote>
-<h2 id="q5内存问题">Q5:内存问题</h2>
-<h3 id="第一次回答只要内心想道死锁内存泄露内心意识彻底崩溃尤其是valgrind原理时候为难呀--不你已经彻底清除不要陷入面试官全套白银别人知道的你也知道">第一次回答：只要内心想道死锁，内存泄露内心意识彻底崩溃，尤其是valgrind原理时候。为难呀。&ndash;不你已经彻底清除，不要陷入面试官全套。【白银：别人知道的，你也知道】</h3>
+<h2 id="q5">Q5:内存问题</h2>
+<h3 id="valgrind--">第一次回答：只要内心想道死锁，内存泄露内心意识彻底崩溃，尤其是valgrind原理时候。为难呀。&ndash;不你已经彻底清除，不要陷入面试官全套。【白银：别人知道的，你也知道】</h3>
 <ul>
 <li>例子【1】</li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -569,72 +572,72 @@
 </span><span class="lnt">63
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo apt install valgrind
-</span></span><span class="line"><span class="cl">valgrind --tool<span class="o">=</span>helgrind ./dead_lock 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">root@money:~/code/demo# valgrind --tool<span class="o">=</span>helgrind ./deadlock
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span> Helgrind, a thread error <span class="nv">detector</span>
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span> Copyright <span class="o">(</span>C<span class="o">)</span> 2007-2017, and GNU GPL<span class="err">&#39;</span>d, by OpenWorks LLP et al.
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span> Using Valgrind-3.13.0 and LibVEX<span class="p">;</span> rerun with -h <span class="k">for</span> copyright <span class="nv">info</span>
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span> Command: ./deadlock
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span> 
-</span></span><span class="line"><span class="cl">^C<span class="o">==</span><span class="nv">6244</span><span class="o">==</span> //helgrind执行时，如果发生死锁，需要ctrl+c来终止运行，于是可以得到如下结果
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span> Process terminating with default action of signal <span class="m">2</span> <span class="o">(</span>SIGINT<span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span>    at 0x4E4CD2D: __pthread_timedjoin_ex <span class="o">(</span>pthread_join_common.c:89<span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span>    by 0x4C35C65: ??? <span class="o">(</span>in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so<span class="o">)</span> //??? <span class="nv">第三方库</span>
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span>    by 0x108C16: main <span class="o">(</span>deadlock.c:99<span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span> ---Thread-Announcement------------------------------------------
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span> 
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span> Thread <span class="c1">#2 was created</span>
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span>    at 0x518470E: clone <span class="o">(</span>clone.S:71<span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span>    by 0x4E4BEC4: create_thread <span class="o">(</span>createthread.c:100<span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span>    by 0x4E4BEC4: pthread_create@@GLIBC_2.2.5 <span class="o">(</span>pthread_create.c:797<span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span>    by 0x4C38A27: ??? <span class="o">(</span>in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so<span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span>    by 0x108B5C: main <span class="o">(</span>deadlock.c:79<span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span> 
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span> ----------------------------------------------------------------
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span> 
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span> Thread <span class="c1">#2: Exiting thread still holds 1 lock</span>
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span>    at 0x4E551FD: __lll_lock_wait <span class="o">(</span>lowlevellock.S:135<span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span>    by 0x4E4E024: pthread_mutex_lock <span class="o">(</span>pthread_mutex_lock.c:80<span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span>    by 0x4C35FD6: ??? <span class="o">(</span>in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so<span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span>    by 0x1089DE: func1 <span class="o">(</span>deadlock.c:18<span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span>    by 0x108A87: start_routine1 <span class="o">(</span>deadlock.c:43<span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span>    by 0x4C38C26: ??? <span class="o">(</span>in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so<span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span>    by 0x4E4B6DA: start_thread <span class="o">(</span>pthread_create.c:463<span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span>    by 0x518471E: clone <span class="o">(</span>clone.S:95<span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span> 
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span> ---Thread-Announcement------------------------------------------
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span> 
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span> Thread <span class="c1">#3 was created</span>
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span>    at 0x518470E: clone <span class="o">(</span>clone.S:71<span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span>    by 0x4E4BEC4: create_thread <span class="o">(</span>createthread.c:100<span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span>    by 0x4E4BEC4: pthread_create@@GLIBC_2.2.5 <span class="o">(</span>pthread_create.c:797<span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span>    by 0x4C38A27: ??? <span class="o">(</span>in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so<span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span>    by 0x108B8B: main <span class="o">(</span>deadlock.c:83<span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span> 
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span> ----------------------------------------------------------------
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span> 
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span> Thread <span class="c1">#3: Exiting thread still holds 1 lock</span>
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span>    at 0x4E551FD: __lll_lock_wait <span class="o">(</span>lowlevellock.S:135<span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span>    by 0x4E4E024: pthread_mutex_lock <span class="o">(</span>pthread_mutex_lock.c:80<span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span>    by 0x4C35FD6: ??? <span class="o">(</span>in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so<span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span>    by 0x108A42: func2 <span class="o">(</span>deadlock.c:31<span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span>    by 0x108AB3: start_routine2 <span class="o">(</span>deadlock.c:56<span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span>    by 0x4C38C26: ??? <span class="o">(</span>in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so<span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span>    by 0x4E4B6DA: start_thread <span class="o">(</span>pthread_create.c:463<span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span>    by 0x518471E: clone <span class="o">(</span>clone.S:95<span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span> 
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span> 
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span> For counts of detected and suppressed errors, rerun with: -v
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span> Use --history-level<span class="o">=</span>approx <span class="nv">or</span> <span class="o">=</span>none to gain increased speed, <span class="nv">at</span>
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span> the cost of reduced accuracy of conflicting-access <span class="nv">information</span>
-</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="nv">6244</span><span class="o">==</span> ERROR SUMMARY: <span class="m">2</span> errors from <span class="m">2</span> contexts <span class="o">(</span>suppressed: <span class="m">25</span> from 4<span class="o">)</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">sudo apt install valgrind
+valgrind --tool<span class="o">=</span>helgrind ./dead_lock 
+
+
+root@money:~/code/demo# valgrind --tool<span class="o">=</span>helgrind ./deadlock
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span> Helgrind, a thread error <span class="nv">detector</span>
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span> Copyright <span class="o">(</span>C<span class="o">)</span> 2007-2017, and GNU GPL<span class="err">&#39;</span>d, by OpenWorks LLP et al.
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span> Using Valgrind-3.13.0 and LibVEX<span class="p">;</span> rerun with -h <span class="k">for</span> copyright <span class="nv">info</span>
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span> Command: ./deadlock
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span> 
+^C<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span> //helgrind执行时，如果发生死锁，需要ctrl+c来终止运行，于是可以得到如下结果
+
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span> Process terminating with default action of signal <span class="m">2</span> <span class="o">(</span>SIGINT<span class="o">)</span>
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span>    at 0x4E4CD2D: __pthread_timedjoin_ex <span class="o">(</span>pthread_join_common.c:89<span class="o">)</span>
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span>    by 0x4C35C65: ??? <span class="o">(</span>in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so<span class="o">)</span> //??? <span class="nv">第三方库</span>
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span>    by 0x108C16: main <span class="o">(</span>deadlock.c:99<span class="o">)</span>
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span> ---Thread-Announcement------------------------------------------
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span> 
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span> Thread <span class="c1">#2 was created</span>
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span>    at 0x518470E: clone <span class="o">(</span>clone.S:71<span class="o">)</span>
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span>    by 0x4E4BEC4: create_thread <span class="o">(</span>createthread.c:100<span class="o">)</span>
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span>    by 0x4E4BEC4: pthread_create@@GLIBC_2.2.5 <span class="o">(</span>pthread_create.c:797<span class="o">)</span>
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span>    by 0x4C38A27: ??? <span class="o">(</span>in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so<span class="o">)</span>
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span>    by 0x108B5C: main <span class="o">(</span>deadlock.c:79<span class="o">)</span>
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span> 
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span> ----------------------------------------------------------------
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span> 
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span> Thread <span class="c1">#2: Exiting thread still holds 1 lock</span>
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span>    at 0x4E551FD: __lll_lock_wait <span class="o">(</span>lowlevellock.S:135<span class="o">)</span>
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span>    by 0x4E4E024: pthread_mutex_lock <span class="o">(</span>pthread_mutex_lock.c:80<span class="o">)</span>
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span>    by 0x4C35FD6: ??? <span class="o">(</span>in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so<span class="o">)</span>
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span>    by 0x1089DE: func1 <span class="o">(</span>deadlock.c:18<span class="o">)</span>
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span>    by 0x108A87: start_routine1 <span class="o">(</span>deadlock.c:43<span class="o">)</span>
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span>    by 0x4C38C26: ??? <span class="o">(</span>in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so<span class="o">)</span>
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span>    by 0x4E4B6DA: start_thread <span class="o">(</span>pthread_create.c:463<span class="o">)</span>
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span>    by 0x518471E: clone <span class="o">(</span>clone.S:95<span class="o">)</span>
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span> 
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span> ---Thread-Announcement------------------------------------------
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span> 
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span> Thread <span class="c1">#3 was created</span>
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span>    at 0x518470E: clone <span class="o">(</span>clone.S:71<span class="o">)</span>
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span>    by 0x4E4BEC4: create_thread <span class="o">(</span>createthread.c:100<span class="o">)</span>
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span>    by 0x4E4BEC4: pthread_create@@GLIBC_2.2.5 <span class="o">(</span>pthread_create.c:797<span class="o">)</span>
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span>    by 0x4C38A27: ??? <span class="o">(</span>in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so<span class="o">)</span>
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span>    by 0x108B8B: main <span class="o">(</span>deadlock.c:83<span class="o">)</span>
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span> 
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span> ----------------------------------------------------------------
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span> 
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span> Thread <span class="c1">#3: Exiting thread still holds 1 lock</span>
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span>    at 0x4E551FD: __lll_lock_wait <span class="o">(</span>lowlevellock.S:135<span class="o">)</span>
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span>    by 0x4E4E024: pthread_mutex_lock <span class="o">(</span>pthread_mutex_lock.c:80<span class="o">)</span>
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span>    by 0x4C35FD6: ??? <span class="o">(</span>in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so<span class="o">)</span>
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span>    by 0x108A42: func2 <span class="o">(</span>deadlock.c:31<span class="o">)</span>
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span>    by 0x108AB3: start_routine2 <span class="o">(</span>deadlock.c:56<span class="o">)</span>
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span>    by 0x4C38C26: ??? <span class="o">(</span>in /usr/lib/valgrind/vgpreload_helgrind-amd64-linux.so<span class="o">)</span>
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span>    by 0x4E4B6DA: start_thread <span class="o">(</span>pthread_create.c:463<span class="o">)</span>
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span>    by 0x518471E: clone <span class="o">(</span>clone.S:95<span class="o">)</span>
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span> 
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span> 
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span> For counts of detected and suppressed errors, rerun with: -v
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span> Use --history-level<span class="o">=</span>approx <span class="nv">or</span> <span class="o">=</span>none to gain increased speed, <span class="nv">at</span>
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span> the cost of reduced accuracy of conflicting-access <span class="nv">information</span>
+<span class="o">=</span><span class="o">=</span><span class="nv">6244</span><span class="o">=</span><span class="o">=</span> ERROR SUMMARY: <span class="m">2</span> errors from <span class="m">2</span> contexts <span class="o">(</span>suppressed: <span class="m">25</span> from 4<span class="o">)</span>
+</code></pre></td></tr></table>
 </div>
-</div><h3 id="原理是什么">原理是什么？</h3>
+</div><h3 id="heading-8">原理是什么？</h3>
 <p><a href="https://valgrind.org/docs/pubs.html">https://valgrind.org/docs/pubs.html</a></p>
 <ul>
 <li>
@@ -647,7 +650,7 @@
 <p>Figure 3: Data flow of the debugging process. All or part of the source code is analyzed and instrumented. The resulting binary is executed on the VM Valgrind with data race detection</p>
 </li>
 </ul>
-<h1 id="q6-虚函数">Q6: 虚函数</h1>
+<h1 id="q6-">Q6: 虚函数</h1>
 <ul>
 <li>
 <p>虚函数也是函数，位于代码段（.text），也就是C++内存模型中的代码区。</p>
@@ -662,10 +665,10 @@
 <p><a href="https://www.zhihu.com/question/270777868">c/c++如何打印引用的地址(类似打印指针变量的地址)</a></p>
 </li>
 <li>
-<h3 id="引用类型变量保存的地址是存在哪儿的">引用类型变量保存的地址是存在哪儿的</h3>
+<h3 id="heading-9">引用类型变量保存的地址是存在哪儿的</h3>
 </li>
 </ul>
-<h2 id="塔山">塔山</h2>
+<h2 id="heading-10">塔山</h2>
 <p>[1].https://ivanzz1001.github.io/records/post/cplusplus/2018/11/15/linux-deadlock-detect</p>
 
     </div>

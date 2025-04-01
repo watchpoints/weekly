@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.101.0 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
 <link rel="canonical" href="https://wangcy6.github.io/post/2020/kubernetes_base/" />
@@ -41,14 +41,17 @@
 <meta property="og:title" content="从零开始k8s" />
 <meta property="og:description" content="Kubernetes中文文档" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://wangcy6.github.io/post/2020/kubernetes_base/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://wangcy6.github.io/post/2020/kubernetes_base/" />
 <meta property="article:published_time" content="2021-06-20T00:00:00+00:00" />
 <meta property="article:modified_time" content="2021-06-20T00:00:00+00:00" />
-
 <meta itemprop="name" content="从零开始k8s">
-<meta itemprop="description" content="Kubernetes中文文档"><meta itemprop="datePublished" content="2021-06-20T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2021-06-20T00:00:00+00:00" />
-<meta itemprop="wordCount" content="972">
+<meta itemprop="description" content="Kubernetes中文文档">
+<meta itemprop="datePublished" content="2021-06-20T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-06-20T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="974">
+
+
+
 <meta itemprop="keywords" content="中间件," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="从零开始k8s"/>
 <meta name="twitter:description" content="Kubernetes中文文档"/>
@@ -128,7 +131,7 @@
       <div class="post-meta">
         <span class="post-time"> 2021-06-20 00:00 </span>
         
-          <span class="more-meta"> 约 972 字 </span>
+          <span class="more-meta"> 约 974 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -141,24 +144,24 @@
   <ul>
     <li><a href="#heading"></a>
       <ul>
-        <li><a href="#一这个技术出现的背景初衷和要达到什么样的目标或是要解决什么样的问题">一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题</a></li>
-        <li><a href="#二这个技术的优势和劣势分别是什么">二、这个技术的优势和劣势分别是什么</a></li>
-        <li><a href="#三这个技术适用的场景任何技术都有其适用的场景离开了这个场景">三、这个技术适用的场景。任何技术都有其适用的场景，离开了这个场景</a></li>
-        <li><a href="#四技术的组成部分和关键点">四、技术的组成部分和关键点。</a></li>
-        <li><a href="#五技术的底层原理和关键实现">五、技术的底层原理和关键实现</a></li>
-        <li><a href="#六已有的实现和它之间的对比">六、已有的实现和它之间的对比</a></li>
+        <li><a href="#heading-1">一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题</a></li>
+        <li><a href="#heading-2">二、这个技术的优势和劣势分别是什么</a></li>
+        <li><a href="#heading-3">三、这个技术适用的场景。任何技术都有其适用的场景，离开了这个场景</a></li>
+        <li><a href="#heading-4">四、技术的组成部分和关键点。</a></li>
+        <li><a href="#heading-5">五、技术的底层原理和关键实现</a></li>
+        <li><a href="#heading-6">六、已有的实现和它之间的对比</a></li>
       </ul>
     </li>
-    <li><a href="#第一天">第一天</a></li>
-    <li><a href="#-todo-01-用其他人身份购买3年云主机-不超过500元"># todo-01 用其他人身份购买3年云主机 不超过500元</a>
+    <li><a href="#heading-7">第一天</a></li>
+    <li><a href="#-todo-01-3-500"># todo-01 用其他人身份购买3年云主机 不超过500元</a>
       <ul>
-        <li><a href="#01-mac中搭建kubernetes方法1-个人笔记">01-Mac中搭建Kubernetes（方法1 个人笔记）</a></li>
-        <li><a href="#02---centos-环境搭建方法2-云主机">02 - centos 环境搭建（方法2 云主机）</a></li>
-        <li><a href="#02--kubernetes设计架构httpswwwkubernetesorgcnkubernetes设计架构">02 -<a href="https://www.kubernetes.org.cn/kubernetes%E8%AE%BE%E8%AE%A1%E6%9E%B6%E6%9E%84">Kubernetes设计架构</a></a></li>
-        <li><a href="#kubernetes设计理念与分布式系统学习分布式系统经典入门案例">Kubernetes设计理念与分布式系统（学习分布式系统经典入门案例）</a></li>
+        <li><a href="#01-mackubernetes1-">01-Mac中搭建Kubernetes（方法1 个人笔记）</a></li>
+        <li><a href="#02---centos-2-">02 - centos 环境搭建（方法2 云主机）</a></li>
+        <li><a href="#02--kuberneteshttpswwwkubernetesorgcnkubernetes">02 -Kubernetes设计架构</a></li>
+        <li><a href="#kubernetes">Kubernetes设计理念与分布式系统（学习分布式系统经典入门案例）</a></li>
       </ul>
     </li>
-    <li><a href="#塔山">塔山</a></li>
+    <li><a href="#heading-8">塔山</a></li>
   </ul>
 </nav>
   </div>
@@ -170,17 +173,17 @@
   </div>
     <div class="post-content">
       <h2 id="heading"></h2>
-<h3 id="一这个技术出现的背景初衷和要达到什么样的目标或是要解决什么样的问题">一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题</h3>
-<h3 id="二这个技术的优势和劣势分别是什么">二、这个技术的优势和劣势分别是什么</h3>
-<h3 id="三这个技术适用的场景任何技术都有其适用的场景离开了这个场景">三、这个技术适用的场景。任何技术都有其适用的场景，离开了这个场景</h3>
-<h3 id="四技术的组成部分和关键点">四、技术的组成部分和关键点。</h3>
-<h3 id="五技术的底层原理和关键实现">五、技术的底层原理和关键实现</h3>
-<h3 id="六已有的实现和它之间的对比">六、已有的实现和它之间的对比</h3>
+<h3 id="heading-1">一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题</h3>
+<h3 id="heading-2">二、这个技术的优势和劣势分别是什么</h3>
+<h3 id="heading-3">三、这个技术适用的场景。任何技术都有其适用的场景，离开了这个场景</h3>
+<h3 id="heading-4">四、技术的组成部分和关键点。</h3>
+<h3 id="heading-5">五、技术的底层原理和关键实现</h3>
+<h3 id="heading-6">六、已有的实现和它之间的对比</h3>
 <p><a href="https://www.kubernetes.org.cn/k8s">https://www.kubernetes.org.cn/k8s</a></p>
 <p><a href="http://docs.kubernetes.org.cn/">http://docs.kubernetes.org.cn/</a></p>
-<h2 id="第一天">第一天</h2>
-<h2 id="-todo-01-用其他人身份购买3年云主机-不超过500元"># todo-01 用其他人身份购买3年云主机 不超过500元</h2>
-<h3 id="01-mac中搭建kubernetes方法1-个人笔记">01-Mac中搭建Kubernetes（方法1 个人笔记）</h3>
+<h2 id="heading-7">第一天</h2>
+<h2 id="-todo-01-3-500"># todo-01 用其他人身份购买3年云主机 不超过500元</h2>
+<h3 id="01-mackubernetes1-">01-Mac中搭建Kubernetes（方法1 个人笔记）</h3>
 <ul>
 <li>
 <p>我们推荐基于Docker的本地方案。</p>
@@ -189,10 +192,10 @@
 <p>Preferrences-&gt;Kubernetes中勾选Enable Kubernetes</p>
 </li>
 </ul>
-<h3 id="02---centos-环境搭建方法2-云主机">02 - centos 环境搭建（方法2 云主机）</h3>
+<h3 id="02---centos-2-">02 - centos 环境搭建（方法2 云主机）</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -247,72 +250,76 @@
 </span><span class="lnt">53
 </span><span class="lnt">54
 </span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">来源：https://docs.docker.com/engine/install/centos/
-</span></span><span class="line"><span class="cl"><span class="c1"># docker 安装</span>
-</span></span><span class="line"><span class="cl">yum install -y yum-utils 
-</span></span><span class="line"><span class="cl">yum-config-manager <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --add-repo <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo <span class="c1">##设置Docker仓库（这里使用阿里云地址）</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">yum makecache  <span class="c1">## 更新yum软件包索引</span>
-</span></span><span class="line"><span class="cl">yum -y install docker-ce docker-ce-cli containerd.io <span class="c1">##安装最新版本的Docker</span>
-</span></span><span class="line"><span class="cl">systemctl start docker <span class="c1">## 启动docker</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">docker -v
-</span></span><span class="line"><span class="cl">Docker version 20.10.7, build f0df350
-</span></span><span class="line"><span class="cl">docker info
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 使用kubeadm快速搭建单机kubernetes集群</span>
-</span></span><span class="line"><span class="cl">https://www.jianshu.com/p/70efa1b853f5
-</span></span><span class="line"><span class="cl"><span class="c1">## 设置yum源</span>
-</span></span><span class="line"><span class="cl">curl -o CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">curl -o docker-ce.repo https://download.docker.com/linux/centos/docker-ce.repo
-</span></span><span class="line"><span class="cl"><span class="c1">## 配置kubernetes的yum源</span>
-</span></span><span class="line"><span class="cl">cat <span class="s">&lt;&lt;EOF &gt; /etc/yum.repos.d/kubernetes.repo
-</span></span></span><span class="line"><span class="cl"><span class="s">[kubernetes]
-</span></span></span><span class="line"><span class="cl"><span class="s">name=Kubernetes
-</span></span></span><span class="line"><span class="cl"><span class="s">baseurl=http://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64
-</span></span></span><span class="line"><span class="cl"><span class="s">enabled=1
-</span></span></span><span class="line"><span class="cl"><span class="s">gpgcheck=0
-</span></span></span><span class="line"><span class="cl"><span class="s">repo_gpgcheck=0
-</span></span></span><span class="line"><span class="cl"><span class="s">gpgkey=http://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg
-</span></span></span><span class="line"><span class="cl"><span class="s">        http://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg
-</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">systemctl stop firewalld
-</span></span><span class="line"><span class="cl">systemctl disable firewalld
-</span></span><span class="line"><span class="cl">setenforce <span class="m">0</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">## 执行下列命令刷新yum源缓存</span>
-</span></span><span class="line"><span class="cl">yum clean all
-</span></span><span class="line"><span class="cl">yum makecache 
-</span></span><span class="line"><span class="cl">yum repolist
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">## CentOS kubernetes单机部署</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">yum install -y kubeadm
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">一共会安装kubelet、kubeadm、kubectl、kubernetes-cni这四个程序。
-</span></span><span class="line"><span class="cl">kubeadm：k8集群的一键部署工具，通过把k8的各类核心组件和插件以pod的方式部署来简化安装过程
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">kubelet：运行在每个节点上的node agent，k8集群通过kubelet真正的去操作每个节点上的容器，由于需要直接操作宿主机的各类资源，所以没有放在pod里面，还是通过服务的形式装在系统里面
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">kubectl：kubernetes的命令行工具，通过连接api-server完成对于k8的各类操作
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">kubernetes-cni：k8的虚拟网络设备，通过在宿主机上虚拟一个cni0网桥，来完成pod之间的网络通讯，作用和docker0类似。
-</span></span><span class="line"><span class="cl">kubeadm version
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">来源：https://docs.docker.com/engine/install/centos/
+<span class="c1"># docker 安装</span>
+yum install -y yum-utils 
+yum-config-manager <span class="se">\</span>
+    --add-repo <span class="se">\</span>
+    http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo <span class="c1">##设置Docker仓库（这里使用阿里云地址）</span>
+
+yum makecache  <span class="c1">## 更新yum软件包索引</span>
+yum -y install docker-ce docker-ce-cli containerd.io <span class="c1">##安装最新版本的Docker</span>
+systemctl start docker <span class="c1">## 启动docker</span>
+
+docker -v
+Docker version 20.10.7, build f0df350
+docker info
+
+<span class="c1"># 使用kubeadm快速搭建单机kubernetes集群</span>
+https://www.jianshu.com/p/70efa1b853f5
+<span class="c1">## 设置yum源</span>
+curl -o CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+
+curl -o docker-ce.repo https://download.docker.com/linux/centos/docker-ce.repo
+<span class="c1">## 配置kubernetes的yum源</span>
+cat <span class="s">&lt;&lt;EOF &gt; /etc/yum.repos.d/kubernetes.repo
+</span><span class="s">[kubernetes]
+</span><span class="s">name=Kubernetes
+</span><span class="s">baseurl=http://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64
+</span><span class="s">enabled=1
+</span><span class="s">gpgcheck=0
+</span><span class="s">repo_gpgcheck=0
+</span><span class="s">gpgkey=http://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg
+</span><span class="s">        http://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg
+</span><span class="s">EOF</span>
+
+systemctl stop firewalld
+systemctl disable firewalld
+setenforce 0
+
+<span class="c1">## 执行下列命令刷新yum源缓存</span>
+yum clean all
+yum makecache 
+yum repolist
+
+<span class="c1">## CentOS kubernetes单机部署</span>
+
+yum install -y kubeadm
+
+一共会安装kubelet、kubeadm、kubectl、kubernetes-cni这四个程序。
+kubeadm：k8集群的一键部署工具，通过把k8的各类核心组件和插件以pod的方式部署来简化安装过程
+
+kubelet：运行在每个节点上的node agent，k8集群通过kubelet真正的去操作每个节点上的容器，由于需要直接操作宿主机的各类资源，所以没有放在pod里面，还是通过服务的形式装在系统里面
+
+kubectl：kubernetes的命令行工具，通过连接api-server完成对于k8的各类操作
+
+kubernetes-cni：k8的虚拟网络设备，通过在宿主机上虚拟一个cni0网桥，来完成pod之间的网络通讯，作用和docker0类似。
+kubeadm version
+
+
+</code></pre></td></tr></table>
 </div>
-</div><h3 id="02--kubernetes设计架构httpswwwkubernetesorgcnkubernetes设计架构">02 -<a href="https://www.kubernetes.org.cn/kubernetes%E8%AE%BE%E8%AE%A1%E6%9E%B6%E6%9E%84">Kubernetes设计架构</a></h3>
+</div><h3 id="02--kuberneteshttpswwwkubernetesorgcnkubernetes">02 -<a href="https://www.kubernetes.org.cn/kubernetes%E8%AE%BE%E8%AE%A1%E6%9E%B6%E6%9E%84">Kubernetes设计架构</a></h3>
 <ul>
 <li>
-<h3 id="kubernetes设计理念与分布式系统学习分布式系统经典入门案例">Kubernetes设计理念与分布式系统（学习分布式系统经典入门案例）</h3>
+<h3 id="kubernetes">Kubernetes设计理念与分布式系统（学习分布式系统经典入门案例）</h3>
 </li>
 </ul>
-<h2 id="塔山">塔山</h2>
+<h2 id="heading-8">塔山</h2>
 <ul>
 <li>
 <p>一键部署利器 Kubeadm 搭建 Kubernetes</p>

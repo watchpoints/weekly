@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.101.0 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
 <link rel="canonical" href="https://wangcy6.github.io/post/oceanbase/2011/03_mimi_ob/" />
@@ -41,14 +41,15 @@
 <meta property="og:title" content="mimob代码阅读" />
 <meta property="og:description" content="慢慢来，多看、多问、多总结 预备知识： 源码：https://github.com/watchpoints/miniob 2019CMU数据库导论" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://wangcy6.github.io/post/oceanbase/2011/03_mimi_ob/" /><meta property="article:section" content="post" />
-
-
+<meta property="og:url" content="https://wangcy6.github.io/post/oceanbase/2011/03_mimi_ob/" />
 
 <meta itemprop="name" content="mimob代码阅读">
 <meta itemprop="description" content="慢慢来，多看、多问、多总结 预备知识： 源码：https://github.com/watchpoints/miniob 2019CMU数据库导论">
 
-<meta itemprop="wordCount" content="6660">
+<meta itemprop="wordCount" content="6678">
+
+
+
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="mimob代码阅读"/>
 <meta name="twitter:description" content="慢慢来，多看、多问、多总结 预备知识： 源码：https://github.com/watchpoints/miniob 2019CMU数据库导论"/>
@@ -128,7 +129,7 @@
       <div class="post-meta">
         <span class="post-time"> 0001-01-01 00:00 </span>
         
-          <span class="more-meta"> 约 6660 字 </span>
+          <span class="more-meta"> 约 6678 字 </span>
           <span class="more-meta"> 预计阅读 14 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -139,30 +140,30 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#预备知识">预备知识：</a></li>
-    <li><a href="#文章">文章</a></li>
-    <li><a href="#select-tables多表查询">select-tables多表查询</a>
+    <li><a href="#heading">预备知识：</a></li>
+    <li><a href="#heading-1">文章</a></li>
+    <li><a href="#select-tables">select-tables多表查询</a>
       <ul>
-        <li><a href="#测试用例">测试用例</a></li>
+        <li><a href="#heading-2">测试用例</a></li>
       </ul>
     </li>
-    <li><a href="#多列索引-multi-index">多列索引 multi-index</a>
+    <li><a href="#-multi-index">多列索引 multi-index</a>
       <ul>
-        <li><a href="#知识准备">知识准备</a></li>
-        <li><a href="#数据结构">数据结构</a></li>
-        <li><a href="#算法">算法</a></li>
+        <li><a href="#heading-3">知识准备</a></li>
+        <li><a href="#heading-4">数据结构</a></li>
+        <li><a href="#heading-5">算法</a></li>
         <li><a href="#bug">bug</a></li>
       </ul>
     </li>
-    <li><a href="#次插入多条数据-insert">⼀次插入多条数据 insert</a>
+    <li><a href="#-insert">⼀次插入多条数据 insert</a>
       <ul>
-        <li><a href="#1-测试用例">1. 测试用例</a></li>
-        <li><a href="#2-数据结构">2. 数据结构</a></li>
-        <li><a href="#3-算法">3. 算法</a></li>
-        <li><a href="#4-工具">4 工具</a></li>
+        <li><a href="#1-">1. 测试用例</a></li>
+        <li><a href="#2-">2. 数据结构</a></li>
+        <li><a href="#3-">3. 算法</a></li>
+        <li><a href="#4-">4 工具</a></li>
         <li><a href="#day1">day1</a></li>
-        <li><a href="#题目2unique">题目2：unique</a></li>
-        <li><a href="#题目1">题目1</a></li>
+        <li><a href="#2unique">题目2：unique</a></li>
+        <li><a href="#1">题目1</a></li>
       </ul>
     </li>
   </ul>
@@ -178,7 +179,7 @@
       <blockquote>
 <p>慢慢来，多看、多问、多总结</p>
 </blockquote>
-<h2 id="预备知识">预备知识：</h2>
+<h2 id="heading">预备知识：</h2>
 <ul>
 <li>源码：https://github.com/watchpoints/miniob</li>
 <li>2019CMU数据库导论(intro to database systems fall 2019) <a href="https://www.bilibili.com/video/av91919329?amp%3Bseid=15982257803189242166">https://www.bilibili.com/video/av91919329?amp%3Bseid=15982257803189242166</a></li>
@@ -187,7 +188,7 @@
 <li><a href="https://github.com/tidb-incubator/tinykv">https://github.com/tidb-incubator/tinykv</a></li>
 <li><a href="https://github.com/WenbinZhu/cmu-15-445">https://github.com/WenbinZhu/cmu-15-445</a> CMU 15-445 Project 1</li>
 </ul>
-<h2 id="文章">文章</h2>
+<h2 id="heading-1">文章</h2>
 <ul>
 <li><a href="https://github.com/oceanbase/miniob/wiki/%E4%BD%BF%E7%94%A8-ASAN-%E6%B5%8B%E8%AF%95-MiniOB-%E5%86%85%E5%AD%98%E9%97%AE%E9%A2%98">https://github.com/oceanbase/miniob/wiki/%E4%BD%BF%E7%94%A8-ASAN-%E6%B5%8B%E8%AF%95-MiniOB-%E5%86%85%E5%AD%98%E9%97%AE%E9%A2%98</a></li>
 <li>使用 ASAN 测试 MiniOB 内存问题</li>
@@ -196,33 +197,37 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>mkdir -p build 
-</span></span><span class="line"><span class="cl">rm -rf build/miniob/ 
-</span></span><span class="line"><span class="cl"><span class="nb">cd</span> build 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">cmake .. -DCMAKE_BUILD_TYPE<span class="o">=</span>Release -DENABLE_ASAN<span class="o">=</span>ON -DWITH_UNIT_TESTS<span class="o">=</span>OFF
-</span></span><span class="line"><span class="cl">make 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">yum install libasan
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
+</span><span class="cp"></span>mkdir -p build 
+rm -rf build/miniob/ 
+<span class="nb">cd</span> build 
+
+cmake .. -DCMAKE_BUILD_TYPE<span class="o">=</span>Release -DENABLE_ASAN<span class="o">=</span>ON -DWITH_UNIT_TESTS<span class="o">=</span>OFF
+make 
+
+yum install libasan
+
+
+</code></pre></td></tr></table>
 </div>
-</div><h2 id="select-tables多表查询">select-tables多表查询</h2>
-<h3 id="测试用例">测试用例</h3>
+</div><h2 id="select-tables">select-tables多表查询</h2>
+<h3 id="heading-2">测试用例</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+<pre class="chroma"><code><span class="lnt">  1
 </span><span class="lnt">  2
 </span><span class="lnt">  3
 </span><span class="lnt">  4
@@ -344,134 +349,136 @@
 </span><span class="lnt">120
 </span><span class="lnt">121
 </span><span class="lnt">122
+</span><span class="lnt">123
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">用release模式编译的时候会做很多代码优化，所以如果哪里代码写得不规范的话，debug模式可能没有问题，但是release模式的编译器可能就会曲解我们的意思，编译出一些奇怪的东西
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">ulimit -c unlimited
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">flex --header-file=lex.yy.h lex_sql.l
-</span></span><span class="line"><span class="cl">bison -d -b yacc_sql yacc_sql.y
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">cd /root/github/miniob-2022/build/bin
-</span></span><span class="line"><span class="cl">./observer -f /root/github/miniob-2022/etc/observer.ini
-</span></span><span class="line"><span class="cl">/root/github/miniob-2022/build/bin/obclient
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">dir /root/github/miniob-2022/
-</span></span><span class="line"><span class="cl">set pagination off 
-</span></span><span class="line"><span class="cl">thread apply all break cartesian_operator.cpp:16
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">CREATE TABLE Select_tables_1(id int, age int, u_name char);
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">CREATE TABLE Select_tables_2(id int, age int, u_name char);
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">CREATE TABLE Select_tables_3(id int, res int, u_name char);
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">CREATE TABLE Select_tables_4(id int, age int, u_name char);
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">CREATE TABLE Select_tables_5(id int, res int, u_name char);
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">INSERT INTO Select_tables_1 VALUES (1,18,&#39;a&#39;);
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">INSERT INTO Select_tables_1 VALUES (2,15,&#39;b&#39;);
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">INSERT INTO Select_tables_2 VALUES (1,20,&#39;a&#39;);
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">INSERT INTO Select_tables_2 VALUES (2,21,&#39;c&#39;);
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">INSERT INTO Select_tables_3 VALUES (1,35,&#39;a&#39;);
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">INSERT INTO Select_tables_3 VALUES (2,37,&#39;a&#39;);
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">INSERT INTO Select_tables_4 VALUES (1, 2, &#39;a&#39;);
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">INSERT INTO Select_tables_4 VALUES (1, 3, &#39;b&#39;);
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">INSERT INTO Select_tables_4 VALUES (2, 2, &#39;c&#39;);
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">INSERT INTO Select_tables_4 VALUES (2, 4, &#39;d&#39;);
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">INSERT INTO Select_tables_5 VALUES (1, 10, &#39;g&#39;);
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">INSERT INTO Select_tables_5 VALUES (1, 11, &#39;f&#39;);
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">INSERT INTO Select_tables_5 VALUES (2, 12, &#39;c&#39;);
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">SELECT * FROM Select_tables_1,Select_tables_2,Select_tables_3;
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">1 | 18 | A | 1 | 20 | A | 1 | 35 | A
-</span></span><span class="line"><span class="cl">1 | 18 | A | 1 | 20 | A | 2 | 37 | A
-</span></span><span class="line"><span class="cl">1 | 18 | A | 2 | 21 | C | 1 | 35 | A
-</span></span><span class="line"><span class="cl">1 | 18 | A | 2 | 21 | C | 2 | 37 | A
-</span></span><span class="line"><span class="cl">2 | 15 | B | 1 | 20 | A | 1 | 35 | A
-</span></span><span class="line"><span class="cl">2 | 15 | B | 1 | 20 | A | 2 | 37 | A
-</span></span><span class="line"><span class="cl">2 | 15 | B | 2 | 21 | C | 1 | 35 | A
-</span></span><span class="line"><span class="cl">2 | 15 | B | 2 | 21 | C | 2 | 37 | A
-</span></span><span class="line"><span class="cl">SELECT_TABLES_1.ID | SELECT_TABLES_1.AGE | SELECT_TABLES_1.U_NAME | SELECT_TABLES_2.ID | SELECT_TABLES_2.AGE | SELECT_TABLES_2.U_NAME | SELECT_TABLES_3.ID | SELECT_TABLES_3.RES | SELECT_TABLES_3.U_NAME
-</span></span><span class="line"><span class="cl">SELECT Select_tables_1.id,Select_tables_2.u_name,Select_tables_3.res FROM Select_tables_1,Select_tables_2,Select_tables_3;
-</span></span><span class="line"><span class="cl">1 | A | 35
-</span></span><span class="line"><span class="cl">1 | A | 37
-</span></span><span class="line"><span class="cl">1 | C | 35
-</span></span><span class="line"><span class="cl">1 | C | 37
-</span></span><span class="line"><span class="cl">2 | A | 35
-</span></span><span class="line"><span class="cl">2 | A | 37
-</span></span><span class="line"><span class="cl">2 | C | 35
-</span></span><span class="line"><span class="cl">2 | C | 37
-</span></span><span class="line"><span class="cl">SELECT_TABLES_1.ID | SELECT_TABLES_2.U_NAME | SELECT_TABLES_3.RES
-</span></span><span class="line"><span class="cl">Select Select_tables_1.res FROM Select_tables_1,Select_tables_2,Select_tables_3;
-</span></span><span class="line"><span class="cl">FAILURE
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">2. CONDITIONAL QUERY
-</span></span><span class="line"><span class="cl">SELECT * FROM Select_tables_1,Select_tables_2,Select_tables_3 WHERE Select_tables_1.u_name=Select_tables_2.u_name AND Select_tables_2.u_name=Select_tables_3.u_name;
-</span></span><span class="line"><span class="cl">1 | 18 | A | 1 | 20 | A | 1 | 35 | A
-</span></span><span class="line"><span class="cl">1 | 18 | A | 1 | 20 | A | 2 | 37 | A
-</span></span><span class="line"><span class="cl">SELECT_TABLES_1.ID | SELECT_TABLES_1.AGE | SELECT_TABLES_1.U_NAME | SELECT_TABLES_2.ID | SELECT_TABLES_2.AGE | SELECT_TABLES_2.U_NAME | SELECT_TABLES_3.ID | SELECT_TABLES_3.RES | SELECT_TABLES_3.U_NAME
-</span></span><span class="line"><span class="cl">SELECT * FROM Select_tables_1,Select_tables_2,Select_tables_3 WHERE Select_tables_1.id=Select_tables_2.id AND Select_tables_3.res=35;
-</span></span><span class="line"><span class="cl">1 | 18 | A | 1 | 20 | A | 1 | 35 | A
-</span></span><span class="line"><span class="cl">2 | 15 | B | 2 | 21 | C | 1 | 35 | A
-</span></span><span class="line"><span class="cl">SELECT_TABLES_1.ID | SELECT_TABLES_1.AGE | SELECT_TABLES_1.U_NAME | SELECT_TABLES_2.ID | SELECT_TABLES_2.AGE | SELECT_TABLES_2.U_NAME | SELECT_TABLES_3.ID | SELECT_TABLES_3.RES | SELECT_TABLES_3.U_NAME
-</span></span><span class="line"><span class="cl">SELECT * FROM Select_tables_1,Select_tables_2,Select_tables_3 WHERE Select_tables_1.age&lt;18 AND Select_tables_2.u_name=&#39;c&#39; AND Select_tables_3.res=35 AND Select_tables_1.id=Select_tables_2.id AND Select_tables_2.id=Select_tables_3.id;
-</span></span><span class="line"><span class="cl">SELECT_TABLES_1.ID | SELECT_TABLES_1.AGE | SELECT_TABLES_1.U_NAME | SELECT_TABLES_2.ID | SELECT_TABLES_2.AGE | SELECT_TABLES_2.U_NAME | SELECT_TABLES_3.ID | SELECT_TABLES_3.RES | SELECT_TABLES_3.U_NAME
-</span></span><span class="line"><span class="cl">SELECT Select_tables_2.age FROM Select_tables_1,Select_tables_2 WHERE Select_tables_1.age&lt;18 AND Select_tables_2.u_name=&#39;c&#39; AND Select_tables_1.id=Select_tables_2.id;
-</span></span><span class="line"><span class="cl">21
-</span></span><span class="line"><span class="cl">SELECT_TABLES_2.AGE
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">3. DUPLICATE KEY QUERY
-</span></span><span class="line"><span class="cl">SELECT * from Select_tables_4, Select_tables_5 where Select_tables_4.id=Select_tables_5.id;
-</span></span><span class="line"><span class="cl">1 | 2 | A | 1 | 10 | G
-</span></span><span class="line"><span class="cl">1 | 2 | A | 1 | 11 | F
-</span></span><span class="line"><span class="cl">1 | 3 | B | 1 | 10 | G
-</span></span><span class="line"><span class="cl">1 | 3 | B | 1 | 11 | F
-</span></span><span class="line"><span class="cl">2 | 2 | C | 2 | 12 | C
-</span></span><span class="line"><span class="cl">2 | 4 | D | 2 | 12 | C
-</span></span><span class="line"><span class="cl">SELECT_TABLES_4.ID | SELECT_TABLES_4.AGE | SELECT_TABLES_4.U_NAME | SELECT_TABLES_5.ID | SELECT_TABLES_5.RES | SELECT_TABLES_5.U_NAME
-</span></span><span class="line"><span class="cl">select * from Select_tables_4, Select_tables_5 where Select_tables_4.id &gt;= Select_tables_5.id;
-</span></span><span class="line"><span class="cl">1 | 2 | A | 1 | 10 | G
-</span></span><span class="line"><span class="cl">1 | 2 | A | 1 | 11 | F
-</span></span><span class="line"><span class="cl">1 | 3 | B | 1 | 10 | G
-</span></span><span class="line"><span class="cl">1 | 3 | B | 1 | 11 | F
-</span></span><span class="line"><span class="cl">2 | 2 | C | 1 | 10 | G
-</span></span><span class="line"><span class="cl">2 | 2 | C | 1 | 11 | F
-</span></span><span class="line"><span class="cl">2 | 2 | C | 2 | 12 | C
-</span></span><span class="line"><span class="cl">2 | 4 | D | 1 | 10 | G
-</span></span><span class="line"><span class="cl">2 | 4 | D | 1 | 11 | F
-</span></span><span class="line"><span class="cl">2 | 4 | D | 2 | 12 | C
-</span></span><span class="line"><span class="cl">SELECT_TABLES_4.ID | SELECT_TABLES_4.AGE | SELECT_TABLES_4.U_NAME | SELECT_TABLES_5.ID | SELECT_TABLES_5.RES | SELECT_TABLES_5.U_NAME
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">4. JOIN EMPTY TABLE
-</span></span><span class="line"><span class="cl">CREATE TABLE Select_tables_6(id int, res int);
-</span></span><span class="line"><span class="cl">SUCCESS
-</span></span><span class="line"><span class="cl">SELECT Select_tables_1.id,Select_tables_6.id from Select_tables_1, Select_tables_6 where Select_tables_1.id=Select_tables_6.id;
-</span></span><span class="line"><span class="cl">SELECT_TABLES_1.ID | SELECT_TABLES_6.ID
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">用release模式编译的时候会做很多代码优化，所以如果哪里代码写得不规范的话，debug模式可能没有问题，但是release模式的编译器可能就会曲解我们的意思，编译出一些奇怪的东西
+
+ulimit -c unlimited
+
+flex --header-file=lex.yy.h lex_sql.l
+bison -d -b yacc_sql yacc_sql.y
+
+cd /root/github/miniob-2022/build/bin
+./observer -f /root/github/miniob-2022/etc/observer.ini
+/root/github/miniob-2022/build/bin/obclient
+
+dir /root/github/miniob-2022/
+set pagination off 
+thread apply all break cartesian_operator.cpp:16
+
+
+CREATE TABLE Select_tables_1(id int, age int, u_name char);
+
+CREATE TABLE Select_tables_2(id int, age int, u_name char);
+
+CREATE TABLE Select_tables_3(id int, res int, u_name char);
+
+CREATE TABLE Select_tables_4(id int, age int, u_name char);
+
+CREATE TABLE Select_tables_5(id int, res int, u_name char);
+
+
+INSERT INTO Select_tables_1 VALUES (1,18,&#39;a&#39;);
+
+INSERT INTO Select_tables_1 VALUES (2,15,&#39;b&#39;);
+
+INSERT INTO Select_tables_2 VALUES (1,20,&#39;a&#39;);
+
+INSERT INTO Select_tables_2 VALUES (2,21,&#39;c&#39;);
+
+INSERT INTO Select_tables_3 VALUES (1,35,&#39;a&#39;);
+
+INSERT INTO Select_tables_3 VALUES (2,37,&#39;a&#39;);
+
+
+
+INSERT INTO Select_tables_4 VALUES (1, 2, &#39;a&#39;);
+
+INSERT INTO Select_tables_4 VALUES (1, 3, &#39;b&#39;);
+
+INSERT INTO Select_tables_4 VALUES (2, 2, &#39;c&#39;);
+
+INSERT INTO Select_tables_4 VALUES (2, 4, &#39;d&#39;);
+
+INSERT INTO Select_tables_5 VALUES (1, 10, &#39;g&#39;);
+
+INSERT INTO Select_tables_5 VALUES (1, 11, &#39;f&#39;);
+
+INSERT INTO Select_tables_5 VALUES (2, 12, &#39;c&#39;);
+
+
+SELECT * FROM Select_tables_1,Select_tables_2,Select_tables_3;
+
+1 | 18 | A | 1 | 20 | A | 1 | 35 | A
+1 | 18 | A | 1 | 20 | A | 2 | 37 | A
+1 | 18 | A | 2 | 21 | C | 1 | 35 | A
+1 | 18 | A | 2 | 21 | C | 2 | 37 | A
+2 | 15 | B | 1 | 20 | A | 1 | 35 | A
+2 | 15 | B | 1 | 20 | A | 2 | 37 | A
+2 | 15 | B | 2 | 21 | C | 1 | 35 | A
+2 | 15 | B | 2 | 21 | C | 2 | 37 | A
+SELECT_TABLES_1.ID | SELECT_TABLES_1.AGE | SELECT_TABLES_1.U_NAME | SELECT_TABLES_2.ID | SELECT_TABLES_2.AGE | SELECT_TABLES_2.U_NAME | SELECT_TABLES_3.ID | SELECT_TABLES_3.RES | SELECT_TABLES_3.U_NAME
+SELECT Select_tables_1.id,Select_tables_2.u_name,Select_tables_3.res FROM Select_tables_1,Select_tables_2,Select_tables_3;
+1 | A | 35
+1 | A | 37
+1 | C | 35
+1 | C | 37
+2 | A | 35
+2 | A | 37
+2 | C | 35
+2 | C | 37
+SELECT_TABLES_1.ID | SELECT_TABLES_2.U_NAME | SELECT_TABLES_3.RES
+Select Select_tables_1.res FROM Select_tables_1,Select_tables_2,Select_tables_3;
+FAILURE
+
+2. CONDITIONAL QUERY
+SELECT * FROM Select_tables_1,Select_tables_2,Select_tables_3 WHERE Select_tables_1.u_name=Select_tables_2.u_name AND Select_tables_2.u_name=Select_tables_3.u_name;
+1 | 18 | A | 1 | 20 | A | 1 | 35 | A
+1 | 18 | A | 1 | 20 | A | 2 | 37 | A
+SELECT_TABLES_1.ID | SELECT_TABLES_1.AGE | SELECT_TABLES_1.U_NAME | SELECT_TABLES_2.ID | SELECT_TABLES_2.AGE | SELECT_TABLES_2.U_NAME | SELECT_TABLES_3.ID | SELECT_TABLES_3.RES | SELECT_TABLES_3.U_NAME
+SELECT * FROM Select_tables_1,Select_tables_2,Select_tables_3 WHERE Select_tables_1.id=Select_tables_2.id AND Select_tables_3.res=35;
+1 | 18 | A | 1 | 20 | A | 1 | 35 | A
+2 | 15 | B | 2 | 21 | C | 1 | 35 | A
+SELECT_TABLES_1.ID | SELECT_TABLES_1.AGE | SELECT_TABLES_1.U_NAME | SELECT_TABLES_2.ID | SELECT_TABLES_2.AGE | SELECT_TABLES_2.U_NAME | SELECT_TABLES_3.ID | SELECT_TABLES_3.RES | SELECT_TABLES_3.U_NAME
+SELECT * FROM Select_tables_1,Select_tables_2,Select_tables_3 WHERE Select_tables_1.age&lt;18 AND Select_tables_2.u_name=&#39;c&#39; AND Select_tables_3.res=35 AND Select_tables_1.id=Select_tables_2.id AND Select_tables_2.id=Select_tables_3.id;
+SELECT_TABLES_1.ID | SELECT_TABLES_1.AGE | SELECT_TABLES_1.U_NAME | SELECT_TABLES_2.ID | SELECT_TABLES_2.AGE | SELECT_TABLES_2.U_NAME | SELECT_TABLES_3.ID | SELECT_TABLES_3.RES | SELECT_TABLES_3.U_NAME
+SELECT Select_tables_2.age FROM Select_tables_1,Select_tables_2 WHERE Select_tables_1.age&lt;18 AND Select_tables_2.u_name=&#39;c&#39; AND Select_tables_1.id=Select_tables_2.id;
+21
+SELECT_TABLES_2.AGE
+
+3. DUPLICATE KEY QUERY
+SELECT * from Select_tables_4, Select_tables_5 where Select_tables_4.id=Select_tables_5.id;
+1 | 2 | A | 1 | 10 | G
+1 | 2 | A | 1 | 11 | F
+1 | 3 | B | 1 | 10 | G
+1 | 3 | B | 1 | 11 | F
+2 | 2 | C | 2 | 12 | C
+2 | 4 | D | 2 | 12 | C
+SELECT_TABLES_4.ID | SELECT_TABLES_4.AGE | SELECT_TABLES_4.U_NAME | SELECT_TABLES_5.ID | SELECT_TABLES_5.RES | SELECT_TABLES_5.U_NAME
+select * from Select_tables_4, Select_tables_5 where Select_tables_4.id &gt;= Select_tables_5.id;
+1 | 2 | A | 1 | 10 | G
+1 | 2 | A | 1 | 11 | F
+1 | 3 | B | 1 | 10 | G
+1 | 3 | B | 1 | 11 | F
+2 | 2 | C | 1 | 10 | G
+2 | 2 | C | 1 | 11 | F
+2 | 2 | C | 2 | 12 | C
+2 | 4 | D | 1 | 10 | G
+2 | 4 | D | 1 | 11 | F
+2 | 4 | D | 2 | 12 | C
+SELECT_TABLES_4.ID | SELECT_TABLES_4.AGE | SELECT_TABLES_4.U_NAME | SELECT_TABLES_5.ID | SELECT_TABLES_5.RES | SELECT_TABLES_5.U_NAME
+
+4. JOIN EMPTY TABLE
+CREATE TABLE Select_tables_6(id int, res int);
+SUCCESS
+SELECT Select_tables_1.id,Select_tables_6.id from Select_tables_1, Select_tables_6 where Select_tables_1.id=Select_tables_6.id;
+SELECT_TABLES_1.ID | SELECT_TABLES_6.ID
+
+</code></pre></td></tr></table>
 </div>
-</div><h2 id="多列索引-multi-index">多列索引 multi-index</h2>
-<h3 id="知识准备">知识准备</h3>
+</div><h2 id="-multi-index">多列索引 multi-index</h2>
+<h3 id="heading-3">知识准备</h3>
 <ul>
 <li><a href="https://zhuanlan.zhihu.com/p/382244184">https://zhuanlan.zhihu.com/p/382244184</a></li>
 <li><a href="https://www.cnblogs.com/sun-lingyu/p/15198683.html">https://www.cnblogs.com/sun-lingyu/p/15198683.html</a></li>
@@ -489,7 +496,7 @@
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+<pre class="chroma"><code><span class="lnt">  1
 </span><span class="lnt">  2
 </span><span class="lnt">  3
 </span><span class="lnt">  4
@@ -674,199 +681,203 @@
 </span><span class="lnt">183
 </span><span class="lnt">184
 </span><span class="lnt">185
+</span><span class="lnt">186
+</span><span class="lnt">187
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">flex --header-file=lex.yy.h lex_sql.l
-</span></span><span class="line"><span class="cl">bison -d -b yacc_sql yacc_sql.y
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">cd /root/gitee/miniob-2022/build/bin
-</span></span><span class="line"><span class="cl">./observer -f /root/gitee/miniob-2022/etc/observer.ini
-</span></span><span class="line"><span class="cl">/root/gitee/miniob-2022/build/bin/obclient
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">CREATE TABLE multi_index(id int, col1 int, col2 float, col3 char, col4 date, col5 int, col6 int);
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">CREATE INDEX i_1_12 ON multi_index(col1,col2);
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">CREATE INDEX i_1_345 ON multi_index(col3, col4, col5);
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">CREATE INDEX i_1_56 ON multi_index(col5, col6);
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">CREATE INDEX i_1_456 ON multi_index(col4, col5, col6);
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">SELECT * FROM multi_index;
-</span></span><span class="line"><span class="cl">ID | COL1 | COL2 | COL3 | COL4 | COL5 | COL6
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">2. MULTI INDEX OF NON-EMPTY TABLE
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">CREATE TABLE multi_index2(id int, col1 int, col2 float, col3 char, col4 date, col5 int, col6 int);
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">INSERT INTO multi_index2 VALUES (1, 1, 11.2, &#39;a&#39;, &#39;2021-01-02&#39;, 1, 1);
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">INSERT INTO multi_index2 VALUES (2, 1, 16.2, &#39;x&#39;, &#39;2021-01-02&#39;, 1, 61);
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">INSERT INTO multi_index2 VALUES (3, 1, 11.6, &#39;h&#39;, &#39;2023-01-02&#39;, 10, 17);
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">CREATE INDEX i_2_12 ON multi_index2(col1,col2);
-</span></span><span class="line"><span class="cl">SUCCESS
-</span></span><span class="line"><span class="cl">CREATE INDEX i_2_345 ON multi_index2(col3, col4, col5);
-</span></span><span class="line"><span class="cl">SUCCESS
-</span></span><span class="line"><span class="cl">CREATE INDEX i_2_56 ON multi_index2(col5, col6);
-</span></span><span class="line"><span class="cl">SUCCESS
-</span></span><span class="line"><span class="cl">CREATE INDEX i_2_456 ON multi_index2(col4, col5, col6);
-</span></span><span class="line"><span class="cl">SUCCESS
-</span></span><span class="line"><span class="cl">SELECT * FROM multi_index2;
-</span></span><span class="line"><span class="cl">1 | 1 | 11.2 | A | 2021-01-02 | 1 | 1
-</span></span><span class="line"><span class="cl">2 | 1 | 16.2 | X | 2021-01-02 | 1 | 61
-</span></span><span class="line"><span class="cl">3 | 1 | 11.6 | H | 2023-01-02 | 10 | 17
-</span></span><span class="line"><span class="cl">ID | COL1 | COL2 | COL3 | COL4 | COL5 | COL6
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">3. INFLUENCE OF INSERTING
-</span></span><span class="line"><span class="cl">CREATE TABLE multi_index3(id int, col1 int, col2 float, col3 char, col4 date, col5 int, col6 int);
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">CREATE INDEX i_3_i1 ON multi_index3(id,col1);
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">INSERT INTO multi_index3 VALUES (1, 1, 11.2, &#39;a&#39;, &#39;2021-01-02&#39;, 1, 1);
-</span></span><span class="line"><span class="cl">SUCCESS
-</span></span><span class="line"><span class="cl">INSERT INTO multi_index3 VALUES (1, 1, 11.2, &#39;a&#39;, &#39;2021-01-02&#39;, 1, 1);
-</span></span><span class="line"><span class="cl">SUCCESS
-</span></span><span class="line"><span class="cl">SELECT * FROM multi_index3;
-</span></span><span class="line"><span class="cl">1 | 1 | 11.2 | A | 2021-01-02 | 1 | 1
-</span></span><span class="line"><span class="cl">1 | 1 | 11.2 | A | 2021-01-02 | 1 | 1
-</span></span><span class="line"><span class="cl">ID | COL1 | COL2 | COL3 | COL4 | COL5 | COL6
-</span></span><span class="line"><span class="cl">CREATE INDEX i_3_14 ON multi_index3(col1,col4);
-</span></span><span class="line"><span class="cl">SUCCESS
-</span></span><span class="line"><span class="cl">INSERT INTO multi_index3 VALUES (2, 1, 16.2, &#39;x&#39;, &#39;2021-01-02&#39;, 1, 61);
-</span></span><span class="line"><span class="cl">SUCCESS
-</span></span><span class="line"><span class="cl">INSERT INTO multi_index3 VALUES (3, 1, 11.6, &#39;h&#39;, &#39;2023-01-02&#39;, 10, 17);
-</span></span><span class="line"><span class="cl">SUCCESS
-</span></span><span class="line"><span class="cl">INSERT INTO multi_index3 VALUES (4, 2, 12.2, &#39;e&#39;, &#39;2022-01-04&#39;, 13, 10);
-</span></span><span class="line"><span class="cl">SUCCESS
-</span></span><span class="line"><span class="cl">INSERT INTO multi_index3 VALUES (5, 3, 14.2, &#39;d&#39;, &#39;2020-04-02&#39;, 12, 2);
-</span></span><span class="line"><span class="cl">SUCCESS
-</span></span><span class="line"><span class="cl">SELECT * FROM multi_index3;
-</span></span><span class="line"><span class="cl">1 | 1 | 11.2 | A | 2021-01-02 | 1 | 1
-</span></span><span class="line"><span class="cl">1 | 1 | 11.2 | A | 2021-01-02 | 1 | 1
-</span></span><span class="line"><span class="cl">2 | 1 | 16.2 | X | 2021-01-02 | 1 | 61
-</span></span><span class="line"><span class="cl">3 | 1 | 11.6 | H | 2023-01-02 | 10 | 17
-</span></span><span class="line"><span class="cl">4 | 2 | 12.2 | E | 2022-01-04 | 13 | 10
-</span></span><span class="line"><span class="cl">5 | 3 | 14.2 | D | 2020-04-02 | 12 | 2
-</span></span><span class="line"><span class="cl">ID | COL1 | COL2 | COL3 | COL4 | COL5 | COL6
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">4. QUERY WITH INDEXS
-</span></span><span class="line"><span class="cl">SELECT * FROM multi_index3 WHERE id = 1;
-</span></span><span class="line"><span class="cl">1 | 1 | 11.2 | A | 2021-01-02 | 1 | 1
-</span></span><span class="line"><span class="cl">1 | 1 | 11.2 | A | 2021-01-02 | 1 | 1
-</span></span><span class="line"><span class="cl">ID | COL1 | COL2 | COL3 | COL4 | COL5 | COL6
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">SELECT * FROM multi_index3 WHERE col1 &gt; 1 and col4 = &#39;2021-01-02&#39;;
-</span></span><span class="line"><span class="cl">ID | COL1 | COL2 | COL3 | COL4 | COL5 | COL6
-</span></span><span class="line"><span class="cl">SELECT * FROM multi_index3 WHERE col1 &lt;&gt; 1 and col4 &gt;= &#39;2021-01-02&#39;;
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">4 | 2 | 12.2 | E | 2022-01-04 | 13 | 10
-</span></span><span class="line"><span class="cl">ID | COL1 | COL2 | COL3 | COL4 | COL5 | COL6
-</span></span><span class="line"><span class="cl">SELECT * FROM multi_index3 WHERE col2 &lt; 15.0 and col4 &lt;&gt; &#39;2021-01-02&#39;;
-</span></span><span class="line"><span class="cl">3 | 1 | 11.6 | H | 2023-01-02 | 10 | 17
-</span></span><span class="line"><span class="cl">4 | 2 | 12.2 | E | 2022-01-04 | 13 | 10
-</span></span><span class="line"><span class="cl">5 | 3 | 14.2 | D | 2020-04-02 | 12 | 2
-</span></span><span class="line"><span class="cl">ID | COL1 | COL2 | COL3 | COL4 | COL5 | COL6
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">5. INFLUENCE OF DELETING
-</span></span><span class="line"><span class="cl">DELETE FROM multi_index3 WHERE id = 1;
-</span></span><span class="line"><span class="cl">SUCCESS
-</span></span><span class="line"><span class="cl">DELETE FROM multi_index3 WHERE id = 61;
-</span></span><span class="line"><span class="cl">SUCCESS
-</span></span><span class="line"><span class="cl">SELECT * FROM multi_index3;
-</span></span><span class="line"><span class="cl">2 | 1 | 16.2 | X | 2021-01-02 | 1 | 61
-</span></span><span class="line"><span class="cl">3 | 1 | 11.6 | H | 2023-01-02 | 10 | 17
-</span></span><span class="line"><span class="cl">4 | 2 | 12.2 | E | 2022-01-04 | 13 | 10
-</span></span><span class="line"><span class="cl">5 | 3 | 14.2 | D | 2020-04-02 | 12 | 2
-</span></span><span class="line"><span class="cl">ID | COL1 | COL2 | COL3 | COL4 | COL5 | COL6
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">DELETE FROM multi_index3 WHERE col3 = &#39;x&#39;;
-</span></span><span class="line"><span class="cl">SUCCESS
-</span></span><span class="line"><span class="cl">SELECT * FROM multi_index3;
-</span></span><span class="line"><span class="cl">3 | 1 | 11.6 | H | 2023-01-02 | 10 | 17
-</span></span><span class="line"><span class="cl">4 | 2 | 12.2 | E | 2022-01-04 | 13 | 10
-</span></span><span class="line"><span class="cl">5 | 3 | 14.2 | D | 2020-04-02 | 12 | 2
-</span></span><span class="line"><span class="cl">ID | COL1 | COL2 | COL3 | COL4 | COL5 | COL6
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">DELETE FROM multi_index3 WHERE id = 4 and col1 = 1;
-</span></span><span class="line"><span class="cl">SUCCESS
-</span></span><span class="line"><span class="cl">DELETE FROM multi_index3 WHERE id = 90 and col1 = 13;
-</span></span><span class="line"><span class="cl">SUCCESS
-</span></span><span class="line"><span class="cl">DELETE FROM multi_index3 WHERE id = 90 and col1 = 1;
-</span></span><span class="line"><span class="cl">SUCCESS
-</span></span><span class="line"><span class="cl">DELETE FROM multi_index3 WHERE id = 4 and col1 = 13;
-</span></span><span class="line"><span class="cl">SUCCESS
-</span></span><span class="line"><span class="cl">DELETE FROM multi_index3 WHERE id = 3 and col1 = 1;
-</span></span><span class="line"><span class="cl">SUCCESS
-</span></span><span class="line"><span class="cl">DELETE FROM multi_index3 WHERE id = 3 and col1 = 1;
-</span></span><span class="line"><span class="cl">SUCCESS
-</span></span><span class="line"><span class="cl">SELECT * FROM multi_index3;
-</span></span><span class="line"><span class="cl">4 | 2 | 12.2 | E | 2022-01-04 | 13 | 10
-</span></span><span class="line"><span class="cl">5 | 3 | 14.2 | D | 2020-04-02 | 12 | 2
-</span></span><span class="line"><span class="cl">ID | COL1 | COL2 | COL3 | COL4 | COL5 | COL6
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">INSERT INTO multi_index3 VALUES (1, 1, 11.2, &#39;a&#39;, &#39;2021-01-02&#39;, 1, 1);
-</span></span><span class="line"><span class="cl">SUCCESS
-</span></span><span class="line"><span class="cl">INSERT INTO multi_index3 VALUES (2, 1, 11.2, &#39;x&#39;, &#39;2021-01-02&#39;, 1, 61);
-</span></span><span class="line"><span class="cl">SUCCESS
-</span></span><span class="line"><span class="cl">INSERT INTO multi_index3 VALUES (3, 1, 11.2, &#39;h&#39;, &#39;2023-01-02&#39;, 10, 17);
-</span></span><span class="line"><span class="cl">SUCCESS
-</span></span><span class="line"><span class="cl">SELECT * FROM multi_index3;
-</span></span><span class="line"><span class="cl">1 | 1 | 11.2 | A | 2021-01-02 | 1 | 1
-</span></span><span class="line"><span class="cl">2 | 1 | 11.2 | X | 2021-01-02 | 1 | 61
-</span></span><span class="line"><span class="cl">3 | 1 | 11.2 | H | 2023-01-02 | 10 | 17
-</span></span><span class="line"><span class="cl">4 | 2 | 12.2 | E | 2022-01-04 | 13 | 10
-</span></span><span class="line"><span class="cl">5 | 3 | 14.2 | D | 2020-04-02 | 12 | 2
-</span></span><span class="line"><span class="cl">ID | COL1 | COL2 | COL3 | COL4 | COL5 | COL6
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">6. INFLUENCE OF UPDATING
-</span></span><span class="line"><span class="cl">UPDATE multi_index3 SET col6=49 where id=2;
-</span></span><span class="line"><span class="cl">SUCCESS
-</span></span><span class="line"><span class="cl">UPDATE multi_index3 SET col4=&#39;1999-02-01&#39; where id=2;
-</span></span><span class="line"><span class="cl">SUCCESS
-</span></span><span class="line"><span class="cl">UPDATE multi_index3 SET col1=2 where id=2;
-</span></span><span class="line"><span class="cl">SUCCESS
-</span></span><span class="line"><span class="cl">UPDATE multi_index3 SET col1=5 where col6=49;
-</span></span><span class="line"><span class="cl">SUCCESS
-</span></span><span class="line"><span class="cl">SELECT * FROM multi_index3;
-</span></span><span class="line"><span class="cl">1 | 1 | 11.2 | A | 2021-01-02 | 1 | 1
-</span></span><span class="line"><span class="cl">2 | 5 | 11.2 | X | 1999-02-01 | 1 | 49
-</span></span><span class="line"><span class="cl">3 | 1 | 11.2 | H | 2023-01-02 | 10 | 17
-</span></span><span class="line"><span class="cl">4 | 2 | 12.2 | E | 2022-01-04 | 13 | 10
-</span></span><span class="line"><span class="cl">5 | 3 | 14.2 | D | 2020-04-02 | 12 | 2
-</span></span><span class="line"><span class="cl">ID | COL1 | COL2 | COL3 | COL4 | COL5 | COL6
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">7. INFLUENCE OF DROPPING TABLE
-</span></span><span class="line"><span class="cl">DROP table multi_index;
-</span></span><span class="line"><span class="cl">SUCCESS
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">8. ERROR
-</span></span><span class="line"><span class="cl">CREATE TABLE multi_index4(id int, col1 int, col2 float, col3 char, col4 date, col5 int, col6 int);
-</span></span><span class="line"><span class="cl">SUCCESS
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">CREATE INDEX i_4_i7 ON multi_index4(id,col7);
-</span></span><span class="line"><span class="cl">FAILURE
-</span></span><span class="line"><span class="cl">CREATE INDEX i_4_78 ON multi_index4(col7,col8);
-</span></span><span class="line"><span class="cl">FAILURE
-</span></span><span class="line"><span class="cl">CREATE INDEX i_4_i78 ON multi_index4(id,col7,col8);
-</span></span><span class="line"><span class="cl">FAILURE
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">
+flex --header-file=lex.yy.h lex_sql.l
+bison -d -b yacc_sql yacc_sql.y
+
+cd /root/gitee/miniob-2022/build/bin
+./observer -f /root/gitee/miniob-2022/etc/observer.ini
+/root/gitee/miniob-2022/build/bin/obclient
+
+CREATE TABLE multi_index(id int, col1 int, col2 float, col3 char, col4 date, col5 int, col6 int);
+
+
+CREATE INDEX i_1_12 ON multi_index(col1,col2);
+
+CREATE INDEX i_1_345 ON multi_index(col3, col4, col5);
+
+CREATE INDEX i_1_56 ON multi_index(col5, col6);
+
+CREATE INDEX i_1_456 ON multi_index(col4, col5, col6);
+
+SELECT * FROM multi_index;
+ID | COL1 | COL2 | COL3 | COL4 | COL5 | COL6
+
+2. MULTI INDEX OF NON-EMPTY TABLE
+
+CREATE TABLE multi_index2(id int, col1 int, col2 float, col3 char, col4 date, col5 int, col6 int);
+
+INSERT INTO multi_index2 VALUES (1, 1, 11.2, &#39;a&#39;, &#39;2021-01-02&#39;, 1, 1);
+
+INSERT INTO multi_index2 VALUES (2, 1, 16.2, &#39;x&#39;, &#39;2021-01-02&#39;, 1, 61);
+
+INSERT INTO multi_index2 VALUES (3, 1, 11.6, &#39;h&#39;, &#39;2023-01-02&#39;, 10, 17);
+
+
+CREATE INDEX i_2_12 ON multi_index2(col1,col2);
+SUCCESS
+CREATE INDEX i_2_345 ON multi_index2(col3, col4, col5);
+SUCCESS
+CREATE INDEX i_2_56 ON multi_index2(col5, col6);
+SUCCESS
+CREATE INDEX i_2_456 ON multi_index2(col4, col5, col6);
+SUCCESS
+SELECT * FROM multi_index2;
+1 | 1 | 11.2 | A | 2021-01-02 | 1 | 1
+2 | 1 | 16.2 | X | 2021-01-02 | 1 | 61
+3 | 1 | 11.6 | H | 2023-01-02 | 10 | 17
+ID | COL1 | COL2 | COL3 | COL4 | COL5 | COL6
+
+3. INFLUENCE OF INSERTING
+CREATE TABLE multi_index3(id int, col1 int, col2 float, col3 char, col4 date, col5 int, col6 int);
+
+CREATE INDEX i_3_i1 ON multi_index3(id,col1);
+
+
+INSERT INTO multi_index3 VALUES (1, 1, 11.2, &#39;a&#39;, &#39;2021-01-02&#39;, 1, 1);
+SUCCESS
+INSERT INTO multi_index3 VALUES (1, 1, 11.2, &#39;a&#39;, &#39;2021-01-02&#39;, 1, 1);
+SUCCESS
+SELECT * FROM multi_index3;
+1 | 1 | 11.2 | A | 2021-01-02 | 1 | 1
+1 | 1 | 11.2 | A | 2021-01-02 | 1 | 1
+ID | COL1 | COL2 | COL3 | COL4 | COL5 | COL6
+CREATE INDEX i_3_14 ON multi_index3(col1,col4);
+SUCCESS
+INSERT INTO multi_index3 VALUES (2, 1, 16.2, &#39;x&#39;, &#39;2021-01-02&#39;, 1, 61);
+SUCCESS
+INSERT INTO multi_index3 VALUES (3, 1, 11.6, &#39;h&#39;, &#39;2023-01-02&#39;, 10, 17);
+SUCCESS
+INSERT INTO multi_index3 VALUES (4, 2, 12.2, &#39;e&#39;, &#39;2022-01-04&#39;, 13, 10);
+SUCCESS
+INSERT INTO multi_index3 VALUES (5, 3, 14.2, &#39;d&#39;, &#39;2020-04-02&#39;, 12, 2);
+SUCCESS
+SELECT * FROM multi_index3;
+1 | 1 | 11.2 | A | 2021-01-02 | 1 | 1
+1 | 1 | 11.2 | A | 2021-01-02 | 1 | 1
+2 | 1 | 16.2 | X | 2021-01-02 | 1 | 61
+3 | 1 | 11.6 | H | 2023-01-02 | 10 | 17
+4 | 2 | 12.2 | E | 2022-01-04 | 13 | 10
+5 | 3 | 14.2 | D | 2020-04-02 | 12 | 2
+ID | COL1 | COL2 | COL3 | COL4 | COL5 | COL6
+
+4. QUERY WITH INDEXS
+SELECT * FROM multi_index3 WHERE id = 1;
+1 | 1 | 11.2 | A | 2021-01-02 | 1 | 1
+1 | 1 | 11.2 | A | 2021-01-02 | 1 | 1
+ID | COL1 | COL2 | COL3 | COL4 | COL5 | COL6
+
+
+SELECT * FROM multi_index3 WHERE col1 &gt; 1 and col4 = &#39;2021-01-02&#39;;
+ID | COL1 | COL2 | COL3 | COL4 | COL5 | COL6
+SELECT * FROM multi_index3 WHERE col1 &lt;&gt; 1 and col4 &gt;= &#39;2021-01-02&#39;;
+
+
+4 | 2 | 12.2 | E | 2022-01-04 | 13 | 10
+ID | COL1 | COL2 | COL3 | COL4 | COL5 | COL6
+SELECT * FROM multi_index3 WHERE col2 &lt; 15.0 and col4 &lt;&gt; &#39;2021-01-02&#39;;
+3 | 1 | 11.6 | H | 2023-01-02 | 10 | 17
+4 | 2 | 12.2 | E | 2022-01-04 | 13 | 10
+5 | 3 | 14.2 | D | 2020-04-02 | 12 | 2
+ID | COL1 | COL2 | COL3 | COL4 | COL5 | COL6
+
+
+
+
+5. INFLUENCE OF DELETING
+DELETE FROM multi_index3 WHERE id = 1;
+SUCCESS
+DELETE FROM multi_index3 WHERE id = 61;
+SUCCESS
+SELECT * FROM multi_index3;
+2 | 1 | 16.2 | X | 2021-01-02 | 1 | 61
+3 | 1 | 11.6 | H | 2023-01-02 | 10 | 17
+4 | 2 | 12.2 | E | 2022-01-04 | 13 | 10
+5 | 3 | 14.2 | D | 2020-04-02 | 12 | 2
+ID | COL1 | COL2 | COL3 | COL4 | COL5 | COL6
+
+DELETE FROM multi_index3 WHERE col3 = &#39;x&#39;;
+SUCCESS
+SELECT * FROM multi_index3;
+3 | 1 | 11.6 | H | 2023-01-02 | 10 | 17
+4 | 2 | 12.2 | E | 2022-01-04 | 13 | 10
+5 | 3 | 14.2 | D | 2020-04-02 | 12 | 2
+ID | COL1 | COL2 | COL3 | COL4 | COL5 | COL6
+
+DELETE FROM multi_index3 WHERE id = 4 and col1 = 1;
+SUCCESS
+DELETE FROM multi_index3 WHERE id = 90 and col1 = 13;
+SUCCESS
+DELETE FROM multi_index3 WHERE id = 90 and col1 = 1;
+SUCCESS
+DELETE FROM multi_index3 WHERE id = 4 and col1 = 13;
+SUCCESS
+DELETE FROM multi_index3 WHERE id = 3 and col1 = 1;
+SUCCESS
+DELETE FROM multi_index3 WHERE id = 3 and col1 = 1;
+SUCCESS
+SELECT * FROM multi_index3;
+4 | 2 | 12.2 | E | 2022-01-04 | 13 | 10
+5 | 3 | 14.2 | D | 2020-04-02 | 12 | 2
+ID | COL1 | COL2 | COL3 | COL4 | COL5 | COL6
+
+INSERT INTO multi_index3 VALUES (1, 1, 11.2, &#39;a&#39;, &#39;2021-01-02&#39;, 1, 1);
+SUCCESS
+INSERT INTO multi_index3 VALUES (2, 1, 11.2, &#39;x&#39;, &#39;2021-01-02&#39;, 1, 61);
+SUCCESS
+INSERT INTO multi_index3 VALUES (3, 1, 11.2, &#39;h&#39;, &#39;2023-01-02&#39;, 10, 17);
+SUCCESS
+SELECT * FROM multi_index3;
+1 | 1 | 11.2 | A | 2021-01-02 | 1 | 1
+2 | 1 | 11.2 | X | 2021-01-02 | 1 | 61
+3 | 1 | 11.2 | H | 2023-01-02 | 10 | 17
+4 | 2 | 12.2 | E | 2022-01-04 | 13 | 10
+5 | 3 | 14.2 | D | 2020-04-02 | 12 | 2
+ID | COL1 | COL2 | COL3 | COL4 | COL5 | COL6
+
+6. INFLUENCE OF UPDATING
+UPDATE multi_index3 SET col6=49 where id=2;
+SUCCESS
+UPDATE multi_index3 SET col4=&#39;1999-02-01&#39; where id=2;
+SUCCESS
+UPDATE multi_index3 SET col1=2 where id=2;
+SUCCESS
+UPDATE multi_index3 SET col1=5 where col6=49;
+SUCCESS
+SELECT * FROM multi_index3;
+1 | 1 | 11.2 | A | 2021-01-02 | 1 | 1
+2 | 5 | 11.2 | X | 1999-02-01 | 1 | 49
+3 | 1 | 11.2 | H | 2023-01-02 | 10 | 17
+4 | 2 | 12.2 | E | 2022-01-04 | 13 | 10
+5 | 3 | 14.2 | D | 2020-04-02 | 12 | 2
+ID | COL1 | COL2 | COL3 | COL4 | COL5 | COL6
+
+7. INFLUENCE OF DROPPING TABLE
+DROP table multi_index;
+SUCCESS
+
+8. ERROR
+CREATE TABLE multi_index4(id int, col1 int, col2 float, col3 char, col4 date, col5 int, col6 int);
+SUCCESS
+
+CREATE INDEX i_4_i7 ON multi_index4(id,col7);
+FAILURE
+CREATE INDEX i_4_78 ON multi_index4(col7,col8);
+FAILURE
+CREATE INDEX i_4_i78 ON multi_index4(id,col7,col8);
+FAILURE
+
+
+</code></pre></td></tr></table>
 </div>
-</div><h3 id="数据结构">数据结构</h3>
+</div><h3 id="heading-4">数据结构</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -937,85 +948,87 @@
 </span><span class="lnt">69
 </span><span class="lnt">70
 </span><span class="lnt">71
+</span><span class="lnt">72
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/**
-</span></span><span class="line"><span class="cl"> * leaf page of bplus tree
-</span></span><span class="line"><span class="cl"> * storage format:
-</span></span><span class="line"><span class="cl"> * | common header | prev page id | next page id |
-</span></span><span class="line"><span class="cl"> * | key0, rid0 | key1, rid1 | ... | keyn, ridn |
-</span></span><span class="line"><span class="cl"> *
-</span></span><span class="line"><span class="cl"> * the key is in format: the key value of record and rid.
-</span></span><span class="line"><span class="cl"> * so the key in leaf page must be unique.
-</span></span><span class="line"><span class="cl"> * the value is rid.
-</span></span><span class="line"><span class="cl"> * can you implenment a cluster index ?
-</span></span><span class="line"><span class="cl"> */
-</span></span><span class="line"><span class="cl">struct LeafIndexNode : public IndexNode {
-</span></span><span class="line"><span class="cl">  static constexpr int HEADER_SIZE = IndexNode::HEADER_SIZE + 8;
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">  PageNum prev_brother;
-</span></span><span class="line"><span class="cl">  PageNum next_brother;
-</span></span><span class="line"><span class="cl">  /**
-</span></span><span class="line"><span class="cl">   * leaf can store order keys and rids at most
-</span></span><span class="line"><span class="cl">   */
-</span></span><span class="line"><span class="cl">  cha
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">flex --header-file=lex.yy.h lex_sql.l
-</span></span><span class="line"><span class="cl">bison -d -b yacc_sql yacc_sql.y
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">cd /root/gitee/miniob-2022/build/bin
-</span></span><span class="line"><span class="cl">./observer -f /root/gitee/miniob-2022/etc/observer.ini
-</span></span><span class="line"><span class="cl">/root/github/miniob-2022/build/bin/obclient
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">table：
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">//std::vector&lt;FieldMeta&gt; fields_;  // 包含sys_fields
-</span></span><span class="line"><span class="cl">//std::vector&lt;IndexMeta&gt; indexes_;
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">/**
-</span></span><span class="line"><span class="cl"> * the meta information of bplus tree
-</span></span><span class="line"><span class="cl"> * this is the first page of bplus tree.
-</span></span><span class="line"><span class="cl"> * only one field can be supported, can you extend it to multi-fields?
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl">  里面说了是一个列 怎么变成多个列呢
-</span></span><span class="line"><span class="cl"> */
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl">struct IndexFileHeader {
-</span></span><span class="line"><span class="cl">  IndexFileHeader()
-</span></span><span class="line"><span class="cl">  {
-</span></span><span class="line"><span class="cl">    memset(this, 0, sizeof(IndexFileHeader));
-</span></span><span class="line"><span class="cl">    root_page = BP_INVALID_PAGE_NUM;
-</span></span><span class="line"><span class="cl">  }
-</span></span><span class="line"><span class="cl">  PageNum  root_page;
-</span></span><span class="line"><span class="cl">  int32_t  internal_max_size;
-</span></span><span class="line"><span class="cl">  int32_t  leaf_max_size;
-</span></span><span class="line"><span class="cl">  int32_t  attr_length;
-</span></span><span class="line"><span class="cl">  int32_t  key_length; // attr length + sizeof(RID)
-</span></span><span class="line"><span class="cl">  AttrType attr_type;
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  const std::string to_string()
-</span></span><span class="line"><span class="cl">  {
-</span></span><span class="line"><span class="cl">    std::stringstream ss;
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    ss &lt;&lt; &#34;attr_length:&#34; &lt;&lt; attr_length &lt;&lt; &#34;,&#34;
-</span></span><span class="line"><span class="cl">       &lt;&lt; &#34;key_length:&#34; &lt;&lt; key_length &lt;&lt; &#34;,&#34;
-</span></span><span class="line"><span class="cl">       &lt;&lt; &#34;attr_type:&#34; &lt;&lt; attr_type &lt;&lt; &#34;,&#34;
-</span></span><span class="line"><span class="cl">       &lt;&lt; &#34;root_page:&#34; &lt;&lt; root_page &lt;&lt; &#34;,&#34;
-</span></span><span class="line"><span class="cl">       &lt;&lt; &#34;internal_max_size:&#34; &lt;&lt; internal_max_size &lt;&lt; &#34;,&#34;
-</span></span><span class="line"><span class="cl">       &lt;&lt; &#34;leaf_max_size:&#34; &lt;&lt; leaf_max_size &lt;&lt; &#34;;&#34;;
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    return ss.str();
-</span></span><span class="line"><span class="cl">  }
-</span></span><span class="line"><span class="cl">};
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">/**
+ * leaf page of bplus tree
+ * storage format:
+ * | common header | prev page id | next page id |
+ * | key0, rid0 | key1, rid1 | ... | keyn, ridn |
+ *
+ * the key is in format: the key value of record and rid.
+ * so the key in leaf page must be unique.
+ * the value is rid.
+ * can you implenment a cluster index ?
+ */
+struct LeafIndexNode : public IndexNode {
+  static constexpr int HEADER_SIZE = IndexNode::HEADER_SIZE + 8;
+  
+  PageNum prev_brother;
+  PageNum next_brother;
+  /**
+   * leaf can store order keys and rids at most
+   */
+  cha
+  
+
+flex --header-file=lex.yy.h lex_sql.l
+bison -d -b yacc_sql yacc_sql.y
+
+cd /root/gitee/miniob-2022/build/bin
+./observer -f /root/gitee/miniob-2022/etc/observer.ini
+/root/github/miniob-2022/build/bin/obclient
+
+
+table：
+
+//std::vector&lt;FieldMeta&gt; fields_;  // 包含sys_fields
+//std::vector&lt;IndexMeta&gt; indexes_;
+
+
+/**
+ * the meta information of bplus tree
+ * this is the first page of bplus tree.
+ * only one field can be supported, can you extend it to multi-fields?
+ 
+  里面说了是一个列 怎么变成多个列呢
+ */
+ 
+struct IndexFileHeader {
+  IndexFileHeader()
+  {
+    memset(this, 0, sizeof(IndexFileHeader));
+    root_page = BP_INVALID_PAGE_NUM;
+  }
+  PageNum  root_page;
+  int32_t  internal_max_size;
+  int32_t  leaf_max_size;
+  int32_t  attr_length;
+  int32_t  key_length; // attr length + sizeof(RID)
+  AttrType attr_type;
+
+  const std::string to_string()
+  {
+    std::stringstream ss;
+
+    ss &lt;&lt; &#34;attr_length:&#34; &lt;&lt; attr_length &lt;&lt; &#34;,&#34;
+       &lt;&lt; &#34;key_length:&#34; &lt;&lt; key_length &lt;&lt; &#34;,&#34;
+       &lt;&lt; &#34;attr_type:&#34; &lt;&lt; attr_type &lt;&lt; &#34;,&#34;
+       &lt;&lt; &#34;root_page:&#34; &lt;&lt; root_page &lt;&lt; &#34;,&#34;
+       &lt;&lt; &#34;internal_max_size:&#34; &lt;&lt; internal_max_size &lt;&lt; &#34;,&#34;
+       &lt;&lt; &#34;leaf_max_size:&#34; &lt;&lt; leaf_max_size &lt;&lt; &#34;;&#34;;
+
+    return ss.str();
+  }
+};
+
+</code></pre></td></tr></table>
 </div>
-</div><h3 id="算法">算法</h3>
+</div><h3 id="heading-5">算法</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1037,48 +1050,50 @@
 </span><span class="lnt">20
 </span><span class="lnt">21
 </span><span class="lnt">22
+</span><span class="lnt">23
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="err">创建索引流程：</span><span class="n">SCF_CREATE_INDEX</span>
-</span></span><span class="line"><span class="cl"><span class="n">ExecuteStage</span><span class="o">::</span><span class="n">do_create_index</span><span class="o">--&gt;</span><span class="n">Table</span><span class="o">::</span><span class="n">create_index</span> <span class="o">--&gt;</span><span class="n">BplusTreeIndex</span><span class="o">::</span><span class="n">create</span>
-</span></span><span class="line"><span class="cl"><span class="o">---&gt;</span><span class="n">RC</span> <span class="n">BplusTreeIndex</span><span class="o">::</span><span class="n">create_multi</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"><span class="err">插入数据流程：走索引的插入</span>
-</span></span><span class="line"><span class="cl"><span class="n">ExecuteStage</span><span class="o">::</span><span class="n">do_insert</span><span class="o">---&gt;</span><span class="n">Table</span><span class="o">::</span><span class="n">insert_record_mult_rows</span><span class="o">--&gt;</span><span class="n">Trx</span><span class="o">::</span><span class="n">insert_record</span>
-</span></span><span class="line"><span class="cl"><span class="o">---&gt;</span><span class="n">Table</span><span class="o">::</span><span class="n">insert_entry_of_indexes</span><span class="o">---&gt;</span><span class="n">BplusTreeHandler</span><span class="o">::</span><span class="n">insert_entry</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">BplusTreeHandler</span><span class="o">::</span><span class="n">make_key</span>
-</span></span><span class="line"><span class="cl"><span class="err">查找</span> 
-</span></span><span class="line"><span class="cl"><span class="n">ExecuteStage</span><span class="o">::</span><span class="n">do_select</span> <span class="o">---&gt;</span><span class="n">IndexScanOperator</span> <span class="o">*</span><span class="n">try_to_create_index_scan_operator</span>
-</span></span><span class="line"><span class="cl">  <span class="n">IndexScanOperator</span><span class="o">::</span><span class="n">IndexScanOperator</span><span class="p">(</span>  
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"><span class="n">Table</span><span class="o">::</span><span class="n">create_index</span>
-</span></span><span class="line"><span class="cl">    <span class="mf">1.</span> <span class="err">检测字段是否存在</span> <span class="n">find_mult_index_by_field</span>
-</span></span><span class="line"><span class="cl">    <span class="mf">2.</span> <span class="err">创建</span><span class="n">b</span><span class="o">+</span> <span class="n">index</span><span class="o">-&gt;</span><span class="n">create_multi</span>
-</span></span><span class="line"><span class="cl">    <span class="mf">3.</span> <span class="err">遍历当前的所有数据，插入这个索引</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"><span class="n">BplusTreeIndex</span><span class="o">::</span><span class="n">create_multi</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-cpp" data-lang="cpp">
+<span class="err">创</span><span class="err">建</span><span class="err">索</span><span class="err">引</span><span class="err">流</span><span class="err">程</span><span class="err">：</span><span class="n">SCF_CREATE_INDEX</span>
+<span class="n">ExecuteStage</span><span class="o">:</span><span class="o">:</span><span class="n">do_create_index</span><span class="o">-</span><span class="o">-</span><span class="o">&gt;</span><span class="n">Table</span><span class="o">:</span><span class="o">:</span><span class="n">create_index</span> <span class="o">-</span><span class="o">-</span><span class="o">&gt;</span><span class="n">BplusTreeIndex</span><span class="o">:</span><span class="o">:</span><span class="n">create</span>
+<span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">&gt;</span><span class="n">RC</span> <span class="n">BplusTreeIndex</span><span class="o">:</span><span class="o">:</span><span class="n">create_multi</span>
+    
+<span class="err">插</span><span class="err">入</span><span class="err">数</span><span class="err">据</span><span class="err">流</span><span class="err">程</span><span class="err">：</span><span class="err">走</span><span class="err">索</span><span class="err">引</span><span class="err">的</span><span class="err">插</span><span class="err">入</span>
+<span class="n">ExecuteStage</span><span class="o">:</span><span class="o">:</span><span class="n">do_insert</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">&gt;</span><span class="n">Table</span><span class="o">:</span><span class="o">:</span><span class="n">insert_record_mult_rows</span><span class="o">-</span><span class="o">-</span><span class="o">&gt;</span><span class="n">Trx</span><span class="o">:</span><span class="o">:</span><span class="n">insert_record</span>
+<span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">&gt;</span><span class="n">Table</span><span class="o">:</span><span class="o">:</span><span class="n">insert_entry_of_indexes</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">&gt;</span><span class="n">BplusTreeHandler</span><span class="o">:</span><span class="o">:</span><span class="n">insert_entry</span>
+
+    <span class="n">BplusTreeHandler</span><span class="o">:</span><span class="o">:</span><span class="n">make_key</span>
+<span class="err">查</span><span class="err">找</span> 
+<span class="n">ExecuteStage</span><span class="o">:</span><span class="o">:</span><span class="n">do_select</span> <span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">&gt;</span><span class="n">IndexScanOperator</span> <span class="o">*</span><span class="n">try_to_create_index_scan_operator</span>
+  <span class="n">IndexScanOperator</span><span class="o">:</span><span class="o">:</span><span class="n">IndexScanOperator</span><span class="p">(</span>  
+    
+<span class="n">Table</span><span class="o">:</span><span class="o">:</span><span class="n">create_index</span>
+    <span class="mf">1.</span> <span class="err">检</span><span class="err">测</span><span class="err">字</span><span class="err">段</span><span class="err">是</span><span class="err">否</span><span class="err">存</span><span class="err">在</span> <span class="n">find_mult_index_by_field</span>
+    <span class="mf">2.</span> <span class="err">创</span><span class="err">建</span><span class="n">b</span><span class="o">+</span> <span class="n">index</span><span class="o">-</span><span class="o">&gt;</span><span class="n">create_multi</span>
+    <span class="mf">3.</span> <span class="err">遍</span><span class="err">历</span><span class="err">当</span><span class="err">前</span><span class="err">的</span><span class="err">所</span><span class="err">有</span><span class="err">数</span><span class="err">据</span><span class="err">，</span><span class="err">插</span><span class="err">入</span><span class="err">这</span><span class="err">个</span><span class="err">索</span><span class="err">引</span>
+    
+<span class="n">BplusTreeIndex</span><span class="o">:</span><span class="o">:</span><span class="n">create_multi</span>
+    
+    
+
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">graph TD
-</span></span><span class="line"><span class="cl">Table::open --&gt; B
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">
+graph TD
+Table::open --&gt; B
+</code></pre></td></tr></table>
 </div>
 </div><h3 id="bug">bug</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1135,68 +1150,68 @@
 </span><span class="lnt">55
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">    &#34;indexes&#34; :
-</span></span><span class="line"><span class="cl">        [
-</span></span><span class="line"><span class="cl">                {
-</span></span><span class="line"><span class="cl">                        &#34;fields_name&#34; :
-</span></span><span class="line"><span class="cl">                        [
-</span></span><span class="line"><span class="cl">                                {
-</span></span><span class="line"><span class="cl">                                        &#34;field_name&#34; : &#34;col1&#34;
-</span></span><span class="line"><span class="cl">                                },
-</span></span><span class="line"><span class="cl">                                {
-</span></span><span class="line"><span class="cl">                                        &#34;field_name&#34; : &#34;col2&#34;
-</span></span><span class="line"><span class="cl">                                }
-</span></span><span class="line"><span class="cl">                        ],
-</span></span><span class="line"><span class="cl">                        &#34;name&#34; : &#34;i_1_12&#34;,
-</span></span><span class="line"><span class="cl">                        &#34;unique&#34; : false
-</span></span><span class="line"><span class="cl">                },
-</span></span><span class="line"><span class="cl">                {
-</span></span><span class="line"><span class="cl">                        &#34;fields_name&#34; :
-</span></span><span class="line"><span class="cl">                        [
-</span></span><span class="line"><span class="cl">                                {
-</span></span><span class="line"><span class="cl">                                        &#34;field_name&#34; : &#34;col3&#34;
-</span></span><span class="line"><span class="cl">                                },
-</span></span><span class="line"><span class="cl">                                {
-</span></span><span class="line"><span class="cl">                                        &#34;field_name&#34; : &#34;col4&#34;
-</span></span><span class="line"><span class="cl">                                },
-</span></span><span class="line"><span class="cl">                                {
-</span></span><span class="line"><span class="cl">                                        &#34;field_name&#34; : &#34;col5&#34;
-</span></span><span class="line"><span class="cl">                                }
-</span></span><span class="line"><span class="cl">                        ],
-</span></span><span class="line"><span class="cl">                        &#34;name&#34; : &#34;i_1_345&#34;,
-</span></span><span class="line"><span class="cl">                        &#34;unique&#34; : false
-</span></span><span class="line"><span class="cl">                }
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">//  if (table_meta_.index(index_name) != nullptr || table_meta_.find_mult_index_by_field((attribute_count,attributes_name))) {
-</span></span><span class="line"><span class="cl">  //   LOG_INFO(&#34;Invalid input arguments, table name is %s, index %s exist or attribute %d exist index&#34;,
-</span></span><span class="line"><span class="cl">  //       name(),
-</span></span><span class="line"><span class="cl">  //       index_name,
-</span></span><span class="line"><span class="cl">  //       attribute_count);
-</span></span><span class="line"><span class="cl">  //   return RC::SCHEMA_INDEX_EXIST;
-</span></span><span class="line"><span class="cl">  // }
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">  //小王同学：唯一索引
-</span></span><span class="line"><span class="cl">RC DefaultHandler::create_index(
-</span></span><span class="line"><span class="cl">    Trx *trx, const char *dbname, const char *relation_name, const char *index_name, const char *attribute_name)
-</span></span><span class="line"><span class="cl">{
-</span></span><span class="line"><span class="cl">  Table *table = find_table(dbname, relation_name);
-</span></span><span class="line"><span class="cl">  if (nullptr == table) {
-</span></span><span class="line"><span class="cl">    return RC::SCHEMA_TABLE_NOT_EXIST;
-</span></span><span class="line"><span class="cl">  }
-</span></span><span class="line"><span class="cl">  //to do 先把普通索引实现了，在回来修改唯一索引
-</span></span><span class="line"><span class="cl">  // return table-&gt;create_index(trx, index_name, attribute_name,false);
-</span></span><span class="line"><span class="cl">  return 0;
-</span></span><span class="line"><span class="cl">}
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">    &#34;indexes&#34; :
+        [
+                {
+                        &#34;fields_name&#34; :
+                        [
+                                {
+                                        &#34;field_name&#34; : &#34;col1&#34;
+                                },
+                                {
+                                        &#34;field_name&#34; : &#34;col2&#34;
+                                }
+                        ],
+                        &#34;name&#34; : &#34;i_1_12&#34;,
+                        &#34;unique&#34; : false
+                },
+                {
+                        &#34;fields_name&#34; :
+                        [
+                                {
+                                        &#34;field_name&#34; : &#34;col3&#34;
+                                },
+                                {
+                                        &#34;field_name&#34; : &#34;col4&#34;
+                                },
+                                {
+                                        &#34;field_name&#34; : &#34;col5&#34;
+                                }
+                        ],
+                        &#34;name&#34; : &#34;i_1_345&#34;,
+                        &#34;unique&#34; : false
+                }
+
+
+
+//  if (table_meta_.index(index_name) != nullptr || table_meta_.find_mult_index_by_field((attribute_count,attributes_name))) {
+  //   LOG_INFO(&#34;Invalid input arguments, table name is %s, index %s exist or attribute %d exist index&#34;,
+  //       name(),
+  //       index_name,
+  //       attribute_count);
+  //   return RC::SCHEMA_INDEX_EXIST;
+  // }
+  
+  
+  //小王同学：唯一索引
+RC DefaultHandler::create_index(
+    Trx *trx, const char *dbname, const char *relation_name, const char *index_name, const char *attribute_name)
+{
+  Table *table = find_table(dbname, relation_name);
+  if (nullptr == table) {
+    return RC::SCHEMA_TABLE_NOT_EXIST;
+  }
+  //to do 先把普通索引实现了，在回来修改唯一索引
+  // return table-&gt;create_index(trx, index_name, attribute_name,false);
+  return 0;
+}
+</code></pre></td></tr></table>
 </div>
-</div><h2 id="次插入多条数据-insert">⼀次插入多条数据 insert</h2>
-<h3 id="1-测试用例">1. 测试用例</h3>
+</div><h2 id="-insert">⼀次插入多条数据 insert</h2>
+<h3 id="1-">1. 测试用例</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1246,64 +1261,66 @@
 </span><span class="lnt">48
 </span><span class="lnt">49
 </span><span class="lnt">50
+</span><span class="lnt">51
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">cd /root/gitee/miniob-2022/build/bin
-</span></span><span class="line"><span class="cl">./observer -f /root/gitee/miniob-2022/etc/observer.ini
-</span></span><span class="line"><span class="cl">/root/gitee/miniob-2022/build/bin/obclient
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">CREATE TABLE insert_table(id int, t_name char, col1 int, col2 int);
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">CREATE TABLE multi_index3(id int, col1 int, col2 float, col3 char, col4 date, col5 int, col6 int);
-</span></span><span class="line"><span class="cl">SUCCESS
-</span></span><span class="line"><span class="cl">CREATE INDEX i_3_i1 ON multi_index3(id,col1);
-</span></span><span class="line"><span class="cl">SUCCESS
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">INSERT INTO multi_index3 VALUES (1, 1, 11.2, &#39;a&#39;, &#39;2021-01-02&#39;, 1, 1);
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">1. INSERT
-</span></span><span class="line"><span class="cl">CREATE TABLE insert_table1(id int, t_name date, col1 int, col2 int);
-</span></span><span class="line"><span class="cl">INSERT INTO insert_table1 VALUES (1,&#39;2021-01-02&#39;,1,1);
-</span></span><span class="line"><span class="cl">INSERT INTO insert_table VALUES (1,&#39;N1&#39;,1,1);
-</span></span><span class="line"><span class="cl">INSERT INTO insert_table VALUES (2,&#39;N2&#39;,1,1),(3,&#39;N3&#39;,2,1);
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">2. ERROR
-</span></span><span class="line"><span class="cl">INSERT INTO insert_table VALUES (4,&#39;N4&#39;,1,1),(1,1,1);
-</span></span><span class="line"><span class="cl">FAILURE
-</span></span><span class="line"><span class="cl">INSERT INTO insert_table VALUES (4,&#39;N4&#39;,1,1),(1,1,1,1);
-</span></span><span class="line"><span class="cl">FAILURE
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">3. SELECT
-</span></span><span class="line"><span class="cl">SELECT * FROM insert_table;
-</span></span><span class="line"><span class="cl">1 | N1 | 1 | 1
-</span></span><span class="line"><span class="cl">2 | N2 | 1 | 1
-</span></span><span class="line"><span class="cl">3 | N3 | 2 | 1
-</span></span><span class="line"><span class="cl">ID | T_NAME | COL1 | COL2
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">flex --header-file=lex.yy.h lex_sql.l
-</span></span><span class="line"><span class="cl">bison -d -b yacc_sql yacc_sql.y
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">cd /root/gitee/miniob-2022/build/bin
-</span></span><span class="line"><span class="cl">./observer -f /root/gitee/miniob-2022/etc/observer.ini
-</span></span><span class="line"><span class="cl">/root/gitee/miniob-2022/build/bin/obclient
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">dir /root/gitee/miniob-2022/
-</span></span><span class="line"><span class="cl">set pagination off 
-</span></span><span class="line"><span class="cl">thread apply all break execute_stage.cpp:604
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">RC ExecuteStage::do_insert(SQLStageEvent *sql_event)
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">cd /root/gitee/miniob-2022/build/bin
+./observer -f /root/gitee/miniob-2022/etc/observer.ini
+/root/gitee/miniob-2022/build/bin/obclient
+
+CREATE TABLE insert_table(id int, t_name char, col1 int, col2 int);
+
+CREATE TABLE multi_index3(id int, col1 int, col2 float, col3 char, col4 date, col5 int, col6 int);
+SUCCESS
+CREATE INDEX i_3_i1 ON multi_index3(id,col1);
+SUCCESS
+
+INSERT INTO multi_index3 VALUES (1, 1, 11.2, &#39;a&#39;, &#39;2021-01-02&#39;, 1, 1);
+
+
+
+1. INSERT
+CREATE TABLE insert_table1(id int, t_name date, col1 int, col2 int);
+INSERT INTO insert_table1 VALUES (1,&#39;2021-01-02&#39;,1,1);
+INSERT INTO insert_table VALUES (1,&#39;N1&#39;,1,1);
+INSERT INTO insert_table VALUES (2,&#39;N2&#39;,1,1),(3,&#39;N3&#39;,2,1);
+
+
+2. ERROR
+INSERT INTO insert_table VALUES (4,&#39;N4&#39;,1,1),(1,1,1);
+FAILURE
+INSERT INTO insert_table VALUES (4,&#39;N4&#39;,1,1),(1,1,1,1);
+FAILURE
+
+3. SELECT
+SELECT * FROM insert_table;
+1 | N1 | 1 | 1
+2 | N2 | 1 | 1
+3 | N3 | 2 | 1
+ID | T_NAME | COL1 | COL2
+
+
+
+
+flex --header-file=lex.yy.h lex_sql.l
+bison -d -b yacc_sql yacc_sql.y
+
+cd /root/gitee/miniob-2022/build/bin
+./observer -f /root/gitee/miniob-2022/etc/observer.ini
+/root/gitee/miniob-2022/build/bin/obclient
+
+dir /root/gitee/miniob-2022/
+set pagination off 
+thread apply all break execute_stage.cpp:604
+
+RC ExecuteStage::do_insert(SQLStageEvent *sql_event)
+
+</code></pre></td></tr></table>
 </div>
-</div><h3 id="2-数据结构">2. 数据结构</h3>
+</div><h3 id="2-">2. 数据结构</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1330,37 +1347,37 @@
 </span><span class="lnt">25
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">typedef struct ParserContext {
-</span></span><span class="line"><span class="cl">  Query * ssql;
-</span></span><span class="line"><span class="cl">  size_t select_length;
-</span></span><span class="line"><span class="cl">  size_t condition_length;
-</span></span><span class="line"><span class="cl">  size_t from_length;
-</span></span><span class="line"><span class="cl">  size_t value_length;
-</span></span><span class="line"><span class="cl">  Value values[MAX_NUM];
-</span></span><span class="line"><span class="cl">  Condition conditions[MAX_NUM];
-</span></span><span class="line"><span class="cl">  CompOp comp;
-</span></span><span class="line"><span class="cl">	char id[MAX_NUM];
-</span></span><span class="line"><span class="cl">} ParserContext;
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">class InsertStmt : public Stmt
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">C/C++ GNU Global
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">//属性值类型
-</span></span><span class="line"><span class="cl">typedef enum
-</span></span><span class="line"><span class="cl">{
-</span></span><span class="line"><span class="cl">  UNDEFINED,
-</span></span><span class="line"><span class="cl">  CHARS,
-</span></span><span class="line"><span class="cl">  INTS,
-</span></span><span class="line"><span class="cl">  FLOATS,
-</span></span><span class="line"><span class="cl">  DATES
-</span></span><span class="line"><span class="cl">} AttrType
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">typedef struct ParserContext {
+  Query * ssql;
+  size_t select_length;
+  size_t condition_length;
+  size_t from_length;
+  size_t value_length;
+  Value values[MAX_NUM];
+  Condition conditions[MAX_NUM];
+  CompOp comp;
+	char id[MAX_NUM];
+} ParserContext;
+
+class InsertStmt : public Stmt
+
+C/C++ GNU Global
+
+//属性值类型
+typedef enum
+{
+  UNDEFINED,
+  CHARS,
+  INTS,
+  FLOATS,
+  DATES
+} AttrType
+</code></pre></td></tr></table>
 </div>
-</div><h3 id="3-算法">3. 算法</h3>
+</div><h3 id="3-">3. 算法</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1381,35 +1398,37 @@
 </span><span class="lnt">19
 </span><span class="lnt">20
 </span><span class="lnt">21
+</span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">parse.cpp --&gt;SCF_INSERT
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">ResolveStage::handle_event
-</span></span><span class="line"><span class="cl">	--&gt;Stmt::create_stmt
-</span></span><span class="line"><span class="cl">		case SCF_INSERT:
-</span></span><span class="line"><span class="cl">		--&gt;InsertStmt::create(Db *db, Inserts &amp;inserts, Stmt *&amp;stmt)
-</span></span><span class="line"><span class="cl">		  ---&gt;InsertStmt::InsertStmt
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">ExecuteStage::handle_request
-</span></span><span class="line"><span class="cl">   Stmt *stmt = sql_event-&gt;stmt();
-</span></span><span class="line"><span class="cl">   case StmtType::INSERT:
-</span></span><span class="line"><span class="cl">   
-</span></span><span class="line"><span class="cl">ExecuteStage::do_insert
-</span></span><span class="line"><span class="cl">RC Table::insert_record(Trx *trx, int value_num, const Value *values) 
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">事务如何回滚
-</span></span><span class="line"><span class="cl">insert1
-</span></span><span class="line"><span class="cl">insert2
-</span></span><span class="line"><span class="cl">insert3 failed
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">parse.cpp --&gt;SCF_INSERT
+
+ResolveStage::handle_event
+	--&gt;Stmt::create_stmt
+		case SCF_INSERT:
+		--&gt;InsertStmt::create(Db *db, Inserts &amp;inserts, Stmt *&amp;stmt)
+		  ---&gt;InsertStmt::InsertStmt
+
+
+ExecuteStage::handle_request
+   Stmt *stmt = sql_event-&gt;stmt();
+   case StmtType::INSERT:
+   
+ExecuteStage::do_insert
+RC Table::insert_record(Trx *trx, int value_num, const Value *values) 
+  
+
+事务如何回滚
+insert1
+insert2
+insert3 failed
+
+</code></pre></td></tr></table>
 </div>
-</div><h3 id="4-工具">4 工具</h3>
+</div><h3 id="4-">4 工具</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1469,70 +1488,70 @@
 </span><span class="lnt">58
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">https://blog.csdn.net/qq_37041521/article/details/88865202
-</span></span><span class="line"><span class="cl">How to fix Git Error ‘Your local changes to the following files will be overwritten by merge’
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">Method 2: Keeping both changes
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">git stash
-</span></span><span class="line"><span class="cl">git pull origin master
-</span></span><span class="line"><span class="cl">git stash pop
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">Method 1: Forcing a pull to overwrite local changes
-</span></span><span class="line"><span class="cl">git reset --hard
-</span></span><span class="line"><span class="cl">git pull origin master
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">Linux Perf 性能分析工具及火焰图浅析
-</span></span><span class="line"><span class="cl">Perf 是内置于 Linux 内核源码树中的性能剖析（profiling）工具、
-</span></span><span class="line"><span class="cl">https://zhuanlan.zhihu.com/p/54276509
-</span></span><span class="line"><span class="cl">https://phoenixnap.com/kb/linux-perf
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">perf stat对全局性能进行统计；
-</span></span><span class="line"><span class="cl">perf top可以实时查看当前系统进程函数占用率情况；
-</span></span><span class="line"><span class="cl">pref record记录信息到perf.data；
-</span></span><span class="line"><span class="cl">perf report生成报告；
-</span></span><span class="line"><span class="cl">1，首先使用 perf record 命令记录进程的 CPU 使用情况
-</span></span><span class="line"><span class="cl">命令：
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">sudo perf record -e cpu-clock -g -p 1824049
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">2. 使用 perf script 工具对 perf.data 进行解析
-</span></span><span class="line"><span class="cl">命令：sudo perf script -i perf.data &amp;&gt; perf.unfold
-</span></span><span class="line"><span class="cl">3. 使用 Flame Graph 工具将 perf.unfold 中的符号折叠 //生成脚本文件
-</span></span><span class="line"><span class="cl">yum install perl
-</span></span><span class="line"><span class="cl">./FlameGraph/stackcollapse-perf.pl perf.unfold &amp;&gt; perf.folded
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">4. 使用 Flame Graph 工具将 perf.folded 生成 svg 火焰图
-</span></span><span class="line"><span class="cl">命令：
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">./FlameGraph/flamegraph.pl perf.folded &gt; perf.svg 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">//执行完成后生成perf.svg图片，可以下载到本地，用浏览器打开 perf.svg
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">命令：perf script | ./FlameGraph/stackcollapse-perf.pl | ./FlameGraph/flamegraph.pl &gt; out.svg
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">火焰图插件下载地址：
-</span></span><span class="line"><span class="cl">https://github.com/brendangregg/FlameGraph
-</span></span><span class="line"><span class="cl">快捷命令：
-</span></span><span class="line"><span class="cl">git clone https://github.com/brendangregg/FlameGraph.git
-</span></span><span class="line"><span class="cl">火焰图原文翻译：
-</span></span><span class="line"><span class="cl">https://zhuanlan.zhihu.com/p/73385693
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">软件的性能分析，往往需要查看 CPU 耗时，了解瓶颈在哪里
-</span></span><span class="line"><span class="cl">http://www.ruanyifeng.com/blog/2017/09/flame-graph.html
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">致命报错：想生成火焰图，但是老是抛出错误：ERROR: No stack counts found，could not generate flame graph: exit status 2。
-</span></span><span class="line"><span class="cl">弄了很久，以为是 perf 没装，但是装了也不行，然后发现必须在访问程序时，火焰图才能生成
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">https://blog.csdn.net/qq_37041521/article/details/88865202
+How to fix Git Error ‘Your local changes to the following files will be overwritten by merge’
+
+Method 2: Keeping both changes
+
+git stash
+git pull origin master
+git stash pop
+
+Method 1: Forcing a pull to overwrite local changes
+git reset --hard
+git pull origin master
+
+
+Linux Perf 性能分析工具及火焰图浅析
+Perf 是内置于 Linux 内核源码树中的性能剖析（profiling）工具、
+https://zhuanlan.zhihu.com/p/54276509
+https://phoenixnap.com/kb/linux-perf
+
+perf stat对全局性能进行统计；
+perf top可以实时查看当前系统进程函数占用率情况；
+pref record记录信息到perf.data；
+perf report生成报告；
+1，首先使用 perf record 命令记录进程的 CPU 使用情况
+命令：
+
+sudo perf record -e cpu-clock -g -p 1824049
+
+
+2. 使用 perf script 工具对 perf.data 进行解析
+命令：sudo perf script -i perf.data &amp;&gt; perf.unfold
+3. 使用 Flame Graph 工具将 perf.unfold 中的符号折叠 //生成脚本文件
+yum install perl
+./FlameGraph/stackcollapse-perf.pl perf.unfold &amp;&gt; perf.folded
+
+
+4. 使用 Flame Graph 工具将 perf.folded 生成 svg 火焰图
+命令：
+
+./FlameGraph/flamegraph.pl perf.folded &gt; perf.svg 
+
+//执行完成后生成perf.svg图片，可以下载到本地，用浏览器打开 perf.svg
+
+
+命令：perf script | ./FlameGraph/stackcollapse-perf.pl | ./FlameGraph/flamegraph.pl &gt; out.svg
+
+火焰图插件下载地址：
+https://github.com/brendangregg/FlameGraph
+快捷命令：
+git clone https://github.com/brendangregg/FlameGraph.git
+火焰图原文翻译：
+https://zhuanlan.zhihu.com/p/73385693
+
+软件的性能分析，往往需要查看 CPU 耗时，了解瓶颈在哪里
+http://www.ruanyifeng.com/blog/2017/09/flame-graph.html
+
+致命报错：想生成火焰图，但是老是抛出错误：ERROR: No stack counts found，could not generate flame graph: exit status 2。
+弄了很久，以为是 perf 没装，但是装了也不行，然后发现必须在访问程序时，火焰图才能生成
+</code></pre></td></tr></table>
 </div>
 </div><h3 id="day1">day1</h3>
 <ul>
 <li>
-<p><input disabled="" type="checkbox"> <a href="https://github.com/watchpoints/miniob_2022/blob/main/docs/how_to_build.md">https://github.com/watchpoints/miniob_2022/blob/main/docs/how_to_build.md</a></p>
+<p><input disabled="" type="checkbox"><a href="https://github.com/watchpoints/miniob_2022/blob/main/docs/how_to_build.md">https://github.com/watchpoints/miniob_2022/blob/main/docs/how_to_build.md</a></p>
 </li>
 <li>
 <p>centos7.8系统【建议用8】</p>
@@ -1540,7 +1559,7 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1585,57 +1604,57 @@
 </span><span class="lnt">43
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">#命令安装版本过低</span>
-</span></span><span class="line"><span class="cl">yum install  cmake
-</span></span><span class="line"><span class="cl">cmake --version 
-</span></span><span class="line"><span class="cl">2.8.12.2 //cmake 版本 &gt;<span class="o">=</span> 3.10
-</span></span><span class="line"><span class="cl">rpm -e cmake-2.8.12.2-2.el7.x86_64
-</span></span><span class="line"><span class="cl"><span class="c1"># 下载二进制安装包</span>
-</span></span><span class="line"><span class="cl">wget https://github.com/Kitware/CMake/releases/download/v3.24.0/cmake-3.24.0-linux-x86_64.sh
-</span></span><span class="line"><span class="cl">bash cmake-3.24.0-linux-x86_64.sh
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$GOROOT</span>/bin:/root/github/cmake-3.24.0-linux-x86_64/bin
-</span></span><span class="line"><span class="cl">/root/github/cmake-3.24.0-linux-x86_64/bin
-</span></span><span class="line"><span class="cl">cmake --version
-</span></span><span class="line"><span class="cl">cmake version 3.24.0
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># gcc过低 需要源码安装</span>
-</span></span><span class="line"><span class="cl">gcc --version
-</span></span><span class="line"><span class="cl">gcc <span class="o">(</span>GCC<span class="o">)</span> 4.8.5 <span class="m">20150623</span> <span class="o">(</span>Red Hat 4.8.5-44
-</span></span><span class="line"><span class="cl">tar xzvf gcc-11.3.0.tar.gz
-</span></span><span class="line"><span class="cl"><span class="nb">cd</span> gcc-11.3.0
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># gcc不同版本切换 </span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">Centos7 使用 yum 安装的 GCC 版本是 4.8.5，蛮老的版本了，现在稍微新一点的库都要求 GCC5 以上，但是重新编译安装最新的GCC又特别麻烦，而且不能在各个版本的 GCC 之间来回切换，不够灵活，刚好有一个叫做 SCL 的软件库可以提供不同版本 GCC 的灵活切换，可以完美解决我们的需求，安装十分简单：
-</span></span><span class="line"><span class="cl">————————————————
-</span></span><span class="line"><span class="cl">版权声明：本文为CSDN博主「thewangcj」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-</span></span><span class="line"><span class="cl">原文链接：https://blog.csdn.net/wcjlyj/article/details/122844189
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">yum install centos-release-scl scl-utils-build
-</span></span><span class="line"><span class="cl">yum search devtoolset <span class="c1"># 搜索 GCC</span>
-</span></span><span class="line"><span class="cl">devtoolset-9-gcc.x86_64 : GCC version <span class="m">9</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">yum install devtoolset-9-gcc.x86_64 
-</span></span><span class="line"><span class="cl">scl <span class="nb">enable</span> devtoolset-9 <span class="c1"># 启用 GC9</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">yum install devtoolset-7-gcc.x86_64 
-</span></span><span class="line"><span class="cl">scl <span class="nb">enable</span> devtoolset-7 bash
-</span></span><span class="line"><span class="cl">Operation timed out 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">如果要每次登录都自动切换成高版本的gcc，需要运行一下 vi /etc/profile 在最后一行加入
-</span></span><span class="line"><span class="cl">scl <span class="nb">enable</span> devtoolset-9 bash
-</span></span><span class="line"><span class="cl">gcc --version
-</span></span><span class="line"><span class="cl">gcc <span class="o">(</span>GCC<span class="o">)</span> 9.3.1 <span class="m">20200408</span> <span class="o">(</span>Red Hat 9.3.1-2<span class="o">)</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">
+<span class="c1">#命令安装版本过低</span>
+yum install  cmake
+cmake --version 
+2.8.12.2 //cmake 版本 &gt;<span class="o">=</span> 3.10
+rpm -e cmake-2.8.12.2-2.el7.x86_64
+<span class="c1"># 下载二进制安装包</span>
+wget https://github.com/Kitware/CMake/releases/download/v3.24.0/cmake-3.24.0-linux-x86_64.sh
+bash cmake-3.24.0-linux-x86_64.sh
+
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$GOROOT</span>/bin:/root/github/cmake-3.24.0-linux-x86_64/bin
+/root/github/cmake-3.24.0-linux-x86_64/bin
+cmake --version
+cmake version 3.24.0
+
+<span class="c1"># gcc过低 需要源码安装</span>
+gcc --version
+gcc <span class="o">(</span>GCC<span class="o">)</span> 4.8.5 <span class="m">20150623</span> <span class="o">(</span>Red Hat 4.8.5-44
+tar xzvf gcc-11.3.0.tar.gz
+<span class="nb">cd</span> gcc-11.3.0
+
+<span class="c1"># gcc不同版本切换</span> 
+
+Centos7 使用 yum 安装的 GCC 版本是 4.8.5，蛮老的版本了，现在稍微新一点的库都要求 GCC5 以上，但是重新编译安装最新的GCC又特别麻烦，而且不能在各个版本的 GCC 之间来回切换，不够灵活，刚好有一个叫做 SCL 的软件库可以提供不同版本 GCC 的灵活切换，可以完美解决我们的需求，安装十分简单：
+————————————————
+版权声明：本文为CSDN博主「thewangcj」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/wcjlyj/article/details/122844189
+
+yum install centos-release-scl scl-utils-build
+yum search devtoolset <span class="c1"># 搜索 GCC</span>
+devtoolset-9-gcc.x86_64 : GCC version 9
+
+yum install devtoolset-9-gcc.x86_64 
+scl <span class="nb">enable</span> devtoolset-9 <span class="c1"># 启用 GC9</span>
+
+yum install devtoolset-7-gcc.x86_64 
+scl <span class="nb">enable</span> devtoolset-7 bash
+Operation timed out 
+
+如果要每次登录都自动切换成高版本的gcc，需要运行一下 vi /etc/profile 在最后一行加入
+scl <span class="nb">enable</span> devtoolset-9 bash
+gcc --version
+gcc <span class="o">(</span>GCC<span class="o">)</span> 9.3.1 <span class="m">20200408</span> <span class="o">(</span>Red Hat 9.3.1-2<span class="o">)</span>
+</code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>build libevent</li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -1646,23 +1665,23 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="nv">git</span> <span class="nv">submodule</span> <span class="nv">add</span> <span class="nv">https</span><span class="p">:</span><span class="c1">//github.com/libevent/libevent deps/libevent
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nv">cd</span> <span class="nv">deps</span>
-</span></span><span class="line"><span class="cl"><span class="nv">cd</span> <span class="nv">libevent</span>
-</span></span><span class="line"><span class="cl"><span class="nv">git</span> <span class="nv">checkout</span> <span class="nv">release</span><span class="o">-</span><span class="mf">2.1.12</span><span class="o">-</span><span class="nv">stable</span>
-</span></span><span class="line"><span class="cl"><span class="nv">mkdir</span> <span class="nv">build</span>
-</span></span><span class="line"><span class="cl"><span class="nv">cd</span> <span class="nv">build</span>
-</span></span><span class="line"><span class="cl"><span class="nv">cmake</span> <span class="o">..</span> <span class="o">-</span><span class="nc">DEVENT__DISABLE_OPENSSL</span><span class="o">=</span><span class="nc">ON</span>
-</span></span><span class="line"><span class="cl"><span class="nv">make</span>
-</span></span><span class="line"><span class="cl"><span class="nv">sudo</span> <span class="nv">make</span> <span class="nv">install</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">git submodule add https://github.com/libevent/libevent deps/libevent
+cd deps
+cd libevent
+git checkout release-2.1.12-stable
+mkdir build
+cd build
+cmake .. -DEVENT__DISABLE_OPENSSL=ON
+make
+sudo make install
+</code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>build google test</li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1673,25 +1692,29 @@
 </span><span class="lnt"> 9
 </span><span class="lnt">10
 </span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="nv">git</span> <span class="nv">submodule</span> <span class="nv">add</span> <span class="nv">https</span><span class="p">:</span><span class="c1">//github.com/google/googletest deps/googletest
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nv">cd</span> <span class="nv">deps</span>
-</span></span><span class="line"><span class="cl"><span class="nv">cd</span> <span class="nv">googletest</span>
-</span></span><span class="line"><span class="cl"><span class="nv">mkdir</span> <span class="nv">build</span>
-</span></span><span class="line"><span class="cl"><span class="nv">cd</span> <span class="nv">build</span>
-</span></span><span class="line"><span class="cl"><span class="nv">cmake</span> <span class="o">..</span>
-</span></span><span class="line"><span class="cl"><span class="nv">make</span>
-</span></span><span class="line"><span class="cl"><span class="nv">sudo</span> <span class="nv">make</span> <span class="nv">instal</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="kt">error</span><span class="p">:</span> <span class="nv">body</span> <span class="nv">of</span> <span class="nv">constexpr</span> <span class="nv">function</span> <span class="err">‘</span><span class="k">static</span> <span class="nv">constexpr</span> <span class="kt">bool</span> <span class="nv">testing</span><span class="p">::</span><span class="nv">internal</span><span class="p">::</span><span class="nc">MatcherBase</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;::</span><span class="nc">IsInlined</span><span class="p">()</span> <span class="p">[</span><span class="nv">with</span> <span class="nc">M</span> <span class="o">=</span> <span class="nv">testing</span><span class="p">::</span><span class="nv">internal</span><span class="p">::</span><span class="nc">EqMatcher</span><span class="p">&lt;</span><span class="nv">std</span><span class="p">::</span><span class="nv">basic_string</span><span class="p">&lt;</span><span class="nv">char</span><span class="p">&gt;</span> <span class="p">&gt;;</span> <span class="nc">T</span> <span class="o">=</span> <span class="kd">const</span> <span class="nv">std</span><span class="p">::</span><span class="nv">basic_string</span><span class="p">&lt;</span><span class="nv">char</span><span class="p">&gt;</span><span class="o">&amp;</span><span class="p">]</span><span class="err">’</span> <span class="nv">not</span> <span class="nv">a</span> <span class="k">return</span><span class="o">-</span><span class="nv">statement</span>
-</span></span><span class="line"><span class="cl">   <span class="p">}</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">git submodule add https://github.com/google/googletest deps/googletest
+cd deps
+cd googletest
+mkdir build
+cd build
+cmake ..
+make
+sudo make instal
+
+ error: body of constexpr function ‘static constexpr bool testing::internal::MatcherBase&lt;T&gt;::IsInlined() [with M = testing::internal::EqMatcher&lt;std::basic_string&lt;char&gt; &gt;; T = const std::basic_string&lt;char&gt;&amp;]’ not a return-statement
+   }
+
+
+</code></pre></td></tr></table>
 </div>
-</div><h4 id="centos7-不行升级为centos8">centos7 不行升级为centos8</h4>
+</div><h4 id="centos7-centos8">centos7 不行升级为centos8</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1723,68 +1746,70 @@
 </span><span class="lnt">30
 </span><span class="lnt">31
 </span><span class="lnt">32
+</span><span class="lnt">33
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="nv">git</span> <span class="nv">clone</span> <span class="nv">git</span><span class="o">@</span><span class="nv">github</span><span class="p">.</span><span class="nv">com</span><span class="p">:</span><span class="nv">watchpoints</span><span class="o">/</span><span class="nv">miniob_2022</span><span class="p">.</span><span class="nv">git</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nv">git</span> <span class="nv">submodule</span> <span class="nv">add</span> <span class="nv">https</span><span class="p">:</span><span class="c1">//github.com/libevent/libevent deps/libevent
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nv">cd</span> <span class="nv">deps</span>
-</span></span><span class="line"><span class="cl"><span class="nv">cd</span> <span class="nv">libevent</span>
-</span></span><span class="line"><span class="cl"><span class="nv">git</span> <span class="nv">checkout</span> <span class="nv">release</span><span class="o">-</span><span class="mf">2.1.12</span><span class="o">-</span><span class="nv">stable</span>
-</span></span><span class="line"><span class="cl"><span class="nv">mkdir</span> <span class="nv">build</span>
-</span></span><span class="line"><span class="cl"><span class="nv">cd</span> <span class="nv">build</span>
-</span></span><span class="line"><span class="cl"><span class="nv">cmake</span> <span class="o">..</span> <span class="o">-</span><span class="nc">DEVENT__DISABLE_OPENSSL</span><span class="o">=</span><span class="nc">ON</span>
-</span></span><span class="line"><span class="cl"><span class="nv">make</span>
-</span></span><span class="line"><span class="cl"><span class="nv">sudo</span> <span class="nv">make</span> <span class="nv">install</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nv">git</span> <span class="nv">submodule</span> <span class="nv">add</span> <span class="nv">https</span><span class="p">:</span><span class="c1">//github.com/google/googletest deps/googletest
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nv">cd</span> <span class="nv">deps</span>
-</span></span><span class="line"><span class="cl"><span class="nv">cd</span> <span class="nv">googletest</span>
-</span></span><span class="line"><span class="cl"><span class="nv">mkdir</span> <span class="nv">build</span>
-</span></span><span class="line"><span class="cl"><span class="nv">cd</span> <span class="nv">build</span>
-</span></span><span class="line"><span class="cl"><span class="nv">cmake</span> <span class="o">..</span>
-</span></span><span class="line"><span class="cl"><span class="nv">make</span>
-</span></span><span class="line"><span class="cl"><span class="nv">sudo</span> <span class="nv">make</span> <span class="nv">instal</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nc">OpenSSL</span> <span class="nc">SSL_read</span><span class="p">:</span> <span class="nc">SSL_ERROR_SYSCALL</span><span class="p">,</span> <span class="nv">errno</span> <span class="mi">104</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nv">git</span> <span class="nv">submodule</span> <span class="nv">add</span> <span class="nv">https</span><span class="p">:</span><span class="c1">//github.com/open-source-parsers/jsoncpp.git deps/jsoncpp
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nv">cd</span> <span class="nv">deps</span>
-</span></span><span class="line"><span class="cl"><span class="nv">cd</span> <span class="nv">jsoncpp</span>
-</span></span><span class="line"><span class="cl"><span class="nv">mkdir</span> <span class="nv">build</span>
-</span></span><span class="line"><span class="cl"><span class="nv">cd</span> <span class="nv">build</span>
-</span></span><span class="line"><span class="cl"><span class="nv">cmake</span> <span class="o">-</span><span class="nc">DJSONCPP_WITH_TESTS</span><span class="o">=</span><span class="nc">OFF</span> <span class="o">-</span><span class="nc">DJSONCPP_WITH_POST_BUILD_UNITTEST</span><span class="o">=</span><span class="nc">OFF</span> <span class="o">..</span>
-</span></span><span class="line"><span class="cl"><span class="nv">make</span>
-</span></span><span class="line"><span class="cl"><span class="nv">sudo</span> <span class="nv">make</span> <span class="nv">install</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">git clone git@github.com:watchpoints/miniob_2022.git
+
+git submodule add https://github.com/libevent/libevent deps/libevent
+cd deps
+cd libevent
+git checkout release-2.1.12-stable
+mkdir build
+cd build
+cmake .. -DEVENT__DISABLE_OPENSSL=ON
+make
+sudo make install
+
+git submodule add https://github.com/google/googletest deps/googletest
+cd deps
+cd googletest
+mkdir build
+cd build
+cmake ..
+make
+sudo make instal
+
+OpenSSL SSL_read: SSL_ERROR_SYSCALL, errno 104
+
+
+git submodule add https://github.com/open-source-parsers/jsoncpp.git deps/jsoncpp
+cd deps
+cd jsoncpp
+mkdir build
+cd build
+cmake -DJSONCPP_WITH_TESTS=OFF -DJSONCPP_WITH_POST_BUILD_UNITTEST=OFF ..
+make
+sudo make install
+
+</code></pre></td></tr></table>
 </div>
 </div><blockquote>
 <p>build miniob</p>
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">mkdir build
-</span></span><span class="line"><span class="cl">cd build
-</span></span><span class="line"><span class="cl"># 建议开启DEBUG模式编译，更方便调试
-</span></span><span class="line"><span class="cl">cmake .. -DDEBUG=ON
-</span></span><span class="line"><span class="cl">make
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">mkdir build
+cd build
+# 建议开启DEBUG模式编译，更方便调试
+cmake .. -DDEBUG=ON
+make
+</code></pre></td></tr></table>
 </div>
 </div><ul>
 <li><a href="https://github.com/watchpoints/miniob_2022/blob/main/docs/miniob-introduction.md">https://github.com/watchpoints/miniob_2022/blob/main/docs/miniob-introduction.md</a></li>
 </ul>
-<h4 id="运行服务端">运行服务端</h4>
+<h4 id="heading-6">运行服务端</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1811,36 +1836,38 @@
 </span><span class="lnt">25
 </span><span class="lnt">26
 </span><span class="lnt">27
+</span><span class="lnt">28
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">python3 miniob_test.py \
-</span></span><span class="line"><span class="cl">        --test-case-dir=./test  \
-</span></span><span class="line"><span class="cl">        --test-case-scores=case-scores.json \
-</span></span><span class="line"><span class="cl">        --test-result-dir=result \
-</span></span><span class="line"><span class="cl">        --test-result-tmp-dir=./result_tmp \
-</span></span><span class="line"><span class="cl">        --use-unix-socket \
-</span></span><span class="line"><span class="cl">        --git-repo=https://gitee.com/blogg9ggg/miniob-2022.git\
-</span></span><span class="line"><span class="cl">        --git-branch=main \
-</span></span><span class="line"><span class="cl">        --code-type=git \
-</span></span><span class="line"><span class="cl">        --target-dir=./miniob \
-</span></span><span class="line"><span class="cl">        --log=stdout \
-</span></span><span class="line"><span class="cl">        --compile-make-args=-j4
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">/root/gitee/miniob-2022/build/bin/observer -f /root/gitee/miniob-2022/etc/observer.ini
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">/root/github/miniob-2022/build/bin/obclient
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">oot@node1 bin]# ./observer
-</span></span><span class="line"><span class="cl">./observer: error while loading shared libraries: libjsoncpp.so.25: cannot open shared object file: No such file or directory 环境变量导入了 怎么执行还报错
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">无效：
-</span></span><span class="line"><span class="cl">export LD_LIBRARY=$LD_LIBRARY:/usr/local/lib64:/root/github/miniob_2022/deps/jsoncpp/build/lib
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">正确：
-</span></span><span class="line"><span class="cl">直接把那3个文件拷贝到/usr/local/lib/下试试。
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">python3 miniob_test.py \
+        --test-case-dir=./test  \
+        --test-case-scores=case-scores.json \
+        --test-result-dir=result \
+        --test-result-tmp-dir=./result_tmp \
+        --use-unix-socket \
+        --git-repo=https://gitee.com/blogg9ggg/miniob-2022.git\
+        --git-branch=main \
+        --code-type=git \
+        --target-dir=./miniob \
+        --log=stdout \
+        --compile-make-args=-j4
+
+/root/gitee/miniob-2022/build/bin/observer -f /root/gitee/miniob-2022/etc/observer.ini
+
+
+/root/github/miniob-2022/build/bin/obclient
+
+
+oot@node1 bin]# ./observer
+./observer: error while loading shared libraries: libjsoncpp.so.25: cannot open shared object file: No such file or directory 环境变量导入了 怎么执行还报错
+
+无效：
+export LD_LIBRARY=$LD_LIBRARY:/usr/local/lib64:/root/github/miniob_2022/deps/jsoncpp/build/lib
+
+正确：
+直接把那3个文件拷贝到/usr/local/lib/下试试。
+
+</code></pre></td></tr></table>
 </div>
 </div><p>后端开发工程师-飞书存储业务-技术专家/架构师/资深研发</p>
 <p>Base 地：深圳 / 广州 / 武汉
@@ -1855,11 +1882,11 @@
 3、深入了解数据库原理，熟练掌握分布式存储、计算、查询优化器的关键技术并有实战经验；
 4、熟读过 StarRocks / Apache Doris / Rocksdb / TiDB / CockroachDB 任一代码优先；
 5、开源作品、大厂分布式系统实践、ACM、国内一线技术竞赛获奖经验加分。</p>
-<h3 id="题目2unique">题目2：unique</h3>
-<h4 id="21-测试">2.1 测试</h4>
+<h3 id="2unique">题目2：unique</h3>
+<h4 id="21-">2.1 测试</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1925,80 +1952,84 @@
 </span><span class="lnt">64
 </span><span class="lnt">65
 </span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">cd /root/gitee/miniob-2022/build/bin/
-</span></span><span class="line"><span class="cl">./observer -f /root/gitee/miniob-2022/etc/observer.ini
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">/root/gitee/miniob-2022/build/bin/obclient
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">dir /root/gitee/miniob-2022/
-</span></span><span class="line"><span class="cl">set pagination off 
-</span></span><span class="line"><span class="cl">thread apply all break execute_stage.cpp:604
-</span></span><span class="line"><span class="cl">thread apply all break execute_stage.cpp:619
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">RC Table::insert_record(Trx *trx, Record *record)
-</span></span><span class="line"><span class="cl">/root/gitee/miniob-2022/src/observer/storage/index/bplus_tree_index.cpp
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">flex --header-file=lex.yy.h lex_sql.l
-</span></span><span class="line"><span class="cl">bison -d -b yacc_sql yacc_sql.y
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">thread apply all break bplus_tree_index.cpp:619
-</span></span><span class="line"><span class="cl">INITIALIZATION
-</span></span><span class="line"><span class="cl">CREATE TABLE unique_table(id int, col1 int, col2 int);
-</span></span><span class="line"><span class="cl">SUCCESS
-</span></span><span class="line"><span class="cl">INSERT INTO unique_table VALUES (1,1,1);
-</span></span><span class="line"><span class="cl">SUCCESS
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">1. UNIQUE TEST
-</span></span><span class="line"><span class="cl">CREATE UNIQUE INDEX index_id on unique_table(id);
-</span></span><span class="line"><span class="cl">SUCCESS
-</span></span><span class="line"><span class="cl">INSERT INTO unique_table VALUES (2,1,1);
-</span></span><span class="line"><span class="cl">SUCCESS
-</span></span><span class="line"><span class="cl">CREATE UNIQUE INDEX index_id on unique_table(id);
-</span></span><span class="line"><span class="cl">FAILURE
-</span></span><span class="line"><span class="cl">INSERT INTO unique_table VALUES (3,2,1);
-</span></span><span class="line"><span class="cl">SUCCESS
-</span></span><span class="line"><span class="cl">INSERT INTO unique_table VALUES (1,2,1);
-</span></span><span class="line"><span class="cl">FAILURE
-</span></span><span class="line"><span class="cl">select * from unique_table where id=1;
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">CREATE INDEX index_id on unique_table2(id1,id2);
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">CREATE TABLE unique_table2(id1 int, id2 int, id3 int);
-</span></span><span class="line"><span class="cl">CREATE UNIQUE INDEX index_id on unique_table2(id1,id2);
-</span></span><span class="line"><span class="cl">INSERT INTO unique_table2 VALUES (2,2,1,1);
-</span></span><span class="line"><span class="cl">INSERT INTO unique_table2 VALUES (1,1,1,1);
-</span></span><span class="line"><span class="cl">2. SELECT
-</span></span><span class="line"><span class="cl">SELECT * FROM unique_table;
-</span></span><span class="line"><span class="cl">1 | 1 | 1
-</span></span><span class="line"><span class="cl">2 | 1 | 1
-</span></span><span class="line"><span class="cl">3 | 2 | 1
-</span></span><span class="line"><span class="cl">ID | COL1 | COL2
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">flex --header-file=lex.yy.h lex_sql.l
-</span></span><span class="line"><span class="cl">bison -d -b yacc_sql yacc_sql.y
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">/root/gitee/miniob-2022/build/bin/observer -f /root/gitee/miniob-2022/etc/observer.ini
-</span></span><span class="line"><span class="cl">/root/github/miniob-2022/build/bin/obclient
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">dir /root/gitee/miniob-2022/
-</span></span><span class="line"><span class="cl">set pagination off 
-</span></span><span class="line"><span class="cl">thread apply all break execute_stage.cpp:604
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">RC ExecuteStage::do_insert(SQLStageEvent *sql_event)
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">miniob &gt; select * from unique_table where id=1;
-</span></span><span class="line"><span class="cl">id | col1 | col2
-</span></span><span class="line"><span class="cl">miniob &gt; select * from unique_table;
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">cd /root/gitee/miniob-2022/build/bin/
+./observer -f /root/gitee/miniob-2022/etc/observer.ini
+
+/root/gitee/miniob-2022/build/bin/obclient
+
+dir /root/gitee/miniob-2022/
+set pagination off 
+thread apply all break execute_stage.cpp:604
+thread apply all break execute_stage.cpp:619
+
+RC Table::insert_record(Trx *trx, Record *record)
+/root/gitee/miniob-2022/src/observer/storage/index/bplus_tree_index.cpp
+
+flex --header-file=lex.yy.h lex_sql.l
+bison -d -b yacc_sql yacc_sql.y
+
+
+thread apply all break bplus_tree_index.cpp:619
+INITIALIZATION
+CREATE TABLE unique_table(id int, col1 int, col2 int);
+SUCCESS
+INSERT INTO unique_table VALUES (1,1,1);
+SUCCESS
+
+1. UNIQUE TEST
+CREATE UNIQUE INDEX index_id on unique_table(id);
+SUCCESS
+INSERT INTO unique_table VALUES (2,1,1);
+SUCCESS
+CREATE UNIQUE INDEX index_id on unique_table(id);
+FAILURE
+INSERT INTO unique_table VALUES (3,2,1);
+SUCCESS
+INSERT INTO unique_table VALUES (1,2,1);
+FAILURE
+select * from unique_table where id=1;
+
+CREATE INDEX index_id on unique_table2(id1,id2);
+
+CREATE TABLE unique_table2(id1 int, id2 int, id3 int);
+CREATE UNIQUE INDEX index_id on unique_table2(id1,id2);
+INSERT INTO unique_table2 VALUES (2,2,1,1);
+INSERT INTO unique_table2 VALUES (1,1,1,1);
+2. SELECT
+SELECT * FROM unique_table;
+1 | 1 | 1
+2 | 1 | 1
+3 | 2 | 1
+ID | COL1 | COL2
+
+
+flex --header-file=lex.yy.h lex_sql.l
+bison -d -b yacc_sql yacc_sql.y
+
+/root/gitee/miniob-2022/build/bin/observer -f /root/gitee/miniob-2022/etc/observer.ini
+/root/github/miniob-2022/build/bin/obclient
+
+dir /root/gitee/miniob-2022/
+set pagination off 
+thread apply all break execute_stage.cpp:604
+
+RC ExecuteStage::do_insert(SQLStageEvent *sql_event)
+
+miniob &gt; select * from unique_table where id=1;
+id | col1 | col2
+miniob &gt; select * from unique_table;
+
+
+</code></pre></td></tr></table>
 </div>
-</div><h5 id="22-流程图">2.2 流程图</h5>
+</div><h5 id="22-">2.2 流程图</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -2022,35 +2053,35 @@
 </span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="p">[</span><span class="n">OptimizeStage</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">ThreadId</span><span class="o">=</span><span class="n">SQLThreads</span>
-</span></span><span class="line"><span class="cl"><span class="n">NextStages</span><span class="o">=</span><span class="n">ExecuteStage</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="n">ExecuteStage</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">ThreadId</span><span class="o">=</span><span class="n">SQLThreads</span>
-</span></span><span class="line"><span class="cl"><span class="n">NextStages</span><span class="o">=</span><span class="n">DefaultStorageStage</span><span class="p">,</span><span class="n">MemStorageStage</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="n">DefaultStorageStage</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">ThreadId</span><span class="o">=</span><span class="n">IOThreads</span>
-</span></span><span class="line"><span class="cl"><span class="n">BaseDir</span><span class="o">=</span><span class="p">.</span><span class="o">/</span><span class="n">miniob</span>
-</span></span><span class="line"><span class="cl"><span class="n">SystemDb</span><span class="o">=</span><span class="n">sys</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">src</span><span class="o">/</span><span class="n">observer</span><span class="o">/</span><span class="n">sql</span><span class="o">/</span><span class="n">parser</span><span class="o">/</span><span class="n">parse</span><span class="p">.</span><span class="n">cpp</span>
-</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">query_reset</span><span class="p">(</span><span class="n">Query</span> <span class="o">*</span><span class="n">query</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">src</span><span class="o">/</span><span class="n">observer</span><span class="o">/</span><span class="n">sql</span><span class="o">/</span><span class="n">executor</span><span class="o">/</span><span class="n">execute_stage</span><span class="p">.</span><span class="n">cpp</span>
-</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">ExecuteStage</span><span class="o">::</span><span class="n">handle_request</span><span class="p">(</span><span class="n">common</span><span class="o">::</span><span class="n">StageEvent</span> <span class="o">*</span><span class="n">event</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">src</span><span class="o">/</span><span class="n">observer</span><span class="o">/</span><span class="n">sql</span><span class="o">/</span><span class="n">executor</span><span class="o">/</span><span class="n">execute_stage</span><span class="p">.</span><span class="n">cpp</span>
-</span></span><span class="line"><span class="cl"><span class="n">RC</span> <span class="n">Table</span><span class="o">::</span><span class="n">create_unique_index</span><span class="p">(</span><span class="n">Trx</span> <span class="o">*</span><span class="n">trx</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">index_name</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">attribute_name</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="p">[</span><span class="n">OptimizeStage</span><span class="p">]</span>
+<span class="n">ThreadId</span><span class="o">=</span><span class="n">SQLThreads</span>
+<span class="n">NextStages</span><span class="o">=</span><span class="n">ExecuteStage</span>
+
+<span class="p">[</span><span class="n">ExecuteStage</span><span class="p">]</span>
+<span class="n">ThreadId</span><span class="o">=</span><span class="n">SQLThreads</span>
+<span class="n">NextStages</span><span class="o">=</span><span class="n">DefaultStorageStage</span><span class="p">,</span><span class="n">MemStorageStage</span>
+
+<span class="p">[</span><span class="n">DefaultStorageStage</span><span class="p">]</span>
+<span class="n">ThreadId</span><span class="o">=</span><span class="n">IOThreads</span>
+<span class="n">BaseDir</span><span class="o">=</span><span class="p">.</span><span class="o">/</span><span class="n">miniob</span>
+<span class="n">SystemDb</span><span class="o">=</span><span class="n">sys</span>
+
+
+<span class="n">src</span><span class="o">/</span><span class="n">observer</span><span class="o">/</span><span class="n">sql</span><span class="o">/</span><span class="n">parser</span><span class="o">/</span><span class="n">parse</span><span class="p">.</span><span class="n">cpp</span>
+<span class="kt">void</span> <span class="n">query_reset</span><span class="p">(</span><span class="n">Query</span> <span class="o">*</span><span class="n">query</span><span class="p">)</span>
+
+<span class="n">src</span><span class="o">/</span><span class="n">observer</span><span class="o">/</span><span class="n">sql</span><span class="o">/</span><span class="n">executor</span><span class="o">/</span><span class="n">execute_stage</span><span class="p">.</span><span class="n">cpp</span>
+<span class="kt">void</span> <span class="n">ExecuteStage</span><span class="o">:</span><span class="o">:</span><span class="n">handle_request</span><span class="p">(</span><span class="n">common</span><span class="o">:</span><span class="o">:</span><span class="n">StageEvent</span> <span class="o">*</span><span class="n">event</span><span class="p">)</span>
+
+<span class="n">src</span><span class="o">/</span><span class="n">observer</span><span class="o">/</span><span class="n">sql</span><span class="o">/</span><span class="n">executor</span><span class="o">/</span><span class="n">execute_stage</span><span class="p">.</span><span class="n">cpp</span>
+<span class="n">RC</span> <span class="n">Table</span><span class="o">:</span><span class="o">:</span><span class="n">create_unique_index</span><span class="p">(</span><span class="n">Trx</span> <span class="o">*</span><span class="n">trx</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">index_name</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">attribute_name</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div><h3 id="题目1">题目1</h3>
-<h4 id="流程">流程</h4>
+</div><h3 id="1">题目1</h3>
+<h4 id="heading-7">流程</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -2065,29 +2096,31 @@
 </span><span class="lnt">13
 </span><span class="lnt">14
 </span><span class="lnt">15
+</span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[ResolveStage]
-</span></span><span class="line"><span class="cl">ThreadId=SQLThreads
-</span></span><span class="line"><span class="cl">NextStages=QueryCacheStage
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">[QueryCacheStage]
-</span></span><span class="line"><span class="cl">ThreadId=SQLThreads
-</span></span><span class="line"><span class="cl">NextStages=OptimizeStage
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">sql解析
-</span></span><span class="line"><span class="cl">ParseStage::handle_request
-</span></span><span class="line"><span class="cl">语义解析：
-</span></span><span class="line"><span class="cl">ResolveStage::handle_event
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl">   Stmt::create_stmt
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[ResolveStage]
+ThreadId=SQLThreads
+NextStages=QueryCacheStage
+
+[QueryCacheStage]
+ThreadId=SQLThreads
+NextStages=OptimizeStage
+
+
+sql解析
+ParseStage::handle_request
+语义解析：
+ResolveStage::handle_event
+ 
+   Stmt::create_stmt
+
+</code></pre></td></tr></table>
 </div>
-</div><h4 id="代码">代码</h4>
+</div><h4 id="heading-8">代码</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -2132,55 +2165,55 @@
 </span><span class="lnt">43
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Stmt::create_stmt
-</span></span><span class="line"><span class="cl">case SCF_SELECT: {
-</span></span><span class="line"><span class="cl">      return SelectStmt::create(db, query.sstr.selection, stmt);
-</span></span><span class="line"><span class="cl">    }
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">sql解析
-</span></span><span class="line"><span class="cl">ParseStage::handle_request
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">Stmt::create_stmt
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">src/observer/sql/parser/lex_sql.l
-</span></span><span class="line"><span class="cl">src/observer/sql/parser/yacc_sql.y
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">// struct of select
-</span></span><span class="line"><span class="cl">typedef struct {
-</span></span><span class="line"><span class="cl">  size_t attr_num;                // Length of attrs in Select clause
-</span></span><span class="line"><span class="cl">  RelAttr attributes[MAX_NUM];    // attrs in Select clause
-</span></span><span class="line"><span class="cl">  size_t relation_num;            // Length of relations in Fro clause
-</span></span><span class="line"><span class="cl">  char *relations[MAX_NUM];       // relations in From clause
-</span></span><span class="line"><span class="cl">  size_t condition_num;           // Length of conditions in Where clause
-</span></span><span class="line"><span class="cl">  Condition conditions[MAX_NUM];  // conditions in Where clause
-</span></span><span class="line"><span class="cl">} Selects;
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">SelectStmt::create
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">flex --header-file=lex.yy.h lex_sql.l
-</span></span><span class="line"><span class="cl">bison -d -b yacc_sql yacc_sql.y
-</span></span><span class="line"><span class="cl">注意：当前没有把lex_sql.l和yacc_sql.y加入CMakefile.txt中，所以修改这两个文件后，需要手动生成c代码，然后再执行编译。
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">注意：flex 使用 2.5.35 版本测试通过，bison使用3.7版本测试通过
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">flex 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">CentOS8设置国内阿里云镜像源2022
-</span></span><span class="line"><span class="cl">https://www.imhu.cn/days/857
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">/root/gitee/miniob-2022/src/observer/sql/parser
-</span></span><span class="line"><span class="cl">flex --header-file=lex.yy.h lex_sql.l
-</span></span><span class="line"><span class="cl">bison -d -b yacc_sql yacc_sql.y
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Stmt::create_stmt
+case SCF_SELECT: {
+      return SelectStmt::create(db, query.sstr.selection, stmt);
+    }
+    
+    
+sql解析
+ParseStage::handle_request
+
+Stmt::create_stmt
+
+
+
+src/observer/sql/parser/lex_sql.l
+src/observer/sql/parser/yacc_sql.y
+
+// struct of select
+typedef struct {
+  size_t attr_num;                // Length of attrs in Select clause
+  RelAttr attributes[MAX_NUM];    // attrs in Select clause
+  size_t relation_num;            // Length of relations in Fro clause
+  char *relations[MAX_NUM];       // relations in From clause
+  size_t condition_num;           // Length of conditions in Where clause
+  Condition conditions[MAX_NUM];  // conditions in Where clause
+} Selects;
+
+SelectStmt::create
+
+
+flex --header-file=lex.yy.h lex_sql.l
+bison -d -b yacc_sql yacc_sql.y
+注意：当前没有把lex_sql.l和yacc_sql.y加入CMakefile.txt中，所以修改这两个文件后，需要手动生成c代码，然后再执行编译。
+
+注意：flex 使用 2.5.35 版本测试通过，bison使用3.7版本测试通过
+
+flex 
+
+CentOS8设置国内阿里云镜像源2022
+https://www.imhu.cn/days/857
+
+/root/gitee/miniob-2022/src/observer/sql/parser
+flex --header-file=lex.yy.h lex_sql.l
+bison -d -b yacc_sql yacc_sql.y
+</code></pre></td></tr></table>
 </div>
-</div><h4 id="测试">测试</h4>
+</div><h4 id="heading-9">测试</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -2202,31 +2235,35 @@
 </span><span class="lnt">20
 </span><span class="lnt">21
 </span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git reset --hard
-</span></span><span class="line"><span class="cl">我的手机号是17728151873
-</span></span><span class="line"><span class="cl">/root/gitee/miniob-2022/build/bin/observer -f /root/gitee/miniob-2022/etc/observer.ini
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">/root/github/miniob-2022/build/bin/obclient
-</span></span><span class="line"><span class="cl">git reset --hard origin/master
-</span></span><span class="line"><span class="cl">select *,age from Select_meta2;
-</span></span><span class="line"><span class="cl">select *,age from Select_meta;
-</span></span><span class="line"><span class="cl">select *,id1 from Select_meta;
-</span></span><span class="line"><span class="cl">CREATE TABLE Select_meta(id int, age int);
-</span></span><span class="line"><span class="cl">SUCCESS
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">1. SELECT FROM A NON-EXISTENT TABLE
-</span></span><span class="line"><span class="cl">select * from no_table;
-</span></span><span class="line"><span class="cl">FAILURE
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">2. SELECT FROM A NON-EXISTENT COLUMN
-</span></span><span class="line"><span class="cl">select home from Select_meta;
-</span></span><span class="line"><span class="cl">FAILURE
-</span></span><span class="line"><span class="cl">select * from Select_meta where home=&#39;001&#39;;
-</span></span><span class="line"><span class="cl">FAILURE
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">git reset --hard
+我的手机号是17728151873
+/root/gitee/miniob-2022/build/bin/observer -f /root/gitee/miniob-2022/etc/observer.ini
+
+
+/root/github/miniob-2022/build/bin/obclient
+git reset --hard origin/master
+select *,age from Select_meta2;
+select *,age from Select_meta;
+select *,id1 from Select_meta;
+CREATE TABLE Select_meta(id int, age int);
+SUCCESS
+
+1. SELECT FROM A NON-EXISTENT TABLE
+select * from no_table;
+FAILURE
+
+2. SELECT FROM A NON-EXISTENT COLUMN
+select home from Select_meta;
+FAILURE
+select * from Select_meta where home=&#39;001&#39;;
+FAILURE
+
+
+</code></pre></td></tr></table>
 </div>
 </div><ol start="3">
 <li>

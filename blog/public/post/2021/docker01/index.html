@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.101.0 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
 <link rel="canonical" href="https://wangcy6.github.io/post/2021/docker01/" />
@@ -41,14 +41,17 @@
 <meta property="og:title" content="docker入门教程" />
 <meta property="og:description" content="docker入门教程" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://wangcy6.github.io/post/2021/docker01/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://wangcy6.github.io/post/2021/docker01/" />
 <meta property="article:published_time" content="2021-08-25T00:00:00+00:00" />
 <meta property="article:modified_time" content="2021-08-25T00:00:00+00:00" />
-
 <meta itemprop="name" content="docker入门教程">
-<meta itemprop="description" content="docker入门教程"><meta itemprop="datePublished" content="2021-08-25T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2021-08-25T00:00:00+00:00" />
-<meta itemprop="wordCount" content="931">
+<meta itemprop="description" content="docker入门教程">
+<meta itemprop="datePublished" content="2021-08-25T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-08-25T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="932">
+
+
+
 <meta itemprop="keywords" content="code_reading," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="docker入门教程"/>
 <meta name="twitter:description" content="docker入门教程"/>
@@ -128,7 +131,7 @@
       <div class="post-meta">
         <span class="post-time"> 2021-08-25 00:00 </span>
         
-          <span class="more-meta"> 约 931 字 </span>
+          <span class="more-meta"> 约 932 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -141,26 +144,26 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#容器网络-4讲">容器网络 (4讲)</a></li>
+        <li><a href="#-4">容器网络 (4讲)</a></li>
       </ul>
     </li>
   </ul>
 
   <ul>
-    <li><a href="#基本操作">基本操作</a>
+    <li><a href="#heading-3">基本操作</a>
       <ul>
-        <li><a href="#安装">安装</a></li>
-        <li><a href="#docker-基本操作">docker 基本操作</a></li>
+        <li><a href="#heading-4">安装</a></li>
+        <li><a href="#docker-">docker 基本操作</a></li>
       </ul>
     </li>
-    <li><a href="#二book">二、BOOK</a>
+    <li><a href="#book">二、BOOK</a>
       <ul>
-        <li><a href="#21-第一本-httpsyeasygitbookiodocker_practice-docker技术入门与实战第3版">2.1 第一本 <a href="https://yeasy.gitbook.io/docker_practice/">https://yeasy.gitbook.io/docker_practice/</a> <strong>Docker技术入门与实战（第3版）</strong></a></li>
-        <li><a href="#211-底层实现">2.1.1 底层实现</a></li>
+        <li><a href="#21--httpsyeasygitbookiodocker-practice-docker3">2.1 第一本  Docker技术入门与实战（第3版）</a></li>
+        <li><a href="#211-">2.1.1 底层实现</a></li>
       </ul>
     </li>
-    <li><a href="#22-第二本docker-源码分析">2.2 第二本：Docker 源码分析</a></li>
-    <li><a href="#23-第三本容器实战高手课-在实战中深入理解容器技术的本质">2.3 第三本：容器实战高手课 在实战中深入理解容器技术的本质</a></li>
+    <li><a href="#22-docker-">2.2 第二本：Docker 源码分析</a></li>
+    <li><a href="#23--">2.3 第三本：容器实战高手课 在实战中深入理解容器技术的本质</a></li>
   </ul>
 </nav>
   </div>
@@ -171,7 +174,7 @@
     </div>
   </div>
     <div class="post-content">
-      <h1 id="目标">目标：</h1>
+      <h1 id="heading">目标：</h1>
 <blockquote>
 <p>容器实战高手课 在实战中深入理解容器技术的本质</p>
 </blockquote>
@@ -186,8 +189,8 @@
 <blockquote>
 <p>之前看到这个东西时候感觉很好，工作不用，然后慢慢学，结果自己忘记了。</p>
 </blockquote>
-<h1 id="摘要">摘要：</h1>
-<h3 id="容器网络-4讲">容器网络 (4讲)</h3>
+<h1 id="heading-1">摘要：</h1>
+<h3 id="-4">容器网络 (4讲)</h3>
 <p>15 | 容器网络：我修改了/proc/sys/net下的参数，为什么在容器中不起效</p>
 <ul>
 <li>重要文档  !!! <a href="https://www.kernel.org/doc/Documentation/sysctl/net.txt">https://www.kernel.org/doc/Documentation/sysctl/net.txt</a></li>
@@ -200,14 +203,14 @@
 <p>strace -T -tt -ff -p pid -o strace.out</p>
 <p><a href="https://eli.thegreenplace.net/2011/01/23/how-debuggers-work-part-1/">https://eli.thegreenplace.net/2011/01/23/how-debuggers-work-part-1/</a></p>
 <h1 id="docker">docker</h1>
-<h1 id="第一天">第一天</h1>
-<h2 id="基本操作">基本操作</h2>
+<h1 id="heading-2">第一天</h1>
+<h2 id="heading-3">基本操作</h2>
 <p><a href="https://hub.fastgit.org/docker">https://hub.fastgit.org/docker</a></p>
 <p><a href="https://github.com/docker">https://github.com/docker</a></p>
-<h3 id="安装">安装</h3>
+<h3 id="heading-4">安装</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -220,30 +223,30 @@
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[root@fhb ~]# cat /etc/redhat-release
-</span></span><span class="line"><span class="cl">CentOS release 6.8 (Final)
-</span></span><span class="line"><span class="cl">[root@fhb ~]# sudo rpm -iUvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
-</span></span><span class="line"><span class="cl">[root@fhb ~]# sudo yum update -y
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">curl -sSL https://get.docker.com/ | sh
-</span></span><span class="line"><span class="cl">docker version
-</span></span><span class="line"><span class="cl">service docker start
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">yum install -y nginx
-</span></span><span class="line"><span class="cl">service nginx start
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[root@fhb ~]# cat /etc/redhat-release
+CentOS release 6.8 (Final)
+[root@fhb ~]# sudo rpm -iUvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+[root@fhb ~]# sudo yum update -y
+
+curl -sSL https://get.docker.com/ | sh
+docker version
+service docker start
+
+yum install -y nginx
+service nginx start
+</code></pre></td></tr></table>
 </div>
-</div><h3 id="docker-基本操作">docker 基本操作</h3>
+</div><h3 id="docker-">docker 基本操作</h3>
 <ul>
 <li>
 <p>启动</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">systemctl restart docker
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">systemctl restart docker
+</code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
@@ -264,26 +267,26 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ docker logs -f -t --since<span class="o">=</span><span class="s2">&#34;2018-02-08&#34;</span> --tail<span class="o">=</span><span class="m">100</span> CONTAINER_ID
-</span></span><span class="line"><span class="cl">$ docker logs --since 30m CONTAINER_ID
-</span></span><span class="line"><span class="cl">docker logs -f --tail<span class="o">=</span><span class="m">100</span> f215dfab44fd
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">$ docker logs -f -t --since<span class="o">=</span><span class="s2">&#34;2018-02-08&#34;</span> --tail<span class="o">=</span><span class="m">100</span> CONTAINER_ID
+$ docker logs --since 30m CONTAINER_ID
+docker logs -f --tail<span class="o">=</span><span class="m">100</span> f215dfab44fd
+</code></pre></td></tr></table>
 </div>
-</div><h2 id="二book">二、BOOK</h2>
-<h3 id="21-第一本-httpsyeasygitbookiodocker_practice-docker技术入门与实战第3版">2.1 第一本 <a href="https://yeasy.gitbook.io/docker_practice/">https://yeasy.gitbook.io/docker_practice/</a> <strong>Docker技术入门与实战（第3版）</strong></h3>
+</div><h2 id="book">二、BOOK</h2>
+<h3 id="21--httpsyeasygitbookiodocker-practice-docker3">2.1 第一本 <a href="https://yeasy.gitbook.io/docker_practice/">https://yeasy.gitbook.io/docker_practice/</a> <strong>Docker技术入门与实战（第3版）</strong></h3>
 <p><a href="https://yeasy.gitbook.io/docker_practice/">https://yeasy.gitbook.io/docker_practice/</a></p>
-<h3 id="211-底层实现">2.1.1 底层实现</h3>
+<h3 id="211-">2.1.1 底层实现</h3>
 <p>Docker 底层的核心技术包括 Linux 上的命名空间（Namespaces）、控制组（Control groups）、Union 文件系统（Union file systems）和容器格式（Container format）</p>
-<h2 id="22-第二本docker-源码分析">2.2 第二本：Docker 源码分析</h2>
+<h2 id="22-docker-">2.2 第二本：Docker 源码分析</h2>
 <p>本文主要剖析 docker-ce 的源码。</p>
 <p>docker-ce github:
 <a href="https://links.jianshu.com/go?to=https%3A%2F%2Fgithub.com%2Fdocker%2Fdocker-ce">https://github.com/docker/docker-ce</a></p>
-<h2 id="23-第三本容器实战高手课-在实战中深入理解容器技术的本质">2.3 第三本：容器实战高手课 在实战中深入理解容器技术的本质</h2>
+<h2 id="23--">2.3 第三本：容器实战高手课 在实战中深入理解容器技术的本质</h2>
 <ol>
 <li>16 | 容器网络配置（1）：容器网络不通了要怎么调试?</li>
 </ol>
@@ -292,7 +295,7 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -304,21 +307,23 @@
 </span><span class="lnt">10
 </span><span class="lnt">11
 </span><span class="lnt">12
+</span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker run -d --name if-test centos:8.1.1911 sleep 36000
-</span></span><span class="line"><span class="cl">docker exec -it if-test bash
-</span></span><span class="line"><span class="cl">exit
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">docker ps -a
-</span></span><span class="line"><span class="cl">docker stop 6e6decd1566a
-</span></span><span class="line"><span class="cl">docker rm 6e6decd1566a
-</span></span><span class="line"><span class="cl">docker run -d --name if-test --network none centos:8.1.1911 sleep 36000
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">docker exec -it if-test ip addr
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">Network Namespace 里就只有 loopback 一个网络设备，而没有了 eth0 网络设备了。
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">docker run -d --name if-test centos:8.1.1911 sleep 36000
+docker exec -it if-test bash
+exit
+
+docker ps -a
+docker stop 6e6decd1566a
+docker rm 6e6decd1566a
+docker run -d --name if-test --network none centos:8.1.1911 sleep 36000
+
+docker exec -it if-test ip addr
+
+Network Namespace 里就只有 loopback 一个网络设备，而没有了 eth0 网络设备了。
+
+</code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>60秒思考：让容器 Network Namespace 中的数据包最终发送到物理网卡上，需要完成哪些步骤呢？</li>

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.101.0 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
 <link rel="canonical" href="https://wangcy6.github.io/post/2020/thread/" />
@@ -41,14 +41,17 @@
 <meta property="og:title" content="多进程多线程篇" />
 <meta property="og:description" content="这里主要记录学习和探索过程。来验证正确方法才能有正确的结果。 走神一会 你所寻找的东西正在寻找你。-鲁米 What you seek is seeking you. 你生来就有一对翅膀。为什么更" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://wangcy6.github.io/post/2020/thread/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://wangcy6.github.io/post/2020/thread/" />
 <meta property="article:published_time" content="2019-11-29T00:00:00+00:00" />
 <meta property="article:modified_time" content="2019-11-29T00:00:00+00:00" />
-
 <meta itemprop="name" content="多进程多线程篇">
-<meta itemprop="description" content="这里主要记录学习和探索过程。来验证正确方法才能有正确的结果。 走神一会 你所寻找的东西正在寻找你。-鲁米 What you seek is seeking you. 你生来就有一对翅膀。为什么更"><meta itemprop="datePublished" content="2019-11-29T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2019-11-29T00:00:00+00:00" />
+<meta itemprop="description" content="这里主要记录学习和探索过程。来验证正确方法才能有正确的结果。 走神一会 你所寻找的东西正在寻找你。-鲁米 What you seek is seeking you. 你生来就有一对翅膀。为什么更">
+<meta itemprop="datePublished" content="2019-11-29T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-11-29T00:00:00&#43;00:00" />
 <meta itemprop="wordCount" content="3277">
+
+
+
 <meta itemprop="keywords" content="book," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="多进程多线程篇"/>
 <meta name="twitter:description" content="这里主要记录学习和探索过程。来验证正确方法才能有正确的结果。 走神一会 你所寻找的东西正在寻找你。-鲁米 What you seek is seeking you. 你生来就有一对翅膀。为什么更"/>
@@ -141,18 +144,18 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#线程">线程</a>
+    <li><a href="#heading-2">线程</a>
       <ul>
-        <li><a href="#1--线程的创建过程">1.  线程的创建过程</a></li>
-        <li><a href="#2-线程的销毁过程">2. 线程的销毁过程</a></li>
-        <li><a href="#3线程安全">3.线程安全</a></li>
+        <li><a href="#1--">1.  线程的创建过程</a></li>
+        <li><a href="#2-">2. 线程的销毁过程</a></li>
+        <li><a href="#3">3.线程安全</a></li>
       </ul>
     </li>
-    <li><a href="#进程">进程</a>
+    <li><a href="#heading-6">进程</a>
       <ul>
-        <li><a href="#一-进程创建方式">一. 进程创建方式</a></li>
-        <li><a href="#为什么close_on_exec不是默认配置httpswwwthinbugcomq9583845"><a href="https://www.thinbug.com/q/9583845">为什么close_on_exec不是默认配置？</a></a></li>
-        <li><a href="#二-进程的销毁">二、 进程的销毁</a></li>
+        <li><a href="#-">一. 进程创建方式</a></li>
+        <li><a href="#close-on-exechttpswwwthinbugcomq9583845">为什么close_on_exec不是默认配置？</a></li>
+        <li><a href="#--1">二、 进程的销毁</a></li>
       </ul>
     </li>
   </ul>
@@ -168,7 +171,7 @@
       <blockquote>
 <p>这里主要记录学习和探索过程。来验证正确方法才能有正确的结果。</p>
 </blockquote>
-<h1 id="走神一会">走神一会</h1>
+<h1 id="heading">走神一会</h1>
 <p><strong>你所寻找的东西正在寻找你。-鲁米</strong></p>
 <p>What you seek is seeking you.</p>
 <p><strong>你生来就有一对翅膀。为什么更喜欢一边爬行一边生活？– 鲁米</strong></p>
@@ -179,9 +182,9 @@
 <p>Look for the answer inside your question.</p>
 <h1 id="book">book</h1>
 <p><img src="https://i.loli.net/2019/11/30/7jliopUsPdcItS8.png" alt="image.png"></p>
-<h1 id="知识图谱">知识图谱</h1>
-<h2 id="线程">线程</h2>
-<h3 id="1--线程的创建过程">1.  线程的创建过程</h3>
+<h1 id="heading-1">知识图谱</h1>
+<h2 id="heading-2">线程</h2>
+<h3 id="1--">1.  线程的创建过程</h3>
 <p>pthread_atfork 函数解决多线程多进程死锁问题</p>
 <blockquote>
 <p>With pthread_atfork, we can install up to three functions to help clean up the
@@ -189,7 +192,7 @@ locks.</p>
 <p>pthread_atfork()在<code>fork()之前</code>调用。</p>
 <p>当调用fork时，内部<code>创建子进程前</code>在父进程中会调用prepare，内部<code>创建子进程成功后</code>，父进程会调用parent ，子进程会调用child。</p>
 </blockquote>
-<h3 id="2-线程的销毁过程">2. 线程的销毁过程</h3>
+<h3 id="2-">2. 线程的销毁过程</h3>
 <blockquote>
 <p>问题 1 什么场景下使用 join ，什么场景下使用 detach ?</p>
 </blockquote>
@@ -219,7 +222,7 @@ locks.</p>
 <blockquote>
 <p>小王一头雾水，表示 还能怎么分析，没有思路,</p>
 </blockquote>
-<h5 id="man-pthread_detach">man pthread_detach</h5>
+<h5 id="man-pthread-detach">man pthread_detach</h5>
 <p><a href="http://man7.org/linux/man-pages/man3/pthread_detach.3.html">http://man7.org/linux/man-pages/man3/pthread_detach.3.html</a></p>
 <p><img src="https://i.loli.net/2019/11/30/R38sZjhMDom4ULn.png" alt="man"></p>
 <p>The detached attribute merely determines the behavior of the system when the thread terminates; it does not prevent the thread from being terminated</p>
@@ -230,17 +233,17 @@ locks.</p>
 <p>main函数都退出了，整个进程空间都消失了，不管什么样方式进程 都会别被销毁的。</p>
 <p>为工作线程执行时间长短不确定（即使非阻塞，或者sleep 来控制，还有cpu调度因素考虑）</p>
 <p>这就是我理解必须通过join方式阻塞main线程。</p>
-<h5 id="man-pthread_exit">man pthread_exit</h5>
+<h5 id="man-pthread-exit">man pthread_exit</h5>
 <p>在notes 最重要的一句话</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">To</span> <span class="n">allow</span> <span class="n">other</span> <span class="n">threads</span> <span class="n">to</span> <span class="k">continue</span> <span class="n">execution</span><span class="p">,</span> 
-</span></span><span class="line"><span class="cl"><span class="n">the</span> <span class="n">main</span> <span class="kr">thread</span> <span class="n">should</span> <span class="n">terminate</span> <span class="n">by</span> <span class="n">calling</span> <span class="n">pthread_exit</span><span class="p">()</span> <span class="n">rather</span> <span class="n">than</span> <span class="n">exit</span><span class="p">(</span><span class="mi">3</span><span class="p">).</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="n">To</span> <span class="n">allow</span> <span class="n">other</span> <span class="n">threads</span> <span class="n">to</span> <span class="k">continue</span> <span class="n">execution</span><span class="p">,</span> 
+<span class="n">the</span> <span class="n">main</span> <span class="kr">thread</span> <span class="n">should</span> <span class="n">terminate</span> <span class="n">by</span> <span class="n">calling</span> <span class="n">pthread_exit</span><span class="p">(</span><span class="p">)</span> <span class="n">rather</span> <span class="n">than</span> <span class="n">exit</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="p">.</span>
+</code></pre></td></tr></table>
 </div>
 </div><p>解释：</p>
 <ul>
@@ -259,7 +262,7 @@ locks.</p>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -297,48 +300,48 @@ locks.</p>
 </span><span class="lnt">36
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"> <span class="nl">http</span><span class="p">:</span><span class="c1">//man7.org/linux/man-pages/man3/pthread_exit.3.html 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">NAME</span>  
-</span></span><span class="line"><span class="cl">       <span class="kt">void</span> <span class="n">pthread_exit</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">retval</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="n">DESCRIPTION</span>        
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">       <span class="n">The</span> <span class="nf">pthread_exit</span><span class="p">()</span> <span class="n">function</span> <span class="n">terminates</span> <span class="n">the</span> <span class="n">calling</span> <span class="kr">thread</span> <span class="n">and</span> <span class="n">returns</span>
-</span></span><span class="line"><span class="cl">       <span class="n">a</span> <span class="n">value</span> <span class="n">via</span> <span class="n">retval</span> <span class="n">that</span> <span class="p">(</span><span class="k">if</span> <span class="n">the</span> <span class="kr">thread</span> <span class="n">is</span> <span class="n">joinable</span><span class="p">)</span> <span class="n">is</span> <span class="n">available</span> <span class="n">to</span>
-</span></span><span class="line"><span class="cl">       <span class="n">another</span> <span class="kr">thread</span> <span class="n">in</span> <span class="n">the</span> <span class="n">same</span> <span class="n">process</span> <span class="n">that</span> <span class="n">calls</span> <span class="n">pthread_join</span><span class="p">(</span><span class="mi">3</span><span class="p">).</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">       <span class="n">Any</span> <span class="n">clean</span><span class="o">-</span><span class="n">up</span> <span class="n">handlers</span> <span class="n">established</span> <span class="n">by</span> <span class="n">pthread_cleanup_push</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="n">that</span>
-</span></span><span class="line"><span class="cl">       <span class="n">have</span> <span class="n">not</span> <span class="n">yet</span> <span class="n">been</span> <span class="n">popped</span><span class="p">,</span> <span class="n">are</span> <span class="n">popped</span> <span class="p">(</span><span class="n">in</span> <span class="n">the</span> <span class="n">reverse</span> <span class="n">of</span> <span class="n">the</span> <span class="n">order</span> <span class="n">in</span>
-</span></span><span class="line"><span class="cl">       <span class="n">which</span> <span class="n">they</span> <span class="n">were</span> <span class="n">pushed</span><span class="p">)</span> <span class="n">and</span> <span class="n">executed</span><span class="p">.</span>  <span class="n">If</span> <span class="n">the</span> <span class="kr">thread</span> <span class="n">has</span> <span class="n">any</span> <span class="kr">thread</span><span class="o">-</span>
-</span></span><span class="line"><span class="cl">       <span class="n">specific</span> <span class="n">data</span><span class="p">,</span> <span class="n">then</span><span class="p">,</span> <span class="n">after</span> <span class="n">the</span> <span class="n">clean</span><span class="o">-</span><span class="n">up</span> <span class="n">handlers</span> <span class="n">have</span> <span class="n">been</span> <span class="n">executed</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">       <span class="n">the</span> <span class="n">corresponding</span> <span class="n">destructor</span> <span class="n">functions</span> <span class="n">are</span> <span class="n">called</span><span class="p">,</span> <span class="n">in</span> <span class="n">an</span> <span class="n">unspecified</span>
-</span></span><span class="line"><span class="cl">       <span class="n">order</span><span class="p">.</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">       <span class="n">When</span> <span class="n">a</span> <span class="kr">thread</span> <span class="n">terminates</span><span class="p">,</span> <span class="n">process</span><span class="o">-</span><span class="n">shared</span> <span class="n">resources</span> <span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">g</span><span class="p">.,</span> <span class="n">mutexes</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">       <span class="n">condition</span> <span class="n">variables</span><span class="p">,</span> <span class="n">semaphores</span><span class="p">,</span> <span class="n">and</span> <span class="n">file</span> <span class="n">descriptors</span><span class="p">)</span> <span class="n">are</span> <span class="n">not</span>
-</span></span><span class="line"><span class="cl">       <span class="n">released</span><span class="p">,</span> <span class="n">and</span> <span class="n">functions</span> <span class="n">registered</span> <span class="n">using</span> <span class="n">atexit</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="n">are</span> <span class="n">not</span> <span class="n">called</span><span class="p">.</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">       <span class="n">After</span> <span class="n">the</span> <span class="n">last</span> <span class="kr">thread</span> <span class="n">in</span> <span class="n">a</span> <span class="n">process</span> <span class="n">terminates</span><span class="p">,</span> <span class="n">the</span> <span class="n">process</span> <span class="n">terminates</span>
-</span></span><span class="line"><span class="cl">       <span class="n">as</span> <span class="n">by</span> <span class="n">calling</span> <span class="n">exit</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="n">with</span> <span class="n">an</span> <span class="n">exit</span> <span class="n">status</span> <span class="n">of</span> <span class="n">zero</span><span class="p">;</span> <span class="n">thus</span><span class="p">,</span> <span class="n">process</span><span class="o">-</span>
-</span></span><span class="line"><span class="cl">       <span class="n">shared</span> <span class="n">resources</span> <span class="n">are</span> <span class="n">releas</span>
-</span></span><span class="line"><span class="cl">  <span class="n">NOTES</span>       
-</span></span><span class="line"><span class="cl">           
-</span></span><span class="line"><span class="cl">       <span class="n">Performing</span> <span class="n">a</span> <span class="k">return</span> <span class="n">from</span> <span class="n">the</span> <span class="n">start</span> <span class="n">function</span> <span class="n">of</span> <span class="n">any</span> <span class="kr">thread</span> <span class="n">other</span> <span class="n">than</span>
-</span></span><span class="line"><span class="cl">       <span class="n">the</span> <span class="n">main</span> <span class="kr">thread</span> <span class="n">results</span> <span class="n">in</span> <span class="n">an</span> <span class="n">implicit</span> <span class="n">call</span> <span class="n">to</span> <span class="n">pthread_exit</span><span class="p">(),</span> <span class="n">using</span>
-</span></span><span class="line"><span class="cl">       <span class="n">the</span> <span class="n">function</span><span class="err">&#39;</span><span class="n">s</span> <span class="k">return</span> <span class="n">value</span> <span class="n">as</span> <span class="n">the</span> <span class="kr">thread</span><span class="err">&#39;</span><span class="n">s</span> <span class="n">exit</span> <span class="n">status</span><span class="p">.</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">       <span class="n">To</span> <span class="n">allow</span> <span class="n">other</span> <span class="n">threads</span> <span class="n">to</span> <span class="k">continue</span> <span class="n">execution</span><span class="p">,</span> <span class="n">the</span> <span class="n">main</span> <span class="kr">thread</span> <span class="n">should</span>
-</span></span><span class="line"><span class="cl">       <span class="n">terminate</span> <span class="n">by</span> <span class="n">calling</span> <span class="n">pthread_exit</span><span class="p">()</span> <span class="n">rather</span> <span class="n">than</span> <span class="n">exit</span><span class="p">(</span><span class="mi">3</span><span class="p">).</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">       <span class="n">The</span> <span class="n">value</span> <span class="n">pointed</span> <span class="n">to</span> <span class="n">by</span> <span class="n">retval</span> <span class="n">should</span> <span class="n">not</span> <span class="n">be</span> <span class="n">located</span> <span class="n">on</span> <span class="n">the</span> <span class="n">calling</span>
-</span></span><span class="line"><span class="cl">       <span class="kr">thread</span><span class="err">&#39;</span><span class="n">s</span> <span class="n">stack</span><span class="p">,</span> <span class="n">since</span> <span class="n">the</span> <span class="n">contents</span> <span class="n">of</span> <span class="n">that</span> <span class="n">stack</span> <span class="n">are</span> <span class="n">undefined</span> <span class="n">after</span>
-</span></span><span class="line"><span class="cl">       <span class="n">the</span> <span class="kr">thread</span> <span class="n">terminates</span><span class="p">.</span>
-</span></span><span class="line"><span class="cl">           
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-c" data-lang="c"> <span class="nl">http</span><span class="p">:</span><span class="c1">//man7.org/linux/man-pages/man3/pthread_exit.3.html 
+</span><span class="c1"></span><span class="n">NAME</span>  
+       <span class="kt">void</span> <span class="n">pthread_exit</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">retval</span><span class="p">)</span><span class="p">;</span>
+<span class="n">DESCRIPTION</span>        
+    
+       <span class="n">The</span> <span class="nf">pthread_exit</span><span class="p">(</span><span class="p">)</span> <span class="n">function</span> <span class="n">terminates</span> <span class="n">the</span> <span class="n">calling</span> <span class="kr">thread</span> <span class="n">and</span> <span class="n">returns</span>
+       <span class="n">a</span> <span class="n">value</span> <span class="n">via</span> <span class="n">retval</span> <span class="n">that</span> <span class="p">(</span><span class="k">if</span> <span class="n">the</span> <span class="kr">thread</span> <span class="n">is</span> <span class="n">joinable</span><span class="p">)</span> <span class="n">is</span> <span class="n">available</span> <span class="n">to</span>
+       <span class="n">another</span> <span class="kr">thread</span> <span class="n">in</span> <span class="n">the</span> <span class="n">same</span> <span class="n">process</span> <span class="n">that</span> <span class="n">calls</span> <span class="n">pthread_join</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="p">.</span>
+
+       <span class="n">Any</span> <span class="n">clean</span><span class="o">-</span><span class="n">up</span> <span class="n">handlers</span> <span class="n">established</span> <span class="n">by</span> <span class="n">pthread_cleanup_push</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="n">that</span>
+       <span class="n">have</span> <span class="n">not</span> <span class="n">yet</span> <span class="n">been</span> <span class="n">popped</span><span class="p">,</span> <span class="n">are</span> <span class="n">popped</span> <span class="p">(</span><span class="n">in</span> <span class="n">the</span> <span class="n">reverse</span> <span class="n">of</span> <span class="n">the</span> <span class="n">order</span> <span class="n">in</span>
+       <span class="n">which</span> <span class="n">they</span> <span class="n">were</span> <span class="n">pushed</span><span class="p">)</span> <span class="n">and</span> <span class="n">executed</span><span class="p">.</span>  <span class="n">If</span> <span class="n">the</span> <span class="kr">thread</span> <span class="n">has</span> <span class="n">any</span> <span class="kr">thread</span><span class="o">-</span>
+       <span class="n">specific</span> <span class="n">data</span><span class="p">,</span> <span class="n">then</span><span class="p">,</span> <span class="n">after</span> <span class="n">the</span> <span class="n">clean</span><span class="o">-</span><span class="n">up</span> <span class="n">handlers</span> <span class="n">have</span> <span class="n">been</span> <span class="n">executed</span><span class="p">,</span>
+       <span class="n">the</span> <span class="n">corresponding</span> <span class="n">destructor</span> <span class="n">functions</span> <span class="n">are</span> <span class="n">called</span><span class="p">,</span> <span class="n">in</span> <span class="n">an</span> <span class="n">unspecified</span>
+       <span class="n">order</span><span class="p">.</span>
+
+       <span class="n">When</span> <span class="n">a</span> <span class="kr">thread</span> <span class="n">terminates</span><span class="p">,</span> <span class="n">process</span><span class="o">-</span><span class="n">shared</span> <span class="n">resources</span> <span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">g</span><span class="p">.</span><span class="p">,</span> <span class="n">mutexes</span><span class="p">,</span>
+       <span class="n">condition</span> <span class="n">variables</span><span class="p">,</span> <span class="n">semaphores</span><span class="p">,</span> <span class="n">and</span> <span class="n">file</span> <span class="n">descriptors</span><span class="p">)</span> <span class="n">are</span> <span class="n">not</span>
+       <span class="n">released</span><span class="p">,</span> <span class="n">and</span> <span class="n">functions</span> <span class="n">registered</span> <span class="n">using</span> <span class="n">atexit</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="n">are</span> <span class="n">not</span> <span class="n">called</span><span class="p">.</span>
+
+       <span class="n">After</span> <span class="n">the</span> <span class="n">last</span> <span class="kr">thread</span> <span class="n">in</span> <span class="n">a</span> <span class="n">process</span> <span class="n">terminates</span><span class="p">,</span> <span class="n">the</span> <span class="n">process</span> <span class="n">terminates</span>
+       <span class="n">as</span> <span class="n">by</span> <span class="n">calling</span> <span class="n">exit</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="n">with</span> <span class="n">an</span> <span class="n">exit</span> <span class="n">status</span> <span class="n">of</span> <span class="n">zero</span><span class="p">;</span> <span class="n">thus</span><span class="p">,</span> <span class="n">process</span><span class="o">-</span>
+       <span class="n">shared</span> <span class="n">resources</span> <span class="n">are</span> <span class="n">releas</span>
+  <span class="n">NOTES</span>       
+           
+       <span class="n">Performing</span> <span class="n">a</span> <span class="k">return</span> <span class="n">from</span> <span class="n">the</span> <span class="n">start</span> <span class="n">function</span> <span class="n">of</span> <span class="n">any</span> <span class="kr">thread</span> <span class="n">other</span> <span class="n">than</span>
+       <span class="n">the</span> <span class="n">main</span> <span class="kr">thread</span> <span class="n">results</span> <span class="n">in</span> <span class="n">an</span> <span class="n">implicit</span> <span class="n">call</span> <span class="n">to</span> <span class="n">pthread_exit</span><span class="p">(</span><span class="p">)</span><span class="p">,</span> <span class="n">using</span>
+       <span class="n">the</span> <span class="n">function</span><span class="err">&#39;</span><span class="n">s</span> <span class="k">return</span> <span class="n">value</span> <span class="n">as</span> <span class="n">the</span> <span class="kr">thread</span><span class="err">&#39;</span><span class="n">s</span> <span class="n">exit</span> <span class="n">status</span><span class="p">.</span>
+
+       <span class="n">To</span> <span class="n">allow</span> <span class="n">other</span> <span class="n">threads</span> <span class="n">to</span> <span class="k">continue</span> <span class="n">execution</span><span class="p">,</span> <span class="n">the</span> <span class="n">main</span> <span class="kr">thread</span> <span class="n">should</span>
+       <span class="n">terminate</span> <span class="n">by</span> <span class="n">calling</span> <span class="n">pthread_exit</span><span class="p">(</span><span class="p">)</span> <span class="n">rather</span> <span class="n">than</span> <span class="n">exit</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="p">.</span>
+
+       <span class="n">The</span> <span class="n">value</span> <span class="n">pointed</span> <span class="n">to</span> <span class="n">by</span> <span class="n">retval</span> <span class="n">should</span> <span class="n">not</span> <span class="n">be</span> <span class="n">located</span> <span class="n">on</span> <span class="n">the</span> <span class="n">calling</span>
+       <span class="kr">thread</span><span class="err">&#39;</span><span class="n">s</span> <span class="n">stack</span><span class="p">,</span> <span class="n">since</span> <span class="n">the</span> <span class="n">contents</span> <span class="n">of</span> <span class="n">that</span> <span class="n">stack</span> <span class="n">are</span> <span class="n">undefined</span> <span class="n">after</span>
+       <span class="n">the</span> <span class="kr">thread</span> <span class="n">terminates</span><span class="p">.</span>
+           
+</code></pre></td></tr></table>
 </div>
 </div><h5 id="man-exit">man exit</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -386,75 +389,75 @@ locks.</p>
 </span><span class="lnt">46
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">exit - cause normal process termination
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> The exit() function causes normal process termination and the value
-</span></span><span class="line"><span class="cl">       of status &amp; 0377 is returned to the parent (see wait(2)).
-</span></span><span class="line"><span class="cl">  看进程的销毁图片         
-</span></span><span class="line"><span class="cl">  All functions registered with atexit(3) and on_exit(3) are called, in
-</span></span><span class="line"><span class="cl">       the reverse order of their registration.
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">  NOTE
-</span></span><span class="line"><span class="cl"> 进程销毁 上下都要打点
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl">   After exit(), the exit status must be transmitted to the parent
-</span></span><span class="line"><span class="cl">       process.  There are three cases:
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">       ·  If the parent has set SA_NOCLDWAIT, or has set the SIGCHLD handler
-</span></span><span class="line"><span class="cl">          to SIG_IGN, the status is discarded and the child dies
-</span></span><span class="line"><span class="cl">          immediately.
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">       ·  If the parent was waiting on the child, it is notified of the exit
-</span></span><span class="line"><span class="cl">          status and the child dies immediately.
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">       ·  Otherwise, the child becomes a &#34;zombie&#34; process: most of the
-</span></span><span class="line"><span class="cl">          process resources are recycled, but a slot containing minimal
-</span></span><span class="line"><span class="cl">          information about the child process (termination status, resource
-</span></span><span class="line"><span class="cl">          usage statistics) is retained in process table.  This allows the
-</span></span><span class="line"><span class="cl">          parent to subsequently use waitpid(2) (or similar) to learn the
-</span></span><span class="line"><span class="cl">          termination status of the child; at that point the zombie process
-</span></span><span class="line"><span class="cl">          slot is released.
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">       If the implementation supports the SIGCHLD signal, this signal is
-</span></span><span class="line"><span class="cl">       sent to the parent.  If the parent has set SA_NOCLDWAIT, it is
-</span></span><span class="line"><span class="cl">       undefined whether a SIGCHLD signal is sent.
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">   Signals sent to other processes
-</span></span><span class="line"><span class="cl">       If the exiting process is a session leader and its controlling
-</span></span><span class="line"><span class="cl">       terminal is the controlling terminal of the session, then each
-</span></span><span class="line"><span class="cl">       process in the foreground process group of this controlling terminal
-</span></span><span class="line"><span class="cl">       is sent a SIGHUP signal, and the terminal is disassociated from this
-</span></span><span class="line"><span class="cl">       session, allowing it to be acquired by a new controlling process.
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">       If the exit of the process causes a process group to become orphaned,
-</span></span><span class="line"><span class="cl">       and if any member of the newly orphaned process group is stopped,
-</span></span><span class="line"><span class="cl">       then a SIGHUP signal followed by a SIGCONT signal will be sent to
-</span></span><span class="line"><span class="cl">       each process in this process group.  See setpgid(2) for an
-</span></span><span class="line"><span class="cl">       explanation of orphaned process groups.
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">exit - cause normal process termination
+
+ The exit() function causes normal process termination and the value
+       of status &amp; 0377 is returned to the parent (see wait(2)).
+  看进程的销毁图片         
+  All functions registered with atexit(3) and on_exit(3) are called, in
+       the reverse order of their registration.
+
+  
+  NOTE
+ 进程销毁 上下都要打点
+ 
+   After exit(), the exit status must be transmitted to the parent
+       process.  There are three cases:
+
+       ·  If the parent has set SA_NOCLDWAIT, or has set the SIGCHLD handler
+          to SIG_IGN, the status is discarded and the child dies
+          immediately.
+
+       ·  If the parent was waiting on the child, it is notified of the exit
+          status and the child dies immediately.
+
+       ·  Otherwise, the child becomes a &#34;zombie&#34; process: most of the
+          process resources are recycled, but a slot containing minimal
+          information about the child process (termination status, resource
+          usage statistics) is retained in process table.  This allows the
+          parent to subsequently use waitpid(2) (or similar) to learn the
+          termination status of the child; at that point the zombie process
+          slot is released.
+
+       If the implementation supports the SIGCHLD signal, this signal is
+       sent to the parent.  If the parent has set SA_NOCLDWAIT, it is
+       undefined whether a SIGCHLD signal is sent.
+
+   Signals sent to other processes
+       If the exiting process is a session leader and its controlling
+       terminal is the controlling terminal of the session, then each
+       process in the foreground process group of this controlling terminal
+       is sent a SIGHUP signal, and the terminal is disassociated from this
+       session, allowing it to be acquired by a new controlling process.
+
+       If the exit of the process causes a process group to become orphaned,
+       and if any member of the newly orphaned process group is stopped,
+       then a SIGHUP signal followed by a SIGCONT signal will be sent to
+       each process in this process group.  See setpgid(2) for an
+       explanation of orphaned process groups.
+</code></pre></td></tr></table>
 </div>
 </div><p><a href="http://man7.org/linux/man-pages/man3/pthread_detach.3.html">http://man7.org/linux/man-pages/man3/pthread_detach.3.html</a></p>
 <p><a href="https://www.youtube.com/watch?v=q3-5sDe6lzg">https://www.youtube.com/watch?v=q3-5sDe6lzg</a></p>
 <p><a href="https://stackoverflow.com/questions/6042970/pthread-detach-question">https://stackoverflow.com/questions/6042970/pthread-detach-question</a></p>
 <p><a href="https://medium.com/@vgasparyan1995/let-me-detach-those-threads-for-you-2de014b26394">https://medium.com/@vgasparyan1995/let-me-detach-those-threads-for-you-2de014b26394</a></p>
-<h3 id="3线程安全">3.线程安全</h3>
+<h3 id="3">3.线程安全</h3>
 <blockquote>
 <p>陈咬金的三板斧 来了</p>
 <p>第一斧：技术本质是什么？</p>
 <p>第二斧：考虑哪些问题？</p>
 <p>第三斧：如何使用？</p>
 </blockquote>
-<h4 id="第一斧技术本质是什么">第一斧：技术本质是什么？</h4>
-<h4 id="第二斧考虑哪些问题">第二斧：考虑哪些问题？</h4>
+<h4 id="heading-3">第一斧：技术本质是什么？</h4>
+<h4 id="heading-4">第二斧：考虑哪些问题？</h4>
 <ul>
 <li>线程可重入</li>
 <li>线程与信号</li>
 <li>线程与fork</li>
 </ul>
-<h4 id="第三斧如何使用">第三斧：如何使用？</h4>
-<h2 id="进程">进程</h2>
-<h3 id="一-进程创建方式">一. 进程创建方式</h3>
+<h4 id="heading-5">第三斧：如何使用？</h4>
+<h2 id="heading-6">进程</h2>
+<h3 id="-">一. 进程创建方式</h3>
 <ul>
 <li>Linux进程创建： 通过fork()系统调用创建进程</li>
 <li>Linux用户级线程创建：通过pthread库中的pthread_create()创建线程</li>
@@ -466,7 +469,7 @@ locks.</p>
 <li>fork: flags参数为 SIGCHLD</li>
 <li>vfork: flags参数为 CLONE_VFORK, CLONE_VM, SIGCHLD</li>
 </ul>
-<h4 id="运行应用程序-由fork--exec对完成-">运行应用程序( 由fork / exec对完成 )</h4>
+<h4 id="-fork--exec-">运行应用程序( 由fork / exec对完成 )</h4>
 <p>启动程序一般都是在命令行中，其实是在与<code>shell</code>打交道，然后<code>shell</code>帮我们启动程序</p>
 <blockquote>
 <p>shell 每次执行指令， 需要 fork 出一个子进程来执行，然后将子进程的镜像替换成目标指令，</p>
@@ -479,7 +482,7 @@ locks.</p>
 <p><a href="https://github.com/gatieme/LDD-LinuxDeviceDrivers/tree/master/study/kernel/01-process/03-execute/01-do_execve">Linux进程启动过程分析do_execve(可执行程序的加载和运行)</a></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -498,26 +501,26 @@ locks.</p>
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">strace</span> <span class="p">.</span><span class="o">/</span><span class="n">a</span><span class="p">.</span><span class="n">out</span>
-</span></span><span class="line"><span class="cl"><span class="n">execve</span><span class="p">(</span><span class="s">&#34;./a.out&#34;</span><span class="p">,</span> <span class="p">[</span><span class="s">&#34;./a.out&#34;</span><span class="p">],</span> <span class="p">[</span><span class="cm">/* 30 vars */</span><span class="p">])</span> <span class="o">=</span> <span class="mi">0</span>
-</span></span><span class="line"><span class="cl"><span class="n">brk</span><span class="p">(</span><span class="nb">NULL</span><span class="p">)</span>                               <span class="o">=</span> <span class="mh">0xd9e000</span>
-</span></span><span class="line"><span class="cl"><span class="n">mmap</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="mi">4096</span><span class="p">,</span> <span class="n">PROT_READ</span><span class="o">|</span><span class="n">PROT_WRITE</span><span class="p">,</span> <span class="n">MAP_PRIVATE</span><span class="o">|</span><span class="n">MAP_ANONYMOUS</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mh">0x7f52dcaaa000</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"><span class="n">The</span>  <span class="n">exec</span><span class="p">()</span>  <span class="n">family</span> <span class="n">of</span> <span class="n">functions</span> <span class="n">replaces</span> <span class="n">the</span> <span class="n">current</span> <span class="n">process</span> <span class="n">image</span> <span class="n">with</span> <span class="n">a</span> <span class="k">new</span> <span class="n">process</span> <span class="n">image</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"><span class="n">strace</span> <span class="n">ls</span>
-</span></span><span class="line"><span class="cl"><span class="n">execve</span><span class="p">(</span><span class="s">&#34;/bin/ls&#34;</span><span class="p">,</span> <span class="p">[</span><span class="s">&#34;ls&#34;</span><span class="p">],</span> <span class="p">[</span><span class="cm">/* 29 vars */</span><span class="p">])</span> <span class="o">=</span> <span class="mi">0</span>
-</span></span><span class="line"><span class="cl"><span class="n">brk</span><span class="p">(</span><span class="nb">NULL</span><span class="p">)</span>                               <span class="o">=</span> <span class="mh">0x19aa000</span>
-</span></span><span class="line"><span class="cl"><span class="n">mmap</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="mi">4096</span><span class="p">,</span> <span class="n">PROT_READ</span><span class="o">|</span><span class="n">PROT_WRITE</span><span class="p">,</span> <span class="n">MAP_PRIVATE</span><span class="o">|</span><span class="n">MAP_ANONYMOUS</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mh">0x7fc7e7ad6000</span>
-</span></span><span class="line"><span class="cl"><span class="n">access</span><span class="p">(</span><span class="s">&#34;/etc/ld.so.preload&#34;</span><span class="p">,</span> <span class="n">R_OK</span><span class="p">)</span>      <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="n">ENOENT</span> <span class="p">(</span><span class="n">No</span> <span class="n">such</span> <span class="n">file</span> <span class="n">or</span> <span class="n">directory</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">open</span><span class="p">(</span><span class="s">&#34;tls/x86_64/libselinux.so.1&#34;</span><span class="p">,</span> <span class="n">O_RDONLY</span><span class="o">|</span><span class="n">O_CLOEXEC</span><span class="p">)</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="n">ENOENT</span> <span class="p">(</span><span class="n">No</span> <span class="n">such</span> <span class="n">file</span> <span class="n">or</span> <span class="n">directory</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">open</span><span class="p">(</span><span class="s">&#34;tls/libselinux.so.1&#34;</span><span class="p">,</span> <span class="n">O_RDONLY</span><span class="o">|</span><span class="n">O_CLOEXEC</span><span class="p">)</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="n">ENOENT</span> <span class="p">(</span><span class="n">No</span> <span class="n">such</span> <span class="n">file</span> <span class="n">or</span> <span class="n">directory</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">open</span><span class="p">(</span><span class="s">&#34;x86_64/libselinux.so.1&#34;</span><span class="p">,</span> <span class="n">O_RDONLY</span><span class="o">|</span><span class="n">O_CLOEXEC</span><span class="p">)</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="n">ENOENT</span> <span class="p">(</span><span class="n">No</span> <span class="n">such</span> <span class="n">file</span> <span class="n">or</span> <span class="n">directory</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">open</span><span class="p">(</span><span class="s">&#34;libselinux.so.1&#34;</span><span class="p">,</span> <span class="n">O_RDONLY</span><span class="o">|</span><span class="n">O_CLOEXEC</span><span class="p">)</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="n">ENOENT</span> <span class="p">(</span><span class="n">No</span> <span class="n">such</span> <span class="n">file</span> <span class="n">or</span> <span class="n">directory</span><span class="p">)</span>    
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">strace</span> <span class="p">.</span><span class="o">/</span><span class="n">a</span><span class="p">.</span><span class="n">out</span>
+<span class="n">execve</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">./a.out</span><span class="s">&#34;</span><span class="p">,</span> <span class="p">[</span><span class="sa"></span><span class="s">&#34;</span><span class="s">./a.out</span><span class="s">&#34;</span><span class="p">]</span><span class="p">,</span> <span class="p">[</span><span class="cm">/* 30 vars */</span><span class="p">]</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">brk</span><span class="p">(</span><span class="nb">NULL</span><span class="p">)</span>                               <span class="o">=</span> <span class="mh">0xd9e000</span>
+<span class="n">mmap</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="mi">4096</span><span class="p">,</span> <span class="n">PROT_READ</span><span class="o">|</span><span class="n">PROT_WRITE</span><span class="p">,</span> <span class="n">MAP_PRIVATE</span><span class="o">|</span><span class="n">MAP_ANONYMOUS</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mh">0x7f52dcaaa000</span>
+    
+<span class="n">The</span>  <span class="n">exec</span><span class="p">(</span><span class="p">)</span>  <span class="n">family</span> <span class="n">of</span> <span class="n">functions</span> <span class="n">replaces</span> <span class="n">the</span> <span class="n">current</span> <span class="n">process</span> <span class="n">image</span> <span class="n">with</span> <span class="n">a</span> <span class="k">new</span> <span class="n">process</span> <span class="n">image</span>
+    
+    
+<span class="n">strace</span> <span class="n">ls</span>
+<span class="n">execve</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">/bin/ls</span><span class="s">&#34;</span><span class="p">,</span> <span class="p">[</span><span class="sa"></span><span class="s">&#34;</span><span class="s">ls</span><span class="s">&#34;</span><span class="p">]</span><span class="p">,</span> <span class="p">[</span><span class="cm">/* 29 vars */</span><span class="p">]</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">brk</span><span class="p">(</span><span class="nb">NULL</span><span class="p">)</span>                               <span class="o">=</span> <span class="mh">0x19aa000</span>
+<span class="n">mmap</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="mi">4096</span><span class="p">,</span> <span class="n">PROT_READ</span><span class="o">|</span><span class="n">PROT_WRITE</span><span class="p">,</span> <span class="n">MAP_PRIVATE</span><span class="o">|</span><span class="n">MAP_ANONYMOUS</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mh">0x7fc7e7ad6000</span>
+<span class="n">access</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">/etc/ld.so.preload</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">R_OK</span><span class="p">)</span>      <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="n">ENOENT</span> <span class="p">(</span><span class="n">No</span> <span class="n">such</span> <span class="n">file</span> <span class="n">or</span> <span class="n">directory</span><span class="p">)</span>
+<span class="n">open</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">tls/x86_64/libselinux.so.1</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">O_RDONLY</span><span class="o">|</span><span class="n">O_CLOEXEC</span><span class="p">)</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="n">ENOENT</span> <span class="p">(</span><span class="n">No</span> <span class="n">such</span> <span class="n">file</span> <span class="n">or</span> <span class="n">directory</span><span class="p">)</span>
+<span class="n">open</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">tls/libselinux.so.1</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">O_RDONLY</span><span class="o">|</span><span class="n">O_CLOEXEC</span><span class="p">)</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="n">ENOENT</span> <span class="p">(</span><span class="n">No</span> <span class="n">such</span> <span class="n">file</span> <span class="n">or</span> <span class="n">directory</span><span class="p">)</span>
+<span class="n">open</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">x86_64/libselinux.so.1</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">O_RDONLY</span><span class="o">|</span><span class="n">O_CLOEXEC</span><span class="p">)</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="n">ENOENT</span> <span class="p">(</span><span class="n">No</span> <span class="n">such</span> <span class="n">file</span> <span class="n">or</span> <span class="n">directory</span><span class="p">)</span>
+<span class="n">open</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">libselinux.so.1</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">O_RDONLY</span><span class="o">|</span><span class="n">O_CLOEXEC</span><span class="p">)</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="n">ENOENT</span> <span class="p">(</span><span class="n">No</span> <span class="n">such</span> <span class="n">file</span> <span class="n">or</span> <span class="n">directory</span><span class="p">)</span>    
+</code></pre></td></tr></table>
 </div>
-</div><h4 id="close_on_exec-机制">close_on_exec 机制</h4>
+</div><h4 id="close-on-exec-">close_on_exec 机制</h4>
 <blockquote>
 <p>陈咬金的三板斧 来了</p>
 </blockquote>
@@ -552,7 +555,7 @@ fs.file-max = 655360
 <p>来源：<a href="http://blogs.360.cn/post/nginx%E6%96%87%E4%BB%B6%E6%8F%8F%E8%BF%B0%E7%AC%A6%E6%B3%84%E9%9C%B2%EF%BC%9F%E6%B5%85%E6%9E%90fd_cloexec%E6%96%87%E4%BB%B6%E6%8F%8F%E8%BF%B0%E7%AC%A6%E6%A0%87%E5%BF%97.html">Nginx文件描述符泄露？浅析FD_CLOEXEC文件描述符标志</a></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -574,65 +577,65 @@ fs.file-max = 655360
 </span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="nl">TCP</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl"><span class="cp">#ifdef WIN32
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>	<span class="n">SOCKET</span> <span class="n">ss</span> <span class="o">=</span> <span class="o">::</span><span class="n">socket</span><span class="p">(</span><span class="n">PF_INET</span><span class="p">,</span> <span class="n">SOCK_STREAM</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="cp">#else
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>	<span class="n">SOCKET</span> <span class="n">ss</span> <span class="o">=</span> <span class="o">::</span><span class="n">socket</span><span class="p">(</span><span class="n">PF_INET</span><span class="p">,</span> <span class="n">SOCK_STREAM</span> <span class="o">|</span> <span class="n">SOCK_CLOEXEC</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="cp">#endif
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
-</span></span><span class="line"><span class="cl"><span class="err">文件：</span>
-</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">fd</span> <span class="o">=</span> <span class="n">open</span><span class="p">(</span><span class="err">“</span><span class="n">foo</span><span class="p">.</span><span class="n">txt</span><span class="err">”</span><span class="p">,</span><span class="n">O_RDONLY</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">flags</span> <span class="o">=</span> <span class="n">fcntl</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="n">F_GETFD</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="n">flags</span> <span class="o">|=</span> <span class="n">FD_CLOEXEC</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="n">fcntl</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="n">F_SETFD</span><span class="p">,</span> <span class="n">flags</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">fd</span> <span class="o">=</span> <span class="n">open</span><span class="p">(</span><span class="err">“</span><span class="n">foo</span><span class="p">.</span><span class="n">txt</span><span class="err">”</span><span class="p">,</span><span class="n">O_RDONLY</span> <span class="o">|</span> <span class="n">O_CLOEXEC</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="n">O_CLOEXEC</span> <span class="p">(</span><span class="n">since</span> <span class="n">Linux</span> <span class="mf">2.6.23</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">              <span class="n">Enable</span> <span class="n">the</span> <span class="n">close</span><span class="o">-</span><span class="n">on</span><span class="o">-</span><span class="n">exec</span> <span class="n">flag</span> <span class="k">for</span> <span class="n">the</span> <span class="k">new</span> <span class="n">file</span> <span class="n">descriptor</span><span class="p">.</span>
-</span></span><span class="line"><span class="cl">              <span class="n">Specifying</span> <span class="k">this</span> <span class="n">flag</span> <span class="n">permits</span> <span class="n">a</span> <span class="n">program</span> <span class="n">to</span> <span class="n">avoid</span> <span class="n">additional</span>
-</span></span><span class="line"><span class="cl">              <span class="n">fcntl</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="n">F_SETFD</span> <span class="n">operations</span> <span class="n">to</span> <span class="n">set</span> <span class="n">the</span> <span class="n">FD_CLOEXEC</span> <span class="n">flag</span><span class="p">.</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="nl">TCP</span><span class="p">:</span>
+<span class="cp">#</span><span class="cp">ifdef WIN32</span><span class="cp">
+</span><span class="cp"></span>	<span class="n">SOCKET</span> <span class="n">ss</span> <span class="o">=</span> <span class="o">:</span><span class="o">:</span><span class="n">socket</span><span class="p">(</span><span class="n">PF_INET</span><span class="p">,</span> <span class="n">SOCK_STREAM</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="p">;</span>
+<span class="cp">#</span><span class="cp">else</span><span class="cp">
+</span><span class="cp"></span>	<span class="n">SOCKET</span> <span class="n">ss</span> <span class="o">=</span> <span class="o">:</span><span class="o">:</span><span class="n">socket</span><span class="p">(</span><span class="n">PF_INET</span><span class="p">,</span> <span class="n">SOCK_STREAM</span> <span class="o">|</span> <span class="n">SOCK_CLOEXEC</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="p">;</span>
+<span class="cp">#</span><span class="cp">endif</span><span class="cp">
+</span><span class="cp"></span>
+<span class="err">文</span><span class="err">件</span><span class="err">：</span>
+<span class="kt">int</span> <span class="n">fd</span> <span class="o">=</span> <span class="n">open</span><span class="p">(</span><span class="err">“</span><span class="n">foo</span><span class="p">.</span><span class="n">txt</span><span class="err">”</span><span class="p">,</span><span class="n">O_RDONLY</span><span class="p">)</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">flags</span> <span class="o">=</span> <span class="n">fcntl</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="n">F_GETFD</span><span class="p">)</span><span class="p">;</span>
+<span class="n">flags</span> <span class="o">|</span><span class="o">=</span> <span class="n">FD_CLOEXEC</span><span class="p">;</span>
+<span class="n">fcntl</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="n">F_SETFD</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="n">fd</span> <span class="o">=</span> <span class="n">open</span><span class="p">(</span><span class="err">“</span><span class="n">foo</span><span class="p">.</span><span class="n">txt</span><span class="err">”</span><span class="p">,</span><span class="n">O_RDONLY</span> <span class="o">|</span> <span class="n">O_CLOEXEC</span><span class="p">)</span><span class="p">;</span>
+
+
+ <span class="n">O_CLOEXEC</span> <span class="p">(</span><span class="n">since</span> <span class="n">Linux</span> <span class="mf">2.6</span><span class="mf">.23</span><span class="p">)</span>
+              <span class="n">Enable</span> <span class="n">the</span> <span class="n">close</span><span class="o">-</span><span class="n">on</span><span class="o">-</span><span class="n">exec</span> <span class="n">flag</span> <span class="k">for</span> <span class="n">the</span> <span class="k">new</span> <span class="n">file</span> <span class="n">descriptor</span><span class="p">.</span>
+              <span class="n">Specifying</span> <span class="k">this</span> <span class="n">flag</span> <span class="n">permits</span> <span class="n">a</span> <span class="n">program</span> <span class="n">to</span> <span class="n">avoid</span> <span class="n">additional</span>
+              <span class="n">fcntl</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="n">F_SETFD</span> <span class="n">operations</span> <span class="n">to</span> <span class="n">set</span> <span class="n">the</span> <span class="n">FD_CLOEXEC</span> <span class="n">flag</span><span class="p">.</span>
+</code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>
-<h3 id="为什么close_on_exec不是默认配置httpswwwthinbugcomq9583845"><a href="https://www.thinbug.com/q/9583845">为什么close_on_exec不是默认配置？</a></h3>
+<h3 id="close-on-exechttpswwwthinbugcomq9583845"><a href="https://www.thinbug.com/q/9583845">为什么close_on_exec不是默认配置？</a></h3>
 </li>
 </ul>
 <p>因为在UNIX上，最常用的功能之一是进程之间的管道流 - 如果设置了CLOEXEC标志，则不能这样做标准I/O</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">整数值</th>
-<th style="text-align:center">名称</th>
-<th style="text-align:center"><a href="https://zh.wikipedia.org/wiki/Unistd.h">unistd.h</a></th>
-<th style="text-align:center">文件流</th>
+<th align="center">整数值</th>
+<th align="center">名称</th>
+<th align="center"><a href="https://zh.wikipedia.org/wiki/Unistd.h">unistd.h</a></th>
+<th align="center">文件流</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">0</td>
-<td style="text-align:center"><a href="https://zh.wikipedia.org/wiki/Stdin">Standard input</a></td>
-<td style="text-align:center">STDIN_FILENO</td>
-<td style="text-align:center">stdin</td>
+<td align="center">0</td>
+<td align="center"><a href="https://zh.wikipedia.org/wiki/Stdin">Standard input</a></td>
+<td align="center">STDIN_FILENO</td>
+<td align="center">stdin</td>
 </tr>
 <tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center"><a href="https://zh.wikipedia.org/wiki/Stdout">Standard output</a></td>
-<td style="text-align:center">STDOUT_FILENO</td>
-<td style="text-align:center">stdout</td>
+<td align="center">1</td>
+<td align="center"><a href="https://zh.wikipedia.org/wiki/Stdout">Standard output</a></td>
+<td align="center">STDOUT_FILENO</td>
+<td align="center">stdout</td>
 </tr>
 <tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center"><a href="https://zh.wikipedia.org/wiki/Stderr">Standard error</a></td>
-<td style="text-align:center">STDERR_FILENO</td>
-<td style="text-align:center">stderr</td>
+<td align="center">2</td>
+<td align="center"><a href="https://zh.wikipedia.org/wiki/Stderr">Standard error</a></td>
+<td align="center">STDERR_FILENO</td>
+<td align="center">stderr</td>
 </tr>
 </tbody>
 </table>
-<h3 id="二-进程的销毁">二、 进程的销毁</h3>
+<h3 id="--1">二、 进程的销毁</h3>
 <blockquote>
 <p>陈咬金的三板斧 来了</p>
 <p>第一斧：技术本质是什么？</p>
@@ -650,7 +653,7 @@ fs.file-max = 655360
 <p>java  hooks</p>
 </blockquote>
 <p><img src="https://i.loli.net/2019/11/30/9rzlZ34KDHLfeY2.png" alt="image.png"></p>
-<h1 id="相关问题">相关问题</h1>
+<h1 id="heading-7">相关问题</h1>
 <ul>
 <li>Linux中fork子进程后再exec新程序时文件描述符的问题？</li>
 <li>关于linux进程间的<a href="https://cloud.tencent.com/developer/article/1177094">close-on-exec</a>机制</li>

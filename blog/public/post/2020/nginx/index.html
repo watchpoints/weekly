@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.101.0 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
 <link rel="canonical" href="https://wangcy6.github.io/post/2020/nginx/" />
@@ -41,14 +41,17 @@
 <meta property="og:title" content="nginx" />
 <meta property="og:description" content="入门" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://wangcy6.github.io/post/2020/nginx/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://wangcy6.github.io/post/2020/nginx/" />
 <meta property="article:published_time" content="2019-11-07T00:00:00+00:00" />
 <meta property="article:modified_time" content="2019-11-07T00:00:00+00:00" />
-
 <meta itemprop="name" content="nginx">
-<meta itemprop="description" content="入门"><meta itemprop="datePublished" content="2019-11-07T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2019-11-07T00:00:00+00:00" />
-<meta itemprop="wordCount" content="3293">
+<meta itemprop="description" content="入门">
+<meta itemprop="datePublished" content="2019-11-07T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-11-07T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="3294">
+
+
+
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="nginx"/>
 <meta name="twitter:description" content="入门"/>
@@ -130,7 +133,7 @@
         <div class="post-category">
             <a href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F/"> 分布式 </a>
             </div>
-          <span class="more-meta"> 约 3293 字 </span>
+          <span class="more-meta"> 约 3294 字 </span>
           <span class="more-meta"> 预计阅读 7 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -141,11 +144,11 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#负载均衡">负载均衡</a>
+    <li><a href="#heading-2">负载均衡</a>
       <ul>
-        <li><a href="#1-负载均衡概念是什么学习过程">1 负载均衡概念是什么学习过程：</a></li>
-        <li><a href="#2-负载均衡策略">2 负载均衡策略</a></li>
-        <li><a href="#3-案例">3. 案例</a></li>
+        <li><a href="#1-">1 负载均衡概念是什么学习过程：</a></li>
+        <li><a href="#2-">2 负载均衡策略</a></li>
+        <li><a href="#3-">3. 案例</a></li>
       </ul>
     </li>
   </ul>
@@ -158,11 +161,11 @@
     </div>
   </div>
     <div class="post-content">
-      <h1 id="知识卡">知识卡</h1>
+      <h1 id="heading">知识卡</h1>
 <p><img src="https://i.loli.net/2019/11/16/LWVMNExPTaFXuyn.png" alt="image.png"></p>
-<h1 id="基本用法">基本用法</h1>
-<h2 id="负载均衡">负载均衡</h2>
-<h3 id="1-负载均衡概念是什么学习过程">1 负载均衡概念是什么学习过程：</h3>
+<h1 id="heading-1">基本用法</h1>
+<h2 id="heading-2">负载均衡</h2>
+<h3 id="1-">1 负载均衡概念是什么学习过程：</h3>
 <ul>
 <li>观看视频 What is Load Balancing?</li>
 </ul>
@@ -181,7 +184,7 @@
 <ol start="10">
 <li><a href="https://en.wikipedia.org/wiki/Virtual_IP_address">Virtual IP address</a> ok</li>
 </ol>
-<p>A <strong>virtual IP address</strong> (<strong>VIP</strong> or <strong>VIPA</strong>) is an <a href="https://en.wikipedia.org/wiki/IP_address">IP address</a> that doesn&rsquo;t correspond to an actual physical network interface.</p>
+<p>A <strong>virtual IP address</strong> (<strong>VIP</strong> or <strong>VIPA</strong>) is an <a href="https://en.wikipedia.org/wiki/IP_address">IP address</a> that doesn't correspond to an actual physical network interface.</p>
 <p>VIP addresses are also used for connection redundancy by providing alternative fail-over options for one machine</p>
 <p>使用 keepalived 设置虚拟 IP 环境</p>
 <ol start="9">
@@ -242,7 +245,7 @@
 </ul>
 </li>
 </ol>
-<h3 id="2-负载均衡策略">2 负载均衡策略</h3>
+<h3 id="2-">2 负载均衡策略</h3>
 <blockquote>
 <p>如果你上来说这个肯定是错误的，理解不正确，从架构上设计上来体会 回到#四层负载均衡和七层负载均衡</p>
 </blockquote>
@@ -257,8 +260,8 @@
 <p>least_conn</p>
 </li>
 </ul>
-<h4 id="http-协议3次腾讯滴滴陌陌">http 协议（3次腾讯，滴滴，陌陌）</h4>
-<h4 id="http协议格式">http协议格式</h4>
+<h4 id="http-3">http 协议（3次腾讯，滴滴，陌陌）</h4>
+<h4 id="http">http协议格式</h4>
 <p>一个HTTP请求报文由请求行（request line）、请求头部（header）、空行和请求数据4个部分组成，下图给出了请求报文的一般格式。</p>
 <p><img src="https://pic002.cnblogs.com/images/2012/426620/2012072810301161.png" alt="img"></p>
 <p><a href="https://my.oschina.net/manmao/blog/549123">https://my.oschina.net/manmao/blog/549123</a></p>
@@ -266,7 +269,7 @@
 <p><img src="../../images/image-20191105194051987.png" alt="image-20191105194051987"></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -293,37 +296,37 @@
 </span><span class="lnt">25
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">(1)请求方法  URI 协议/版本
-</span></span><span class="line"><span class="cl">  请求的第一行是“方法URL协议版本”：
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">GET/sample.jsp HTTP/1.1
-</span></span><span class="line"><span class="cl"> 以上代码中“GET”代表请求方法，“/sample.jsp”表示URI，“HTTP/1.1代表协议和协议的版本。
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  根据HTTP标准，HTTP请求可以使用多种请求方法。例如：HTTP1.1支持7种请求方法：GET、POST、HEAD、OPTIONS、 PUT、DELETE和TARCE。在Internet应用中，最常用的方法是GET和POST。
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> URL完整地指定了要访问的网络资源，通常只要给出相对于服务器的根目录的相对目录即可，因此总是以“/”开头，最后，协议版本 声明了通信过程中使用HTTP的版本。
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">(2)请求头(Request Header)
-</span></span><span class="line"><span class="cl">请求头包含许多有关的客户端环境和请求正文的有用信息。例如，请求头可以声明浏览器所用的语言，请求正文的长度等。
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">Accept:image/gif.image/jpeg.*/*
-</span></span><span class="line"><span class="cl">Accept-Language:zh-cn
-</span></span><span class="line"><span class="cl">Connection:Keep-Alive
-</span></span><span class="line"><span class="cl">Host:localhost
-</span></span><span class="line"><span class="cl">User-Agent:Mozila/4.0(compatible:MSIE5.01:Windows NT5.0)
-</span></span><span class="line"><span class="cl">Accept-Encoding:gzip,deflate.
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">(3)请求正文
-</span></span><span class="line"><span class="cl">请求头和请求正文之间是一个空行，这个行非常重要，它表示请求头已经结束，接下来的是请求正文。请求正文中可以包含客户提 交的查询字符串信息：
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">username=jinqiao&amp;password=1234
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">(1)请求方法  URI 协议/版本
+  请求的第一行是“方法URL协议版本”：
+
+GET/sample.jsp HTTP/1.1
+ 以上代码中“GET”代表请求方法，“/sample.jsp”表示URI，“HTTP/1.1代表协议和协议的版本。
+
+  根据HTTP标准，HTTP请求可以使用多种请求方法。例如：HTTP1.1支持7种请求方法：GET、POST、HEAD、OPTIONS、 PUT、DELETE和TARCE。在Internet应用中，最常用的方法是GET和POST。
+
+ URL完整地指定了要访问的网络资源，通常只要给出相对于服务器的根目录的相对目录即可，因此总是以“/”开头，最后，协议版本 声明了通信过程中使用HTTP的版本。
+
+(2)请求头(Request Header)
+请求头包含许多有关的客户端环境和请求正文的有用信息。例如，请求头可以声明浏览器所用的语言，请求正文的长度等。
+
+Accept:image/gif.image/jpeg.*/*
+Accept-Language:zh-cn
+Connection:Keep-Alive
+Host:localhost
+User-Agent:Mozila/4.0(compatible:MSIE5.01:Windows NT5.0)
+Accept-Encoding:gzip,deflate.
+
+
+(3)请求正文
+请求头和请求正文之间是一个空行，这个行非常重要，它表示请求头已经结束，接下来的是请求正文。请求正文中可以包含客户提 交的查询字符串信息：
+
+username=jinqiao&amp;password=1234
+</code></pre></td></tr></table>
 </div>
 </div><p><img src="../../images/image-20191105194352975.png" alt="image-20191105194352975"></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -333,34 +336,36 @@
 </span><span class="lnt"> 8
 </span><span class="lnt"> 9
 </span><span class="lnt">10
+</span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">HTTP/1.0 200 OK 
-</span></span><span class="line"><span class="cl">Content-Type: text/plain
-</span></span><span class="line"><span class="cl">Content-Length: 137582
-</span></span><span class="line"><span class="cl">Expires: Thu, 05 Dec 1997 16:00:00 GMT
-</span></span><span class="line"><span class="cl">Last-Modified: Wed, 5 August 1996 15:55:28 GMT
-</span></span><span class="line"><span class="cl">Server: Apache 0.84
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">&lt;html&gt;
-</span></span><span class="line"><span class="cl">  &lt;body&gt;Hello World&lt;/body&gt;
-</span></span><span class="line"><span class="cl">&lt;/html&gt;
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">HTTP/1.0 200 OK 
+Content-Type: text/plain
+Content-Length: 137582
+Expires: Thu, 05 Dec 1997 16:00:00 GMT
+Last-Modified: Wed, 5 August 1996 15:55:28 GMT
+Server: Apache 0.84
+
+&lt;html&gt;
+  &lt;body&gt;Hello World&lt;/body&gt;
+&lt;/html&gt;
+
+</code></pre></td></tr></table>
 </div>
 </div><p><img src="../../images/image-20191105200334270.png" alt="image-20191105200334270"></p>
 <ul>
 <li>Wireshark：抓取 HTTP 包</li>
 <li><em>tcpdump</em></li>
 </ul>
-<h4 id="http请求方法介绍区别">HTTP请求方法介绍区别</h4>
+<h4 id="http-1">HTTP请求方法介绍区别</h4>
 <p><a href="http://liufeize.com/2017/11/10/The-difference-between-the-GET-and-POST/">http://liufeize.com/2017/11/10/The-difference-between-the-GET-and-POST/</a></p>
-<h4 id="get和post区别">get和post区别</h4>
+<h4 id="getpost">get和post区别</h4>
 <blockquote>
 <p>错误的回答</p>
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -394,47 +399,47 @@
 </span><span class="lnt">32
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">曾经有一个研读了HTTP协议的人去一家公司面试，面试官问他这个问题时，
-</span></span><span class="line"><span class="cl">他回答“GET是用于获取数据的，POST一般用于将数据发给服务器。其他GET和POST没什么区别”，
-</span></span><span class="line"><span class="cl">于是被刷了。
-</span></span><span class="line"><span class="cl">因为有些面试官心中也只有那一个“标准答案”。
-</span></span><span class="line"><span class="cl">谁说 HTTP GET 就不能通过 Body 来发送数据呢？
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">GET和POST还有一个重大区别，简单的说：
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">GET产生一个TCP数据包；POST产生两个TCP数据包。
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> 一个实体由实体报头域和实体正文组成，但并不是说实体报头域和实体正文要在一起发送，
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">可以只发送实体报头域 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">长的说：
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">对于GET方式的请求，浏览器会把http header和data一并发送出去，服务器响应200（返回数据）；
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">而对于POST，浏览器先发送header，服务器响应100 <span class="k">continue</span>，浏览器再发送data，服务器响应200 ok（返回数据）。
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">也就是说，GET只需要汽车跑一趟就把货送到了，而POST得跑两趟，第一趟，先去和服务器打个招呼“嗨，我等下要送一批货来，你们打开门迎接我”，然后再回头把货送过去。
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">关于『GET 发一个包，POST 发两个包』
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">对于GET方式的请求，浏览器会把http header和data一并发送出去，服务器响应200（返回数据）；
-</span></span><span class="line"><span class="cl">而对于POST，浏览器先发送header，服务器响应100 <span class="k">continue</span>，浏览器再发送data，服务器响应200 ok（返回数据）。
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">测试结果如下：
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">Chrome 55.0.2883.95，two packets: YES
-</span></span><span class="line"><span class="cl">Safari 10.0.2, two packets: YES
-</span></span><span class="line"><span class="cl">Firefox 49.0, two packets: NO
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">曾经有一个研读了HTTP协议的人去一家公司面试，面试官问他这个问题时，
+他回答“GET是用于获取数据的，POST一般用于将数据发给服务器。其他GET和POST没什么区别”，
+于是被刷了。
+因为有些面试官心中也只有那一个“标准答案”。
+谁说 HTTP GET 就不能通过 Body 来发送数据呢？
+
+GET和POST还有一个重大区别，简单的说：
+
+GET产生一个TCP数据包；POST产生两个TCP数据包。
+
+ 一个实体由实体报头域和实体正文组成，但并不是说实体报头域和实体正文要在一起发送，
+
+可以只发送实体报头域 
+
+长的说：
+
+对于GET方式的请求，浏览器会把http header和data一并发送出去，服务器响应200（返回数据）；
+
+而对于POST，浏览器先发送header，服务器响应100 <span class="k">continue</span>，浏览器再发送data，服务器响应200 ok（返回数据）。
+
+也就是说，GET只需要汽车跑一趟就把货送到了，而POST得跑两趟，第一趟，先去和服务器打个招呼“嗨，我等下要送一批货来，你们打开门迎接我”，然后再回头把货送过去。
+
+关于『GET 发一个包，POST 发两个包』
+
+对于GET方式的请求，浏览器会把http header和data一并发送出去，服务器响应200（返回数据）；
+而对于POST，浏览器先发送header，服务器响应100 <span class="k">continue</span>，浏览器再发送data，服务器响应200 ok（返回数据）。
+
+测试结果如下：
+
+Chrome 55.0.2883.95，two packets: YES
+Safari 10.0.2, two packets: YES
+Firefox 49.0, two packets: NO
+</code></pre></td></tr></table>
 </div>
 </div><blockquote>
 <p>正确回答</p>
 </blockquote>
 <blockquote>
-<p>curl -v -X GET  <a href="https://www.baidu.com">www.baidu.com</a> -d &ldquo;test&rdquo;</p>
+<p>curl -v -X GET  <a href="http://www.baidu.com">www.baidu.com</a> -d &ldquo;test&rdquo;</p>
 </blockquote>
-<h4 id="如何防范-post-重复提交">如何防范 POST 重复提交</h4>
+<h4 id="-post-">如何防范 POST 重复提交</h4>
 <p>编程中，一个幂等操作的特点是其任意多次执行所产生的影响均与一次执行的影响相同</p>
 <p>假设有一个从账户取钱的远程 API（可以是 HTTP 的，也可以不是），我们暂时用类函数的方式记为：</p>
 <p>bool withdraw(account_id, amount)</p>
@@ -446,7 +451,7 @@
 <p>1、用 POST /tickets 来实现 create_ticket；
 2、用 PUT /accounts/account_id/ticket_id&amp;amount=xxx 来实现 idempotent_withdraw；</p>
 <p>值得注意的是严格来讲 amount 参数不应该作为 URI 的一部分，真正的 URI 应该是 /accounts/account_id/ticket_id，而 amount 应该放在请求的 body 中。这种模式可以应用于很多场合，比如：论坛网站中防止意外的重复发帖。</p>
-<h3 id="3-案例">3. 案例</h3>
+<h3 id="3-">3. 案例</h3>
 <p>观止云开源流媒体服务器SRS（Simple RTMP Server）</p>
 <ul>
 <li>master就是主服务器，负责转发流给其他服务器。</li>
@@ -455,7 +460,7 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -472,22 +477,22 @@
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-scheme" data-lang="scheme"><span class="line"><span class="cl">                     <span class="nv">+-------------+</span>    <span class="nv">+---------------+</span>
-</span></span><span class="line"><span class="cl">                               <span class="nv">+--&gt;+</span> <span class="nv">Slave</span><span class="p">(</span><span class="mi">1935</span><span class="p">)</span> <span class="nv">+-&gt;--+</span>  <span class="nv">Player</span><span class="p">(</span><span class="mi">3000</span><span class="p">)</span> <span class="nv">+</span>
-</span></span><span class="line"><span class="cl">                               <span class="nv">|</span>   <span class="nv">+-------------+</span>    <span class="nv">+---------------+</span>
-</span></span><span class="line"><span class="cl">                               <span class="nv">|</span>   <span class="nv">+-------------+</span>    <span class="nv">+---------------+</span>
-</span></span><span class="line"><span class="cl">                               <span class="nv">|--&gt;+</span> <span class="nv">Slave</span><span class="p">(</span><span class="mi">1936</span><span class="p">)</span> <span class="nv">+-&gt;--+</span>  <span class="nv">Player</span><span class="p">(</span><span class="mi">3000</span><span class="p">)</span> <span class="nv">+</span>
-</span></span><span class="line"><span class="cl">         <span class="nv">publish</span>       <span class="nv">forward</span> <span class="nv">|</span>   <span class="nv">+-------------+</span>    <span class="nv">+---------------+</span>
-</span></span><span class="line"><span class="cl"><span class="nv">+-----------+</span>    <span class="nv">+--------+</span>    <span class="nv">|</span>     <span class="mf">192.168</span><span class="o">.</span><span class="mf">1.6</span>                       
-</span></span><span class="line"><span class="cl"><span class="nv">|</span>  <span class="nv">Encoder</span>  <span class="nv">+--&gt;-+</span> <span class="nv">Master</span> <span class="nv">+--&gt;-|</span>                                       
-</span></span><span class="line"><span class="cl"><span class="nv">+-----------+</span>    <span class="nv">+--------+</span>    <span class="nv">|</span>   <span class="nv">+-------------+</span>    <span class="nv">+---------------+</span>
-</span></span><span class="line"><span class="cl"> <span class="mf">192.168</span><span class="o">.</span><span class="mf">1.3</span>    <span class="mf">192.168</span><span class="o">.</span><span class="mf">1.5</span>    <span class="nv">+--&gt;+</span> <span class="nv">Slave</span><span class="p">(</span><span class="mi">1935</span><span class="p">)</span> <span class="nv">+-&gt;--+</span>  <span class="nv">Player</span><span class="p">(</span><span class="mi">3000</span><span class="p">)</span> <span class="nv">+</span>
-</span></span><span class="line"><span class="cl">                               <span class="nv">|</span>   <span class="nv">+-------------+</span>    <span class="nv">+---------------+</span>
-</span></span><span class="line"><span class="cl">                               <span class="nv">|</span>   <span class="nv">+-------------+</span>    <span class="nv">+---------------+</span>
-</span></span><span class="line"><span class="cl">                               <span class="nv">+--&gt;+</span> <span class="nv">Slave</span><span class="p">(</span><span class="mi">1936</span><span class="p">)</span> <span class="nv">+-&gt;--+</span>  <span class="nv">Player</span><span class="p">(</span><span class="mi">3000</span><span class="p">)</span> <span class="nv">+</span>
-</span></span><span class="line"><span class="cl">                                   <span class="nv">+-------------+</span>    <span class="nv">+---------------+</span>
-</span></span><span class="line"><span class="cl">                                     <span class="mf">192.168</span><span class="o">.</span><span class="mf">1.7</span>     
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-scheme" data-lang="scheme">                     <span class="nv">+-------------+</span>    <span class="nv">+---------------+</span>
+                               <span class="nv">+--&gt;+</span> <span class="nv">Slave</span><span class="p">(</span><span class="mi">1935</span><span class="p">)</span> <span class="nv">+-&gt;--+</span>  <span class="nv">Player</span><span class="p">(</span><span class="mi">3000</span><span class="p">)</span> <span class="nv">+</span>
+                               <span class="nv">|</span>   <span class="nv">+-------------+</span>    <span class="nv">+---------------+</span>
+                               <span class="nv">|</span>   <span class="nv">+-------------+</span>    <span class="nv">+---------------+</span>
+                               <span class="nv">|--&gt;+</span> <span class="nv">Slave</span><span class="p">(</span><span class="mi">1936</span><span class="p">)</span> <span class="nv">+-&gt;--+</span>  <span class="nv">Player</span><span class="p">(</span><span class="mi">3000</span><span class="p">)</span> <span class="nv">+</span>
+         <span class="nv">publish</span>       <span class="nv">forward</span> <span class="nv">|</span>   <span class="nv">+-------------+</span>    <span class="nv">+---------------+</span>
+<span class="nv">+-----------+</span>    <span class="nv">+--------+</span>    <span class="nv">|</span>     <span class="mf">192.168</span><span class="o">.</span><span class="mf">1.6</span>                       
+<span class="nv">|</span>  <span class="nv">Encoder</span>  <span class="nv">+--&gt;-+</span> <span class="nv">Master</span> <span class="nv">+--&gt;-|</span>                                       
+<span class="nv">+-----------+</span>    <span class="nv">+--------+</span>    <span class="nv">|</span>   <span class="nv">+-------------+</span>    <span class="nv">+---------------+</span>
+ <span class="mf">192.168</span><span class="o">.</span><span class="mf">1.3</span>    <span class="mf">192.168</span><span class="o">.</span><span class="mf">1.5</span>    <span class="nv">+--&gt;+</span> <span class="nv">Slave</span><span class="p">(</span><span class="mi">1935</span><span class="p">)</span> <span class="nv">+-&gt;--+</span>  <span class="nv">Player</span><span class="p">(</span><span class="mi">3000</span><span class="p">)</span> <span class="nv">+</span>
+                               <span class="nv">|</span>   <span class="nv">+-------------+</span>    <span class="nv">+---------------+</span>
+                               <span class="nv">|</span>   <span class="nv">+-------------+</span>    <span class="nv">+---------------+</span>
+                               <span class="nv">+--&gt;+</span> <span class="nv">Slave</span><span class="p">(</span><span class="mi">1936</span><span class="p">)</span> <span class="nv">+-&gt;--+</span>  <span class="nv">Player</span><span class="p">(</span><span class="mi">3000</span><span class="p">)</span> <span class="nv">+</span>
+                                   <span class="nv">+-------------+</span>    <span class="nv">+---------------+</span>
+                                     <span class="mf">192.168</span><span class="o">.</span><span class="mf">1.7</span>     
+</code></pre></td></tr></table>
 </div>
 </div><p><a href="https://www.cnblogs.com/yjmyzz/p/srs_study_4_cluster.html">开源流媒体服务器SRS学习笔记(4) - Cluster集群方案</a></p>
 <p>好问题：</p>
@@ -506,7 +511,7 @@
 <p>可配置<code>多个</code>源站，在故障时会切换到下一个源站【主挂了edge依然能获取，实现自动切换】</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -527,33 +532,33 @@
 </span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">vhost</span> <span class="n">__defaultVhost__</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="cp"># the mode of vhost, local or remote.
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>    <span class="cp">#       local: vhost is origin vhost, which provides stream source.
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>    <span class="cp">#       remote: vhost is edge vhost, which pull/push to origin.
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>    <span class="cp"># default: local
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>    <span class="n">mode</span>            <span class="n">remote</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="cp"># for edge(remote mode), user must specifies the origin server
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>    <span class="cp"># format as: &lt;server_name|ip&gt;[:port]
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>    <span class="cp"># @remark user can specifies multiple origin for error backup, by space,
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>    <span class="cp"># for example, 192.168.1.100:1935 192.168.1.101:1935 192.168.1.102:1935
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>    <span class="n">origin</span>          <span class="mf">127.0.0.1</span><span class="o">:</span><span class="mi">1935</span> <span class="nl">localhost</span><span class="p">:</span><span class="mi">1935</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="cp"># for edge, whether open the token traverse mode,
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>    <span class="cp"># if token traverse on, all connections of edge will forward to origin to check(auth),
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>    <span class="cp"># it&#39;s very important for the edge to do the token auth.
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>    <span class="cp"># the better way is use http callback to do the token auth by the edge,
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>    <span class="cp"># but if user prefer origin check(auth), the token_traverse if better solution.
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>    <span class="cp"># default: off
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>    <span class="n">token_traverse</span>  <span class="n">off</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="n">vhost</span> <span class="n">__defaultVhost__</span> <span class="p">{</span>
+    <span class="err">#</span> <span class="n">the</span> <span class="n">mode</span> <span class="n">of</span> <span class="n">vhost</span><span class="p">,</span> <span class="n">local</span> <span class="n">or</span> <span class="n">remote</span><span class="p">.</span>
+    <span class="err">#</span>       <span class="nl">local</span><span class="p">:</span> <span class="n">vhost</span> <span class="n">is</span> <span class="n">origin</span> <span class="n">vhost</span><span class="p">,</span> <span class="n">which</span> <span class="n">provides</span> <span class="n">stream</span> <span class="n">source</span><span class="p">.</span>
+    <span class="err">#</span>       <span class="nl">remote</span><span class="p">:</span> <span class="n">vhost</span> <span class="n">is</span> <span class="n">edge</span> <span class="n">vhost</span><span class="p">,</span> <span class="n">which</span> <span class="n">pull</span><span class="o">/</span><span class="n">push</span> <span class="n">to</span> <span class="n">origin</span><span class="p">.</span>
+    <span class="err">#</span> <span class="k">default</span><span class="o">:</span> <span class="n">local</span>
+    <span class="n">mode</span>            <span class="n">remote</span><span class="p">;</span>
+    <span class="err">#</span> <span class="k">for</span> <span class="n">edge</span><span class="p">(</span><span class="n">remote</span> <span class="n">mode</span><span class="p">)</span><span class="p">,</span> <span class="n">user</span> <span class="n">must</span> <span class="n">specifies</span> <span class="n">the</span> <span class="n">origin</span> <span class="n">server</span>
+    <span class="err">#</span> <span class="n">format</span> <span class="nl">as</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">server_name</span><span class="o">|</span><span class="n">ip</span><span class="o">&gt;</span><span class="p">[</span><span class="o">:</span><span class="n">port</span><span class="p">]</span>
+    <span class="err">#</span> <span class="err">@</span><span class="n">remark</span> <span class="n">user</span> <span class="n">can</span> <span class="n">specifies</span> <span class="n">multiple</span> <span class="n">origin</span> <span class="k">for</span> <span class="n">error</span> <span class="n">backup</span><span class="p">,</span> <span class="n">by</span> <span class="n">space</span><span class="p">,</span>
+    <span class="err">#</span> <span class="k">for</span> <span class="n">example</span><span class="p">,</span> <span class="mf">192.168</span><span class="mf">.1</span><span class="mf">.100</span><span class="o">:</span><span class="mi">1935</span> <span class="mf">192.168</span><span class="mf">.1</span><span class="mf">.101</span><span class="o">:</span><span class="mi">1935</span> <span class="mf">192.168</span><span class="mf">.1</span><span class="mf">.102</span><span class="o">:</span><span class="mi">1935</span>
+    <span class="n">origin</span>          <span class="mf">127.0</span><span class="mf">.0</span><span class="mf">.1</span><span class="o">:</span><span class="mi">1935</span> <span class="nl">localhost</span><span class="p">:</span><span class="mi">1935</span><span class="p">;</span>
+    <span class="err">#</span> <span class="k">for</span> <span class="n">edge</span><span class="p">,</span> <span class="n">whether</span> <span class="n">open</span> <span class="n">the</span> <span class="n">token</span> <span class="n">traverse</span> <span class="n">mode</span><span class="p">,</span>
+    <span class="err">#</span> <span class="k">if</span> <span class="n">token</span> <span class="n">traverse</span> <span class="n">on</span><span class="p">,</span> <span class="n">all</span> <span class="n">connections</span> <span class="n">of</span> <span class="n">edge</span> <span class="n">will</span> <span class="n">forward</span> <span class="n">to</span> <span class="n">origin</span> <span class="n">to</span> <span class="n">check</span><span class="p">(</span><span class="n">auth</span><span class="p">)</span><span class="p">,</span>
+    <span class="err">#</span> <span class="n">it</span><span class="err">&#39;</span><span class="n">s</span> <span class="n">very</span> <span class="n">important</span> <span class="k">for</span> <span class="n">the</span> <span class="n">edge</span> <span class="n">to</span> <span class="k">do</span> <span class="n">the</span> <span class="n">token</span> <span class="n">auth</span><span class="p">.</span>
+    <span class="err">#</span> <span class="n">the</span> <span class="n">better</span> <span class="n">way</span> <span class="n">is</span> <span class="n">use</span> <span class="n">http</span> <span class="n">callback</span> <span class="n">to</span> <span class="k">do</span> <span class="n">the</span> <span class="n">token</span> <span class="n">auth</span> <span class="n">by</span> <span class="n">the</span> <span class="n">edge</span><span class="p">,</span>
+    <span class="err">#</span> <span class="n">but</span> <span class="k">if</span> <span class="n">user</span> <span class="n">prefer</span> <span class="n">origin</span> <span class="n">check</span><span class="p">(</span><span class="n">auth</span><span class="p">)</span><span class="p">,</span> <span class="n">the</span> <span class="n">token_traverse</span> <span class="k">if</span> <span class="n">better</span> <span class="n">solution</span><span class="p">.</span>
+    <span class="err">#</span> <span class="k">default</span><span class="o">:</span> <span class="n">off</span>
+    <span class="n">token_traverse</span>  <span class="n">off</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div><p>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;华丽分隔符 基本知识补充&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</p>
 <p>边缘服务器前置反向代理（比如：nginx），用于提供统一的播放地址，同时解决跨域问题，给客户端拉流播放</p>
 <p>源站前置负载均衡（硬件或软件负载均衡都行），上图中用HA proxy来实现tcp的软负载均衡。</p>
-<h1 id="解析">解析</h1>
+<h1 id="heading-3">解析</h1>
 <p><a href="https://www.processon.com/diagraming/5684b37ce4b04beb5eaa42ed">https://www.processon.com/diagraming/5684b37ce4b04beb5eaa42ed</a></p>
-<h1 id="参考">参考</h1>
+<h1 id="heading-4">参考</h1>
 <p>[1] 图解HTTP 第三章 第四章节（第一次看发现全部都是解释字段含义，产生没有什么学的感觉。第二次看http协议格式）c</p>
 <p>[2]  <a href="https://zhaohuabing.com/istio-practice/">https://zhaohuabing.com/istio-practice/</a></p>
 

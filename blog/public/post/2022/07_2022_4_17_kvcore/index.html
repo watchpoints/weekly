@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.101.0 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
 <link rel="canonical" href="https://wangcy6.github.io/post/2022/07_2022_4_17_kvcore/" />
@@ -41,14 +41,17 @@
 <meta property="og:title" content="早起120小时写代码第一期：kvcore" />
 <meta property="og:description" content="早睡：21点准备 22点上床，早起 6点准备 ，8点-10点 120分钟" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://wangcy6.github.io/post/2022/07_2022_4_17_kvcore/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://wangcy6.github.io/post/2022/07_2022_4_17_kvcore/" />
 <meta property="article:published_time" content="2022-04-17T00:00:00+00:00" />
 <meta property="article:modified_time" content="2022-04-17T00:00:00+00:00" />
-
 <meta itemprop="name" content="早起120小时写代码第一期：kvcore">
-<meta itemprop="description" content="早睡：21点准备 22点上床，早起 6点准备 ，8点-10点 120分钟"><meta itemprop="datePublished" content="2022-04-17T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-04-17T00:00:00+00:00" />
+<meta itemprop="description" content="早睡：21点准备 22点上床，早起 6点准备 ，8点-10点 120分钟">
+<meta itemprop="datePublished" content="2022-04-17T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2022-04-17T00:00:00&#43;00:00" />
 <meta itemprop="wordCount" content="2244">
+
+
+
 <meta itemprop="keywords" content="60秒问答," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="早起120小时写代码第一期：kvcore"/>
 <meta name="twitter:description" content="早睡：21点准备 22点上床，早起 6点准备 ，8点-10点 120分钟"/>
@@ -146,7 +149,7 @@
     </li>
     <li><a href="#day2--memory">day2:  memory</a>
       <ul>
-        <li><a href="#阅读资料">阅读资料</a></li>
+        <li><a href="#heading">阅读资料</a></li>
         <li><a href="#day3">day3</a></li>
       </ul>
     </li>
@@ -160,7 +163,7 @@
     </div>
   </div>
     <div class="post-content">
-      <h4 id="day1-2022-4-17-看斗鱼-看手机-晚上6点22点-时间规划和紧急措施陷入时间黑洞-象与骑象人httpsbookdoubancomsubject20260640根本控制不大象强制无效">day1： 2022-4-17 看斗鱼 看手机 晚上6点22点 时间规划和紧急措施陷入时间黑洞 #<a href="https://book.douban.com/subject/20260640//">象与骑象人</a>，根本控制不大象，强制无效</h4>
+      <h4 id="day1-2022-4-17---622--httpsbookdoubancomsubject20260640">day1： 2022-4-17 看斗鱼 看手机 晚上6点22点 时间规划和紧急措施陷入时间黑洞 #<a href="https://book.douban.com/subject/20260640//">象与骑象人</a>，根本控制不大象，强制无效</h4>
 <p><a href="https://hardcore.feishu.cn/mindnotes/bmncnnOV8YnRi9CU04RZwhYGqte">手写KV引擎(第一部分)-实现单机kv引擎</a></p>
 <p><a href="https://hardcore.feishu.cn/mindnotes/bmncnzpUmXNQruVGOwRwisHyxoh">【硬核课堂】LevelDB 源码分析</a></p>
 <p>git clone <a href="mailto:git@github.com">git@github.com</a>:wangcy6/coreKV-CPP.git</p>
@@ -211,11 +214,11 @@
 <li><a href="https://programmerclick.com/article/70581257539/">https://programmerclick.com/article/70581257539/</a></li>
 </ul>
 <ol>
-<li>To illustrate, let&rsquo;s consider two common data structures: linked lists and balanced trees.</li>
+<li>To illustrate, let's consider two common data structures: linked lists and balanced trees.</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -226,22 +229,22 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">So red-black trees cause some problems for concurrent code:
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">It&#39;s hard to run updates truly concurrently because updates arbitrarily far apart in the tree can touch the same nodes—especially the root, but also other higher-level nodes to lesser degrees—and therefore contend with each other. We have lost the ability to make truly localized changes.
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">The tree performs extra internal housekeeping writes. This increases the amount of shared data that needs to be written and synchronized across caches to publish what would be a small update in another data structure.
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">所以红黑树给并发代码带来了一些问题：
-</span></span><span class="line"><span class="cl">很难真正同时运行更新，因为在树中任意相隔很远的更新可能会触及相同的节点——尤其是根，但也会触及其他更高级别的节点，但程度较低——因此会相互竞争。 我们已经失去了进行真正本地化更改的能力。
-</span></span><span class="line"><span class="cl">树执行额外的内部管理写入。 这增加了需要跨缓存写入和同步的共享数据量，以发布另一个数据结构中的小更新
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">So red-black trees cause some problems for concurrent code:
+
+It&#39;s hard to run updates truly concurrently because updates arbitrarily far apart in the tree can touch the same nodes—especially the root, but also other higher-level nodes to lesser degrees—and therefore contend with each other. We have lost the ability to make truly localized changes.
+
+The tree performs extra internal housekeeping writes. This increases the amount of shared data that needs to be written and synchronized across caches to publish what would be a small update in another data structure.
+
+所以红黑树给并发代码带来了一些问题：
+很难真正同时运行更新，因为在树中任意相隔很远的更新可能会触及相同的节点——尤其是根，但也会触及其他更高级别的节点，但程度较低——因此会相互竞争。 我们已经失去了进行真正本地化更改的能力。
+树执行额外的内部管理写入。 这增加了需要跨缓存写入和同步的共享数据量，以发布另一个数据结构中的小更新
+</code></pre></td></tr></table>
 </div>
 </div><h2 id="day2--memory">day2:  memory</h2>
-<h3 id="阅读资料">阅读资料</h3>
+<h3 id="heading">阅读资料</h3>
 <ul>
 <li>
-<p><input disabled="" type="checkbox"> <a href="https://hardcore.feishu.cn/docs/doccngOEJpWCod99boj8LHbt43c">https://hardcore.feishu.cn/docs/doccngOEJpWCod99boj8LHbt43c</a></p>
+<p><input disabled="" type="checkbox"><a href="https://hardcore.feishu.cn/docs/doccngOEJpWCod99boj8LHbt43c">https://hardcore.feishu.cn/docs/doccngOEJpWCod99boj8LHbt43c</a></p>
 <p>开始日期：4-27 20:11    &mdash;结束日期：</p>
 <ul>
 <li>记free 多次引发的内存踩踏事件</li>
@@ -253,7 +256,7 @@
 </ul>
 </li>
 <li>
-<p><input disabled="" type="checkbox"> 问题来源：</p>
+<p><input disabled="" type="checkbox">问题来源：</p>
 <p>章节：corekv-cpp之内存池</p>
 <p>函数：void* SimpleFreeListAlloc::Allocate(int32_t n)</p>
 </li>
@@ -291,7 +294,7 @@
 <p>happens-before relationship</p>
 <ul>
 <li>
-<p><input disabled="" type="checkbox"> </p>
+<p><input disabled="" type="checkbox"></p>
 <p>章节：corekv-cpp之内存池</p>
 <p>函数：void* SimpleFreeListAlloc::Allocate(int32_t n)</p>
 <p>select_free_list = freelist_ + M_FreelistIndex(n);</p>
