@@ -1,0 +1,3 @@
+# Add these gems to your Gemfile
+gem 'activeadmin'
+gem 'devise' # for authentication 
