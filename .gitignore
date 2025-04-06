@@ -36,3 +36,5 @@ pkg
 *.a
 .class
 public
+obsidian
+blog\content\.obsidian

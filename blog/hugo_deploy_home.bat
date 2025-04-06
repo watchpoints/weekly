@@ -1,8 +1,8 @@
 @echo off          
 
-cd /d D:\db\daily-interview\blog
+cd /d D:\code\weekly\blog
 start hugo
-cd /d D:\db\daily-interview\blog\public
+cd /d D:\code\weekly\blog\public
 echo 当前目录是：%cd%
 git pull
 git add -A .

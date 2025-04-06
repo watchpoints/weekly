@@ -1,0 +1,262 @@
+{
+  "main": {
+    "id": "14ed34eb07dc6f18",
+    "type": "split",
+    "children": [
+      {
+        "id": "6068e81957ead501",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2825e5930f52ef63",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "liunx/kubernetes/how_docker.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "how_docker"
+            }
+          },
+          {
+            "id": "edba3e8268cbe34f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "liunx/2025/how_to_learn_3fs_4 1.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "how_to_learn_3fs_4 1"
+            }
+          },
+          {
+            "id": "bfcbe3f2617425d9",
+            "type": "leaf",
+            "state": {
+              "type": "webviewer",
+              "state": {
+                "url": "https://en.cppreference.com/w/cpp/memory/new",
+                "title": "Low level memory management - cppreference.com",
+                "mode": "webview"
+              },
+              "icon": "globe-2",
+              "title": "Low level memory management - cppreference.com"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "fb950e35998ed8c0",
+    "type": "split",
+    "children": [
+      {
+        "id": "a74322edc8ea13d1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "21c3930b36a4af3a",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "2b8b7b89644ecdf2",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "tag:code_reading",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "80347ff2badc048c",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "2ed2996f33458575",
+    "type": "split",
+    "children": [
+      {
+        "id": "97d7baaaae5e1016",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "fdb905952a750cb7",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "liunx/docker/2025-2-28-对象存储服务性能调优 1.md",
+                "collapseAll": false,
+                "extraContext": true,
+                "sortOrder": "alphabetical",
+                "showSearch": true,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": false
+              },
+              "icon": "links-coming-in",
+              "title": "2025-2-28-对象存储服务性能调优 1 的反向链接列表"
+            }
+          },
+          {
+            "id": "89e8314f32ab84c4",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "liunx/docker/2025-2-28-对象存储服务性能调优 1.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from 2025-2-28-对象存储服务性能调优 1"
+            }
+          },
+          {
+            "id": "a9844b4fb19c53a6",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "e1e2c3cc269b20c5",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "liunx/2025/how_to_learn_3fs_4 1.md",
+                "followCursor": false,
+                "showSearch": true,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "how_to_learn_3fs_4 1 的大纲"
+            }
+          },
+          {
+            "id": "09d6cec03b2db1ad",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {},
+              "icon": "calendar-with-checkmark",
+              "title": "Calendar"
+            }
+          },
+          {
+            "id": "a3d8dac385cde7fd",
+            "type": "leaf",
+            "state": {
+              "type": "copilot-chat-view",
+              "state": {},
+              "icon": "message-square",
+              "title": "Copilot"
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "audio-recorder:开始/结束录音": false,
+      "markdown-importer:打开 Markdown 格式转换器": false,
+      "obsidian-kanban:创建新看板": false,
+      "copilot:Open Copilot Chat": false
+    }
+  },
+  "active": "edba3e8268cbe34f",
+  "lastOpenFiles": [
+    "liunx/2025/how_to_learn_3fs_4.md",
+    "liunx/2025/how_to_learn_3fs_4 1.md",
+    "liunx/2025/3fs-what-is-file-system 3.md",
+    "liunx/2025/3fs-what-is-file-system.md",
+    "liunx/kubernetes/how_docker.md",
+    "liunx/docker/2025-2-28-对象存储服务性能调优.md",
+    "liunx/2022-11-20-liunx_kernel_param.md",
+    "liunx/shell有什么用.md",
+    "().md",
+    "liunx/docker/2025-03-15-window11-install-docker.md",
+    "liunx/docker/2022_11_29_liunx_memory_ 1.md",
+    "liunx/desgin/2022_11_29_liunx_memory_ 1 1.md",
+    "01a54a8883cbf7b9c23401e4e6c7ffa.jpg",
+    "liunx/2025",
+    "liunx/2022_11_29_liunx_memory_.md",
+    "money/2025-03-23-code_OpenManus.md",
+    "Pasted image 20250323152954.png",
+    "money/P1_what_is_MCP.md",
+    "money/002_.md",
+    "oceanbase/2024/day09_make_ob.md",
+    "oceanbase/2024/day10_paxos_practise.md",
+    "money/2024/2024-08-02-sleep.md",
+    "未命名.md",
+    "未命名",
+    "未命名.canvas",
+    "tidb/2024/rust_for_tikv_days4_.md",
+    "ARTS/未命名",
+    "tidb/2024/make_tidb_day6-raft-rs.md",
+    "tidb/2024/rust_for_tikv_days100_1.md",
+    "tidb/20230_05_05_tikv.md",
+    "day10_paxos_practise.pdf",
+    "liunx/git通关从青铜到王者.md",
+    "oceanbase/2024/day11.md",
+    "未命名 1.canvas",
+    "Pasted image 20250315160756.png"
+  ]
+}
