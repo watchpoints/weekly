@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.101.0 with theme even" />
+<meta name="generator" content="Hugo 0.83.1 with theme even" />
 
 
 <link rel="canonical" href="https://wangcy6.github.io/post/2022/2-2022-1-25-os/" />
@@ -42,13 +42,13 @@
 <meta property="og:description" content="疑问" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://wangcy6.github.io/post/2022/2-2022-1-25-os/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2022-01-25T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-01-25T00:00:00+00:00" />
+<meta property="article:published_time" content="2022-01-25T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2022-01-25T00:00:00&#43;00:00" />
 
 <meta itemprop="name" content="操作系统入门知识">
-<meta itemprop="description" content="疑问"><meta itemprop="datePublished" content="2022-01-25T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-01-25T00:00:00+00:00" />
-<meta itemprop="wordCount" content="2728">
+<meta itemprop="description" content="疑问"><meta itemprop="datePublished" content="2022-01-25T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2022-01-25T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="2730">
 <meta itemprop="keywords" content="book," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="操作系统入门知识"/>
 <meta name="twitter:description" content="疑问"/>
@@ -128,7 +128,7 @@
       <div class="post-meta">
         <span class="post-time"> 2022-01-25 00:00 </span>
         
-          <span class="more-meta"> 约 2728 字 </span>
+          <span class="more-meta"> 约 2730 字 </span>
           <span class="more-meta"> 预计阅读 6 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -176,27 +176,31 @@
       <h1 id="how-sched_setaffinity-works-inside-of-linux-kernel">How sched_setaffinity works inside of Linux Kernel</h1>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">YSCALL_DEFINE3(sched_setaffinity, pid_t, pid, unsigned int, len, unsigned long __user *, user_mask_ptr)
-</span></span><span class="line"><span class="cl">-- sched_setaffinity(pid_t pid, const struct cpumask *in_mask)
-</span></span><span class="line"><span class="cl">--- __set_cpus_allowed_ptr(struct task_struct *p, const struct cpumask *new_mask, bool check)
-</span></span><span class="line"><span class="cl">---- stop_one_cpu(unsigned int cpu, cpu_stop_fn_t fn, void *arg)
-</span></span><span class="line"><span class="cl">----- migration_cpu_stop(void *data)
-</span></span><span class="line"><span class="cl">------ __migrate_task(struct rq *rq, struct task_struct *p, int dest_cpu)
-</span></span><span class="line"><span class="cl">------- move_queued_task(struct rq *rq, struct task_struct *p, int new_cpu)
-</span></span><span class="line"><span class="cl">-------- enqueue_task(struct rq *rq, struct task_struct *p, int flags)
-</span></span><span class="line"><span class="cl">--------- returns the new run queue of destination CPU
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">YSCALL_DEFINE3(sched_setaffinity, pid_t, pid, unsigned int, len, unsigned long __user *, user_mask_ptr)
+-- sched_setaffinity(pid_t pid, const struct cpumask *in_mask)
+--- __set_cpus_allowed_ptr(struct task_struct *p, const struct cpumask *new_mask, bool check)
+---- stop_one_cpu(unsigned int cpu, cpu_stop_fn_t fn, void *arg)
+----- migration_cpu_stop(void *data)
+------ __migrate_task(struct rq *rq, struct task_struct *p, int dest_cpu)
+------- move_queued_task(struct rq *rq, struct task_struct *p, int new_cpu)
+-------- enqueue_task(struct rq *rq, struct task_struct *p, int flags)
+--------- returns the new run queue of destination CPU
+
+
+</code></pre></td></tr></table>
 </div>
 </div><p>[root@h12-storage03 ~]# dmesg|grep -i numa
 [    0.000000] NUMA: Initialized distance table, cnt=2
@@ -234,11 +238,11 @@
 <li>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">service irqbalance stop
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-text" data-lang="text">service irqbalance stop
+</code></pre></td></tr></table>
 </div>
 </div></li>
 </ul>
@@ -272,7 +276,7 @@
 <p>[ksoftirqd/47</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -337,70 +341,70 @@
 </span><span class="lnt">63
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[root@spa-65-177-112 gadmin]# ps aux | grep softirq
-</span></span><span class="line"><span class="cl">root         6  0.0  0.0      0     0 ?        S     2021   0:20 [ksoftirqd/0]
-</span></span><span class="line"><span class="cl">root        14  0.0  0.0      0     0 ?        S     2021   0:21 [ksoftirqd/1]
-</span></span><span class="line"><span class="cl">root        20  0.0  0.0      0     0 ?        S     2021   0:16 [ksoftirqd/2]
-</span></span><span class="line"><span class="cl">root        25  0.0  0.0      0     0 ?        S     2021   0:19 [ksoftirqd/3]
-</span></span><span class="line"><span class="cl">root        30  0.0  0.0      0     0 ?        S     2021   0:19 [ksoftirqd/4]
-</span></span><span class="line"><span class="cl">root        35  0.0  0.0      0     0 ?        S     2021   0:30 [ksoftirqd/5]
-</span></span><span class="line"><span class="cl">root        40  0.0  0.0      0     0 ?        S     2021   0:20 [ksoftirqd/6]
-</span></span><span class="line"><span class="cl">root        45  0.0  0.0      0     0 ?        S     2021   0:33 [ksoftirqd/7]
-</span></span><span class="line"><span class="cl">root        50  0.0  0.0      0     0 ?        S     2021   0:20 [ksoftirqd/8]
-</span></span><span class="line"><span class="cl">root        55  0.0  0.0      0     0 ?        S     2021   0:17 [ksoftirqd/9]
-</span></span><span class="line"><span class="cl">root        60  0.0  0.0      0     0 ?        S     2021   0:31 [ksoftirqd/10]
-</span></span><span class="line"><span class="cl">root        65  0.0  0.0      0     0 ?        S     2021   0:23 [ksoftirqd/11]
-</span></span><span class="line"><span class="cl">root        70  0.0  0.0      0     0 ?        S     2021   0:13 [ksoftirqd/12]
-</span></span><span class="line"><span class="cl">root        76  0.0  0.0      0     0 ?        S     2021   0:22 [ksoftirqd/13]
-</span></span><span class="line"><span class="cl">root        81  0.0  0.0      0     0 ?        S     2021   0:27 [ksoftirqd/14]
-</span></span><span class="line"><span class="cl">root        86  0.0  0.0      0     0 ?        S     2021   0:32 [ksoftirqd/15]
-</span></span><span class="line"><span class="cl">root        91  0.0  0.0      0     0 ?        S     2021   0:34 [ksoftirqd/16]
-</span></span><span class="line"><span class="cl">root        96  0.0  0.0      0     0 ?        S     2021   0:18 [ksoftirqd/17]
-</span></span><span class="line"><span class="cl">root       101  0.0  0.0      0     0 ?        S     2021   0:18 [ksoftirqd/18]
-</span></span><span class="line"><span class="cl">root       106  0.0  0.0      0     0 ?        S     2021   0:16 [ksoftirqd/19]
-</span></span><span class="line"><span class="cl">root       111  0.0  0.0      0     0 ?        S     2021   0:20 [ksoftirqd/20]
-</span></span><span class="line"><span class="cl">root       116  0.0  0.0      0     0 ?        S     2021   0:23 [ksoftirqd/21]
-</span></span><span class="line"><span class="cl">root       121  0.0  0.0      0     0 ?        S     2021   0:18 [ksoftirqd/22]
-</span></span><span class="line"><span class="cl">root       126  0.0  0.0      0     0 ?        S     2021   0:14 [ksoftirqd/23]
-</span></span><span class="line"><span class="cl">root       131  0.0  0.0      0     0 ?        S     2021   0:00 [ksoftirqd/24]
-</span></span><span class="line"><span class="cl">root       136  0.0  0.0      0     0 ?        S     2021   0:06 [ksoftirqd/25]
-</span></span><span class="line"><span class="cl">root       141  0.0  0.0      0     0 ?        S     2021   0:04 [ksoftirqd/26]
-</span></span><span class="line"><span class="cl">root       146  0.0  0.0      0     0 ?        S     2021   0:03 [ksoftirqd/27]
-</span></span><span class="line"><span class="cl">root       151  0.0  0.0      0     0 ?        S     2021   0:03 [ksoftirqd/28]
-</span></span><span class="line"><span class="cl">root       156  0.0  0.0      0     0 ?        S     2021   0:02 [ksoftirqd/29]
-</span></span><span class="line"><span class="cl">root       161  0.0  0.0      0     0 ?        S     2021   0:02 [ksoftirqd/30]
-</span></span><span class="line"><span class="cl">root       166  0.0  0.0      0     0 ?        S     2021   0:02 [ksoftirqd/31]
-</span></span><span class="line"><span class="cl">root       171  0.0  0.0      0     0 ?        S     2021   0:01 [ksoftirqd/32]
-</span></span><span class="line"><span class="cl">root       176  0.0  0.0      0     0 ?        S     2021   0:01 [ksoftirqd/33]
-</span></span><span class="line"><span class="cl">root       181  0.0  0.0      0     0 ?        S     2021   0:01 [ksoftirqd/34]
-</span></span><span class="line"><span class="cl">root       186  0.0  0.0      0     0 ?        S     2021   0:01 [ksoftirqd/35]
-</span></span><span class="line"><span class="cl">root       191  0.0  0.0      0     0 ?        S     2021   0:00 [ksoftirqd/36]
-</span></span><span class="line"><span class="cl">root       196  0.0  0.0      0     0 ?        S     2021   0:06 [ksoftirqd/37]
-</span></span><span class="line"><span class="cl">root       201  0.0  0.0      0     0 ?        S     2021   0:04 [ksoftirqd/38]
-</span></span><span class="line"><span class="cl">root       206  0.0  0.0      0     0 ?        S     2021   0:03 [ksoftirqd/39]
-</span></span><span class="line"><span class="cl">root       211  0.0  0.0      0     0 ?        S     2021   0:03 [ksoftirqd/40]
-</span></span><span class="line"><span class="cl">root       216  0.0  0.0      0     0 ?        S     2021   0:02 [ksoftirqd/41]
-</span></span><span class="line"><span class="cl">root       221  0.0  0.0      0     0 ?        S     2021   0:03 [ksoftirqd/42]
-</span></span><span class="line"><span class="cl">root       226  0.0  0.0      0     0 ?        S     2021   0:02 [ksoftirqd/43]
-</span></span><span class="line"><span class="cl">root       231  0.0  0.0      0     0 ?        S     2021   0:00 [ksoftirqd/44]
-</span></span><span class="line"><span class="cl">root       236  0.0  0.0      0     0 ?        S     2021   0:00 [ksoftirqd/45]
-</span></span><span class="line"><span class="cl">root       241  0.0  0.0      0     0 ?        S     2021   0:00 [ksoftirqd/46]
-</span></span><span class="line"><span class="cl">root       246  0.0  0.0      0     0 ?        S     2021   0:00 [ksoftirqd/47]
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">[ ~]# cat /proc/irq/24/smp_affinity
-</span></span><span class="line"><span class="cl">0001
-</span></span><span class="line"><span class="cl">[ ~]# cat /proc/irq/24/smp_affinity_list 
-</span></span><span class="line"><span class="cl">0
-</span></span><span class="line"><span class="cl">#上面表示0001对应cpu0，可以直接修改绑定关系
-</span></span><span class="line"><span class="cl">[ ~]# echo 4 &gt; /proc/irq/24/smp_affinity
-</span></span><span class="line"><span class="cl">[ ~]# cat /proc/irq/24/smp_affinity_list 
-</span></span><span class="line"><span class="cl">2
-</span></span><span class="line"><span class="cl">#此时中断号24对应的处理CPU为cpu2
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">mpstat -P ALL 1 1
-</span></span><span class="line"><span class="cl">watch -d cat /proc/softirqs
-</span></span><span class="line"><span class="cl">cat /proc/interrupts  
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[root@spa-65-177-112 gadmin]# ps aux | grep softirq
+root         6  0.0  0.0      0     0 ?        S     2021   0:20 [ksoftirqd/0]
+root        14  0.0  0.0      0     0 ?        S     2021   0:21 [ksoftirqd/1]
+root        20  0.0  0.0      0     0 ?        S     2021   0:16 [ksoftirqd/2]
+root        25  0.0  0.0      0     0 ?        S     2021   0:19 [ksoftirqd/3]
+root        30  0.0  0.0      0     0 ?        S     2021   0:19 [ksoftirqd/4]
+root        35  0.0  0.0      0     0 ?        S     2021   0:30 [ksoftirqd/5]
+root        40  0.0  0.0      0     0 ?        S     2021   0:20 [ksoftirqd/6]
+root        45  0.0  0.0      0     0 ?        S     2021   0:33 [ksoftirqd/7]
+root        50  0.0  0.0      0     0 ?        S     2021   0:20 [ksoftirqd/8]
+root        55  0.0  0.0      0     0 ?        S     2021   0:17 [ksoftirqd/9]
+root        60  0.0  0.0      0     0 ?        S     2021   0:31 [ksoftirqd/10]
+root        65  0.0  0.0      0     0 ?        S     2021   0:23 [ksoftirqd/11]
+root        70  0.0  0.0      0     0 ?        S     2021   0:13 [ksoftirqd/12]
+root        76  0.0  0.0      0     0 ?        S     2021   0:22 [ksoftirqd/13]
+root        81  0.0  0.0      0     0 ?        S     2021   0:27 [ksoftirqd/14]
+root        86  0.0  0.0      0     0 ?        S     2021   0:32 [ksoftirqd/15]
+root        91  0.0  0.0      0     0 ?        S     2021   0:34 [ksoftirqd/16]
+root        96  0.0  0.0      0     0 ?        S     2021   0:18 [ksoftirqd/17]
+root       101  0.0  0.0      0     0 ?        S     2021   0:18 [ksoftirqd/18]
+root       106  0.0  0.0      0     0 ?        S     2021   0:16 [ksoftirqd/19]
+root       111  0.0  0.0      0     0 ?        S     2021   0:20 [ksoftirqd/20]
+root       116  0.0  0.0      0     0 ?        S     2021   0:23 [ksoftirqd/21]
+root       121  0.0  0.0      0     0 ?        S     2021   0:18 [ksoftirqd/22]
+root       126  0.0  0.0      0     0 ?        S     2021   0:14 [ksoftirqd/23]
+root       131  0.0  0.0      0     0 ?        S     2021   0:00 [ksoftirqd/24]
+root       136  0.0  0.0      0     0 ?        S     2021   0:06 [ksoftirqd/25]
+root       141  0.0  0.0      0     0 ?        S     2021   0:04 [ksoftirqd/26]
+root       146  0.0  0.0      0     0 ?        S     2021   0:03 [ksoftirqd/27]
+root       151  0.0  0.0      0     0 ?        S     2021   0:03 [ksoftirqd/28]
+root       156  0.0  0.0      0     0 ?        S     2021   0:02 [ksoftirqd/29]
+root       161  0.0  0.0      0     0 ?        S     2021   0:02 [ksoftirqd/30]
+root       166  0.0  0.0      0     0 ?        S     2021   0:02 [ksoftirqd/31]
+root       171  0.0  0.0      0     0 ?        S     2021   0:01 [ksoftirqd/32]
+root       176  0.0  0.0      0     0 ?        S     2021   0:01 [ksoftirqd/33]
+root       181  0.0  0.0      0     0 ?        S     2021   0:01 [ksoftirqd/34]
+root       186  0.0  0.0      0     0 ?        S     2021   0:01 [ksoftirqd/35]
+root       191  0.0  0.0      0     0 ?        S     2021   0:00 [ksoftirqd/36]
+root       196  0.0  0.0      0     0 ?        S     2021   0:06 [ksoftirqd/37]
+root       201  0.0  0.0      0     0 ?        S     2021   0:04 [ksoftirqd/38]
+root       206  0.0  0.0      0     0 ?        S     2021   0:03 [ksoftirqd/39]
+root       211  0.0  0.0      0     0 ?        S     2021   0:03 [ksoftirqd/40]
+root       216  0.0  0.0      0     0 ?        S     2021   0:02 [ksoftirqd/41]
+root       221  0.0  0.0      0     0 ?        S     2021   0:03 [ksoftirqd/42]
+root       226  0.0  0.0      0     0 ?        S     2021   0:02 [ksoftirqd/43]
+root       231  0.0  0.0      0     0 ?        S     2021   0:00 [ksoftirqd/44]
+root       236  0.0  0.0      0     0 ?        S     2021   0:00 [ksoftirqd/45]
+root       241  0.0  0.0      0     0 ?        S     2021   0:00 [ksoftirqd/46]
+root       246  0.0  0.0      0     0 ?        S     2021   0:00 [ksoftirqd/47]
+
+[ ~]# cat /proc/irq/24/smp_affinity
+0001
+[ ~]# cat /proc/irq/24/smp_affinity_list 
+0
+#上面表示0001对应cpu0，可以直接修改绑定关系
+[ ~]# echo 4 &gt; /proc/irq/24/smp_affinity
+[ ~]# cat /proc/irq/24/smp_affinity_list 
+2
+#此时中断号24对应的处理CPU为cpu2
+
+mpstat -P ALL 1 1
+watch -d cat /proc/softirqs
+cat /proc/interrupts  
+</code></pre></td></tr></table>
 </div>
 </div><p>watch -d cat /proc/softirqs</p>
 <p>ET_RX（网络接收）、SCHED（内核调度）、RCU（RCU 锁）</p>

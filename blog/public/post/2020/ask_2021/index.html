@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.101.0 with theme even" />
+<meta name="generator" content="Hugo 0.83.1 with theme even" />
 
 
 <link rel="canonical" href="https://wangcy6.github.io/post/2020/ask_2021/" />
@@ -42,13 +42,13 @@
 <meta property="og:description" content="# 方法 一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题 二、这个技术的优势和劣势分别是什么 三、这个技术适用的场景。任何技" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://wangcy6.github.io/post/2020/ask_2021/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-07-11T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-07-11T00:00:00+00:00" />
+<meta property="article:published_time" content="2021-07-11T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2021-07-11T00:00:00&#43;00:00" />
 
 <meta itemprop="name" content="打破砂锅问到底">
-<meta itemprop="description" content="# 方法 一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题 二、这个技术的优势和劣势分别是什么 三、这个技术适用的场景。任何技"><meta itemprop="datePublished" content="2021-07-11T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2021-07-11T00:00:00+00:00" />
-<meta itemprop="wordCount" content="667">
+<meta itemprop="description" content="# 方法 一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题 二、这个技术的优势和劣势分别是什么 三、这个技术适用的场景。任何技"><meta itemprop="datePublished" content="2021-07-11T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-07-11T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="668">
 <meta itemprop="keywords" content="FQA," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="打破砂锅问到底"/>
 <meta name="twitter:description" content="# 方法 一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题 二、这个技术的优势和劣势分别是什么 三、这个技术适用的场景。任何技"/>
@@ -128,7 +128,7 @@
       <div class="post-meta">
         <span class="post-time"> 2021-07-11 00:00 </span>
         
-          <span class="more-meta"> 约 667 字 </span>
+          <span class="more-meta"> 约 668 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -174,7 +174,7 @@
 <p>答：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -194,29 +194,31 @@
 </span><span class="lnt">18
 </span><span class="lnt">19
 </span><span class="lnt">20
+</span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">brew install python
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">pip3 install --upgrade youtube-dl
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">youtube-dl --proxy socks5://127.0.0.1:1087 <span class="s2">&#34;https://www.youtube.com/watch?v=UI6lqHOVHic&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">youtube-dl -f <span class="s1">&#39;bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4&#39;</span> https://www.youtube.com/watch?v<span class="o">=</span>MgphHyGgeQU<span class="p">&amp;</span><span class="nv">t</span><span class="o">=</span>4238s
-</span></span><span class="line"><span class="cl">（mac下载太慢，改为服务器下载然后传输）
-</span></span><span class="line"><span class="cl">scp -P <span class="m">29761</span>  root@74.120.174.137  :/root/data/1.mp4   ./ 
-</span></span><span class="line"><span class="cl">scp -P <span class="m">29761</span>  root@74.120.174.137  :/root/data/1.mkv    ./ 
-</span></span><span class="line"><span class="cl">MKV支持 H.264 AVC，这是高质量高清播放所必须的，所以MKV也成为高清或蓝光播放的推荐格式。
-</span></span><span class="line"><span class="cl">Video codec av1 not compatible with flv
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">https://gist.github.com/Akagi201/0ead2f811e133130c19f
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">https://github.com/ytdl-org/youtube-dl/issues/25072
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">./ffmpeg -i 1.mp4 -c:v h264  2.mp4
-</span></span><span class="line"><span class="cl">https://trac.ffmpeg.org/wiki/Encode/AV1
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">brew install python
+
+pip3 install --upgrade youtube-dl
+
+youtube-dl --proxy socks5://127.0.0.1:1087 <span class="s2">&#34;https://www.youtube.com/watch?v=UI6lqHOVHic&#34;</span>
+
+youtube-dl -f <span class="s1">&#39;bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4&#39;</span> https://www.youtube.com/watch?v<span class="o">=</span>MgphHyGgeQU<span class="p">&amp;</span><span class="nv">t</span><span class="o">=</span>4238s
+（mac下载太慢，改为服务器下载然后传输）
+scp -P <span class="m">29761</span>  root@74.120.174.137  :/root/data/1.mp4   ./ 
+scp -P <span class="m">29761</span>  root@74.120.174.137  :/root/data/1.mkv    ./ 
+MKV支持 H.264 AVC，这是高质量高清播放所必须的，所以MKV也成为高清或蓝光播放的推荐格式。
+Video codec av1 not compatible with flv
+
+https://gist.github.com/Akagi201/0ead2f811e133130c19f
+
+https://github.com/ytdl-org/youtube-dl/issues/25072
+
+
+./ffmpeg -i 1.mp4 -c:v h264  2.mp4
+https://trac.ffmpeg.org/wiki/Encode/AV1
+
+</code></pre></td></tr></table>
 </div>
 </div><p>✅</p>
 <p>问：协程 超越线程地方是在性能吗？</p>

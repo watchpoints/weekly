@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.101.0 with theme even" />
+<meta name="generator" content="Hugo 0.83.1 with theme even" />
 
 
 <link rel="canonical" href="https://wangcy6.github.io/post/tidb/2022/2022-1-19-Project2/" />
@@ -42,12 +42,12 @@
 <meta property="og:description" content="Tidb" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://wangcy6.github.io/post/tidb/2022/2022-1-19-Project2/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2022-01-11T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-01-11T00:00:00+00:00" />
+<meta property="article:published_time" content="2022-01-11T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2022-01-11T00:00:00&#43;00:00" />
 
 <meta itemprop="name" content="Tidb入门1">
-<meta itemprop="description" content="Tidb"><meta itemprop="datePublished" content="2022-01-11T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-01-11T00:00:00+00:00" />
+<meta itemprop="description" content="Tidb"><meta itemprop="datePublished" content="2022-01-11T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2022-01-11T00:00:00&#43;00:00" />
 <meta itemprop="wordCount" content="369">
 <meta itemprop="keywords" content="Tidb," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Tidb入门1"/>
@@ -176,7 +176,7 @@
 <h3 id="测试case1-testleaderelectioninoneroundrpc2aa">测试case1 TestLeaderElectionInOneRoundRPC2AA</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -186,43 +186,43 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">// TestLeaderElectionInOneRoundRPC tests all cases that may happen in
-</span></span><span class="line"><span class="cl">// leader election during one round of RequestVote RPC:
-</span></span><span class="line"><span class="cl">// a) it wins the election
-</span></span><span class="line"><span class="cl">// b) it loses the election
-</span></span><span class="line"><span class="cl">// c) it is unclear about the result
-</span></span><span class="line"><span class="cl">// Reference: section 5.2
-</span></span><span class="line"><span class="cl">MessageType_MsgRequestVoteRespon
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">
+// TestLeaderElectionInOneRoundRPC tests all cases that may happen in
+// leader election during one round of RequestVote RPC:
+// a) it wins the election
+// b) it loses the election
+// c) it is unclear about the result
+// Reference: section 5.2
+MessageType_MsgRequestVoteRespon
+</code></pre></td></tr></table>
 </div>
 </div><h3 id="测试case2--testfollowervote2aa">测试case2 -TestFollowerVote2AA</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> TestFollowerVote tests that each follower will vote for at most one
-</span></span><span class="line"><span class="cl"> candidate in a given term, on a first-come-first-served basis.
-</span></span><span class="line"><span class="cl"> Reference: section 5.2
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback"> TestFollowerVote tests that each follower will vote for at most one
+ candidate in a given term, on a first-come-first-served basis.
+ Reference: section 5.2
+</code></pre></td></tr></table>
 </div>
 </div><h3 id="case3-testleadercycle2aa">case3 TestLeaderCycle2AA</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">testLeaderCycle verifies that each node in a cluster can campaign
-</span></span><span class="line"><span class="cl">and be elected in turn. 
-</span></span><span class="line"><span class="cl">This ensures that elections work when not
-</span></span><span class="line"><span class="cl">starting from a clean slate (as they do in TestLeaderElection)
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">testLeaderCycle verifies that each node in a cluster can campaign
+and be elected in turn. 
+This ensures that elections work when not
+starting from a clean slate (as they do in TestLeaderElection)
+</code></pre></td></tr></table>
 </div>
 </div><h2 id="参考">参考</h2>
 <p>[1] <a href="https://github.com/chx2502/tinykv">https://github.com/chx2502/tinykv</a>

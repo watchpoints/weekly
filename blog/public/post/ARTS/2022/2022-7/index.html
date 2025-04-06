@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.101.0 with theme even" />
+<meta name="generator" content="Hugo 0.83.1 with theme even" />
 
 
 <link rel="canonical" href="https://wangcy6.github.io/post/ARTS/2022/2022-7/" />
@@ -42,13 +42,13 @@
 <meta property="og:description" content="GTD践行第7周" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://wangcy6.github.io/post/ARTS/2022/2022-7/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2022-02-10T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-02-10T00:00:00+00:00" />
+<meta property="article:published_time" content="2022-02-10T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2022-02-10T00:00:00&#43;00:00" />
 
 <meta itemprop="name" content="一周精彩内容分享（第7期）">
-<meta itemprop="description" content="GTD践行第7周"><meta itemprop="datePublished" content="2022-02-10T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-02-10T00:00:00+00:00" />
-<meta itemprop="wordCount" content="8812">
+<meta itemprop="description" content="GTD践行第7周"><meta itemprop="datePublished" content="2022-02-10T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2022-02-10T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="8813">
 <meta itemprop="keywords" content="GTD,work," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="一周精彩内容分享（第7期）"/>
 <meta name="twitter:description" content="GTD践行第7周"/>
@@ -130,7 +130,7 @@
         <div class="post-category">
             <a href="/categories/ARTS/"> ARTS </a>
             </div>
-          <span class="more-meta"> 约 8812 字 </span>
+          <span class="more-meta"> 约 8813 字 </span>
           <span class="more-meta"> 预计阅读 18 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -281,20 +281,20 @@ OceanBase 存储层代码解读（一）引言
 OceanBase 存储层代码解读（二）微块存储格式</p>
 <h4 id="tidb">tidb</h4>
 <p>【上周优质文章推送】感谢以下的布道师的辛苦付出~
-来自@夜-NULL-上海-携程 
+来自@夜-NULL-上海-携程
 TIKV、PD添加TLS总结（https://tidb.io/blog/c48421ba）
-来自@ShawnYan@大连 
+来自@ShawnYan@大连
 【备考指南】新版 PingCAP PCTP 认证考试（https://tidb.io/blog/ea7a1acb）
 温故知新 | mydumper &amp; dumpling 知识点汇总（https://tidb.io/blog/6d3a8da2）
-来自@代晓磊-北京-360 
+来自@代晓磊-北京-360
 数据库调优之硬件（https://tidb.io/blog/7d54d904）
 TiDB统计信息原理简介与实践（https://tidb.io/blog/20350c5a）
-来自@Jiawei 上海 Garena 
+来自@Jiawei 上海 Garena
 TiDB源码系列之沉浸式编译TiDB（https://tidb.io/blog/5be1e094）
-来自@姬永飞-广州 
+来自@姬永飞-广州
 DM 同步 modify column 语句到 TiDB 5.3 踩坑二：DDL 语句重放（https://tidb.io/blog/a235de35）
 DM 同步 modify column 语句到 TiDB 5.3 踩坑一：数据乱码（https://tidb.io/blog/a14a7653）
-来自@薛晓刚-上海-欧冶云商 
+来自@薛晓刚-上海-欧冶云商
 Tidb为什么能做到国产第一（https://tidb.io/blog/dd0ed406）
 来自@yifan
 Raft/Paxos类协议与分布式事务（https://tidb.io/blog/d2fa3088）
@@ -391,17 +391,17 @@ Raft/Paxos类协议与分布式事务（https://tidb.io/blog/d2fa3088）
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">C++11中的std::future是一个模板类。std::future提供了一种用于访问异步操作结果的机制
-</span></span><span class="line"><span class="cl">我们想要从线程中返回异步任务结果，一般需要依靠全局变量；
-</span></span><span class="line"><span class="cl">从安全角度看，有些不妥；为此C++11提供了std::future类模板，
-</span></span><span class="line"><span class="cl">future对象提供访问异步操作结果的机制，很轻松解决从异步任务中返回结果。
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">C++11中的std::future是一个模板类。std::future提供了一种用于访问异步操作结果的机制
+我们想要从线程中返回异步任务结果，一般需要依靠全局变量；
+从安全角度看，有些不妥；为此C++11提供了std::future类模板，
+future对象提供访问异步操作结果的机制，很轻松解决从异步任务中返回结果。
+</code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>6.2 白银：熟练工回答</li>
@@ -422,17 +422,17 @@ Raft/Paxos类协议与分布式事务（https://tidb.io/blog/d2fa3088）
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">template</span><span class="o">&lt;</span><span class="kr">typename</span> <span class="n">T</span><span class="o">&gt;</span> 
-</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span> <span class="n">param</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">   
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="n">template</span><span class="o">&lt;</span><span class="kr">typename</span> <span class="n">T</span><span class="o">&gt;</span> 
+<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span> <span class="n">param</span><span class="p">);</span>
+
+   
+</code></pre></td></tr></table>
 </div>
 </div><ol start="3">
 <li>std::future 【不清楚，没用过，感觉很难，但是其他语言实现的很好，node.js 异步调用】</li>
@@ -639,7 +639,7 @@ Raft/Paxos类协议与分布式事务（https://tidb.io/blog/d2fa3088）
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -662,32 +662,34 @@ Raft/Paxos类协议与分布式事务（https://tidb.io/blog/d2fa3088）
 </span><span class="lnt">21
 </span><span class="lnt">22
 </span><span class="lnt">23
+</span><span class="lnt">24
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">看视频的人和奴隶没有区别，随着时间流逝，你最喜欢的小说，最喜欢的电影【没有问题】，最喜欢的动漫，这些喜爱驱动变成奴隶【别人控制】【你视频，听觉 判断完全被驱动 没有自己】
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">因此下定决定 自己彻底忘记动漫 电影 连续剧 这段东西 本来是不存在的，
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">是电视，手机 电脑 各种宣传概念 送到你面前 尤其是周末时候
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">因此下定决定 自己彻底忘记动漫 电影 连续剧 这段东西 本来是不存在的，
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">是电视，手机 电脑 各种宣传概念 送到你面前 尤其是周末时候
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">只要21点。22点。23点 你看电脑 你彻底失控，综艺，动漫 电视剧 都是表演者，
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">你发现你缺点 只要别人在说，在做，你说比不过他们，他们厉害了，彻底隐藏了自己想法，理性 一切 然后什么不做、
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">别人是诱惑，不是强制。行动你手里。
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">在屏幕前习惯 人的性格变成懒惰 暴躁 消极，自欺欺人，内向，欺骗 虚假，本座
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">陷入产品 公司 学习一切一切组织陷阱。你说还说不出来为什么。
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">进入屏幕中 才会积极，沟通 才提升。这就是目标。
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">---情绪控制
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">看视频的人和奴隶没有区别，随着时间流逝，你最喜欢的小说，最喜欢的电影【没有问题】，最喜欢的动漫，这些喜爱驱动变成奴隶【别人控制】【你视频，听觉 判断完全被驱动 没有自己】
+
+因此下定决定 自己彻底忘记动漫 电影 连续剧 这段东西 本来是不存在的，
+
+是电视，手机 电脑 各种宣传概念 送到你面前 尤其是周末时候
+
+因此下定决定 自己彻底忘记动漫 电影 连续剧 这段东西 本来是不存在的，
+
+是电视，手机 电脑 各种宣传概念 送到你面前 尤其是周末时候
+
+只要21点。22点。23点 你看电脑 你彻底失控，综艺，动漫 电视剧 都是表演者，
+
+你发现你缺点 只要别人在说，在做，你说比不过他们，他们厉害了，彻底隐藏了自己想法，理性 一切 然后什么不做、
+
+别人是诱惑，不是强制。行动你手里。
+
+在屏幕前习惯 人的性格变成懒惰 暴躁 消极，自欺欺人，内向，欺骗 虚假，本座
+
+陷入产品 公司 学习一切一切组织陷阱。你说还说不出来为什么。
+
+进入屏幕中 才会积极，沟通 才提升。这就是目标。
+
+---情绪控制
+
+</code></pre></td></tr></table>
 </div>
 </div><h3 id="13-执行结果-woop">1.3 执行结果 woop</h3>
 <ul>
@@ -863,7 +865,7 @@ Raft/Paxos类协议与分布式事务（https://tidb.io/blog/d2fa3088）
 <p>你下定决心远离综艺，动漫 电视剧，对喜欢去学习创造演讲打开社会沟通之这是重要 非平台
 下定决心努力工作解决难题。领导ceo ppt领航者，过亿点击量等xx指标。</p>
 <p>你不会阻挡别人拯救世界，影响世界。但是别人实现他们目标 你不吃饭不睡觉不沟通</p>
-<p>我意识到只要 在同一空间 环境 条件约束我们目的一样 
+<p>我意识到只要 在同一空间 环境 条件约束我们目的一样
 微弱思考，微弱行动，卑微活 思考 吃饭 睡觉 活动 ，
 就是他们百万千万疑优化做斗争，就是百万千万一万理性做奋斗，就是社会一切变化做变革。
 完成你使命。</p>
@@ -872,7 +874,7 @@ Raft/Paxos类协议与分布式事务（https://tidb.io/blog/d2fa3088）
 忍受：只要不看一眼动漫，综艺 直播 新闻，就是失去天下消息，天下领导同时消息，失去一切
 你知道：只要看一眼动漫，综艺 直播 新闻
 腾讯视频，微信直播，微信平台 还有斗鱼游戏平台目的不是这样
-他们消费全部新闻，全部综艺，全部动漫。消息聊天，提供无线时间黑洞里面 融不清晰 
+他们消费全部新闻，全部综艺，全部动漫。消息聊天，提供无线时间黑洞里面 融不清晰
 牢牢抓住注意力，不吃饭，不睡觉不唏嘘，不高考 不工作，完全沉迷其中好充钱看广告。
 一切背后目的这样。隐藏背后目的披上正义的外衣
 他么消耗时间：做世界计算 12亿人 每天4小时时间。千牺牲万人生命代价
@@ -1018,7 +1020,7 @@ Raft/Paxos类协议与分布式事务（https://tidb.io/blog/d2fa3088）
 <h3 id="21--提高认知">2.1  提高认知</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1033,20 +1035,20 @@ Raft/Paxos类协议与分布式事务（https://tidb.io/blog/d2fa3088）
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">看视频的人和奴隶没有区别，随着时间流逝，你最喜欢的小说，最喜欢的电影【没有问题】，最喜欢的动漫，这些喜爱驱动变成奴隶【别人控制】【你视频，听觉 判断完全被驱动 没有自己】
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">因此下定决定 自己彻底忘记动漫 电影 连续剧 这段东西 本来是不存在的，
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">是电视，手机 电脑 各种宣传概念 送到你面前 尤其是周末时候
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">因此下定决定 自己彻底忘记动漫 电影 连续剧 这段东西 本来是不存在的，
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">是电视，手机 电脑 各种宣传概念 送到你面前 尤其是周末时候
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">只要21点。22点。23点 你看电脑 你彻底失控，综艺，动漫 电视剧 都是表演者，
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">你发现你缺点 只要别人在说，在做，你说比不过他们，他们厉害了，彻底隐藏了自己想法，理性 一切 然后什么不做
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">看视频的人和奴隶没有区别，随着时间流逝，你最喜欢的小说，最喜欢的电影【没有问题】，最喜欢的动漫，这些喜爱驱动变成奴隶【别人控制】【你视频，听觉 判断完全被驱动 没有自己】
+
+因此下定决定 自己彻底忘记动漫 电影 连续剧 这段东西 本来是不存在的，
+
+是电视，手机 电脑 各种宣传概念 送到你面前 尤其是周末时候
+
+因此下定决定 自己彻底忘记动漫 电影 连续剧 这段东西 本来是不存在的，
+
+是电视，手机 电脑 各种宣传概念 送到你面前 尤其是周末时候
+
+只要21点。22点。23点 你看电脑 你彻底失控，综艺，动漫 电视剧 都是表演者，
+
+你发现你缺点 只要别人在说，在做，你说比不过他们，他们厉害了，彻底隐藏了自己想法，理性 一切 然后什么不做
+</code></pre></td></tr></table>
 </div>
 </div><h3 id="22-执行步骤woop">2.2 执行步骤：woop</h3>
 <p>准备：</p>

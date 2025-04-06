@@ -11,10 +11,14 @@
             "id": "e7a7b303c61786dc",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "blog/content/post/ai/01_how_to_quickly_submit_resumes.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "01_how_to_quickly_submit_resumes"
             }
           }
         ]
@@ -48,7 +52,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "时间复杂度",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -69,8 +73,7 @@
               "title": "书签"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -136,10 +139,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "work/2025年 3月.md"
+                "file": "blog/content/post/ai/01_how_to_quickly_submit_resumes.md"
               },
               "icon": "lucide-list",
-              "title": "2025年 3月 的大纲"
+              "title": "01_how_to_quickly_submit_resumes 的大纲"
             }
           },
           {
@@ -153,7 +156,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -177,15 +180,36 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "blog/public/tags/小而美/index.xml",
+    "blog/public/tags/小而美/page/1/index.html",
+    "blog/public/tags/小而美/page/1",
+    "blog/public/tags/小而美/page",
+    "blog/public/tags/小而美/index.html",
+    "blog/public/tags/小而美",
+    "blog/public/post/ai/01_how_to_quickly_submit_resumes/index.html",
+    "blog/public/post/ai/01_how_to_quickly_submit_resumes",
+    "Pasted image 20250403170928.png",
+    "Pasted image 20250403115735.png",
+    "Pasted image 20250403114035.png",
+    "Pasted image 20250403114033.png",
+    "blog/content/post/c++/02_master_c++_share_pointer.md",
+    "blog/content/post/ai/01_how_to_quickly_submit_resumes.md",
+    "blog/content/post/how/how-to-use-Obsidian.md",
+    "blog/public/page/42/index.html",
+    "blog/public/page/42",
+    "blog/public/page/41/index.html",
+    "blog/public/post/images/行为设计第二期（1225-1231）7天起床运动读书.png",
+    "blog/public/post/images/Pasted image 20241217091033.png",
+    "blog/public/post/images/Pasted image 20241214153152.png",
+    "blog/public/post/images/Pasted image 20241213084724.png",
+    "blog/public/post/images/Pasted image 20241208170248.png",
+    "blog/public/post/images/Pasted image 20241201162733.png",
     "leetcode/doc/80.md",
-    "xmind/堆排序.xmind",
-    "xmind",
     "blog/content/post/2021/06_ask_1.md",
     "blog/content/post/2022/08_2022_4_17_epoll.md",
     "leetcode/doc/75.md",
     "blog/content/post/2022/06_ask_1.md",
     "blog/content/post/interview/01_2023_08_04.md",
-    "Pasted image 20250205145801.png",
     "work/2025年 3月.md",
     "work/read_coding/read_ceph_mds.cc.md",
     "work/read_coding/read_ceph_mon.cc.md",
@@ -200,29 +224,8 @@
     "blog/content/post/liunx/desgin/分布式存储入门第一天.md",
     "blog/content/post/liunx/desgin/2022_11_29_liunx_memory_ 1 1.md",
     "blog/content/post/liunx/2025/2025-03-19.md",
-    "Pasted image 20250319135701.png",
-    "Pasted image 20250319132519.png",
     "blog/content/post/oceanbase/2024/day11：PALF论文阅读.md",
-    "blog/content/post/liunx/2025",
     "blog/content/post/2023/203_my_dream.md",
-    "blog/content/post/oceanbase/2024/day11_make_ob 1.md",
-    "blog/content/post/oceanbase/2022/oceanbase_day5.md",
-    "blog/content/post/2023/5_how_to_use_crash.md",
-    "blog/content/post/c++/02_master_c++_share_pointer.md",
-    "只管去做/目标九宫格/2024/9月/复盘/微信图片_20240901195204.png",
-    "只管去做/目标九宫格/2024/9月/复盘/微信图片_20240901194921.png",
-    "只管去做/目标九宫格/2024/9月/复盘/微信图片_20240901195037.png",
-    "只管去做/目标九宫格/2024/9月/复盘/微信图片_20240901194709.png",
-    "只管去做/目标九宫格/2024/9月/微信图片_20240901191705.jpg",
-    "只管去做/目标九宫格/2024/9月/微信图片_20240901191545.jpg",
-    "只管去做/目标九宫格/2024/9月/微信图片_20240901191511.jpg",
-    "只管去做/目标九宫格/2024/9月/复盘",
-    "只管去做/目标九宫格/2024/9月",
-    "只管去做/作息/起床/行为设计02-100天在运动中断舍离手机篇.xmind",
-    "只管去做/自我说明/自我价绍.xmind",
-    "只管去做/自我说明/游戏（其实微是行动）改变世界.xmind",
-    "只管去做/竖版思维导图/线程池.xmind",
-    "只管去做/竖版思维导图/模板1.xmind",
     "未命名.canvas"
   ]
 }

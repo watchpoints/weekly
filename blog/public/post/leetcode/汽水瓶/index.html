@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.101.0 with theme even" />
+<meta name="generator" content="Hugo 0.83.1 with theme even" />
 
 
 <link rel="canonical" href="https://wangcy6.github.io/post/leetcode/%E6%B1%BD%E6%B0%B4%E7%93%B6/" />
@@ -42,12 +42,12 @@
 <meta property="og:description" content="题目信息 链接：汽水瓶 来源：nowcoder 难度：2颗星 一、描述 只有题目理解到位，你可能进入下面一个环节，如果不熟悉场景，你可要小心了 我目的是" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://wangcy6.github.io/post/leetcode/%E6%B1%BD%E6%B0%B4%E7%93%B6/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2019-10-10T17:02:43+08:00" />
-<meta property="article:modified_time" content="2019-10-10T17:02:43+08:00" />
+<meta property="article:published_time" content="2019-10-10T17:02:43&#43;08:00" />
+<meta property="article:modified_time" content="2019-10-10T17:02:43&#43;08:00" />
 
 <meta itemprop="name" content="智力题">
-<meta itemprop="description" content="题目信息 链接：汽水瓶 来源：nowcoder 难度：2颗星 一、描述 只有题目理解到位，你可能进入下面一个环节，如果不熟悉场景，你可要小心了 我目的是"><meta itemprop="datePublished" content="2019-10-10T17:02:43+08:00" />
-<meta itemprop="dateModified" content="2019-10-10T17:02:43+08:00" />
+<meta itemprop="description" content="题目信息 链接：汽水瓶 来源：nowcoder 难度：2颗星 一、描述 只有题目理解到位，你可能进入下面一个环节，如果不熟悉场景，你可要小心了 我目的是"><meta itemprop="datePublished" content="2019-10-10T17:02:43&#43;08:00" />
+<meta itemprop="dateModified" content="2019-10-10T17:02:43&#43;08:00" />
 <meta itemprop="wordCount" content="1123">
 <meta itemprop="keywords" content="array,Backtracking," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="智力题"/>
@@ -279,7 +279,7 @@ $$</p>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -329,55 +329,55 @@ $$</p>
 </span><span class="lnt">48
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
-</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">getNumber</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">leftEmpty</span> <span class="o">=</span><span class="n">n</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">total</span> <span class="o">=</span><span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">while</span><span class="p">(</span><span class="n">leftEmpty</span>  <span class="o">&gt;=</span><span class="mi">2</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">{</span>   
-</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">leftEmpty</span> <span class="o">==</span><span class="mi">2</span> <span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">total</span><span class="o">++</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">            <span class="k">break</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="k">else</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">           <span class="n">total</span> <span class="o">+=</span><span class="n">leftEmpty</span><span class="o">/</span><span class="mi">3</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">           <span class="n">leftEmpty</span> <span class="o">=</span><span class="p">(</span><span class="n">leftEmpty</span><span class="o">/</span><span class="mi">3</span><span class="o">+</span><span class="n">leftEmpty</span><span class="o">%</span><span class="mi">3</span><span class="p">);</span>     
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">       
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">total</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>   
-</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">while</span><span class="p">(</span><span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">n</span><span class="p">){</span>
-</span></span><span class="line"><span class="cl">        <span class="n">cout</span> <span class="o">&lt;&lt;</span><span class="n">getNumber</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">getNumber</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>   
-</span></span><span class="line"><span class="cl">    <span class="c1">//循环退出的条件 n
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span><span class="c1">//不够3瓶
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span>  
-</span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span><span class="c1">//借一换一
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// 每次递归都是都是一次循环。变化的是什么 每次循环变化的是n
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">return</span> <span class="n">n</span><span class="o">/</span><span class="mi">3</span><span class="o">+</span><span class="n">getNumber</span><span class="p">(</span><span class="n">n</span><span class="o">/</span><span class="mi">3</span><span class="o">+</span><span class="n">n</span><span class="o">%</span><span class="mi">3</span><span class="p">);</span><span class="c1">//从剩余空瓶继续计算
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nf">getNumber</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">leftEmpty</span> <span class="o">=</span><span class="n">n</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">total</span> <span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">leftEmpty</span>  <span class="o">&gt;=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="p">{</span>   
+        <span class="k">if</span><span class="p">(</span><span class="n">leftEmpty</span> <span class="o">==</span><span class="mi">2</span> <span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">total</span><span class="o">++</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+           <span class="n">total</span> <span class="o">+=</span><span class="n">leftEmpty</span><span class="o">/</span><span class="mi">3</span><span class="p">;</span>
+           <span class="n">leftEmpty</span> <span class="o">=</span><span class="p">(</span><span class="n">leftEmpty</span><span class="o">/</span><span class="mi">3</span><span class="o">+</span><span class="n">leftEmpty</span><span class="o">%</span><span class="mi">3</span><span class="p">);</span>     
+        <span class="p">}</span>
+       
+    <span class="p">}</span>
+ 
+    <span class="k">return</span> <span class="n">total</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>   
+    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">n</span><span class="p">){</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span><span class="n">getNumber</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+<span class="p">}</span>
+
+
+<span class="kt">int</span> <span class="nf">getNumber</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
+<span class="p">{</span>   
+    <span class="c1">//循环退出的条件 n
+</span><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span><span class="c1">//不够3瓶
+</span><span class="c1"></span>    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span>  
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span><span class="c1">//借一换一
+</span><span class="c1"></span>    <span class="p">}</span>
+    <span class="c1">// 每次递归都是都是一次循环。变化的是什么 每次循环变化的是n
+</span><span class="c1"></span>    <span class="k">return</span> <span class="n">n</span><span class="o">/</span><span class="mi">3</span><span class="o">+</span><span class="n">getNumber</span><span class="p">(</span><span class="n">n</span><span class="o">/</span><span class="mi">3</span><span class="o">+</span><span class="n">n</span><span class="o">%</span><span class="mi">3</span><span class="p">);</span><span class="c1">//从剩余空瓶继续计算
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div><h3 id="五回顾">五、回顾</h3>
 <ul>
@@ -462,13 +462,13 @@ $$</p>
           <a href="/tags/Backtracking/">Backtracking</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/book/book_Algorithms-JeffE/">
+        <a class="prev" href="/post/2020/Memcached/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">算法导论</span>
+            <span class="prev-text nav-default">Memcached</span>
             <span class="prev-text nav-mobile">上一篇</span>
           </a>
-        <a class="next" href="/post/2020/file/">
-            <span class="next-text nav-default"></span>
+        <a class="next" href="/post/book/book_Algorithms-JeffE/">
+            <span class="next-text nav-default">算法导论</span>
             <span class="next-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
           </a>

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.101.0 with theme even" />
+<meta name="generator" content="Hugo 0.83.1 with theme even" />
 
 
 <link rel="canonical" href="https://wangcy6.github.io/post/2020/FQA-%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" />
@@ -42,13 +42,13 @@
 <meta property="og:description" content="每日一题" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://wangcy6.github.io/post/2020/FQA-%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2020-05-29T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-05-29T00:00:00+00:00" />
+<meta property="article:published_time" content="2020-05-29T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2020-05-29T00:00:00&#43;00:00" />
 
 <meta itemprop="name" content="每日一题">
-<meta itemprop="description" content="每日一题"><meta itemprop="datePublished" content="2020-05-29T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2020-05-29T00:00:00+00:00" />
-<meta itemprop="wordCount" content="3831">
+<meta itemprop="description" content="每日一题"><meta itemprop="datePublished" content="2020-05-29T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-05-29T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="3834">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="每日一题"/>
 <meta name="twitter:description" content="每日一题"/>
@@ -130,7 +130,7 @@
         <div class="post-category">
             <a href="/categories/FQA/"> FQA </a>
             </div>
-          <span class="more-meta"> 约 3831 字 </span>
+          <span class="more-meta"> 约 3834 字 </span>
           <span class="more-meta"> 预计阅读 8 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -285,15 +285,15 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">//Pimpl是对自己类进一步拆分，只要保证自己模块没有问题，就解决MyClassImp依赖问题
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">//其他的类不需要关系，有没有发生变动
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">//Pimpl是对自己类进一步拆分，只要保证自己模块没有问题，就解决MyClassImp依赖问题
+
+//其他的类不需要关系，有没有发生变动
+</code></pre></td></tr></table>
 </div>
 </div><p><img src="https://img-blog.csdnimg.cn/2021010716135345.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpaGFvMjE=,size_16,color_FFFFFF,t_70#pic_center" alt="pimpl 大小不变"></p>
 <p><img src="https://img-blog.csdn.net/20171121113924445" alt=""></p>
@@ -340,7 +340,7 @@ redis的单线程的。keys指令会导致线程阻塞一段时间，线上服�
 <p>这个看似容易 不好回答。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -364,33 +364,39 @@ redis的单线程的。keys指令会导致线程阻塞一段时间，线上服�
 </span><span class="lnt">22
 </span><span class="lnt">23
 </span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">全部一致（2pc）
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">不确信，主节点是否还能恢复,故障模型，采用失败，踢出集群。
-</span></span><span class="line"><span class="cl">主要解决问题是主从切换期间，新来数据该怎么办？不然引起全量同步。
-</span></span><span class="line"><span class="cl">需要主节点保存新增数据，等挂断主重启时候加载数据，然后同步。
-</span></span><span class="line"><span class="cl">因为全部一致，此时可能阻塞业务。
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">大部分一致（raft）
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">部分节点故障不影响业务正常执行，如何解决不一致情况
-</span></span><span class="line"><span class="cl">1 选择一个好的领导，这个很重要。
-</span></span><span class="line"><span class="cl">2. 日志匹配方式 ，修复从节点数据。没有特意去维护保存历史数据。
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">最终一致（redis）：
-</span></span><span class="line"><span class="cl">是无法保证数据一致性，有可能丢失数据。如果这样想，肯定不对，
-</span></span><span class="line"><span class="cl">别人问的是 不一直情况下解决参考redis方式 。
-</span></span><span class="line"><span class="cl">1 同步 
-</span></span><span class="line"><span class="cl">  全量同步，从节点获取历史RDB文件+BGSAVE期间产生新命令的缓冲数据 保持一致。
-</span></span><span class="line"><span class="cl">  说明：
-</span></span><span class="line"><span class="cl">       output buffer是Redis为client分配的缓冲区，
-</span></span><span class="line"><span class="cl">       若为某个客户端分配的output buffer超过了预留大小，Redis可能会根据配置策略关闭与该端的连接。
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">2  只要主做业务，从出现不一致情况。需要命令传播
-</span></span><span class="line"><span class="cl">   多个从节点共享【主节维护的大小固定复制挤压缓冲区] 解决断线问题。
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">全部一致（2pc）
+
+不确信，主节点是否还能恢复,故障模型，采用失败，踢出集群。
+主要解决问题是主从切换期间，新来数据该怎么办？不然引起全量同步。
+需要主节点保存新增数据，等挂断主重启时候加载数据，然后同步。
+因为全部一致，此时可能阻塞业务。
+
+大部分一致（raft）
+
+部分节点故障不影响业务正常执行，如何解决不一致情况
+1 选择一个好的领导，这个很重要。
+2. 日志匹配方式 ，修复从节点数据。没有特意去维护保存历史数据。
+
+最终一致（redis）：
+是无法保证数据一致性，有可能丢失数据。如果这样想，肯定不对，
+别人问的是 不一直情况下解决参考redis方式 。
+1 同步 
+  全量同步，从节点获取历史RDB文件+BGSAVE期间产生新命令的缓冲数据 保持一致。
+  说明：
+       output buffer是Redis为client分配的缓冲区，
+       若为某个客户端分配的output buffer超过了预留大小，Redis可能会根据配置策略关闭与该端的连接。
+
+2  只要主做业务，从出现不一致情况。需要命令传播
+   多个从节点共享【主节维护的大小固定复制挤压缓冲区] 解决断线问题。
+
+
+
+</code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>参考答案：</li>
@@ -408,7 +414,7 @@ redis高可用依然采用主从模式，但是在主备切换等方面舍去中
 <p>参考答案</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -506,103 +512,103 @@ redis高可用依然采用主从模式，但是在主备切换等方面舍去中
 </span><span class="lnt">96
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">参考答案如下：
-</span></span><span class="line"><span class="cl">Redis 高可用架构如下：
-</span></span><span class="line"><span class="cl">1.Redis Sentinel 集群 + 内网 DNS + 自定义脚本。
-</span></span><span class="line"><span class="cl">2.Redis Sentinel 集群 + VIP + 自定义脚本。
-</span></span><span class="line"><span class="cl">3.封装客户端直连 Redis Sentinel 端口。
-</span></span><span class="line"><span class="cl">4.JedisSentinelPool，适合 Java。
-</span></span><span class="line"><span class="cl">5.PHP 基于 phpredis 自行封装。
-</span></span><span class="line"><span class="cl">6.Redis Sentinel 集群 + Keepalived/Haproxy。
-</span></span><span class="line"><span class="cl">7.Redis M/S + Keepalived。
-</span></span><span class="line"><span class="cl">8.Redis Cluster。
-</span></span><span class="line"><span class="cl">9.Twemproxy。
-</span></span><span class="line"><span class="cl">10.Codis。
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">1.Redis Sentinel 集群 + 内网 DNS + 自定义脚本。
-</span></span><span class="line"><span class="cl">优点：
-</span></span><span class="line"><span class="cl">秒级切换；
-</span></span><span class="line"><span class="cl">脚本自定义，架构可控；
-</span></span><span class="line"><span class="cl">对应用透明。
-</span></span><span class="line"><span class="cl">缺点：
-</span></span><span class="line"><span class="cl">维护成本略高；
-</span></span><span class="line"><span class="cl">依赖 DNS，存在解析延时；
-</span></span><span class="line"><span class="cl">Sentinel 模式存在短时间的服务不可用。
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">2.Redis Sentinel 集群 + VIP + 自定义脚本。
-</span></span><span class="line"><span class="cl">优点：
-</span></span><span class="line"><span class="cl">秒级切换；
-</span></span><span class="line"><span class="cl">脚本自定义，架构可控；
-</span></span><span class="line"><span class="cl">对应用透明。
-</span></span><span class="line"><span class="cl">缺点：
-</span></span><span class="line"><span class="cl">维护成本略高；
-</span></span><span class="line"><span class="cl">Sentinel 模式存在短时间的服务不可用。
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">3.封装客户端直连 Redis Sentinel 端口。
-</span></span><span class="line"><span class="cl">优点：
-</span></span><span class="line"><span class="cl">服务探测故障及时；
-</span></span><span class="line"><span class="cl">DBA 维护成本低。
-</span></span><span class="line"><span class="cl">缺点：
-</span></span><span class="line"><span class="cl">依赖客户端支持 Sentinel；
-</span></span><span class="line"><span class="cl">Sentinel 服务器需要开放访问权限；
-</span></span><span class="line"><span class="cl">对应用有侵入性。
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">4.JedisSentinelPool，适合 Java。
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">5.PHP 基于 phpredis 自行封装。
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">6.Redis Sentinel 集群 + Keepalived/Haproxy。
-</span></span><span class="line"><span class="cl">优点：
-</span></span><span class="line"><span class="cl">秒级切换；
-</span></span><span class="line"><span class="cl">对应用透明。
-</span></span><span class="line"><span class="cl">缺点：
-</span></span><span class="line"><span class="cl">维护成本高；
-</span></span><span class="line"><span class="cl">存在脑裂；
-</span></span><span class="line"><span class="cl">Sentinel 模式存在短时间的服务不可用。
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">7.Redis M/S + Keepalived。
-</span></span><span class="line"><span class="cl">优点：
-</span></span><span class="line"><span class="cl">秒级切换；
-</span></span><span class="line"><span class="cl">对应用透明；
-</span></span><span class="line"><span class="cl">部署简单，维护成本低。
-</span></span><span class="line"><span class="cl">缺点：
-</span></span><span class="line"><span class="cl">需要脚本实现切换功能；
-</span></span><span class="line"><span class="cl">存在脑裂。
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">8.Redis Cluster。
-</span></span><span class="line"><span class="cl">优点：
-</span></span><span class="line"><span class="cl">组件 all-in-box，部署简单，节约机器资源；
-</span></span><span class="line"><span class="cl">性能比 proxy 模式好；
-</span></span><span class="line"><span class="cl">自动故障转移、Slot 迁移中数据可用；
-</span></span><span class="line"><span class="cl">官方原生集群方案，更新与支持有保障。
-</span></span><span class="line"><span class="cl">缺点：
-</span></span><span class="line"><span class="cl">架构比较新，最佳实践较少；
-</span></span><span class="line"><span class="cl">多键操作支持有限（驱动可以曲线救国）；
-</span></span><span class="line"><span class="cl">为了性能提升，客户端需要缓存路由表信息；
-</span></span><span class="line"><span class="cl">节点发现、reshard 操作不够自动化。
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">9.Twemproxy。
-</span></span><span class="line"><span class="cl">优点：
-</span></span><span class="line"><span class="cl">开发简单，对应用几乎透明；
-</span></span><span class="line"><span class="cl">历史悠久，方案成熟。
-</span></span><span class="line"><span class="cl">缺点：
-</span></span><span class="line"><span class="cl">代理影响性能；
-</span></span><span class="line"><span class="cl">LVS 和 Twemproxy 会有节点性能瓶颈；
-</span></span><span class="line"><span class="cl">Redis 扩容非常麻烦；
-</span></span><span class="line"><span class="cl">Twitter 内部已放弃使用该方案，新使用的架构未开源。
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">10.Codis。
-</span></span><span class="line"><span class="cl">优点：
-</span></span><span class="line"><span class="cl">开发简单，对应用几乎透明；
-</span></span><span class="line"><span class="cl">性能比 Twemproxy 好；
-</span></span><span class="line"><span class="cl">有图形化界面，扩容容易，运维方便。
-</span></span><span class="line"><span class="cl">缺点：
-</span></span><span class="line"><span class="cl">代理依旧影响性能；
-</span></span><span class="line"><span class="cl">组件过多，需要很多机器资源；
-</span></span><span class="line"><span class="cl">修改了 Redis 代码，导致和官方无法同步，新特性跟进缓慢；
-</span></span><span class="line"><span class="cl">开发团队准备主推基于 Redis 改造的 reborndb。
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">参考答案如下：
+Redis 高可用架构如下：
+1.Redis Sentinel 集群 + 内网 DNS + 自定义脚本。
+2.Redis Sentinel 集群 + VIP + 自定义脚本。
+3.封装客户端直连 Redis Sentinel 端口。
+4.JedisSentinelPool，适合 Java。
+5.PHP 基于 phpredis 自行封装。
+6.Redis Sentinel 集群 + Keepalived/Haproxy。
+7.Redis M/S + Keepalived。
+8.Redis Cluster。
+9.Twemproxy。
+10.Codis。
+
+
+1.Redis Sentinel 集群 + 内网 DNS + 自定义脚本。
+优点：
+秒级切换；
+脚本自定义，架构可控；
+对应用透明。
+缺点：
+维护成本略高；
+依赖 DNS，存在解析延时；
+Sentinel 模式存在短时间的服务不可用。
+
+2.Redis Sentinel 集群 + VIP + 自定义脚本。
+优点：
+秒级切换；
+脚本自定义，架构可控；
+对应用透明。
+缺点：
+维护成本略高；
+Sentinel 模式存在短时间的服务不可用。
+
+3.封装客户端直连 Redis Sentinel 端口。
+优点：
+服务探测故障及时；
+DBA 维护成本低。
+缺点：
+依赖客户端支持 Sentinel；
+Sentinel 服务器需要开放访问权限；
+对应用有侵入性。
+
+4.JedisSentinelPool，适合 Java。
+
+5.PHP 基于 phpredis 自行封装。
+
+6.Redis Sentinel 集群 + Keepalived/Haproxy。
+优点：
+秒级切换；
+对应用透明。
+缺点：
+维护成本高；
+存在脑裂；
+Sentinel 模式存在短时间的服务不可用。
+
+7.Redis M/S + Keepalived。
+优点：
+秒级切换；
+对应用透明；
+部署简单，维护成本低。
+缺点：
+需要脚本实现切换功能；
+存在脑裂。
+
+8.Redis Cluster。
+优点：
+组件 all-in-box，部署简单，节约机器资源；
+性能比 proxy 模式好；
+自动故障转移、Slot 迁移中数据可用；
+官方原生集群方案，更新与支持有保障。
+缺点：
+架构比较新，最佳实践较少；
+多键操作支持有限（驱动可以曲线救国）；
+为了性能提升，客户端需要缓存路由表信息；
+节点发现、reshard 操作不够自动化。
+
+9.Twemproxy。
+优点：
+开发简单，对应用几乎透明；
+历史悠久，方案成熟。
+缺点：
+代理影响性能；
+LVS 和 Twemproxy 会有节点性能瓶颈；
+Redis 扩容非常麻烦；
+Twitter 内部已放弃使用该方案，新使用的架构未开源。
+
+10.Codis。
+优点：
+开发简单，对应用几乎透明；
+性能比 Twemproxy 好；
+有图形化界面，扩容容易，运维方便。
+缺点：
+代理依旧影响性能；
+组件过多，需要很多机器资源；
+修改了 Redis 代码，导致和官方无法同步，新特性跟进缓慢；
+开发团队准备主推基于 Redis 改造的 reborndb。
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -628,9 +634,9 @@ redis高可用依然采用主从模式，但是在主备切换等方面舍去中
 <footer class="post-footer">
       
       <nav class="post-nav">
-        <a class="prev" href="/post/ARTS/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%B0%8F%E7%8E%8B%E6%97%A5%E5%B8%B8%E8%A1%8C%E4%B8%BA%E6%B5%81%E7%A8%8B/">
+        <a class="prev" href="/post/2020/%E6%8F%90%E9%AB%98%E8%A1%A8%E8%BE%BE%E8%83%BD%E5%8A%9B%E8%AE%AD%E7%BB%83%E8%AE%A1%E5%88%92/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">程序员小王的日常规范流程</span>
+            <span class="prev-text nav-default">写是说的前提</span>
             <span class="prev-text nav-mobile">上一篇</span>
           </a>
         <a class="next" href="/post/ARTS/month/">

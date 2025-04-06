@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.101.0 with theme even" />
+<meta name="generator" content="Hugo 0.83.1 with theme even" />
 
 
 <link rel="canonical" href="https://wangcy6.github.io/post/2020/k8s/" />
@@ -42,13 +42,13 @@
 <meta property="og:description" content="协调者ZooKeeper 一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题 二、这个技术的优势和劣势分别是什么 三、这个技术" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://wangcy6.github.io/post/2020/k8s/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2022-01-20T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-01-20T00:00:00+00:00" />
+<meta property="article:published_time" content="2022-01-20T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2022-01-20T00:00:00&#43;00:00" />
 
 <meta itemprop="name" content="k8s入门">
-<meta itemprop="description" content="协调者ZooKeeper 一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题 二、这个技术的优势和劣势分别是什么 三、这个技术"><meta itemprop="datePublished" content="2022-01-20T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-01-20T00:00:00+00:00" />
-<meta itemprop="wordCount" content="162">
+<meta itemprop="description" content="协调者ZooKeeper 一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题 二、这个技术的优势和劣势分别是什么 三、这个技术"><meta itemprop="datePublished" content="2022-01-20T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2022-01-20T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="163">
 <meta itemprop="keywords" content="云原生," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="k8s入门"/>
 <meta name="twitter:description" content="协调者ZooKeeper 一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题 二、这个技术的优势和劣势分别是什么 三、这个技术"/>
@@ -128,7 +128,7 @@
       <div class="post-meta">
         <span class="post-time"> 2022-01-20 00:00 </span>
         
-          <span class="more-meta"> 约 162 字 </span>
+          <span class="more-meta"> 约 163 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -170,13 +170,15 @@
 <h2 id="青铜技能-熟悉docker">青铜技能-熟悉docker</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
+</span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1">## 登陆</span>
-</span></span><span class="line"><span class="cl">docker <span class="nb">exec</span> -i -t 56bd78306b21  /bin/sh 
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1">## 登陆</span>
+docker <span class="nb">exec</span> -i -t 56bd78306b21  /bin/sh 
+
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>
