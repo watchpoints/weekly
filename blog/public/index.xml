@@ -6,6 +6,7 @@
     <description>Recent content on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
+<<<<<<< HEAD
     <lastBuildDate>Mon, 31 Mar 2025 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://wangcy6.github.io/index.xml" rel="self" type="application/rss+xml" />
@@ -54,6 +55,16 @@
       
       <guid>https://wangcy6.github.io/post/money/2025-03-23-code_OpenManus/</guid>
       <description>大家好，我是小王同学，希望本文在了解OpenManus对你有帮助 昵称：做一个为自己写代码的程序员 愿景：成为AIGCC落地解决方案积极参与者 相</description>
+=======
+    <lastBuildDate>Thu, 03 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>如何批量投递简历</title>
+      <link>https://wangcy6.github.io/post/ai/01_how_to_quickly_submit_resumes/</link>
+      <pubDate>Thu, 03 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ai/01_how_to_quickly_submit_resumes/</guid>
+      <description>1. 基础 回顾：程序员的一天 开发 流程 聚焦在高价值需求上 需要什么团队 时间盒子 2. 用户故事是什么 用户故事：应届生快速投递与简历优化工具 金三银四 快过去了</description>
+>>>>>>> 3ef6d693d572b1aa1761578dca2c669bbd1f5d0d
     </item>
     
     <item>
@@ -63,6 +74,15 @@
       
       <guid>https://wangcy6.github.io/post/habit/2025-habit-health-get-up/</guid>
       <description>开始仿照&amp;laquo;只管去做&amp;raquo; &amp;laquo;小强升职记》动物对外方式 代替生活中真实故事 寒号鸟，人教版语文书二年级上册 寒号鸟重复</description>
+    </item>
+    
+    <item>
+      <title>只管去做践N0.15</title>
+      <link>https://wangcy6.github.io/post/ARTS/2024/%E5%8F%AA%E7%AE%A1%E5%8E%BB%E5%81%9A%E5%91%A8%E8%AE%B0%E7%AC%AC15%E6%9C%9F/</link>
+      <pubDate>Sun, 05 Jan 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ARTS/2024/%E5%8F%AA%E7%AE%A1%E5%8E%BB%E5%81%9A%E5%91%A8%E8%AE%B0%E7%AC%AC15%E6%9C%9F/</guid>
+      <description>只管去做 N0.7 # Part I 每月目标九宫格训练营 # Part 2 习惯卡片 一、环境场： 餐厅区&amp;ndash;吃饭专心吃饭 小故事：过去是吧10000次，今天想改造怎么做</description>
     </item>
     
     <item>
@@ -93,12 +113,17 @@
     </item>
     
     <item>
-      <title>成为ob贡献者(09):如何证明采用了PALF设计就是安全的</title>
-      <link>https://wangcy6.github.io/post/oceanbase/2024/day11/</link>
+      <title>成为ob贡献者(10)</title>
+      <link>https://wangcy6.github.io/post/oceanbase/2024/day11PALF%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/</link>
       <pubDate>Sat, 21 Dec 2024 00:00:00 +0000</pubDate>
       
+<<<<<<< HEAD
       <guid>https://wangcy6.github.io/post/oceanbase/2024/day11/</guid>
       <description>来监督，哪天没打卡 私信我 第5章节：数据变更同步 原文： Besides serving transactions, distributed databases also act as the source of data flow. Downstream applications can be deployed to provide various services by synchronizing data changes recorded in physical logs. This section introduces two typical physical log synchronization scenarios in OceanBase, describes what challenges</description>
+=======
+      <guid>https://wangcy6.github.io/post/oceanbase/2024/day11PALF%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/</guid>
+      <description>为了整理思路，文章采用模拟2人对话方式，如有误，欢迎留言。 本文分为两个部分 捕捉想法: 通过别人分享 我了解到，在写数据库 之前，别人是看论文搞清楚</description>
+>>>>>>> 3ef6d693d572b1aa1761578dca2c669bbd1f5d0d
     </item>
     
     <item>
@@ -162,6 +187,15 @@
       
       <guid>https://wangcy6.github.io/post/oceanbase/2024/08_make_ob_leader-1/</guid>
       <description>问题描述： 问题描述： Mds 通过 dump indo查看 文件 in-&amp;gt;snaprealm 存在 通过 ll_get_inode() 查询返回in-&amp;gt;snaprealm 不存在。 这个什么情况下发生，现场环境 3万个文</description>
+    </item>
+    
+    <item>
+      <title>成为ob贡献者(6):如何阅读Paxos代码</title>
+      <link>https://wangcy6.github.io/post/oceanbase/2024/day11_make_ob-1/</link>
+      <pubDate>Fri, 04 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/oceanbase/2024/day11_make_ob-1/</guid>
+      <description>为了整理思路，文章采用模拟2人对话方式。 本文主要内容 libc++ 是LLVM编译器套件的默认C++标准库。 libstdc++是GNU编译器套件（GCC）</description>
     </item>
     
     <item>
@@ -402,6 +436,7 @@
       <title>小册子：互联网引流的100种手法</title>
       <link>https://wangcy6.github.io/post/2024/2024-02-09-100-ways-add-funs/</link>
       <pubDate>Fri, 09 Feb 2024 00:00:00 +0000</pubDate>
+<<<<<<< HEAD
       
       <guid>https://wangcy6.github.io/post/2024/2024-02-09-100-ways-add-funs/</guid>
       <description>小册字：互联网引流的100种手法 学习笔记 微信号：watchpoints 点击蓝色字体：陪你终身成长丨限免星球， 自取310个新媒体运营工具 大纲 第</description>
@@ -411,9 +446,11 @@
       <title>Obsidian常见问题100问</title>
       <link>https://wangcy6.github.io/post/how/how-to-use-Obsidian/</link>
       <pubDate>Tue, 23 Jan 2024 00:00:00 +0000</pubDate>
+=======
+>>>>>>> 3ef6d693d572b1aa1761578dca2c669bbd1f5d0d
       
-      <guid>https://wangcy6.github.io/post/how/how-to-use-Obsidian/</guid>
-      <description>Q1： 什么是阅读模式，什么是源码模式? 在创一个文件后， 如果是阅读模式：只能读，不能修改。需要点击右上方 出现book图标编辑模式 在编辑模式下，</description>
+      <guid>https://wangcy6.github.io/post/2024/2024-02-09-100-ways-add-funs/</guid>
+      <description>小册字：互联网引流的100种手法 学习笔记 微信号：watchpoints 点击蓝色字体：陪你终身成长丨限免星球， 自取310个新媒体运营工具 大纲 第</description>
     </item>
     
     <item>
@@ -539,16 +576,29 @@
       <pubDate>Fri, 11 Aug 2023 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/liunx/shell%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8/</guid>
+<<<<<<< HEAD
       <description>1. shell 命令获取随机获取 2位的整数? 方法1：使用内置变量 $RANDOM 1 echo $(( RANDOM % 90 + 10 )) 原理： $RANDOM 生成一个0到32767之间的随机数，% 90 得到0到89的余数，</description>
+=======
+      <description>在文件中第一行添加 key sed -i &amp;rsquo;s/^/key/g&#39; xx 查看进程启动时间 Shell脚本实用小技巧-教你屏蔽执行命令的所有显示信息，包含错误信息 标准输入（STDIN），文</description>
+>>>>>>> 3ef6d693d572b1aa1761578dca2c669bbd1f5d0d
     </item>
     
     <item>
-      <title>通过interview构建地基</title>
-      <link>https://wangcy6.github.io/post/interview/01_2023_08_04/</link>
-      <pubDate>Fri, 04 Aug 2023 00:00:00 +0000</pubDate>
+      <title>从青铜到王者系列：深入浅出理解 DeepSeek 3FS（1）</title>
+      <link>https://wangcy6.github.io/post/liunx/2025/2025-03-19/</link>
+      <pubDate>Fri, 11 Aug 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://wangcy6.github.io/post/interview/01_2023_08_04/</guid>
-      <description>提问1：什么是右移动？ 学习方法 1 2 3 4 5 6 7 8 9 10 11 12 一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题 二、这个技术的优</description>
+      <guid>https://wangcy6.github.io/post/liunx/2025/2025-03-19/</guid>
+      <description>如果不好老外交流，只背诵单词 怎么背也不得要领。 如果没有真实项目场景，虽然大量项目代码怎么看网络知识，c++知识也不理解背后含义 这里从零实现一</description>
+    </item>
+    
+    <item>
+      <title>从青铜到王者系列：深入浅出理解 DeepSeek 3FS（2）</title>
+      <link>https://wangcy6.github.io/post/liunx/2025/2025-03-22_3fs_2/</link>
+      <pubDate>Fri, 11 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/liunx/2025/2025-03-22_3fs_2/</guid>
+      <description>导读 从青铜到王者系列：深入浅出理解 DeepSeek 3FS（2） 我整理 大模型训练 在checkpoint时候对大的文件读写， 在批量查询的时候对小文件读写 目前 谷</description>
     </item>
     
     <item>
@@ -648,6 +698,15 @@
       
       <guid>https://wangcy6.github.io/post/2023/13_ai_tool/</guid>
       <description>一次只使用一个工具，其他装作看不见。 学习方法 1 2 3 4 5 6 7 8 9 10 11 12 一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题 二</description>
+    </item>
+    
+    <item>
+      <title>魔改小爱音箱接入 ChatGPT 和豆包，打造你的专属语音助手（保姆级教程建议收藏）</title>
+      <link>https://wangcy6.github.io/post/money/002_xiao_ai/</link>
+      <pubDate>Sat, 13 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/money/002_xiao_ai/</guid>
+      <description>魔改小爱音箱接入 ChatGPT 和豆包，打造你的专属语音助手（保姆级教程建议收藏） 耗时一天 放弃，被pyton版本搞怕了。 大家好，我是小王同学，希望帮助掌握</description>
     </item>
     
     <item>
@@ -1879,8 +1938,12 @@ https://mp.weixin.qq.com/s/fl-R_ZMQwy0aNQbsXZeQ3Q 必读！！！数据库开发
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/plan/%E6%8F%90%E9%AB%98%E6%95%88%E7%8E%87%E6%98%8E%E7%A1%AE%E4%BB%BB%E5%8A%A1%E5%8A%A0%E5%BC%BA%E6%B2%9F%E9%80%9A/</guid>
+<<<<<<< HEAD
       <description>title: &amp;ldquo;工作日志：日报，周报，月，季度&amp;rdquo; date: 2022-09-25 draft: false categories: [&amp;ldquo;work&amp;rdquo;]
  12月 //伪代码示例 这是什么用法 lock.unlock(); helo() lock.lock();</description>
+=======
+      <description>title: &amp;ldquo;工作日志：日报，周报，月，季度&amp;rdquo; date: 2022-09-25 draft: false categories: [&amp;ldquo;work&amp;rdquo;] 12月 //伪代码示例 这是什么用法 lock.unlock(); helo() lock.lock();</description>
+>>>>>>> 3ef6d693d572b1aa1761578dca2c669bbd1f5d0d
     </item>
     
     <item>

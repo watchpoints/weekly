@@ -23,7 +23,11 @@
 
 
 
+<<<<<<< HEAD
 <meta name="generator" content="Hugo 0.62.0 with theme even" />
+=======
+<meta name="generator" content="Hugo 0.83.1 with theme even" />
+>>>>>>> 3ef6d693d572b1aa1761578dca2c669bbd1f5d0d
 
 
 <link rel="canonical" href="https://wangcy6.github.io/post/oceanbase/2011/oceanbase_day1/" />
@@ -41,6 +45,7 @@
 <meta property="og:title" content="oceanbase源码阅读（1）程序启动" />
 <meta property="og:description" content="OceanBase代码阅读第一天：程序启动" />
 <meta property="og:type" content="article" />
+<<<<<<< HEAD
 <meta property="og:url" content="https://wangcy6.github.io/post/oceanbase/2011/oceanbase_day1/" />
 <meta property="article:published_time" content="2021-06-22T00:00:00+00:00" />
 <meta property="article:modified_time" content="2021-06-22T00:00:00+00:00" />
@@ -52,6 +57,16 @@
 
 
 
+=======
+<meta property="og:url" content="https://wangcy6.github.io/post/oceanbase/2011/oceanbase_day1/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-06-22T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2021-06-22T00:00:00&#43;00:00" />
+
+<meta itemprop="name" content="oceanbase源码阅读（1）程序启动">
+<meta itemprop="description" content="OceanBase代码阅读第一天：程序启动"><meta itemprop="datePublished" content="2021-06-22T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-06-22T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="5977">
+>>>>>>> 3ef6d693d572b1aa1761578dca2c669bbd1f5d0d
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="oceanbase源码阅读（1）程序启动"/>
 <meta name="twitter:description" content="OceanBase代码阅读第一天：程序启动"/>
@@ -273,7 +288,11 @@ sh run_tests.sh
 
 </code></pre></td></tr></table>
 </div>
+<<<<<<< HEAD
 </div><h3 id="2-obd">步骤2 将编译产物加入OBD本地仓库</h3>
+=======
+</div><h3 id="步骤2-将编译产物加入obd本地仓库">步骤2 将编译产物加入OBD本地仓库</h3>
+>>>>>>> 3ef6d693d572b1aa1761578dca2c669bbd1f5d0d
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -367,18 +386,32 @@ sysctl -p</p>
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">参考：https://gitee.com/oceanbase/obdeploy
+<<<<<<< HEAD
   
 hostname oceanbase
 obd cluster deploy obtest -c mini-local-example.yaml
   
+=======
+
+hostname oceanbase
+obd cluster deploy obtest -c mini-local-example.yaml
+
+>>>>>>> 3ef6d693d572b1aa1761578dca2c669bbd1f5d0d
 obd cluster edit-config obtest
 obd cluster redeploy obtest
 obd cluster start obtest
 obd cluster stop obtest
+<<<<<<< HEAD
   
   
 <span class="c1"># 参看obd管理的集群列表</span>
   
+=======
+
+
+<span class="c1"># 参看obd管理的集群列表</span>
+
+>>>>>>> 3ef6d693d572b1aa1761578dca2c669bbd1f5d0d
 - obd cluster list
 </code></pre></td></tr></table>
 </div>
@@ -487,6 +520,113 @@ Wait for observer init ok
 +-----------+---------+------+-------+--------+
 
 </code></pre></td></tr></table>
+<<<<<<< HEAD
+=======
+</div>
+</div><h1 id="查看-lo-集群状态">查看 lo 集群状态</h1>
+<p>obd cluster display obtest</p>
+<p>obd cluster destroy obtest</p>
+<p>cd /app/data
+10.115.37.60</p>
+<p>alias cdob=&ldquo;obclient -u root -h 127.0.0.1 -P2881&rdquo;</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback"> - MySQL 租户的管理员用户名默认是root
+-  默认租户 sys
+- 数据库名 oceanbase
+
+obclient -uroot@sys -h127.0.0.1 -P2881 oceanbase
+
+  10.115.37.60
+  alias cdob=&#34;obclient -u root -h 127.0.0.1 -P2881&#34;
+  use OceanBase
+  select * from __all_server \G; //服务器的状态
+  select * from __all_virtual_server_stat \G; //资源分配情况
+  select * from __all_unit_config \G; //资源定义情况
+  
+  select * from __all_unit \G; //资源分配情况
+  select * from __all_resource_pool \G; //资源分配情况
+
+
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>select * from __all_server \G;</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">select zone,svr_ip,svr_port,inner_port,usec_to_time(start_service_time),usec_to_time(stop_time) from oceanbase.__all_server;
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>资源占用情况</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback"></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<p>select a.zone,concat(a.svr_ip,':',a.svr_port) observer, cpu_total, cpu_assigned, (cpu_total-cpu_assigned) cpu_free, mem_total/1024/1024/1024 mem_total_gb, mem_assigned/1024/1024/1024 mem_assign_gb, (mem_total-mem_assigned)/1024/1024/1024 mem_free_gb  from __all_virtual_server_stat a join __all_server b on (a.svr_ip=b.svr_ip and a.svr_port=b.svr_port) order by a.zone, a.svr_ip;</p>
+<p>select t1.name resource_pool_name, t2.<code>name</code> unit_config_name, t2.max_cpu, t2.min_cpu, t2.max_memory/1024/1024/1024 max_mem_gb, t2.min_memory/1024/1024/1024 min_mem_gb, t3.unit_id, t3.zone, concat(t3.svr_ip,':',t3.<code>svr_port</code>) observer,t4.tenant_id, t4.tenant_name
+from __all_resource_pool t1 join __all_unit_config t2 on (t1.unit_config_id=t2.unit_config_id)
+join __all_unit t3 on (t1.<code>resource_pool_id</code> = t3.<code>resource_pool_id</code>)
+left join __all_tenant t4 on (t1.tenant_id=t4.tenant_id)
+order by t1.<code>resource_pool_id</code>, t2.<code>unit_config_id</code>, t3.unit_id ;</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">
+
+
+## 查看1号线程
+
+~~~shell
+Thread 1 (Thread 0x7f292e84a340 (LWP 59)):
+#0  0x00007f292d519d98 in nanosleep () from /lib64/libc.so.6
+#1  0x00007f292d519c9e in sleep () from /lib64/libc.so.6
+#2  0x000000000870f998 in oceanbase::observer::ObServer::wait() ()
+#3  0x00000000024c1443 in main ()
+
+</code></pre></td></tr></table>
+>>>>>>> 3ef6d693d572b1aa1761578dca2c669bbd1f5d0d
 </div>
 </div><h1 id="-lo-">查看 lo 集群状态</h1>
 <p>obd cluster display obtest</p>
@@ -631,6 +771,7 @@ Thread 1 (Thread 0x7f292e84a340 (LWP 59)):
 <td class="lntd">
 <pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">ObWorker</span> <span class="n">worker</span><span class="p">;</span>
 
+<<<<<<< HEAD
 <span class="n">ObServer</span><span class="o">&amp;</span> <span class="n">observer</span> <span class="o">=</span> <span class="n">ObServer</span><span class="o">:</span><span class="o">:</span><span class="n">get_instance</span><span class="p">(</span><span class="p">)</span><span class="p">;</span> <span class="c1">//单例模式 返回observer static对象 --认识：了解
 </span><span class="c1"></span><span class="k">if</span> <span class="p">(</span><span class="n">OB_FAIL</span><span class="p">(</span><span class="n">observer</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="n">opts</span><span class="p">,</span> <span class="n">log_cfg</span><span class="p">)</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//初始化配置过程复杂：---认识： 知道有这个函数，运行出错可查看
 </span><span class="c1"></span>  <span class="n">LOG_ERROR</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">observer init fail</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">K</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
@@ -648,6 +789,25 @@ Thread 1 (Thread 0x7f292e84a340 (LWP 59)):
 </span><span class="c1"></span>  <span class="kt">int</span> <span class="nf">start</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
   <span class="kt">int</span> <span class="nf">wait</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
   <span class="kt">void</span> <span class="nf">set_stop</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+=======
+<span class="n">ObServer</span><span class="o">&amp;</span> <span class="n">observer</span> <span class="o">=</span> <span class="n">ObServer</span><span class="o">::</span><span class="n">get_instance</span><span class="p">();</span> <span class="c1">//单例模式 返回observer static对象 --认识：了解
+</span><span class="c1"></span><span class="k">if</span> <span class="p">(</span><span class="n">OB_FAIL</span><span class="p">(</span><span class="n">observer</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="n">opts</span><span class="p">,</span> <span class="n">log_cfg</span><span class="p">)))</span> <span class="p">{</span> <span class="c1">//初始化配置过程复杂：---认识： 知道有这个函数，运行出错可查看
+</span><span class="c1"></span>  <span class="n">LOG_ERROR</span><span class="p">(</span><span class="s">&#34;observer init fail&#34;</span><span class="p">,</span> <span class="n">K</span><span class="p">(</span><span class="n">ret</span><span class="p">));</span>
+<span class="p">}</span> <span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">OB_FAIL</span><span class="p">(</span><span class="n">observer</span><span class="p">.</span><span class="n">start</span><span class="p">()))</span> <span class="p">{</span> <span class="c1">//初始化配置过程复杂：---认识： 知道有这个函数，运行出错可查看
+</span><span class="c1"></span>  <span class="n">LOG_ERROR</span><span class="p">(</span><span class="s">&#34;observer start fail&#34;</span><span class="p">,</span> <span class="n">K</span><span class="p">(</span><span class="n">ret</span><span class="p">));</span>
+<span class="p">}</span> <span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">OB_FAIL</span><span class="p">(</span><span class="n">observer</span><span class="p">.</span><span class="n">wait</span><span class="p">()))</span> <span class="p">{</span> <span class="c1">//处理客户端连接------认识： 知道有这个函数 
+</span><span class="c1"></span>  <span class="n">LOG_ERROR</span><span class="p">(</span><span class="s">&#34;observer wait fail&#34;</span><span class="p">,</span> <span class="n">K</span><span class="p">(</span><span class="n">ret</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="nc">ObServer</span> <span class="p">{</span>
+  <span class="k">static</span> <span class="n">ObServer</span><span class="o">&amp;</span> <span class="n">get_instance</span><span class="p">();</span>
+  <span class="kt">int</span> <span class="nf">init</span><span class="p">(</span><span class="k">const</span> <span class="n">ObServerOptions</span><span class="o">&amp;</span> <span class="n">opts</span><span class="p">,</span> <span class="k">const</span> <span class="n">ObPLogWriterCfg</span><span class="o">&amp;</span> <span class="n">log_cfg</span><span class="p">);</span>
+  <span class="c1">// Start OceanBase server, this function is blocked after invoking
+</span><span class="c1"></span>  <span class="c1">// until the server itself stops it.
+</span><span class="c1"></span>  <span class="kt">int</span> <span class="nf">start</span><span class="p">();</span>
+  <span class="kt">int</span> <span class="nf">wait</span><span class="p">();</span>
+  <span class="kt">void</span> <span class="nf">set_stop</span><span class="p">();</span>
+>>>>>>> 3ef6d693d572b1aa1761578dca2c669bbd1f5d0d
   <span class="p">}</span>
 
 </code></pre></td></tr></table>
@@ -783,6 +943,7 @@ void wait() override;//
 </span><span class="lnt">23
 </span></code></pre></td>
 <td class="lntd">
+<<<<<<< HEAD
 <pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">Thread</span> <span class="mi">495</span> <span class="p">(</span><span class="n">Thread</span> <span class="mh">0x7fdc587dc700</span> <span class="p">(</span><span class="n">LWP</span> <span class="mi">31402</span><span class="p">)</span><span class="p">)</span><span class="o">:</span>
 
 <span class="err">\</span><span class="err">#</span><span class="mi">0</span> <span class="mh">0x00007fdc669c2a82</span> <span class="n">in</span> <span class="n">pthread_cond_timedwait</span><span class="err">@</span><span class="err">@</span><span class="n">GLIBC_2</span><span class="mf">.3</span><span class="mf">.2</span> <span class="p">(</span><span class="p">)</span> <span class="n">from</span> <span class="o">/</span><span class="n">lib64</span><span class="o">/</span><span class="n">libpthread</span><span class="p">.</span><span class="n">so</span><span class="mf">.0</span>
@@ -806,6 +967,31 @@ void wait() override;//
 <span class="err">\</span><span class="err">#</span><span class="mi">3</span> <span class="mh">0x00007fdc669bedc5</span> <span class="n">in</span> <span class="n">start_thread</span> <span class="p">(</span><span class="p">)</span> <span class="n">from</span> <span class="o">/</span><span class="n">lib64</span><span class="o">/</span><span class="n">libpthread</span><span class="p">.</span><span class="n">so</span><span class="mf">.0</span>
 
 <span class="err">\</span><span class="err">#</span><span class="mi">4</span> <span class="mh">0x00007fdc663eb76d</span> <span class="n">in</span> <span class="n">clone</span> <span class="p">(</span><span class="p">)</span> <span class="n">from</span> <span class="o">/</span><span class="n">lib64</span><span class="o">/</span><span class="n">libc</span><span class="p">.</span><span class="n">so</span><span class="mf">.6</span>
+=======
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">Thread</span> <span class="mi">495</span> <span class="p">(</span><span class="n">Thread</span> <span class="mh">0x7fdc587dc700</span> <span class="p">(</span><span class="n">LWP</span> <span class="mi">31402</span><span class="p">))</span><span class="o">:</span>
+
+<span class="err">\#</span><span class="mi">0</span> <span class="mh">0x00007fdc669c2a82</span> <span class="n">in</span> <span class="n">pthread_cond_timedwait</span><span class="err">@@</span><span class="n">GLIBC_2</span><span class="mf">.3.2</span> <span class="p">()</span> <span class="n">from</span> <span class="o">/</span><span class="n">lib64</span><span class="o">/</span><span class="n">libpthread</span><span class="p">.</span><span class="n">so</span><span class="mf">.0</span>
+
+<span class="err">\#</span><span class="mi">1</span> <span class="mh">0x0000000008ffbe65</span> <span class="n">in</span> <span class="n">oceanbase</span><span class="o">::</span><span class="n">common</span><span class="o">::</span><span class="n">ObBaseLogWriter</span><span class="o">::</span><span class="n">flush_log</span><span class="p">()</span> <span class="p">()</span>
+
+<span class="err">\#</span><span class="mi">2</span> <span class="mh">0x0000000008ffb855</span> <span class="n">in</span> <span class="n">oceanbase</span><span class="o">::</span><span class="n">common</span><span class="o">::</span><span class="n">ObBaseLogWriter</span><span class="o">::</span><span class="n">flush_log_thread</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span> <span class="p">()</span>
+
+<span class="err">\#</span><span class="mi">3</span> <span class="mh">0x00007fdc669bedc5</span> <span class="n">in</span> <span class="n">start_thread</span> <span class="p">()</span> <span class="n">from</span> <span class="o">/</span><span class="n">lib64</span><span class="o">/</span><span class="n">libpthread</span><span class="p">.</span><span class="n">so</span><span class="mf">.0</span>
+
+<span class="err">\#</span><span class="mi">4</span> <span class="mh">0x00007fdc663eb76d</span> <span class="n">in</span> <span class="n">clone</span> <span class="p">()</span> <span class="n">from</span> <span class="o">/</span><span class="n">lib64</span><span class="o">/</span><span class="n">libc</span><span class="p">.</span><span class="n">so</span><span class="mf">.6</span>
+
+<span class="n">Thread</span> <span class="mi">494</span> <span class="p">(</span><span class="n">Thread</span> <span class="mh">0x7fdc0b9f3700</span> <span class="p">(</span><span class="n">LWP</span> <span class="mi">31524</span><span class="p">))</span><span class="o">:</span>
+
+<span class="err">\#</span><span class="mi">0</span> <span class="mh">0x00007fdc669c2a82</span> <span class="n">in</span> <span class="n">pthread_cond_timedwait</span><span class="err">@@</span><span class="n">GLIBC_2</span><span class="mf">.3.2</span> <span class="p">()</span> <span class="n">from</span> <span class="o">/</span><span class="n">lib64</span><span class="o">/</span><span class="n">libpthread</span><span class="p">.</span><span class="n">so</span><span class="mf">.0</span>
+
+<span class="err">\#</span><span class="mi">1</span> <span class="mh">0x0000000008ffbe65</span> <span class="n">in</span> <span class="n">oceanbase</span><span class="o">::</span><span class="n">common</span><span class="o">::</span><span class="n">ObBaseLogWriter</span><span class="o">::</span><span class="n">flush_log</span><span class="p">()</span> <span class="p">()</span>
+
+<span class="err">\#</span><span class="mi">2</span> <span class="mh">0x0000000008ffb855</span> <span class="n">in</span> <span class="n">oceanbase</span><span class="o">::</span><span class="n">common</span><span class="o">::</span><span class="n">ObBaseLogWriter</span><span class="o">::</span><span class="n">flush_log_thread</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span> <span class="p">()</span>
+
+<span class="err">\#</span><span class="mi">3</span> <span class="mh">0x00007fdc669bedc5</span> <span class="n">in</span> <span class="n">start_thread</span> <span class="p">()</span> <span class="n">from</span> <span class="o">/</span><span class="n">lib64</span><span class="o">/</span><span class="n">libpthread</span><span class="p">.</span><span class="n">so</span><span class="mf">.0</span>
+
+<span class="err">\#</span><span class="mi">4</span> <span class="mh">0x00007fdc663eb76d</span> <span class="n">in</span> <span class="n">clone</span> <span class="p">()</span> <span class="n">from</span> <span class="o">/</span><span class="n">lib64</span><span class="o">/</span><span class="n">libc</span><span class="p">.</span><span class="n">so</span><span class="mf">.6</span>
+>>>>>>> 3ef6d693d572b1aa1761578dca2c669bbd1f5d0d
 </code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
@@ -853,7 +1039,11 @@ void wait() override;//
 
 tail -f observer.log
 
+<<<<<<< HEAD
 parse_sql <span class="o">(</span>ob_parser.cpp:194<span class="o">)</span> <span class="o">[</span>31620<span class="o">]</span><span class="o">[</span>438<span class="o">]</span><span class="o">[</span>YB427F000001-0005C57D39B7B24E<span class="o">]</span>
+=======
+parse_sql <span class="o">(</span>ob_parser.cpp:194<span class="o">)</span> <span class="o">[</span>31620<span class="o">][</span>438<span class="o">][</span>YB427F000001-0005C57D39B7B24E<span class="o">]</span>
+>>>>>>> 3ef6d693d572b1aa1761578dca2c669bbd1f5d0d
 
 sql<span class="se">\p</span>arser<span class="se">\o</span>b_parser.cpp
 
@@ -1048,7 +1238,11 @@ parse_sql <span class="o">(</span>ob_parser.cpp:194<span class="o">)</span>
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
+<<<<<<< HEAD
 <pre class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">int</span> <span class="n">ObMPQuery</span><span class="o">:</span><span class="o">:</span><span class="n">process_single_stmt</span><span class="p">(</span><span class="k">const</span> <span class="n">ObMultiStmtItem</span><span class="o">&amp;</span> <span class="n">multi_stmt_item</span><span class="p">,</span> <span class="n">ObSQLSessionInfo</span><span class="o">&amp;</span> <span class="n">session</span><span class="p">,</span>
+=======
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">int</span> <span class="n">ObMPQuery</span><span class="o">::</span><span class="n">process_single_stmt</span><span class="p">(</span><span class="k">const</span> <span class="n">ObMultiStmtItem</span><span class="o">&amp;</span> <span class="n">multi_stmt_item</span><span class="p">,</span> <span class="n">ObSQLSessionInfo</span><span class="o">&amp;</span> <span class="n">session</span><span class="p">,</span>
+>>>>>>> 3ef6d693d572b1aa1761578dca2c669bbd1f5d0d
 
   <span class="kt">bool</span> <span class="n">has_more_result</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">force_sync_resp</span><span class="p">,</span> <span class="kt">bool</span><span class="o">&amp;</span> <span class="n">async_resp_used</span><span class="p">,</span> <span class="kt">bool</span><span class="o">&amp;</span> <span class="n">need_disconnect</span><span class="p">)</span>
 </code></pre></td></tr></table>
@@ -1097,10 +1291,17 @@ parse_sql <span class="o">(</span>ob_parser.cpp:194<span class="o">)</span>
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
+<<<<<<< HEAD
 <pre class="chroma"><code class="language-c#" data-lang="c#"><span class="n">pop_back</span><span class="p">(</span><span class="p">)</span> <span class="k">in</span> <span class="n">ObSEArrayImpl</span> <span class="n">may</span> <span class="n">need</span> <span class="n">to</span> <span class="n">call</span> <span class="n">destructor</span> <span class="n">of</span> <span class="n">T</span> <span class="err">#</span><span class="m">3</span><span class="m">1</span><span class="m">6</span>
 
 
 <span class="n">The</span> <span class="n">first</span> <span class="n">pop_back</span><span class="p">(</span><span class="p">)</span> <span class="n">function</span> <span class="k">in</span> <span class="err">`</span><span class="n">ObSEArrayImpl</span><span class="err">`</span> <span class="n">may</span> <span class="n">need</span> <span class="n">to</span> <span class="n">call</span> <span class="n">destructor</span> <span class="n">of</span> <span class="n">T</span> <span class="n">like</span> <span class="n">the</span> <span class="n">second</span> <span class="n">function</span><span class="p">,</span> <span class="n">or</span> <span class="n">there</span> <span class="n">may</span> <span class="n">be</span> <span class="n">risk</span> <span class="n">of</span> <span class="n">memory</span> <span class="n">leaks</span><span class="p">.</span>
+=======
+<pre class="chroma"><code class="language-c#" data-lang="c#"><span class="n">pop_back</span><span class="p">()</span> <span class="k">in</span> <span class="n">ObSEArrayImpl</span> <span class="n">may</span> <span class="n">need</span> <span class="n">to</span> <span class="n">call</span> <span class="n">destructor</span> <span class="n">of</span> <span class="n">T</span> <span class="err">#</span><span class="m">316</span>
+
+
+<span class="n">The</span> <span class="n">first</span> <span class="n">pop_back</span><span class="p">()</span> <span class="n">function</span> <span class="k">in</span> <span class="err">`</span><span class="n">ObSEArrayImpl</span><span class="err">`</span> <span class="n">may</span> <span class="n">need</span> <span class="n">to</span> <span class="n">call</span> <span class="n">destructor</span> <span class="n">of</span> <span class="n">T</span> <span class="n">like</span> <span class="n">the</span> <span class="n">second</span> <span class="n">function</span><span class="p">,</span> <span class="n">or</span> <span class="n">there</span> <span class="n">may</span> <span class="n">be</span> <span class="n">risk</span> <span class="n">of</span> <span class="n">memory</span> <span class="n">leaks</span><span class="p">.</span>
+>>>>>>> 3ef6d693d572b1aa1761578dca2c669bbd1f5d0d
 
 
 <span class="n">Thanks</span> <span class="k">for</span> <span class="n">your</span> <span class="n">contribution</span><span class="p">.</span>

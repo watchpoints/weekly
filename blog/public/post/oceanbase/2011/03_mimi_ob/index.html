@@ -23,7 +23,11 @@
 
 
 
+<<<<<<< HEAD
 <meta name="generator" content="Hugo 0.62.0 with theme even" />
+=======
+<meta name="generator" content="Hugo 0.83.1 with theme even" />
+>>>>>>> 3ef6d693d572b1aa1761578dca2c669bbd1f5d0d
 
 
 <link rel="canonical" href="https://wangcy6.github.io/post/oceanbase/2011/03_mimi_ob/" />
@@ -47,9 +51,12 @@
 <meta itemprop="description" content="慢慢来，多看、多问、多总结 预备知识： 源码：https://github.com/watchpoints/miniob 2019CMU数据库导论">
 
 <meta itemprop="wordCount" content="6678">
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> 3ef6d693d572b1aa1761578dca2c669bbd1f5d0d
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="mimob代码阅读"/>
 <meta name="twitter:description" content="慢慢来，多看、多问、多总结 预备知识： 源码：https://github.com/watchpoints/miniob 2019CMU数据库导论"/>
@@ -1054,6 +1061,7 @@ struct IndexFileHeader {
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-cpp" data-lang="cpp">
+<<<<<<< HEAD
 <span class="err">创</span><span class="err">建</span><span class="err">索</span><span class="err">引</span><span class="err">流</span><span class="err">程</span><span class="err">：</span><span class="n">SCF_CREATE_INDEX</span>
 <span class="n">ExecuteStage</span><span class="o">:</span><span class="o">:</span><span class="n">do_create_index</span><span class="o">-</span><span class="o">-</span><span class="o">&gt;</span><span class="n">Table</span><span class="o">:</span><span class="o">:</span><span class="n">create_index</span> <span class="o">-</span><span class="o">-</span><span class="o">&gt;</span><span class="n">BplusTreeIndex</span><span class="o">:</span><span class="o">:</span><span class="n">create</span>
 <span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">&gt;</span><span class="n">RC</span> <span class="n">BplusTreeIndex</span><span class="o">:</span><span class="o">:</span><span class="n">create_multi</span>
@@ -1073,6 +1081,27 @@ struct IndexFileHeader {
     <span class="mf">3.</span> <span class="err">遍</span><span class="err">历</span><span class="err">当</span><span class="err">前</span><span class="err">的</span><span class="err">所</span><span class="err">有</span><span class="err">数</span><span class="err">据</span><span class="err">，</span><span class="err">插</span><span class="err">入</span><span class="err">这</span><span class="err">个</span><span class="err">索</span><span class="err">引</span>
     
 <span class="n">BplusTreeIndex</span><span class="o">:</span><span class="o">:</span><span class="n">create_multi</span>
+=======
+<span class="err">创建索引流程：</span><span class="n">SCF_CREATE_INDEX</span>
+<span class="n">ExecuteStage</span><span class="o">::</span><span class="n">do_create_index</span><span class="o">--&gt;</span><span class="n">Table</span><span class="o">::</span><span class="n">create_index</span> <span class="o">--&gt;</span><span class="n">BplusTreeIndex</span><span class="o">::</span><span class="n">create</span>
+<span class="o">---&gt;</span><span class="n">RC</span> <span class="n">BplusTreeIndex</span><span class="o">::</span><span class="n">create_multi</span>
+    
+<span class="err">插入数据流程：走索引的插入</span>
+<span class="n">ExecuteStage</span><span class="o">::</span><span class="n">do_insert</span><span class="o">---&gt;</span><span class="n">Table</span><span class="o">::</span><span class="n">insert_record_mult_rows</span><span class="o">--&gt;</span><span class="n">Trx</span><span class="o">::</span><span class="n">insert_record</span>
+<span class="o">---&gt;</span><span class="n">Table</span><span class="o">::</span><span class="n">insert_entry_of_indexes</span><span class="o">---&gt;</span><span class="n">BplusTreeHandler</span><span class="o">::</span><span class="n">insert_entry</span>
+
+    <span class="n">BplusTreeHandler</span><span class="o">::</span><span class="n">make_key</span>
+<span class="err">查找</span> 
+<span class="n">ExecuteStage</span><span class="o">::</span><span class="n">do_select</span> <span class="o">---&gt;</span><span class="n">IndexScanOperator</span> <span class="o">*</span><span class="n">try_to_create_index_scan_operator</span>
+  <span class="n">IndexScanOperator</span><span class="o">::</span><span class="n">IndexScanOperator</span><span class="p">(</span>  
+    
+<span class="n">Table</span><span class="o">::</span><span class="n">create_index</span>
+    <span class="mf">1.</span> <span class="err">检测字段是否存在</span> <span class="n">find_mult_index_by_field</span>
+    <span class="mf">2.</span> <span class="err">创建</span><span class="n">b</span><span class="o">+</span> <span class="n">index</span><span class="o">-&gt;</span><span class="n">create_multi</span>
+    <span class="mf">3.</span> <span class="err">遍历当前的所有数据，插入这个索引</span>
+    
+<span class="n">BplusTreeIndex</span><span class="o">::</span><span class="n">create_multi</span>
+>>>>>>> 3ef6d693d572b1aa1761578dca2c669bbd1f5d0d
     
     
 
@@ -1625,7 +1654,11 @@ gcc <span class="o">(</span>GCC<span class="o">)</span> 4.8.5 <span class="m">20
 tar xzvf gcc-11.3.0.tar.gz
 <span class="nb">cd</span> gcc-11.3.0
 
+<<<<<<< HEAD
 <span class="c1"># gcc不同版本切换</span> 
+=======
+<span class="c1"># gcc不同版本切换 </span>
+>>>>>>> 3ef6d693d572b1aa1761578dca2c669bbd1f5d0d
 
 Centos7 使用 yum 安装的 GCC 版本是 4.8.5，蛮老的版本了，现在稍微新一点的库都要求 GCC5 以上，但是重新编译安装最新的GCC又特别麻烦，而且不能在各个版本的 GCC 之间来回切换，不够灵活，刚好有一个叫做 SCL 的软件库可以提供不同版本 GCC 的灵活切换，可以完美解决我们的需求，安装十分简单：
 ————————————————
@@ -1634,7 +1667,11 @@ Centos7 使用 yum 安装的 GCC 版本是 4.8.5，蛮老的版本了，现在�
 
 yum install centos-release-scl scl-utils-build
 yum search devtoolset <span class="c1"># 搜索 GCC</span>
+<<<<<<< HEAD
 devtoolset-9-gcc.x86_64 : GCC version 9
+=======
+devtoolset-9-gcc.x86_64 : GCC version <span class="m">9</span>
+>>>>>>> 3ef6d693d572b1aa1761578dca2c669bbd1f5d0d
 
 yum install devtoolset-9-gcc.x86_64 
 scl <span class="nb">enable</span> devtoolset-9 <span class="c1"># 启用 GC9</span>
@@ -2071,10 +2108,17 @@ miniob &gt; select * from unique_table;
 <span class="kt">void</span> <span class="n">query_reset</span><span class="p">(</span><span class="n">Query</span> <span class="o">*</span><span class="n">query</span><span class="p">)</span>
 
 <span class="n">src</span><span class="o">/</span><span class="n">observer</span><span class="o">/</span><span class="n">sql</span><span class="o">/</span><span class="n">executor</span><span class="o">/</span><span class="n">execute_stage</span><span class="p">.</span><span class="n">cpp</span>
+<<<<<<< HEAD
 <span class="kt">void</span> <span class="n">ExecuteStage</span><span class="o">:</span><span class="o">:</span><span class="n">handle_request</span><span class="p">(</span><span class="n">common</span><span class="o">:</span><span class="o">:</span><span class="n">StageEvent</span> <span class="o">*</span><span class="n">event</span><span class="p">)</span>
 
 <span class="n">src</span><span class="o">/</span><span class="n">observer</span><span class="o">/</span><span class="n">sql</span><span class="o">/</span><span class="n">executor</span><span class="o">/</span><span class="n">execute_stage</span><span class="p">.</span><span class="n">cpp</span>
 <span class="n">RC</span> <span class="n">Table</span><span class="o">:</span><span class="o">:</span><span class="n">create_unique_index</span><span class="p">(</span><span class="n">Trx</span> <span class="o">*</span><span class="n">trx</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">index_name</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">attribute_name</span><span class="p">)</span>
+=======
+<span class="kt">void</span> <span class="n">ExecuteStage</span><span class="o">::</span><span class="n">handle_request</span><span class="p">(</span><span class="n">common</span><span class="o">::</span><span class="n">StageEvent</span> <span class="o">*</span><span class="n">event</span><span class="p">)</span>
+
+<span class="n">src</span><span class="o">/</span><span class="n">observer</span><span class="o">/</span><span class="n">sql</span><span class="o">/</span><span class="n">executor</span><span class="o">/</span><span class="n">execute_stage</span><span class="p">.</span><span class="n">cpp</span>
+<span class="n">RC</span> <span class="n">Table</span><span class="o">::</span><span class="n">create_unique_index</span><span class="p">(</span><span class="n">Trx</span> <span class="o">*</span><span class="n">trx</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">index_name</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">attribute_name</span><span class="p">)</span>
+>>>>>>> 3ef6d693d572b1aa1761578dca2c669bbd1f5d0d
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="1">题目1</h3>

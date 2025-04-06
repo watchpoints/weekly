@@ -6,15 +6,27 @@
     <description>Recent content in Categories on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
+<<<<<<< HEAD
     <lastBuildDate>Thu, 02 Jan 2025 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://wangcy6.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+=======
+    <lastBuildDate>Thu, 03 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>do book</title>
+      <link>https://wangcy6.github.io/categories/do-book/</link>
+      <pubDate>Thu, 03 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/categories/do-book/</guid>
+      <description></description>
+    </item>
+>>>>>>> 3ef6d693d572b1aa1761578dca2c669bbd1f5d0d
     
     <item>
       <title>GTD</title>
       <link>https://wangcy6.github.io/categories/GTD/</link>
-      <pubDate>Thu, 02 Jan 2025 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 05 Jan 2025 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/categories/GTD/</guid>
       <description></description>
@@ -26,15 +38,6 @@
       <pubDate>Sat, 21 Dec 2024 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/categories/oceanbase/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>do book</title>
-      <link>https://wangcy6.github.io/categories/do-book/</link>
-      <pubDate>Sat, 07 Sep 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/categories/do-book/</guid>
       <description></description>
     </item>
     

@@ -23,7 +23,11 @@
 
 
 
+<<<<<<< HEAD
 <meta name="generator" content="Hugo 0.62.0 with theme even" />
+=======
+<meta name="generator" content="Hugo 0.83.1 with theme even" />
+>>>>>>> 3ef6d693d572b1aa1761578dca2c669bbd1f5d0d
 
 
 <link rel="canonical" href="https://wangcy6.github.io/post/2022/07_2022_4_17_kvcore/" />
@@ -41,12 +45,21 @@
 <meta property="og:title" content="早起120小时写代码第一期：kvcore" />
 <meta property="og:description" content="早睡：21点准备 22点上床，早起 6点准备 ，8点-10点 120分钟" />
 <meta property="og:type" content="article" />
+<<<<<<< HEAD
 <meta property="og:url" content="https://wangcy6.github.io/post/2022/07_2022_4_17_kvcore/" />
 <meta property="article:published_time" content="2022-04-17T00:00:00+00:00" />
 <meta property="article:modified_time" content="2022-04-17T00:00:00+00:00" />
 <meta itemprop="name" content="早起120小时写代码第一期：kvcore">
 <meta itemprop="description" content="早睡：21点准备 22点上床，早起 6点准备 ，8点-10点 120分钟">
 <meta itemprop="datePublished" content="2022-04-17T00:00:00&#43;00:00" />
+=======
+<meta property="og:url" content="https://wangcy6.github.io/post/2022/07_2022_4_17_kvcore/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-04-17T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2022-04-17T00:00:00&#43;00:00" />
+
+<meta itemprop="name" content="早起120小时写代码第一期：kvcore">
+<meta itemprop="description" content="早睡：21点准备 22点上床，早起 6点准备 ，8点-10点 120分钟"><meta itemprop="datePublished" content="2022-04-17T00:00:00&#43;00:00" />
+>>>>>>> 3ef6d693d572b1aa1761578dca2c669bbd1f5d0d
 <meta itemprop="dateModified" content="2022-04-17T00:00:00&#43;00:00" />
 <meta itemprop="wordCount" content="2244">
 
@@ -306,7 +319,7 @@ The tree performs extra internal housekeeping writes. This increases the amount 
 <p>atomic类
 多线程通过fetch__xx函数 一个变量进行 加减没有问题。</p>
 <p>多线程 对不同变量进行 做同步 load,store 使用条件是什么？</p>
-<p>例如 
+<p>例如
 x y 写操作必须在同一个线程内完成，才满足 happens-before and synchronizes-with。
 2个线程分别 x 和y写 肯定不满足</p>
 <p>The happens-before relationship</p>
@@ -327,10 +340,10 @@ x y 写操作必须在同一个线程内完成，才满足 happens-before and sy
 memory_order_consume：</p>
 <p>atomic_compare_exchange_strong</p>
 <p>知道c++提供原子操作类atomic<!-- raw HTML omitted --> 提供的接口有哪几个？</p>
-<p>4个 
-atomic_fetch_add 
-atomic_load 
-atomic_store 
+<p>4个
+atomic_fetch_add
+atomic_load
+atomic_store
 atomic_compare_exchange_strong</p>
 <p>memory_order_release:（可以理解为 mutex 的 unlock 操作）</p>
 <ol>
@@ -338,7 +351,7 @@ atomic_compare_exchange_strong</p>
 <p>对写入施加 release 语义（store），
 在代码中这条语句前面的所有读写操作都无法被重排到这个操作之后
 ，即 store-store 不能重排为 store
-load-store 
+load-store
 也无法重排为 store-load</p>
 </li>
 <li>

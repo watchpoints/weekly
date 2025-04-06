@@ -1,0 +1,192 @@
+---
+title: 如何批量投递简历
+date: 2025-04-03
+description: c++
+draft: false
+tags:
+  - 小而美
+categories:
+  - do book
+---
+## 1. 基础 回顾：程序员的一天
+
+- 开发 流程
+
+
+![敏捷教练](https://s2.loli.net/2025/04/03/YB1SjCvPzx7s49D.png)
+
+![image.png](https://s2.loli.net/2025/04/03/A4FfD1K2vPniZBt.png)
+- 聚焦在高价值需求上
+![优先级](https://s2.loli.net/2025/04/03/NEIqz37Hp6RtQyG.png)
+![必须做的任务是什么](https://s2.loli.net/2025/04/03/hFozpO5n2HCYtUP.png)
+- 需要什么团队
+![团队组成](https://s2.loli.net/2025/04/03/yv1LWjYUsKSkPD4.png)
+
+- 时间盒子
+
+![时间盒子](https://s2.loli.net/2025/04/03/469cWuTnKHG1D3g.png)
+##  2. 用户故事是什么
+
+![image.png](https://s2.loli.net/2025/04/03/ply68JoqFAezQWC.png)
+
+
+> **用户故事：应届生快速投递与简历优化工具**
+
+
+
+金三银四 快过去了，面试没有几个 需要快速投递简历
+#### **用户故事 1：快速投递简历**
+
+**作为** 一名正在找工作的应届毕业生，  
+**我想要** 一键投递简历到多个招聘平台，  
+**以便于** 节省时间，提高投递效率，增加面试机会。
+
+✅ **验收标准（Definition of Done, DoD）**：
+
+- 支持对接 **BOSS直聘、智联招聘、51Job、实习僧** 等主流招聘平台
+    
+- 可批量选择多个岗位，一键快速投递
+    
+- 记录所有投递职位，并同步投递状态（已查看/未查看/已邀约）
+    
+- 投递状态支持 **微信/邮件实时提醒**
+    
+
+---
+
+#### **用户故事 2：简历优化反馈**
+
+**作为** 一名想提升求职成功率的应届毕业生，  
+**我想要** 获取 AI 解析和 HR 反馈的简历优化建议，  
+**以便于** 改进简历，提高 HR 通过率。
+
+✅ **验收标准（Definition of Done, DoD）**：
+
+- **AI 智能解析**：分析简历的匹配度、关键词覆盖率、亮点缺失等问题
+    
+- **自动生成优化建议**，如**补充项目经验、调整表达方式、优化排版**
+    
+- **HR 评分反馈**：支持投递后自动收集 HR 的简历评分和改进建议
+    
+
+---
+
+#### **用户故事 3：求职数据追踪**
+
+**作为** 一名希望优化求职策略的应届生，  
+**我想要** 追踪投递进度和面试邀约情况，  
+**以便于** 了解哪些公司对我更感兴趣，并调整我的求职策略。
+
+✅ **验收标准（Definition of Done, DoD）**：
+
+- **可视化投递记录**，显示每个职位的投递状态（已查看/待处理/已拒绝/已邀约）
+    
+- **HR 响应分析**，统计哪些公司和行业对求职者的简历更感兴趣
+    
+- **热门职位推荐**，基于数据推荐更有机会通过的
+
+
+## 3. 最小 产品安装演示
+https://github.com/Ocyss/boos-helper
+
+![[Pasted image 20250403115735.png]]  
+
+
+根据 GitHub 项目 [Ocyss/boos-helper](https://github.com/Ocyss/boos-helper) 的信息，Boos Helper 是一个旨在优化 Boss 直聘网站用户体验的浏览器扩展，提供功能包括 UI 优化、去除广告、批量投递简历、高级筛选、GPT 自动打招呼和多账号管理等。
+
+**重要提示：** 请注意，使用此类工具可能存在风险，例如账号被封禁或权重降低等。请谨慎使用，并自行承担相关责任。
+
+**安装步骤：**
+
+1. **选择浏览器：** Boos Helper 支持 Chrome、Edge 和 Firefox 浏览器。
+    
+2. **安装扩展：**
+    
+    - **Chrome 浏览器：**
+        
+        - 访问 [Chrome 网上应用店](https://chrome.google.com/webstore/category/extensions)。
+            
+        - 搜索“Boos Helper”并点击“添加到 Chrome”进行安装。
+            
+    
+    > **注意：** 如果无法访问上述插件商店，您可以使用 [Crx搜搜](https://www.crxsoso.com/) 下载并手动安装扩展。
+    
+3. **配置与使用：**
+    
+    - 安装完成后，点击浏览器工具栏中的 Boos Helper 图标，进入设置界面。
+        
+    - 根据个人需求，配置批量投递、自动打招呼等功能。
+        
+    - 在使用过程中，注意遵守相关网站的使用规定，避免频繁操作导致账号异常。
+        
+
+**免责声明：** 本项目仅供学习交流，禁止用于商业用途。使用该脚本有一定风险（如账号被封禁、权重降低等），开发者不承担任何责任。
+
+请确保在使用前已充分了解相关风险，并自行决定是否安装和使用该扩展。
+
+![image.png](https://s2.loli.net/2025/04/03/WJi3PzwkbAIyLfM.png)
+安装后打开 https://www.zhipin.com/web/geek/job 页面并查看所有帮助
+
+![image.png](https://s2.loli.net/2025/04/03/9B7Wpu2ciHbFIaA.png)
+
+调查问卷：
+https://gai06vrtbc0.feishu.cn/share/base/view/shrcnrg8D0cbLQc89d7Jj7AZgMc
+
+https://gai06vrtbc0.feishu.cn/share/base/form/shrcnmEq2fxH9hM44hqEnoeaj8g
+
+
+设置 
+
+
+![image.png](https://s2.loli.net/2025/04/03/BT9EydWG6VqovXP.png)
+
+![image.png](https://s2.loli.net/2025/04/03/BT9EydWG6VqovXP.png)
+
+
+
+
+
+## 我是谁
+
+大家好，我是小义同学，
+
+**刚刚好，是最难得的美好**
+
+我就在这里 ，我刚刚好。
+
+欢迎链接我。 个人微信：wang_cyi
+
+
+![image.png](https://s2.loli.net/2025/04/03/1Qbo8463tKEqkeT.png)
+
+
+我是一个15年c++开发经验工程师，
+我果断舍去大而全项目，
+我选择了“小而美”的产品，让我的服务运行在2核2G一年100元的云主机。
+我必须舍去过去电信，电商，存储经验开发经验
+重新用户需求，重新设计项目。
+
+我设定了一个切实可行的目标：
+让别人愿意毫无负担地拿出100元，而你也能全力以赴将这100元完成
+刚刚好。
+
+【《最好的济南》济南城市形象宣传片 济南市中英双语外宣片】
+https://www.bilibili.com/video/BV1TW4y1372y/
+
+刚刚好，是最难得的美好，
+
+是一种胸怀，
+
+是一种境界，有智慧、有诗意、有余地，
+
+更有“百尺竿头更进一步”的广阔空间、
+“百舸争流千帆竞”的奔涌姿态
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=947706170&bvid=BV1TW4y1372y&cid=1001200489&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=947706170&bvid=BV1TW4y1372y&cid=1001200489&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+
+
+
+
+
+

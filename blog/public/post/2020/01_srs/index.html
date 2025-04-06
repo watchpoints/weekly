@@ -23,7 +23,11 @@
 
 
 
+<<<<<<< HEAD
 <meta name="generator" content="Hugo 0.62.0 with theme even" />
+=======
+<meta name="generator" content="Hugo 0.83.1 with theme even" />
+>>>>>>> 3ef6d693d572b1aa1761578dca2c669bbd1f5d0d
 
 
 <link rel="canonical" href="https://wangcy6.github.io/post/2020/01_srs/" />
@@ -41,6 +45,7 @@
 <meta property="og:title" content="SRS官方文档和学习路径" />
 <meta property="og:description" content="高性能可扩展服务" />
 <meta property="og:type" content="article" />
+<<<<<<< HEAD
 <meta property="og:url" content="https://wangcy6.github.io/post/2020/01_srs/" />
 <meta property="article:published_time" content="2021-06-06T00:00:00+00:00" />
 <meta property="article:modified_time" content="2021-06-06T00:00:00+00:00" />
@@ -52,6 +57,16 @@
 
 
 
+=======
+<meta property="og:url" content="https://wangcy6.github.io/post/2020/01_srs/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-06-06T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2021-06-06T00:00:00&#43;00:00" />
+
+<meta itemprop="name" content="SRS官方文档和学习路径">
+<meta itemprop="description" content="高性能可扩展服务"><meta itemprop="datePublished" content="2021-06-06T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-06-06T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="4711">
+>>>>>>> 3ef6d693d572b1aa1761578dca2c669bbd1f5d0d
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="SRS官方文档和学习路径"/>
 <meta name="twitter:description" content="高性能可扩展服务"/>
@@ -133,7 +148,11 @@
         <div class="post-category">
             <a href="/categories/code_reading/"> code_reading </a>
             </div>
+<<<<<<< HEAD
           <span class="more-meta"> 约 4712 字 </span>
+=======
+          <span class="more-meta"> 约 4711 字 </span>
+>>>>>>> 3ef6d693d572b1aa1761578dca2c669bbd1f5d0d
           <span class="more-meta"> 预计阅读 10 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -272,8 +291,13 @@ rtmp://10.112.178.189:1935/live/wangchuanyi
 </span><span class="c1"></span><span class="n">ffmpeg</span> <span class="o">-</span><span class="n">re</span> <span class="o">-</span><span class="n">i</span> <span class="mf">1.</span><span class="n">mp4</span> <span class="o">-</span><span class="n">vcodec</span> <span class="n">copy</span> <span class="o">-</span><span class="n">acodec</span> <span class="n">copy</span> <span class="o">-</span><span class="n">f</span> <span class="n">flv</span> <span class="nl">rtmp</span><span class="p">:</span><span class="c1">//74.120.174.137/live/wangchuanyi
 </span><span class="c1"></span>
 
+<<<<<<< HEAD
 <span class="err">查</span><span class="err">看</span><span class="n">srs日志</span> <span class="err">、</span><span class="err">、</span>
 <span class="n">cd</span> <span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">code</span><span class="o">/</span><span class="n">c</span><span class="o">+</span><span class="o">+</span><span class="o">/</span><span class="n">srs</span><span class="o">/</span><span class="n">trunk</span><span class="o">/</span><span class="n">objs</span>
+=======
+<span class="err">查看</span><span class="n">srs日志</span> <span class="err">、、</span>
+<span class="n">cd</span> <span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">code</span><span class="o">/</span><span class="n">c</span><span class="o">++/</span><span class="n">srs</span><span class="o">/</span><span class="n">trunk</span><span class="o">/</span><span class="n">objs</span>
+>>>>>>> 3ef6d693d572b1aa1761578dca2c669bbd1f5d0d
 <span class="n">tail</span> <span class="o">-</span><span class="n">f</span> <span class="n">srs</span><span class="p">.</span><span class="n">log</span>  <span class="c1">//目前看不懂 
 </span><span class="c1"></span>
 <span class="nl">https</span><span class="p">:</span><span class="c1">//gitee.com/ossrs/srs/wikis/v4_CN_SampleRTMP?sort_id=3957465
@@ -825,6 +849,7 @@ SrsGoApiRaw::SrsGoApiRaw(SrsServer *svr)
 </span><span class="lnt">30
 </span></code></pre></td>
 <td class="lntd">
+<<<<<<< HEAD
 <pre class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">int</span> <span class="n">SrsServer</span><span class="o">:</span><span class="o">:</span><span class="n">listen_rtmp</span><span class="p">(</span><span class="p">)</span>
 <span class="kt">int</span> <span class="n">SrsConnection</span><span class="o">:</span><span class="o">:</span><span class="n">cycle</span><span class="p">(</span><span class="p">)</span>
 
@@ -835,12 +860,25 @@ SrsGoApiRaw::SrsGoApiRaw(SrsServer *svr)
             <span class="p">}</span>
 <span class="mf">10.112</span><span class="mf">.179</span><span class="mf">.21</span> 
 <span class="mf">10.115</span><span class="mf">.37</span><span class="mf">.56</span>
+=======
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">int</span> <span class="n">SrsServer</span><span class="o">::</span><span class="n">listen_rtmp</span><span class="p">()</span>
+<span class="kt">int</span> <span class="n">SrsConnection</span><span class="o">::</span><span class="n">cycle</span><span class="p">()</span>
+
+<span class="kt">int</span> <span class="n">SrsRecvThread</span><span class="o">::</span><span class="n">cycle</span><span class="p">()</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">rtmp</span><span class="o">-&gt;</span><span class="n">recv_message</span><span class="p">(</span><span class="o">&amp;</span><span class="n">msg</span><span class="p">);</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">==</span> <span class="n">ERROR_SUCCESS</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">ret</span> <span class="o">=</span> <span class="n">handler</span><span class="o">-&gt;</span><span class="n">handle</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span>
+            <span class="p">}</span>
+<span class="mf">10.112.179.21</span> 
+<span class="mf">10.115.37.56</span>
+>>>>>>> 3ef6d693d572b1aa1761578dca2c669bbd1f5d0d
 <span class="nl">rtmp</span><span class="p">:</span><span class="c1">//zhibo.xx.com.cn/live/lyl
 </span><span class="c1"></span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">srs</span><span class="o">/</span><span class="n">objs</span><span class="o">/</span><span class="n">srs</span><span class="p">.</span><span class="n">log</span>
 <span class="n">gome</span>
  <span class="n">tail</span> <span class="o">-</span><span class="n">f</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">srs</span><span class="o">/</span><span class="n">objs</span><span class="o">/</span><span class="n">srs</span><span class="p">.</span><span class="n">log</span> <span class="o">|</span><span class="n">grep</span> <span class="n">trace</span>
 
  
+<<<<<<< HEAD
 <span class="kt">int</span> <span class="n">SrsPublishRecvThread</span><span class="o">:</span><span class="o">:</span><span class="n">handle</span><span class="p">(</span><span class="n">SrsCommonMessage</span><span class="o">*</span> <span class="n">msg</span><span class="p">)</span>
 
     
@@ -848,13 +886,26 @@ SrsGoApiRaw::SrsGoApiRaw(SrsServer *svr)
     
     
 <span class="kt">int</span> <span class="n">SrsRtmpConn</span><span class="o">:</span><span class="o">:</span><span class="n">handle_publish_message</span><span class="p">(</span><span class="n">SrsSource</span> <span class="o">*</span><span class="n">source</span><span class="p">,</span> <span class="n">SrsCommonMessage</span> <span class="o">*</span><span class="n">msg</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">is_fmle</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">vhost_is_edge</span><span class="p">)</span>
+=======
+<span class="kt">int</span> <span class="n">SrsPublishRecvThread</span><span class="o">::</span><span class="n">handle</span><span class="p">(</span><span class="n">SrsCommonMessage</span><span class="o">*</span> <span class="n">msg</span><span class="p">)</span>
+
+    
+<span class="n">SrsRtmpConn</span><span class="o">::</span><span class="n">handle_publish_message</span>
+    
+    
+<span class="kt">int</span> <span class="n">SrsRtmpConn</span><span class="o">::</span><span class="n">handle_publish_message</span><span class="p">(</span><span class="n">SrsSource</span> <span class="o">*</span><span class="n">source</span><span class="p">,</span> <span class="n">SrsCommonMessage</span> <span class="o">*</span><span class="n">msg</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">is_fmle</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">vhost_is_edge</span><span class="p">)</span>
+>>>>>>> 3ef6d693d572b1aa1761578dca2c669bbd1f5d0d
         <span class="c1">// for edge, directly proxy message to origin.
 </span><span class="c1"></span>         <span class="c1">// process audio packet
 </span><span class="c1"></span>         <span class="c1">// process video packet
 </span><span class="c1"></span>         <span class="c1">// process onMetaData
 </span><span class="c1"></span>
     
+<<<<<<< HEAD
     <span class="kt">int</span> <span class="n">SrsSource</span><span class="o">:</span><span class="o">:</span><span class="n">on_video</span><span class="p">(</span><span class="n">SrsCommonMessage</span><span class="o">*</span> <span class="n">shared_video</span><span class="p">)</span>
+=======
+    <span class="kt">int</span> <span class="n">SrsSource</span><span class="o">::</span><span class="n">on_video</span><span class="p">(</span><span class="n">SrsCommonMessage</span><span class="o">*</span> <span class="n">shared_video</span><span class="p">)</span>
+>>>>>>> 3ef6d693d572b1aa1761578dca2c669bbd1f5d0d
 </code></pre></td></tr></table>
 </div>
 </div><h1 id="heading-4">第二部分：参与开发</h1>
@@ -937,7 +988,11 @@ rtmp://10.112.178.189:1935/live/watchpoint
 </span><span class="lnt">30
 </span></code></pre></td>
 <td class="lntd">
+<<<<<<< HEAD
 <pre class="chroma"><code class="language-fallback" data-lang="fallback">The software we depend on:
+=======
+<pre class="chroma"><code class="language-SAS" data-lang="SAS">The software we depend <span class="k">on</span>:
+>>>>>>> 3ef6d693d572b1aa1761578dca2c669bbd1f5d0d
 
 Docker ok
 
@@ -955,6 +1010,7 @@ Certbot, docker --name certbot
 Verify webroot: mgmt/containers/www/.well-known/acme-challenge/
 Cert files: mgmt/containers/etc/letsencrypt/live/
 SRS, docker --name srs-server
+<<<<<<< HEAD
 Config: mgmt/containers/conf/srs.conf mount as /usr/local/srs/conf/lighthouse.conf
 Volume: mgmt/containers/objs/nginx/html mount as /usr/local/srs/objs/nginx/html
 srs-hooks, docker --name srs-hooks
@@ -966,6 +1022,19 @@ FFmpeg and ffprobe tools in ossrs/srs:node-av
 Prometheus, docker --name prometheus
 Config: mgmt/containers/conf/prometheus.yml
 Data directory: mgmt/containers/data/prometheus
+=======
+Config: mgmt/containers/conf/srs<span class="m">.</span>conf mount <span class="k">as</span> /usr/local/srs/conf/lighthouse<span class="m">.</span>conf
+Volume: mgmt/containers/objs/nginx/html mount <span class="k">as</span> /usr/local/srs/objs/nginx/html
+srs-hooks, docker --name srs-hooks
+Volume: mgmt/containers/objs/nginx/html mount <span class="k">as</span> /usr/local/mgmt/containers/objs/nginx/html
+tencent-cloud, docker --name tencent-cloud
+CAM Authentication <span class="k">by</span> secretId <span class="k">and</span> secretKey.
+ffmpeg, docker --name ffmpeg
+FFmpeg <span class="k">and</span> ffprobe tools <span class="k">in</span> ossrs/srs:node-av
+Prometheus, docker --name prometheus
+Config: mgmt/containers/conf/prometheus<span class="m">.</span>yml
+<span class="kr">Data </span>directory: mgmt/containers/data/prometheus
+>>>>>>> 3ef6d693d572b1aa1761578dca2c669bbd1f5d0d
 NodeExporter, docker --name node-exporter
 </code></pre></td></tr></table>
 </div>

@@ -30,12 +30,17 @@
     </item>
     
     <item>
-      <title>成为ob贡献者(09):如何证明采用了PALF设计就是安全的</title>
-      <link>https://wangcy6.github.io/post/oceanbase/2024/day11/</link>
+      <title>成为ob贡献者(10)</title>
+      <link>https://wangcy6.github.io/post/oceanbase/2024/day11PALF%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/</link>
       <pubDate>Sat, 21 Dec 2024 00:00:00 +0000</pubDate>
       
+<<<<<<< HEAD
       <guid>https://wangcy6.github.io/post/oceanbase/2024/day11/</guid>
       <description>来监督，哪天没打卡 私信我 第5章节：数据变更同步 原文： Besides serving transactions, distributed databases also act as the source of data flow. Downstream applications can be deployed to provide various services by synchronizing data changes recorded in physical logs. This section introduces two typical physical log synchronization scenarios in OceanBase, describes what challenges</description>
+=======
+      <guid>https://wangcy6.github.io/post/oceanbase/2024/day11PALF%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/</guid>
+      <description>为了整理思路，文章采用模拟2人对话方式，如有误，欢迎留言。 本文分为两个部分 捕捉想法: 通过别人分享 我了解到，在写数据库 之前，别人是看论文搞清楚</description>
+>>>>>>> 3ef6d693d572b1aa1761578dca2c669bbd1f5d0d
     </item>
     
     <item>
@@ -54,6 +59,15 @@
       
       <guid>https://wangcy6.github.io/post/oceanbase/2024/08_make_ob_leader-1/</guid>
       <description>问题描述： 问题描述： Mds 通过 dump indo查看 文件 in-&amp;gt;snaprealm 存在 通过 ll_get_inode() 查询返回in-&amp;gt;snaprealm 不存在。 这个什么情况下发生，现场环境 3万个文</description>
+    </item>
+    
+    <item>
+      <title>成为ob贡献者(6):如何阅读Paxos代码</title>
+      <link>https://wangcy6.github.io/post/oceanbase/2024/day11_make_ob-1/</link>
+      <pubDate>Fri, 04 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/oceanbase/2024/day11_make_ob-1/</guid>
+      <description>为了整理思路，文章采用模拟2人对话方式。 本文主要内容 libc++ 是LLVM编译器套件的默认C++标准库。 libstdc++是GNU编译器套件（GCC）</description>
     </item>
     
     <item>
