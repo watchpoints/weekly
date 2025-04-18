@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "liunx/2025/10_Interview_C++_pointer 1.md",
+                "file": "liunx/2025/10_Interview_pm_ehance_2.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "10_Interview_C++_pointer 1"
+              "title": "10_Interview_pm_ehance_2"
             }
           }
         ]
@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:架构之美",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -74,7 +74,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -142,13 +143,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "liunx/2025/10_Interview_C++_pointer 1.md",
+                "file": "liunx/2025/10_Interview_pm_ehance_2.md",
                 "followCursor": false,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "10_Interview_C++_pointer 1 的大纲"
+              "title": "10_Interview_pm_ehance_2 的大纲"
             }
           },
           {
@@ -184,7 +185,7 @@
   "active": "2825e5930f52ef63",
   "lastOpenFiles": [
     "liunx/2025/07_Interview_C++_pointer.md",
-    "liunx/2025/10_Interview_C++_pointer 1.md",
+    "liunx/2025/10_Interview_pm_ehance_2.md",
     "liunx/2025/06_file_system_block.md",
     "liunx/2025/how_to_learn_3fs_4 1.md",
     "plan/today.md",
