@@ -6,11 +6,7 @@
     <description>Recent content in reading on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 13 Nov 2019 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://wangcy6.github.io/tags/reading/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 13 Nov 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/tags/reading/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>FQA_Service_Mesh</title>
       <link>https://wangcy6.github.io/post/2020/FQA_Service_Mesh/</link>

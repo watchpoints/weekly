@@ -13,48 +13,15 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "blog/content/post/ai/01_how_to_quickly_submit_resumes.md",
+                "file": "blog/content/post/liunx/2025/07_interview_pm_netwang.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "01_how_to_quickly_submit_resumes"
-            }
-          },
-          {
-            "id": "a709f645f7faa329",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "blog/content/post/storage/2025/01-ceph-feature-getfattr.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "01-ceph-feature-getfattr"
-            }
-          },
-          {
-            "id": "00f41fdad001f953",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "blog/content/post/liunx/docker/2025-2-28-对象存储服务性能调优.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "2025-2-28-对象存储服务性能调优"
+              "title": "07_interview_pm_netwang"
             }
           }
-<<<<<<< HEAD
-        ],
-        "currentTab": 3
-=======
         ]
->>>>>>> c960fca96d3937457409a4e4adfd09b84832eee8
       }
     ],
     "direction": "vertical"
@@ -73,8 +40,7 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical",
-                "autoReveal": false
+                "sortOrder": "alphabetical"
               },
               "icon": "lucide-folder-closed",
               "title": "文件列表"
@@ -86,7 +52,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": " 刚刚好",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -111,7 +77,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 223.50260543823242
+    "width": 261.5086555480957
   },
   "right": {
     "id": "cce87191b89a9608",
@@ -173,34 +139,30 @@
             "state": {
               "type": "outline",
               "state": {
-<<<<<<< HEAD
-<<<<<<< HEAD
-                "file": "blog/content/post/liunx/docker/2025-2-28-对象存储服务性能调优.md",
-                "followCursor": false,
-                "showSearch": false,
-                "searchQuery": ""
+                "file": "blog/content/post/liunx/2025/07_interview_pm_netwang.md"
               },
               "icon": "lucide-list",
-              "title": "2025-2-28-对象存储服务性能调优 的大纲"
-=======
-                "file": "work/2025年 3月.md"
-=======
-                "file": "blog/content/post/ai/01_how_to_quickly_submit_resumes.md"
->>>>>>> 3ef6d693d572b1aa1761578dca2c669bbd1f5d0d
-              },
-              "icon": "lucide-list",
-              "title": "01_how_to_quickly_submit_resumes 的大纲"
+              "title": "07_interview_pm_netwang 的大纲"
             }
           },
           {
-            "id": "57c84e47e62caa54",
+            "id": "7e6290390eb4fb93",
             "type": "leaf",
             "state": {
               "type": "stat-view",
               "state": {},
               "icon": "running-man",
               "title": "Word Sprint"
->>>>>>> c960fca96d3937457409a4e4adfd09b84832eee8
+            }
+          },
+          {
+            "id": "8b5138bf8873a56b",
+            "type": "leaf",
+            "state": {
+              "type": "copilot-chat-view",
+              "state": {},
+              "icon": "message-square",
+              "title": "Copilot"
             }
           }
         ],
@@ -208,7 +170,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 283.5
+    "width": 287.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -223,101 +185,60 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false,
       "homepage:Open homepage": false,
       "templater-obsidian:Templater": false,
-      "obsidian-word-sprint:Activate Word Sprint Leaf": false
+      "obsidian-word-sprint:Activate Word Sprint Leaf": false,
+      "obsidian-textgenerator-plugin:Generate Text!": false,
+      "obsidian-textgenerator-plugin:Text Generator: Templates Packages Manager": false,
+      "copilot:Open Copilot Chat": false
     }
   },
-<<<<<<< HEAD
-  "active": "00f41fdad001f953",
+  "active": "66a220606068f8c8",
   "lastOpenFiles": [
-    "blog/public/page/42/index.html",
-    "blog/public/page/42",
-    "blog/content/post/liunx/docker/2022_11_29_liunx_memory_ 1.md",
-    "blog/content/post/liunx/docker/2025-2-28-对象存储服务性能调优.md",
-    "blog/content/post/liunx/shell有什么用.md",
-    "blog/content/post/liunx/git通关从青铜到王者.md",
-    "blog/content/post/c++/02_master_c++_share_pointer.md",
-    "blog/content/post/plan/如何睡个好觉.md",
-    "blog/content/post/plan/提高效率：明确任务，加强沟通.md",
-    "blog/content/post/storage/06-mds_sumbit_thread.md",
+    "blog/content/post/ai/01_how_to_quickly_submit_resumes.md",
+    "blog/content/post/liunx/2025/07_interview_pm_netwang.md",
+    "blog/content/post/liunx/2025/06_how_to_learn_red_tree.md",
+    "blog/content/post/liunx/2025/how_to_learn_3fs_4 1.md",
+    "xmind/索引.xmind",
+    "blog/content/post/ai/02_how_to_use_Copilot.md",
+    "blog/content/post/liunx/2025/4_how_to_learn_c++.md",
+    "blog/content/post/liunx/2025/05-how_is_ctdb.md",
+    "blog/content/post/liunx/2025/how_to_learn_3fs_4.md",
+    "blog/public/tags/算法之美/index.xml",
+    "blog/public/tags/算法之美/page/1/index.html",
+    "blog/public/tags/算法之美/page/1",
+    "blog/public/tags/算法之美/page",
+    "blog/public/tags/算法之美/index.html",
+    "blog/public/tags/算法之美",
+    "blog/public/post/leetcode/array/01_what_is_contextos-1/index.html",
+    "blog/public/post/leetcode/array/01_what_is_contextos-1",
+    "blog/public/post/leetcode/array",
+    "blog/content/post/leetcode/array/01_what_is_contextos 1.md",
+    "blog/content/post/leetcode/template.md",
+    "blog/content/post/leetcode/array/template 1.md",
+    "blog/content/post/ContextOS/01_what_is_contextos.md",
+    "blog/content/post/leetcode/leetcode_medium_mac.md",
+    "blog/content/post/leetcode/leetcod_easy.md",
+    "blog/content/post/leetcode/leetcode_tag.md",
+    "blog/content/post/leetcode/system_desing.md",
+    "blog/content/post/leetcode/pytho3/python01.md",
+    "未命名.canvas",
+    "blog/content/post/liunx/desgin/2022_11_29_liunx_memory_ 1 1.md",
+    "blog/content/post/liunx/2025/2025-03-22_3fs_2.md",
+    "blog/content/post/11.md",
+    "blog/content/post/liunx/docker/2025-03-15-window11-install-docker.md",
+    "blog/public/post/Pasted image 20250323152954.png",
+    "blog/public/post/Pasted image 20250315160756.png",
+    "blog/public/post/01a54a8883cbf7b9c23401e4e6c7ffa.jpg",
+    "Pasted image 20250406155749.png",
+    "blog/content/post/tidb/2024/rust_for_tikv_days4_.md",
     "blog/content/post/storage/2025/01-ceph-feature-getfattr.md",
-    "blog/content/post/storage/4_icfs_help.md",
-    "blog/content/post/storage/3_ceph_msd.md",
-    "blog/content/post/storage/1_2023_02_10_day1_curveFS.md",
-    "blog/content/post/storage/2025",
-    "blog/content/post/storage/1_2023_02_13_day1_Cephfs.md",
-    "blog/content/post/storage/01_20240806_database_list.md",
-    "blog/content/post/oceanbase/2024/day10.md",
+    "blog/content/post/plan/如何睡个好觉.md",
     "blog/content/post/oceanbase/2024/day11.md",
-    "blog/content/post/oceanbase/2024/day09_make_ob.md",
-    "blog/content/post/oceanbase/day3_ob.md",
-    "blog/content/post/money/002_.md",
-    "mylife/ppt/02-data-struct.key",
-    "master-cpp/demo/day1/hello.cpp",
-    "master-cpp/demo/day1",
-    "master-cpp/demo",
-    "blog/content/post/money/01_gpt_from_new_to_master.md",
-    "blog/content/post/money/2024/2024-08-02-sleep.md",
-    "blog/content/post/04_2021-10-10.2021.years.md",
-    "blog/content/post/habit/2025-habit-health-get-up.md",
-    "blog/public/post/habit/2025-habit-health-get-up/index.html",
-    "blog/public/post/habit/2025-habit-health-get-up",
-    "blog/content/post/habit/2024/2024-08-12-sleep.md",
-    "blog/content/post/habit/2024/2024-8-14-how-to-use-wechat.md",
-    "blog/content/post/未命名",
-    "Pasted image 20250205145801.png",
-    "work/read_coding",
-    "blog/content/post/images/Pasted image 20241122215223.png",
-    "blog/content/post/images/Pasted image 20241122215202.png"
-=======
-  "active": "e7a7b303c61786dc",
-  "lastOpenFiles": [
-    "blog/public/tags/小而美/index.xml",
-    "blog/public/tags/小而美/page/1/index.html",
-    "blog/public/tags/小而美/page/1",
-    "blog/public/tags/小而美/page",
-    "blog/public/tags/小而美/index.html",
-    "blog/public/tags/小而美",
-    "blog/public/post/ai/01_how_to_quickly_submit_resumes/index.html",
-    "blog/public/post/ai/01_how_to_quickly_submit_resumes",
+    "blog/content/post/oceanbase/2024/day10_paxos_practise.md",
+    "blog/content/post/Pasted image 20250323152954.png",
+    "blog/content/post/Pasted image 20250315160756.png",
+    "blog/content/post/01a54a8883cbf7b9c23401e4e6c7ffa.jpg",
     "Pasted image 20250403170928.png",
     "Pasted image 20250403115735.png",
-    "Pasted image 20250403114035.png",
-    "Pasted image 20250403114033.png",
-    "blog/content/post/c++/02_master_c++_share_pointer.md",
-    "blog/content/post/ai/01_how_to_quickly_submit_resumes.md",
-    "blog/content/post/how/how-to-use-Obsidian.md",
-    "blog/public/page/42/index.html",
-    "blog/public/page/42",
-    "blog/public/page/41/index.html",
-    "blog/public/post/images/行为设计第二期（1225-1231）7天起床运动读书.png",
-    "blog/public/post/images/Pasted image 20241217091033.png",
-    "blog/public/post/images/Pasted image 20241214153152.png",
-    "blog/public/post/images/Pasted image 20241213084724.png",
-    "blog/public/post/images/Pasted image 20241208170248.png",
-    "blog/public/post/images/Pasted image 20241201162733.png",
-    "leetcode/doc/80.md",
-    "blog/content/post/2021/06_ask_1.md",
-    "blog/content/post/2022/08_2022_4_17_epoll.md",
-    "leetcode/doc/75.md",
-    "blog/content/post/2022/06_ask_1.md",
-    "blog/content/post/interview/01_2023_08_04.md",
-    "work/2025年 3月.md",
-    "work/read_coding/read_ceph_mds.cc.md",
-    "work/read_coding/read_ceph_mon.cc.md",
-    "blog/content/post/liunx/2025/2025-03-22_3fs_2.md",
-    "blog/content/post/money/002_xiao_ai.md",
-    "blog/content/post/liunx/shell有什么用.md",
-    "blog/content/post/liunx/git通关从青铜到王者.md",
-    "blog/content/post/liunx/2022-11-20-liunx_kernel_param.md",
-    "blog/content/post/liunx/2022_11_29_liunx_memory_.md",
-    "blog/content/post/liunx/kubernetes/how_docker.md",
-    "blog/content/post/liunx/docker/2022_11_29_liunx_memory_ 1.md",
-    "blog/content/post/liunx/desgin/分布式存储入门第一天.md",
-    "blog/content/post/liunx/desgin/2022_11_29_liunx_memory_ 1 1.md",
-    "blog/content/post/liunx/2025/2025-03-19.md",
-    "blog/content/post/oceanbase/2024/day11：PALF论文阅读.md",
-    "blog/content/post/2023/203_my_dream.md",
-    "未命名.canvas"
->>>>>>> c960fca96d3937457409a4e4adfd09b84832eee8
+    "Pasted image 20250403114035.png"
   ]
 }

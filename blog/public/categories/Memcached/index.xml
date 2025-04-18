@@ -6,11 +6,7 @@
     <description>Recent content in Memcached on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 10 Oct 2019 17:02:43 +0800</lastBuildDate>
-    
-	<atom:link href="https://wangcy6.github.io/categories/Memcached/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 10 Oct 2019 17:02:43 +0800</lastBuildDate><atom:link href="https://wangcy6.github.io/categories/Memcached/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Memcached</title>
       <link>https://wangcy6.github.io/post/2020/Memcached/</link>

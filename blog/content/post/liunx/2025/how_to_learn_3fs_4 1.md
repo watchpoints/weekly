@@ -8,93 +8,80 @@ tags:
   - 架构之美
   - 源码之美
 ---
+**unix socket**
+每个程序员都应该知道的延迟数字 （2020 年版本）
 
-🌟 大家好，我是小王同学，
+> 第一次提出在  Google I/O 2008 - Building Scalable Web Apps with App Engine
 
-今天带你们一起探秘内存分配的奥秘！
+伯克利大学有个动态网页，可以查看每年各个操作耗时的变化
+https://colin-scott.github.io/personal_website/research/interactive_latency.html
 
-本文主要描述了如何为一个类自定义new实现
 
-1. 大胆猜测，小心求证过程中  
-      
-    C++的new实现其实是分层设计的：  
-    ➤ 第一层：调用C++标准库中的operator new  
-    ➤ 第二层：operator new内部调用C语言标准库中的malloc  
-    ➤ 第三层：最终由操作系统提供接口完成实际内存分配  
-    
-    
-2. 模块化替换  
-    🔧 在实际开发中，灵活替换默认内存分配方案非常关键：  
-    ➤ 链接阶段：C++标准库中的operator new被声明为弱符号，用户只要自定义同名的强符号，就能在链接时自动替换！  
-    ➤ 运行阶段：通过设置LD_PRELOAD环境变量，可以让自定义的malloc函数以更高的优先级替换原有实现。  
-    这种模块化替换机制不仅让开发者能随时调控内存分配策略，更带来无限可能！✨
-    
-3. 3FS 怎么实现的  
-    🚀 3FS的实现方式相当直观：  
-    ➤ 通过定义OVERRIDE_CXX_NEW_DELETE编译开关，默认情况下采用operator new调用malloc；  
-    ➤ 如果开启开关，自定义分配器，
-	- 可能自定义实现的，
-	- 可能第三方库的Jemalloc，TCMalloc
-    ➤ 项目中定义了一个统一的全局变量gAllocator，用于管理所有内存分配接口；  
-    ➤ 对于第三方分配器，通过dlsym动态加载函数地址（如getMemoryAllocatorFunc = (GetMemoryAllocatorFunc)::dlsym(mallocLib, GET_MEMORY_ALLOCATOR_FUNC_NAME)），
-    实现了灵活且扩展性极强的内存管理方案。  
-    这种设计既清晰又充满智慧，让内存管理不再神秘，而是充满了DIY的乐趣！
-    理解如何深刻 ，这也是为选择看3fs原因，其他项目可不会这么清晰
+ ![image.png](https://money-1256465252.cos.ap-beijing.myqcloud.com/mac/20250409105219.png)
 
-Happy Coding～💖
+下面是我解读
 
-![](https://money-1256465252.cos.ap-beijing.myqcloud.com/2025/20250401152333.png)
+ 机械硬盘HDD
+- 英文：Read 1 MB sequentially from disk 30,000,000 ns 
+- 翻译：从HDD 顺序读取1M数据 要<font color="#ff0000">30ms</font>
+- 直观理解：带宽 <font color="#ff0000">34.8 MB/s</font>
+- 假如你性能优化超过34.8 MB/s 就是<font color="#92d050">虚假</font>
+
+固态盘SSD
+- 英文：Read 1,000,000 bytes(1MB) sequentially from SSD 49,000ns
+- 翻译：从 SSD 顺序读取 1 MB, 0.049 ms
+- 直观理解：从 SSD 顺序读取 1 MB 数据的速度约为 20.41 GB/s
+- 实测结果：顺序读取速度可达 7 GB/s。
+- 思考：集群3fs 每秒6.6 TiB/s 的聚合读怎么做的？Infiniband交换机支持这样带宽吗？
 
 
 
-## c++20 新特性
-11
+网络传输
+- 网卡：千兆网卡（家用）传输速率是1Gbps， 和万兆网卡（企业）传输速率是1Gbps， InfiniBand网卡（高性能）  200Gbps
+- Send 2K bytes over 1 Gbps network 20,000 ns.
+-  通过千兆网卡发送2K字节数据代价是（0.02ms）
+-  ❌假如你视频传输优化到毫米以下，这个骗子❌，rmtp 默认1-3秒
+- 发送2K字节数据所需的每秒带宽是 819Mbps。
+-  直观理解： 假设一次<font color="#ff0000">RPC请求</font>的平均大小为1KB（1024字节），QPS大约为<font color="#ff0000">10万请求/秒</font>
+- 反问：MySQL 数据库单点能支撑 1000 QPS， Redis 单点能支撑 10万 ,QPS双11阿里云公布的2020年双11订单创建峰值是58.3万笔/秒 ，百万级应该是读操作。隐藏什么？
 
-老王：需要这个问题的第一性原理 是什么？
-
-小义：我怎么知道 c++20特性是什么，我又不是委员成员，我跟无法和他交流？
-
-老王：
-好，那就搜集c++ 大v 博客，研究，书籍，看看他们背后的故事，
-并：**追问为什么要引入这些变化**
-**只有知道为了什么，用在什么地方，我们才能真正学到这个知识**
-
-小义：从我进入公司时候，项目就这样设计了，
-      都是公司其架构师完成的我也不知道为什么这么做？
-  
-老王： 从开发一个项目遇到实际问题出发，自己遇到实际问题，非别人口述的。
+内存
+- 英文 Read 1 MB sequentially from memory 250,000 ns
+- 直观理解：内存顺序读取1MB数据的带宽是4GB/s（千兆网卡不行了）
+- 在4GB/s的带宽下，如果每个RPC请求的平均大小为1KB，那么每秒可以处理 4百万个RPC请求（实际情况 不会把带宽打满）
+- 画外音：普通qps 万/秒 优化很不错了！！！
 
 
-
-
+跨国家
+- 从美国加州从发一个Packet（网络IP层的Packet包）到荷兰再回到加州的往返时间为150000000ns（150ms）
 
 
 
+### 小结
 
-## 参考第一手资料
-
-### 左耳朵耗子
-
-1. https://coolshell.cn/haoel 很多面试官都是看上面题目来面试别人(上面有广告可以理解)
-- C++11 中值得关注的几大变化（详解）
-1. 左耳朵耗子 专栏 
-![97a74bc6ecd6ef8568bb54cca038377.jpg](https://money-1256465252.cos.ap-beijing.myqcloud.com/2025/97a74bc6ecd6ef8568bb54cca038377.jpg)
-
-- 这个文字版本
-- https://github.com/zhuxxsherlocked/study-blog/tree/main/%E5%B7%A6%E8%80%B3%E5%90%AC%E9%A3%8E
-
-
-https://zhuanlan.zhihu.com/p/664752662
-# C++20有哪些让你激动不已的新特性？
-https://www.zhihu.com/question/423148993
+- 写的代价一般是读的40倍
+- 全局共享数据是非常昂贵的，这一般是分布式系统的基本单元的瓶颈，它是性能杀手，它让事务变成串行和缓慢
+- 为可扩展的写行为作架构
+- 优化比较缓慢的写行为
+- 优化的更加广泛些，就是尽可能让写行为并行化
 
 
 
-ceph项目
--  [Ceph 性能瓶颈分析与优化 (混合盘篇)](https://my.oschina.net/u/4565392/blog/5130265)、
-- https://blog.csdn.net/weixin_43778179
-- https://blog.csdn.net/weixin_43778179
-- https://github.com/ceph/ceph/blob/main/src/mds/Server.cc#L508
+https://cedricchee.com/blog/latency/
+
+https://github.com/sirupsen/napkin-math
+https://norvig.com/21-days.html#answers
+https://zhuanlan.zhihu.com/p/296808047
+https://gist.github.com/jboner/2841832
+
+Slides for QCon 2019 Beijin
+https://github.com/QConChina/QConBeijing2019
+
+QCon上海2020全球开发者大会PPT合集
+https://github.com/TiScrip/QCon2020-shanghai
+https://qcon.infoq.cn/2018/beijing/schedule
+
+
 
 ## 链接我 
 
@@ -119,7 +106,7 @@ ceph项目
 #### **1. 目标：冲击大厂，拿百万年薪**
 
 - 想进入一线大厂，但在C++学习和应用上存在瓶颈，渴望跨越最后一道坎。
-- ![image.png](https://money-1256465252.cos.ap-beijing.myqcloud.com/2025/20250401094551.png)
+
 
 
     
@@ -144,3 +131,6 @@ ceph项目
 2. 工作中不公平对待
 3. 制造恶性竞争
 4. 捧杀
+
+
+

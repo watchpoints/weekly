@@ -1,59 +1,3 @@
-<<<<<<< HEAD
-<!DOCTYPE html>
-<html lang="zh-cn">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Redis.5.0 - Troy的网络博客</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="Troy" /><meta name="description" content="知识卡(redis.5.0) 源码阅读 参考redis-3.0-annotated-huangz1990 内容 对象的类型和编码 1 2 3 4 5 6 7 8 9 10" /><meta name="keywords" content="daily-interview-question, Github, c&#43;&#43;, Leetcode 题解, 后端面试" />
-
-
-
-
-
-
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
-
-
-<link rel="canonical" href="https://wangcy6.github.io/post/2020/FQA_Redis/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
-
-
-<meta property="og:title" content="Redis.5.0" />
-<meta property="og:description" content="知识卡(redis.5.0) 源码阅读 参考redis-3.0-annotated-huangz1990 内容 对象的类型和编码 1 2 3 4 5 6 7 8 9 10" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://wangcy6.github.io/post/2020/FQA_Redis/" />
-<meta property="article:published_time" content="2019-11-20T00:00:00+00:00" />
-<meta property="article:modified_time" content="2019-11-20T00:00:00+00:00" />
-<meta itemprop="name" content="Redis.5.0">
-<meta itemprop="description" content="知识卡(redis.5.0) 源码阅读 参考redis-3.0-annotated-huangz1990 内容 对象的类型和编码 1 2 3 4 5 6 7 8 9 10">
-<meta itemprop="datePublished" content="2019-11-20T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-11-20T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="3829">
-
-
-
-=======
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
@@ -105,7 +49,6 @@
 <meta itemprop="description" content="知识卡(redis.5.0) 源码阅读 参考redis-3.0-annotated-huangz1990 内容 对象的类型和编码 1 2 3 4 5 6 7 8 9 10"><meta itemprop="datePublished" content="2019-11-20T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-11-20T00:00:00&#43;00:00" />
 <meta itemprop="wordCount" content="3855">
->>>>>>> 3ef6d693d572b1aa1761578dca2c669bbd1f5d0d
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Redis.5.0"/>
 <meta name="twitter:description" content="知识卡(redis.5.0) 源码阅读 参考redis-3.0-annotated-huangz1990 内容 对象的类型和编码 1 2 3 4 5 6 7 8 9 10"/>
@@ -117,87 +60,6 @@
 <!--[if lt IE 9]>
   <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<<<<<<< HEAD
-<![endif]-->
-<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">Even</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">首页</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">归档</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">分类</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">标签</li>
-      </a><a href="https://github.com/wangcy6/weekly/tree/master/book">
-        <li class="mobile-menu-item">阅读清单</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">关于我</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">Even</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/">首页</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">归档</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">分类</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">标签</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="https://github.com/wangcy6/weekly/tree/master/book">阅读清单</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">关于我</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
-    
-    <header class="post-header">
-      <h1 class="post-title">Redis.5.0</h1>
-
-      <div class="post-meta">
-        <span class="post-time"> 2019-11-20 00:00 </span>
-        <div class="post-category">
-            <a href="/categories/Redis.5.0/"> Redis.5.0 </a>
-            </div>
-          <span class="more-meta"> 约 3829 字 </span>
-          <span class="more-meta"> 预计阅读 8 分钟 </span>
-        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
-      </div>
-    </header>
-
-    <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">文章目录</h2>
-  <div class="post-toc-content">
-=======
 <![endif]-->
 <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
@@ -277,36 +139,35 @@
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
->>>>>>> 3ef6d693d572b1aa1761578dca2c669bbd1f5d0d
     <nav id="TableOfContents">
   <ul>
     <li>
       <ul>
-        <li><a href="#--redis-30-annotated-huangz1990">源码阅读  参考redis-3.0-annotated-huangz1990</a></li>
+        <li><a href="#源码阅读--参考redis-30-annotated-huangz1990">源码阅读  参考redis-3.0-annotated-huangz1990</a></li>
       </ul>
     </li>
   </ul>
 
   <ul>
-    <li><a href="#heading-1">对象的类型和编码</a>
+    <li><a href="#对象的类型和编码">对象的类型和编码</a>
       <ul>
-        <li><a href="#zset">zset有序集合对象</a></li>
+        <li><a href="#zset有序集合对象">zset有序集合对象</a></li>
         <li><a href="#set">set</a></li>
       </ul>
     </li>
-    <li><a href="#heading-3">集群</a>
+    <li><a href="#集群">集群</a>
       <ul>
-        <li><a href="#heading-4">无中心结构</a></li>
-        <li><a href="#heading-5">哨兵模式</a></li>
-        <li><a href="#-">重要话题-脑裂</a></li>
-        <li><a href="#--1">重要话题-复制</a></li>
+        <li><a href="#无中心结构">无中心结构</a></li>
+        <li><a href="#哨兵模式">哨兵模式</a></li>
+        <li><a href="#重要话题-脑裂">重要话题-脑裂</a></li>
+        <li><a href="#重要话题-复制">重要话题-复制</a></li>
       </ul>
     </li>
   </ul>
 
   <ul>
-    <li><a href="#heading-7">卡片</a></li>
-    <li><a href="#heading-8">数据</a></li>
+    <li><a href="#卡片">卡片</a></li>
+    <li><a href="#数据">数据</a></li>
   </ul>
 </nav>
   </div>
@@ -317,11 +178,11 @@
     </div>
   </div>
     <div class="post-content">
-      <h1 id="redis50">知识卡(redis.5.0)</h1>
+      <h1 id="知识卡redis50">知识卡(redis.5.0)</h1>
 <p><img src="https://i.loli.net/2019/11/16/95JQiMS2gUjWVsN.png" alt="image.png"></p>
-<h3 id="--redis-30-annotated-huangz1990">源码阅读  参考redis-3.0-annotated-huangz1990</h3>
-<h1 id="heading">内容</h1>
-<h2 id="heading-1">对象的类型和编码</h2>
+<h3 id="源码阅读--参考redis-30-annotated-huangz1990">源码阅读  参考redis-3.0-annotated-huangz1990</h3>
+<h1 id="内容">内容</h1>
+<h2 id="对象的类型和编码">对象的类型和编码</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -380,62 +241,6 @@
 </span><span class="lnt">54
 </span></code></pre></td>
 <td class="lntd">
-<<<<<<< HEAD
-<pre class="chroma"><code class="language-c" data-lang="c">
-<span class="k">typedef</span> <span class="k">struct</span> <span class="n">redisObject</span> <span class="p">{</span>
-  <span class="kt">unsigned</span> <span class="nl">type</span> <span class="p">:</span> <span class="mi">4</span><span class="p">;</span>
-  <span class="kt">unsigned</span> <span class="nl">encoding</span> <span class="p">:</span> <span class="mi">4</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">refcount</span><span class="p">;</span>
-  <span class="kt">void</span> <span class="o">*</span><span class="n">ptr</span><span class="p">;</span>
-<span class="p">}</span> <span class="n">robj</span><span class="p">;</span>
-
-
-<span class="err">类</span><span class="err">型</span><span class="err">常</span><span class="err">量</span>	<span class="err">对</span><span class="err">象</span><span class="err">的</span><span class="err">名</span><span class="err">称</span>
-<span class="n">REDIS_STRING</span> <span class="err">字</span><span class="err">符</span><span class="err">串</span><span class="err">对</span><span class="err">象</span>
-<span class="n">REDIS_LIST</span>	<span class="err">列</span><span class="err">表</span><span class="err">对</span><span class="err">象</span>
-<span class="n">REDIS_HASH</span>	<span class="err">哈</span><span class="err">希</span><span class="err">对</span><span class="err">象</span>
-<span class="n">REDIS_SET</span>	<span class="err">集</span><span class="err">合</span><span class="err">对</span><span class="err">象</span>
-<span class="n">REDIS_ZSET</span>	<span class="err">有</span><span class="err">序</span><span class="err">集</span><span class="err">合</span><span class="err">对</span><span class="err">象</span>
-    
-
-<span class="cm">/* Objects encoding. Some kind of objects like Strings and Hashes can be
-</span><span class="cm"> * internally represented in multiple ways. The &#39;encoding&#39; field of the object
-</span><span class="cm"> * is set to one of this fields for this object. */</span>
-<span class="cp">#</span><span class="cp">define OBJ_ENCODING_RAW 0        </span><span class="cm">/* Raw representation */</span><span class="cp"></span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp">define OBJ_ENCODING_INT 1        </span><span class="cm">/* Encoded as integer */</span><span class="cp"></span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp">define OBJ_ENCODING_HT 2         </span><span class="cm">/* Encoded as hash table */</span><span class="cp"></span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp">define OBJ_ENCODING_ZIPMAP 3     </span><span class="cm">/* Encoded as zipmap */</span><span class="cp"></span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp">define OBJ_ENCODING_LINKEDLIST 4 </span><span class="cm">/* No longer used: old list encoding. */</span><span class="cp"></span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp">define OBJ_ENCODING_ZIPLIST 5    </span><span class="cm">/* Encoded as ziplist */</span><span class="cp"></span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp">define OBJ_ENCODING_INTSET 6     </span><span class="cm">/* Encoded as intset */</span><span class="cp"></span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp">define OBJ_ENCODING_SKIPLIST 7   </span><span class="cm">/* Encoded as skiplist */</span><span class="cp"></span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp">define OBJ_ENCODING_EMBSTR 8     </span><span class="cm">/* Embedded sds string encoding */</span><span class="cp"></span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp">define OBJ_ENCODING_QUICKLIST 9  </span><span class="cm">/* Encoded as linked list of ziplists */</span><span class="cp"></span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp">define OBJ_ENCODING_STREAM 10    </span><span class="cm">/* Encoded as a radix tree of listpacks */</span><span class="cp"></span><span class="cp">
-</span><span class="cp"></span>
-
-<span class="kt">char</span> <span class="o">*</span><span class="n">rdb_type_string</span><span class="p">[</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="sa"></span><span class="s">&#34;</span><span class="s">string</span><span class="s">&#34;</span><span class="p">,</span>
-    <span class="sa"></span><span class="s">&#34;</span><span class="s">list-linked</span><span class="s">&#34;</span><span class="p">,</span>
-    <span class="sa"></span><span class="s">&#34;</span><span class="s">set-hashtable</span><span class="s">&#34;</span><span class="p">,</span>
-    <span class="sa"></span><span class="s">&#34;</span><span class="s">zset-v1</span><span class="s">&#34;</span><span class="p">,</span>
-    <span class="sa"></span><span class="s">&#34;</span><span class="s">hash-hashtable</span><span class="s">&#34;</span><span class="p">,</span>
-    <span class="sa"></span><span class="s">&#34;</span><span class="s">zset-v2</span><span class="s">&#34;</span><span class="p">,</span>
-    <span class="sa"></span><span class="s">&#34;</span><span class="s">module-value</span><span class="s">&#34;</span><span class="p">,</span>
-    <span class="sa"></span><span class="s">&#34;</span><span class="s">&#34;</span><span class="p">,</span><span class="sa"></span><span class="s">&#34;</span><span class="s">&#34;</span><span class="p">,</span>
-    <span class="sa"></span><span class="s">&#34;</span><span class="s">hash-zipmap</span><span class="s">&#34;</span><span class="p">,</span>
-    <span class="sa"></span><span class="s">&#34;</span><span class="s">list-ziplist</span><span class="s">&#34;</span><span class="p">,</span>
-    <span class="sa"></span><span class="s">&#34;</span><span class="s">set-intset</span><span class="s">&#34;</span><span class="p">,</span>
-    <span class="sa"></span><span class="s">&#34;</span><span class="s">zset-ziplist</span><span class="s">&#34;</span><span class="p">,</span>
-    <span class="sa"></span><span class="s">&#34;</span><span class="s">hash-ziplist</span><span class="s">&#34;</span><span class="p">,</span>
-    <span class="sa"></span><span class="s">&#34;</span><span class="s">quicklist</span><span class="s">&#34;</span><span class="p">,</span>
-    <span class="sa"></span><span class="s">&#34;</span><span class="s">stream</span><span class="s">&#34;</span>
-<span class="p">}</span><span class="p">;</span>
-
-
-
-
-=======
 <pre class="chroma"><code class="language-c" data-lang="c">
 <span class="k">typedef</span> <span class="k">struct</span> <span class="n">redisObject</span> <span class="p">{</span>
   <span class="kt">unsigned</span> <span class="nl">type</span> <span class="p">:</span> <span class="mi">4</span><span class="p">;</span>
@@ -490,61 +295,60 @@
 
 
 
->>>>>>> 3ef6d693d572b1aa1761578dca2c669bbd1f5d0d
 </code></pre></td></tr></table>
 </div>
 </div><table>
 <thead>
 <tr>
-<th align="left">对象所使用的底层数据结构</th>
-<th align="left">编码常量</th>
-<th align="left">OBJECT ENCODING 命令输出</th>
+<th style="text-align:left">对象所使用的底层数据结构</th>
+<th style="text-align:left">编码常量</th>
+<th style="text-align:left">OBJECT ENCODING 命令输出</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">整数</td>
-<td align="left"><code>REDIS_ENCODING_INT</code></td>
-<td align="left"><code>&quot;int&quot;</code></td>
+<td style="text-align:left">整数</td>
+<td style="text-align:left"><code>REDIS_ENCODING_INT</code></td>
+<td style="text-align:left"><code>&quot;int&quot;</code></td>
 </tr>
 <tr>
-<td align="left"><code>embstr</code> 编码的简单动态字符串（SDS）</td>
-<td align="left"><code>REDIS_ENCODING_EMBSTR</code></td>
-<td align="left"><code>&quot;embstr&quot;</code></td>
+<td style="text-align:left"><code>embstr</code> 编码的简单动态字符串（SDS）</td>
+<td style="text-align:left"><code>REDIS_ENCODING_EMBSTR</code></td>
+<td style="text-align:left"><code>&quot;embstr&quot;</code></td>
 </tr>
 <tr>
-<td align="left">简单动态字符串</td>
-<td align="left"><code>REDIS_ENCODING_RAW</code></td>
-<td align="left"><code>&quot;raw&quot;</code></td>
+<td style="text-align:left">简单动态字符串</td>
+<td style="text-align:left"><code>REDIS_ENCODING_RAW</code></td>
+<td style="text-align:left"><code>&quot;raw&quot;</code></td>
 </tr>
 <tr>
-<td align="left">字典</td>
-<td align="left"><code>REDIS_ENCODING_HT</code></td>
-<td align="left"><code>&quot;hashtable&quot;</code></td>
+<td style="text-align:left">字典</td>
+<td style="text-align:left"><code>REDIS_ENCODING_HT</code></td>
+<td style="text-align:left"><code>&quot;hashtable&quot;</code></td>
 </tr>
 <tr>
-<td align="left">双端链表</td>
-<td align="left"><code>REDIS_ENCODING_LINKEDLIST</code></td>
-<td align="left"><code>&quot;linkedlist&quot;</code></td>
+<td style="text-align:left">双端链表</td>
+<td style="text-align:left"><code>REDIS_ENCODING_LINKEDLIST</code></td>
+<td style="text-align:left"><code>&quot;linkedlist&quot;</code></td>
 </tr>
 <tr>
-<td align="left">压缩列表</td>
-<td align="left"><code>REDIS_ENCODING_ZIPLIST</code></td>
-<td align="left"><code>&quot;ziplist&quot;</code></td>
+<td style="text-align:left">压缩列表</td>
+<td style="text-align:left"><code>REDIS_ENCODING_ZIPLIST</code></td>
+<td style="text-align:left"><code>&quot;ziplist&quot;</code></td>
 </tr>
 <tr>
-<td align="left">整数集合</td>
-<td align="left"><code>REDIS_ENCODING_INTSET</code></td>
-<td align="left"><code>&quot;intset&quot;</code></td>
+<td style="text-align:left">整数集合</td>
+<td style="text-align:left"><code>REDIS_ENCODING_INTSET</code></td>
+<td style="text-align:left"><code>&quot;intset&quot;</code></td>
 </tr>
 <tr>
-<td align="left">跳跃表和字典</td>
-<td align="left"><code>REDIS_ENCODING_SKIPLIST</code></td>
-<td align="left"><code>&quot;skiplist&quot;</code></td>
+<td style="text-align:left">跳跃表和字典</td>
+<td style="text-align:left"><code>REDIS_ENCODING_SKIPLIST</code></td>
+<td style="text-align:left"><code>&quot;skiplist&quot;</code></td>
 </tr>
 </tbody>
 </table>
-<h3 id="zset">zset有序集合对象</h3>
+<h3 id="zset有序集合对象">zset有序集合对象</h3>
 <blockquote>
 <p>有序集合的编码可以是 <code>ziplist</code> 或者 skiplist 。</p>
 </blockquote>
@@ -556,7 +360,7 @@
 <code>&quot;skiplist&quot;</code></p>
 <p><img src="https://i.loli.net/2019/11/20/GYVBMLdSHrQtNsC.png" alt="ziplist"></p>
 <p><img src="https://i.loli.net/2019/11/20/RNdFflp4nCItizv.png" alt="skiplist"></p>
-<h4 id="heading-2">编码的转换</h4>
+<h4 id="编码的转换">编码的转换</h4>
 <p>当有序集合对象可以同时满足以下两个条件时， 对象使用 <code>ziplist</code> 编码：</p>
 <ol>
 <li>有序集合保存的元素数量小于 <code>128</code> 个；</li>
@@ -631,69 +435,6 @@
 </span><span class="lnt">61
 </span></code></pre></td>
 <td class="lntd">
-<<<<<<< HEAD
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="mf">127.0</span><span class="mf">.0</span><span class="mf">.1</span><span class="o">:</span><span class="mi">6379</span><span class="o">&gt;</span>  <span class="n">ZADD</span> <span class="n">page_rank</span> <span class="mi">9</span> <span class="n">baidu</span><span class="p">.</span><span class="n">com</span> <span class="mi">8</span> <span class="n">bing</span><span class="p">.</span><span class="n">com</span>
-<span class="p">(</span><span class="n">integer</span><span class="p">)</span> <span class="mi">2</span>
-<span class="mf">127.0</span><span class="mf">.0</span><span class="mf">.1</span><span class="o">:</span><span class="mi">6379</span><span class="o">&gt;</span> <span class="n">ZADD</span> <span class="n">page_rank</span> <span class="mi">10</span> <span class="n">google</span><span class="p">.</span><span class="n">com</span>
-<span class="p">(</span><span class="n">integer</span><span class="p">)</span> <span class="mi">0</span>
-<span class="mf">127.0</span><span class="mf">.0</span><span class="mf">.1</span><span class="o">:</span><span class="mi">6379</span><span class="o">&gt;</span> <span class="n">ZRANGE</span> <span class="n">page_rank</span> <span class="mi">0</span> <span class="o">-</span><span class="mi">1</span> <span class="n">WITHSCORES</span>
-<span class="mi">1</span><span class="p">)</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">bing.com</span><span class="s">&#34;</span>
-<span class="mi">2</span><span class="p">)</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">8</span><span class="s">&#34;</span>
-<span class="mi">3</span><span class="p">)</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">baidu.com</span><span class="s">&#34;</span>
-<span class="mi">4</span><span class="p">)</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">9</span><span class="s">&#34;</span>
-<span class="mi">5</span><span class="p">)</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">google.com</span><span class="s">&#34;</span>
-<span class="mi">6</span><span class="p">)</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">10</span><span class="s">&#34;</span>
-
-<span class="mf">127.0</span><span class="mf">.0</span><span class="mf">.1</span><span class="o">:</span><span class="mi">6379</span><span class="o">&gt;</span> <span class="n">type</span> <span class="n">page_rank</span>
-<span class="n">zset</span>
-<span class="n">object</span> <span class="n">encoding</span> <span class="n">page_rank</span>
-<span class="sa"></span><span class="s">&#34;</span><span class="s">ziplist</span><span class="s">&#34;</span>
-
-    
-<span class="mf">127.0</span><span class="mf">.0</span><span class="mf">.1</span><span class="o">:</span><span class="mi">6379</span><span class="o">&gt;</span> <span class="n">ZADD</span> <span class="n">page_rank</span> <span class="mf">2.0</span> <span class="n">oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo</span>
-<span class="p">(</span><span class="n">integer</span><span class="p">)</span> <span class="mi">1</span>
-<span class="mf">127.0</span><span class="mf">.0</span><span class="mf">.1</span><span class="o">:</span><span class="mi">6379</span><span class="o">&gt;</span> <span class="n">type</span> <span class="n">page_rank</span>
-<span class="n">zset</span>
-<span class="n">object</span> <span class="n">encoding</span> <span class="n">page_rank</span>
-<span class="sa"></span><span class="s">&#34;</span><span class="s">skiplist</span><span class="s">&#34;</span>
-    
- <span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span> <span class="n">ADVANCED</span> <span class="n">CONFIG</span> <span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span><span class="err">#</span>
-
-<span class="cp">#</span><span class="cp"> Hashes are encoded using a memory efficient data structure when they have a</span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp"> small number of entries, and the biggest entry does not exceed a given</span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp"> threshold. These thresholds can be configured using the following directives.</span><span class="cp">
-</span><span class="cp"></span><span class="n">hash</span><span class="o">-</span><span class="n">max</span><span class="o">-</span><span class="n">ziplist</span><span class="o">-</span><span class="n">entries</span> <span class="mi">512</span>
-<span class="n">hash</span><span class="o">-</span><span class="n">max</span><span class="o">-</span><span class="n">ziplist</span><span class="o">-</span><span class="n">value</span> <span class="mi">64</span>
-
-<span class="cp">#</span><span class="cp"> Lists are also encoded in a special way to save a lot of space.</span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp"> The number of entries allowed per internal list node can be specified</span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp"> as a fixed maximum size or a maximum number of elements.</span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp"> For a fixed maximum size, use -5 through -1, meaning:</span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp"> -5: max size: 64 Kb  &lt;-- not recommended for normal workloads</span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp"> -4: max size: 32 Kb  &lt;-- not recommended</span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp"> -3: max size: 16 Kb  &lt;-- probably not recommended</span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp"> -2: max size: 8 Kb   &lt;-- good</span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp"> -1: max size: 4 Kb   &lt;-- good</span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp"> Positive numbers mean store up to _exactly_ that number of elements</span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp"> per list node.</span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp"> The highest performing option is usually -2 (8 Kb size) or -1 (4 Kb size),</span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp"> but if your use case is unique, adjust the settings as necessary.</span><span class="cp">
-</span><span class="cp"></span><span class="n">list</span><span class="o">-</span><span class="n">max</span><span class="o">-</span><span class="n">ziplist</span><span class="o">-</span><span class="n">size</span> <span class="o">-</span><span class="mi">2</span>
-
-
-<span class="cp">#</span><span class="cp"> Sets have a special encoding in just one case: when a set is composed</span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp"> of just strings that happen to be integers in radix 10 in the range</span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp"> of 64 bit signed integers.</span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp"> The following configuration setting sets the limit in the size of the</span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp"> set in order to use this special memory saving encoding.</span><span class="cp">
-</span><span class="cp"></span><span class="n">set</span><span class="o">-</span><span class="n">max</span><span class="o">-</span><span class="n">intset</span><span class="o">-</span><span class="n">entries</span> <span class="mi">512</span>
-
-<span class="cp">#</span><span class="cp"> Similarly to hashes and lists, sorted sets are also specially encoded in</span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp"> order to save a lot of space. This encoding is only used when the length and</span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp"> elements of a sorted set are below the following limits:</span><span class="cp">
-</span><span class="cp"></span><span class="n">zset</span><span class="o">-</span><span class="n">max</span><span class="o">-</span><span class="n">ziplist</span><span class="o">-</span><span class="n">entries</span> <span class="mi">128</span>
-<span class="n">zset</span><span class="o">-</span><span class="n">max</span><span class="o">-</span><span class="n">ziplist</span><span class="o">-</span><span class="n">value</span> <span class="mi">64</span>
-=======
 <pre class="chroma"><code class="language-c" data-lang="c"><span class="mf">127.0.0.1</span><span class="o">:</span><span class="mi">6379</span><span class="o">&gt;</span>  <span class="n">ZADD</span> <span class="n">page_rank</span> <span class="mi">9</span> <span class="n">baidu</span><span class="p">.</span><span class="n">com</span> <span class="mi">8</span> <span class="n">bing</span><span class="p">.</span><span class="n">com</span>
 <span class="p">(</span><span class="n">integer</span><span class="p">)</span> <span class="mi">2</span>
 <span class="mf">127.0.0.1</span><span class="o">:</span><span class="mi">6379</span><span class="o">&gt;</span> <span class="n">ZADD</span> <span class="n">page_rank</span> <span class="mi">10</span> <span class="n">google</span><span class="p">.</span><span class="n">com</span>
@@ -755,10 +496,9 @@
 </span><span class="cp"># elements of a sorted set are below the following limits:
 </span><span class="cp"></span><span class="n">zset</span><span class="o">-</span><span class="n">max</span><span class="o">-</span><span class="n">ziplist</span><span class="o">-</span><span class="n">entries</span> <span class="mi">128</span>
 <span class="n">zset</span><span class="o">-</span><span class="n">max</span><span class="o">-</span><span class="n">ziplist</span><span class="o">-</span><span class="n">value</span> <span class="mi">64</span>
->>>>>>> 3ef6d693d572b1aa1761578dca2c669bbd1f5d0d
 </code></pre></td></tr></table>
 </div>
-</div><h5 id="ziplist-">ziplist-连续空间折半</h5>
+</div><h5 id="ziplist-连续空间折半">ziplist-连续空间折半</h5>
 <p>ziplist.c</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -779,23 +519,6 @@
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<<<<<<< HEAD
-<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">The</span> <span class="n">ziplist</span> <span class="n">is</span> <span class="n">a</span> <span class="n">specially</span> <span class="n">encoded</span> <span class="n">dually</span> <span class="n">linked</span> <span class="n">list</span> <span class="n">that</span> <span class="n">is</span> <span class="n">designed</span>
- <span class="o">*</span> <span class="n">to</span> <span class="n">be</span> <span class="n">very</span> <span class="n">memory</span> <span class="n">efficient</span><span class="p">.</span> <span class="n">It</span> <span class="n">stores</span> <span class="n">both</span> <span class="n">strings</span> <span class="n">and</span> <span class="n">integer</span> <span class="n">values</span><span class="p">,</span>
- <span class="o">*</span> <span class="n">where</span> <span class="n">integers</span> <span class="n">are</span> <span class="n">encoded</span> <span class="n">as</span> <span class="n">actual</span> <span class="n">integers</span> <span class="n">instead</span> <span class="n">of</span> <span class="n">a</span> <span class="n">series</span> <span class="n">of</span>
- <span class="o">*</span> <span class="n">characters</span><span class="p">.</span> <span class="n">It</span> <span class="n">allows</span> <span class="n">push</span> <span class="n">and</span> <span class="n">pop</span> <span class="n">operations</span> <span class="n">on</span> <span class="n">either</span> <span class="n">side</span> <span class="n">of</span> <span class="n">the</span> <span class="n">list</span>
- <span class="o">*</span> <span class="n">in</span> <span class="n">O</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">time</span><span class="p">.</span> <span class="n">However</span><span class="p">,</span> <span class="n">because</span> <span class="n">every</span> <span class="n">operation</span> <span class="k">requires</span> <span class="n">a</span> <span class="n">reallocation</span> <span class="n">of</span>
- <span class="o">*</span> <span class="n">the</span> <span class="n">memory</span> <span class="n">used</span> <span class="n">by</span> <span class="n">the</span> <span class="n">ziplist</span><span class="p">,</span> <span class="n">the</span> <span class="n">actual</span> <span class="n">complexity</span> <span class="n">is</span> <span class="n">related</span> <span class="n">to</span> <span class="n">the</span>
- <span class="o">*</span> <span class="n">amount</span> <span class="n">of</span> <span class="n">memory</span> <span class="n">used</span> <span class="n">by</span> <span class="n">the</span> <span class="n">ziplist</span><span class="p">.</span>
-     
-  <span class="n">ziplist是一个经过特殊编码的双向链表</span><span class="err">，</span><span class="err">它</span><span class="err">的</span><span class="err">设</span><span class="err">计</span><span class="err">目</span><span class="err">标</span><span class="err">就</span><span class="err">是</span><span class="err">为</span><span class="err">了</span><span class="err">提</span><span class="err">高</span><span class="err">存</span><span class="err">储</span><span class="err">效</span><span class="err">率</span><span class="err">。</span><span class="n">ziplist可以用于存储字符串或整数</span><span class="err">，</span><span class="err">其</span><span class="err">中</span><span class="err">整</span><span class="err">数</span><span class="err">是</span><span class="err">按</span><span class="err">真</span><span class="err">正</span><span class="err">的</span><span class="err">二</span><span class="err">进</span><span class="err">制</span><span class="err">表</span><span class="err">示</span><span class="err">进</span><span class="err">行</span><span class="err">编</span><span class="err">码</span><span class="err">的</span><span class="err">，</span><span class="err">而</span><span class="err">不</span><span class="err">是</span><span class="err">编</span><span class="err">码</span><span class="err">成</span><span class="err">字</span><span class="err">符</span><span class="err">串</span><span class="err">序</span><span class="err">列</span><span class="err">。</span><span class="err">它</span><span class="err">能</span><span class="err">以</span><span class="n">O</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="err">的</span><span class="err">时</span><span class="err">间</span><span class="err">复</span><span class="err">杂</span><span class="err">度</span><span class="err">在</span><span class="err">表</span><span class="err">的</span><span class="err">两</span><span class="err">端</span><span class="err">提</span><span class="err">供</span><span class="n">push和pop操作</span><span class="err">。</span>
-
-<span class="err">实</span><span class="err">际</span><span class="err">上</span><span class="err">，</span><span class="n">ziplist充分体现了Redis对于存储效率的追求</span><span class="err">。</span><span class="err">一</span><span class="err">个</span><span class="err">普</span><span class="err">通</span><span class="err">的</span><span class="err">双</span><span class="err">向</span><span class="err">链</span><span class="err">表</span><span class="err">，</span><span class="err">链</span><span class="err">表</span><span class="err">中</span><span class="err">每</span><span class="err">一</span><span class="err">项</span><span class="err">都</span><span class="err">占</span><span class="err">用</span><span class="err">独</span><span class="err">立</span><span class="err">的</span><span class="err">一</span><span class="err">块</span><span class="err">内</span><span class="err">存</span><span class="err">，</span><span class="err">各</span><span class="err">项</span><span class="err">之</span><span class="err">间</span><span class="err">用</span><span class="err">地</span><span class="err">址</span><span class="err">指</span><span class="err">针</span><span class="err">（</span><span class="err">或</span><span class="err">引</span><span class="err">用</span><span class="err">）</span><span class="err">连</span><span class="err">接</span><span class="err">起</span><span class="err">来</span><span class="err">。</span><span class="err">这</span><span class="err">种</span><span class="err">方</span><span class="err">式</span><span class="err">会</span><span class="err">带</span><span class="err">来</span><span class="err">大</span><span class="err">量</span><span class="err">的</span><span class="err">内</span><span class="err">存</span><span class="err">碎</span><span class="err">片</span><span class="err">，</span><span class="err">而</span><span class="err">且</span><span class="err">地</span><span class="err">址</span><span class="err">指</span><span class="err">针</span><span class="err">也</span><span class="err">会</span><span class="err">占</span><span class="err">用</span><span class="err">额</span><span class="err">外</span><span class="err">的</span><span class="err">内</span><span class="err">存</span><span class="err">。</span>
-  
-     <span class="err">而</span><span class="n">ziplist却是将表中每一项存放在前后连续的地址空间内</span><span class="err">，</span><span class="err">一</span><span class="err">个</span><span class="n">ziplist整体占用一大块内存</span><span class="err">。</span><span class="err">它</span><span class="err">是</span><span class="err">一</span><span class="err">个</span><span class="err">表</span><span class="err">（</span><span class="n">list</span><span class="err">）</span><span class="err">，</span><span class="err">但</span><span class="err">其</span><span class="err">实</span><span class="err">不</span><span class="err">是</span><span class="err">一</span><span class="err">个</span><span class="err">链</span><span class="err">表</span><span class="err">（</span><span class="n">linked</span> <span class="n">list</span><span class="err">）</span><span class="err">。</span>
-
-<span class="err">另</span><span class="err">外</span><span class="err">，</span><span class="n">ziplist为了在细节上节省内存</span><span class="err">，</span><span class="err">对</span><span class="err">于</span><span class="err">值</span><span class="err">的</span><span class="err">存</span><span class="err">储</span><span class="err">采</span><span class="err">用</span><span class="err">了</span><span class="err">变</span><span class="err">长</span><span class="err">的</span><span class="err">编</span><span class="err">码</span><span class="err">方</span><span class="err">式</span><span class="err">，</span><span class="err">大</span><span class="err">概</span><span class="err">意</span><span class="err">思</span><span class="err">是</span><span class="err">说</span><span class="err">，</span><span class="err">对</span><span class="err">于</span><span class="err">大</span><span class="err">的</span><span class="err">整</span><span class="err">数</span><span class="err">，</span><span class="err">就</span><span class="err">多</span><span class="err">用</span><span class="err">一</span><span class="err">些</span><span class="err">字</span><span class="err">节</span><span class="err">来</span><span class="err">存</span><span class="err">储</span><span class="err">，</span><span class="err">而</span><span class="err">对</span><span class="err">于</span><span class="err">小</span><span class="err">的</span><span class="err">整</span><span class="err">数</span><span class="err">，</span><span class="err">就</span><span class="err">少</span><span class="err">用</span><span class="err">一</span><span class="err">些</span><span class="err">字</span><span class="err">节</span><span class="err">来</span><span class="err">存</span><span class="err">储</span><span class="err">。</span><span class="err">我</span><span class="err">们</span><span class="err">接</span><span class="err">下</span><span class="err">来</span><span class="err">很</span><span class="err">快</span><span class="err">就</span><span class="err">会</span><span class="err">讨</span><span class="err">论</span><span class="err">到</span><span class="err">这</span><span class="err">些</span><span class="err">实</span><span class="err">现</span><span class="err">细</span><span class="err">节</span>
-=======
 <pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">The</span> <span class="n">ziplist</span> <span class="n">is</span> <span class="n">a</span> <span class="n">specially</span> <span class="n">encoded</span> <span class="n">dually</span> <span class="n">linked</span> <span class="n">list</span> <span class="n">that</span> <span class="n">is</span> <span class="n">designed</span>
  <span class="o">*</span> <span class="n">to</span> <span class="n">be</span> <span class="n">very</span> <span class="n">memory</span> <span class="n">efficient</span><span class="p">.</span> <span class="n">It</span> <span class="n">stores</span> <span class="n">both</span> <span class="n">strings</span> <span class="n">and</span> <span class="n">integer</span> <span class="n">values</span><span class="p">,</span>
  <span class="o">*</span> <span class="n">where</span> <span class="n">integers</span> <span class="n">are</span> <span class="n">encoded</span> <span class="n">as</span> <span class="n">actual</span> <span class="n">integers</span> <span class="n">instead</span> <span class="n">of</span> <span class="n">a</span> <span class="n">series</span> <span class="n">of</span>
@@ -811,7 +534,6 @@
      <span class="err">而</span><span class="n">ziplist却是将表中每一项存放在前后连续的地址空间内</span><span class="err">，一个</span><span class="n">ziplist整体占用一大块内存</span><span class="err">。它是一个表（</span><span class="n">list</span><span class="err">），但其实不是一个链表（</span><span class="n">linked</span> <span class="n">list</span><span class="err">）。</span>
 
 <span class="err">另外，</span><span class="n">ziplist为了在细节上节省内存</span><span class="err">，对于值的存储采用了变长的编码方式，大概意思是说，对于大的整数，就多用一些字节来存储，而对于小的整数，就少用一些字节来存储。我们接下来很快就会讨论到这些实现细节</span>
->>>>>>> 3ef6d693d572b1aa1761578dca2c669bbd1f5d0d
 </code></pre></td></tr></table>
 </div>
 </div><p>这个ziplist里存了4个数据项，分别为：</p>
@@ -854,7 +576,7 @@
 <p><a href="https://blog.erratasec.com/2016/11/how-to-teach-endian.html#.XdTZoJMzaUk">https://blog.erratasec.com/2016/11/how-to-teach-endian.html#.XdTZoJMzaUk</a> 【没看懂】</p>
 </li>
 </ul>
-<h5 id="zset----tree">zset &ndash;跳表类似 tree</h5>
+<h5 id="zset---跳表类似-tree">zset &ndash;跳表类似 tree</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -882,31 +604,6 @@
 </span><span class="lnt">23
 </span></code></pre></td>
 <td class="lntd">
-<<<<<<< HEAD
-<pre class="chroma"><code class="language-c" data-lang="c">
-<span class="nl">file</span> <span class="p">:</span><span class="n">t_zset</span><span class="p">.</span><span class="n">c</span>
-    
-    
-<span class="k">typedef</span> <span class="k">struct</span> <span class="n">zset</span> <span class="p">{</span>
-  <span class="n">dict</span> <span class="o">*</span><span class="n">dict</span><span class="p">;</span><span class="c1">//无需排列，单key查找
-</span><span class="c1"></span>  <span class="n">zskiplist</span> <span class="o">*</span><span class="n">zsl</span><span class="p">;</span> <span class="c1">//有序排列，范围查找
-</span><span class="c1"></span><span class="p">}</span> <span class="n">zset</span><span class="p">;</span>
-
-<span class="k">typedef</span> <span class="k">struct</span> <span class="n">zskiplist</span> <span class="p">{</span>
-  <span class="k">struct</span> <span class="n">zskiplistNode</span> <span class="o">*</span><span class="n">header</span><span class="p">,</span> <span class="o">*</span><span class="n">tail</span><span class="p">;</span>
-  <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">length</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">level</span><span class="p">;</span> <span class="c1">//tree的最大高度。
-</span><span class="c1"></span><span class="p">}</span> 
-<span class="k">typedef</span> <span class="k">struct</span> <span class="n">zskiplistNode</span> <span class="p">{</span>
-  <span class="n">sds</span> <span class="n">ele</span><span class="p">;</span>                        <span class="c1">//内容
-</span><span class="c1"></span>  <span class="kt">double</span> <span class="n">score</span><span class="p">;</span>                   <span class="c1">//排序分值
-</span><span class="c1"></span>  <span class="k">struct</span> <span class="n">zskiplistNode</span> <span class="o">*</span><span class="n">backward</span><span class="p">;</span> <span class="c1">//后面
-</span><span class="c1"></span>  <span class="k">struct</span> <span class="n">zskiplistLevel</span> <span class="p">{</span>
-    <span class="k">struct</span> <span class="n">zskiplistNode</span> <span class="o">*</span><span class="n">forward</span><span class="p">;</span>
-    <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">span</span><span class="p">;</span>
-  <span class="p">}</span> <span class="n">level</span><span class="p">[</span><span class="p">]</span><span class="p">;</span> <span class="c1">//前面
-</span><span class="c1"></span><span class="p">}</span> <span class="n">zskiplistNode</span><span class="p">;</span>
-=======
 <pre class="chroma"><code class="language-c" data-lang="c">
 <span class="nl">file</span> <span class="p">:</span><span class="n">t_zset</span><span class="p">.</span><span class="n">c</span>
     
@@ -930,7 +627,6 @@
     <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">span</span><span class="p">;</span>
   <span class="p">}</span> <span class="n">level</span><span class="p">[];</span> <span class="c1">//前面
 </span><span class="c1"></span><span class="p">}</span> <span class="n">zskiplistNode</span><span class="p">;</span>
->>>>>>> 3ef6d693d572b1aa1761578dca2c669bbd1f5d0d
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="set">set</h3>
@@ -947,7 +643,6 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<<<<<<< HEAD
 <pre class="chroma"><code class="language-fallback" data-lang="fallback">127.0.0.1:6379&gt; sadd numbers 1 2 3 4
 (integer) 4
 127.0.0.1:6379&gt; object encoding numbers
@@ -957,23 +652,12 @@
 (integer) 1
 127.0.0.1:6379&gt; object encoding numbers
 &#34;hashtable&#34;
-=======
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">127.0.0.1:6379&gt; sadd numbers 1 2 3 4
-(integer) 4
-127.0.0.1:6379&gt; object encoding numbers
-&#34;intset&#34;
-
-127.0.0.1:6379&gt; sadd numbers 1111111111111111111111111111111111111111111111111111
-(integer) 1
-127.0.0.1:6379&gt; object encoding numbers
-&#34;hashtable&#34;
->>>>>>> 3ef6d693d572b1aa1761578dca2c669bbd1f5d0d
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="heading-3">集群</h2>
-<h3 id="heading-4">无中心结构</h3>
-<h3 id="heading-5">哨兵模式</h3>
-<h3 id="-">重要话题-脑裂</h3>
+</div><h2 id="集群">集群</h2>
+<h3 id="无中心结构">无中心结构</h3>
+<h3 id="哨兵模式">哨兵模式</h3>
+<h3 id="重要话题-脑裂">重要话题-脑裂</h3>
 <p>一、哨兵(sentinel)模式下的脑裂</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -1008,7 +692,6 @@
 </span><span class="lnt">29
 </span></code></pre></td>
 <td class="lntd">
-<<<<<<< HEAD
 <pre class="chroma"><code class="language-fallback" data-lang="fallback">         +----+
          | M1 |
          | S1 | &lt;- C1 (writes will be lost)
@@ -1038,43 +721,12 @@
 # min-replicas-to-write 3
 # min-replicas-max-lag 10
 #
-=======
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">         +----+
-         | M1 |
-         | S1 | &lt;- C1 (writes will be lost)
-         +----+
-            |
-            /
-            /
-+------+    |    +----+
-| [M2] |----+----| R3 |
-| S2   |         | S3 |
-+------+         +----+
-
-# It is possible for a master to stop accepting writes if there are less than
-# N replicas connected, having a lag less or equal than M seconds.
-#
-# The N replicas need to be in &#34;online&#34; state.
-#
-# The lag in seconds, that must be &lt;= the specified value, is calculated from
-# the last ping received from the replica, that is usually sent every second.
-#
-# This option does not GUARANTEE that N replicas will accept the write, but
-# will limit the window of exposure for lost writes in case not enough replicas
-# are available, to the specified number of seconds.
-#
-# For example to require at least 3 replicas with a lag &lt;= 10 seconds use:
-#
-# min-replicas-to-write 3
-# min-replicas-max-lag 10
-#
->>>>>>> 3ef6d693d572b1aa1761578dca2c669bbd1f5d0d
 </code></pre></td></tr></table>
 </div>
 </div><p>二、集群(cluster)模式下的脑裂</p>
-<h3 id="--1">重要话题-复制</h3>
-<h1 id="heading-6">客户端</h1>
-<h2 id="heading-7">卡片</h2>
+<h3 id="重要话题-复制">重要话题-复制</h3>
+<h1 id="客户端">客户端</h1>
+<h2 id="卡片">卡片</h2>
 <table>
 <thead>
 <tr>
@@ -1264,144 +916,6 @@
 </span><span class="lnt">136
 </span></code></pre></td>
 <td class="lntd">
-<<<<<<< HEAD
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="cm">/* Context for an async connection to Redis */</span>
-<span class="k">typedef</span> <span class="k">struct</span> <span class="n">redisAsyncContext</span> <span class="p">{</span>
-    <span class="cm">/* Hold the regular context, so it can be realloc&#39;ed. */</span>
-    <span class="n">redisContext</span> <span class="n">c</span><span class="p">;</span>
-
-    <span class="cm">/* Setup error flags so they can be used directly. */</span>
-    <span class="kt">int</span> <span class="n">err</span><span class="p">;</span>
-    <span class="kt">char</span> <span class="o">*</span><span class="n">errstr</span><span class="p">;</span>
-
-    <span class="cm">/* Not used by hiredis */</span>
-    <span class="kt">void</span> <span class="o">*</span><span class="n">data</span><span class="p">;</span>
-    <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">dataHandler</span><span class="p">)</span><span class="p">(</span><span class="k">struct</span> <span class="n">redisAsyncContext</span><span class="o">*</span> <span class="n">ac</span><span class="p">)</span><span class="p">;</span>
-
-    <span class="cm">/* Event library data and hooks */</span>
-    <span class="k">struct</span> <span class="p">{</span>
-        <span class="kt">void</span> <span class="o">*</span><span class="n">data</span><span class="p">;</span>
-
-        <span class="cm">/* Hooks that are called when the library expects to start
-</span><span class="cm">         * reading/writing. These functions should be idempotent. */</span>
-        <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">addRead</span><span class="p">)</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">privdata</span><span class="p">)</span><span class="p">;</span>
-        <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">delRead</span><span class="p">)</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">privdata</span><span class="p">)</span><span class="p">;</span>
-        <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">addWrite</span><span class="p">)</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">privdata</span><span class="p">)</span><span class="p">;</span>
-        <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">delWrite</span><span class="p">)</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">privdata</span><span class="p">)</span><span class="p">;</span>
-        <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">cleanup</span><span class="p">)</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">privdata</span><span class="p">)</span><span class="p">;</span>
-    <span class="p">}</span> <span class="n">ev</span><span class="p">;</span>
-
-    <span class="cm">/* Called when either the connection is terminated due to an error or per
-</span><span class="cm">     * user request. The status is set accordingly (REDIS_OK, REDIS_ERR). */</span>
-    <span class="n">redisDisconnectCallback</span> <span class="o">*</span><span class="n">onDisconnect</span><span class="p">;</span>
-
-    <span class="cm">/* Called when the first write event was received. */</span>
-    <span class="n">redisConnectCallback</span> <span class="o">*</span><span class="n">onConnect</span><span class="p">;</span>
-
-    <span class="cm">/* Regular command callbacks */</span>
-    <span class="n">redisCallbackList</span> <span class="n">replies</span><span class="p">;</span>
-
-    <span class="cm">/* Subscription callbacks */</span>
-    <span class="k">struct</span> <span class="p">{</span>
-        <span class="n">redisCallbackList</span> <span class="n">invalid</span><span class="p">;</span>
-        <span class="k">struct</span> <span class="n">dict</span> <span class="o">*</span><span class="n">channels</span><span class="p">;</span>
-        <span class="k">struct</span> <span class="n">dict</span> <span class="o">*</span><span class="n">patterns</span><span class="p">;</span>
-    <span class="p">}</span> <span class="n">sub</span><span class="p">;</span>
-<span class="p">}</span> <span class="n">redisAsyncContext</span><span class="p">;</span>
-
-
-
-<span class="n">class</span> <span class="nl">dns_down_getredis_time</span><span class="p">:</span><span class="n">public</span> <span class="n">I_redis_connect</span>
-<span class="p">{</span>
-     <span class="c1">//single_instance 
-</span><span class="c1"></span>	 <span class="n">redisAsyncContext</span>   <span class="o">*</span> <span class="n">m_redisAsynHandler</span><span class="p">;</span>
-	 <span class="n">redisContext</span>        <span class="o">*</span><span class="n">m_redisHandler</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="c1">//资源隔离
-</span><span class="c1"></span><span class="kt">void</span>  <span class="n">dns_down_redisconnect_mgr</span><span class="o">:</span><span class="o">:</span><span class="n">start_new_redis</span><span class="p">(</span><span class="n">string</span> <span class="o">&amp;</span><span class="n">_strRedisIP</span><span class="p">,</span> <span class="kt">int</span> <span class="n">_iRedisPort</span><span class="p">,</span> <span class="n">string</span> <span class="o">&amp;</span> <span class="n">_strAppName</span><span class="p">,</span> <span class="kt">int</span> <span class="n">daIndex</span><span class="p">,</span> <span class="kt">int</span> <span class="n">dropTimeout</span><span class="p">)</span>
-<span class="p">{</span>
-	<span class="c1">//不同的资源
-</span><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="n">_RedisHandler</span><span class="p">)</span>
-    <span class="p">{</span>
-		<span class="n">_RedisHandler</span><span class="o">-</span><span class="o">&gt;</span><span class="n">start</span><span class="p">(</span><span class="n">_strRedisIP</span><span class="p">.</span><span class="n">c_str</span><span class="p">(</span><span class="p">)</span><span class="p">,</span> <span class="n">_iRedisPort</span><span class="p">,</span> <span class="n">_strAppName</span><span class="p">,</span> <span class="n">daIndex</span><span class="p">,</span> <span class="n">dropTimeout</span><span class="p">)</span><span class="p">;</span>
-        <span class="c1">//资源的管理
-</span><span class="c1"></span>		<span class="n">m_MapredisConnectMgr</span><span class="p">[</span><span class="n">_strAppName</span><span class="p">]</span> <span class="o">=</span> <span class="n">_RedisHandler</span><span class="p">;</span>
-
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kt">void</span> <span class="n">dns_down_getredis_time</span><span class="o">:</span><span class="o">:</span><span class="n">start</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">_redisIP</span><span class="p">,</span> <span class="kt">int</span> <span class="n">_iRedisPort</span><span class="p">,</span> <span class="n">string</span> <span class="o">&amp;</span><span class="n">_strAppName</span><span class="p">,</span> <span class="kt">int</span> <span class="n">dbIndex</span><span class="p">,</span> <span class="kt">int</span> <span class="n">dropTimeout</span><span class="p">)</span>
-<span class="p">{</span>
-	<span class="n">connect_redis_server</span><span class="p">(</span><span class="n">_redisIP</span><span class="p">,</span> <span class="n">_iRedisPort</span><span class="p">)</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">int</span> <span class="n">dns_down_getredis_time</span><span class="o">:</span><span class="o">:</span><span class="n">connect_redis_server</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">_redisIP</span><span class="p">,</span> <span class="kt">int</span> <span class="n">_iRedisPort</span><span class="p">)</span>
-<span class="p">{</span>
-	<span class="n">asyn_connect_redis_server</span><span class="p">(</span><span class="n">_redisIP</span><span class="p">,</span> <span class="n">_iRedisPort</span><span class="p">)</span><span class="p">;</span>
-	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-
-<span class="p">}</span>
-<span class="c1">// 挖矿
-</span><span class="c1"></span><span class="kt">int</span>  <span class="n">dns_down_getredis_time</span><span class="o">:</span><span class="o">:</span><span class="n">asyn_connect_redis_server</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">_redisIP</span><span class="p">,</span> <span class="kt">int</span> <span class="n">_iRedisPort</span><span class="p">)</span>
-<span class="p">{</span>
-	<span class="n">m_redisAsynHandler</span> <span class="o">=</span> <span class="n">redisAsyncConnect</span><span class="p">(</span><span class="n">_redisIP</span><span class="p">,</span> <span class="n">_iRedisPort</span><span class="p">)</span><span class="p">;</span>
-	<span class="n">m_redisAsynHandler</span><span class="o">-</span><span class="o">&gt;</span><span class="n">data</span> <span class="o">=</span> <span class="n">this</span><span class="p">;</span>
- 
-	<span class="k">if</span> <span class="p">(</span><span class="nb">NULL</span> <span class="o">=</span><span class="o">=</span> <span class="n">dns_down_getredis_time</span><span class="o">:</span><span class="o">:</span><span class="n">ae_loop</span><span class="p">)</span>
-	<span class="p">{</span>
-		<span class="n">ae_loop</span> <span class="o">=</span> <span class="n">aeCreateEventLoop</span><span class="p">(</span><span class="mi">64</span><span class="p">)</span><span class="p">;</span>
-	<span class="p">}</span>
-
- 
-	<span class="n">redisAeAttach</span><span class="p">(</span><span class="n">ae_loop</span><span class="p">,</span> <span class="n">m_redisAsynHandler</span><span class="p">)</span><span class="p">;</span>
-    <span class="c1">//
-</span><span class="c1"></span>	<span class="n">redisAsyncSetConnectCallback</span><span class="p">(</span><span class="n">m_redisAsynHandler</span><span class="p">,</span> <span class="n">connectCallback</span><span class="p">)</span><span class="p">;</span>
-	<span class="n">redisAsyncSetDisconnectCallback</span><span class="p">(</span><span class="n">m_redisAsynHandler</span><span class="p">,</span> <span class="n">disconnectCallback</span><span class="p">)</span><span class="p">;</span>
-	<span class="c1">//asyn
-</span><span class="c1"></span>	
-	<span class="c1">//this is a loop
-</span><span class="c1"></span>	<span class="k">static</span> <span class="n">pthread_t</span>  <span class="n">tid</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
-	<span class="k">if</span> <span class="p">(</span><span class="nb">NULL</span> <span class="o">=</span><span class="o">=</span> <span class="n">tid</span><span class="p">)</span>
-	<span class="p">{</span>   
-	  
-		<span class="n">pthread_create</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tid</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">thread_event_run</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">)</span><span class="p">;</span>
-		
-	<span class="p">}</span>
-
-<span class="p">}</span>
-<span class="c1">//切换到指定的数据库
-</span><span class="c1"></span><span class="kt">void</span> <span class="n">connectCallback</span><span class="p">(</span><span class="k">const</span> <span class="n">redisAsyncContext</span> <span class="o">*</span><span class="n">c</span><span class="p">,</span> <span class="kt">int</span> <span class="n">status</span><span class="p">)</span> <span class="p">{</span>
-
-	<span class="n">dns_down_getredis_time</span> <span class="o">*</span><span class="n">pthis</span> <span class="o">=</span> <span class="p">(</span><span class="n">dns_down_getredis_time</span> <span class="o">*</span><span class="p">)</span><span class="n">c</span><span class="o">-</span><span class="o">&gt;</span><span class="n">data</span><span class="p">;</span>
-	<span class="k">if</span> <span class="p">(</span><span class="n">pthis</span><span class="o">-</span><span class="o">&gt;</span><span class="n">m_redisAsynHandler</span><span class="p">)</span>
-	<span class="p">{</span>
-		<span class="n">redisAsyncCommand</span><span class="p">(</span><span class="n">pthis</span><span class="o">-</span><span class="o">&gt;</span><span class="n">m_redisAsynHandler</span><span class="p">,</span> <span class="n">select_callback</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">SELECT %d</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">pthis</span><span class="o">-</span><span class="o">&gt;</span><span class="n">m_dbIndex</span><span class="p">)</span><span class="p">;</span>
-
-		<span class="n">REDIS_LOG_HEAD_FORTHREAD</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">connect redis by asyn suc!</span><span class="s">&#34;</span><span class="p">;</span>
-	<span class="p">}</span>
-	
-
-<span class="p">}</span>
-
-
-<span class="c1">//订阅模式
-</span><span class="c1"></span>
-<span class="kt">void</span> <span class="n">subCallback</span><span class="p">(</span><span class="n">redisAsyncContext</span> <span class="o">*</span><span class="n">c</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">r</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">priv</span><span class="p">)</span>
-<span class="p">{</span>
-	<span class="n">dns_down</span> <span class="o">*</span><span class="n">pthis</span> <span class="o">=</span> <span class="p">(</span><span class="n">dns_down</span><span class="o">*</span><span class="p">)</span><span class="n">c</span><span class="o">-</span><span class="o">&gt;</span><span class="n">data</span><span class="p">;</span>
-
-	<span class="n">redisReply</span> <span class="o">*</span><span class="n">_reply</span> <span class="o">=</span> <span class="p">(</span><span class="n">redisReply</span> <span class="o">*</span><span class="p">)</span><span class="n">r</span><span class="p">;</span>
-	<span class="kt">char</span> <span class="o">*</span> <span class="n">_chFlag</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">priv</span><span class="p">;</span>
-
-	<span class="k">if</span> <span class="p">(</span><span class="n">_reply</span><span class="o">-</span><span class="o">&gt;</span><span class="n">type</span> <span class="o">=</span><span class="o">=</span> <span class="n">REDIS_REPLY_ARRAY</span> <span class="o">&amp;</span><span class="o">&amp;</span> <span class="n">_reply</span><span class="o">-</span><span class="o">&gt;</span><span class="n">elements</span> <span class="o">=</span><span class="o">=</span> <span class="mi">3</span><span class="p">)</span><span class="c1">//sub
-</span><span class="c1"></span>    <span class="p">{</span>
-		<span class="n">REDIS_LOG_HEAD_FORTHREAD</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">get sub msg  channel: </span><span class="s">&#34;</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="n">_reply</span><span class="o">-</span><span class="o">&gt;</span><span class="n">element</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="o">&gt;</span><span class="n">str</span>
-			<span class="o">&lt;</span><span class="o">&lt;</span> <span class="sa"></span><span class="s">&#34;</span><span class="s"> context: </span><span class="s">&#34;</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="n">_reply</span><span class="o">-</span><span class="o">&gt;</span><span class="n">element</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="o">&gt;</span><span class="n">str</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="sa"></span><span class="s">&#34;</span><span class="s"> flag: </span><span class="s">&#34;</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="n">_reply</span><span class="o">-</span><span class="o">&gt;</span><span class="n">element</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="o">&gt;</span><span class="n">str</span><span class="p">;</span>
-
-
-<span class="p">}</span>
-<span class="nl">https</span><span class="p">:</span><span class="c1">//github.com/redis/hiredis/issues/55
-=======
 <pre class="chroma"><code class="language-c" data-lang="c"><span class="cm">/* Context for an async connection to Redis */</span>
 <span class="k">typedef</span> <span class="k">struct</span> <span class="n">redisAsyncContext</span> <span class="p">{</span>
     <span class="cm">/* Hold the regular context, so it can be realloc&#39;ed. */</span>
@@ -1538,17 +1052,16 @@
 
 <span class="p">}</span>
 <span class="nl">https</span><span class="p">:</span><span class="c1">//github.com/redis/hiredis/issues/55
->>>>>>> 3ef6d693d572b1aa1761578dca2c669bbd1f5d0d
 </span></code></pre></td></tr></table>
 </div>
 </div><p>strace  -T -tt -e trace=all -p 28900</p>
 <p>～～～～～～～～～～～～～～～～～～～～～～华丽分隔符～～～～～～～～～～～～～～～～～～</p>
-<h2 id="heading-8">数据</h2>
+<h2 id="数据">数据</h2>
 <p>Redis 集群使用数据分片（sharding）而非一致性哈希（consistency hashing）来实现</p>
 <p>Redis 集群包含 <code>16384</code> 个哈希槽（hash slot）， 数据库中的每个键都属于这 <code>16384</code> 个哈希槽的其中一个</p>
 <p>redis-trib.rb</p>
 <p>你只需要指定集群中其中一个节点的地址， <code>redis-trib</code> 就会自动找到集群中的其他节点。</p>
-<h1 id="heading-9">参考</h1>
+<h1 id="参考">参考</h1>
 <p><a href="http://redisdoc.com/topic/cluster-tutorial.html">http://redisdoc.com/topic/cluster-tutorial.html</a></p>
 <p><a href="http://redisbook.com/index.html">Redis 设计与实现</a></p>
 <p><a href="https://redis.io/topics/cluster-tutorial">https://redis.io/topics/cluster-tutorial</a></p>

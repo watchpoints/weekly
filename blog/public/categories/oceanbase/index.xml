@@ -6,11 +6,7 @@
     <description>Recent content in oceanbase on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 21 Dec 2024 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://wangcy6.github.io/categories/oceanbase/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 21 Dec 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/categories/oceanbase/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>成为ob贡献者(09):如何证明采用了PALF设计就是安全的</title>
       <link>https://wangcy6.github.io/post/oceanbase/2024/day09_make_ob/</link>
@@ -30,17 +26,21 @@
     </item>
     
     <item>
+      <title>成为ob贡献者(09):如何证明采用了PALF设计就是安全的</title>
+      <link>https://wangcy6.github.io/post/oceanbase/2024/day11/</link>
+      <pubDate>Sat, 21 Dec 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/oceanbase/2024/day11/</guid>
+      <description>来监督，哪天没打卡 私信我 第5章节：数据变更同步 原文： Besides serving transactions, distributed databases also act as the source of data flow. Downstream applications can be deployed to provide various services by synchronizing data changes recorded in physical logs. This section introduces two typical physical log synchronization scenarios in OceanBase, describes what challenges</description>
+    </item>
+    
+    <item>
       <title>成为ob贡献者(10)</title>
       <link>https://wangcy6.github.io/post/oceanbase/2024/day11PALF%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/</link>
       <pubDate>Sat, 21 Dec 2024 00:00:00 +0000</pubDate>
       
-<<<<<<< HEAD
-      <guid>https://wangcy6.github.io/post/oceanbase/2024/day11/</guid>
-      <description>来监督，哪天没打卡 私信我 第5章节：数据变更同步 原文： Besides serving transactions, distributed databases also act as the source of data flow. Downstream applications can be deployed to provide various services by synchronizing data changes recorded in physical logs. This section introduces two typical physical log synchronization scenarios in OceanBase, describes what challenges</description>
-=======
       <guid>https://wangcy6.github.io/post/oceanbase/2024/day11PALF%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/</guid>
       <description>为了整理思路，文章采用模拟2人对话方式，如有误，欢迎留言。 本文分为两个部分 捕捉想法: 通过别人分享 我了解到，在写数据库 之前，别人是看论文搞清楚</description>
->>>>>>> 3ef6d693d572b1aa1761578dca2c669bbd1f5d0d
     </item>
     
     <item>

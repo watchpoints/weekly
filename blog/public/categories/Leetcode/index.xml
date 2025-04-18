@@ -6,11 +6,7 @@
     <description>Recent content in Leetcode on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 04 Jan 2022 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://wangcy6.github.io/categories/Leetcode/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 04 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/categories/Leetcode/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>leetcode_medium_100-200</title>
       <link>https://wangcy6.github.io/post/leetcode/leetcode_medium/</link>
@@ -30,30 +26,12 @@
     </item>
     
     <item>
-      <title>leetcode 题目分类</title>
-      <link>https://wangcy6.github.io/post/leetcode/leetcode_tag/</link>
-      <pubDate>Wed, 28 Jul 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/leetcode/leetcode_tag/</guid>
-      <description>字符串 链表 奇偶链表 tree 图</description>
-    </item>
-    
-    <item>
       <title>leetcode_medium_300-400</title>
       <link>https://wangcy6.github.io/post/leetcode/leetcode_hard/</link>
       <pubDate>Wed, 10 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/leetcode/leetcode_hard/</guid>
       <description>开始日期 更新日期 备注 2020-6-10 2020-6-10 300-400中等难度总结 题目汇总 查找和最小的K对数字 合并K个排序链表 寻找两个有序数组的中位数 K个有序数组的中位数 m</description>
-    </item>
-    
-    <item>
-      <title>template</title>
-      <link>https://wangcy6.github.io/post/leetcode/template/</link>
-      <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/leetcode/template/</guid>
-      <description>一、题目信息 今天来做这个题目，主要考察的xxx 链接：玻璃球 来源：Interview Question 难度：Hard 二、思路描述 能说出基本思想即可,实在不行动</description>
     </item>
     
     <item>
@@ -72,15 +50,6 @@
       
       <guid>https://wangcy6.github.io/post/leetcode/leetcod_easy/</guid>
       <description>开始日期 更新日期 备注 2020-6-17 2020-6-17 leetcode_easy_200-300 绘图工具 https://app.diagrams.net/#Hwatchpoints%2Fdaily-interview%2Fmain%2Fleetcode%2Fppt%2F%E6%9C%AA%E5%91%BD%E5%90%8D%E7%BB%98%E5%9B%BE.drawio http://127.0.0.1:1313/post/leetcode/leetcod_easy/ 题目汇总 最后一个单词的长度 796. 旋转字符串 151. 翻转字符串里的单词 感觉理解 1 。之翻转 blue eulb &amp;mdash;&amp;gt;</description>
-    </item>
-    
-    <item>
-      <title>system_desing</title>
-      <link>https://wangcy6.github.io/post/leetcode/system_desing/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/leetcode/system_desing/</guid>
-      <description>开始日期 更新日期 备注 2020-6-10 2020-6-10 中等难度总结 题目汇总 用链表设计一个环形队列。满足先进先出，支持任意类型 和 快速a计算，b计算和c计算（干扰信息） 2个大</description>
     </item>
     
   </channel>

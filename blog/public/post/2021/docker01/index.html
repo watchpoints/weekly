@@ -23,11 +23,7 @@
 
 
 
-<<<<<<< HEAD
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
-=======
 <meta name="generator" content="Hugo 0.83.1 with theme even" />
->>>>>>> 3ef6d693d572b1aa1761578dca2c669bbd1f5d0d
 
 
 <link rel="canonical" href="https://wangcy6.github.io/post/2021/docker01/" />
@@ -45,19 +41,6 @@
 <meta property="og:title" content="docker入门教程" />
 <meta property="og:description" content="docker入门教程" />
 <meta property="og:type" content="article" />
-<<<<<<< HEAD
-<meta property="og:url" content="https://wangcy6.github.io/post/2021/docker01/" />
-<meta property="article:published_time" content="2021-08-25T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-08-25T00:00:00+00:00" />
-<meta itemprop="name" content="docker入门教程">
-<meta itemprop="description" content="docker入门教程">
-<meta itemprop="datePublished" content="2021-08-25T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2021-08-25T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="932">
-
-
-
-=======
 <meta property="og:url" content="https://wangcy6.github.io/post/2021/docker01/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2021-08-25T00:00:00&#43;00:00" />
 <meta property="article:modified_time" content="2021-08-25T00:00:00&#43;00:00" />
@@ -66,7 +49,6 @@
 <meta itemprop="description" content="docker入门教程"><meta itemprop="datePublished" content="2021-08-25T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2021-08-25T00:00:00&#43;00:00" />
 <meta itemprop="wordCount" content="932">
->>>>>>> 3ef6d693d572b1aa1761578dca2c669bbd1f5d0d
 <meta itemprop="keywords" content="code_reading," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="docker入门教程"/>
 <meta name="twitter:description" content="docker入门教程"/>
@@ -159,26 +141,26 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#-4">容器网络 (4讲)</a></li>
+        <li><a href="#容器网络-4讲">容器网络 (4讲)</a></li>
       </ul>
     </li>
   </ul>
 
   <ul>
-    <li><a href="#heading-3">基本操作</a>
+    <li><a href="#基本操作">基本操作</a>
       <ul>
-        <li><a href="#heading-4">安装</a></li>
-        <li><a href="#docker-">docker 基本操作</a></li>
+        <li><a href="#安装">安装</a></li>
+        <li><a href="#docker-基本操作">docker 基本操作</a></li>
       </ul>
     </li>
-    <li><a href="#book">二、BOOK</a>
+    <li><a href="#二book">二、BOOK</a>
       <ul>
-        <li><a href="#21--httpsyeasygitbookiodocker-practice-docker3">2.1 第一本  Docker技术入门与实战（第3版）</a></li>
-        <li><a href="#211-">2.1.1 底层实现</a></li>
+        <li><a href="#21-第一本-httpsyeasygitbookiodocker_practice-docker技术入门与实战第3版">2.1 第一本 <a href="https://yeasy.gitbook.io/docker_practice/">https://yeasy.gitbook.io/docker_practice/</a> <strong>Docker技术入门与实战（第3版）</strong></a></li>
+        <li><a href="#211-底层实现">2.1.1 底层实现</a></li>
       </ul>
     </li>
-    <li><a href="#22-docker-">2.2 第二本：Docker 源码分析</a></li>
-    <li><a href="#23--">2.3 第三本：容器实战高手课 在实战中深入理解容器技术的本质</a></li>
+    <li><a href="#22-第二本docker-源码分析">2.2 第二本：Docker 源码分析</a></li>
+    <li><a href="#23-第三本容器实战高手课-在实战中深入理解容器技术的本质">2.3 第三本：容器实战高手课 在实战中深入理解容器技术的本质</a></li>
   </ul>
 </nav>
   </div>
@@ -189,7 +171,7 @@
     </div>
   </div>
     <div class="post-content">
-      <h1 id="heading">目标：</h1>
+      <h1 id="目标">目标：</h1>
 <blockquote>
 <p>容器实战高手课 在实战中深入理解容器技术的本质</p>
 </blockquote>
@@ -204,8 +186,8 @@
 <blockquote>
 <p>之前看到这个东西时候感觉很好，工作不用，然后慢慢学，结果自己忘记了。</p>
 </blockquote>
-<h1 id="heading-1">摘要：</h1>
-<h3 id="-4">容器网络 (4讲)</h3>
+<h1 id="摘要">摘要：</h1>
+<h3 id="容器网络-4讲">容器网络 (4讲)</h3>
 <p>15 | 容器网络：我修改了/proc/sys/net下的参数，为什么在容器中不起效</p>
 <ul>
 <li>重要文档  !!! <a href="https://www.kernel.org/doc/Documentation/sysctl/net.txt">https://www.kernel.org/doc/Documentation/sysctl/net.txt</a></li>
@@ -218,11 +200,11 @@
 <p>strace -T -tt -ff -p pid -o strace.out</p>
 <p><a href="https://eli.thegreenplace.net/2011/01/23/how-debuggers-work-part-1/">https://eli.thegreenplace.net/2011/01/23/how-debuggers-work-part-1/</a></p>
 <h1 id="docker">docker</h1>
-<h1 id="heading-2">第一天</h1>
-<h2 id="heading-3">基本操作</h2>
+<h1 id="第一天">第一天</h1>
+<h2 id="基本操作">基本操作</h2>
 <p><a href="https://hub.fastgit.org/docker">https://hub.fastgit.org/docker</a></p>
 <p><a href="https://github.com/docker">https://github.com/docker</a></p>
-<h3 id="heading-4">安装</h3>
+<h3 id="安装">安装</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -251,7 +233,7 @@ yum install -y nginx
 service nginx start
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="docker-">docker 基本操作</h3>
+</div><h3 id="docker-基本操作">docker 基本操作</h3>
 <ul>
 <li>
 <p>启动</p>
@@ -292,16 +274,16 @@ $ docker logs --since 30m CONTAINER_ID
 docker logs -f --tail<span class="o">=</span><span class="m">100</span> f215dfab44fd
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="book">二、BOOK</h2>
-<h3 id="21--httpsyeasygitbookiodocker-practice-docker3">2.1 第一本 <a href="https://yeasy.gitbook.io/docker_practice/">https://yeasy.gitbook.io/docker_practice/</a> <strong>Docker技术入门与实战（第3版）</strong></h3>
+</div><h2 id="二book">二、BOOK</h2>
+<h3 id="21-第一本-httpsyeasygitbookiodocker_practice-docker技术入门与实战第3版">2.1 第一本 <a href="https://yeasy.gitbook.io/docker_practice/">https://yeasy.gitbook.io/docker_practice/</a> <strong>Docker技术入门与实战（第3版）</strong></h3>
 <p><a href="https://yeasy.gitbook.io/docker_practice/">https://yeasy.gitbook.io/docker_practice/</a></p>
-<h3 id="211-">2.1.1 底层实现</h3>
+<h3 id="211-底层实现">2.1.1 底层实现</h3>
 <p>Docker 底层的核心技术包括 Linux 上的命名空间（Namespaces）、控制组（Control groups）、Union 文件系统（Union file systems）和容器格式（Container format）</p>
-<h2 id="22-docker-">2.2 第二本：Docker 源码分析</h2>
+<h2 id="22-第二本docker-源码分析">2.2 第二本：Docker 源码分析</h2>
 <p>本文主要剖析 docker-ce 的源码。</p>
 <p>docker-ce github:
 <a href="https://links.jianshu.com/go?to=https%3A%2F%2Fgithub.com%2Fdocker%2Fdocker-ce">https://github.com/docker/docker-ce</a></p>
-<h2 id="23--">2.3 第三本：容器实战高手课 在实战中深入理解容器技术的本质</h2>
+<h2 id="23-第三本容器实战高手课-在实战中深入理解容器技术的本质">2.3 第三本：容器实战高手课 在实战中深入理解容器技术的本质</h2>
 <ol>
 <li>16 | 容器网络配置（1）：容器网络不通了要怎么调试?</li>
 </ol>

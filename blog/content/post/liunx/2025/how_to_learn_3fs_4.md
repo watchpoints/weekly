@@ -131,7 +131,6 @@ new 是运算符，运算符就支持重载，因为operator new 。。。。（
 
 开始 干活
 
-
 演示代码：
 
 
@@ -922,6 +921,16 @@ static void loadMemoryAllocatorLib() {
 - 使用：程序运行期间
 - 卸载：程序退出时通过 shutdown 函数清理
 
+
+## 小总
+
+`__attribute__((weak))` 是 GCC 和 Clang 提供的一个特性，
+用于声明一个符号为 "弱符号"（weak symbol），
+在链接层面提供更多的灵活性。
+注意并不是 C 语言标准的一部分
+https://fenglielie.top/p/36786e00/
+
+
 ## 链接我 
 
 
@@ -970,3 +979,21 @@ static void loadMemoryAllocatorLib() {
 2. 工作中不公平对待
 3. 制造恶性竞争
 4. 捧杀
+
+
+
+- L1 cache reference 0.5 ns
+- Branch mispredict 5 ns
+- L2 cache reference 7 ns
+- Mutex lock/unlock 100 ns
+- Main memory reference 100 ns
+- Compress 1K bytes with Zippy 10,000 ns
+- Send 2K bytes over 1 Gbps network 20,000 ns
+- Read 1 MB sequentially from memory 250,000 ns
+- Round trip within same datacenter 500,000 ns
+- Disk seek 10,000,000 ns
+- Read 1 MB sequentially from network 10,000,000 ns
+- Read 1 MB sequentially from disk 30,000,000 ns
+- Send packet CA->Netherlands->CA 150,000,000 ns
+
+

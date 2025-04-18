@@ -7,5 +7,10 @@
   "homepage",
   "obsidian-outliner",
   "templater-obsidian",
-  "obsidian-word-sprint"
+  "obsidian-word-sprint",
+  "obsidian-image-auto-upload-plugin",
+  "obsidian-languagetool-plugin",
+  "languagetool",
+  "obsidian-textgenerator-plugin",
+  "copilot"
 ]
