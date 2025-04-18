@@ -3,7 +3,8 @@
   "obsidian-kanban",
   "obsidian-style-settings",
   "calendar",
-  "copilot",
-  "obsidian-enhancing-export",
-  "obsidian-image-auto-upload-plugin"
+  "obsidian-image-auto-upload-plugin",
+  "obsidian-languagetool-plugin",
+  "obsidian-orthography",
+  "editing-toolbar"
 ]
