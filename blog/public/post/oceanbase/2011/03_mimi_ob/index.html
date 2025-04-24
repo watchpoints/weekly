@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.83.1 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
 <link rel="canonical" href="https://wangcy6.github.io/post/oceanbase/2011/03_mimi_ob/" />
@@ -41,14 +41,15 @@
 <meta property="og:title" content="mimob代码阅读" />
 <meta property="og:description" content="慢慢来，多看、多问、多总结 预备知识： 源码：https://github.com/watchpoints/miniob 2019CMU数据库导论" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://wangcy6.github.io/post/oceanbase/2011/03_mimi_ob/" /><meta property="article:section" content="post" />
-
-
+<meta property="og:url" content="https://wangcy6.github.io/post/oceanbase/2011/03_mimi_ob/" />
 
 <meta itemprop="name" content="mimob代码阅读">
 <meta itemprop="description" content="慢慢来，多看、多问、多总结 预备知识： 源码：https://github.com/watchpoints/miniob 2019CMU数据库导论">
 
 <meta itemprop="wordCount" content="6678">
+
+
+
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="mimob代码阅读"/>
 <meta name="twitter:description" content="慢慢来，多看、多问、多总结 预备知识： 源码：https://github.com/watchpoints/miniob 2019CMU数据库导论"/>
@@ -139,30 +140,30 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#预备知识">预备知识：</a></li>
-    <li><a href="#文章">文章</a></li>
-    <li><a href="#select-tables多表查询">select-tables多表查询</a>
+    <li><a href="#heading">预备知识：</a></li>
+    <li><a href="#heading-1">文章</a></li>
+    <li><a href="#select-tables">select-tables多表查询</a>
       <ul>
-        <li><a href="#测试用例">测试用例</a></li>
+        <li><a href="#heading-2">测试用例</a></li>
       </ul>
     </li>
-    <li><a href="#多列索引-multi-index">多列索引 multi-index</a>
+    <li><a href="#-multi-index">多列索引 multi-index</a>
       <ul>
-        <li><a href="#知识准备">知识准备</a></li>
-        <li><a href="#数据结构">数据结构</a></li>
-        <li><a href="#算法">算法</a></li>
+        <li><a href="#heading-3">知识准备</a></li>
+        <li><a href="#heading-4">数据结构</a></li>
+        <li><a href="#heading-5">算法</a></li>
         <li><a href="#bug">bug</a></li>
       </ul>
     </li>
-    <li><a href="#次插入多条数据-insert">⼀次插入多条数据 insert</a>
+    <li><a href="#-insert">⼀次插入多条数据 insert</a>
       <ul>
-        <li><a href="#1-测试用例">1. 测试用例</a></li>
-        <li><a href="#2-数据结构">2. 数据结构</a></li>
-        <li><a href="#3-算法">3. 算法</a></li>
-        <li><a href="#4-工具">4 工具</a></li>
+        <li><a href="#1-">1. 测试用例</a></li>
+        <li><a href="#2-">2. 数据结构</a></li>
+        <li><a href="#3-">3. 算法</a></li>
+        <li><a href="#4-">4 工具</a></li>
         <li><a href="#day1">day1</a></li>
-        <li><a href="#题目2unique">题目2：unique</a></li>
-        <li><a href="#题目1">题目1</a></li>
+        <li><a href="#2unique">题目2：unique</a></li>
+        <li><a href="#1">题目1</a></li>
       </ul>
     </li>
   </ul>
@@ -178,7 +179,7 @@
       <blockquote>
 <p>慢慢来，多看、多问、多总结</p>
 </blockquote>
-<h2 id="预备知识">预备知识：</h2>
+<h2 id="heading">预备知识：</h2>
 <ul>
 <li>源码：https://github.com/watchpoints/miniob</li>
 <li>2019CMU数据库导论(intro to database systems fall 2019) <a href="https://www.bilibili.com/video/av91919329?amp%3Bseid=15982257803189242166">https://www.bilibili.com/video/av91919329?amp%3Bseid=15982257803189242166</a></li>
@@ -187,7 +188,7 @@
 <li><a href="https://github.com/tidb-incubator/tinykv">https://github.com/tidb-incubator/tinykv</a></li>
 <li><a href="https://github.com/WenbinZhu/cmu-15-445">https://github.com/WenbinZhu/cmu-15-445</a> CMU 15-445 Project 1</li>
 </ul>
-<h2 id="文章">文章</h2>
+<h2 id="heading-1">文章</h2>
 <ul>
 <li><a href="https://github.com/oceanbase/miniob/wiki/%E4%BD%BF%E7%94%A8-ASAN-%E6%B5%8B%E8%AF%95-MiniOB-%E5%86%85%E5%AD%98%E9%97%AE%E9%A2%98">https://github.com/oceanbase/miniob/wiki/%E4%BD%BF%E7%94%A8-ASAN-%E6%B5%8B%E8%AF%95-MiniOB-%E5%86%85%E5%AD%98%E9%97%AE%E9%A2%98</a></li>
 <li>使用 ASAN 测试 MiniOB 内存问题</li>
@@ -222,8 +223,8 @@ yum install libasan
 
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="select-tables多表查询">select-tables多表查询</h2>
-<h3 id="测试用例">测试用例</h3>
+</div><h2 id="select-tables">select-tables多表查询</h2>
+<h3 id="heading-2">测试用例</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">  1
@@ -476,8 +477,8 @@ SELECT_TABLES_1.ID | SELECT_TABLES_6.ID
 
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="多列索引-multi-index">多列索引 multi-index</h2>
-<h3 id="知识准备">知识准备</h3>
+</div><h2 id="-multi-index">多列索引 multi-index</h2>
+<h3 id="heading-3">知识准备</h3>
 <ul>
 <li><a href="https://zhuanlan.zhihu.com/p/382244184">https://zhuanlan.zhihu.com/p/382244184</a></li>
 <li><a href="https://www.cnblogs.com/sun-lingyu/p/15198683.html">https://www.cnblogs.com/sun-lingyu/p/15198683.html</a></li>
@@ -873,7 +874,7 @@ FAILURE
 
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="数据结构">数据结构</h3>
+</div><h3 id="heading-4">数据结构</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -1024,7 +1025,7 @@ struct IndexFileHeader {
 
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="算法">算法</h3>
+</div><h3 id="heading-5">算法</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -1053,25 +1054,25 @@ struct IndexFileHeader {
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-cpp" data-lang="cpp">
-<span class="err">创建索引流程：</span><span class="n">SCF_CREATE_INDEX</span>
-<span class="n">ExecuteStage</span><span class="o">::</span><span class="n">do_create_index</span><span class="o">--&gt;</span><span class="n">Table</span><span class="o">::</span><span class="n">create_index</span> <span class="o">--&gt;</span><span class="n">BplusTreeIndex</span><span class="o">::</span><span class="n">create</span>
-<span class="o">---&gt;</span><span class="n">RC</span> <span class="n">BplusTreeIndex</span><span class="o">::</span><span class="n">create_multi</span>
+<span class="err">创</span><span class="err">建</span><span class="err">索</span><span class="err">引</span><span class="err">流</span><span class="err">程</span><span class="err">：</span><span class="n">SCF_CREATE_INDEX</span>
+<span class="n">ExecuteStage</span><span class="o">:</span><span class="o">:</span><span class="n">do_create_index</span><span class="o">-</span><span class="o">-</span><span class="o">&gt;</span><span class="n">Table</span><span class="o">:</span><span class="o">:</span><span class="n">create_index</span> <span class="o">-</span><span class="o">-</span><span class="o">&gt;</span><span class="n">BplusTreeIndex</span><span class="o">:</span><span class="o">:</span><span class="n">create</span>
+<span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">&gt;</span><span class="n">RC</span> <span class="n">BplusTreeIndex</span><span class="o">:</span><span class="o">:</span><span class="n">create_multi</span>
     
-<span class="err">插入数据流程：走索引的插入</span>
-<span class="n">ExecuteStage</span><span class="o">::</span><span class="n">do_insert</span><span class="o">---&gt;</span><span class="n">Table</span><span class="o">::</span><span class="n">insert_record_mult_rows</span><span class="o">--&gt;</span><span class="n">Trx</span><span class="o">::</span><span class="n">insert_record</span>
-<span class="o">---&gt;</span><span class="n">Table</span><span class="o">::</span><span class="n">insert_entry_of_indexes</span><span class="o">---&gt;</span><span class="n">BplusTreeHandler</span><span class="o">::</span><span class="n">insert_entry</span>
+<span class="err">插</span><span class="err">入</span><span class="err">数</span><span class="err">据</span><span class="err">流</span><span class="err">程</span><span class="err">：</span><span class="err">走</span><span class="err">索</span><span class="err">引</span><span class="err">的</span><span class="err">插</span><span class="err">入</span>
+<span class="n">ExecuteStage</span><span class="o">:</span><span class="o">:</span><span class="n">do_insert</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">&gt;</span><span class="n">Table</span><span class="o">:</span><span class="o">:</span><span class="n">insert_record_mult_rows</span><span class="o">-</span><span class="o">-</span><span class="o">&gt;</span><span class="n">Trx</span><span class="o">:</span><span class="o">:</span><span class="n">insert_record</span>
+<span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">&gt;</span><span class="n">Table</span><span class="o">:</span><span class="o">:</span><span class="n">insert_entry_of_indexes</span><span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">&gt;</span><span class="n">BplusTreeHandler</span><span class="o">:</span><span class="o">:</span><span class="n">insert_entry</span>
 
-    <span class="n">BplusTreeHandler</span><span class="o">::</span><span class="n">make_key</span>
-<span class="err">查找</span> 
-<span class="n">ExecuteStage</span><span class="o">::</span><span class="n">do_select</span> <span class="o">---&gt;</span><span class="n">IndexScanOperator</span> <span class="o">*</span><span class="n">try_to_create_index_scan_operator</span>
-  <span class="n">IndexScanOperator</span><span class="o">::</span><span class="n">IndexScanOperator</span><span class="p">(</span>  
+    <span class="n">BplusTreeHandler</span><span class="o">:</span><span class="o">:</span><span class="n">make_key</span>
+<span class="err">查</span><span class="err">找</span> 
+<span class="n">ExecuteStage</span><span class="o">:</span><span class="o">:</span><span class="n">do_select</span> <span class="o">-</span><span class="o">-</span><span class="o">-</span><span class="o">&gt;</span><span class="n">IndexScanOperator</span> <span class="o">*</span><span class="n">try_to_create_index_scan_operator</span>
+  <span class="n">IndexScanOperator</span><span class="o">:</span><span class="o">:</span><span class="n">IndexScanOperator</span><span class="p">(</span>  
     
-<span class="n">Table</span><span class="o">::</span><span class="n">create_index</span>
-    <span class="mf">1.</span> <span class="err">检测字段是否存在</span> <span class="n">find_mult_index_by_field</span>
-    <span class="mf">2.</span> <span class="err">创建</span><span class="n">b</span><span class="o">+</span> <span class="n">index</span><span class="o">-&gt;</span><span class="n">create_multi</span>
-    <span class="mf">3.</span> <span class="err">遍历当前的所有数据，插入这个索引</span>
+<span class="n">Table</span><span class="o">:</span><span class="o">:</span><span class="n">create_index</span>
+    <span class="mf">1.</span> <span class="err">检</span><span class="err">测</span><span class="err">字</span><span class="err">段</span><span class="err">是</span><span class="err">否</span><span class="err">存</span><span class="err">在</span> <span class="n">find_mult_index_by_field</span>
+    <span class="mf">2.</span> <span class="err">创</span><span class="err">建</span><span class="n">b</span><span class="o">+</span> <span class="n">index</span><span class="o">-</span><span class="o">&gt;</span><span class="n">create_multi</span>
+    <span class="mf">3.</span> <span class="err">遍</span><span class="err">历</span><span class="err">当</span><span class="err">前</span><span class="err">的</span><span class="err">所</span><span class="err">有</span><span class="err">数</span><span class="err">据</span><span class="err">，</span><span class="err">插</span><span class="err">入</span><span class="err">这</span><span class="err">个</span><span class="err">索</span><span class="err">引</span>
     
-<span class="n">BplusTreeIndex</span><span class="o">::</span><span class="n">create_multi</span>
+<span class="n">BplusTreeIndex</span><span class="o">:</span><span class="o">:</span><span class="n">create_multi</span>
     
     
 
@@ -1206,8 +1207,8 @@ RC DefaultHandler::create_index(
 }
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="次插入多条数据-insert">⼀次插入多条数据 insert</h2>
-<h3 id="1-测试用例">1. 测试用例</h3>
+</div><h2 id="-insert">⼀次插入多条数据 insert</h2>
+<h3 id="1-">1. 测试用例</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -1316,7 +1317,7 @@ RC ExecuteStage::do_insert(SQLStageEvent *sql_event)
 
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="2-数据结构">2. 数据结构</h3>
+</div><h3 id="2-">2. 数据结构</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -1373,7 +1374,7 @@ typedef enum
 } AttrType
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="3-算法">3. 算法</h3>
+</div><h3 id="3-">3. 算法</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -1424,7 +1425,7 @@ insert3 failed
 
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="4-工具">4 工具</h3>
+</div><h3 id="4-">4 工具</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -1550,7 +1551,7 @@ http://www.ruanyifeng.com/blog/2017/09/flame-graph.html
 </div><h3 id="day1">day1</h3>
 <ul>
 <li>
-<p><input disabled="" type="checkbox"> <a href="https://github.com/watchpoints/miniob_2022/blob/main/docs/how_to_build.md">https://github.com/watchpoints/miniob_2022/blob/main/docs/how_to_build.md</a></p>
+<p><input disabled="" type="checkbox"><a href="https://github.com/watchpoints/miniob_2022/blob/main/docs/how_to_build.md">https://github.com/watchpoints/miniob_2022/blob/main/docs/how_to_build.md</a></p>
 </li>
 <li>
 <p>centos7.8系统【建议用8】</p>
@@ -1624,7 +1625,7 @@ gcc <span class="o">(</span>GCC<span class="o">)</span> 4.8.5 <span class="m">20
 tar xzvf gcc-11.3.0.tar.gz
 <span class="nb">cd</span> gcc-11.3.0
 
-<span class="c1"># gcc不同版本切换 </span>
+<span class="c1"># gcc不同版本切换</span> 
 
 Centos7 使用 yum 安装的 GCC 版本是 4.8.5，蛮老的版本了，现在稍微新一点的库都要求 GCC5 以上，但是重新编译安装最新的GCC又特别麻烦，而且不能在各个版本的 GCC 之间来回切换，不够灵活，刚好有一个叫做 SCL 的软件库可以提供不同版本 GCC 的灵活切换，可以完美解决我们的需求，安装十分简单：
 ————————————————
@@ -1633,7 +1634,7 @@ Centos7 使用 yum 安装的 GCC 版本是 4.8.5，蛮老的版本了，现在�
 
 yum install centos-release-scl scl-utils-build
 yum search devtoolset <span class="c1"># 搜索 GCC</span>
-devtoolset-9-gcc.x86_64 : GCC version <span class="m">9</span>
+devtoolset-9-gcc.x86_64 : GCC version 9
 
 yum install devtoolset-9-gcc.x86_64 
 scl <span class="nb">enable</span> devtoolset-9 <span class="c1"># 启用 GC9</span>
@@ -1710,7 +1711,7 @@ sudo make instal
 
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="centos7-不行升级为centos8">centos7 不行升级为centos8</h4>
+</div><h4 id="centos7-centos8">centos7 不行升级为centos8</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -1805,7 +1806,7 @@ make
 </div><ul>
 <li><a href="https://github.com/watchpoints/miniob_2022/blob/main/docs/miniob-introduction.md">https://github.com/watchpoints/miniob_2022/blob/main/docs/miniob-introduction.md</a></li>
 </ul>
-<h4 id="运行服务端">运行服务端</h4>
+<h4 id="heading-6">运行服务端</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -1881,8 +1882,8 @@ export LD_LIBRARY=$LD_LIBRARY:/usr/local/lib64:/root/github/miniob_2022/deps/jso
 3、深入了解数据库原理，熟练掌握分布式存储、计算、查询优化器的关键技术并有实战经验；
 4、熟读过 StarRocks / Apache Doris / Rocksdb / TiDB / CockroachDB 任一代码优先；
 5、开源作品、大厂分布式系统实践、ACM、国内一线技术竞赛获奖经验加分。</p>
-<h3 id="题目2unique">题目2：unique</h3>
-<h4 id="21-测试">2.1 测试</h4>
+<h3 id="2unique">题目2：unique</h3>
+<h4 id="21-">2.1 测试</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -2025,7 +2026,7 @@ miniob &gt; select * from unique_table;
 
 </code></pre></td></tr></table>
 </div>
-</div><h5 id="22-流程图">2.2 流程图</h5>
+</div><h5 id="22-">2.2 流程图</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -2070,14 +2071,14 @@ miniob &gt; select * from unique_table;
 <span class="kt">void</span> <span class="n">query_reset</span><span class="p">(</span><span class="n">Query</span> <span class="o">*</span><span class="n">query</span><span class="p">)</span>
 
 <span class="n">src</span><span class="o">/</span><span class="n">observer</span><span class="o">/</span><span class="n">sql</span><span class="o">/</span><span class="n">executor</span><span class="o">/</span><span class="n">execute_stage</span><span class="p">.</span><span class="n">cpp</span>
-<span class="kt">void</span> <span class="n">ExecuteStage</span><span class="o">::</span><span class="n">handle_request</span><span class="p">(</span><span class="n">common</span><span class="o">::</span><span class="n">StageEvent</span> <span class="o">*</span><span class="n">event</span><span class="p">)</span>
+<span class="kt">void</span> <span class="n">ExecuteStage</span><span class="o">:</span><span class="o">:</span><span class="n">handle_request</span><span class="p">(</span><span class="n">common</span><span class="o">:</span><span class="o">:</span><span class="n">StageEvent</span> <span class="o">*</span><span class="n">event</span><span class="p">)</span>
 
 <span class="n">src</span><span class="o">/</span><span class="n">observer</span><span class="o">/</span><span class="n">sql</span><span class="o">/</span><span class="n">executor</span><span class="o">/</span><span class="n">execute_stage</span><span class="p">.</span><span class="n">cpp</span>
-<span class="n">RC</span> <span class="n">Table</span><span class="o">::</span><span class="n">create_unique_index</span><span class="p">(</span><span class="n">Trx</span> <span class="o">*</span><span class="n">trx</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">index_name</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">attribute_name</span><span class="p">)</span>
+<span class="n">RC</span> <span class="n">Table</span><span class="o">:</span><span class="o">:</span><span class="n">create_unique_index</span><span class="p">(</span><span class="n">Trx</span> <span class="o">*</span><span class="n">trx</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">index_name</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">attribute_name</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="题目1">题目1</h3>
-<h4 id="流程">流程</h4>
+</div><h3 id="1">题目1</h3>
+<h4 id="heading-7">流程</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -2116,7 +2117,7 @@ ResolveStage::handle_event
 
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="代码">代码</h4>
+</div><h4 id="heading-8">代码</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -2209,7 +2210,7 @@ flex --header-file=lex.yy.h lex_sql.l
 bison -d -b yacc_sql yacc_sql.y
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="测试">测试</h4>
+</div><h4 id="heading-9">测试</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1

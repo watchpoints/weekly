@@ -6,7 +6,11 @@
     <description>Recent content in tool on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 02 Dec 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/categories/tool/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 02 Dec 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://wangcy6.github.io/categories/tool/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>提高工作效率的几个工具</title>
       <link>https://wangcy6.github.io/post/2020/%E6%8F%90%E9%AB%98%E5%B7%A5%E4%BD%9C%E6%95%88%E7%8E%87%E7%9A%84%E5%87%A0%E4%B8%AA%E5%B7%A5%E5%85%B7/</link>

@@ -6,7 +6,11 @@
     <description>Recent content in 大话设计模式 on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 27 Nov 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/tags/%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 27 Nov 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://wangcy6.github.io/tags/%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>设计之禅</title>
       <link>https://wangcy6.github.io/post/2020/%E6%A8%A1%E6%9D%BF/</link>

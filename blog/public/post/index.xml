@@ -6,7 +6,56 @@
     <description>Recent content in Posts on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 07 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 24 Apr 2025 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://wangcy6.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Cursor 实战技巧：如何快速配置 Python 环境</title>
+      <link>https://wangcy6.github.io/post/python/01_how_to_install_python/</link>
+      <pubDate>Thu, 24 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/python/01_how_to_install_python/</guid>
+      <description>#python入门 #日拱一卒 #从青铜到王者 Python 作为一门功能强大的编程语言，在数据分析、人工智能、Web 开发等领域有着广泛的应用。其简洁的语法和</description>
+    </item>
+    
+    <item>
+      <title>性能优化</title>
+      <link>https://wangcy6.github.io/post/liunx/2025/10_Interview_pm_ehance_2/</link>
+      <pubDate>Fri, 18 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/liunx/2025/10_Interview_pm_ehance_2/</guid>
+      <description>一、目前我什么状态。 二、未来我要成为什么状态 2.1 了解企业对岗位招聘标准 2.2 熟悉职场晋升打怪升级规则（为什么**B类人才这么卷） S、A、B、C级人</description>
+    </item>
+    
+    <item>
+      <title>如何判断一个进程是否存活</title>
+      <link>https://wangcy6.github.io/post/liunx/2025/07_interview_pm_netwang/</link>
+      <pubDate>Thu, 17 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/liunx/2025/07_interview_pm_netwang/</guid>
+      <description>大家好，这是大厂面试拆解&amp;ndash;项目篇 系列的第2篇文章 如果你面试 或者工作中遇到相关问题，欢迎留言！ 一、 如何学（可以跳过不看） 1. 问题是什</description>
+    </item>
+    
+    <item>
+      <title>面试官：为啥 Redis 使用跳表 而不是使用 红黑树？</title>
+      <link>https://wangcy6.github.io/post/liunx/2025/06_how_to_learn_red_tree/</link>
+      <pubDate>Mon, 14 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/liunx/2025/06_how_to_learn_red_tree/</guid>
+      <description>大家好，这是大厂面试拆解&amp;ndash;数据结构与算法系列的第2篇文章 如果你面试 或者工作中遇到相关问题，欢迎留言！ 阅读本文 你获得如下收益 ✅ 通过</description>
+    </item>
+    
+    <item>
+      <title>用Obsidian打造自己的写作系统</title>
+      <link>https://wangcy6.github.io/post/ai/02_how_to_use_Obsidian/</link>
+      <pubDate>Sat, 12 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ai/02_how_to_use_Obsidian/</guid>
+      <description>写作步骤哪些 选题&amp;ndash;素材&amp;mdash;整理 检查 Q1：经常有错别字，句子不通顺 怎么办？ Obsidian LanguageTool 插件是一个为 Obsidian 文本编辑器提供的高级语法和拼</description>
+    </item>
+    
     <item>
       <title>ContextOS 模块开发与架构解析笔记</title>
       <link>https://wangcy6.github.io/post/ContextOS/01_what_is_contextos/</link>
@@ -53,6 +102,24 @@
     </item>
     
     <item>
+      <title>如何批量投递简历</title>
+      <link>https://wangcy6.github.io/post/ai/02_how_to_use_Copilot/</link>
+      <pubDate>Thu, 03 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ai/02_how_to_use_Copilot/</guid>
+      <description>利用DeepSeek-V3和 Obsidian 构建个人知识库 通过阅读本篇文章你获得如何收益 按下 Ctrl+Shift+I (Windows/Linux) 或 Cmd+Option+I (Mac) 组合 步骤1 Why integrate Obsidian and DeepSeek? DeepSeek 的网页界面免费访问它，但不断的</description>
+    </item>
+    
+    <item>
+      <title>什么是块存储</title>
+      <link>https://wangcy6.github.io/post/liunx/2025/06_file_system_block/</link>
+      <pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/liunx/2025/06_file_system_block/</guid>
+      <description>本文的写作宗旨是：绝不装逼，一定要简单，简单，再简单！ 作为个人学习实践笔记，可能存在错误或遗漏，欢迎指正_ 大纲 对象存储、文件存储和块存储的区</description>
+    </item>
+    
+    <item>
       <title>深入浅出理解DeepSeek 3FS (3) 步步引导轻松理解内存管理，面试必看</title>
       <link>https://wangcy6.github.io/post/liunx/2025/05-how_is_ctdb/</link>
       <pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate>
@@ -77,6 +144,15 @@
       
       <guid>https://wangcy6.github.io/post/liunx/2025/how_to_learn_3fs_4/</guid>
       <description>🌟 大家好，我是小王同学， 今天带你们一起探秘内存分配的奥秘！ 本文主要描述了如何为一个类自定义new实现 大胆猜测，小心求证过程中 C++的new实</description>
+    </item>
+    
+    <item>
+      <title>面试题——谈谈指针和引用的区别</title>
+      <link>https://wangcy6.github.io/post/liunx/2025/07_Interview_C&#43;&#43;_pointer/</link>
+      <pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/liunx/2025/07_Interview_C&#43;&#43;_pointer/</guid>
+      <description>一、 大纲 什么场景必须用指针,不能使用引用。 1. 大局观：重要的数据结构 必须用指针表示 STL 提供容器vector map ,set STL提供智能指针，自定义一些类 基</description>
     </item>
     
     <item>
@@ -382,7 +458,7 @@
       <pubDate>Thu, 28 Mar 2024 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/storage/05-2024-3-08-ceph-read/</guid>
-      <description>entity_id 这个能改变吗？ 通过S3FS调用icfs_setxattr接口。 参数client_type=&amp;ldquo;S3&amp;rdquo; Entity_id 是 /var/run/icfs-client.XXXX 其中xxx</description>
+      <description>entity_id 这个能改变吗？ 通过S3FS调用icfs_setxattr接口。 参数client_type=&amp;quot;S3&amp;rdquo; Entity_id 是 /var/run/icfs-client.XXXX 其中xxx是</description>
     </item>
     
     <item>
@@ -608,6 +684,15 @@
       
       <guid>https://wangcy6.github.io/post/liunx/git%E9%80%9A%E5%85%B3%E4%BB%8E%E9%9D%92%E9%93%9C%E5%88%B0%E7%8E%8B%E8%80%85/</guid>
       <description>1 2 git cherry-pick &amp;lt;commit-hash&amp;gt; git cherry-pick --continue xmind 图片居中对齐 第一关：项目最新代码出现问题，你想回退，但是保留自己修改最新代码怎么办？ 期望结果 n1（正常状态）&amp;mdash;</description>
+    </item>
+    
+    <item>
+      <title>shell从青铜到王者</title>
+      <link>https://wangcy6.github.io/post/liunx/shell%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8-1/</link>
+      <pubDate>Fri, 11 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/liunx/shell%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8-1/</guid>
+      <description>1. shell 命令获取随机获取 2位的整数? 方法1：使用内置变量 $RANDOM 1 echo $(( RANDOM % 90 + 10 )) 原理： $RANDOM 生成一个0到32767之间的随机数，% 90 得到0到89的余数，</description>
     </item>
     
     <item>
@@ -1867,7 +1952,17 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/11/</guid>
-      <description>假如系统最初版本1 2 3 4 int main() { printf(&amp;#34;Hello, world”); return 0; } 怎么升级改造，写出一个可扩展程序？ 先思考60秒 下面是我处理该问题解决步骤 先问自己这个系</description>
+      <description>假如系统最初版本1 2 3 4  int main() { printf(&amp;#34;Hello, world”);  return 0; }   怎么升级改造，写出一个可扩展程序？
+先思考60秒
+下面是我处理该问题解决步骤
+ 先问自己这个系统架构是什么？
+至少三层架构设计 应用层&amp;mdash;&amp;gt;标准库（glibc）——&amp;gt;操作系统 未来5年项目需要变化内容有哪些？   应用层——用户需求发生变化，需要新增功能 标准库—— 提供接口不合适了，需要替换原有功能 操作系统——不处理，在怎么变化也不处理 ，没这个能力   如何优化   应用层 把c语言改为c++ 面向对象设计，通过虚函数提供接口，动态库实现不同方法替换动态库 标准库（libc++/libstd++）共享库，这个无法替换呢？ 提供接口声明为弱符号
+  1  _GLIBCXX_WEAK_DEFINITION void *operator new（size_t）    弱符号有什么优势？在库中提供默认实现的弱定义函数，
+允许用户通过自定义强定义版本来覆盖这些函数&amp;mdash;这样设计体现可扩展
+说明： __attribute__((weak))是 GCC 和 Clang 提供的一个特性，
+用于声明一个符号为 &amp;ldquo;弱符号&amp;rdquo;（weak symbol），
+在链接层面提供更多的灵活性
+扩展阅读： 驱动程序通常需要支持多种硬件设备，但某些设备可能不支持某些功能。 通过使用弱符号，可以在驱动程序中提供默认实现，同时允许用户为特定设备提供自定义实现</description>
     </item>
     
     <item>
@@ -1876,7 +1971,18 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/2020/file/</guid>
-      <description>文件系统-知识地图 知识卡 https://github.com/wangcy6/weekly/blob/master/KM/01%E7%B3%BB%E7%BB%9F%E7%9F%A5%E8%AF%86/file.md 阅读相关书籍 Linux 0.11内核完全注释 Linux内核设计与实现(第三版中文高清带目录) Linux设备驱动程序. Understanding the Linux Kernel,</description>
+      <description>文件系统-知识地图 知识卡 https://github.com/wangcy6/weekly/blob/master/KM/01%E7%B3%BB%E7%BB%9F%E7%9F%A5%E8%AF%86/file.md
+阅读相关书籍  Linux 0.11内核完全注释 Linux内核设计与实现(第三版中文高清带目录) Linux设备驱动程序. Understanding the Linux Kernel, 3rd Editio Linux.Kernel.Cache MySQL技术内幕(InnoDB存储引擎)第2版. 性能之巅 洞悉系统、企业与云计算(完整版)  找不到电子版book
+第一性原理   mysql 有b+作为索引，为什么liunx文件系统不用b+索引结构，采用inode下面一个固定大小数组来表示？
+  为什么需要进行“格式化”呢
+  ls -i 显示inode 就是 long 类型的编号 还有什么呀？
+  文件存储在哪里呀？内存还是磁盘
+  什么是缓存呀
+  cache和buffer dentry objects and inode object 都在内存里有啥 区别？
+  概念理解  缓存  文件系统 在 Linux 中一切皆文件。不仅普通的文件和目录，就连块设备、套接字、管道等，也都要通过统一的文件系统来管理。
+Linux 下的文件系统主要可分为三大块：
+一是上层的文件系统的系统调用，
+二是虚拟文件系统 VFS(Virtual Filesystem Switch)，</description>
     </item>
     
     <item>
@@ -1890,29 +1996,39 @@
     
     <item>
       <title></title>
+      <link>https://wangcy6.github.io/post/2025-04-03/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2025-04-03/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>https://wangcy6.github.io/post/ARTS/2023/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C%E7%AC%AC%E5%9B%9B%E6%9C%9F/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/ARTS/2023/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C%E7%AC%AC%E5%9B%9B%E6%9C%9F/</guid>
-      <description>本文分为三个部分 产品应用，行业应用 和基础知识 从完成到完美，别想太多，只管去做。 这一期没有什么内容，我依然发出来了，只为重启，上一阶段解释。 马</description>
+      <description>本文分为三个部分 产品应用，行业应用 和基础知识
+ 从完成到完美，别想太多，只管去做。
+这一期没有什么内容，我依然发出来了，只为重启，上一阶段解释。 马上开启下一阶段。
+开始时间：2023-07-01 结束时间： 一. 行业 从石器时代到黄金时代 一. 基础知识：从青铜到白银经历问题
+ 一 、站在巨人肩膀上 二. 从石器时代到黄金时代 一、公开课[资料]   数据库/存储学习路径推荐
+https://mp.weixin.qq.com/s/fl-R_ZMQwy0aNQbsXZeQ3Q 必读！！！数据库开发学习资料.pdf 进展：0
+  - 阅读书籍：leveldb 精通 https://github.com/watchpoints/leveldb https://leveldb-handbook.readthedocs.io/zh/latest/basic.html 进展：1
+ Go 开放课程：MIT 经典课程 《分布式系统》  https://learnku.com/go/wikis/41239
+ MIT 6.84: Distributed Systems  官方地址：https://pdos.csail.mit.edu/6.824/ 进展：0
+二. TIdb :::warning 为什么要看tidb，自己一个担心，前面无数人在 做，自己先做晚来了？ 然后等待3年 5年什么都不事情？然后看看手机电影， 为纠这个态度，从消息态度变成积极态度， 一个社区无数文档，无数参与 着说明有价值的。 你认为正确行业，你认为正确社区，你认为正确的， 为什么行动呢？着就是最大问题？ 有正确，有价值的不去做，反而去做没有用 事情。破冰 :::
+如何成为 TiFlash Contributor？ https://asktug.com/t/topic/693824</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://wangcy6.github.io/post/plan/%E5%A6%82%E4%BD%95%E7%9D%A1%E4%B8%AA%E5%A5%BD%E8%A7%89/</link>
+      <link>https://wangcy6.github.io/post/plan/today/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://wangcy6.github.io/post/plan/%E5%A6%82%E4%BD%95%E7%9D%A1%E4%B8%AA%E5%A5%BD%E8%A7%89/</guid>
-      <description>title: &amp;ldquo;如何才能睡个好觉？&amp;rdquo; date: 2024-02-24 draft: false categories: [&amp;ldquo;plan&amp;rdquo;] 大家好， 今天分享的主题是 如何睡个好觉。 第一部分： 第二部分： 第三部分：黄金行为 关于</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://wangcy6.github.io/post/plan/%E6%8F%90%E9%AB%98%E6%95%88%E7%8E%87%E6%98%8E%E7%A1%AE%E4%BB%BB%E5%8A%A1%E5%8A%A0%E5%BC%BA%E6%B2%9F%E9%80%9A/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/plan/%E6%8F%90%E9%AB%98%E6%95%88%E7%8E%87%E6%98%8E%E7%A1%AE%E4%BB%BB%E5%8A%A1%E5%8A%A0%E5%BC%BA%E6%B2%9F%E9%80%9A/</guid>
-      <description>title: &amp;ldquo;工作日志：日报，周报，月，季度&amp;rdquo; date: 2022-09-25 draft: false categories: [&amp;ldquo;work&amp;rdquo;] 12月 //伪代码示例 这是什么用法 lock.unlock(); helo() lock.lock();</description>
+      <guid>https://wangcy6.github.io/post/plan/today/</guid>
+      <description>每天专注一个事情 文件系统 %% kanban:settings 1 {&amp;#34;kanban-plugin&amp;#34;:&amp;#34;board&amp;#34;,&amp;#34;list-collapse&amp;#34;:[false]} %%</description>
     </item>
     
     <item>
@@ -1967,15 +2083,6 @@
       
       <guid>https://wangcy6.github.io/post/ARTS/2024/do_book_weekly_10/</guid>
       <description>指定每月目标，拆分每周预先承诺的习惯卡片， 落实每天行动清单 Part I 月初指定目标九宫格：一月一次 一、 我今天为目标做了什么 第一个青蛙 1. 工作·事业： 提</description>
-    </item>
-    
-    <item>
-      <title>日拱一卒：操作手册</title>
-      <link>https://wangcy6.github.io/post/storage/4_icfs_help/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/storage/4_icfs_help/</guid>
-      <description>系统罐装 1. Linux 如何查看网络带宽是千兆还是万兆 1 2 ethtool ens160 Speed: 10000Mb/s 2 .CentOS 8 网络管理：使用 nmcli 和 nmtui 进行高效配置 3, ssh 设置远程登录 /etc/ssh/sshd_config cifs [mds减少mds 进程个数]</description>
     </item>
     
   </channel>
