@@ -11,18 +11,28 @@
             "id": "2825e5930f52ef63",
             "type": "leaf",
             "state": {
-              "type": "kanban",
+              "type": "markdown",
               "state": {
-                "file": "plan/today.md",
-                "kanbanViewState": {
-                  "kanban-plugin": "board",
-                  "list-collapse": [
-                    false
-                  ]
-                }
+                "file": "liunx/2025/3fs-what-is-file-system 3.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-trello",
-              "title": "today"
+              "icon": "lucide-file",
+              "title": "3fs-what-is-file-system 3"
+            }
+          },
+          {
+            "id": "0701ffaf9deeb241",
+            "type": "leaf",
+            "state": {
+              "type": "webviewer",
+              "state": {
+                "url": "https://money-1256465252.cos.ap-beijing.myqcloud.com/2025/20250427162927.png",
+                "title": "data:text/plain,",
+                "mode": "blank"
+              },
+              "icon": "globe-2",
+              "title": "data:text/plain,"
             }
           },
           {
@@ -31,16 +41,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "python/01_how_to_install_python.md",
+                "file": "storage/2025/2025-04-27-what-is-BlueStore.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "01_how_to_install_python"
+              "title": "2025-04-27-what-is-BlueStore"
+            }
+          },
+          {
+            "id": "7d25788ac9651943",
+            "type": "leaf",
+            "state": {
+              "type": "webviewer",
+              "state": {
+                "url": "https://ceph.io/en/news/blog/2023/crimson-multi-core-scalability/",
+                "title": "Ceph.io — Crimson: Next-generation Ceph OSD for Multi-core Scalability",
+                "mode": "webview"
+              },
+              "icon": "globe-2",
+              "title": "Ceph.io — Crimson: Next-generation Ceph OSD for Multi-core Scalability"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -72,7 +96,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "对比",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -97,7 +121,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 545.5
   },
   "right": {
     "id": "2ed2996f33458575",
@@ -161,13 +185,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "python/01_how_to_install_python.md",
+                "file": "storage/2025/2025-04-27-what-is-BlueStore.md",
                 "followCursor": false,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "01_how_to_install_python 的大纲"
+              "title": "2025-04-27-what-is-BlueStore 的大纲"
             }
           },
           {
@@ -202,39 +226,39 @@
   },
   "active": "1be1b4c3a07cf96f",
   "lastOpenFiles": [
+    "liunx/2025/3fs-what-is-file-system 3.md",
+    "storage/2025/2025-04-27-what-is-BlueStore.md",
+    "2021/01_Rocksdb.md",
+    "liunx/2025/05-how_is_ctdb.md",
+    "liunx/2025/06_file_system_block.md",
+    "liunx/2025/06_how_to_learn_red_tree.md",
+    "liunx/2025/07_Interview_C++_pointer.md",
+    "liunx/2025/2025-03-19.md",
+    "liunx/2025/07_interview_pm_netwang.md",
+    "liunx/2025/10_Interview_pm_ehance_2.md",
     "liunx/2025/how_to_learn_3fs_4 1.md",
+    "storage/1_2023_02_13_day1_Cephfs.md",
+    "plan/today.md",
+    "storage/2025/01-ceph-feature-getfattr.md",
     "python/01_how_to_install_python.md",
     "liunx/shell有什么用 1.md",
     "liunx/shell有什么用.md",
     "04_2021-10-10.2021.years.md",
     "01a54a8883cbf7b9c23401e4e6c7ffa.jpg",
-    "plan/today.md",
-    "liunx/2025/10_Interview_pm_ehance_2.md",
     "python",
     "2024/python",
     "liunx/2025/4_how_to_learn_c++.md",
-    "liunx/2025/07_interview_pm_netwang.md",
-    "liunx/2025/06_how_to_learn_red_tree.md",
-    "liunx/2025/05-how_is_ctdb.md",
     "leetcode/array/01_what_is_contextos 1.md",
     "leetcode/array",
     "ai/02_how_to_use_Copilot.md",
     "ContextOS/01_what_is_contextos.md",
     "ContextOS",
     "11.md",
-    "liunx/2025/07_Interview_C++_pointer.md",
-    "liunx/2025/06_file_system_block.md",
     "plan/如何睡个好觉.md",
     "plan/提高效率：明确任务，加强沟通.md",
     "未命名.canvas",
     "ai/02_how_to_use_Obsidian.md",
-    "ai/01_how_to_quickly_submit_resumes.md",
-    "liunx/kubernetes/how_docker.md",
-    "2025-04-03.md",
     "ai",
-    "oceanbase/2024/day11：PALF论文阅读.md",
-    "oceanbase/2024/day11_make_ob 1.md",
-    "money/002_xiao_ai.md",
     "money/2024",
     "liunx/2025",
     "Pasted image 20250323152954.png",
