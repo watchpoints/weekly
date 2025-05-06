@@ -1,5 +1,5 @@
 ---
-title: 用Obsidian打造自己的写作系统
+title: Trae从青铜到王者
 date: 2025-04-12
 description: c++
 draft: false
@@ -8,34 +8,49 @@ tags:
 categories:
   - do book
 ---
-
-## 写作步骤哪些
-
-选题--素材---整理
+## 免费公开资料
 
 
+	### 官方文档
+1. https://github.com/Trae-AI/Trae/issues
+
+### 小程序开发
+
+1. 校园二手仓库 https://lcnziv86vkx6.feishu.cn/wiki/DoBtwiinliUM60keIRcc35C3nbe?from=from_copylink
+
+## 青铜：学会使用工具
+
+## Q1  如何 Remote-SSH 远程开发和部署
+
+知识地图：AIP-开发环境搭建
+
+原理：
+
+![](https://i-blog.csdnimg.cn/img_convert/957456ca87016bb7994e88ebbb0fe246.png)
+
+![](https://i-blog.csdnimg.cn/img_convert/d967ddfa3857dc46be2191527c38ef1c.png)
+
+配置：
 
 
-## 检查
-
-### Q1：经常有错别字，句子不通顺 怎么办？
+![](https://i-blog.csdnimg.cn/img_convert/45fc785e965abb2e0649fa98c45cbc3b.png)
 
 
-- Obsidian LanguageTool 插件是一个为 Obsidian 文本编辑器提供的高级语法和拼写检查功能的插件。
-- 它集成了 LanguageTool 工具，可以帮助用户在编写文本时检测并纠正语法错误和拼写错误。该项目主要使用 JavaScript 进行开发
-- https://github.com/Clemens-E/obsidian-languagetool-plugin
-- https://languagetool.org/paraphrasing-tool
+基本资料：https://docs.trae.ai/ide/ssh-remote?_lang=zh
+window 环境默认配置
+
+C:\Users\name\.ssh\config  //远程登录配置文件
 
 
+**免密登录远程服务器设置**
 
+1. 本地 命令行输入  ssh-keygen 一直回车即可(不用输入密码)
+2. C:\name\host\.ssh\id_rsa  **私钥** 增加配置：  IdentityFile 和对应的**本机私钥**路径
+3. C:\name\host\.ssh\id_rsa.pub 公钥 放入远程登录主机的 ~/**.ssh**/authorized_keys
 
+报错：
 
-### 如何想word一样在文本显示大纲
-
-### 问：导出的pdf 没有大纲
-
-
-
+![登录报错](https://money-1256465252.cos.ap-beijing.myqcloud.com/2025/20250503164806.png)
 
 
 ## 我是谁

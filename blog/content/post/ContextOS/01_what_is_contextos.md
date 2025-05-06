@@ -132,13 +132,17 @@ cd ContextOS && source etc/miss.sh
 
 // 远程登陆的，需要授权
 cd /root/ContextOS
-./bin/ice.bin admin space login 647bdb5afc6de240388e5407dcbcd76d
+./bin/ice.bin admin space login ce352f62e2473ca1bbb561accc878ce3
+登录地址：
+http://101.43.226.54:9020/
 
 open http://localhost:9020
 
 小提示：这个ip 是云主机内部的，需要改为对外访问的
 
 防火墙端口 [9020](http://10.0.8.8:9020)开放
+
+
 
 
 ```
@@ -237,9 +241,14 @@ func init() {
 ![image.png](https://money-1256465252.cos.ap-beijing.myqcloud.com/mac/20250407180840.png)
 
 
-## bug反馈
 
-- bug001
+
+## day1
+
+http://101.43.226.54:9020/?debug=true#project:studio:dream:tabview
+
+
+
 
 
 

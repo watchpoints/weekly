@@ -57,6 +57,15 @@ Python解释器是一个可以理解和执行Python代码的程序
 
 ![image.png](https://money-1256465252.cos.ap-beijing.myqcloud.com/2025/20250424201748.png)
 
+
+
+### 其他插件
+
+
+### markdown-preview-enhanced
+- https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/
+- https://github.com/Maserhe/VScode-Markdown-theme-Maserhe
+
 ## 链接我 
 
 

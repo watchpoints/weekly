@@ -6,5 +6,7 @@
   "obsidian-image-auto-upload-plugin",
   "obsidian-languagetool-plugin",
   "obsidian-orthography",
-  "editing-toolbar"
+  "editing-toolbar",
+  "edge-tts",
+  "better-export-pdf"
 ]
