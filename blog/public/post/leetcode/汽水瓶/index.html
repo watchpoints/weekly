@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.83.1 with theme even" />
 
 
 <link rel="canonical" href="https://wangcy6.github.io/post/leetcode/%E6%B1%BD%E6%B0%B4%E7%93%B6/" />
@@ -41,17 +41,14 @@
 <meta property="og:title" content="智力题" />
 <meta property="og:description" content="题目信息 链接：汽水瓶 来源：nowcoder 难度：2颗星 一、描述 只有题目理解到位，你可能进入下面一个环节，如果不熟悉场景，你可要小心了 我目的是" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://wangcy6.github.io/post/leetcode/%E6%B1%BD%E6%B0%B4%E7%93%B6/" />
-<meta property="article:published_time" content="2019-10-10T17:02:43+08:00" />
-<meta property="article:modified_time" content="2019-10-10T17:02:43+08:00" />
+<meta property="og:url" content="https://wangcy6.github.io/post/leetcode/%E6%B1%BD%E6%B0%B4%E7%93%B6/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2019-10-10T17:02:43&#43;08:00" />
+<meta property="article:modified_time" content="2019-10-10T17:02:43&#43;08:00" />
+
 <meta itemprop="name" content="智力题">
-<meta itemprop="description" content="题目信息 链接：汽水瓶 来源：nowcoder 难度：2颗星 一、描述 只有题目理解到位，你可能进入下面一个环节，如果不熟悉场景，你可要小心了 我目的是">
-<meta itemprop="datePublished" content="2019-10-10T17:02:43&#43;08:00" />
+<meta itemprop="description" content="题目信息 链接：汽水瓶 来源：nowcoder 难度：2颗星 一、描述 只有题目理解到位，你可能进入下面一个环节，如果不熟悉场景，你可要小心了 我目的是"><meta itemprop="datePublished" content="2019-10-10T17:02:43&#43;08:00" />
 <meta itemprop="dateModified" content="2019-10-10T17:02:43&#43;08:00" />
 <meta itemprop="wordCount" content="1123">
-
-
-
 <meta itemprop="keywords" content="array,Backtracking," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="智力题"/>
 <meta name="twitter:description" content="题目信息 链接：汽水瓶 来源：nowcoder 难度：2颗星 一、描述 只有题目理解到位，你可能进入下面一个环节，如果不熟悉场景，你可要小心了 我目的是"/>
@@ -144,14 +141,14 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">题目信息</a>
+    <li><a href="#题目信息">题目信息</a>
       <ul>
-        <li><a href="#heading-1">一、描述</a></li>
-        <li><a href="#heading-2">二、举例</a></li>
-        <li><a href="#heading-3">三、思路</a></li>
-        <li><a href="#heading-4">四、实现</a></li>
-        <li><a href="#heading-5">五、回顾</a></li>
-        <li><a href="#--">六、  举一反三</a></li>
+        <li><a href="#一描述">一、描述</a></li>
+        <li><a href="#二举例">二、举例</a></li>
+        <li><a href="#三思路">三、思路</a></li>
+        <li><a href="#四实现">四、实现</a></li>
+        <li><a href="#五回顾">五、回顾</a></li>
+        <li><a href="#六--举一反三">六、  举一反三</a></li>
       </ul>
     </li>
   </ul>
@@ -164,7 +161,7 @@
     </div>
   </div>
     <div class="post-content">
-      <h2 id="heading">题目信息</h2>
+      <h2 id="题目信息">题目信息</h2>
 <blockquote>
 <ul>
 <li>链接：<a href="https://www.nowcoder.com/questionTerminal/fe298c55694f4ed39e256170ff2c205f">汽水瓶</a></li>
@@ -172,7 +169,7 @@
 <li>难度：2颗星</li>
 </ul>
 </blockquote>
-<h3 id="heading-1">一、描述</h3>
+<h3 id="一描述">一、描述</h3>
 <blockquote>
 <p>只有题目理解到位，你可能进入下面一个环节，如果不熟悉场景，你可要小心了</p>
 </blockquote>
@@ -191,7 +188,7 @@
 <p>方法如下：</p>
 <p>先用9个空瓶子换3瓶汽水，喝掉3瓶满的，喝完以后4个空瓶子，用3个再换一瓶，喝掉这瓶满的，这时候剩2个空瓶子。</p>
 <p>然后你让老板先借给你一瓶汽水，喝掉这瓶满的，喝完以后用3个空瓶子换一瓶满的还给老板。</p>
-<h3 id="heading-2">二、举例</h3>
+<h3 id="二举例">二、举例</h3>
 <ul>
 <li>在思路之前和实现之后都用</li>
 </ul>
@@ -233,7 +230,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="heading-3">三、思路</h3>
+<h3 id="三思路">三、思路</h3>
 <blockquote>
 <p>为了形成你思路，并且把思路转换成步骤描述。请按照下面准备</p>
 </blockquote>
@@ -263,7 +260,7 @@ $$</p>
 <p>方法如下：</p>
 <p>先用9个空瓶子换3瓶汽水，喝掉3瓶满的，喝完以后4个空瓶子，用3个再换一瓶，喝掉这瓶满的，这时候剩2个空瓶子。</p>
 <p>然后你让老板先借给你一瓶汽水，喝掉这瓶满的，喝完以后用3个空瓶子换一瓶满的还给老板。</p>
-<h3 id="heading-4">四、实现</h3>
+<h3 id="四实现">四、实现</h3>
 <blockquote>
 <p>你可以实现。你可以做到</p>
 </blockquote>
@@ -332,35 +329,35 @@ $$</p>
 </span><span class="lnt">48
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
 </span><span class="cp"></span>
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 <span class="kt">int</span> <span class="nf">getNumber</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="kt">int</span> <span class="n">leftEmpty</span> <span class="o">=</span><span class="n">n</span><span class="p">;</span>
     <span class="kt">int</span> <span class="n">total</span> <span class="o">=</span><span class="mi">0</span><span class="p">;</span>
-    <span class="k">while</span><span class="p">(</span><span class="n">leftEmpty</span>  <span class="o">&gt;</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">leftEmpty</span>  <span class="o">&gt;=</span><span class="mi">2</span><span class="p">)</span>
     <span class="p">{</span>   
-        <span class="k">if</span><span class="p">(</span><span class="n">leftEmpty</span> <span class="o">=</span><span class="o">=</span><span class="mi">2</span> <span class="p">)</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">leftEmpty</span> <span class="o">==</span><span class="mi">2</span> <span class="p">)</span>
         <span class="p">{</span>
-            <span class="n">total</span><span class="o">+</span><span class="o">+</span><span class="p">;</span>
+            <span class="n">total</span><span class="o">++</span><span class="p">;</span>
             <span class="k">break</span><span class="p">;</span>
         <span class="p">}</span>
         <span class="k">else</span>
         <span class="p">{</span>
-           <span class="n">total</span> <span class="o">+</span><span class="o">=</span><span class="n">leftEmpty</span><span class="o">/</span><span class="mi">3</span><span class="p">;</span>
-           <span class="n">leftEmpty</span> <span class="o">=</span><span class="p">(</span><span class="n">leftEmpty</span><span class="o">/</span><span class="mi">3</span><span class="o">+</span><span class="n">leftEmpty</span><span class="o">%</span><span class="mi">3</span><span class="p">)</span><span class="p">;</span>     
+           <span class="n">total</span> <span class="o">+=</span><span class="n">leftEmpty</span><span class="o">/</span><span class="mi">3</span><span class="p">;</span>
+           <span class="n">leftEmpty</span> <span class="o">=</span><span class="p">(</span><span class="n">leftEmpty</span><span class="o">/</span><span class="mi">3</span><span class="o">+</span><span class="n">leftEmpty</span><span class="o">%</span><span class="mi">3</span><span class="p">);</span>     
         <span class="p">}</span>
        
     <span class="p">}</span>
  
     <span class="k">return</span> <span class="n">total</span><span class="p">;</span>
 <span class="p">}</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="p">)</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>   
     <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
-    <span class="k">while</span><span class="p">(</span><span class="n">cin</span><span class="o">&gt;</span><span class="o">&gt;</span><span class="n">n</span><span class="p">)</span><span class="p">{</span>
-        <span class="n">cout</span> <span class="o">&lt;</span><span class="o">&lt;</span><span class="n">getNumber</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">&lt;</span><span class="o">&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">n</span><span class="p">){</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span><span class="n">getNumber</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
     <span class="p">}</span>
     
 <span class="p">}</span>
@@ -373,16 +370,16 @@ $$</p>
     <span class="p">{</span>
         <span class="k">return</span> <span class="mi">0</span><span class="p">;</span><span class="c1">//不够3瓶
 </span><span class="c1"></span>    <span class="p">}</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">=</span><span class="o">=</span> <span class="mi">2</span><span class="p">)</span>  
+    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span>  
     <span class="p">{</span>
         <span class="k">return</span> <span class="mi">1</span><span class="p">;</span><span class="c1">//借一换一
 </span><span class="c1"></span>    <span class="p">}</span>
     <span class="c1">// 每次递归都是都是一次循环。变化的是什么 每次循环变化的是n
-</span><span class="c1"></span>    <span class="k">return</span> <span class="n">n</span><span class="o">/</span><span class="mi">3</span><span class="o">+</span><span class="n">getNumber</span><span class="p">(</span><span class="n">n</span><span class="o">/</span><span class="mi">3</span><span class="o">+</span><span class="n">n</span><span class="o">%</span><span class="mi">3</span><span class="p">)</span><span class="p">;</span><span class="c1">//从剩余空瓶继续计算
+</span><span class="c1"></span>    <span class="k">return</span> <span class="n">n</span><span class="o">/</span><span class="mi">3</span><span class="o">+</span><span class="n">getNumber</span><span class="p">(</span><span class="n">n</span><span class="o">/</span><span class="mi">3</span><span class="o">+</span><span class="n">n</span><span class="o">%</span><span class="mi">3</span><span class="p">);</span><span class="c1">//从剩余空瓶继续计算
 </span><span class="c1"></span><span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="heading-5">五、回顾</h3>
+</div><h3 id="五回顾">五、回顾</h3>
 <ul>
 <li>耗时统计</li>
 </ul>
@@ -423,11 +420,11 @@ $$</p>
 <p>每次递归剩余空瓶怎么计算的。</p>
 </li>
 </ul>
-<h3 id="--">六、  举一反三</h3>
+<h3 id="六--举一反三">六、  举一反三</h3>
 <blockquote>
 <p>换个马甲就不认识了。</p>
 </blockquote>
-<h4 id="746-httpsleetcode-cncomproblemsmin-cost-climbing-stairs"><a href="https://leetcode-cn.com/problems/min-cost-climbing-stairs/">746. 使用最小花费爬楼梯</a></h4>
+<h4 id="746-使用最小花费爬楼梯httpsleetcode-cncomproblemsmin-cost-climbing-stairs"><a href="https://leetcode-cn.com/problems/min-cost-climbing-stairs/">746. 使用最小花费爬楼梯</a></h4>
 <p><a href="https://www.youtube.com/watch?v=v3WqNLmmBdk">如何累加爬楼梯的</a></p>
 <p>$$
 走过阶梯i的消耗能量函数 f(i)=\begin{cases} min(f(i-1),f(i-2)) &amp; i=n \ min(cost[i-1]+f(i-1),cost[i-2]+f(i-2)) &amp; i&lt;n  \end{cases}

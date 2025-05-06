@@ -6,10 +6,15 @@
     <description>Recent content in Tags on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 24 Apr 2025 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://wangcy6.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Sun, 27 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CEPH</title>
+      <link>https://wangcy6.github.io/tags/CEPH/</link>
+      <pubDate>Sun, 27 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/tags/CEPH/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>python</title>
@@ -21,20 +26,38 @@
     </item>
     
     <item>
+      <title>源码之美</title>
+      <link>https://wangcy6.github.io/tags/%E6%BA%90%E7%A0%81%E4%B9%8B%E7%BE%8E/</link>
+      <pubDate>Thu, 24 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/tags/%E6%BA%90%E7%A0%81%E4%B9%8B%E7%BE%8E/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>职场之美</title>
+      <link>https://wangcy6.github.io/tags/%E8%81%8C%E5%9C%BA%E4%B9%8B%E7%BE%8E/</link>
+      <pubDate>Thu, 24 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/tags/%E8%81%8C%E5%9C%BA%E4%B9%8B%E7%BE%8E/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>面试之美，职场之美</title>
+      <link>https://wangcy6.github.io/tags/%E9%9D%A2%E8%AF%95%E4%B9%8B%E7%BE%8E%E8%81%8C%E5%9C%BA%E4%B9%8B%E7%BE%8E/</link>
+      <pubDate>Tue, 22 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/tags/%E9%9D%A2%E8%AF%95%E4%B9%8B%E7%BE%8E%E8%81%8C%E5%9C%BA%E4%B9%8B%E7%BE%8E/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>架构之美</title>
       <link>https://wangcy6.github.io/tags/%E6%9E%B6%E6%9E%84%E4%B9%8B%E7%BE%8E/</link>
       <pubDate>Fri, 18 Apr 2025 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/tags/%E6%9E%B6%E6%9E%84%E4%B9%8B%E7%BE%8E/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>源码之美</title>
-      <link>https://wangcy6.github.io/tags/%E6%BA%90%E7%A0%81%E4%B9%8B%E7%BE%8E/</link>
-      <pubDate>Fri, 18 Apr 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/tags/%E6%BA%90%E7%A0%81%E4%B9%8B%E7%BE%8E/</guid>
       <description></description>
     </item>
     
@@ -129,11 +152,11 @@
     </item>
     
     <item>
-      <title>Tidb</title>
-      <link></link>
+      <title>tidb</title>
+      <link>https://wangcy6.github.io/tags/tidb/</link>
       <pubDate>Fri, 25 Oct 2024 00:00:00 +0000</pubDate>
       
-      <guid></guid>
+      <guid>https://wangcy6.github.io/tags/tidb/</guid>
       <description></description>
     </item>
     
@@ -147,11 +170,11 @@
     </item>
     
     <item>
-      <title>CEPH</title>
-      <link>https://wangcy6.github.io/tags/CEPH/</link>
-      <pubDate>Thu, 28 Mar 2024 00:00:00 +0000</pubDate>
+      <title>LINUX系统调用</title>
+      <link>https://wangcy6.github.io/tags/LINUX%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8/</link>
+      <pubDate>Wed, 07 Aug 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://wangcy6.github.io/tags/CEPH/</guid>
+      <guid>https://wangcy6.github.io/tags/LINUX%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8/</guid>
       <description></description>
     </item>
     
@@ -242,15 +265,6 @@
       <pubDate>Tue, 18 Oct 2022 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/tags/60%E7%A7%92%E9%97%AE%E7%AD%94/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tidb</title>
-      <link>https://wangcy6.github.io/tags/tidb/</link>
-      <pubDate>Thu, 14 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/tags/tidb/</guid>
       <description></description>
     </item>
     

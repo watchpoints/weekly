@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.83.1 with theme even" />
 
 
 <link rel="canonical" href="https://wangcy6.github.io/post/2020/FQA_Service_Mesh/" />
@@ -41,17 +41,14 @@
 <meta property="og:title" content="FQA_Service_Mesh" />
 <meta property="og:description" content="Service Mesh" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://wangcy6.github.io/post/2020/FQA_Service_Mesh/" />
-<meta property="article:published_time" content="2019-11-13T00:00:00+00:00" />
-<meta property="article:modified_time" content="2019-11-13T00:00:00+00:00" />
+<meta property="og:url" content="https://wangcy6.github.io/post/2020/FQA_Service_Mesh/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2019-11-13T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2019-11-13T00:00:00&#43;00:00" />
+
 <meta itemprop="name" content="FQA_Service_Mesh">
-<meta itemprop="description" content="Service Mesh">
-<meta itemprop="datePublished" content="2019-11-13T00:00:00&#43;00:00" />
+<meta itemprop="description" content="Service Mesh"><meta itemprop="datePublished" content="2019-11-13T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-11-13T00:00:00&#43;00:00" />
 <meta itemprop="wordCount" content="2879">
-
-
-
 <meta itemprop="keywords" content="book,reading," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="FQA_Service_Mesh"/>
 <meta name="twitter:description" content="Service Mesh"/>
@@ -144,17 +141,17 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#heading-1">衡量指标</a>
+    <li><a href="#衡量指标">衡量指标</a>
       <ul>
         <li></li>
       </ul>
     </li>
-    <li><a href="#heading-5">高可用问题</a></li>
-    <li><a href="#-">主从 数据不一致性问题</a>
+    <li><a href="#高可用问题">高可用问题</a></li>
+    <li><a href="#主从-数据不一致性问题">主从 数据不一致性问题</a>
       <ul>
-        <li><a href="#-2pc">不切换 2pc</a></li>
-        <li><a href="#--pacifica">全部一致  PacificA</a></li>
-        <li><a href="#-raft">过半一致 raft</a></li>
+        <li><a href="#不切换-2pc">不切换 2pc</a></li>
+        <li><a href="#全部一致--pacifica">全部一致  PacificA</a></li>
+        <li><a href="#过半一致-raft">过半一致 raft</a></li>
       </ul>
     </li>
   </ul>
@@ -162,7 +159,7 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#gossip">弱一致（gossip）</a></li>
+        <li><a href="#弱一致gossip">弱一致（gossip）</a></li>
       </ul>
     </li>
   </ul>
@@ -172,12 +169,12 @@
   </ul>
 
   <ul>
-    <li><a href="#-kubernetes">一. Kubernetes</a>
+    <li><a href="#一-kubernetes">一. Kubernetes</a>
       <ul>
         <li><a href="#kubernetes-autoscalin">Kubernetes Autoscalin</a></li>
       </ul>
     </li>
-    <li><a href="#istio">二、服务网格Istio</a></li>
+    <li><a href="#二服务网格istio">二、服务网格Istio</a></li>
   </ul>
 </nav>
   </div>
@@ -196,8 +193,8 @@
 <li>深入理解Linux内核中文第三版  第五章 内核同步</li>
 <li><a href="https://www.the-paper-trail.org/post/2014-08-09-distributed-systems-theory-for-the-distributed-systems-engineer/">distributed-systems-theory-for-the-distributed-systems-engineer</a></li>
 </ul>
-<h1 id="heading">业务场景</h1>
-<h2 id="heading-1">衡量指标</h2>
+<h1 id="业务场景">业务场景</h1>
+<h2 id="衡量指标">衡量指标</h2>
 <p>分布式系统涵盖的面非常广，具体来说涵盖如下几方面：</p>
 <ul>
 <li><strong>服务调度</strong>，涉及服务发现、配置管理、弹性伸缩、故障恢复等。</li>
@@ -207,12 +204,12 @@
 <li><strong>容错处理</strong>，涉及隔离、幂等、重试、业务补偿、异步、降级等。</li>
 <li><strong>自动化运维</strong>，涉及持续集成、持续部署、全栈监控、调用链跟踪等。</li>
 </ul>
-<h4 id="heading-2">高可用:</h4>
+<h4 id="高可用">高可用:</h4>
 <p><img src="https://static001.infoq.cn/resource/image/b5/2f/b5da20611e2d62ead9f1e54cfff7cb2f.png" alt="单点故障问题"></p>
-<h4 id="heading-3">可扩展</h4>
+<h4 id="可扩展">可扩展</h4>
 <p><img src="https://i.loli.net/2019/11/05/j3Jleq58YwO1ZBR.png" alt="image.png"></p>
-<h4 id="heading-4">稳定性</h4>
-<h2 id="heading-5">高可用问题</h2>
+<h4 id="稳定性">稳定性</h4>
+<h2 id="高可用问题">高可用问题</h2>
 <p>Q1 假如无法出现单点故障了，该怎么办？</p>
 <blockquote>
 <p>例如 接受主播推流的srs，redis，还有proxy，还有普通的无法</p>
@@ -225,11 +222,11 @@
 <p>Redis集群方案应该怎么做？</p>
 <p><strong>1.Redis官方集群方案 Redis Cluster</strong></p>
 <p><strong>2.Redis Sharding集群</strong></p>
-<h2 id="-">主从 数据不一致性问题</h2>
+<h2 id="主从-数据不一致性问题">主从 数据不一致性问题</h2>
 <blockquote>
 <p>重点，超级重点</p>
 </blockquote>
-<h3 id="-2pc">不切换 2pc</h3>
+<h3 id="不切换-2pc">不切换 2pc</h3>
 <p>大王提问：</p>
 <ul>
 <li>
@@ -314,7 +311,7 @@
 <p>从银行转账失败到分布式事务：总结与思考</p>
 <p><a href="https://www.cnblogs.com/xybaby/p/7465816.html">https://www.cnblogs.com/xybaby/p/7465816.html</a></p>
 <p><a href="http://huzb.me/2019/06/30/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E2%80%94%E2%80%942PC%E3%80%813PC%E5%92%8CTCC/">分布式事务——2PC、3PC 和 TCC</a></p>
-<h4 id="heading-6">一致性问题</h4>
+<h4 id="一致性问题">一致性问题</h4>
 <ul>
 <li>
 <p>当协调者向所有参与者发送commit请求之后，发生了局部网络异常或协调者在尚未发完commit请求之前自身发生了崩溃，导致最终只有部分参与者接收到了commit请求。</p>
@@ -386,7 +383,7 @@ https://cseweb.ucsd.edu/classes/sp16/cse291-e/applications/ln/lecture8.html
 </div><p>An * next to the record type means that the record is forced to stable storage.[<a href="https://en.wikipedia.org/wiki/Two-phase_commit_protocol#cite_note-mohan1986-4">4]</a></p>
 <p><img src="https://i.loli.net/2019/11/20/Lhza6UytbmeZ7pQ.png" alt="image.png"></p>
 <p><img src="https://i.loli.net/2019/11/20/3YHP2fOr815jCvZ.png" alt="image.png"></p>
-<h4 id="httpsilolinet201911135rvzhuk9qlcikebpng-3pchttpsappyinxiangcomshards39nl822682959f28292-cd0c-4c99-b43a-4405c133154c"><img src="https://i.loli.net/2019/11/13/5rVZHuK9QLcikEb.png" alt="阻塞的"> <a href="https://app.yinxiang.com/shard/s39/nl/8226829/59f28292-cd0c-4c99-b43a-4405c133154c">3PC</a></h4>
+<h4 id="阻塞的httpsilolinet201911135rvzhuk9qlcikebpng-3pchttpsappyinxiangcomshards39nl822682959f28292-cd0c-4c99-b43a-4405c133154c"><img src="https://i.loli.net/2019/11/13/5rVZHuK9QLcikEb.png" alt="阻塞的"> <a href="https://app.yinxiang.com/shard/s39/nl/8226829/59f28292-cd0c-4c99-b43a-4405c133154c">3PC</a></h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -421,23 +418,23 @@ https://cseweb.ucsd.edu/classes/sp16/cse291-e/applications/ln/lecture8.html
 </span><span class="lnt">30
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="o">&gt;</span> <span class="err">一</span><span class="err">个</span><span class="err">节</span><span class="err">点</span><span class="err">故</span><span class="err">障</span><span class="err">，</span><span class="err">写</span><span class="err">入</span><span class="err">操</span><span class="err">作</span><span class="err">全</span><span class="err">部</span><span class="err">失</span><span class="err">败</span><span class="err">，</span><span class="err">整</span><span class="err">个</span><span class="err">系</span><span class="err">统</span><span class="err">崩</span><span class="err">溃</span><span class="err">？</span>
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="o">&gt;</span> <span class="err">一个节点故障，写入操作全部失败，整个系统崩溃？</span>
 <span class="nl">https</span><span class="p">:</span><span class="c1">//en.wikipedia.org/wiki/Three-phase_commit_protocol
-</span><span class="c1"></span><span class="n">A</span> <span class="n">two</span><span class="o">-</span><span class="n">phase</span> <span class="n">commit</span> <span class="n">protocol</span> <span class="n">cannot</span> <span class="n">dependably</span> <span class="n">recover</span> <span class="n">from</span> <span class="n">a</span> <span class="n">failure</span> <span class="n">of</span> <span class="n">both</span> <span class="n">the</span> <span class="n">coordinator</span> <span class="n">and</span> <span class="n">a</span> <span class="n">cohort</span> <span class="n">member</span> <span class="n">during</span> <span class="n">the</span> <span class="n">Commit</span> <span class="n">phase</span> <span class="err">【</span><span class="err">这</span><span class="err">里</span><span class="err">说</span><span class="err">是</span><span class="err">第</span><span class="err">二</span><span class="err">阶</span><span class="err">段</span><span class="err">】</span>
+</span><span class="c1"></span><span class="n">A</span> <span class="n">two</span><span class="o">-</span><span class="n">phase</span> <span class="n">commit</span> <span class="n">protocol</span> <span class="n">cannot</span> <span class="n">dependably</span> <span class="n">recover</span> <span class="n">from</span> <span class="n">a</span> <span class="n">failure</span> <span class="n">of</span> <span class="n">both</span> <span class="n">the</span> <span class="n">coordinator</span> <span class="n">and</span> <span class="n">a</span> <span class="n">cohort</span> <span class="n">member</span> <span class="n">during</span> <span class="n">the</span> <span class="n">Commit</span> <span class="n">phase</span> <span class="err">【这里说是第二阶段】</span>
 
 <span class="n">If</span> <span class="n">only</span> <span class="n">the</span> <span class="n">coordinator</span> <span class="n">had</span> <span class="n">failed</span><span class="p">,</span> <span class="n">and</span> <span class="n">no</span> <span class="n">cohort</span> <span class="n">members</span> <span class="n">had</span> <span class="n">received</span> <span class="n">a</span> <span class="n">commit</span> <span class="n">message</span><span class="p">,</span> <span class="n">it</span> <span class="n">could</span> <span class="n">safely</span> <span class="n">be</span> <span class="n">inferred</span> <span class="n">that</span> <span class="n">no</span> <span class="n">commit</span> <span class="n">had</span> <span class="n">happened</span>
     
-<span class="p">(</span><span class="n">send</span> <span class="err">发</span><span class="err">送</span><span class="err">失</span><span class="err">败</span><span class="err">，</span><span class="err">不</span><span class="err">会</span><span class="err">提</span><span class="err">交</span><span class="err">业</span><span class="err">务</span><span class="err">的</span><span class="err">，</span><span class="err">原</span><span class="err">子</span><span class="err">操</span><span class="err">作</span><span class="err">，</span><span class="err">提</span><span class="err">交</span><span class="err">成</span><span class="err">功</span> <span class="err">然</span><span class="err">后</span><span class="err">返</span><span class="err">回</span><span class="err">结</span><span class="err">果</span><span class="p">)</span> <span class="err">原</span><span class="err">子</span><span class="err">操</span><span class="err">作</span><span class="err">类</span><span class="err">别</span><span class="n">pthread_cond_wait</span><span class="err">（</span><span class="mi">1</span> <span class="n">wait</span> <span class="mi">2u</span><span class="n">nlock</span><span class="err">）</span>
+<span class="p">(</span><span class="n">send</span> <span class="err">发送失败，不会提交业务的，原子操作，提交成功</span> <span class="err">然后返回结果</span><span class="p">)</span> <span class="err">原子操作类别</span><span class="n">pthread_cond_wait</span><span class="err">（</span><span class="mi">1</span> <span class="n">wait</span> <span class="mi">2u</span><span class="n">nlock</span><span class="err">）</span>
     
     <span class="n">Even</span> <span class="k">if</span> <span class="n">a</span> <span class="k">new</span> <span class="n">coordinator</span> <span class="n">is</span> <span class="n">selected</span><span class="p">,</span> <span class="n">it</span> <span class="n">cannot</span> <span class="n">confidently</span> <span class="n">proceed</span> <span class="n">with</span> <span class="n">the</span> <span class="n">operation</span> <span class="n">until</span> <span class="n">it</span> <span class="n">has</span> <span class="n">received</span> <span class="n">an</span> <span class="n">agreement</span> <span class="n">from</span> <span class="n">all</span> <span class="n">cohort</span> <span class="n">members</span><span class="p">,</span> <span class="n">and</span> <span class="n">hence</span> <span class="n">must</span> <span class="n">block</span> <span class="n">until</span> <span class="n">all</span> <span class="n">cohort</span> <span class="n">members</span> <span class="n">respond</span><span class="p">.</span>
    
-        <span class="n">The</span> <span class="n">three</span><span class="o">-</span><span class="n">phase</span> <span class="n">commit</span> <span class="n">protocol</span> <span class="n">eliminates</span> <span class="k">this</span> <span class="n">problem</span> <span class="n">by</span> <span class="n">introducing</span> <span class="n">the</span> <span class="n">Prepared</span> <span class="n">to</span> <span class="n">commit</span> <span class="n">state</span> <span class="p">(</span><span class="err">多</span><span class="err">了</span><span class="err">一</span><span class="err">个</span><span class="err">状</span><span class="err">态</span><span class="p">)</span>
+        <span class="n">The</span> <span class="n">three</span><span class="o">-</span><span class="n">phase</span> <span class="n">commit</span> <span class="n">protocol</span> <span class="n">eliminates</span> <span class="k">this</span> <span class="n">problem</span> <span class="n">by</span> <span class="n">introducing</span> <span class="n">the</span> <span class="n">Prepared</span> <span class="n">to</span> <span class="n">commit</span> <span class="n">state</span> <span class="p">(</span><span class="err">多了一个状态</span><span class="p">)</span>
         
         
-        <span class="n">If</span> <span class="n">the</span> <span class="n">coordinator</span> <span class="n">fails</span> <span class="n">before</span> <span class="n">sending</span> <span class="n">preCommit</span> <span class="n">messages</span><span class="p">,</span> <span class="n">the</span> <span class="n">cohort</span> <span class="n">will</span> <span class="n">unanimously</span> <span class="n">agree</span> <span class="n">that</span> <span class="n">the</span> <span class="n">operation</span> <span class="n">was</span> <span class="n">aborted</span><span class="err">（</span><span class="err">没</span><span class="err">有</span><span class="err">准</span><span class="err">备</span><span class="err">，</span><span class="err">可</span><span class="err">以</span><span class="err">放</span><span class="err">弃</span><span class="err">）</span>
+        <span class="n">If</span> <span class="n">the</span> <span class="n">coordinator</span> <span class="n">fails</span> <span class="n">before</span> <span class="n">sending</span> <span class="n">preCommit</span> <span class="n">messages</span><span class="p">,</span> <span class="n">the</span> <span class="n">cohort</span> <span class="n">will</span> <span class="n">unanimously</span> <span class="n">agree</span> <span class="n">that</span> <span class="n">the</span> <span class="n">operation</span> <span class="n">was</span> <span class="n">aborted</span><span class="err">（没有准备，可以放弃）</span>
         
         
-        <span class="n">The</span> <span class="n">coordinator</span> <span class="n">will</span> <span class="n">not</span> <span class="n">send</span> <span class="n">out</span> <span class="n">a</span> <span class="n">doCommit</span> <span class="n">message</span> <span class="n">until</span> <span class="n">all</span> <span class="n">cohort</span> <span class="n">members</span> <span class="n">have</span> <span class="n">ACKed</span> <span class="n">that</span> <span class="n">they</span> <span class="n">are</span> <span class="n">Prepared</span> <span class="n">to</span> <span class="n">commit</span><span class="p">.</span><span class="err">（</span><span class="err">这</span><span class="err">里</span><span class="err">不</span><span class="err">发</span><span class="err">送</span><span class="err">）</span>
+        <span class="n">The</span> <span class="n">coordinator</span> <span class="n">will</span> <span class="n">not</span> <span class="n">send</span> <span class="n">out</span> <span class="n">a</span> <span class="n">doCommit</span> <span class="n">message</span> <span class="n">until</span> <span class="n">all</span> <span class="n">cohort</span> <span class="n">members</span> <span class="n">have</span> <span class="n">ACKed</span> <span class="n">that</span> <span class="n">they</span> <span class="n">are</span> <span class="n">Prepared</span> <span class="n">to</span> <span class="n">commit</span><span class="p">.</span><span class="err">（这里不发送）</span>
 
    <span class="nl">https</span><span class="p">:</span><span class="c1">//cseweb.ucsd.edu/classes/sp16/cse291-e/applications/ln/lecture8.html     
 </span><span class="c1"></span> <span class="n">Recovery</span> <span class="n">in</span> <span class="mi">3</span><span class="n">PC</span>
@@ -445,10 +442,10 @@ https://cseweb.ucsd.edu/classes/sp16/cse291-e/applications/ln/lecture8.html
     
     
     
- <span class="err">脑</span><span class="err">洞</span>
+ <span class="err">脑洞</span>
 
 
- <span class="err">如</span><span class="err">果</span><span class="err">有</span><span class="err">至</span><span class="err">少</span><span class="err">一</span><span class="err">个</span><span class="err">返</span><span class="err">回</span><span class="n">commit了</span><span class="err">，</span><span class="err">那</span><span class="err">么</span><span class="err">挂</span><span class="err">掉</span><span class="err">的</span><span class="err">节</span><span class="err">点</span><span class="err">只</span><span class="err">可</span><span class="err">能</span><span class="err">是</span><span class="n">prepare</span><span class="o">-</span><span class="n">commit和commit状态</span><span class="err">，</span><span class="err">这</span><span class="err">样</span><span class="err">整</span><span class="err">个</span><span class="err">系</span><span class="err">统</span><span class="err">状</span><span class="err">态</span><span class="err">也</span><span class="err">是</span><span class="err">可</span><span class="err">以</span><span class="err">提</span><span class="err">交</span><span class="err">的</span> 
+ <span class="err">如果有至少一个返回</span><span class="n">commit了</span><span class="err">，那么挂掉的节点只可能是</span><span class="n">prepare</span><span class="o">-</span><span class="n">commit和commit状态</span><span class="err">，这样整个系统状态也是可以提交的</span> 
 
 
 </code></pre></td></tr></table>
@@ -458,33 +455,33 @@ https://cseweb.ucsd.edu/classes/sp16/cse291-e/applications/ln/lecture8.html
 <p><img src="https://cseweb.ucsd.edu/classes/sp16/cse291-e/applications/ln/2pc-part.jpg" alt="img"></p>
 <p><img src="https://cseweb.ucsd.edu/classes/sp16/cse291-e/applications/ln/2pc-coord.jpg" alt="img"></p>
 <p>～～～～～～～～～～～～～～～～～我是分隔符 我来补充基本 ，不代表一定正确 end～～～～～～～～～～～</p>
-<h3 id="--pacifica">全部一致  PacificA</h3>
+<h3 id="全部一致--pacifica">全部一致  PacificA</h3>
 <p><img src="https://i.loli.net/2019/11/13/TYcnjfMLIN2hk97.png" alt="提交不变量"></p>
 <p><img src="https://i.loli.net/2019/11/13/ZJtYgPRMeo6r3pf.png" alt="image.png"></p>
-<h3 id="-raft">过半一致 raft</h3>
+<h3 id="过半一致-raft">过半一致 raft</h3>
 <p>小王提问</p>
 <ul>
 <li>假如只存在2个节点，这个2个节点存在网络分区该怎么办？&mdash;2个节点系统不允许存在</li>
 </ul>
 <p><img src="https://i.loli.net/2019/11/13/2TSnYU9ur7gf5Xm.png" alt="不断的重试，业务不阻塞"></p>
-<h4 id="heading-7">小王的思考与行动</h4>
+<h4 id="小王的思考与行动">小王的思考与行动</h4>
 <p>～～～～～～～～～～～～～～～～～我是分隔符 我来补充基本 ，不代表一定正确～～～～～～～～～～～</p>
 <ul>
 <li>
 <p><a href="http://atomicer.cn/2019/05/17/etcd-raft%E4%B8%ADraft%E7%AE%97%E6%B3%95%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%80%9D%E8%B7%AF%E5%8F%82%E8%80%83/">Raft在网络分区时leader选举的一个疑问？</a></p>
 </li>
 <li>
-<h1 id="raft--etcd-httpsblogbetacatiopostraft-implementation-in-etcd-"><a href="https://blog.betacat.io/post/raft-implementation-in-etcd/">Raft 在 etcd 中的实现</a></h1>
+<h1 id="raft-在-etcd-中的实现httpsblogbetacatiopostraft-implementation-in-etcd-"><a href="https://blog.betacat.io/post/raft-implementation-in-etcd/">Raft 在 etcd 中的实现</a></h1>
 </li>
 </ul>
-<h3 id="gossip">弱一致（gossip）</h3>
-<h1 id="heading-8">数据库产品</h1>
+<h3 id="弱一致gossip">弱一致（gossip）</h3>
+<h1 id="数据库产品">数据库产品</h1>
 <p><img src="https://i.loli.net/2019/11/14/KTc9tlHFyaWioxI.png" alt="image.png"></p>
 <h2 id="rocksdb">rocksDB</h2>
-<h1 id="heading-9">服务产品</h1>
-<h2 id="-kubernetes">一. Kubernetes</h2>
+<h1 id="服务产品">服务产品</h1>
+<h2 id="一-kubernetes">一. Kubernetes</h2>
 <h3 id="kubernetes-autoscalin">Kubernetes Autoscalin</h3>
-<h2 id="istio">二、服务网格Istio</h2>
+<h2 id="二服务网格istio">二、服务网格Istio</h2>
 <blockquote>
 <p>A service mesh is a dedicated infrastructure layer for handling service-to-service communication.</p>
 <p>It’s responsible for the reliable delivery of requests through the complex topology of services that comprise a modern, cloud native application.</p>
@@ -494,9 +491,9 @@ https://cseweb.ucsd.edu/classes/sp16/cse291-e/applications/ln/lecture8.html
 <p>在实践中，服务网格通常被实现为一组轻量级网络代理，它们与应用程序部署在一起，对应用程序是透明的。</p>
 <p>A <em>service mesh</em> is a configurable, low‑latency infrastructure layer designed to handle a high volume of network‑based interprocess communication among application infrastructure services using application programming interfaces (APIs).</p>
 </blockquote>
-<h1 id="heading-10">瞎扯</h1>
+<h1 id="瞎扯">瞎扯</h1>
 <p><img src="https://i.loli.net/2019/11/21/5nTuUXIHow6xj2G.png" alt="image.png"></p>
-<h1 id="heading-11">塔山之石</h1>
+<h1 id="塔山之石">塔山之石</h1>
 <p>[1] <a href="https://www.infoq.cn/article/2018/05/distributed-system-architecture">左耳朵耗子推荐：分布式系统架构经典资料</a> 【book 正在看，进展10%】</p>
 <p>[2] <a href="https://www.servicemesher.com/istio-handbook/">Istio Handbook——Istio 服务网格进阶实战</a>【book 正在看，进展0%】</p>
 <p>[3] <a href="https://github.com/cloudnativebooks/cloud-native-istio">云原生服务网格Istio：原理、实践、架构与源码解析</a> 【book 求电子书，感激不尽】</p>

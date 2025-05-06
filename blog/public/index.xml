@@ -6,10 +6,24 @@
     <description>Recent content on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 24 Apr 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 27 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>IO的一生</title>
+      <link>https://wangcy6.github.io/post/storage/2025/2025-05-02-what-is-io/</link>
+      <pubDate>Sun, 27 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/storage/2025/2025-05-02-what-is-io/</guid>
+      <description>大家好我是小义同学，这是大厂面试拆解——项目实战系列的第6篇文章， ”走暗路、耕瘦田、进窄门、见微光” 告诉我 面试关键就 深入理解自己项目 这个才是</description>
+    </item>
     
-	<atom:link href="https://wangcy6.github.io/index.xml" rel="self" type="application/rss+xml" />
-    
+    <item>
+      <title>深入理解 新一代存储引擎BlueStore,需四步</title>
+      <link>https://wangcy6.github.io/post/storage/2025/2025-04-27-what-is-BlueStore/</link>
+      <pubDate>Sun, 27 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/storage/2025/2025-04-27-what-is-BlueStore/</guid>
+      <description>大家好我是小义同学，这是大厂面试拆解——项目实战系列的第5篇文章， ”走暗路、耕瘦田、进窄门、见微光” 告诉我 面试关键就 深入理解自己项目 这个才是</description>
+    </item>
     
     <item>
       <title>Cursor 实战技巧：如何快速配置 Python 环境</title>
@@ -21,12 +35,48 @@
     </item>
     
     <item>
+      <title>面试题：Redis为何突然变慢了</title>
+      <link>https://wangcy6.github.io/post/interviewSystemDesgin/2025-04-24-redis_slow/</link>
+      <pubDate>Thu, 24 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/interviewSystemDesgin/2025-04-24-redis_slow/</guid>
+      <description>把面试官当陪练，在找工作中才会越战越勇 大家好我是小义同学，这是大厂面试拆解——项目实战系列的第4篇文章。 大家都是知道Redis纯内存数据库，</description>
+    </item>
+    
+    <item>
+      <title>面试官:从三万英尺角度谈一下Ceph架构设计(1)</title>
+      <link>https://wangcy6.github.io/post/liunx/2025/11what_is_Ceph/</link>
+      <pubDate>Tue, 22 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/liunx/2025/11what_is_Ceph/</guid>
+      <description>把面试官当陪练，在找工作中才会越战越勇 大家好我是小义同学，这是大厂面试拆解——项目实战系列的第3篇文章，如果有误，请指正。 本文主要解决的一个</description>
+    </item>
+    
+    <item>
       <title>性能优化</title>
       <link>https://wangcy6.github.io/post/liunx/2025/10_Interview_pm_ehance_2/</link>
       <pubDate>Fri, 18 Apr 2025 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/liunx/2025/10_Interview_pm_ehance_2/</guid>
       <description>一、目前我什么状态。 二、未来我要成为什么状态 2.1 了解企业对岗位招聘标准 2.2 熟悉职场晋升打怪升级规则（为什么**B类人才这么卷） S、A、B、C级人</description>
+    </item>
+    
+    <item>
+      <title>面试题：系统慢 怎么优化</title>
+      <link>https://wangcy6.github.io/post/liunx/2025/10_interview_design_performance/</link>
+      <pubDate>Fri, 18 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/liunx/2025/10_interview_design_performance/</guid>
+      <description>坚持思考，就会很酷。大家好，这是大厂面试拆解——项目实战系列的第2篇文章。 本文以分布式文件系统 Ceph 服务为例，描述系统性能优化的一般过程。 请思考</description>
+    </item>
+    
+    <item>
+      <title>面试题：系统慢 怎么优化</title>
+      <link>https://wangcy6.github.io/post/liunx/2025/10_interview_design_performance.md-1/</link>
+      <pubDate>Fri, 18 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/liunx/2025/10_interview_design_performance.md-1/</guid>
+      <description>坚持思考，就会很酷, 大家好，这是大厂面试拆解&amp;ndash;项目实战系列的第2篇文章。 本文通过分布式文件系统ceph 服务 为例子 描述 性能优化的一</description>
     </item>
     
     <item>
@@ -117,6 +167,15 @@
       
       <guid>https://wangcy6.github.io/post/liunx/2025/06_file_system_block/</guid>
       <description>本文的写作宗旨是：绝不装逼，一定要简单，简单，再简单！ 作为个人学习实践笔记，可能存在错误或遗漏，欢迎指正_ 大纲 对象存储、文件存储和块存储的区</description>
+    </item>
+    
+    <item>
+      <title>从青铜到王者系列——谈谈指针和引用的区别</title>
+      <link>https://wangcy6.github.io/post/c/2025-4-29-Interview_pointer/</link>
+      <pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/c/2025-4-29-Interview_pointer/</guid>
+      <description>大局观 问：指针和引用有什么区别？从青铜到王者怎么回答 提示： 从项目系统设计开发角度，怎么设计，怎么开发，怎么编译，测试的 就是从大局观角度回答 项</description>
     </item>
     
     <item>
@@ -273,6 +332,15 @@
     </item>
     
     <item>
+      <title>c&#43;&#43;面试题</title>
+      <link>https://wangcy6.github.io/post/interviewSystemDesgin/2024-11-10-cppd-day1/</link>
+      <pubDate>Sun, 10 Nov 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/interviewSystemDesgin/2024-11-10-cppd-day1/</guid>
+      <description>没有行动拆分出来，无法目标转换行动，意志力这个时候失效了 今天一天安排（写不清楚就就无法行动） 起床仪式整理：10分钟完成 不用闹钟 6点自动起来，</description>
+    </item>
+    
+    <item>
       <title>构建个人应用第一天</title>
       <link>https://wangcy6.github.io/post/2024/2024-11-10-build-my-appley-p1/</link>
       <pubDate>Sun, 10 Nov 2024 00:00:00 +0000</pubDate>
@@ -282,11 +350,29 @@
     </item>
     
     <item>
+      <title>构建个人应用第一天</title>
+      <link>https://wangcy6.github.io/post/interviewSystemDesgin/2024-11-10-build-my-appley-p1/</link>
+      <pubDate>Sun, 10 Nov 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/interviewSystemDesgin/2024-11-10-build-my-appley-p1/</guid>
+      <description>学习方法 1 2 3 4 5 6 7 8 9 10 11 一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题 二、这个技术的优势和劣势分别是什么 三、这</description>
+    </item>
+    
+    <item>
       <title>GDB调试指南（1）</title>
       <link>https://wangcy6.github.io/post/2024/2024-11-09-how-to-user-gdb/</link>
       <pubDate>Sat, 09 Nov 2024 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/2024/2024-11-09-how-to-user-gdb/</guid>
+      <description>目前仅有管软节点的backend参与元数据同步，元数据同步可仿gpair独立创建落盘的对象，并且实现多节点backend同时承接不同的任务，</description>
+    </item>
+    
+    <item>
+      <title>GDB调试指南（1）</title>
+      <link>https://wangcy6.github.io/post/interviewSystemDesgin/2024-11-09-how-to-user-gdb/</link>
+      <pubDate>Sat, 09 Nov 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/interviewSystemDesgin/2024-11-09-how-to-user-gdb/</guid>
       <description>目前仅有管软节点的backend参与元数据同步，元数据同步可仿gpair独立创建落盘的对象，并且实现多节点backend同时承接不同的任务，</description>
     </item>
     
@@ -345,6 +431,15 @@
     </item>
     
     <item>
+      <title>git常用命令手册</title>
+      <link>https://wangcy6.github.io/post/interviewSystemDesgin/06-tools-base-user-git/</link>
+      <pubDate>Fri, 20 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/interviewSystemDesgin/06-tools-base-user-git/</guid>
+      <description>并发迁移代码实现，联调90% 支持存力测试演示 git撤销已经push到远端的commit git reset 是把HEAD向后移动了一下，而git revert是</description>
+    </item>
+    
+    <item>
       <title>c&#43;&#43;代码编程规范</title>
       <link>https://wangcy6.github.io/post/c&#43;&#43;/02_master_c&#43;&#43;_class/</link>
       <pubDate>Sat, 07 Sep 2024 00:00:00 +0000</pubDate>
@@ -386,7 +481,34 @@
       <pubDate>Wed, 07 Aug 2024 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/c&#43;&#43;/01_c&#43;&#43;_new/</guid>
-      <description>&amp;laquo;&amp;laquo;&amp;laquo;&amp;lt; HEAD # 代码评审（Code Review） ======= 14400 293f2e598d8da34a01eebf8c3ffae13524256be8 架构/设计 a. 单一职责原则 一个类只做一类相关的事情。 一个方法，最好只做一件事情。 b. 代码是否污染 代码</description>
+      <description>内存管理 C++中通过new和delete两个关键字进行动态内存管理。 c语言通过 malloc 和free 两个关键字进行动态内存管理 函数支持重载，运算符同样</description>
+    </item>
+    
+    <item>
+      <title>Ceph分布式锁的设计哲学与工程实践</title>
+      <link>https://wangcy6.github.io/post/c/2025-4-26_lock/</link>
+      <pubDate>Wed, 07 Aug 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/c/2025-4-26_lock/</guid>
+      <description>坚持思考，就会很酷。 大家好，这是进入大厂面试准备 第2篇文章， ”走暗路、耕瘦田、进窄门、见微光” 告诉我 面试关键就 项目 这个才是最考察基本功的地方</description>
+    </item>
+    
+    <item>
+      <title>面试题：read 返回0是否代表一定对方连接已经关闭？</title>
+      <link>https://wangcy6.github.io/post/c/2025-4-25-read/</link>
+      <pubDate>Wed, 07 Aug 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/c/2025-4-25-read/</guid>
+      <description>坚持思考，就会很酷。 大家好，这是进入大厂面试准备 第1篇文章知识地图：LINUX系统调用 问：read 返回0是否一定表示对端关闭？ 答： ​​普通文</description>
+    </item>
+    
+    <item>
+      <title>面试题：TCP 四次挥手能变成三次挥手吗?</title>
+      <link>https://wangcy6.github.io/post/c/2025-4-25_tcp_close/</link>
+      <pubDate>Wed, 07 Aug 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/c/2025-4-25_tcp_close/</guid>
+      <description>坚持思考，就会很酷。 大家好，这是进入大厂面试准备 第2篇文章知识地图：LINUX系统调用 上篇文章 ：面试题：read 返回0是否代表一定对方连接已</description>
     </item>
     
     <item>
@@ -458,7 +580,7 @@
       <pubDate>Thu, 28 Mar 2024 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/storage/05-2024-3-08-ceph-read/</guid>
-      <description>entity_id 这个能改变吗？ 通过S3FS调用icfs_setxattr接口。 参数client_type=&amp;quot;S3&amp;rdquo; Entity_id 是 /var/run/icfs-client.XXXX 其中xxx是</description>
+      <description>entity_id 这个能改变吗？ 通过S3FS调用icfs_setxattr接口。 参数client_type=&amp;ldquo;S3&amp;rdquo; Entity_id 是 /var/run/icfs-client.XXXX 其中xxx</description>
     </item>
     
     <item>
@@ -480,6 +602,15 @@
     </item>
     
     <item>
+      <title>终于搞懂了如何做性能优化</title>
+      <link>https://wangcy6.github.io/post/storage/2025/01-ceph-feature-getfattr-1/</link>
+      <pubDate>Thu, 28 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/storage/2025/01-ceph-feature-getfattr-1/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>ARTS_2024_weekly_13</title>
       <link>https://wangcy6.github.io/post/ARTS/2024/arts_weekly_13/</link>
       <pubDate>Mon, 25 Mar 2024 00:00:00 +0000</pubDate>
@@ -494,6 +625,15 @@
       <pubDate>Tue, 12 Mar 2024 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/2024/2024-03-03-11-rust-ai/</guid>
+      <description>赛题1 - 蓝河代码转译工具 背景阐述 1.C/C++代码编写的系统大约70%的严重安全漏洞和内存使用不当相关，Rust语言一系列安全特性，可以在编</description>
+    </item>
+    
+    <item>
+      <title>vivo蓝河操作系统创新赛准备材料</title>
+      <link>https://wangcy6.github.io/post/interviewSystemDesgin/2024-03-03-11-rust-ai/</link>
+      <pubDate>Tue, 12 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/interviewSystemDesgin/2024-03-03-11-rust-ai/</guid>
       <description>赛题1 - 蓝河代码转译工具 背景阐述 1.C/C++代码编写的系统大约70%的严重安全漏洞和内存使用不当相关，Rust语言一系列安全特性，可以在编</description>
     </item>
     
@@ -543,11 +683,38 @@
     </item>
     
     <item>
+      <title>整理：强哥答疑</title>
+      <link>https://wangcy6.github.io/post/interviewSystemDesgin/2024-03-03-04_rust_vivo/</link>
+      <pubDate>Sun, 03 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/interviewSystemDesgin/2024-03-03-04_rust_vivo/</guid>
+      <description>学习方法 1 2 3 4 5 6 7 8 9 10 11 一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题 二、这个技术的优势和劣势分别是什么 三、这</description>
+    </item>
+    
+    <item>
+      <title>整理：强哥答疑</title>
+      <link>https://wangcy6.github.io/post/interviewSystemDesgin/2024-03-03-ask/</link>
+      <pubDate>Sun, 03 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/interviewSystemDesgin/2024-03-03-ask/</guid>
+      <description>学习方法 1 2 3 4 5 6 7 8 9 10 11 12 一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题 二、这个技术的优势和劣势分别是什么 三、</description>
+    </item>
+    
+    <item>
       <title>源码阅读：请你设计一个线程池</title>
       <link>https://wangcy6.github.io/post/2024/2024-03-06_readcode_ceph_threadpool/</link>
       <pubDate>Sun, 03 Mar 2024 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/2024/2024-03-06_readcode_ceph_threadpool/</guid>
+      <description>/Users/wangchuanyi/doc/daily-interview/blog 在温和的春夜里，路灯投下淡淡的黄光，小王沿着柳树成荫的街道散步，思绪随着微风轻轻飘散。不远处，他的邻居老王也正慢慢踱步，一如既往地享受着夜</description>
+    </item>
+    
+    <item>
+      <title>源码阅读：请你设计一个线程池</title>
+      <link>https://wangcy6.github.io/post/interviewSystemDesgin/2024-03-06_readcode_ceph_threadpool/</link>
+      <pubDate>Sun, 03 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/interviewSystemDesgin/2024-03-06_readcode_ceph_threadpool/</guid>
       <description>/Users/wangchuanyi/doc/daily-interview/blog 在温和的春夜里，路灯投下淡淡的黄光，小王沿着柳树成荫的街道散步，思绪随着微风轻轻飘散。不远处，他的邻居老王也正慢慢踱步，一如既往地享受着夜</description>
     </item>
     
@@ -561,11 +728,29 @@
     </item>
     
     <item>
+      <title>在一台电脑上同时使用多个github账号(亲测有效)</title>
+      <link>https://wangcy6.github.io/post/interviewSystemDesgin/2024-02-09-git-two-account/</link>
+      <pubDate>Fri, 09 Feb 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/interviewSystemDesgin/2024-02-09-git-two-account/</guid>
+      <description>what：从现象提出问题 在一台电脑上有两个 github 账号 git 提交代码时候 fatal: 无法读取远程仓库。 尝试 密码登陆 今天是2021年8月13日（情人节），苦涩。 在</description>
+    </item>
+    
+    <item>
       <title>小册子：互联网引流的100种手法</title>
       <link>https://wangcy6.github.io/post/2024/2024-02-09-100-ways-add-funs/</link>
       <pubDate>Fri, 09 Feb 2024 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/2024/2024-02-09-100-ways-add-funs/</guid>
+      <description>小册字：互联网引流的100种手法 学习笔记 微信号：watchpoints 点击蓝色字体：陪你终身成长丨限免星球， 自取310个新媒体运营工具 大纲 第</description>
+    </item>
+    
+    <item>
+      <title>小册子：互联网引流的100种手法</title>
+      <link>https://wangcy6.github.io/post/interviewSystemDesgin/2024-02-09-100-ways-add-funs/</link>
+      <pubDate>Fri, 09 Feb 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/interviewSystemDesgin/2024-02-09-100-ways-add-funs/</guid>
       <description>小册字：互联网引流的100种手法 学习笔记 微信号：watchpoints 点击蓝色字体：陪你终身成长丨限免星球， 自取310个新媒体运营工具 大纲 第</description>
     </item>
     
@@ -705,6 +890,15 @@
     </item>
     
     <item>
+      <title>从三万英尺介绍:文件系统Ceph架构</title>
+      <link>https://wangcy6.github.io/post/liunx/2025/11what_is_Ceph_temp/</link>
+      <pubDate>Fri, 11 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/liunx/2025/11what_is_Ceph_temp/</guid>
+      <description>把面试官当陪练，在找工作中才会越战越勇 把面试官当陪练，在找工作中才会越战越勇 大家好我是小义同学，这是大厂面试拆解——项目实战系列的第3篇文章</description>
+    </item>
+    
+    <item>
       <title>从青铜到王者系列：深入浅出理解 DeepSeek 3FS（1）</title>
       <link>https://wangcy6.github.io/post/liunx/2025/2025-03-19/</link>
       <pubDate>Fri, 11 Aug 2023 00:00:00 +0000</pubDate>
@@ -720,6 +914,15 @@
       
       <guid>https://wangcy6.github.io/post/liunx/2025/2025-03-22_3fs_2/</guid>
       <description>导读 从青铜到王者系列：深入浅出理解 DeepSeek 3FS（2） 我整理 大模型训练 在checkpoint时候对大的文件读写， 在批量查询的时候对小文件读写 目前 谷</description>
+    </item>
+    
+    <item>
+      <title>慢盘问题：从青铜到王者的处理思路</title>
+      <link>https://wangcy6.github.io/post/storage/2025/2025-04-25-slow-disk/</link>
+      <pubDate>Fri, 11 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/storage/2025/2025-04-25-slow-disk/</guid>
+      <description>大家好我是小义同学，这是大厂面试拆解——项目实战系列的第4篇文章， 知识地图：数据可靠性-磁盘亚健康处理 为了解决故障后数据一致性问题，数据需要</description>
     </item>
     
     <item>
@@ -791,6 +994,15 @@
       <pubDate>Sat, 13 May 2023 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/2024/2024_03_10_ai_weekly_01/</guid>
+      <description>方法 帮助1000个人打造个人ip 每天不停学知识，最后什么都没去学怎办? 你不应先学习，再开始，而应先开始，再学习。 极简主义创业者关注如何“尽一</description>
+    </item>
+    
+    <item>
+      <title>AI周刊</title>
+      <link>https://wangcy6.github.io/post/interviewSystemDesgin/2024_03_10_ai_weekly_01/</link>
+      <pubDate>Sat, 13 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/interviewSystemDesgin/2024_03_10_ai_weekly_01/</guid>
       <description>方法 帮助1000个人打造个人ip 每天不停学知识，最后什么都没去学怎办? 你不应先学习，再开始，而应先开始，再学习。 极简主义创业者关注如何“尽一</description>
     </item>
     
@@ -1453,11 +1665,11 @@
     
     <item>
       <title>2021-读书清单</title>
-      <link>https://wangcy6.github.io/post/book/2021_book/</link>
+      <link>https://wangcy6.github.io/post/book/2025/book1-2025-5-cpu/</link>
       <pubDate>Sat, 10 Jul 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://wangcy6.github.io/post/book/2021_book/</guid>
-      <description>2021年 第一本：单核工作法图解：事多到事少,拖延变高效 高 帮助你解决问题：提供行动指南，非理论一本书 百度网盘：https://pan.bai</description>
+      <guid>https://wangcy6.github.io/post/book/2025/book1-2025-5-cpu/</guid>
+      <description>d</description>
     </item>
     
     <item>
@@ -1758,15 +1970,6 @@
     </item>
     
     <item>
-      <title>大脑的维修艺术</title>
-      <link>https://wangcy6.github.io/post/book/book5_%E9%87%8D%E5%A1%91%E5%BF%83%E7%81%B5/</link>
-      <pubDate>Thu, 12 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/book/book5_%E9%87%8D%E5%A1%91%E5%BF%83%E7%81%B5/</guid>
-      <description>第 34 期 50 字日更来啦， 从今天开始截至到 12 月 30 号 ： 要求文字 50 字以上，主题随意，不知道写什么就写当天感受，目的跨出第一步 开始时间：2024-10-</description>
-    </item>
-    
-    <item>
       <title>c&#43;&#43;编程思想</title>
       <link>https://wangcy6.github.io/post/2020/book_thingin_c&#43;&#43;/</link>
       <pubDate>Mon, 02 Dec 2019 00:00:00 +0000</pubDate>
@@ -1782,15 +1985,6 @@
       
       <guid>https://wangcy6.github.io/post/book/book_thingin_c&#43;&#43;/</guid>
       <description>代码位置： 原子的一定是线程安全的吗？ To satisfy thread safety requirements, the reference counters are typically incremented using an equivalent of std::atomic::fetch_add with std::memory_order_relaxed (decrementing requires stronger ordering to safely destroy the control block). https://blog.noct.site/2024/03/22/gcc13_shared_ptr/ https://github.com/gcc-mirror/gcc/blob/master/libstdc++-v3/include/bits/shared_ptr.h C++一分钟之-原子操作与线程安全 https://cloud.tencent.com/developer/article/2432619 Q14 三句话</description>
-    </item>
-    
-    <item>
-      <title>man</title>
-      <link>https://wangcy6.github.io/post/book/man/</link>
-      <pubDate>Mon, 02 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/book/man/</guid>
-      <description>帮助文档 内存管理 1 man malloc http://man7.org/linux/man-pages/man3/malloc.3.html Thread safety （多个线程可以同时执行） arena 1 2 3 4 5 To scalably handle memory allocation in multithreaded applications, glibc creates additional memory allocation arenas if mutex contention is detected. Each arena is a large region of memory that is internally allocated by the system (using brk(2) or mmap(2)),</description>
     </item>
     
     <item>
@@ -1818,15 +2012,6 @@
       
       <guid>https://wangcy6.github.io/post/2020/%E6%A8%A1%E6%9D%BF/</guid>
       <description>陈咬金的三板斧 第一斧：技术本质是什么？ 第二斧：解决了什么问题？ 第三斧：如何使用？</description>
-    </item>
-    
-    <item>
-      <title>设计之禅</title>
-      <link>https://wangcy6.github.io/post/book/book_04_%E8%AE%BE%E8%AE%A1%E4%B9%8B%E7%A6%85/</link>
-      <pubDate>Wed, 27 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/book/book_04_%E8%AE%BE%E8%AE%A1%E4%B9%8B%E7%A6%85/</guid>
-      <description>书籍 设计模式：可复用面向对象软件的基础 领域驱动设计 重构&amp;ndash;改善既有代码的设计 设计模式精解－GoF 23 种设计模式解析附 C++实现源码 代</description>
     </item>
     
     <item>
@@ -1911,15 +2096,6 @@
     </item>
     
     <item>
-      <title>Linux内核设计与实现</title>
-      <link>https://wangcy6.github.io/post/book/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86_book/</link>
-      <pubDate>Thu, 10 Oct 2019 17:02:43 +0800</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/book/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86_book/</guid>
-      <description>中断与锁（第7 ，8，9，10 章节） 1. 延迟处理机制 中断特点 中断处理程序不是可重入的。因为屏蔽了中断，根本不会发生切换。同类自旋锁是不可重入的 中</description>
-    </item>
-    
-    <item>
       <title>Memcached</title>
       <link>https://wangcy6.github.io/post/2020/Memcached/</link>
       <pubDate>Thu, 10 Oct 2019 17:02:43 +0800</pubDate>
@@ -1961,17 +2137,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/11/</guid>
-      <description>假如系统最初版本1 2 3 4  int main() { printf(&amp;#34;Hello, world”);  return 0; }   怎么升级改造，写出一个可扩展程序？
-先思考60秒
-下面是我处理该问题解决步骤
- 先问自己这个系统架构是什么？
-至少三层架构设计 应用层&amp;mdash;&amp;gt;标准库（glibc）——&amp;gt;操作系统 未来5年项目需要变化内容有哪些？   应用层——用户需求发生变化，需要新增功能 标准库—— 提供接口不合适了，需要替换原有功能 操作系统——不处理，在怎么变化也不处理 ，没这个能力   如何优化   应用层 把c语言改为c++ 面向对象设计，通过虚函数提供接口，动态库实现不同方法替换动态库 标准库（libc++/libstd++）共享库，这个无法替换呢？ 提供接口声明为弱符号
-  1  _GLIBCXX_WEAK_DEFINITION void *operator new（size_t）    弱符号有什么优势？在库中提供默认实现的弱定义函数，
-允许用户通过自定义强定义版本来覆盖这些函数&amp;mdash;这样设计体现可扩展
-说明： __attribute__((weak))是 GCC 和 Clang 提供的一个特性，
-用于声明一个符号为 &amp;ldquo;弱符号&amp;rdquo;（weak symbol），
-在链接层面提供更多的灵活性
-扩展阅读： 驱动程序通常需要支持多种硬件设备，但某些设备可能不支持某些功能。 通过使用弱符号，可以在驱动程序中提供默认实现，同时允许用户为特定设备提供自定义实现</description>
+      <description>假如系统最初版本1 2 3 4 int main() { printf(&amp;#34;Hello, world”); return 0; } 怎么升级改造，写出一个可扩展程序？ 先思考60秒 下面是我处理该问题解决步骤 先问自己这个系</description>
     </item>
     
     <item>
@@ -1980,18 +2146,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/2020/file/</guid>
-      <description>文件系统-知识地图 知识卡 https://github.com/wangcy6/weekly/blob/master/KM/01%E7%B3%BB%E7%BB%9F%E7%9F%A5%E8%AF%86/file.md
-阅读相关书籍  Linux 0.11内核完全注释 Linux内核设计与实现(第三版中文高清带目录) Linux设备驱动程序. Understanding the Linux Kernel, 3rd Editio Linux.Kernel.Cache MySQL技术内幕(InnoDB存储引擎)第2版. 性能之巅 洞悉系统、企业与云计算(完整版)  找不到电子版book
-第一性原理   mysql 有b+作为索引，为什么liunx文件系统不用b+索引结构，采用inode下面一个固定大小数组来表示？
-  为什么需要进行“格式化”呢
-  ls -i 显示inode 就是 long 类型的编号 还有什么呀？
-  文件存储在哪里呀？内存还是磁盘
-  什么是缓存呀
-  cache和buffer dentry objects and inode object 都在内存里有啥 区别？
-  概念理解  缓存  文件系统 在 Linux 中一切皆文件。不仅普通的文件和目录，就连块设备、套接字、管道等，也都要通过统一的文件系统来管理。
-Linux 下的文件系统主要可分为三大块：
-一是上层的文件系统的系统调用，
-二是虚拟文件系统 VFS(Virtual Filesystem Switch)，</description>
+      <description>文件系统-知识地图 知识卡 https://github.com/wangcy6/weekly/blob/master/KM/01%E7%B3%BB%E7%BB%9F%E7%9F%A5%E8%AF%86/file.md 阅读相关书籍 Linux 0.11内核完全注释 Linux内核设计与实现(第三版中文高清带目录) Linux设备驱动程序. Understanding the Linux Kernel,</description>
     </item>
     
     <item>
@@ -2018,17 +2173,7 @@ Linux 下的文件系统主要可分为三大块：
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/ARTS/2023/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C%E7%AC%AC%E5%9B%9B%E6%9C%9F/</guid>
-      <description>本文分为三个部分 产品应用，行业应用 和基础知识
- 从完成到完美，别想太多，只管去做。
-这一期没有什么内容，我依然发出来了，只为重启，上一阶段解释。 马上开启下一阶段。
-开始时间：2023-07-01 结束时间： 一. 行业 从石器时代到黄金时代 一. 基础知识：从青铜到白银经历问题
- 一 、站在巨人肩膀上 二. 从石器时代到黄金时代 一、公开课[资料]   数据库/存储学习路径推荐
-https://mp.weixin.qq.com/s/fl-R_ZMQwy0aNQbsXZeQ3Q 必读！！！数据库开发学习资料.pdf 进展：0
-  - 阅读书籍：leveldb 精通 https://github.com/watchpoints/leveldb https://leveldb-handbook.readthedocs.io/zh/latest/basic.html 进展：1
- Go 开放课程：MIT 经典课程 《分布式系统》  https://learnku.com/go/wikis/41239
- MIT 6.84: Distributed Systems  官方地址：https://pdos.csail.mit.edu/6.824/ 进展：0
-二. TIdb :::warning 为什么要看tidb，自己一个担心，前面无数人在 做，自己先做晚来了？ 然后等待3年 5年什么都不事情？然后看看手机电影， 为纠这个态度，从消息态度变成积极态度， 一个社区无数文档，无数参与 着说明有价值的。 你认为正确行业，你认为正确社区，你认为正确的， 为什么行动呢？着就是最大问题？ 有正确，有价值的不去做，反而去做没有用 事情。破冰 :::
-如何成为 TiFlash Contributor？ https://asktug.com/t/topic/693824</description>
+      <description>本文分为三个部分 产品应用，行业应用 和基础知识 从完成到完美，别想太多，只管去做。 这一期没有什么内容，我依然发出来了，只为重启，上一阶段解释。 马</description>
     </item>
     
     <item>

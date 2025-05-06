@@ -16,25 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Troy" /><meta name="description" content="文件系统-知识地图 知识卡 https://github.com/wangcy6/weekly/blob/master/KM/01%E7%B3%BB%E7%BB%9F%E7%9F%A5%E8%AF%86/file.md
-阅读相关书籍  Linux 0.11内核完全注释 Linux内核设计与实现(第三版中文高清带目录) Linux设备驱动程序. Understanding the Linux Kernel, 3rd Editio Linux.Kernel.Cache MySQL技术内幕(InnoDB存储引擎)第2版. 性能之巅 洞悉系统、企业与云计算(完整版)  找不到电子版book
-第一性原理   mysql 有b&#43;作为索引，为什么liunx文件系统不用b&#43;索引结构，采用inode下面一个固定大小数组来表示？
-  为什么需要进行“格式化”呢
-  ls -i 显示inode 就是 long 类型的编号 还有什么呀？
-  文件存储在哪里呀？内存还是磁盘
-  什么是缓存呀
-  cache和buffer dentry objects and inode object 都在内存里有啥 区别？
-  概念理解  缓存  文件系统 在 Linux 中一切皆文件。不仅普通的文件和目录，就连块设备、套接字、管道等，也都要通过统一的文件系统来管理。
-Linux 下的文件系统主要可分为三大块：
-一是上层的文件系统的系统调用，
-二是虚拟文件系统 VFS(Virtual Filesystem Switch)，" /><meta name="keywords" content="daily-interview-question, Github, c&#43;&#43;, Leetcode 题解, 后端面试" />
+<meta name="author" content="Troy" /><meta name="description" content="文件系统-知识地图 知识卡 https://github.com/wangcy6/weekly/blob/master/KM/01%E7%B3%BB%E7%BB%9F%E7%9F%A5%E8%AF%86/file.md 阅读相关书籍 Linux 0.11内核完全注释 Linux内核设计与实现(第三版中文高清带目录) Linux设备驱动程序. Understanding the Linux Kernel," /><meta name="keywords" content="daily-interview-question, Github, c&#43;&#43;, Leetcode 题解, 后端面试" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.83.1 with theme even" />
 
 
 <link rel="canonical" href="https://wangcy6.github.io/post/2020/file/" />
@@ -50,53 +39,19 @@ Linux 下的文件系统主要可分为三大块：
 
 
 <meta property="og:title" content="" />
-<meta property="og:description" content="文件系统-知识地图 知识卡 https://github.com/wangcy6/weekly/blob/master/KM/01%E7%B3%BB%E7%BB%9F%E7%9F%A5%E8%AF%86/file.md
-阅读相关书籍  Linux 0.11内核完全注释 Linux内核设计与实现(第三版中文高清带目录) Linux设备驱动程序. Understanding the Linux Kernel, 3rd Editio Linux.Kernel.Cache MySQL技术内幕(InnoDB存储引擎)第2版. 性能之巅 洞悉系统、企业与云计算(完整版)  找不到电子版book
-第一性原理   mysql 有b&#43;作为索引，为什么liunx文件系统不用b&#43;索引结构，采用inode下面一个固定大小数组来表示？
-  为什么需要进行“格式化”呢
-  ls -i 显示inode 就是 long 类型的编号 还有什么呀？
-  文件存储在哪里呀？内存还是磁盘
-  什么是缓存呀
-  cache和buffer dentry objects and inode object 都在内存里有啥 区别？
-  概念理解  缓存  文件系统 在 Linux 中一切皆文件。不仅普通的文件和目录，就连块设备、套接字、管道等，也都要通过统一的文件系统来管理。
-Linux 下的文件系统主要可分为三大块：
-一是上层的文件系统的系统调用，
-二是虚拟文件系统 VFS(Virtual Filesystem Switch)，" />
+<meta property="og:description" content="文件系统-知识地图 知识卡 https://github.com/wangcy6/weekly/blob/master/KM/01%E7%B3%BB%E7%BB%9F%E7%9F%A5%E8%AF%86/file.md 阅读相关书籍 Linux 0.11内核完全注释 Linux内核设计与实现(第三版中文高清带目录) Linux设备驱动程序. Understanding the Linux Kernel," />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://wangcy6.github.io/post/2020/file/" />
+<meta property="og:url" content="https://wangcy6.github.io/post/2020/file/" /><meta property="article:section" content="post" />
+
+
 
 <meta itemprop="name" content="">
-<meta itemprop="description" content="文件系统-知识地图 知识卡 https://github.com/wangcy6/weekly/blob/master/KM/01%E7%B3%BB%E7%BB%9F%E7%9F%A5%E8%AF%86/file.md
-阅读相关书籍  Linux 0.11内核完全注释 Linux内核设计与实现(第三版中文高清带目录) Linux设备驱动程序. Understanding the Linux Kernel, 3rd Editio Linux.Kernel.Cache MySQL技术内幕(InnoDB存储引擎)第2版. 性能之巅 洞悉系统、企业与云计算(完整版)  找不到电子版book
-第一性原理   mysql 有b&#43;作为索引，为什么liunx文件系统不用b&#43;索引结构，采用inode下面一个固定大小数组来表示？
-  为什么需要进行“格式化”呢
-  ls -i 显示inode 就是 long 类型的编号 还有什么呀？
-  文件存储在哪里呀？内存还是磁盘
-  什么是缓存呀
-  cache和buffer dentry objects and inode object 都在内存里有啥 区别？
-  概念理解  缓存  文件系统 在 Linux 中一切皆文件。不仅普通的文件和目录，就连块设备、套接字、管道等，也都要通过统一的文件系统来管理。
-Linux 下的文件系统主要可分为三大块：
-一是上层的文件系统的系统调用，
-二是虚拟文件系统 VFS(Virtual Filesystem Switch)，">
+<meta itemprop="description" content="文件系统-知识地图 知识卡 https://github.com/wangcy6/weekly/blob/master/KM/01%E7%B3%BB%E7%BB%9F%E7%9F%A5%E8%AF%86/file.md 阅读相关书籍 Linux 0.11内核完全注释 Linux内核设计与实现(第三版中文高清带目录) Linux设备驱动程序. Understanding the Linux Kernel,">
 
-<meta itemprop="wordCount" content="1432">
-
-
-
+<meta itemprop="wordCount" content="4449">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="文件系统-知识地图 知识卡 https://github.com/wangcy6/weekly/blob/master/KM/01%E7%B3%BB%E7%BB%9F%E7%9F%A5%E8%AF%86/file.md
-阅读相关书籍  Linux 0.11内核完全注释 Linux内核设计与实现(第三版中文高清带目录) Linux设备驱动程序. Understanding the Linux Kernel, 3rd Editio Linux.Kernel.Cache MySQL技术内幕(InnoDB存储引擎)第2版. 性能之巅 洞悉系统、企业与云计算(完整版)  找不到电子版book
-第一性原理   mysql 有b&#43;作为索引，为什么liunx文件系统不用b&#43;索引结构，采用inode下面一个固定大小数组来表示？
-  为什么需要进行“格式化”呢
-  ls -i 显示inode 就是 long 类型的编号 还有什么呀？
-  文件存储在哪里呀？内存还是磁盘
-  什么是缓存呀
-  cache和buffer dentry objects and inode object 都在内存里有啥 区别？
-  概念理解  缓存  文件系统 在 Linux 中一切皆文件。不仅普通的文件和目录，就连块设备、套接字、管道等，也都要通过统一的文件系统来管理。
-Linux 下的文件系统主要可分为三大块：
-一是上层的文件系统的系统调用，
-二是虚拟文件系统 VFS(Virtual Filesystem Switch)，"/>
+<meta name="twitter:description" content="文件系统-知识地图 知识卡 https://github.com/wangcy6/weekly/blob/master/KM/01%E7%B3%BB%E7%BB%9F%E7%9F%A5%E8%AF%86/file.md 阅读相关书籍 Linux 0.11内核完全注释 Linux内核设计与实现(第三版中文高清带目录) Linux设备驱动程序. Understanding the Linux Kernel,"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -173,8 +128,8 @@ Linux 下的文件系统主要可分为三大块：
       <div class="post-meta">
         <span class="post-time"> 0001-01-01 00:00 </span>
         
-          <span class="more-meta"> 约 1432 字 </span>
-          <span class="more-meta"> 预计阅读 7 分钟 </span>
+          <span class="more-meta"> 约 4449 字 </span>
+          <span class="more-meta"> 预计阅读 9 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
     </header>
@@ -186,30 +141,30 @@ Linux 下的文件系统主要可分为三大块：
   <ul>
     <li>
       <ul>
-        <li><a href="#heading">知识卡</a></li>
-        <li><a href="#heading-1">阅读相关书籍</a></li>
-        <li><a href="#heading-2">第一性原理</a></li>
+        <li><a href="#知识卡">知识卡</a></li>
+        <li><a href="#阅读相关书籍">阅读相关书籍</a></li>
+        <li><a href="#第一性原理">第一性原理</a></li>
       </ul>
     </li>
   </ul>
 
   <ul>
-    <li><a href="#heading-4">文件系统</a>
+    <li><a href="#文件系统">文件系统</a>
       <ul>
-        <li><a href="#heading-5">第一个问题：文件系统类型有哪些？</a></li>
+        <li><a href="#第一个问题文件系统类型有哪些">第一个问题：文件系统类型有哪些？</a></li>
       </ul>
     </li>
   </ul>
 
   <ul>
-    <li><a href="#heading-6">组成</a>
+    <li><a href="#组成">组成</a>
       <ul>
-        <li><a href="#1-inode-">1. inode 结构</a></li>
-        <li><a href="#2-directory-entry">2. 目录项对象（directory entry）</a></li>
-        <li><a href="#3-">3. 缓存</a></li>
-        <li><a href="#4-linux--cache-">4 Linux 内核中文件 Cache 管理的机制</a></li>
-        <li><a href="#heading-7">概念回顾</a></li>
-        <li><a href="#heading-8">文件读写</a></li>
+        <li><a href="#1-inode-结构">1. inode 结构</a></li>
+        <li><a href="#2-目录项对象directory-entry">2. 目录项对象（directory entry）</a></li>
+        <li><a href="#3-缓存">3. 缓存</a></li>
+        <li><a href="#4-linux-内核中文件-cache-管理的机制">4 Linux 内核中文件 Cache 管理的机制</a></li>
+        <li><a href="#概念回顾">概念回顾</a></li>
+        <li><a href="#文件读写">文件读写</a></li>
       </ul>
     </li>
   </ul>
@@ -217,7 +172,7 @@ Linux 下的文件系统主要可分为三大块：
   <ul>
     <li>
       <ul>
-        <li><a href="#1--">实验1： 查看文件系统 占用情况</a></li>
+        <li><a href="#实验1-查看文件系统-占用情况">实验1： 查看文件系统 占用情况</a></li>
       </ul>
     </li>
   </ul>
@@ -230,11 +185,11 @@ Linux 下的文件系统主要可分为三大块：
     </div>
   </div>
     <div class="post-content">
-      <h1 id="-">文件系统-知识地图</h1>
-<h3 id="heading">知识卡</h3>
+      <h1 id="文件系统-知识地图">文件系统-知识地图</h1>
+<h3 id="知识卡">知识卡</h3>
 <p><img src="http://www.brendangregg.com/Perf/linux_observability_tools.png" alt="img"></p>
 <p><a href="https://github.com/wangcy6/weekly/blob/master/KM/01%E7%B3%BB%E7%BB%9F%E7%9F%A5%E8%AF%86/file.md">https://github.com/wangcy6/weekly/blob/master/KM/01%E7%B3%BB%E7%BB%9F%E7%9F%A5%E8%AF%86/file.md</a></p>
-<h3 id="heading-1">阅读相关书籍</h3>
+<h3 id="阅读相关书籍">阅读相关书籍</h3>
 <ul>
 <li>Linux 0.11内核完全注释</li>
 <li>Linux内核设计与实现(第三版中文高清带目录)</li>
@@ -245,7 +200,7 @@ Linux 下的文件系统主要可分为三大块：
 <li>性能之巅  洞悉系统、企业与云计算(完整版)</li>
 </ul>
 <p>找不到电子版book</p>
-<h3 id="heading-2">第一性原理</h3>
+<h3 id="第一性原理">第一性原理</h3>
 <ul>
 <li>
 <p>mysql 有b+作为索引，为什么liunx文件系统不用b+索引结构，采用inode下面一个固定大小数组来表示？</p>
@@ -266,14 +221,14 @@ Linux 下的文件系统主要可分为三大块：
 <p>cache和buffer   dentry objects and inode object 都在内存里有啥  区别？</p>
 </li>
 </ul>
-<h1 id="heading-3">概念理解</h1>
+<h1 id="概念理解">概念理解</h1>
 <p><img src="./../../images/201909/image-20191029165602251.png" alt="image-20191029165602251"></p>
 <p><img src="../../images/201909/image-20191029165823043.png" alt="image-20191029165823043"></p>
 <ul>
 <li>缓存</li>
 </ul>
 <p><img src="../../images/201909/image-20191029165953551.png" alt="image-20191029165953551"></p>
-<h2 id="heading-4">文件系统</h2>
+<h2 id="文件系统">文件系统</h2>
 <p>在 Linux 中一切皆文件。不仅普通的文件和目录，就连块设备、套接字、管道等，也都要通过统一的文件系统来管理。</p>
 <p><img src="https://www.ibm.com/developerworks/cn/linux/l-cn-vfs/2.jpg" alt="img"></p>
 <p>Linux 下的文件系统主要可分为三大块：</p>
@@ -282,7 +237,7 @@ Linux 下的文件系统主要可分为三大块：
 <p>三是挂载到 VFS 中的各实际文件系统</p>
 <p><img src="../../images/201909/image-20191029171230016.png" alt="image-20191029171230016"></p>
 <p><img src="https://upload-images.jianshu.io/upload_images/1837968-14fbf22dc1ac6cb1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1568019662577.jpg"></p>
-<h3 id="heading-5">第一个问题：文件系统类型有哪些？</h3>
+<h3 id="第一个问题文件系统类型有哪些">第一个问题：文件系统类型有哪些？</h3>
 <blockquote>
 <p>字符设备、块设备、网络设备</p>
 </blockquote>
@@ -326,7 +281,7 @@ https://blog.csdn.net/qq_27840681/article/details/77567094
 </div>
 </div><p>.上层应用如何调用底层驱动？</p>
 <h1 id="vfs">VFS</h1>
-<h2 id="heading-6">组成</h2>
+<h2 id="组成">组成</h2>
 <p><img src="../../images/201909/image-20191029171712870.png" alt="image-20191029171712870">文件系统是如何运行的</p>
 <blockquote>
 <p>那么文件系统是如何运行的呢？这与操作系统的文件数据有关。较新的操作系统的文件数据
@@ -379,7 +334,7 @@ https://blog.csdn.net/qq_27840681/article/details/77567094
 </ul>
 <p><img src="https://upload-images.jianshu.io/upload_images/1837968-67064997f97bc05d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <p><img src="https://www.ibm.com/developerworks/cn/linux/l-cn-hardandsymb-links/image004.jpg" alt=""></p>
-<h3 id="1-inode-">1. inode 结构</h3>
+<h3 id="1-inode-结构">1. inode 结构</h3>
 <p>每个inode保存了文件系统中的一个<strong>文件系统对象</strong>（包括<a href="https://zh.wikipedia.org/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%96%87%E4%BB%B6">文件</a>、<a href="https://zh.wikipedia.org/wiki/%E7%9B%AE%E5%BD%95_(%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F)">目录</a>、<a href="https://zh.wikipedia.org/wiki/%E8%AE%BE%E5%A4%87%E6%96%87%E4%BB%B6">设备文件</a>、<a href="https://zh.wikipedia.org/wiki/Unix%E5%9F%9F%E5%A5%97%E6%8E%A5%E5%AD%97">socket</a>、<a href="https://zh.wikipedia.org/wiki/%E7%AE%A1%E9%81%93_(Unix)">管道</a>, 等等）的元信息数据，但不包括数据内容或者文件名[<a href="https://zh.wikipedia.org/wiki/Inode#cite_note-1">1]</a>。</p>
 <p>文件系统创建（格式化）时，就把存储区域分为两大连续的存储区域。</p>
 <p>一个用来保存文件系统对象的元信息数据，这是由inode组成的表，</p>
@@ -403,7 +358,7 @@ https://blog.csdn.net/qq_27840681/article/details/77567094
 <p>30933073 是而<em>索引编号</em>实际上是 inode 的标识编号，</p>
 <p>因此也称其为 <em>inode 编号</em> 或者<em>索引编号</em>。</p>
 <p>索引编号只是文件相关信息中一项重要的内容</p>
-<h5 id="vfs--inode--inode-operations-">VFS 中的 inode 与 inode_operations 结构体</h5>
+<h5 id="vfs-中的-inode-与-inode_operations-结构体">VFS 中的 inode 与 inode_operations 结构体</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -430,23 +385,23 @@ https://blog.csdn.net/qq_27840681/article/details/77567094
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-c" data-lang="c"><span class="k">struct</span> <span class="n">inode</span> <span class="p">{</span> 
-   <span class="p">.</span><span class="p">.</span><span class="p">.</span> 
+   <span class="p">...</span> 
    <span class="k">const</span> <span class="k">struct</span> <span class="n">inode_operations</span>   <span class="o">*</span><span class="n">i_op</span><span class="p">;</span> <span class="c1">// 索引节点操作
 </span><span class="c1"></span>   <span class="kt">unsigned</span> <span class="kt">long</span>           <span class="n">i_ino</span><span class="p">;</span>      <span class="c1">// 索引节点号
 </span><span class="c1"></span>   <span class="n">atomic_t</span>                <span class="n">i_count</span><span class="p">;</span>    <span class="c1">// 引用计数器
 </span><span class="c1"></span>   <span class="kt">unsigned</span> <span class="kt">int</span>            <span class="n">i_nlink</span><span class="p">;</span>    <span class="c1">// 硬链接数目
-</span><span class="c1"></span>   <span class="p">.</span><span class="p">.</span><span class="p">.</span> 
+</span><span class="c1"></span>   <span class="p">...</span> 
 <span class="p">}</span> 
 
 <span class="k">struct</span> <span class="n">inode_operations</span> <span class="p">{</span> 
-   <span class="p">.</span><span class="p">.</span><span class="p">.</span> 
-   <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">create</span><span class="p">)</span> <span class="p">(</span><span class="k">struct</span> <span class="n">inode</span> <span class="o">*</span><span class="p">,</span><span class="k">struct</span> <span class="n">dentry</span> <span class="o">*</span><span class="p">,</span><span class="kt">int</span><span class="p">,</span> <span class="k">struct</span> <span class="n">nameidata</span> <span class="o">*</span><span class="p">)</span><span class="p">;</span> 
-   <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">link</span><span class="p">)</span> <span class="p">(</span><span class="k">struct</span> <span class="n">dentry</span> <span class="o">*</span><span class="p">,</span><span class="k">struct</span> <span class="n">inode</span> <span class="o">*</span><span class="p">,</span><span class="k">struct</span> <span class="n">dentry</span> <span class="o">*</span><span class="p">)</span><span class="p">;</span> 
-   <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">unlink</span><span class="p">)</span> <span class="p">(</span><span class="k">struct</span> <span class="n">inode</span> <span class="o">*</span><span class="p">,</span><span class="k">struct</span> <span class="n">dentry</span> <span class="o">*</span><span class="p">)</span><span class="p">;</span> 
-   <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">symlink</span><span class="p">)</span> <span class="p">(</span><span class="k">struct</span> <span class="n">inode</span> <span class="o">*</span><span class="p">,</span><span class="k">struct</span> <span class="n">dentry</span> <span class="o">*</span><span class="p">,</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="p">;</span> 
-   <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">mkdir</span><span class="p">)</span> <span class="p">(</span><span class="k">struct</span> <span class="n">inode</span> <span class="o">*</span><span class="p">,</span><span class="k">struct</span> <span class="n">dentry</span> <span class="o">*</span><span class="p">,</span><span class="kt">int</span><span class="p">)</span><span class="p">;</span> 
-   <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">rmdir</span><span class="p">)</span> <span class="p">(</span><span class="k">struct</span> <span class="n">inode</span> <span class="o">*</span><span class="p">,</span><span class="k">struct</span> <span class="n">dentry</span> <span class="o">*</span><span class="p">)</span><span class="p">;</span> 
-   <span class="p">.</span><span class="p">.</span><span class="p">.</span> 
+   <span class="p">...</span> 
+   <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">create</span><span class="p">)</span> <span class="p">(</span><span class="k">struct</span> <span class="n">inode</span> <span class="o">*</span><span class="p">,</span><span class="k">struct</span> <span class="n">dentry</span> <span class="o">*</span><span class="p">,</span><span class="kt">int</span><span class="p">,</span> <span class="k">struct</span> <span class="n">nameidata</span> <span class="o">*</span><span class="p">);</span> 
+   <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">link</span><span class="p">)</span> <span class="p">(</span><span class="k">struct</span> <span class="n">dentry</span> <span class="o">*</span><span class="p">,</span><span class="k">struct</span> <span class="n">inode</span> <span class="o">*</span><span class="p">,</span><span class="k">struct</span> <span class="n">dentry</span> <span class="o">*</span><span class="p">);</span> 
+   <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">unlink</span><span class="p">)</span> <span class="p">(</span><span class="k">struct</span> <span class="n">inode</span> <span class="o">*</span><span class="p">,</span><span class="k">struct</span> <span class="n">dentry</span> <span class="o">*</span><span class="p">);</span> 
+   <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">symlink</span><span class="p">)</span> <span class="p">(</span><span class="k">struct</span> <span class="n">inode</span> <span class="o">*</span><span class="p">,</span><span class="k">struct</span> <span class="n">dentry</span> <span class="o">*</span><span class="p">,</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="p">);</span> 
+   <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">mkdir</span><span class="p">)</span> <span class="p">(</span><span class="k">struct</span> <span class="n">inode</span> <span class="o">*</span><span class="p">,</span><span class="k">struct</span> <span class="n">dentry</span> <span class="o">*</span><span class="p">,</span><span class="kt">int</span><span class="p">);</span> 
+   <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">rmdir</span><span class="p">)</span> <span class="p">(</span><span class="k">struct</span> <span class="n">inode</span> <span class="o">*</span><span class="p">,</span><span class="k">struct</span> <span class="n">dentry</span> <span class="o">*</span><span class="p">);</span> 
+   <span class="p">...</span> 
 <span class="p">}</span>
 
 
@@ -467,21 +422,21 @@ https://blog.csdn.net/qq_27840681/article/details/77567094
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-c" data-lang="c"><span class="k">struct</span> <span class="n">ext4_inode</span> <span class="p">{</span> 
-   <span class="err">`</span><span class="err">`</span><span class="p">.</span><span class="p">.</span><span class="p">.</span> 
-   <span class="err">`</span><span class="err">`</span><span class="n">__le32</span>  <span class="n">i_atime</span><span class="p">;</span>        <span class="c1">// 文件内容最后一次访问时间
-</span><span class="c1"></span>   <span class="err">`</span><span class="err">`</span><span class="n">__le32</span>  <span class="n">i_ctime</span><span class="p">;</span>        <span class="c1">// inode 修改时间
-</span><span class="c1"></span>   <span class="err">`</span><span class="err">`</span><span class="n">__le32</span>  <span class="n">i_mtime</span><span class="p">;</span>        <span class="c1">// 文件内容最后一次修改时间
-</span><span class="c1"></span>   <span class="err">`</span><span class="err">`</span><span class="n">__le16</span>  <span class="n">i_links_count</span><span class="p">;</span>  <span class="c1">// 硬链接计数
-</span><span class="c1"></span>   <span class="err">`</span><span class="err">`</span><span class="n">__le32</span>  <span class="n">i_blocks_lo</span><span class="p">;</span>    <span class="c1">// Block 计数
-</span><span class="c1"></span>   <span class="err">`</span><span class="err">`</span><span class="n">__le32</span>  <span class="n">i_block</span><span class="p">[</span><span class="n">EXT4_N_BLOCKS</span><span class="p">]</span><span class="p">;</span>  <span class="c1">// 指向具体的 block 
-</span><span class="c1"></span>   <span class="err">`</span><span class="err">`</span><span class="p">.</span><span class="p">.</span><span class="p">.</span> 
-<span class="p">}</span><span class="p">;</span>
+   <span class="err">``</span><span class="p">...</span> 
+   <span class="err">``</span><span class="n">__le32</span>  <span class="n">i_atime</span><span class="p">;</span>        <span class="c1">// 文件内容最后一次访问时间
+</span><span class="c1"></span>   <span class="err">``</span><span class="n">__le32</span>  <span class="n">i_ctime</span><span class="p">;</span>        <span class="c1">// inode 修改时间
+</span><span class="c1"></span>   <span class="err">``</span><span class="n">__le32</span>  <span class="n">i_mtime</span><span class="p">;</span>        <span class="c1">// 文件内容最后一次修改时间
+</span><span class="c1"></span>   <span class="err">``</span><span class="n">__le16</span>  <span class="n">i_links_count</span><span class="p">;</span>  <span class="c1">// 硬链接计数
+</span><span class="c1"></span>   <span class="err">``</span><span class="n">__le32</span>  <span class="n">i_blocks_lo</span><span class="p">;</span>    <span class="c1">// Block 计数
+</span><span class="c1"></span>   <span class="err">``</span><span class="n">__le32</span>  <span class="n">i_block</span><span class="p">[</span><span class="n">EXT4_N_BLOCKS</span><span class="p">];</span>  <span class="c1">// 指向具体的 block 
+</span><span class="c1"></span>   <span class="err">``</span><span class="p">...</span> 
+<span class="p">};</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>画外音：</p>
 <p>通过 inode 找到数据快才是重点，这样数据库 可能存储在任何一个角落里</p>
 <p>文件系统一开始就将 inode 与 block 规划好了，除非重新格式化</p>
-<h4 id="superblock-">Superblock （超级区块）</h4>
+<h4 id="superblock-超级区块">Superblock （超级区块）</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -518,7 +473,7 @@ dumpe2fs -h /dev/sda2
 
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="2-directory-entry">2. 目录项对象（directory entry）</h3>
+</div><h3 id="2-目录项对象directory-entry">2. 目录项对象（directory entry）</h3>
 <blockquote>
 <p>存储在哪里</p>
 </blockquote>
@@ -531,7 +486,7 @@ dumpe2fs -h /dev/sda2
 <ul>
 <li>node 本身并不记录文件名，文件名的记录 是在目录文件中</li>
 </ul>
-<h3 id="3-">3. 缓存</h3>
+<h3 id="3-缓存">3. 缓存</h3>
 <ul>
 <li>
 <p>缓存类型</p>
@@ -549,9 +504,9 @@ dumpe2fs -h /dev/sda2
 <p><img src="../images/201909/image-20191029172455029.png" alt="image-20191029172455029">-</p>
 <p><img src="../images/201909/image-20191029172803543.png" alt="image-20191029172803543"></p>
 <p><img src="../images/201909/image-20191029173304985.png" alt="image-20191029173304985"></p>
-<h3 id="4-linux--cache-">4 Linux 内核中文件 Cache 管理的机制</h3>
+<h3 id="4-linux-内核中文件-cache-管理的机制">4 Linux 内核中文件 Cache 管理的机制</h3>
 <p><a href="http://www.ilinuxkernel.com/files/Linux.Kernel.Cache.pdf">http://www.ilinuxkernel.com/files/Linux.Kernel.Cache.pdf</a></p>
-<h3 id="heading-7">概念回顾</h3>
+<h3 id="概念回顾">概念回顾</h3>
 <p>文件 Cache 是文件数据在内存中的副本 ,</p>
 <p>文件 Cache 分为两个层面，一是 Page Cache，  另一个 Buffer Cache</p>
 <ul>
@@ -611,7 +566,7 @@ kernel</p>
 <ul>
 <li>16.1. Reading and Writing a File</li>
 </ul>
-<h3 id="heading-8">文件读写</h3>
+<h3 id="文件读写">文件读写</h3>
 <p><a href="http://man7.org/linux/man-pages/man2/mmap.2.html">http://man7.org/linux/man-pages/man2/mmap.2.html</a></p>
 <p><a href="https://www.jianshu.com/p/eece39beee20">https://www.jianshu.com/p/eece39beee20</a></p>
 <p>page cache 中的页直接映射到用户进程地址空间中，</p>
@@ -621,8 +576,8 @@ kernel</p>
 <p>比如，假设需要设计一个底层的数据结构是B+ Tree，node操作以Page单位的单机存储引擎，根据上述推论，</p>
 <p>写入使用系统调用，而读取使用mmap，可以达到最优的性能。</p>
 <p>而LMDB就是如此实现的。</p>
-<h1 id="heading-9">案例实践</h1>
-<h3 id="1--">实验1： 查看文件系统 占用情况</h3>
+<h1 id="案例实践">案例实践</h1>
+<h3 id="实验1-查看文件系统-占用情况">实验1： 查看文件系统 占用情况</h3>
 <ul>
 <li>文件系统中的目录项和索引节</li>
 </ul>
@@ -652,7 +607,7 @@ kernel</p>
 </span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#</span><span class="cp"> 按下 c 按照缓存大小排序，按下 a 按照活跃对象数排序 </span><span class="cp">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp"># 按下 c 按照缓存大小排序，按下 a 按照活跃对象数排序 
 </span><span class="cp"></span>
 <span class="err">$</span> <span class="n">slabtop</span> 
 <span class="n">Active</span> <span class="o">/</span> <span class="n">Total</span> <span class="n">Objects</span> <span class="p">(</span><span class="o">%</span> <span class="n">used</span><span class="p">)</span>    <span class="o">:</span> <span class="mi">277970</span> <span class="o">/</span> <span class="mi">358914</span> <span class="p">(</span><span class="mf">77.4</span><span class="o">%</span><span class="p">)</span> 
@@ -668,11 +623,11 @@ kernel</p>
    <span class="mi">485</span>    <span class="mi">413</span>   <span class="mi">0</span><span class="o">%</span>    <span class="mf">5.69</span><span class="n">K</span>     <span class="mi">97</span>        <span class="mi">5</span>      <span class="mi">3104</span><span class="n">K</span> <span class="n">task_struct</span> 
   <span class="mi">1472</span>   <span class="mi">1397</span>   <span class="mi">0</span><span class="o">%</span>    <span class="mf">2.00</span><span class="n">K</span>     <span class="mi">92</span>       <span class="mi">16</span>      <span class="mi">2944</span><span class="n">K</span> <span class="n">kmalloc</span><span class="o">-</span><span class="mi">2048</span> 
     
-   <span class="n">dentry</span> <span class="err">行</span><span class="err">表</span><span class="err">示</span><span class="err">目</span><span class="err">录</span><span class="err">项</span><span class="err">缓</span><span class="err">存</span><span class="err">，</span><span class="n">inode_cache</span> <span class="err">行</span><span class="err">，</span><span class="err">表</span><span class="err">示</span> <span class="n">VFS</span> <span class="err">索</span><span class="err">引</span><span class="err">节</span><span class="err">点</span><span class="err">缓</span><span class="err">存</span><span class="err">，</span><span class="err">其</span><span class="err">余</span><span class="err">的</span><span class="err">则</span><span class="err">是</span><span class="err">各</span><span class="err">种</span><span class="err">文</span><span class="err">件</span><span class="err">系</span><span class="err">统</span><span class="err">的</span><span class="err">索</span><span class="err">引</span><span class="err">节</span><span class="err">点</span><span class="err">缓</span><span class="err">存</span><span class="err">。</span>
+   <span class="n">dentry</span> <span class="err">行表示目录项缓存，</span><span class="n">inode_cache</span> <span class="err">行，表示</span> <span class="n">VFS</span> <span class="err">索引节点缓存，其余的则是各种文件系统的索引节点缓存。</span>
     
- <span class="err">目</span><span class="err">录</span><span class="err">项</span><span class="err">和</span><span class="err">索</span><span class="err">引</span><span class="err">节</span><span class="err">点</span><span class="err">占</span><span class="err">用</span><span class="err">了</span><span class="err">最</span><span class="err">多</span><span class="err">的</span> <span class="n">Slab</span> <span class="err">缓</span><span class="err">存</span><span class="err">。</span>
+ <span class="err">目录项和索引节点占用了最多的</span> <span class="n">Slab</span> <span class="err">缓存。</span>
 
-<span class="err">不</span><span class="err">过</span><span class="err">它</span><span class="err">们</span><span class="err">占</span><span class="err">用</span><span class="err">的</span><span class="err">内</span><span class="err">存</span><span class="err">其</span><span class="err">实</span><span class="err">并</span><span class="err">不</span><span class="err">大</span><span class="err">，</span><span class="err">加</span><span class="err">起</span><span class="err">来</span><span class="err">也</span><span class="err">只</span><span class="err">有</span> <span class="mi">23</span><span class="n">MB</span> <span class="err">左</span><span class="err">右</span>
+<span class="err">不过它们占用的内存其实并不大，加起来也只有</span> <span class="mi">23</span><span class="n">MB</span> <span class="err">左右</span>
     
 </code></pre></td></tr></table>
 </div>
@@ -702,7 +657,7 @@ SReclaimable:     <span class="m">179508</span> kB
 
 procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
  r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
- <span class="m">1</span>  <span class="m">0</span>  <span class="m">81196</span> <span class="m">13122800</span> <span class="m">239084</span> <span class="m">2126152</span>    <span class="m">0</span>    <span class="m">0</span>     <span class="m">0</span>     <span class="m">1</span>    <span class="m">0</span>    <span class="m">0</span>  <span class="m">1</span>  <span class="m">0</span> <span class="m">99</span>  <span class="m">0</span>  0
+ <span class="m">1</span>  <span class="m">0</span>  <span class="m">81196</span> <span class="m">13122800</span> <span class="m">239084</span> <span class="m">2126152</span>    <span class="m">0</span>    <span class="m">0</span>     <span class="m">0</span>     <span class="m">1</span>    <span class="m">0</span>    <span class="m">0</span>  <span class="m">1</span>  <span class="m">0</span> <span class="m">99</span>  <span class="m">0</span>  <span class="m">0</span>
 </code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
@@ -758,7 +713,7 @@ procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
 <td class="lntd">
 <pre class="chroma"><code class="language-powershell" data-lang="powershell">
 
-<span class="n">cat</span> <span class="p">/</span><span class="n">proc</span><span class="p">/</span><span class="n">meminfo</span>
+<span class="nb">cat </span><span class="p">/</span><span class="n">proc</span><span class="p">/</span><span class="n">meminfo</span>
 <span class="n">MemTotal</span><span class="err">:</span>       <span class="n">16267884</span> <span class="n">kB</span>
 <span class="n">MemFree</span><span class="err">:</span>        <span class="n">13119460</span> <span class="n">kB</span>
 <span class="n">MemAvailable</span><span class="err">:</span>   <span class="n">13798228</span> <span class="n">kB</span>
@@ -841,7 +796,7 @@ procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
 <pre class="chroma"><code class="language-shell" data-lang="shell"> stat cmd.txt 
   File: ‘cmd.txt’
   Size: <span class="m">131</span>             Blocks: <span class="m">8</span>          IO Block: <span class="m">4096</span>   regular file
-Device: fd00h/64768d    Inode: <span class="m">482</span>         Links: 1
+Device: fd00h/64768d    Inode: <span class="m">482</span>         Links: <span class="m">1</span>
 Access: <span class="o">(</span>0644/-rw-r--r--<span class="o">)</span>  Uid: <span class="o">(</span>    0/    root<span class="o">)</span>   Gid: <span class="o">(</span>    0/    root<span class="o">)</span>
 Access: 2019-01-22 17:22:54.685741395 +0800
 Modify: 2019-01-22 16:34:25.993178846 +0800
@@ -853,9 +808,9 @@ stat - display file or file system status
 stat -f cmd.txt 
   File: <span class="s2">&#34;cmd.txt&#34;</span>
     ID: 37fc5f360777ebb Namelen: <span class="m">255</span>     Type: ext2/ext3
-Block size: <span class="m">4096</span>       Fundamental block size: 4096
-Blocks: Total: <span class="m">4817666</span>    Free: <span class="m">2971792</span>    Available: 2748308
-Inodes: Total: <span class="m">1227328</span>    Free: 1148127
+Block size: <span class="m">4096</span>       Fundamental block size: <span class="m">4096</span>
+Blocks: Total: <span class="m">4817666</span>    Free: <span class="m">2971792</span>    Available: <span class="m">2748308</span>
+Inodes: Total: <span class="m">1227328</span>    Free: <span class="m">1148127</span>
 
 
 df -i
@@ -923,13 +878,13 @@ To free pagecache, dentries and inodes:
 
 root@work:~# free -m
               total        used        free      shared  buff/cache   available
-Mem:           <span class="m">2009</span>         <span class="m">276</span>         <span class="m">101</span>           <span class="m">3</span>        <span class="m">1631</span>        1545
+Mem:           <span class="m">2009</span>         <span class="m">276</span>         <span class="m">101</span>           <span class="m">3</span>        <span class="m">1631</span>        <span class="m">1545</span>
 Swap:           <span class="m">425</span>     
 
 root@work:~# <span class="nb">echo</span> <span class="m">3</span> &gt; /proc/sys/vm/drop_caches
 root@work:~# free -m
               total        used        free      shared  buff/cache   available
-Mem:           <span class="m">2009</span>         <span class="m">250</span>        <span class="m">1646</span>           <span class="m">1</span>         <span class="m">112</span>        1628
+Mem:           <span class="m">2009</span>         <span class="m">250</span>        <span class="m">1646</span>           <span class="m">1</span>         <span class="m">112</span>        <span class="m">1628</span>
 Swap:
 
 命令slabtop查看slab占用情况
@@ -981,7 +936,7 @@ chmod <span class="m">777</span> nmon
 </ul>
 <p><a href="http://ohmycat.me/2017/12/05/vmtouch.html">http://ohmycat.me/2017/12/05/vmtouch.html</a></p>
 <p>祝玩得开心！</p>
-<h1 id="heading-10">参考</h1>
+<h1 id="参考">参考</h1>
 <ul>
 <li>
 <p><a href="https://cloud.tencent.com/developer/article/1145377">理解mmap</a></p>

@@ -6,11 +6,7 @@
     <description>Recent content in book on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 06 Nov 2023 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://wangcy6.github.io/tags/book/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 06 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/tags/book/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Rust For Linux</title>
       <link>https://wangcy6.github.io/post/liunx/Rust/Rust_for_Liunx_1_/</link>
@@ -57,6 +53,15 @@
     </item>
     
     <item>
+      <title>从三万英尺介绍:文件系统Ceph架构</title>
+      <link>https://wangcy6.github.io/post/liunx/2025/11what_is_Ceph_temp/</link>
+      <pubDate>Fri, 11 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/liunx/2025/11what_is_Ceph_temp/</guid>
+      <description>把面试官当陪练，在找工作中才会越战越勇 把面试官当陪练，在找工作中才会越战越勇 大家好我是小义同学，这是大厂面试拆解——项目实战系列的第3篇文章</description>
+    </item>
+    
+    <item>
       <title>从青铜到王者系列：深入浅出理解 DeepSeek 3FS（1）</title>
       <link>https://wangcy6.github.io/post/liunx/2025/2025-03-19/</link>
       <pubDate>Fri, 11 Aug 2023 00:00:00 +0000</pubDate>
@@ -72,6 +77,15 @@
       
       <guid>https://wangcy6.github.io/post/liunx/2025/2025-03-22_3fs_2/</guid>
       <description>导读 从青铜到王者系列：深入浅出理解 DeepSeek 3FS（2） 我整理 大模型训练 在checkpoint时候对大的文件读写， 在批量查询的时候对小文件读写 目前 谷</description>
+    </item>
+    
+    <item>
+      <title>慢盘问题：从青铜到王者的处理思路</title>
+      <link>https://wangcy6.github.io/post/storage/2025/2025-04-25-slow-disk/</link>
+      <pubDate>Fri, 11 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/storage/2025/2025-04-25-slow-disk/</guid>
+      <description>大家好我是小义同学，这是大厂面试拆解——项目实战系列的第4篇文章， 知识地图：数据可靠性-磁盘亚健康处理 为了解决故障后数据一致性问题，数据需要</description>
     </item>
     
     <item>
@@ -198,15 +212,6 @@
       
       <guid>https://wangcy6.github.io/post/2020/%E6%A8%A1%E6%9D%BF/</guid>
       <description>陈咬金的三板斧 第一斧：技术本质是什么？ 第二斧：解决了什么问题？ 第三斧：如何使用？</description>
-    </item>
-    
-    <item>
-      <title>设计之禅</title>
-      <link>https://wangcy6.github.io/post/book/book_04_%E8%AE%BE%E8%AE%A1%E4%B9%8B%E7%A6%85/</link>
-      <pubDate>Wed, 27 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/book/book_04_%E8%AE%BE%E8%AE%A1%E4%B9%8B%E7%A6%85/</guid>
-      <description>书籍 设计模式：可复用面向对象软件的基础 领域驱动设计 重构&amp;ndash;改善既有代码的设计 设计模式精解－GoF 23 种设计模式解析附 C++实现源码 代</description>
     </item>
     
     <item>

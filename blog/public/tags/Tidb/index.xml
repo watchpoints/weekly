@@ -6,10 +6,51 @@
     <description>Recent content in tidb on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 14 Apr 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 25 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/tags/tidb/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>成为Tidb贡献者第四天: raft-rs最佳实践</title>
+      <link>https://wangcy6.github.io/post/tidb/2024/make_tidb_day6-raft-rs/</link>
+      <pubDate>Fri, 25 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/tidb/2024/make_tidb_day6-raft-rs/</guid>
+      <description>TiKV 源码解读 一、 别想太多，只管去提问,所有问题，都会有答案 一个项目需求，一个客户反馈，学习上遇到问题 都是提问来源 把问题说清楚，就等于把问题解决</description>
+    </item>
     
-	<atom:link href="https://wangcy6.github.io/tags/tidb/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TiKV Contributors day1</title>
+      <link>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days1_gdb/</link>
+      <pubDate>Mon, 08 Jul 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days1_gdb/</guid>
+      <description>成为tikv贡献者第一天：搭建环节 TiKV 是一个支持事务的分布式 Key-Value 数据库，目前已经是 CNCF 基金会 的顶级项目。 需要一定的前期准备才能够有能力参与 TiKV 社区的</description>
+    </item>
     
+    <item>
+      <title>成为tikv贡献者第四天：通过 TiKV 入门 Rust</title>
+      <link>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days4_/</link>
+      <pubDate>Wed, 29 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days4_/</guid>
+      <description>前提条件：已经学会TIKV编译和环境搭建 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 环境: window11 + WSL（Windows Subsystem for Linux） git clone</description>
+    </item>
+    
+    <item>
+      <title>源码解读第一天：raft 与Paxos</title>
+      <link>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days100_1/</link>
+      <pubDate>Wed, 29 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days100_1/</guid>
+      <description>todo01：搭建tikv环境 task01：搭建tikv环境（容器版本，和源码版本） 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 在CentOS上进行</description>
+    </item>
+    
+    <item>
+      <title>跟着tikv源码学rust P01</title>
+      <link>https://wangcy6.github.io/post/tidb/20230_05_05_tikv/</link>
+      <pubDate>Fri, 05 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/tidb/20230_05_05_tikv/</guid>
+      <description>环境搭建 提问： https://asktug.com/t/topic/1007869 https://download.pingcap.com/docs-cn%2FLesson07_quick_start.mp4 EP01-5分钟系列&amp;ndash;安装单节点tidb centos ： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33</description>
+    </item>
     
     <item>
       <title>成为tiflash贡献者第一天</title>
@@ -18,6 +59,60 @@
       
       <guid>https://wangcy6.github.io/post/tidb/2022/01_2022_4_14_tiflsh_study/</guid>
       <description>成为贡献者day1 xx 阅读资料 TiFlash 相关的学习资料 ## Build TiFlash 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 # 环境依赖 cmake version 3.21.2 curl https://sh.rustup.rs -sSf | sh -s -- -y --profile minimal --default-toolchain nightly source $HOME/.cargo/env alias python=&amp;#34;/usr/local/bin/python3&amp;#34; python -V</description>
+    </item>
+    
+    <item>
+      <title>vldb-2021-labs</title>
+      <link>https://wangcy6.github.io/post/tidb/2022/mylabs/</link>
+      <pubDate>Wed, 12 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/tidb/2022/mylabs/</guid>
+      <description>文章地址 http://localhost:1313/post/tidb/2022/tidb_01/ https://github.com/watchpoints/mylabs 实验1 make lab1P0</description>
+    </item>
+    
+    <item>
+      <title>源码解读第一天：raft 与Paxos</title>
+      <link>https://wangcy6.github.io/post/tidb/2022/tikv_day1/</link>
+      <pubDate>Wed, 12 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/tidb/2022/tikv_day1/</guid>
+      <description>Raft 学习记录 todo task01：搭建tikv环境 task01：搭建tikv环境（容器版本，和源码版本） 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 在Cen</description>
+    </item>
+    
+    <item>
+      <title>Tidb入门1</title>
+      <link>https://wangcy6.github.io/post/tidb/2022/2022-1-19-Project2/</link>
+      <pubDate>Tue, 11 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/tidb/2022/2022-1-19-Project2/</guid>
+      <description>TinyKV 是PingCAP公司推出的一套开源分布式KV存储实战课程：https://github.com/tidb-incubator/tinykv</description>
+    </item>
+    
+    <item>
+      <title>Tidb入门1</title>
+      <link>https://wangcy6.github.io/post/tidb/2022/tidb_01/</link>
+      <pubDate>Tue, 11 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/tidb/2022/tidb_01/</guid>
+      <description>文章地址 http://localhost:1313/post/tidb/2022/tidb_01/ https://wangcy6.github.io/post/tidb/2022/tidb_01/ 管理配置 tiup 拓扑结构 https://docs.pingcap.com/zh/tidb/stable/minimal-deployment-topology/ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54</description>
+    </item>
+    
+    <item>
+      <title>TiKV 源码阅读三部曲（二）读流程</title>
+      <link>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days2_query/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days2_query/</guid>
+      <description>成为tikv贡献者第二天：读请求 全链路跟踪 TiKV 是一个支持事务的分布式 Key-Value 数据库， 需要一定的前期准备才能够有能力参与 TiKV 社区的代码开发 回顾： 成为ti</description>
+    </item>
+    
+    <item>
+      <title>T成为tikv贡献者第三天：</title>
+      <link>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days3_read/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days3_read/</guid>
+      <description>成为tikv贡献者第三天：存储 本文是TiKV 源码阅读第三篇， 目标：snapshot进行进一步理解，一边理解rust语法，一边抽象模块之间关系</description>
     </item>
     
   </channel>

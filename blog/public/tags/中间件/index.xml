@@ -6,11 +6,7 @@
     <description>Recent content in 中间件 on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 20 Jun 2021 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://wangcy6.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 20 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>从零开始k8s</title>
       <link>https://wangcy6.github.io/post/2020/kubernetes_base/</link>
