@@ -46,6 +46,7 @@ window：
  
 ## 3. Cursor 配置Python开发环境
 
+### window
 三步走：
 1. 在应用商店（Ctrl+Shift+X打开）安装python插件
 2. 然后点ctrl+shift+p搜索python: Select Interpreter，选择解析器
@@ -58,6 +59,7 @@ Python解释器是一个可以理解和执行Python代码的程序
 ![image.png](https://money-1256465252.cos.ap-beijing.myqcloud.com/2025/20250424201748.png)
 
 
+<<<<<<< HEAD
 
 ### 其他插件
 
@@ -65,6 +67,37 @@ Python解释器是一个可以理解和执行Python代码的程序
 ### markdown-preview-enhanced
 - https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/
 - https://github.com/Maserhe/VScode-Markdown-theme-Maserhe
+=======
+### mac 环境： Cursor配置虚拟python环境
+
+
+mac环境安装第三方依赖 需要虚拟环境
+
+``` python
+
+删除历史虚拟环境 
+rm -rf /path/to/venv
+
+历史版本 Python 3.9.6
+这是 macOS 系统自带的 Python，位于 /usr/bin/python3。
+这个是系统 Python，不建议删除它，
+因为一些系统功能可能依赖于它。
+
+
+/usr/local/bin/python3.12 -m venv venv
+
+source venv/bin/activate 
+&& pip install apscheduler playwright
+playwright install
+
+```
+
+选择一个 Python 解释器
+
+- 可用解释器列表，包括虚拟环境
+- 说明 在mac环境下，不允许执行 pip命令，必须设置虚拟环境，虚拟环境设置后，cursor 选择对应解释器为虚拟环境的解释器。
+
+>>>>>>> cad182b1a9771821b591c02669f4fea9ef91428f
 
 ## 链接我 
 

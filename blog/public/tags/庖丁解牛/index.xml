@@ -6,11 +6,7 @@
     <description>Recent content in 庖丁解牛 on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 08 Feb 2022 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://wangcy6.github.io/tags/%E5%BA%96%E4%B8%81%E8%A7%A3%E7%89%9B/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 08 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/tags/%E5%BA%96%E4%B8%81%E8%A7%A3%E7%89%9B/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>庖丁解牛之LevelDB</title>
       <link>https://wangcy6.github.io/post/2022/5-20220-2-8-leveldb/</link>

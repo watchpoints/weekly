@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.83.1 with theme even" />
 
 
 <link rel="canonical" href="https://wangcy6.github.io/post/oceanbase/2011/oceanbase_day1/" />
@@ -41,17 +41,14 @@
 <meta property="og:title" content="oceanbase源码阅读（1）程序启动" />
 <meta property="og:description" content="OceanBase代码阅读第一天：程序启动" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://wangcy6.github.io/post/oceanbase/2011/oceanbase_day1/" />
-<meta property="article:published_time" content="2021-06-22T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-06-22T00:00:00+00:00" />
+<meta property="og:url" content="https://wangcy6.github.io/post/oceanbase/2011/oceanbase_day1/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-06-22T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2021-06-22T00:00:00&#43;00:00" />
+
 <meta itemprop="name" content="oceanbase源码阅读（1）程序启动">
-<meta itemprop="description" content="OceanBase代码阅读第一天：程序启动">
-<meta itemprop="datePublished" content="2021-06-22T00:00:00&#43;00:00" />
+<meta itemprop="description" content="OceanBase代码阅读第一天：程序启动"><meta itemprop="datePublished" content="2021-06-22T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2021-06-22T00:00:00&#43;00:00" />
 <meta itemprop="wordCount" content="5977">
-
-
-
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="oceanbase源码阅读（1）程序启动"/>
 <meta name="twitter:description" content="OceanBase代码阅读第一天：程序启动"/>
@@ -146,15 +143,15 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#heading">沟通步骤</a></li>
+        <li><a href="#沟通步骤">沟通步骤</a></li>
       </ul>
     </li>
-    <li><a href="#heading-1">预备知识：</a></li>
-    <li><a href="#heading-2">源码编译</a>
+    <li><a href="#预备知识">预备知识：</a></li>
+    <li><a href="#源码编译">源码编译</a>
       <ul>
-        <li><a href="#1-oceanbase">步骤1 源码编译OceanBase：</a></li>
-        <li><a href="#2-obd">步骤2 将编译产物加入OBD本地仓库</a></li>
-        <li><a href="#3centos-">步骤3：centos 环境设置和部署</a></li>
+        <li><a href="#步骤1-源码编译oceanbase">步骤1 源码编译OceanBase：</a></li>
+        <li><a href="#步骤2-将编译产物加入obd本地仓库">步骤2 将编译产物加入OBD本地仓库</a></li>
+        <li><a href="#步骤3centos-环境设置和部署">步骤3：centos 环境设置和部署</a></li>
       </ul>
     </li>
   </ul>
@@ -162,55 +159,55 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#heading-3">程序入口</a></li>
+        <li><a href="#程序入口">程序入口</a></li>
       </ul>
     </li>
-    <li><a href="#2">看2号线程</a></li>
-    <li><a href="#thread-495-">Thread 495 日志模块</a></li>
-    <li><a href="#-">暂停 没看懂</a></li>
-    <li><a href="#heading-4">存储引擎</a></li>
-    <li><a href="#sql-">SQL 引擎</a></li>
+    <li><a href="#看2号线程">看2号线程</a></li>
+    <li><a href="#thread-495-日志模块">Thread 495 日志模块</a></li>
+    <li><a href="#暂停-没看懂">暂停 没看懂</a></li>
+    <li><a href="#存储引擎">存储引擎</a></li>
+    <li><a href="#sql-引擎">SQL 引擎</a></li>
   </ul>
 
   <ul>
-    <li><a href="#heading-5">基础</a>
+    <li><a href="#基础">基础</a>
       <ul>
-        <li><a href="#-oceanbase-sql-">揭秘 OceanBase SQL 执行计划</a></li>
-        <li><a href="#heading-6">参考别人分享</a></li>
+        <li><a href="#揭秘-oceanbase-sql-执行计划">揭秘 OceanBase SQL 执行计划</a></li>
+        <li><a href="#参考别人分享">参考别人分享</a></li>
       </ul>
     </li>
-    <li><a href="#heading-7">日志</a></li>
-    <li><a href="#heading-8"></a></li>
+    <li><a href="#日志">日志</a></li>
+    <li><a href="#heading"></a></li>
   </ul>
 
   <ul>
-    <li><a href="#heading-10">参考别人阅读记录</a></li>
-    <li><a href="#heading-11">参考：</a></li>
+    <li><a href="#参考别人阅读记录">参考别人阅读记录</a></li>
+    <li><a href="#参考">参考：</a></li>
   </ul>
 
   <ul>
     <li>
       <ul>
-        <li><a href="#sql--1">sql 执行过程</a></li>
-        <li><a href="#oceanbase11">开源数据库OceanBase代码导读（11）</a></li>
+        <li><a href="#sql-执行过程">sql 执行过程</a></li>
+        <li><a href="#开源数据库oceanbase代码导读11">开源数据库OceanBase代码导读（11）</a></li>
       </ul>
     </li>
   </ul>
 
   <ul>
-    <li><a href="#the-lsm-tree-storage-engine-into-oceanbase-66">第一题：The LSM-tree storage engine into OceanBase #66</a>
+    <li><a href="#第一题the-lsm-tree-storage-engine-into-oceanbase-66">第一题：The LSM-tree storage engine into OceanBase #66</a>
       <ul>
-        <li><a href="#1">小白提问1：</a></li>
-        <li><a href="#heading-14">青铜理解</a></li>
+        <li><a href="#小白提问1">小白提问1：</a></li>
+        <li><a href="#青铜理解">青铜理解</a></li>
       </ul>
     </li>
     <li><a href="#tak">tak</a>
       <ul>
-        <li><a href="#obdeploy-">obdeploy 文档</a></li>
+        <li><a href="#obdeploy-文档">obdeploy 文档</a></li>
       </ul>
     </li>
-    <li><a href="#-paxosraft-">第二题：一次性说清楚 Paxos、Raft 等算法的区别</a></li>
-    <li><a href="#-obd-">使用 OBD 扩容</a></li>
+    <li><a href="#第二题一次性说清楚-paxosraft-等算法的区别">第二题：一次性说清楚 Paxos、Raft 等算法的区别</a></li>
+    <li><a href="#使用-obd-扩容">使用 OBD 扩容</a></li>
   </ul>
 </nav>
   </div>
@@ -224,7 +221,7 @@
       <blockquote>
 <p>慢慢来，多看、多问、多总结，肯定是可以攻克的。</p>
 </blockquote>
-<h3 id="heading">沟通步骤</h3>
+<h3 id="沟通步骤">沟通步骤</h3>
 <ol>
 <li>
 <p>准备好一个ppt，在写代码之前演示最终目标 和架构设计 就是如何去实现的 【不要说公司部门环境不对 着就是最终结果，不要试着看看，一定是可以完全上线的项目，非demo和一个知识点。自己认为真的 不是闹着玩的。。】</p>
@@ -242,13 +239,13 @@
 <p>最后融合别人建议，然后完善你项目。【不听老人言，吃亏在眼前，不敢接受别人批评，说明自己完全没有把握，才去否定 愤怒方式】</p>
 </li>
 </ol>
-<h2 id="heading-1">预备知识：</h2>
+<h2 id="预备知识">预备知识：</h2>
 <ul>
 <li><a href="https://mp.weixin.qq.com/s/G8Rj0C5KuCpeCsWDxcY5Rg">掌握gdb原理</a></li>
 </ul>
-<h2 id="heading-2">源码编译</h2>
+<h2 id="源码编译">源码编译</h2>
 <p>OceanBase Deploy （简称 OBD）是 OceanBase 开源软件的安装部署工具÷÷</p>
-<h3 id="1-oceanbase">步骤1 源码编译OceanBase：</h3>
+<h3 id="步骤1-源码编译oceanbase">步骤1 源码编译OceanBase：</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -273,7 +270,7 @@ sh run_tests.sh
 
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="2-obd">步骤2 将编译产物加入OBD本地仓库</h3>
+</div><h3 id="步骤2-将编译产物加入obd本地仓库">步骤2 将编译产物加入OBD本地仓库</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -305,7 +302,7 @@ md5: 33af3cb189d73116e8d629147bc4d530、
 </div><p>说明：
 步骤1和步骤2 合并一个命令
 make DESTDIR=./ install &amp;&amp; obd mirror create -n oceanbase-ce -V 3.1.0 -p ./usr/local</p>
-<h3 id="3centos-">步骤3：centos 环境设置和部署</h3>
+<h3 id="步骤3centos-环境设置和部署">步骤3：centos 环境设置和部署</h3>
 <ul>
 <li>
 <p>sysctl.conf添加内容</p>
@@ -367,18 +364,18 @@ sysctl -p</p>
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">参考：https://gitee.com/oceanbase/obdeploy
-  
+
 hostname oceanbase
 obd cluster deploy obtest -c mini-local-example.yaml
-  
+
 obd cluster edit-config obtest
 obd cluster redeploy obtest
 obd cluster start obtest
 obd cluster stop obtest
-  
-  
+
+
 <span class="c1"># 参看obd管理的集群列表</span>
-  
+
 - obd cluster list
 </code></pre></td></tr></table>
 </div>
@@ -488,12 +485,12 @@ Wait for observer init ok
 
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="-lo-">查看 lo 集群状态</h1>
+</div><h1 id="查看-lo-集群状态">查看 lo 集群状态</h1>
 <p>obd cluster display obtest</p>
 <p>obd cluster destroy obtest</p>
 <p>cd /app/data
 10.115.37.60</p>
-<p>alias cdob=&quot;obclient -u root -h 127.0.0.1 -P2881&rdquo;</p>
+<p>alias cdob=&ldquo;obclient -u root -h 127.0.0.1 -P2881&rdquo;</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -592,7 +589,7 @@ Thread 1 (Thread 0x7f292e84a340 (LWP 59)):
 
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="heading-3">程序入口</h3>
+</div><h3 id="程序入口">程序入口</h3>
 <ul>
 <li>
 <p>main.cpp</p>
@@ -631,28 +628,28 @@ Thread 1 (Thread 0x7f292e84a340 (LWP 59)):
 <td class="lntd">
 <pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">ObWorker</span> <span class="n">worker</span><span class="p">;</span>
 
-<span class="n">ObServer</span><span class="o">&amp;</span> <span class="n">observer</span> <span class="o">=</span> <span class="n">ObServer</span><span class="o">:</span><span class="o">:</span><span class="n">get_instance</span><span class="p">(</span><span class="p">)</span><span class="p">;</span> <span class="c1">//单例模式 返回observer static对象 --认识：了解
-</span><span class="c1"></span><span class="k">if</span> <span class="p">(</span><span class="n">OB_FAIL</span><span class="p">(</span><span class="n">observer</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="n">opts</span><span class="p">,</span> <span class="n">log_cfg</span><span class="p">)</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//初始化配置过程复杂：---认识： 知道有这个函数，运行出错可查看
-</span><span class="c1"></span>  <span class="n">LOG_ERROR</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">observer init fail</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">K</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
-<span class="p">}</span> <span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">OB_FAIL</span><span class="p">(</span><span class="n">observer</span><span class="p">.</span><span class="n">start</span><span class="p">(</span><span class="p">)</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//初始化配置过程复杂：---认识： 知道有这个函数，运行出错可查看
-</span><span class="c1"></span>  <span class="n">LOG_ERROR</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">observer start fail</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">K</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
-<span class="p">}</span> <span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">OB_FAIL</span><span class="p">(</span><span class="n">observer</span><span class="p">.</span><span class="n">wait</span><span class="p">(</span><span class="p">)</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//处理客户端连接------认识： 知道有这个函数 
-</span><span class="c1"></span>  <span class="n">LOG_ERROR</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">observer wait fail</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">K</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
+<span class="n">ObServer</span><span class="o">&amp;</span> <span class="n">observer</span> <span class="o">=</span> <span class="n">ObServer</span><span class="o">::</span><span class="n">get_instance</span><span class="p">();</span> <span class="c1">//单例模式 返回observer static对象 --认识：了解
+</span><span class="c1"></span><span class="k">if</span> <span class="p">(</span><span class="n">OB_FAIL</span><span class="p">(</span><span class="n">observer</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="n">opts</span><span class="p">,</span> <span class="n">log_cfg</span><span class="p">)))</span> <span class="p">{</span> <span class="c1">//初始化配置过程复杂：---认识： 知道有这个函数，运行出错可查看
+</span><span class="c1"></span>  <span class="n">LOG_ERROR</span><span class="p">(</span><span class="s">&#34;observer init fail&#34;</span><span class="p">,</span> <span class="n">K</span><span class="p">(</span><span class="n">ret</span><span class="p">));</span>
+<span class="p">}</span> <span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">OB_FAIL</span><span class="p">(</span><span class="n">observer</span><span class="p">.</span><span class="n">start</span><span class="p">()))</span> <span class="p">{</span> <span class="c1">//初始化配置过程复杂：---认识： 知道有这个函数，运行出错可查看
+</span><span class="c1"></span>  <span class="n">LOG_ERROR</span><span class="p">(</span><span class="s">&#34;observer start fail&#34;</span><span class="p">,</span> <span class="n">K</span><span class="p">(</span><span class="n">ret</span><span class="p">));</span>
+<span class="p">}</span> <span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">OB_FAIL</span><span class="p">(</span><span class="n">observer</span><span class="p">.</span><span class="n">wait</span><span class="p">()))</span> <span class="p">{</span> <span class="c1">//处理客户端连接------认识： 知道有这个函数 
+</span><span class="c1"></span>  <span class="n">LOG_ERROR</span><span class="p">(</span><span class="s">&#34;observer wait fail&#34;</span><span class="p">,</span> <span class="n">K</span><span class="p">(</span><span class="n">ret</span><span class="p">));</span>
 <span class="p">}</span>
 
 <span class="k">class</span> <span class="nc">ObServer</span> <span class="p">{</span>
-  <span class="k">static</span> <span class="n">ObServer</span><span class="o">&amp;</span> <span class="n">get_instance</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="nf">init</span><span class="p">(</span><span class="k">const</span> <span class="n">ObServerOptions</span><span class="o">&amp;</span> <span class="n">opts</span><span class="p">,</span> <span class="k">const</span> <span class="n">ObPLogWriterCfg</span><span class="o">&amp;</span> <span class="n">log_cfg</span><span class="p">)</span><span class="p">;</span>
+  <span class="k">static</span> <span class="n">ObServer</span><span class="o">&amp;</span> <span class="n">get_instance</span><span class="p">();</span>
+  <span class="kt">int</span> <span class="nf">init</span><span class="p">(</span><span class="k">const</span> <span class="n">ObServerOptions</span><span class="o">&amp;</span> <span class="n">opts</span><span class="p">,</span> <span class="k">const</span> <span class="n">ObPLogWriterCfg</span><span class="o">&amp;</span> <span class="n">log_cfg</span><span class="p">);</span>
   <span class="c1">// Start OceanBase server, this function is blocked after invoking
 </span><span class="c1"></span>  <span class="c1">// until the server itself stops it.
-</span><span class="c1"></span>  <span class="kt">int</span> <span class="nf">start</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="nf">wait</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
-  <span class="kt">void</span> <span class="nf">set_stop</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+</span><span class="c1"></span>  <span class="kt">int</span> <span class="nf">start</span><span class="p">();</span>
+  <span class="kt">int</span> <span class="nf">wait</span><span class="p">();</span>
+  <span class="kt">void</span> <span class="nf">set_stop</span><span class="p">();</span>
   <span class="p">}</span>
 
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="2">看2号线程</h2>
+</div><h2 id="看2号线程">看2号线程</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -755,7 +752,7 @@ void wait() override;//
 <td class="lntd">
 <pre class="chroma"><code class="language-fallback" data-lang="fallback"></code></pre></td></tr></table>
 </div>
-</div><h2 id="thread-495-">Thread 495 日志模块</h2>
+</div><h2 id="thread-495-日志模块">Thread 495 日志模块</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -783,29 +780,29 @@ void wait() override;//
 </span><span class="lnt">23
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">Thread</span> <span class="mi">495</span> <span class="p">(</span><span class="n">Thread</span> <span class="mh">0x7fdc587dc700</span> <span class="p">(</span><span class="n">LWP</span> <span class="mi">31402</span><span class="p">)</span><span class="p">)</span><span class="o">:</span>
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">Thread</span> <span class="mi">495</span> <span class="p">(</span><span class="n">Thread</span> <span class="mh">0x7fdc587dc700</span> <span class="p">(</span><span class="n">LWP</span> <span class="mi">31402</span><span class="p">))</span><span class="o">:</span>
 
-<span class="err">\</span><span class="err">#</span><span class="mi">0</span> <span class="mh">0x00007fdc669c2a82</span> <span class="n">in</span> <span class="n">pthread_cond_timedwait</span><span class="err">@</span><span class="err">@</span><span class="n">GLIBC_2</span><span class="mf">.3</span><span class="mf">.2</span> <span class="p">(</span><span class="p">)</span> <span class="n">from</span> <span class="o">/</span><span class="n">lib64</span><span class="o">/</span><span class="n">libpthread</span><span class="p">.</span><span class="n">so</span><span class="mf">.0</span>
+<span class="err">\#</span><span class="mi">0</span> <span class="mh">0x00007fdc669c2a82</span> <span class="n">in</span> <span class="n">pthread_cond_timedwait</span><span class="err">@@</span><span class="n">GLIBC_2</span><span class="mf">.3.2</span> <span class="p">()</span> <span class="n">from</span> <span class="o">/</span><span class="n">lib64</span><span class="o">/</span><span class="n">libpthread</span><span class="p">.</span><span class="n">so</span><span class="mf">.0</span>
 
-<span class="err">\</span><span class="err">#</span><span class="mi">1</span> <span class="mh">0x0000000008ffbe65</span> <span class="n">in</span> <span class="n">oceanbase</span><span class="o">:</span><span class="o">:</span><span class="n">common</span><span class="o">:</span><span class="o">:</span><span class="n">ObBaseLogWriter</span><span class="o">:</span><span class="o">:</span><span class="n">flush_log</span><span class="p">(</span><span class="p">)</span> <span class="p">(</span><span class="p">)</span>
+<span class="err">\#</span><span class="mi">1</span> <span class="mh">0x0000000008ffbe65</span> <span class="n">in</span> <span class="n">oceanbase</span><span class="o">::</span><span class="n">common</span><span class="o">::</span><span class="n">ObBaseLogWriter</span><span class="o">::</span><span class="n">flush_log</span><span class="p">()</span> <span class="p">()</span>
 
-<span class="err">\</span><span class="err">#</span><span class="mi">2</span> <span class="mh">0x0000000008ffb855</span> <span class="n">in</span> <span class="n">oceanbase</span><span class="o">:</span><span class="o">:</span><span class="n">common</span><span class="o">:</span><span class="o">:</span><span class="n">ObBaseLogWriter</span><span class="o">:</span><span class="o">:</span><span class="n">flush_log_thread</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span> <span class="p">(</span><span class="p">)</span>
+<span class="err">\#</span><span class="mi">2</span> <span class="mh">0x0000000008ffb855</span> <span class="n">in</span> <span class="n">oceanbase</span><span class="o">::</span><span class="n">common</span><span class="o">::</span><span class="n">ObBaseLogWriter</span><span class="o">::</span><span class="n">flush_log_thread</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span> <span class="p">()</span>
 
-<span class="err">\</span><span class="err">#</span><span class="mi">3</span> <span class="mh">0x00007fdc669bedc5</span> <span class="n">in</span> <span class="n">start_thread</span> <span class="p">(</span><span class="p">)</span> <span class="n">from</span> <span class="o">/</span><span class="n">lib64</span><span class="o">/</span><span class="n">libpthread</span><span class="p">.</span><span class="n">so</span><span class="mf">.0</span>
+<span class="err">\#</span><span class="mi">3</span> <span class="mh">0x00007fdc669bedc5</span> <span class="n">in</span> <span class="n">start_thread</span> <span class="p">()</span> <span class="n">from</span> <span class="o">/</span><span class="n">lib64</span><span class="o">/</span><span class="n">libpthread</span><span class="p">.</span><span class="n">so</span><span class="mf">.0</span>
 
-<span class="err">\</span><span class="err">#</span><span class="mi">4</span> <span class="mh">0x00007fdc663eb76d</span> <span class="n">in</span> <span class="n">clone</span> <span class="p">(</span><span class="p">)</span> <span class="n">from</span> <span class="o">/</span><span class="n">lib64</span><span class="o">/</span><span class="n">libc</span><span class="p">.</span><span class="n">so</span><span class="mf">.6</span>
+<span class="err">\#</span><span class="mi">4</span> <span class="mh">0x00007fdc663eb76d</span> <span class="n">in</span> <span class="n">clone</span> <span class="p">()</span> <span class="n">from</span> <span class="o">/</span><span class="n">lib64</span><span class="o">/</span><span class="n">libc</span><span class="p">.</span><span class="n">so</span><span class="mf">.6</span>
 
-<span class="n">Thread</span> <span class="mi">494</span> <span class="p">(</span><span class="n">Thread</span> <span class="mh">0x7fdc0b9f3700</span> <span class="p">(</span><span class="n">LWP</span> <span class="mi">31524</span><span class="p">)</span><span class="p">)</span><span class="o">:</span>
+<span class="n">Thread</span> <span class="mi">494</span> <span class="p">(</span><span class="n">Thread</span> <span class="mh">0x7fdc0b9f3700</span> <span class="p">(</span><span class="n">LWP</span> <span class="mi">31524</span><span class="p">))</span><span class="o">:</span>
 
-<span class="err">\</span><span class="err">#</span><span class="mi">0</span> <span class="mh">0x00007fdc669c2a82</span> <span class="n">in</span> <span class="n">pthread_cond_timedwait</span><span class="err">@</span><span class="err">@</span><span class="n">GLIBC_2</span><span class="mf">.3</span><span class="mf">.2</span> <span class="p">(</span><span class="p">)</span> <span class="n">from</span> <span class="o">/</span><span class="n">lib64</span><span class="o">/</span><span class="n">libpthread</span><span class="p">.</span><span class="n">so</span><span class="mf">.0</span>
+<span class="err">\#</span><span class="mi">0</span> <span class="mh">0x00007fdc669c2a82</span> <span class="n">in</span> <span class="n">pthread_cond_timedwait</span><span class="err">@@</span><span class="n">GLIBC_2</span><span class="mf">.3.2</span> <span class="p">()</span> <span class="n">from</span> <span class="o">/</span><span class="n">lib64</span><span class="o">/</span><span class="n">libpthread</span><span class="p">.</span><span class="n">so</span><span class="mf">.0</span>
 
-<span class="err">\</span><span class="err">#</span><span class="mi">1</span> <span class="mh">0x0000000008ffbe65</span> <span class="n">in</span> <span class="n">oceanbase</span><span class="o">:</span><span class="o">:</span><span class="n">common</span><span class="o">:</span><span class="o">:</span><span class="n">ObBaseLogWriter</span><span class="o">:</span><span class="o">:</span><span class="n">flush_log</span><span class="p">(</span><span class="p">)</span> <span class="p">(</span><span class="p">)</span>
+<span class="err">\#</span><span class="mi">1</span> <span class="mh">0x0000000008ffbe65</span> <span class="n">in</span> <span class="n">oceanbase</span><span class="o">::</span><span class="n">common</span><span class="o">::</span><span class="n">ObBaseLogWriter</span><span class="o">::</span><span class="n">flush_log</span><span class="p">()</span> <span class="p">()</span>
 
-<span class="err">\</span><span class="err">#</span><span class="mi">2</span> <span class="mh">0x0000000008ffb855</span> <span class="n">in</span> <span class="n">oceanbase</span><span class="o">:</span><span class="o">:</span><span class="n">common</span><span class="o">:</span><span class="o">:</span><span class="n">ObBaseLogWriter</span><span class="o">:</span><span class="o">:</span><span class="n">flush_log_thread</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span> <span class="p">(</span><span class="p">)</span>
+<span class="err">\#</span><span class="mi">2</span> <span class="mh">0x0000000008ffb855</span> <span class="n">in</span> <span class="n">oceanbase</span><span class="o">::</span><span class="n">common</span><span class="o">::</span><span class="n">ObBaseLogWriter</span><span class="o">::</span><span class="n">flush_log_thread</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span> <span class="p">()</span>
 
-<span class="err">\</span><span class="err">#</span><span class="mi">3</span> <span class="mh">0x00007fdc669bedc5</span> <span class="n">in</span> <span class="n">start_thread</span> <span class="p">(</span><span class="p">)</span> <span class="n">from</span> <span class="o">/</span><span class="n">lib64</span><span class="o">/</span><span class="n">libpthread</span><span class="p">.</span><span class="n">so</span><span class="mf">.0</span>
+<span class="err">\#</span><span class="mi">3</span> <span class="mh">0x00007fdc669bedc5</span> <span class="n">in</span> <span class="n">start_thread</span> <span class="p">()</span> <span class="n">from</span> <span class="o">/</span><span class="n">lib64</span><span class="o">/</span><span class="n">libpthread</span><span class="p">.</span><span class="n">so</span><span class="mf">.0</span>
 
-<span class="err">\</span><span class="err">#</span><span class="mi">4</span> <span class="mh">0x00007fdc663eb76d</span> <span class="n">in</span> <span class="n">clone</span> <span class="p">(</span><span class="p">)</span> <span class="n">from</span> <span class="o">/</span><span class="n">lib64</span><span class="o">/</span><span class="n">libc</span><span class="p">.</span><span class="n">so</span><span class="mf">.6</span>
+<span class="err">\#</span><span class="mi">4</span> <span class="mh">0x00007fdc663eb76d</span> <span class="n">in</span> <span class="n">clone</span> <span class="p">()</span> <span class="n">from</span> <span class="o">/</span><span class="n">lib64</span><span class="o">/</span><span class="n">libc</span><span class="p">.</span><span class="n">so</span><span class="mf">.6</span>
 </code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
@@ -814,7 +811,7 @@ void wait() override;//
 <td class="lntd">
 <pre class="chroma"><code class="language-fallback" data-lang="fallback"></code></pre></td></tr></table>
 </div>
-</div><h2 id="-">暂停 没看懂</h2>
+</div><h2 id="暂停-没看懂">暂停 没看懂</h2>
 <p>问题：通过观察线程 无法找到sql执行过程 ？</p>
 <p>解决办法：通过看日志方式解决，最后聚焦到stmt</p>
 <div class="highlight"><div class="chroma">
@@ -853,7 +850,7 @@ void wait() override;//
 
 tail -f observer.log
 
-parse_sql <span class="o">(</span>ob_parser.cpp:194<span class="o">)</span> <span class="o">[</span>31620<span class="o">]</span><span class="o">[</span>438<span class="o">]</span><span class="o">[</span>YB427F000001-0005C57D39B7B24E<span class="o">]</span>
+parse_sql <span class="o">(</span>ob_parser.cpp:194<span class="o">)</span> <span class="o">[</span>31620<span class="o">][</span>438<span class="o">][</span>YB427F000001-0005C57D39B7B24E<span class="o">]</span>
 
 sql<span class="se">\p</span>arser<span class="se">\o</span>b_parser.cpp
 
@@ -912,11 +909,11 @@ parse_sql <span class="o">(</span>ob_parser.cpp:194<span class="o">)</span>
 <ul>
 <li><a href="https://github.com/oceanbase/obdeploy">https://github.com/oceanbase/obdeploy</a></li>
 </ul>
-<h2 id="heading-4">存储引擎</h2>
+<h2 id="存储引擎">存储引擎</h2>
 <p>OceanBase 数据库的存储引擎采用了基于 LSM-Tree 的架构，把基线数据和增量数据分别保存在磁盘（SSTable）和内存（MemTable）中，具备读写分离的特点。对数据的修改都是增量数据，只写内存。所以 DML 是完全的内存操作，性能非常高。读的时候，数据可能会在内存里有更新过的版本，在持久化存储里有基线版本，需要把两个版本进行合并，获得一个最新版本。</p>
 <p><img src="https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/0724019951/p148328.png" alt="image.png"></p>
 <p>如上图所示，在内存中针对不同的数据访问行为，OceanBase 数据库设计了多种缓存结构。除了常见的数据块缓存之外，也会对行进行缓存，行缓存会极大加速对单行的查询性能。为了避免对不存在行的空查，OceanBase 数据库对行缓存构建了布隆过滤器，并对布隆过滤器进行缓存。OLTP 业务大部分操作为小查询，通过小查询优化，OceanBase 数据库避免了传统数据库解析整个数据块的开销，达到了接近内存数据库的性能。当内存的增量数据达到一定规模的时候，会触发增量数据和基线数据的合并，把增量数据落盘。同时每天晚上的空闲时刻，系统也会启动每日合并。另外，由于基线是只读数据，而且内部采用连续存储的方式，OceanBase 数据库可以根据不同特点的数据采用不同的压缩算法，既能做到高压缩比，又不影响查询性能，大大降低了成本。</p>
-<h2 id="sql-">SQL 引擎</h2>
+<h2 id="sql-引擎">SQL 引擎</h2>
 <p>OceanBase 数据库的 SQL 引擎是整个数据库的数据计算中枢，和传统数据库类似，整个引擎分为解析器、优化器、执行器三部分。当 SQL 引擎接受到了 SQL 请求后，经过语法解析、语义分析、查询重写、查询优化等一系列过程后，再由执行器来负责执行。所不同的是，在分布式数据库里，查询优化器会依据数据的分布信息生成分布式的执行计划。如果查询涉及的数据在多台服务器，需要走分布式计划，这是分布式数据库 SQL 引擎的一个重要特点，也是十分考验查询优化器能力的场景。OceanBase 数据库查询优化器做了很多优化，诸如算子下推、智能连接、分区裁剪等。如果 SQL 语句涉及的数据量很大，OceanBase 数据库的查询执行引擎也做了并行处理、任务拆分、动态分区、流水调度、任务裁剪、子任务结果合并、并发限制等优化技术。</p>
 <p>下图描述了一条 SQL 语句的执行过程，并列出了 SQL 引擎中各个模块之间的关系。</p>
 <p><img src="https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/2623077161/p167218.png" alt="请求流程"></p>
@@ -952,8 +949,8 @@ parse_sql <span class="o">(</span>ob_parser.cpp:194<span class="o">)</span>
 </li>
 </ul>
 <h1 id="todo--02">todo- 02</h1>
-<h2 id="heading-5">基础</h2>
-<h3 id="-oceanbase-sql-">揭秘 OceanBase SQL 执行计划</h3>
+<h2 id="基础">基础</h2>
+<h3 id="揭秘-oceanbase-sql-执行计划">揭秘 OceanBase SQL 执行计划</h3>
 <blockquote>
 <p>OPERATOR 类型 常用操作算子</p>
 </blockquote>
@@ -973,7 +970,7 @@ parse_sql <span class="o">(</span>ob_parser.cpp:194<span class="o">)</span>
 <ul>
 <li>T_OP_LIKE: 这是 模糊匹配的操作符</li>
 </ul>
-<h3 id="heading-6">参考别人分享</h3>
+<h3 id="参考别人分享">参考别人分享</h3>
 <ul>
 <li>
 <p>OceanBase SQL 执行计划解读（二）──── 表连接和子查询</p>
@@ -987,7 +984,7 @@ parse_sql <span class="o">(</span>ob_parser.cpp:194<span class="o">)</span>
 <p><a href="https://mp.weixin.qq.com/s/gmLDbJkMS1Zarc1kKSSreQ">https://mp.weixin.qq.com/s/gmLDbJkMS1Zarc1kKSSreQ</a></p>
 </li>
 </ul>
-<h2 id="heading-7">日志</h2>
+<h2 id="日志">日志</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -1008,9 +1005,9 @@ parse_sql <span class="o">(</span>ob_parser.cpp:194<span class="o">)</span>
 
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="heading-8"></h2>
-<h1 id="heading-9">第一部分：源码阅读</h1>
-<h2 id="heading-10">参考别人阅读记录</h2>
+</div><h2 id="heading"></h2>
+<h1 id="第一部分源码阅读">第一部分：源码阅读</h1>
+<h2 id="参考别人阅读记录">参考别人阅读记录</h2>
 <ul>
 <li>
 <p>淘宝数据库OceanBase SQL编译器部分 源码阅读&ndash;解析SQL语法树
@@ -1029,7 +1026,7 @@ parse_sql <span class="o">(</span>ob_parser.cpp:194<span class="o">)</span>
 </li>
 </ul>
 <p><a href="https://blog.csdn.net/qq910894904/article/details/32322909?spm=1001.2014.3001.5501">https://blog.csdn.net/qq910894904/article/details/32322909?spm=1001.2014.3001.5501</a></p>
-<h2 id="heading-11">参考：</h2>
+<h2 id="参考">参考：</h2>
 <p>TiDB 源码阅读系列文章（六）Select 语句概览
 <a href="https://pingcap.com/blog-cn/tidb-source-code-reading-6/">https://pingcap.com/blog-cn/tidb-source-code-reading-6/</a></p>
 <p>TiDB 源码阅读系列文章（五）TiDB SQL Parser 的实现</p>
@@ -1037,8 +1034,8 @@ parse_sql <span class="o">(</span>ob_parser.cpp:194<span class="o">)</span>
 <a href="https://pingcap.com/blog-cn/tidb-source-code-reading-23/">https://pingcap.com/blog-cn/tidb-source-code-reading-23/</a></p>
 <p>TiDB 源码阅读系列文章（四）Insert 语句概览
 <a href="https://pingcap.com/blog-cn/tidb-source-code-reading-4/">https://pingcap.com/blog-cn/tidb-source-code-reading-4/</a></p>
-<h1 id="oceanbase">开源数据库OceanBase代码导读</h1>
-<h3 id="sql--1">sql 执行过程</h3>
+<h1 id="开源数据库oceanbase代码导读">开源数据库OceanBase代码导读</h1>
+<h3 id="sql-执行过程">sql 执行过程</h3>
 <p>split_multiple_stmt</p>
 <p>首先通过ObParser的一个快速解析入口split_multiple_stmt把每条语句拆分出来，对每条语句process_single_stmt</p>
 <div class="highlight"><div class="chroma">
@@ -1048,14 +1045,14 @@ parse_sql <span class="o">(</span>ob_parser.cpp:194<span class="o">)</span>
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">int</span> <span class="n">ObMPQuery</span><span class="o">:</span><span class="o">:</span><span class="n">process_single_stmt</span><span class="p">(</span><span class="k">const</span> <span class="n">ObMultiStmtItem</span><span class="o">&amp;</span> <span class="n">multi_stmt_item</span><span class="p">,</span> <span class="n">ObSQLSessionInfo</span><span class="o">&amp;</span> <span class="n">session</span><span class="p">,</span>
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">int</span> <span class="n">ObMPQuery</span><span class="o">::</span><span class="n">process_single_stmt</span><span class="p">(</span><span class="k">const</span> <span class="n">ObMultiStmtItem</span><span class="o">&amp;</span> <span class="n">multi_stmt_item</span><span class="p">,</span> <span class="n">ObSQLSessionInfo</span><span class="o">&amp;</span> <span class="n">session</span><span class="p">,</span>
 
   <span class="kt">bool</span> <span class="n">has_more_result</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">force_sync_resp</span><span class="p">,</span> <span class="kt">bool</span><span class="o">&amp;</span> <span class="n">async_resp_used</span><span class="p">,</span> <span class="kt">bool</span><span class="o">&amp;</span> <span class="n">need_disconnect</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>开源数据库OceanBase代码导读（1）</p>
 <p><a href="https://zhuanlan.zhihu.com/p/379437192">https://zhuanlan.zhihu.com/p/379437192</a></p>
-<h3 id="oceanbase11">开源数据库OceanBase代码导读（11）</h3>
+<h3 id="开源数据库oceanbase代码导读11">开源数据库OceanBase代码导读（11）</h3>
 <p>（8）分布式事务</p>
 <p><a href="https://zhuanlan.zhihu.com/p/385944563">https://zhuanlan.zhihu.com/p/385944563</a></p>
 <p>（10）事务日志的提交和回放</p>
@@ -1069,19 +1066,19 @@ parse_sql <span class="o">(</span>ob_parser.cpp:194<span class="o">)</span>
 <p>void TestDDL::do_load_sql &ndash;&gt;</p>
 <p>nt ObIndexBuilder::create_index</p>
 <p>int ObRootService::create_index</p>
-<h1 id="heading-12">第一部分：代码阅读</h1>
+<h1 id="第一部分代码阅读">第一部分：代码阅读</h1>
 <ol>
 <li>OceanBase原理与实现分析</li>
 </ol>
-<p>https://yang.observer/2020/04/19/oceanbase/</p>
+<p><a href="https://yang.observer/2020/04/19/oceanbase/">https://yang.observer/2020/04/19/oceanbase/</a></p>
 <p><a href="https://docs.huihoo.com/big-data/hic2011/taobao-oceanbase.pdf">https://docs.huihoo.com/big-data/hic2011/taobao-oceanbase.pdf</a></p>
 <ul>
 <li>OceanBase架构</li>
 </ul>
-<h1 id="oceanbase-">OceanBase 源码解读（三）：分区的一生</h1>
+<h1 id="oceanbase-源码解读三分区的一生">OceanBase 源码解读（三）：分区的一生</h1>
 <p><a href="https://mp.weixin.qq.com/s/JFizlbnZMawk19exN-yOqA">https://mp.weixin.qq.com/s/JFizlbnZMawk19exN-yOqA</a></p>
 <p>table_scan</p>
-<h1 id="pr">第二部分：pr</h1>
+<h1 id="第二部分pr">第二部分：pr</h1>
 <ol>
 <li><a href="https://github.com/oceanbase/oceanbase/issues/316">https://github.com/oceanbase/oceanbase/issues/316</a></li>
 </ol>
@@ -1097,25 +1094,25 @@ parse_sql <span class="o">(</span>ob_parser.cpp:194<span class="o">)</span>
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c#" data-lang="c#"><span class="n">pop_back</span><span class="p">(</span><span class="p">)</span> <span class="k">in</span> <span class="n">ObSEArrayImpl</span> <span class="n">may</span> <span class="n">need</span> <span class="n">to</span> <span class="n">call</span> <span class="n">destructor</span> <span class="n">of</span> <span class="n">T</span> <span class="err">#</span><span class="m">3</span><span class="m">1</span><span class="m">6</span>
+<pre class="chroma"><code class="language-c#" data-lang="c#"><span class="n">pop_back</span><span class="p">()</span> <span class="k">in</span> <span class="n">ObSEArrayImpl</span> <span class="n">may</span> <span class="n">need</span> <span class="n">to</span> <span class="n">call</span> <span class="n">destructor</span> <span class="n">of</span> <span class="n">T</span> <span class="err">#</span><span class="m">316</span>
 
 
-<span class="n">The</span> <span class="n">first</span> <span class="n">pop_back</span><span class="p">(</span><span class="p">)</span> <span class="n">function</span> <span class="k">in</span> <span class="err">`</span><span class="n">ObSEArrayImpl</span><span class="err">`</span> <span class="n">may</span> <span class="n">need</span> <span class="n">to</span> <span class="n">call</span> <span class="n">destructor</span> <span class="n">of</span> <span class="n">T</span> <span class="n">like</span> <span class="n">the</span> <span class="n">second</span> <span class="n">function</span><span class="p">,</span> <span class="n">or</span> <span class="n">there</span> <span class="n">may</span> <span class="n">be</span> <span class="n">risk</span> <span class="n">of</span> <span class="n">memory</span> <span class="n">leaks</span><span class="p">.</span>
+<span class="n">The</span> <span class="n">first</span> <span class="n">pop_back</span><span class="p">()</span> <span class="n">function</span> <span class="k">in</span> <span class="err">`</span><span class="n">ObSEArrayImpl</span><span class="err">`</span> <span class="n">may</span> <span class="n">need</span> <span class="n">to</span> <span class="n">call</span> <span class="n">destructor</span> <span class="n">of</span> <span class="n">T</span> <span class="n">like</span> <span class="n">the</span> <span class="n">second</span> <span class="n">function</span><span class="p">,</span> <span class="n">or</span> <span class="n">there</span> <span class="n">may</span> <span class="n">be</span> <span class="n">risk</span> <span class="n">of</span> <span class="n">memory</span> <span class="n">leaks</span><span class="p">.</span>
 
 
 <span class="n">Thanks</span> <span class="k">for</span> <span class="n">your</span> <span class="n">contribution</span><span class="p">.</span>
 <span class="n">Right</span><span class="p">,</span> <span class="n">it</span> <span class="k">is</span> <span class="n">a</span> <span class="n">bug</span> <span class="n">and</span> <span class="n">we</span> <span class="n">create</span> <span class="n">a</span> <span class="n">bug</span> <span class="n">task</span><span class="p">.</span>
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="heading-13">第三部分：讨论</h1>
-<h2 id="the-lsm-tree-storage-engine-into-oceanbase-66">第一题：The LSM-tree storage engine into OceanBase #66</h2>
-<h3 id="1">小白提问1：</h3>
+</div><h1 id="第三部分讨论">第三部分：讨论</h1>
+<h2 id="第一题the-lsm-tree-storage-engine-into-oceanbase-66">第一题：The LSM-tree storage engine into OceanBase #66</h2>
+<h3 id="小白提问1">小白提问1：</h3>
 <p><a href="https://github.com/oceanbase/oceanbase/discussions/66">https://github.com/oceanbase/oceanbase/discussions/66</a></p>
 <p><a href="https://hub.fastgit.org/oceanbase/oceanbase/discussions/66">https://hub.fastgit.org/oceanbase/oceanbase/discussions/66</a></p>
 <p>LSM-tree：</p>
 <p>平时写代码都是写缓存，写磁盘。着就是常规的os的文件系统。</p>
 <p>这个和 LSM-tree有区别？</p>
-<h3 id="heading-14">青铜理解</h3>
+<h3 id="青铜理解">青铜理解</h3>
 <p>一个文件（inode） 数据内部分为很多block，这些block 分散不同地方，然后通用block快 也合并多个请求，最后batch 操作！</p>
 <ul>
 <li>mysql inno的delete比insert慢得多[ 删除操作啥东东？？？]</li>
@@ -1157,14 +1154,14 @@ parse_sql <span class="o">(</span>ob_parser.cpp:194<span class="o">)</span>
 </li>
 </ul>
 <p>obd cluster display obtest</p>
-<h3 id="obdeploy-">obdeploy 文档</h3>
+<h3 id="obdeploy-文档">obdeploy 文档</h3>
 <ul>
 <li><a href="https://github.com/oceanbase/obdeploy/blob/master/docs/docs-cn/Q%26A.md">https://github.com/oceanbase/obdeploy/blob/master/docs/docs-cn/Q%26A.md</a></li>
 </ul>
-<h2 id="-paxosraft-">第二题：一次性说清楚 Paxos、Raft 等算法的区别</h2>
-<h2 id="-obd-">使用 OBD 扩容</h2>
+<h2 id="第二题一次性说清楚-paxosraft-等算法的区别">第二题：一次性说清楚 Paxos、Raft 等算法的区别</h2>
+<h2 id="使用-obd-扩容">使用 OBD 扩容</h2>
 <p><a href="https://open.oceanbase.com/docs/videoCenter/5900009">https://open.oceanbase.com/docs/videoCenter/5900009</a></p>
-<h1 id="ob3">OB社区版（单服务器3副本）</h1>
+<h1 id="ob社区版单服务器3副本">OB社区版（单服务器3副本）</h1>
 <p>obd cluster list</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -1236,7 +1233,7 @@ datafile_size: 50G
 <footer class="post-footer">
       
       <nav class="post-nav">
-        <a class="prev" href="/post/book/2021_book/">
+        <a class="prev" href="/post/book/2025/book1-2025-5-cpu/">
             <i class="iconfont icon-left"></i>
             <span class="prev-text nav-default">2021-读书清单</span>
             <span class="prev-text nav-mobile">上一篇</span>

@@ -6,11 +6,7 @@
     <description>Recent content in man on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 07 Sep 2024 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://wangcy6.github.io/tags/man/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 07 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/tags/man/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>c&#43;&#43;代码编程规范</title>
       <link>https://wangcy6.github.io/post/c&#43;&#43;/02_master_c&#43;&#43;_class/</link>
@@ -35,7 +31,7 @@
       <pubDate>Wed, 07 Aug 2024 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/c&#43;&#43;/01_c&#43;&#43;_new/</guid>
-      <description>&amp;laquo;&amp;laquo;&amp;laquo;&amp;lt; HEAD # 代码评审（Code Review） ======= 14400 293f2e598d8da34a01eebf8c3ffae13524256be8 架构/设计 a. 单一职责原则 一个类只做一类相关的事情。 一个方法，最好只做一件事情。 b. 代码是否污染 代码</description>
+      <description>内存管理 C++中通过new和delete两个关键字进行动态内存管理。 c语言通过 malloc 和free 两个关键字进行动态内存管理 函数支持重载，运算符同样</description>
     </item>
     
     <item>
@@ -49,20 +45,11 @@
     
     <item>
       <title>2021-读书清单</title>
-      <link>https://wangcy6.github.io/post/book/2021_book/</link>
+      <link>https://wangcy6.github.io/post/book/2025/book1-2025-5-cpu/</link>
       <pubDate>Sat, 10 Jul 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://wangcy6.github.io/post/book/2021_book/</guid>
-      <description>2021年 第一本：单核工作法图解：事多到事少,拖延变高效 高 帮助你解决问题：提供行动指南，非理论一本书 百度网盘：https://pan.bai</description>
-    </item>
-    
-    <item>
-      <title>man</title>
-      <link>https://wangcy6.github.io/post/book/man/</link>
-      <pubDate>Mon, 02 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/book/man/</guid>
-      <description>帮助文档 内存管理 1 man malloc http://man7.org/linux/man-pages/man3/malloc.3.html Thread safety （多个线程可以同时执行） arena 1 2 3 4 5 To scalably handle memory allocation in multithreaded applications, glibc creates additional memory allocation arenas if mutex contention is detected. Each arena is a large region of memory that is internally allocated by the system (using brk(2) or mmap(2)),</description>
+      <guid>https://wangcy6.github.io/post/book/2025/book1-2025-5-cpu/</guid>
+      <description>d</description>
     </item>
     
   </channel>

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.83.1 with theme even" />
 
 
 <link rel="canonical" href="https://wangcy6.github.io/post/2020/server_redis/" />
@@ -41,17 +41,14 @@
 <meta property="og:title" content="redis知识卡" />
 <meta property="og:description" content="redis必须掌握几个知识点" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://wangcy6.github.io/post/2020/server_redis/" />
-<meta property="article:published_time" content="2020-05-13T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-05-13T00:00:00+00:00" />
+<meta property="og:url" content="https://wangcy6.github.io/post/2020/server_redis/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2020-05-13T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2020-05-13T00:00:00&#43;00:00" />
+
 <meta itemprop="name" content="redis知识卡">
-<meta itemprop="description" content="redis必须掌握几个知识点">
-<meta itemprop="datePublished" content="2020-05-13T00:00:00&#43;00:00" />
+<meta itemprop="description" content="redis必须掌握几个知识点"><meta itemprop="datePublished" content="2020-05-13T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2020-05-13T00:00:00&#43;00:00" />
 <meta itemprop="wordCount" content="5765">
-
-
-
 <meta itemprop="keywords" content="redis," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="redis知识卡"/>
 <meta name="twitter:description" content="redis必须掌握几个知识点"/>
@@ -146,28 +143,28 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#heading-1">源码阅读参考</a></li>
+        <li><a href="#源码阅读参考">源码阅读参考</a></li>
       </ul>
     </li>
-    <li><a href="#heading-2">目录索引</a></li>
+    <li><a href="#目录索引">目录索引</a></li>
   </ul>
 
   <ul>
-    <li><a href="#heading-3">学习资料</a>
+    <li><a href="#学习资料">学习资料</a>
       <ul>
         <li></li>
       </ul>
     </li>
     <li><a href="#redis-cluster-goals">Redis Cluster goals</a></li>
-    <li><a href="#heading-4">学习输出</a>
+    <li><a href="#学习输出">学习输出</a>
       <ul>
-        <li><a href="#1---">#1 陈咬金第一斧  模型什么</a></li>
-        <li><a href="#2---">#2 陈咬金第二斧  数据状态是什么</a></li>
-        <li><a href="#1-fail">1 FAIL状态</a></li>
-        <li><a href="#2-slave-">2 slave 发起投票条件</a></li>
-        <li><a href="#3-">3 主节点投票条件</a></li>
-        <li><a href="#4-redis-cluster">4. Redis Cluster数据分片机制</a></li>
-        <li><a href="#2---clustercron-">#2 陈咬金第二斧  clusterCron 过程</a></li>
+        <li><a href="#1-陈咬金第一斧--模型什么">#1 陈咬金第一斧  模型什么</a></li>
+        <li><a href="#2-陈咬金第二斧--数据状态是什么">#2 陈咬金第二斧  数据状态是什么</a></li>
+        <li><a href="#1-fail状态">1 FAIL状态</a></li>
+        <li><a href="#2-slave-发起投票条件">2 slave 发起投票条件</a></li>
+        <li><a href="#3-主节点投票条件">3 主节点投票条件</a></li>
+        <li><a href="#4-redis-cluster数据分片机制">4. Redis Cluster数据分片机制</a></li>
+        <li><a href="#2-陈咬金第二斧--clustercron-过程">#2 陈咬金第二斧  clusterCron 过程</a></li>
       </ul>
     </li>
   </ul>
@@ -175,24 +172,24 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#a-">A 学习资料：</a></li>
-        <li><a href="#b-">B 学习输出：有限状态机</a></li>
+        <li><a href="#a-学习资料">A 学习资料：</a></li>
+        <li><a href="#b-学习输出有限状态机">B 学习输出：有限状态机</a></li>
       </ul>
     </li>
-    <li><a href="#-">第三天： 内存模型（对象的类型与编码）</a>
+    <li><a href="#第三天-内存模型对象的类型与编码">第三天： 内存模型（对象的类型与编码）</a>
       <ul>
         <li></li>
       </ul>
     </li>
-    <li><a href="#--publish-subscribe">第四天： 发布-订阅（Publish-Subscribe）</a>
+    <li><a href="#第四天-发布-订阅publish-subscribe">第四天： <strong>发布-订阅（Publish-Subscribe）</strong></a>
       <ul>
         <li></li>
       </ul>
     </li>
-    <li><a href="#-socket">第五天 一个完整Socket过程</a>
+    <li><a href="#第五天-一个完整socket过程">第五天 一个完整Socket过程</a>
       <ul>
-        <li><a href="#51-">5.1 参考资料</a></li>
-        <li><a href="#52-">5.2 理解输出</a></li>
+        <li><a href="#51-参考资料">5.1 参考资料</a></li>
+        <li><a href="#52-理解输出">5.2 理解输出</a></li>
       </ul>
     </li>
   </ul>
@@ -201,16 +198,16 @@
     <li>
       <ul>
         <li></li>
-        <li><a href="#---info">#陈咬金第二斧 执行步骤是什么  info</a></li>
+        <li><a href="#陈咬金第二斧-执行步骤是什么--info">#陈咬金第二斧 执行步骤是什么  info</a></li>
       </ul>
     </li>
-    <li><a href="#heading-7">延迟时间</a></li>
+    <li><a href="#延迟时间">延迟时间</a></li>
   </ul>
 
   <ul>
-    <li><a href="#redis">二、redis设计与实现</a>
+    <li><a href="#二redis设计与实现">二、redis设计与实现</a>
       <ul>
-        <li><a href="#21-m">2.1 看图说话：二叉树，M叉树,跳表查找一个记录，前进的概率是多少？</a></li>
+        <li><a href="#21-看图说话二叉树m叉树跳表查找一个记录前进的概率是多少">2.1 看图说话：二叉树，M叉树,跳表查找一个记录，前进的概率是多少？</a></li>
       </ul>
     </li>
   </ul>
@@ -231,7 +228,7 @@
 你改如何学习，很简单从源码和特性这2个角度。
 然后思考为什么这样设计？动手目的只是验证的想法。</p>
 </blockquote>
-<h1 id="heading">版本</h1>
+<h1 id="版本">版本</h1>
 <blockquote>
 <p>最新特性是什么</p>
 </blockquote>
@@ -266,19 +263,19 @@
 </tr>
 </tbody>
 </table>
-<h3 id="heading-1">源码阅读参考</h3>
+<h3 id="源码阅读参考">源码阅读参考</h3>
 <ul>
 <li><a href="https://github.com/huangz1990/redis-3.0-annotated">https://github.com/huangz1990/redis-3.0-annotated</a></li>
 <li><a href="https://redissrc.readthedocs.io/en/latest/">https://redissrc.readthedocs.io/en/latest/</a></li>
 <li>redis设计与实现。</li>
 </ul>
-<h2 id="heading-2">目录索引</h2>
+<h2 id="目录索引">目录索引</h2>
 <ul>
 <li>一个key的类型和编码类型是什么？</li>
 <li>redis集群方案</li>
 </ul>
-<h1 id="-what-is-redis">第一天 what is Redis</h1>
-<h2 id="heading-3">学习资料</h2>
+<h1 id="第一天-what-is-redis">第一天 what is Redis</h1>
+<h2 id="学习资料">学习资料</h2>
 <h4 id="redis-cluster-specificationhttpsredisiotopicscluster-spec"><a href="https://redis.io/topics/cluster-spec">Redis Cluster Specification</a></h4>
 <p>目标：</p>
 <h2 id="redis-cluster-goals">Redis Cluster goals</h2>
@@ -297,13 +294,13 @@
 <p>Availability: Redis Cluster is able to survive partitions where the majority of the master nodes are reachable and there is at least one reachable slave for every master node that is no longer reachable. Moreover using <em>replicas migration</em>, masters no longer replicated by any slave will receive one from a master which is covered by multiple slaves.</p>
 </li>
 </ul>
-<h2 id="heading-4">学习输出</h2>
-<h3 id="1---">#1 陈咬金第一斧  模型什么</h3>
+<h2 id="学习输出">学习输出</h2>
+<h3 id="1-陈咬金第一斧--模型什么">#1 陈咬金第一斧  模型什么</h3>
 <p><img src="https://i.loli.net/2019/12/12/BQ71msoKGqyjMzC.png" alt="image.png"></p>
-<h3 id="2---">#2 陈咬金第二斧  数据状态是什么</h3>
+<h3 id="2-陈咬金第二斧--数据状态是什么">#2 陈咬金第二斧  数据状态是什么</h3>
 <p><img src="https://i.loli.net/2019/12/12/KecbMoSi3Nw6HEU.png" alt="https://catkang.github.io/2016/05/08/redis-cluster-source.html"></p>
 <p><img src="https://i.loli.net/2019/12/12/YbVaW6ZjHCQRUJu.png" alt="image.png"></p>
-<h3 id="1-fail">1 FAIL状态</h3>
+<h3 id="1-fail状态">1 FAIL状态</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -321,14 +318,14 @@
 
 <span class="n">Some</span> <span class="n">node</span><span class="p">,</span> <span class="n">that</span> <span class="n">we</span><span class="err">&#39;</span><span class="n">ll</span> <span class="n">call</span> <span class="n">A</span><span class="p">,</span> <span class="n">has</span> <span class="n">another</span> <span class="n">node</span> <span class="n">B</span> <span class="n">flagged</span> <span class="n">as</span> <span class="n">PFAIL</span><span class="p">.</span>
 <span class="n">Node</span> <span class="n">A</span> <span class="n">collected</span><span class="p">,</span> <span class="n">via</span> <span class="n">gossip</span> <span class="n">sections</span><span class="p">,</span> <span class="n">information</span> <span class="n">about</span> <span class="n">the</span> <span class="n">state</span> <span class="n">of</span> <span class="n">B</span> <span class="n">from</span> <span class="n">the</span> <span class="n">point</span> <span class="n">of</span> <span class="n">view</span> <span class="n">of</span> <span class="n">the</span> <span class="n">majority</span> <span class="n">of</span> <span class="n">masters</span> <span class="n">in</span> <span class="n">the</span> <span class="n">cluster</span><span class="p">.</span>
-<span class="n">The</span> <span class="n">majority</span> <span class="n">of</span> <span class="n">masters</span> <span class="n">signaled</span> <span class="n">the</span> <span class="n">PFAIL</span> <span class="n">or</span> <span class="n">FAIL</span> <span class="n">condition</span> <span class="n">within</span> <span class="n">NODE_TIMEOUT</span> <span class="o">*</span> <span class="n">FAIL_REPORT_VALIDITY_MULT</span> <span class="n">time</span><span class="p">.</span> <span class="p">(</span><span class="n">The</span> <span class="n">validity</span> <span class="n">factor</span> <span class="n">is</span> <span class="n">set</span> <span class="n">to</span> <span class="mi">2</span> <span class="n">in</span> <span class="n">the</span> <span class="n">current</span> <span class="n">implementation</span><span class="p">,</span> <span class="n">so</span> <span class="n">this</span> <span class="n">is</span> <span class="n">just</span> <span class="n">two</span> <span class="n">times</span> <span class="n">the</span> <span class="n">NODE_TIMEOUT</span> <span class="n">time</span><span class="p">)</span><span class="p">.</span>
+<span class="n">The</span> <span class="n">majority</span> <span class="n">of</span> <span class="n">masters</span> <span class="n">signaled</span> <span class="n">the</span> <span class="n">PFAIL</span> <span class="n">or</span> <span class="n">FAIL</span> <span class="n">condition</span> <span class="n">within</span> <span class="n">NODE_TIMEOUT</span> <span class="o">*</span> <span class="n">FAIL_REPORT_VALIDITY_MULT</span> <span class="n">time</span><span class="p">.</span> <span class="p">(</span><span class="n">The</span> <span class="n">validity</span> <span class="n">factor</span> <span class="n">is</span> <span class="n">set</span> <span class="n">to</span> <span class="mi">2</span> <span class="n">in</span> <span class="n">the</span> <span class="n">current</span> <span class="n">implementation</span><span class="p">,</span> <span class="n">so</span> <span class="n">this</span> <span class="n">is</span> <span class="n">just</span> <span class="n">two</span> <span class="n">times</span> <span class="n">the</span> <span class="n">NODE_TIMEOUT</span> <span class="n">time</span><span class="p">).</span>
 <span class="n">If</span> <span class="n">all</span> <span class="n">the</span> <span class="n">above</span> <span class="n">conditions</span> <span class="n">are</span> <span class="nb">true</span><span class="p">,</span> <span class="n">Node</span> <span class="n">A</span> <span class="nl">will</span><span class="p">:</span>
 
 <span class="n">Mark</span> <span class="n">the</span> <span class="n">node</span> <span class="n">as</span> <span class="n">FAIL</span><span class="p">.</span>
 <span class="n">Send</span> <span class="n">a</span> <span class="n">FAIL</span> <span class="n">message</span> <span class="n">to</span> <span class="n">all</span> <span class="n">the</span> <span class="n">reachable</span> <span class="n">nodes</span><span class="p">.</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="2-slave-">2 slave 发起投票条件</h3>
+</div><h3 id="2-slave-发起投票条件">2 slave 发起投票条件</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -371,7 +368,7 @@ This <span class="nb">time</span> is user configurable.
 
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="3-">3 主节点投票条件</h3>
+</div><h3 id="3-主节点投票条件">3 主节点投票条件</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -474,29 +471,29 @@ This <span class="nb">time</span> is user configurable.
 </span><span class="lnt">98
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-scss" data-lang="scss"><span class="nt">主节点接收到来自于从节点</span><span class="err">、</span><span class="nt">要求以</span> <span class="nt">FAILOVER_AUTH_REQUEST</span> <span class="nt">请求的形式投票的请求</span><span class="err">。</span> <span class="err"></span>
-<span class="nt">要授予一个投票</span><span class="err">，</span><span class="nt">必须要满足以下条件</span><span class="err">：</span><span class="err"></span>
-<span class="err"></span>
-<span class="nt">1</span><span class="o">)</span> <span class="nt">在一个给定的时段</span><span class="err">（</span><span class="nt">epoch</span><span class="err">）</span><span class="nt">里</span><span class="err">，</span><span class="nt">一个主节点只能投一次票</span><span class="err">，</span><span class="nt">并且拒绝给以前时段投票</span><span class="err">：</span><span class="nt">每个主节点都有一个</span> <span class="nt">lastVoteEpoch</span> <span class="nt">域</span><span class="err">，</span><span class="nt">一旦认证请求数据包</span><span class="err">（</span><span class="nt">auth</span> <span class="nt">request</span> <span class="nt">packet</span><span class="err">）</span><span class="nt">里的</span> <span class="nt">currentEpoch</span> <span class="nt">小于</span> <span class="nt">lastVoteEpoch</span><span class="err">，</span><span class="nt">那么主节点就会拒绝再次投票</span><span class="err">。</span><span class="err"></span>
-  <span class="nt">当一个主节点积极响应一个投票请求</span><span class="err">，</span><span class="nt">那么</span> <span class="nt">lastVoteEpoch</span> <span class="nt">会相应地进行更新</span><span class="err">。</span><span class="err"></span>
-<span class="nt">2</span><span class="o">)</span> <span class="nt">一个主节点投票给某个从节点当且仅当该从节点的主节点被标记为</span> <span class="nt">FAIL</span><span class="err">。</span><span class="err"></span>
-<span class="nt">3</span><span class="o">)</span> <span class="nt">如果认证请求里的</span> <span class="nt">currentEpoch</span> <span class="nt">小于主节点里的</span> <span class="nt">currentEpoch</span> <span class="nt">的话</span><span class="err">，</span><span class="nt">那么该请求会被忽视掉</span><span class="err">。</span><span class="err"></span>
-    <span class="nt">因此</span><span class="err">，</span><span class="nt">主节点的回应总是带着和认证请求一致的</span> <span class="nt">currentEpoch</span><span class="err">。</span><span class="err"></span>
-    <span class="nt">如果同一个从节点在增加</span> <span class="nt">currentEpoch</span> <span class="nt">后再次请求投票</span><span class="err">，</span><span class="nt">那么保证一个来自于主节点的</span><span class="err">、</span><span class="nt">旧的延迟回复不会被新一轮选举接受</span><span class="err">。</span><span class="err"></span>
-    <span class="err"></span>
-<span class="err"></span>
-<span class="nt">For</span> <span class="nt">a</span> <span class="nt">vote</span> <span class="nt">to</span> <span class="nt">be</span> <span class="nt">granted</span> <span class="nt">the</span> <span class="nt">following</span> <span class="nt">conditions</span> <span class="nt">need</span> <span class="nt">to</span> <span class="nt">be</span> <span class="nt">met</span><span class="nd">:</span><span class="err"></span>
-<span class="err"></span>
-<span class="nt">1</span><span class="nc">.</span>  <span class="nt">A</span> <span class="nt">master</span> <span class="nt">only</span> <span class="nt">votes</span> <span class="nt">a</span> <span class="nt">single</span> <span class="nt">time</span> <span class="nt">for</span> <span class="nt">a</span> <span class="nt">given</span> <span class="nt">epoch</span><span class="o">,</span> <span class="nt">and</span> <span class="nt">refuses</span> <span class="nt">to</span> <span class="nt">vote</span> <span class="nt">for</span> <span class="nt">older</span> <span class="nt">epochs</span><span class="nd">:</span> <span class="nt">every</span> <span class="nt">master</span> <span class="nt">has</span> <span class="nt">a</span> <span class="nt">lastVoteEpoch</span> <span class="nt">field</span> <span class="nt">and</span> <span class="nt">will</span> <span class="nt">refuse</span> <span class="nt">to</span> <span class="nt">vote</span> <span class="nt">again</span> <span class="nt">as</span> <span class="nt">long</span> <span class="nt">as</span> <span class="nt">the</span> <span class="nt">currentEpoch</span> <span class="nt">in</span> <span class="nt">the</span> <span class="nt">auth</span> <span class="nt">request</span> <span class="nt">packet</span> <span class="nt">is</span> <span class="nt">not</span> <span class="nt">greater</span> <span class="nt">than</span> <span class="nt">the</span> <span class="nt">lastVoteEpoch</span><span class="nc">.</span> <span class="err"></span>
-    <span class="nt">When</span> <span class="nt">a</span> <span class="nt">master</span> <span class="nt">replies</span> <span class="nt">positively</span> <span class="nt">to</span> <span class="nt">a</span> <span class="nt">vote</span> <span class="nt">request</span><span class="o">,</span> <span class="nt">the</span> <span class="nt">lastVoteEpoch</span> <span class="nt">is</span> <span class="nt">updated</span> <span class="nt">accordingly</span><span class="o">,</span> <span class="nt">and</span> <span class="nt">safely</span> <span class="nt">stored</span> <span class="nt">on</span> <span class="nt">disk</span><span class="nc">.</span><span class="err"></span>
-<span class="err"></span>
-<span class="nt">2</span><span class="nc">.</span>  <span class="nt">A</span> <span class="nt">master</span> <span class="nt">votes</span> <span class="nt">for</span> <span class="nt">a</span> <span class="nt">slave</span> <span class="nt">only</span> <span class="nt">if</span> <span class="nt">the</span> <span class="nt">slave</span><span class="s1">&#39;</span><span class="s1">s master is flagged as FAIL.</span>
+<pre class="chroma"><code class="language-scss" data-lang="scss"><span class="nt">主节点接收到来自于从节点</span><span class="err">、</span><span class="nt">要求以</span> <span class="nt">FAILOVER_AUTH_REQUEST</span> <span class="nt">请求的形式投票的请求</span><span class="err">。</span> 
+<span class="nt">要授予一个投票</span><span class="err">，</span><span class="nt">必须要满足以下条件</span><span class="err">：</span>
 
-<span class="nt">3</span><span class="nc">.</span>  <span class="nt">Auth</span> <span class="nt">requests</span> <span class="nt">with</span> <span class="nt">a</span> <span class="nt">currentEpoch</span> <span class="nt">that</span> <span class="nt">is</span> <span class="nt">less</span> <span class="nt">than</span> <span class="nt">the</span> <span class="nt">master</span> <span class="nt">currentEpoch</span> <span class="nt">are</span> <span class="nt">ignored</span><span class="nc">.</span> <span class="nt">Because</span> <span class="nt">of</span> <span class="nt">this</span> <span class="nt">the</span> <span class="nt">master</span> <span class="nt">reply</span> <span class="nt">will</span> <span class="nt">always</span> <span class="nt">have</span> <span class="nt">the</span> <span class="nt">same</span> <span class="nt">currentEpoch</span> <span class="nt">as</span> <span class="nt">the</span> <span class="nt">auth</span> <span class="nt">request</span><span class="nc">.</span> <span class="nt">If</span> <span class="nt">the</span> <span class="nt">same</span> <span class="nt">slave</span> <span class="nt">asks</span> <span class="nt">again</span> <span class="nt">to</span> <span class="nt">be</span> <span class="nt">voted</span><span class="o">,</span> <span class="nt">incrementing</span> <span class="nt">the</span> <span class="nt">currentEpoch</span><span class="o">,</span> <span class="nt">it</span> <span class="nt">is</span> <span class="nt">guaranteed</span> <span class="nt">that</span> <span class="nt">an</span> <span class="nt">old</span> <span class="nt">delayed</span> <span class="nt">reply</span> <span class="nt">from</span> <span class="nt">the</span> <span class="nt">master</span> <span class="nt">can</span> <span class="nt">not</span> <span class="nt">be</span> <span class="nt">accepted</span> <span class="nt">for</span> <span class="nt">the</span> <span class="nt">new</span> <span class="nt">vote</span><span class="nc">.</span><span class="err"></span>
-<span class="err"></span>
-<span class="o">/</span><span class="o">*</span> <span class="nt">Vote</span> <span class="nt">for</span> <span class="nt">the</span> <span class="nt">node</span> <span class="nt">asking</span> <span class="nt">for</span> <span class="nt">our</span> <span class="nt">vote</span> <span class="nt">if</span> <span class="nt">there</span> <span class="nt">are</span> <span class="nt">the</span> <span class="nt">conditions</span><span class="nc">.</span> <span class="o">*</span><span class="o">/</span><span class="err"></span>
-<span class="o">/</span><span class="o">/</span> <span class="nt">在条件满足的情况下</span><span class="err">，</span><span class="nt">为请求进行故障转移的节点</span> <span class="nt">node</span> <span class="nt">进行投票</span><span class="err">，</span><span class="nt">支持它进行故障转移</span><span class="err"></span>
-<span class="o">/</span><span class="o">/</span><span class="o">/</span><span class="nt">主节点投票</span><span class="err"></span>
+<span class="nt">1</span><span class="o">)</span> <span class="nt">在一个给定的时段</span><span class="err">（</span><span class="nt">epoch</span><span class="err">）</span><span class="nt">里</span><span class="err">，</span><span class="nt">一个主节点只能投一次票</span><span class="err">，</span><span class="nt">并且拒绝给以前时段投票</span><span class="err">：</span><span class="nt">每个主节点都有一个</span> <span class="nt">lastVoteEpoch</span> <span class="nt">域</span><span class="err">，</span><span class="nt">一旦认证请求数据包</span><span class="err">（</span><span class="nt">auth</span> <span class="nt">request</span> <span class="nt">packet</span><span class="err">）</span><span class="nt">里的</span> <span class="nt">currentEpoch</span> <span class="nt">小于</span> <span class="nt">lastVoteEpoch</span><span class="err">，</span><span class="nt">那么主节点就会拒绝再次投票</span><span class="err">。</span>
+  <span class="nt">当一个主节点积极响应一个投票请求</span><span class="err">，</span><span class="nt">那么</span> <span class="nt">lastVoteEpoch</span> <span class="nt">会相应地进行更新</span><span class="err">。</span>
+<span class="nt">2</span><span class="o">)</span> <span class="nt">一个主节点投票给某个从节点当且仅当该从节点的主节点被标记为</span> <span class="nt">FAIL</span><span class="err">。</span>
+<span class="nt">3</span><span class="o">)</span> <span class="nt">如果认证请求里的</span> <span class="nt">currentEpoch</span> <span class="nt">小于主节点里的</span> <span class="nt">currentEpoch</span> <span class="nt">的话</span><span class="err">，</span><span class="nt">那么该请求会被忽视掉</span><span class="err">。</span>
+    <span class="nt">因此</span><span class="err">，</span><span class="nt">主节点的回应总是带着和认证请求一致的</span> <span class="nt">currentEpoch</span><span class="err">。</span>
+    <span class="nt">如果同一个从节点在增加</span> <span class="nt">currentEpoch</span> <span class="nt">后再次请求投票</span><span class="err">，</span><span class="nt">那么保证一个来自于主节点的</span><span class="err">、</span><span class="nt">旧的延迟回复不会被新一轮选举接受</span><span class="err">。</span>
+    
+
+<span class="nt">For</span> <span class="nt">a</span> <span class="nt">vote</span> <span class="nt">to</span> <span class="nt">be</span> <span class="nt">granted</span> <span class="nt">the</span> <span class="nt">following</span> <span class="nt">conditions</span> <span class="nt">need</span> <span class="nt">to</span> <span class="nt">be</span> <span class="nt">met</span><span class="nd">:</span>
+
+<span class="nt">1</span><span class="nc">.</span>  <span class="nt">A</span> <span class="nt">master</span> <span class="nt">only</span> <span class="nt">votes</span> <span class="nt">a</span> <span class="nt">single</span> <span class="nt">time</span> <span class="nt">for</span> <span class="nt">a</span> <span class="nt">given</span> <span class="nt">epoch</span><span class="o">,</span> <span class="nt">and</span> <span class="nt">refuses</span> <span class="nt">to</span> <span class="nt">vote</span> <span class="nt">for</span> <span class="nt">older</span> <span class="nt">epochs</span><span class="nd">:</span> <span class="nt">every</span> <span class="nt">master</span> <span class="nt">has</span> <span class="nt">a</span> <span class="nt">lastVoteEpoch</span> <span class="nt">field</span> <span class="nt">and</span> <span class="nt">will</span> <span class="nt">refuse</span> <span class="nt">to</span> <span class="nt">vote</span> <span class="nt">again</span> <span class="nt">as</span> <span class="nt">long</span> <span class="nt">as</span> <span class="nt">the</span> <span class="nt">currentEpoch</span> <span class="nt">in</span> <span class="nt">the</span> <span class="nt">auth</span> <span class="nt">request</span> <span class="nt">packet</span> <span class="nt">is</span> <span class="nt">not</span> <span class="nt">greater</span> <span class="nt">than</span> <span class="nt">the</span> <span class="nt">lastVoteEpoch</span><span class="nc">.</span> 
+    <span class="nt">When</span> <span class="nt">a</span> <span class="nt">master</span> <span class="nt">replies</span> <span class="nt">positively</span> <span class="nt">to</span> <span class="nt">a</span> <span class="nt">vote</span> <span class="nt">request</span><span class="o">,</span> <span class="nt">the</span> <span class="nt">lastVoteEpoch</span> <span class="nt">is</span> <span class="nt">updated</span> <span class="nt">accordingly</span><span class="o">,</span> <span class="nt">and</span> <span class="nt">safely</span> <span class="nt">stored</span> <span class="nt">on</span> <span class="nt">disk</span><span class="nc">.</span>
+
+<span class="nt">2</span><span class="nc">.</span>  <span class="nt">A</span> <span class="nt">master</span> <span class="nt">votes</span> <span class="nt">for</span> <span class="nt">a</span> <span class="nt">slave</span> <span class="nt">only</span> <span class="nt">if</span> <span class="nt">the</span> <span class="nt">slave</span><span class="s1">&#39;s master is flagged as FAIL.</span>
+
+<span class="nt">3</span><span class="nc">.</span>  <span class="nt">Auth</span> <span class="nt">requests</span> <span class="nt">with</span> <span class="nt">a</span> <span class="nt">currentEpoch</span> <span class="nt">that</span> <span class="nt">is</span> <span class="nt">less</span> <span class="nt">than</span> <span class="nt">the</span> <span class="nt">master</span> <span class="nt">currentEpoch</span> <span class="nt">are</span> <span class="nt">ignored</span><span class="nc">.</span> <span class="nt">Because</span> <span class="nt">of</span> <span class="nt">this</span> <span class="nt">the</span> <span class="nt">master</span> <span class="nt">reply</span> <span class="nt">will</span> <span class="nt">always</span> <span class="nt">have</span> <span class="nt">the</span> <span class="nt">same</span> <span class="nt">currentEpoch</span> <span class="nt">as</span> <span class="nt">the</span> <span class="nt">auth</span> <span class="nt">request</span><span class="nc">.</span> <span class="nt">If</span> <span class="nt">the</span> <span class="nt">same</span> <span class="nt">slave</span> <span class="nt">asks</span> <span class="nt">again</span> <span class="nt">to</span> <span class="nt">be</span> <span class="nt">voted</span><span class="o">,</span> <span class="nt">incrementing</span> <span class="nt">the</span> <span class="nt">currentEpoch</span><span class="o">,</span> <span class="nt">it</span> <span class="nt">is</span> <span class="nt">guaranteed</span> <span class="nt">that</span> <span class="nt">an</span> <span class="nt">old</span> <span class="nt">delayed</span> <span class="nt">reply</span> <span class="nt">from</span> <span class="nt">the</span> <span class="nt">master</span> <span class="nt">can</span> <span class="nt">not</span> <span class="nt">be</span> <span class="nt">accepted</span> <span class="nt">for</span> <span class="nt">the</span> <span class="nt">new</span> <span class="nt">vote</span><span class="nc">.</span>
+
+<span class="o">/*</span> <span class="nt">Vote</span> <span class="nt">for</span> <span class="nt">the</span> <span class="nt">node</span> <span class="nt">asking</span> <span class="nt">for</span> <span class="nt">our</span> <span class="nt">vote</span> <span class="nt">if</span> <span class="nt">there</span> <span class="nt">are</span> <span class="nt">the</span> <span class="nt">conditions</span><span class="nc">.</span> <span class="o">*/</span>
+<span class="o">//</span> <span class="nt">在条件满足的情况下</span><span class="err">，</span><span class="nt">为请求进行故障转移的节点</span> <span class="nt">node</span> <span class="nt">进行投票</span><span class="err">，</span><span class="nt">支持它进行故障转移</span>
+<span class="o">///</span><span class="nt">主节点投票</span>
 <span class="nt">void</span> <span class="nt">clusterSendFailoverAuthIfNeeded</span><span class="o">(</span><span class="nt">clusterNode</span> <span class="o">*</span><span class="nt">node</span><span class="o">,</span> <span class="nt">clusterMsg</span> <span class="o">*</span><span class="nt">request</span><span class="o">)</span> <span class="p">{</span>
 
     <span class="c1">// 请求节点的主节点
@@ -520,40 +517,40 @@ This <span class="nb">time</span> is user configurable.
 
     <span class="c1">// 如果节点为从节点，或者是一个没有处理任何槽的主节点，
 </span><span class="c1"></span>    <span class="c1">// 那么它没有投票权
-</span><span class="c1"></span>    <span class="nt">if</span> <span class="o">(</span><span class="nt">nodeIsSlave</span><span class="o">(</span><span class="nt">myself</span><span class="o">)</span> <span class="o">|</span><span class="o">|</span> <span class="nt">myself-</span><span class="o">&gt;</span><span class="nt">numslots</span> <span class="o">=</span><span class="o">=</span> <span class="nt">0</span><span class="o">)</span> <span class="nt">return</span><span class="p">;</span>
+</span><span class="c1"></span>    <span class="nt">if</span> <span class="o">(</span><span class="nt">nodeIsSlave</span><span class="o">(</span><span class="nt">myself</span><span class="o">)</span> <span class="o">||</span> <span class="nt">myself-</span><span class="o">&gt;</span><span class="nt">numslots</span> <span class="o">==</span> <span class="nt">0</span><span class="o">)</span> <span class="nt">return</span><span class="p">;</span>
 
     <span class="cm">/* Request epoch must be &gt;= our currentEpoch. */</span>
     <span class="c1">// 请求的配置纪元必须大于等于当前节点的配置纪元
-</span><span class="c1"></span>    <span class="nt">if</span> <span class="o">(</span><span class="nt">requestCurrentEpoch</span> <span class="o">&lt;</span> <span class="nt">server</span><span class="nc">.</span><span class="nc">cluster-</span><span class="o">&gt;</span><span class="nt">currentEpoch</span><span class="o">)</span> <span class="nt">return</span><span class="p">;</span>
+</span><span class="c1"></span>    <span class="nt">if</span> <span class="o">(</span><span class="nt">requestCurrentEpoch</span> <span class="o">&lt;</span> <span class="nt">server</span><span class="nc">.cluster-</span><span class="o">&gt;</span><span class="nt">currentEpoch</span><span class="o">)</span> <span class="nt">return</span><span class="p">;</span>
 
     <span class="cm">/* I already voted for this epoch? Return ASAP. */</span>
     <span class="c1">// 已经投过票了
-</span><span class="c1"></span>    <span class="nt">if</span> <span class="o">(</span><span class="nt">server</span><span class="nc">.</span><span class="nc">cluster-</span><span class="o">&gt;</span><span class="nt">lastVoteEpoch</span> <span class="o">=</span><span class="o">=</span> <span class="nt">server</span><span class="nc">.</span><span class="nc">cluster-</span><span class="o">&gt;</span><span class="nt">currentEpoch</span><span class="o">)</span> <span class="nt">return</span><span class="p">;</span>
+</span><span class="c1"></span>    <span class="nt">if</span> <span class="o">(</span><span class="nt">server</span><span class="nc">.cluster-</span><span class="o">&gt;</span><span class="nt">lastVoteEpoch</span> <span class="o">==</span> <span class="nt">server</span><span class="nc">.cluster-</span><span class="o">&gt;</span><span class="nt">currentEpoch</span><span class="o">)</span> <span class="nt">return</span><span class="p">;</span>
 
     <span class="cm">/* Node must be a slave and its master down.
 </span><span class="cm">     * The master can be non failing if the request is flagged
 </span><span class="cm">     * with CLUSTERMSG_FLAG0_FORCEACK (manual failover). */</span>
-    <span class="nt">if</span> <span class="o">(</span><span class="nt">nodeIsMaster</span><span class="o">(</span><span class="nt">node</span><span class="o">)</span> <span class="o">|</span><span class="o">|</span> <span class="nt">master</span> <span class="o">=</span><span class="o">=</span> <span class="nt">NULL</span> <span class="o">|</span><span class="o">|</span><span class="err"></span>
-        <span class="o">(</span><span class="o">!</span><span class="nt">nodeFailed</span><span class="o">(</span><span class="nt">master</span><span class="o">)</span> <span class="k">&amp;</span><span class="k">&amp;</span> <span class="o">!</span><span class="nt">force_ack</span><span class="o">)</span><span class="o">)</span> <span class="nt">return</span><span class="p">;</span>
+    <span class="nt">if</span> <span class="o">(</span><span class="nt">nodeIsMaster</span><span class="o">(</span><span class="nt">node</span><span class="o">)</span> <span class="o">||</span> <span class="nt">master</span> <span class="o">==</span> <span class="nt">NULL</span> <span class="o">||</span>
+        <span class="o">(!</span><span class="nt">nodeFailed</span><span class="o">(</span><span class="nt">master</span><span class="o">)</span> <span class="k">&amp;&amp;</span> <span class="o">!</span><span class="nt">force_ack</span><span class="o">))</span> <span class="nt">return</span><span class="p">;</span>
 
     <span class="cm">/* We did not voted for a slave about this master for two
 </span><span class="cm">     * times the node timeout. This is not strictly needed for correctness
 </span><span class="cm">     * of the algorithm but makes the base case more linear. */</span>
     <span class="c1">// 如果之前一段时间已经对请求节点进行过投票，那么不进行投票
-</span><span class="c1"></span>    <span class="nt">if</span> <span class="o">(</span><span class="nt">mstime</span><span class="o">(</span><span class="o">)</span> <span class="nt">-</span> <span class="nt">node-</span><span class="o">&gt;</span><span class="nt">slaveof-</span><span class="o">&gt;</span><span class="nt">voted_time</span> <span class="o">&lt;</span> <span class="nt">server</span><span class="nc">.</span><span class="nc">cluster_node_timeout</span> <span class="o">*</span> <span class="nt">2</span><span class="o">)</span><span class="err"></span>
+</span><span class="c1"></span>    <span class="nt">if</span> <span class="o">(</span><span class="nt">mstime</span><span class="o">()</span> <span class="nt">-</span> <span class="nt">node-</span><span class="o">&gt;</span><span class="nt">slaveof-</span><span class="o">&gt;</span><span class="nt">voted_time</span> <span class="o">&lt;</span> <span class="nt">server</span><span class="nc">.cluster_node_timeout</span> <span class="o">*</span> <span class="nt">2</span><span class="o">)</span>
         <span class="nt">return</span><span class="p">;</span>
 
     <span class="cm">/* The slave requesting the vote must have a configEpoch for the claimed
 </span><span class="cm">     * slots that is &gt;= the one of the masters currently serving the same
 </span><span class="cm">     * slots in the current configuration. */</span>
-    <span class="nt">for</span> <span class="o">(</span><span class="nt">j</span> <span class="o">=</span> <span class="nt">0</span><span class="p">;</span> <span class="nt">j</span> <span class="o">&lt;</span> <span class="nt">REDIS_CLUSTER_SLOTS</span><span class="p">;</span> <span class="nt">j</span><span class="o">+</span><span class="o">+</span><span class="o">)</span> <span class="p">{</span>
+    <span class="nt">for</span> <span class="o">(</span><span class="nt">j</span> <span class="o">=</span> <span class="nt">0</span><span class="p">;</span> <span class="nt">j</span> <span class="o">&lt;</span> <span class="nt">REDIS_CLUSTER_SLOTS</span><span class="p">;</span> <span class="nt">j</span><span class="o">++)</span> <span class="p">{</span>
 
         <span class="c1">// 跳过未指派节点
-</span><span class="c1"></span>        <span class="nt">if</span> <span class="o">(</span><span class="nt">bitmapTestBit</span><span class="o">(</span><span class="nt">claimed_slots</span><span class="o">,</span> <span class="nt">j</span><span class="o">)</span> <span class="o">=</span><span class="o">=</span> <span class="nt">0</span><span class="o">)</span> <span class="nt">continue</span><span class="p">;</span>
+</span><span class="c1"></span>        <span class="nt">if</span> <span class="o">(</span><span class="nt">bitmapTestBit</span><span class="o">(</span><span class="nt">claimed_slots</span><span class="o">,</span> <span class="nt">j</span><span class="o">)</span> <span class="o">==</span> <span class="nt">0</span><span class="o">)</span> <span class="nt">continue</span><span class="p">;</span>
 
         <span class="c1">// 查找是否有某个槽的配置纪元大于节点请求的纪元
-</span><span class="c1"></span>        <span class="nt">if</span> <span class="o">(</span><span class="nt">server</span><span class="nc">.</span><span class="nc">cluster-</span><span class="o">&gt;</span><span class="nt">slots</span><span class="o">[</span><span class="nt">j</span><span class="o">]</span> <span class="o">=</span><span class="o">=</span> <span class="nt">NULL</span> <span class="o">|</span><span class="o">|</span><span class="err"></span>
-            <span class="nt">server</span><span class="nc">.</span><span class="nc">cluster-</span><span class="o">&gt;</span><span class="nt">slots</span><span class="o">[</span><span class="nt">j</span><span class="o">]</span><span class="nt">-</span><span class="o">&gt;</span><span class="nt">configEpoch</span> <span class="o">&lt;</span><span class="o">=</span> <span class="nt">requestConfigEpoch</span><span class="o">)</span><span class="err"></span>
+</span><span class="c1"></span>        <span class="nt">if</span> <span class="o">(</span><span class="nt">server</span><span class="nc">.cluster-</span><span class="o">&gt;</span><span class="nt">slots</span><span class="o">[</span><span class="nt">j</span><span class="o">]</span> <span class="o">==</span> <span class="nt">NULL</span> <span class="o">||</span>
+            <span class="nt">server</span><span class="nc">.cluster-</span><span class="o">&gt;</span><span class="nt">slots</span><span class="o">[</span><span class="nt">j</span><span class="o">]</span><span class="nt">-</span><span class="o">&gt;</span><span class="nt">configEpoch</span> <span class="o">&lt;=</span> <span class="nt">requestConfigEpoch</span><span class="o">)</span>
         <span class="p">{</span>
             <span class="nt">continue</span><span class="p">;</span>
         <span class="p">}</span>
@@ -569,12 +566,12 @@ This <span class="nb">time</span> is user configurable.
     <span class="c1">// 为节点投票
 </span><span class="c1"></span>    <span class="nt">clusterSendFailoverAuth</span><span class="o">(</span><span class="nt">node</span><span class="o">)</span><span class="p">;</span>
     <span class="c1">// 更新时间值
-</span><span class="c1"></span>    <span class="nt">server</span><span class="nc">.</span><span class="nc">cluster-</span><span class="o">&gt;</span><span class="nt">lastVoteEpoch</span> <span class="o">=</span> <span class="nt">server</span><span class="nc">.</span><span class="nc">cluster-</span><span class="o">&gt;</span><span class="nt">currentEpoch</span><span class="p">;</span>
-    <span class="nt">node-</span><span class="o">&gt;</span><span class="nt">slaveof-</span><span class="o">&gt;</span><span class="nt">voted_time</span> <span class="o">=</span> <span class="nt">mstime</span><span class="o">(</span><span class="o">)</span><span class="p">;</span>
+</span><span class="c1"></span>    <span class="nt">server</span><span class="nc">.cluster-</span><span class="o">&gt;</span><span class="nt">lastVoteEpoch</span> <span class="o">=</span> <span class="nt">server</span><span class="nc">.cluster-</span><span class="o">&gt;</span><span class="nt">currentEpoch</span><span class="p">;</span>
+    <span class="nt">node-</span><span class="o">&gt;</span><span class="nt">slaveof-</span><span class="o">&gt;</span><span class="nt">voted_time</span> <span class="o">=</span> <span class="nt">mstime</span><span class="o">()</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="4-redis-cluster">4. Redis Cluster数据分片机制</h3>
+</div><h3 id="4-redis-cluster数据分片机制">4. Redis Cluster数据分片机制</h3>
 <p>A 问题（读三遍）：Redis的数据如何平滑扩容?</p>
 <p>关键词：扩容，还有平滑</p>
 <p>为了使得集群能够水平扩展，首要解决的问题就是如何将整个数据集按照一定的规则分配到多个节点上，</p>
@@ -595,7 +592,7 @@ This <span class="nb">time</span> is user configurable.
 <p>集群状态，清楚知道每个sloat位置</p>
 </li>
 </ul>
-<h3 id="2---clustercron-">#2 陈咬金第二斧  clusterCron 过程</h3>
+<h3 id="2-陈咬金第二斧--clustercron-过程">#2 陈咬金第二斧  clusterCron 过程</h3>
 <p>每间隔 100 毫秒执行一次</p>
 <ol>
 <li>
@@ -669,21 +666,21 @@ This <span class="nb">time</span> is user configurable.
 </span><span class="c1"></span>    <span class="p">{</span>
         <span class="n">dictIterator</span> <span class="o">*</span><span class="n">di</span><span class="p">;</span>
         <span class="n">dictEntry</span> <span class="o">*</span><span class="n">de</span><span class="p">;</span>
-   
-        <span class="n">server</span><span class="p">.</span><span class="n">cluster</span><span class="o">-</span><span class="o">&gt;</span><span class="n">size</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="n">di</span> <span class="o">=</span> <span class="n">dictGetSafeIterator</span><span class="p">(</span><span class="n">server</span><span class="p">.</span><span class="n">cluster</span><span class="o">-</span><span class="o">&gt;</span><span class="n">nodes</span><span class="p">)</span><span class="p">;</span>
-        <span class="k">while</span><span class="p">(</span><span class="p">(</span><span class="n">de</span> <span class="o">=</span> <span class="n">dictNext</span><span class="p">(</span><span class="n">di</span><span class="p">)</span><span class="p">)</span> <span class="o">!</span><span class="o">=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">clusterNode</span> <span class="o">*</span><span class="n">node</span> <span class="o">=</span> <span class="n">dictGetVal</span><span class="p">(</span><span class="n">de</span><span class="p">)</span><span class="p">;</span>
-   
-            <span class="k">if</span> <span class="p">(</span><span class="n">nodeIsMaster</span><span class="p">(</span><span class="n">node</span><span class="p">)</span> <span class="o">&amp;</span><span class="o">&amp;</span> <span class="n">node</span><span class="o">-</span><span class="o">&gt;</span><span class="n">numslots</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">server</span><span class="p">.</span><span class="n">cluster</span><span class="o">-</span><span class="o">&gt;</span><span class="n">size</span><span class="o">+</span><span class="o">+</span><span class="p">;</span>
-                <span class="k">if</span> <span class="p">(</span><span class="n">node</span><span class="o">-</span><span class="o">&gt;</span><span class="n">flags</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">REDIS_NODE_FAIL</span><span class="o">|</span><span class="n">REDIS_NODE_PFAIL</span><span class="p">)</span><span class="p">)</span>
-                    <span class="n">unreachable_masters</span><span class="o">+</span><span class="o">+</span><span class="p">;</span>
+
+        <span class="n">server</span><span class="p">.</span><span class="n">cluster</span><span class="o">-&gt;</span><span class="n">size</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="n">di</span> <span class="o">=</span> <span class="n">dictGetSafeIterator</span><span class="p">(</span><span class="n">server</span><span class="p">.</span><span class="n">cluster</span><span class="o">-&gt;</span><span class="n">nodes</span><span class="p">);</span>
+        <span class="k">while</span><span class="p">((</span><span class="n">de</span> <span class="o">=</span> <span class="n">dictNext</span><span class="p">(</span><span class="n">di</span><span class="p">))</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">clusterNode</span> <span class="o">*</span><span class="n">node</span> <span class="o">=</span> <span class="n">dictGetVal</span><span class="p">(</span><span class="n">de</span><span class="p">);</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="n">nodeIsMaster</span><span class="p">(</span><span class="n">node</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">numslots</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">server</span><span class="p">.</span><span class="n">cluster</span><span class="o">-&gt;</span><span class="n">size</span><span class="o">++</span><span class="p">;</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">flags</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">REDIS_NODE_FAIL</span><span class="o">|</span><span class="n">REDIS_NODE_PFAIL</span><span class="p">))</span>
+                    <span class="n">unreachable_masters</span><span class="o">++</span><span class="p">;</span>
             <span class="p">}</span>
         <span class="p">}</span>
-        <span class="n">dictReleaseIterator</span><span class="p">(</span><span class="n">di</span><span class="p">)</span><span class="p">;</span>
+        <span class="n">dictReleaseIterator</span><span class="p">(</span><span class="n">di</span><span class="p">);</span>
     <span class="p">}</span>
-   
+
 <span class="cm">/* If we can&#39;t reach at least half the masters, change the cluster state
 </span><span class="cm">     * to FAIL, as we are not even able to mark nodes as FAIL in this side
 </span><span class="cm">     * of the netsplit because of lack of majority.
@@ -692,18 +689,18 @@ This <span class="nb">time</span> is user configurable.
 </span><span class="cm">     * 因为在少于半数节点的情况下，节点是无法将一个节点判断为 FAIL 的。
 </span><span class="cm">     */</span>
     <span class="p">{</span>
-        <span class="kt">int</span> <span class="n">needed_quorum</span> <span class="o">=</span> <span class="p">(</span><span class="n">server</span><span class="p">.</span><span class="n">cluster</span><span class="o">-</span><span class="o">&gt;</span><span class="n">size</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-   
-        <span class="k">if</span> <span class="p">(</span><span class="n">unreachable_masters</span> <span class="o">&gt;</span><span class="o">=</span> <span class="n">needed_quorum</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">needed_quorum</span> <span class="o">=</span> <span class="p">(</span><span class="n">server</span><span class="p">.</span><span class="n">cluster</span><span class="o">-&gt;</span><span class="n">size</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">unreachable_masters</span> <span class="o">&gt;=</span> <span class="n">needed_quorum</span><span class="p">)</span> <span class="p">{</span>
             <span class="n">new_state</span> <span class="o">=</span> <span class="n">REDIS_CLUSTER_FAIL</span><span class="p">;</span>
-            <span class="n">among_minority_time</span> <span class="o">=</span> <span class="n">mstime</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+            <span class="n">among_minority_time</span> <span class="o">=</span> <span class="n">mstime</span><span class="p">();</span>
         <span class="p">}</span>
     <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div></li>
 </ol>
-<h5 id="clusterhandleslavefailover-">clusterHandleSlaveFailover 故障转移流程</h5>
+<h5 id="clusterhandleslavefailover-故障转移流程">clusterHandleSlaveFailover 故障转移流程</h5>
 <ul>
 <li>
 <p>如果没有像其他节点发起投票 clusterRequestFailoverAuth</p>
@@ -718,12 +715,12 @@ This <span class="nb">time</span> is user configurable.
 <p>更新集群配置纪元</p>
 <p>更新节点状态</p>
 <p>并保存配置文件</p>
-<h1 id="what-is-clustercron">第二天：what is clusterCron</h1>
-<h3 id="a-">A 学习资料：</h3>
+<h1 id="第二天what-is-clustercron">第二天：what is clusterCron</h1>
+<h3 id="a-学习资料">A 学习资料：</h3>
 <blockquote>
 <p>clusterCron</p>
 </blockquote>
-<h3 id="b-">B 学习输出：有限状态机</h3>
+<h3 id="b-学习输出有限状态机">B 学习输出：有限状态机</h3>
 <p>有限状态机是个十分有用的模型，可以用来模拟世界上大部分的事物，其有三个特征：</p>
 <ol>
 <li>状态总数（state）是有限的。</li>
@@ -736,13 +733,13 @@ This <span class="nb">time</span> is user configurable.
 <p><a href="http://www.tcpipguide.com/free/t_TCPOperationalOverviewandtheTCPFiniteStateMachineF-2.htm">TCP Operational Overview and the TCP Finite State Machine (FSM)</a></p>
 <p><a href="https://www.youtube.com/watch?v=Qa6csfkK7_I">https://www.youtube.com/watch?v=Qa6csfkK7_I</a></p>
 <p><img src="http://www.tcpipguide.com/free/diagrams/tcpfsm.png" alt=""></p>
-<h5 id="--">#陈咬金第一斧  模型什么</h5>
-<h5 id="---1">#陈咬金第二斧  状态状态是什么</h5>
-<h5 id="---2">#陈咬金第三斧  有什么用</h5>
-<h2 id="-">第三天： 内存模型（对象的类型与编码）</h2>
+<h5 id="陈咬金第一斧--模型什么">#陈咬金第一斧  模型什么</h5>
+<h5 id="陈咬金第二斧--状态状态是什么">#陈咬金第二斧  状态状态是什么</h5>
+<h5 id="陈咬金第三斧--有什么用">#陈咬金第三斧  有什么用</h5>
+<h2 id="第三天-内存模型对象的类型与编码">第三天： 内存模型（对象的类型与编码）</h2>
 <p><img src="../images/95JQiMS2gUjWVsN.png" alt="image.png"></p>
 <h4 id="zset">zset</h4>
-<h4 id="1">#1【插入操作】</h4>
+<h4 id="1插入操作">#1【插入操作】</h4>
 <blockquote>
 <p>zskiplistNode *zslInsert(zskiplist *zsl, double score, robj *obj)</p>
 </blockquote>
@@ -883,16 +880,16 @@ This <span class="nb">time</span> is user configurable.
 </span><span class="cm"> * T_wrost = O(N^2), T_avg = O(N log N)
 </span><span class="cm"> */</span>
 <span class="n">zskiplistNode</span> <span class="o">*</span><span class="nf">zslInsert</span><span class="p">(</span><span class="n">zskiplist</span> <span class="o">*</span><span class="n">zsl</span><span class="p">,</span> <span class="kt">double</span> <span class="n">score</span><span class="p">,</span> <span class="n">robj</span> <span class="o">*</span><span class="n">obj</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">zskiplistNode</span> <span class="o">*</span><span class="n">update</span><span class="p">[</span><span class="n">ZSKIPLIST_MAXLEVEL</span><span class="p">]</span><span class="p">,</span> <span class="o">*</span><span class="n">x</span><span class="p">;</span>
-    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">rank</span><span class="p">[</span><span class="n">ZSKIPLIST_MAXLEVEL</span><span class="p">]</span><span class="p">;</span>
+    <span class="n">zskiplistNode</span> <span class="o">*</span><span class="n">update</span><span class="p">[</span><span class="n">ZSKIPLIST_MAXLEVEL</span><span class="p">],</span> <span class="o">*</span><span class="n">x</span><span class="p">;</span>
+    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">rank</span><span class="p">[</span><span class="n">ZSKIPLIST_MAXLEVEL</span><span class="p">];</span>
     <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">level</span><span class="p">;</span>
 
-    <span class="n">redisAssert</span><span class="p">(</span><span class="o">!</span><span class="n">isnan</span><span class="p">(</span><span class="n">score</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
+    <span class="n">redisAssert</span><span class="p">(</span><span class="o">!</span><span class="n">isnan</span><span class="p">(</span><span class="n">score</span><span class="p">));</span>
 
     <span class="c1">// 在各个层查找节点的插入位置
 </span><span class="c1"></span>    <span class="c1">// T_wrost = O(N^2), T_avg = O(N log N)
-</span><span class="c1"></span>    <span class="n">x</span> <span class="o">=</span> <span class="n">zsl</span><span class="o">-</span><span class="o">&gt;</span><span class="n">header</span><span class="p">;</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">zsl</span><span class="o">-</span><span class="o">&gt;</span><span class="n">level</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;</span><span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">-</span><span class="o">-</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="c1"></span>    <span class="n">x</span> <span class="o">=</span> <span class="n">zsl</span><span class="o">-&gt;</span><span class="n">header</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">zsl</span><span class="o">-&gt;</span><span class="n">level</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
 
         <span class="cm">/* store rank that is crossed to reach the insert position */</span>
         <span class="c1">// 如果 i 不是 zsl-&gt;level-1 层
@@ -900,22 +897,22 @@ This <span class="nb">time</span> is user configurable.
 </span><span class="c1"></span>        <span class="c1">// 各个层的 rank 值一层层累积
 </span><span class="c1"></span>        <span class="c1">// 最终 rank[0] 的值加一就是新节点的前置节点的排位
 </span><span class="c1"></span>        <span class="c1">// rank[0] 会在后面成为计算 span 值和 rank 值的基础
-</span><span class="c1"></span>        <span class="n">rank</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">=</span><span class="o">=</span> <span class="p">(</span><span class="n">zsl</span><span class="o">-</span><span class="o">&gt;</span><span class="n">level</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="n">rank</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="p">;</span>
+</span><span class="c1"></span>        <span class="n">rank</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">==</span> <span class="p">(</span><span class="n">zsl</span><span class="o">-&gt;</span><span class="n">level</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="n">rank</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span>
 
         <span class="c1">// 沿着前进指针遍历跳跃表
 </span><span class="c1"></span>        <span class="c1">// T_wrost = O(N^2), T_avg = O(N log N)
-</span><span class="c1"></span>        <span class="k">while</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="o">&gt;</span><span class="n">level</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="p">.</span><span class="n">forward</span> <span class="o">&amp;</span><span class="o">&amp;</span>
-            <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="o">&gt;</span><span class="n">level</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="p">.</span><span class="n">forward</span><span class="o">-</span><span class="o">&gt;</span><span class="n">score</span> <span class="o">&lt;</span> <span class="n">score</span> <span class="o">|</span><span class="o">|</span>
+</span><span class="c1"></span>        <span class="k">while</span> <span class="p">(</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">level</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">forward</span> <span class="o">&amp;&amp;</span>
+            <span class="p">(</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">level</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">forward</span><span class="o">-&gt;</span><span class="n">score</span> <span class="o">&lt;</span> <span class="n">score</span> <span class="o">||</span>
                 <span class="c1">// 比对分值
-</span><span class="c1"></span>                <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="o">&gt;</span><span class="n">level</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="p">.</span><span class="n">forward</span><span class="o">-</span><span class="o">&gt;</span><span class="n">score</span> <span class="o">=</span><span class="o">=</span> <span class="n">score</span> <span class="o">&amp;</span><span class="o">&amp;</span>
+</span><span class="c1"></span>                <span class="p">(</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">level</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">forward</span><span class="o">-&gt;</span><span class="n">score</span> <span class="o">==</span> <span class="n">score</span> <span class="o">&amp;&amp;</span>
                 <span class="c1">// 比对成员， T = O(N)
-</span><span class="c1"></span>                <span class="n">compareStringObjects</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="o">&gt;</span><span class="n">level</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="p">.</span><span class="n">forward</span><span class="o">-</span><span class="o">&gt;</span><span class="n">obj</span><span class="p">,</span><span class="n">obj</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="c1"></span>                <span class="n">compareStringObjects</span><span class="p">(</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">level</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">forward</span><span class="o">-&gt;</span><span class="n">obj</span><span class="p">,</span><span class="n">obj</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)))</span> <span class="p">{</span>
 
             <span class="c1">// 记录沿途跨越了多少个节点
-</span><span class="c1"></span>            <span class="n">rank</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span><span class="o">=</span> <span class="n">x</span><span class="o">-</span><span class="o">&gt;</span><span class="n">level</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="p">.</span><span class="n">span</span><span class="p">;</span>
+</span><span class="c1"></span>            <span class="n">rank</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">x</span><span class="o">-&gt;</span><span class="n">level</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">span</span><span class="p">;</span>
 
             <span class="c1">// 移动至下一指针
-</span><span class="c1"></span>            <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">-</span><span class="o">&gt;</span><span class="n">level</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="p">.</span><span class="n">forward</span><span class="p">;</span>
+</span><span class="c1"></span>            <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">-&gt;</span><span class="n">level</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">forward</span><span class="p">;</span>
         <span class="p">}</span>
         <span class="c1">// 记录将要和新节点相连接的节点
 </span><span class="c1"></span>        <span class="n">update</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
@@ -932,63 +929,63 @@ This <span class="nb">time</span> is user configurable.
 
     <span class="c1">// 获取一个随机值作为新节点的层数
 </span><span class="c1"></span>    <span class="c1">// T = O(N)
-</span><span class="c1"></span>    <span class="n">level</span> <span class="o">=</span> <span class="n">zslRandomLevel</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+</span><span class="c1"></span>    <span class="n">level</span> <span class="o">=</span> <span class="n">zslRandomLevel</span><span class="p">();</span>
 
     <span class="c1">// 如果新节点的层数比表中其他节点的层数都要大
 </span><span class="c1"></span>    <span class="c1">// 那么初始化表头节点中未使用的层，并将它们记录到 update 数组中
 </span><span class="c1"></span>    <span class="c1">// 将来也指向新节点
-</span><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="n">level</span> <span class="o">&gt;</span> <span class="n">zsl</span><span class="o">-</span><span class="o">&gt;</span><span class="n">level</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="n">level</span> <span class="o">&gt;</span> <span class="n">zsl</span><span class="o">-&gt;</span><span class="n">level</span><span class="p">)</span> <span class="p">{</span>
 
         <span class="c1">// 初始化未使用层
 </span><span class="c1"></span>        <span class="c1">// T = O(1)
-</span><span class="c1"></span>        <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">zsl</span><span class="o">-</span><span class="o">&gt;</span><span class="n">level</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">level</span><span class="p">;</span> <span class="n">i</span><span class="o">+</span><span class="o">+</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="c1"></span>        <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">zsl</span><span class="o">-&gt;</span><span class="n">level</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">level</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
             <span class="n">rank</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-            <span class="n">update</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">zsl</span><span class="o">-</span><span class="o">&gt;</span><span class="n">header</span><span class="p">;</span>
-            <span class="n">update</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="o">&gt;</span><span class="n">level</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="p">.</span><span class="n">span</span> <span class="o">=</span> <span class="n">zsl</span><span class="o">-</span><span class="o">&gt;</span><span class="n">length</span><span class="p">;</span>
+            <span class="n">update</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">zsl</span><span class="o">-&gt;</span><span class="n">header</span><span class="p">;</span>
+            <span class="n">update</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">level</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">span</span> <span class="o">=</span> <span class="n">zsl</span><span class="o">-&gt;</span><span class="n">length</span><span class="p">;</span>
         <span class="p">}</span>
 
         <span class="c1">// 更新表中节点最大层数
-</span><span class="c1"></span>        <span class="n">zsl</span><span class="o">-</span><span class="o">&gt;</span><span class="n">level</span> <span class="o">=</span> <span class="n">level</span><span class="p">;</span>
+</span><span class="c1"></span>        <span class="n">zsl</span><span class="o">-&gt;</span><span class="n">level</span> <span class="o">=</span> <span class="n">level</span><span class="p">;</span>
     <span class="p">}</span>
 
     <span class="c1">// 创建新节点
-</span><span class="c1"></span>    <span class="n">x</span> <span class="o">=</span> <span class="n">zslCreateNode</span><span class="p">(</span><span class="n">level</span><span class="p">,</span><span class="n">score</span><span class="p">,</span><span class="n">obj</span><span class="p">)</span><span class="p">;</span>
+</span><span class="c1"></span>    <span class="n">x</span> <span class="o">=</span> <span class="n">zslCreateNode</span><span class="p">(</span><span class="n">level</span><span class="p">,</span><span class="n">score</span><span class="p">,</span><span class="n">obj</span><span class="p">);</span>
 
     <span class="c1">// 将前面记录的指针指向新节点，并做相应的设置
 </span><span class="c1"></span>    <span class="c1">// T = O(1)
-</span><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">level</span><span class="p">;</span> <span class="n">i</span><span class="o">+</span><span class="o">+</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">level</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
         
         <span class="c1">// 设置新节点的 forward 指针
-</span><span class="c1"></span>        <span class="n">x</span><span class="o">-</span><span class="o">&gt;</span><span class="n">level</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="p">.</span><span class="n">forward</span> <span class="o">=</span> <span class="n">update</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="o">&gt;</span><span class="n">level</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="p">.</span><span class="n">forward</span><span class="p">;</span>
+</span><span class="c1"></span>        <span class="n">x</span><span class="o">-&gt;</span><span class="n">level</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">forward</span> <span class="o">=</span> <span class="n">update</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">level</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">forward</span><span class="p">;</span>
         
         <span class="c1">// 将沿途记录的各个节点的 forward 指针指向新节点
-</span><span class="c1"></span>        <span class="n">update</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="o">&gt;</span><span class="n">level</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="p">.</span><span class="n">forward</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+</span><span class="c1"></span>        <span class="n">update</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">level</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">forward</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
 
         <span class="cm">/* update span covered by update[i] as x is inserted here */</span>
         <span class="c1">// 计算新节点跨越的节点数量
-</span><span class="c1"></span>        <span class="n">x</span><span class="o">-</span><span class="o">&gt;</span><span class="n">level</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="p">.</span><span class="n">span</span> <span class="o">=</span> <span class="n">update</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="o">&gt;</span><span class="n">level</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="p">.</span><span class="n">span</span> <span class="o">-</span> <span class="p">(</span><span class="n">rank</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">rank</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="p">)</span><span class="p">;</span>
+</span><span class="c1"></span>        <span class="n">x</span><span class="o">-&gt;</span><span class="n">level</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">span</span> <span class="o">=</span> <span class="n">update</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">level</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">span</span> <span class="o">-</span> <span class="p">(</span><span class="n">rank</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">rank</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
 
         <span class="c1">// 更新新节点插入之后，沿途节点的 span 值
 </span><span class="c1"></span>        <span class="c1">// 其中的 +1 计算的是新节点
-</span><span class="c1"></span>        <span class="n">update</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="o">&gt;</span><span class="n">level</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="p">.</span><span class="n">span</span> <span class="o">=</span> <span class="p">(</span><span class="n">rank</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">rank</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+</span><span class="c1"></span>        <span class="n">update</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">level</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">span</span> <span class="o">=</span> <span class="p">(</span><span class="n">rank</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">rank</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
     <span class="p">}</span>
 
     <span class="cm">/* increment span for untouched levels */</span>
     <span class="c1">// 未接触的节点的 span 值也需要增一，这些节点直接从表头指向新节点
 </span><span class="c1"></span>    <span class="c1">// T = O(1)
-</span><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">level</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">zsl</span><span class="o">-</span><span class="o">&gt;</span><span class="n">level</span><span class="p">;</span> <span class="n">i</span><span class="o">+</span><span class="o">+</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">update</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="o">&gt;</span><span class="n">level</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="p">.</span><span class="n">span</span><span class="o">+</span><span class="o">+</span><span class="p">;</span>
+</span><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">level</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">zsl</span><span class="o">-&gt;</span><span class="n">level</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">update</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">level</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">span</span><span class="o">++</span><span class="p">;</span>
     <span class="p">}</span>
 
     <span class="c1">// 设置新节点的后退指针
-</span><span class="c1"></span>    <span class="n">x</span><span class="o">-</span><span class="o">&gt;</span><span class="n">backward</span> <span class="o">=</span> <span class="p">(</span><span class="n">update</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span><span class="o">=</span> <span class="n">zsl</span><span class="o">-</span><span class="o">&gt;</span><span class="n">header</span><span class="p">)</span> <span class="o">?</span> <span class="nb">NULL</span> <span class="o">:</span> <span class="n">update</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="o">&gt;</span><span class="n">level</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="p">.</span><span class="n">forward</span><span class="p">)</span>
-        <span class="n">x</span><span class="o">-</span><span class="o">&gt;</span><span class="n">level</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="p">.</span><span class="n">forward</span><span class="o">-</span><span class="o">&gt;</span><span class="n">backward</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+</span><span class="c1"></span>    <span class="n">x</span><span class="o">-&gt;</span><span class="n">backward</span> <span class="o">=</span> <span class="p">(</span><span class="n">update</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">zsl</span><span class="o">-&gt;</span><span class="n">header</span><span class="p">)</span> <span class="o">?</span> <span class="nb">NULL</span> <span class="o">:</span> <span class="n">update</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">level</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">forward</span><span class="p">)</span>
+        <span class="n">x</span><span class="o">-&gt;</span><span class="n">level</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">forward</span><span class="o">-&gt;</span><span class="n">backward</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
     <span class="k">else</span>
-        <span class="n">zsl</span><span class="o">-</span><span class="o">&gt;</span><span class="n">tail</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+        <span class="n">zsl</span><span class="o">-&gt;</span><span class="n">tail</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
 
     <span class="c1">// 跳跃表的节点计数增一
-</span><span class="c1"></span>    <span class="n">zsl</span><span class="o">-</span><span class="o">&gt;</span><span class="n">length</span><span class="o">+</span><span class="o">+</span><span class="p">;</span>
+</span><span class="c1"></span>    <span class="n">zsl</span><span class="o">-&gt;</span><span class="n">length</span><span class="o">++</span><span class="p">;</span>
 
     <span class="k">return</span> <span class="n">x</span><span class="p">;</span>
 <span class="p">}</span>
@@ -1016,13 +1013,13 @@ This <span class="nb">time</span> is user configurable.
 Value at:0x7f01844863e0 refcount:1 encoding:skiplist serializedlength:53 lru:16526412 lru_seconds_idle:789
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="--publish-subscribe">第四天： <strong>发布-订阅（Publish-Subscribe）</strong></h2>
-<h4 id="heading-5">参考资料</h4>
+</div><h2 id="第四天-发布-订阅publish-subscribe">第四天： <strong>发布-订阅（Publish-Subscribe）</strong></h2>
+<h4 id="参考资料">参考资料</h4>
 <p><img src="https://user-gold-cdn.xitu.io/2017/11/5/1198f929e50401e575b16759eb2ca46a?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p>
 <p><a href="https://juejin.im/post/59fef3846fb9a0450f215096">https://juejin.im/post/59fef3846fb9a0450f215096</a></p>
-<h4 id="heading-6">输出</h4>
-<h2 id="-socket">第五天 一个完整Socket过程</h2>
-<h3 id="51-">5.1 参考资料</h3>
+<h4 id="输出">输出</h4>
+<h2 id="第五天-一个完整socket过程">第五天 一个完整Socket过程</h2>
+<h3 id="51-参考资料">5.1 参考资料</h3>
 <ul>
 <li>
 <p>Unix网络编程卷1</p>
@@ -1038,9 +1035,9 @@ Value at:0x7f01844863e0 refcount:1 encoding:skiplist serializedlength:53 lru:165
 <p>四、server 端接收写入</p>
 <p>五、server 返回写入结果</p>
 <p>六、Client 收到返回结</p>
-<h3 id="52-">5.2 理解输出</h3>
-<h5 id="---3">#陈咬金第一斧  模型什么</h5>
-<h5 id="---4">#陈咬金第二斧  状态状态是什么</h5>
+<h3 id="52-理解输出">5.2 理解输出</h3>
+<h5 id="陈咬金第一斧--模型什么-1">#陈咬金第一斧  模型什么</h5>
+<h5 id="陈咬金第二斧--状态状态是什么-1">#陈咬金第二斧  状态状态是什么</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -1066,7 +1063,7 @@ Value at:0x7f01844863e0 refcount:1 encoding:skiplist serializedlength:53 lru:165
     <span class="c1">// 已注册的文件事件
 </span><span class="c1"></span>    <span class="n">aeFileEvent</span> <span class="o">*</span><span class="n">events</span><span class="p">;</span> <span class="cm">/* Registered events */</span>
     <span class="c1">// 已就绪的文件事件
-</span><span class="c1"></span>    <span class="n">aeFiredEvent</span> <span class="o">*</span><span class="n">fired</span><span class="p">;</span> <span class="cm">/* Fired events */</span>  <span class="err">着</span><span class="mi">2</span><span class="err">个</span><span class="err">有</span><span class="err">什</span><span class="err">么</span><span class="err">关</span><span class="err">系</span><span class="err">？</span>
+</span><span class="c1"></span>    <span class="n">aeFiredEvent</span> <span class="o">*</span><span class="n">fired</span><span class="p">;</span> <span class="cm">/* Fired events */</span>  <span class="err">着</span><span class="mi">2</span><span class="err">个有什么关系？</span>
     <span class="c1">// 时间事件
 </span><span class="c1"></span>    <span class="n">aeTimeEvent</span> <span class="o">*</span><span class="n">timeEventHead</span><span class="p">;</span>
 <span class="p">}</span> <span class="n">aeEventLoop</span><span class="p">;</span>
@@ -1082,12 +1079,12 @@ Value at:0x7f01844863e0 refcount:1 encoding:skiplist serializedlength:53 lru:165
 </div><ul>
 <li><a href="https://www.infoq.cn/article/communication-redis-clientserver">https://www.infoq.cn/article/communication-redis-clientserver</a></li>
 </ul>
-<h5 id="---5">#陈咬金第三斧  有什么用</h5>
-<h1 id="-crash-">第三天 crash 如何查看指标</h1>
+<h5 id="陈咬金第三斧--有什么用-1">#陈咬金第三斧  有什么用</h5>
+<h1 id="第三天-crash-如何查看指标">第三天 crash 如何查看指标</h1>
 <p>#陈咬金第一斧  解决crash思路是什么</p>
-<h5 id="---6">#陈咬金第二斧  步骤是什么</h5>
-<h5 id="---7">#陈咬金第三斧  有什么用</h5>
-<h3 id="---info">#陈咬金第二斧 执行步骤是什么  info</h3>
+<h5 id="陈咬金第二斧--步骤是什么">#陈咬金第二斧  步骤是什么</h5>
+<h5 id="陈咬金第三斧--有什么用-2">#陈咬金第三斧  有什么用</h5>
+<h3 id="陈咬金第二斧-执行步骤是什么--info">#陈咬金第二斧 执行步骤是什么  info</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">  1
@@ -1296,7 +1293,7 @@ cluster_enabled:0
 </div>
 </div><ul>
 <li>
-<h2 id="heading-7">延迟时间</h2>
+<h2 id="延迟时间">延迟时间</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -1325,17 +1322,17 @@ cluster_enabled:0
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-fallback" data-lang="fallback">https://redis.io/commands/info
-  
+
 When rss &gt;&gt; used, a large difference means there is memory fragmentation (internal or external), 说明碎片率严重
-  
+
 When used &gt;&gt; rss, it means part of Redis memory has been swapped off by the operating system: 
-  
+
 Redis进程内消耗主要包括：自身内存（少，3M 忽视掉）+对象内存（数据多，没办法）+缓冲内存（客户端缓冲、复制积压缓冲区、AOF缓冲区。）+内存碎片（比如当保存5KB对象时jemalloc可能会采用8KB的块存储，而剩下的3KB空间变为了内存碎片不能再分配给其他对象存储） 
 频繁做更新操作
 大量过期键删除
-  
-  
-  
+
+
+
 </code></pre></td></tr></table>
 </div>
 </div></li>
@@ -1357,9 +1354,9 @@ Redis进程内消耗主要包括：自身内存（少，3M 忽视掉）+对象�
 <p>tcmalloc内存碎片</p>
 <p>不理解</p>
 <p>malloc_trim</p>
-<h1 id="-redis60-">第四天 redis.60 多线程</h1>
-<h2 id="redis">二、redis设计与实现</h2>
-<h3 id="21-m">2.1 看图说话：二叉树，M叉树,跳表查找一个记录，前进的概率是多少？</h3>
+<h1 id="第四天-redis60-多线程">第四天 redis.60 多线程</h1>
+<h2 id="二redis设计与实现">二、redis设计与实现</h2>
+<h3 id="21-看图说话二叉树m叉树跳表查找一个记录前进的概率是多少">2.1 看图说话：二叉树，M叉树,跳表查找一个记录，前进的概率是多少？</h3>
 <p><img src="https://i.loli.net/2020/05/15/x8XCDwVuAMr35El.png" alt="图片1"></p>
 <ul>
 <li>看图回答

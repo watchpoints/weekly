@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.83.1 with theme even" />
 
 
 <link rel="canonical" href="https://wangcy6.github.io/post/tidb/2022/2022-1-19-Project2/" />
@@ -41,17 +41,14 @@
 <meta property="og:title" content="Tidb入门1" />
 <meta property="og:description" content="Tidb" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://wangcy6.github.io/post/tidb/2022/2022-1-19-Project2/" />
-<meta property="article:published_time" content="2022-01-11T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-01-11T00:00:00+00:00" />
+<meta property="og:url" content="https://wangcy6.github.io/post/tidb/2022/2022-1-19-Project2/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-01-11T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2022-01-11T00:00:00&#43;00:00" />
+
 <meta itemprop="name" content="Tidb入门1">
-<meta itemprop="description" content="Tidb">
-<meta itemprop="datePublished" content="2022-01-11T00:00:00&#43;00:00" />
+<meta itemprop="description" content="Tidb"><meta itemprop="datePublished" content="2022-01-11T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2022-01-11T00:00:00&#43;00:00" />
 <meta itemprop="wordCount" content="369">
-
-
-
 <meta itemprop="keywords" content="Tidb," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Tidb入门1"/>
 <meta name="twitter:description" content="Tidb"/>
@@ -144,12 +141,12 @@
   <ul>
     <li><a href="#leader-election">Leader election</a>
       <ul>
-        <li><a href="#case1-testleaderelectioninoneroundrpc2aa">测试case1 TestLeaderElectionInOneRoundRPC2AA</a></li>
-        <li><a href="#case2--testfollowervote2aa">测试case2 -TestFollowerVote2AA</a></li>
+        <li><a href="#测试case1-testleaderelectioninoneroundrpc2aa">测试case1 TestLeaderElectionInOneRoundRPC2AA</a></li>
+        <li><a href="#测试case2--testfollowervote2aa">测试case2 -TestFollowerVote2AA</a></li>
         <li><a href="#case3-testleadercycle2aa">case3 TestLeaderCycle2AA</a></li>
       </ul>
     </li>
-    <li><a href="#heading">参考</a></li>
+    <li><a href="#参考">参考</a></li>
   </ul>
 </nav>
   </div>
@@ -176,7 +173,7 @@
 <li>测试命令</li>
 </ul>
 <p>make project2aa</p>
-<h3 id="case1-testleaderelectioninoneroundrpc2aa">测试case1 TestLeaderElectionInOneRoundRPC2AA</h3>
+<h3 id="测试case1-testleaderelectioninoneroundrpc2aa">测试case1 TestLeaderElectionInOneRoundRPC2AA</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -199,7 +196,7 @@
 MessageType_MsgRequestVoteRespon
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="case2--testfollowervote2aa">测试case2 -TestFollowerVote2AA</h3>
+</div><h3 id="测试case2--testfollowervote2aa">测试case2 -TestFollowerVote2AA</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -227,7 +224,7 @@ This ensures that elections work when not
 starting from a clean slate (as they do in TestLeaderElection)
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="heading">参考</h2>
+</div><h2 id="参考">参考</h2>
 <p>[1] <a href="https://github.com/chx2502/tinykv">https://github.com/chx2502/tinykv</a>
 [2] <a href="https://github.com/watchpoints/tinykv">https://github.com/watchpoints/tinykv</a>
 [3] <a href="https://zhuanlan.zhihu.com/p/410676282">https://zhuanlan.zhihu.com/p/410676282</a></p>

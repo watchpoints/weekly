@@ -1,15 +1,47 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Book on Troy的网络博客</title>
-    <link>https://wangcy6.github.io/categories/Book/</link>
-    <description>Recent content in Book on Troy的网络博客</description>
+    <title>book on Troy的网络博客</title>
+    <link>https://wangcy6.github.io/categories/book/</link>
+    <description>Recent content in book on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 11 Oct 2019 17:02:43 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 01 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/categories/book/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>what is Paxos</title>
+      <link>https://wangcy6.github.io/post/book/NO1_what_is.Paxos/</link>
+      <pubDate>Fri, 01 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/book/NO1_what_is.Paxos/</guid>
+      <description>一句话读书摘要很难吗？ 难， 当我打卡浏览器，短视频app时候 第一眼 或者 总有一次无意间 看到 系统推荐各种新闻，电影解说各种炫耀。 这样方式重置我操作</description>
+    </item>
     
-	<atom:link href="https://wangcy6.github.io/categories/Book/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>强哥答疑</title>
+      <link>https://wangcy6.github.io/post/book/ASK_README/</link>
+      <pubDate>Sat, 12 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/book/ASK_README/</guid>
+      <description>📝 提问规则： 1.周五到周六中午12点可提问 2.每位伙伴每周限提交1个问题； 3.提问请描述清楚问题背景、尝试、想要得到的帮助 ——【提问必读】—</description>
+    </item>
     
+    <item>
+      <title>践行时间管理方法</title>
+      <link>https://wangcy6.github.io/post/book/101_thing/</link>
+      <pubDate>Thu, 04 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/book/101_thing/</guid>
+      <description>个人学习使用 强哥思考笔记 1. 关于改变 很多人所谓的“改变”，其实都是在做“无用功”，比如说希望这次能够升职加薪，怎么办呢？要跟老板好好沟通，所以</description>
+    </item>
+    
+    <item>
+      <title>2021-读书清单</title>
+      <link>https://wangcy6.github.io/post/book/2025/book1-2025-5-cpu/</link>
+      <pubDate>Sat, 10 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/book/2025/book1-2025-5-cpu/</guid>
+      <description>d</description>
+    </item>
     
     <item>
       <title>算法导论</title>
@@ -21,12 +53,12 @@
     </item>
     
     <item>
-      <title>Linux内核设计与实现</title>
-      <link>https://wangcy6.github.io/post/book/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86_book/</link>
+      <title>[每周阅读一本书]被讨厌的勇气</title>
+      <link>https://wangcy6.github.io/post/2020/2019-10-10-%E8%A2%AB%E8%AE%A8%E5%8E%8C%E7%9A%84%E5%8B%87%E6%B0%94/</link>
       <pubDate>Thu, 10 Oct 2019 17:02:43 +0800</pubDate>
       
-      <guid>https://wangcy6.github.io/post/book/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86_book/</guid>
-      <description>中断与锁（第7 ，8，9，10 章节） 1. 延迟处理机制 中断特点 中断处理程序不是可重入的。因为屏蔽了中断，根本不会发生切换。同类自旋锁是不可重入的 中</description>
+      <guid>https://wangcy6.github.io/post/2020/2019-10-10-%E8%A2%AB%E8%AE%A8%E5%8E%8C%E7%9A%84%E5%8B%87%E6%B0%94/</guid>
+      <description>阅读推荐 &amp;mdash;被讨厌的勇气 书封 被讨厌的勇气 豆瓣 评分 8.6 万维钢 专栏 解读 本书以“青年”和“哲人”对话的形式，将阿德勒的哲学逐渐渗透于话语之</description>
     </item>
     
     <item>
