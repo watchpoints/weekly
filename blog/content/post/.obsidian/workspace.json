@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ai/02_how_to_use_tea 1.md",
+                "file": "c/2025-4-29-Interview_pointer.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "02_how_to_use_tea 1"
+              "title": "2025-4-29-Interview_pointer"
             }
           },
           {
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "ai/02_how_to_use_tea 1.md",
+                "file": "c/2025-4-29-Interview_pointer.md",
                 "followCursor": true,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "02_how_to_use_tea 1 的大纲"
+              "title": "2025-4-29-Interview_pointer 的大纲"
             }
           },
           {
@@ -196,10 +196,10 @@
       "edge-tts:Read note aloud": false
     }
   },
-  "active": "21c3930b36a4af3a",
+  "active": "1ba1cbd8d0e9ab63",
   "lastOpenFiles": [
-    "ai/02_how_to_use_tea.md",
     "ai/02_how_to_use_tea 1.md",
+    "ai/02_how_to_use_tea.md",
     "ai/02_how_to_use_Obsidian.md",
     "ContextOS/01_what_is_contextos.md",
     "ContextOS/2025-05-03-contestos-window.md",
