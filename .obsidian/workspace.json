@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "blog/content/post/storage/2025/2025-05-02-what-is-io.md",
+                "file": "blog/content/post/ai/2025/04_how_to_push_goods.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2025-05-02-what-is-io"
+              "title": "04_how_to_push_goods"
             }
           }
         ]
@@ -52,7 +52,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "点赞",
+                "query": "tag:#播客神器",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -139,10 +139,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "blog/content/post/storage/2025/2025-05-02-what-is-io.md"
+                "file": "blog/content/post/ai/2025/04_how_to_push_goods.md"
               },
               "icon": "lucide-list",
-              "title": "2025-05-02-what-is-io 的大纲"
+              "title": "04_how_to_push_goods 的大纲"
             }
           },
           {
@@ -191,44 +191,45 @@
       "copilot:Open Copilot Chat": false
     }
   },
-  "active": "3c1b4102d81002f5",
+  "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
-    "blog/public/post/storage/2025/2025-05-02-what-is-io/index.html",
-    "blog/public/post/storage/2025/2025-05-02-what-is-io",
-    "blog/public/post/book/2025/book1-2025-5-cpu/index.html",
-    "blog/public/post/book/2025/book1-2025-5-cpu",
-    "blog/content/post/storage/1_2023_02_10_day1_curveFS.md",
-    "blog/content/post/book/2025/book1-2025-5-cpu.md",
+    "blog/content/post/ai/2025/03_how_to_use_notebooklkm.md",
+    "blog/content/post/ai/2025/04_how_to_push_goods.md",
+    "blog/content/post/ai/2025/02_how_to_use_notebooklkm.md",
+    "blog/content/post/ai/02_how_to_use_Copilot.md",
+    "blog/content/post/ai/01_how_to_quickly_submit_resumes.md",
+    "blog/content/post/ai/02_how_to_use_tea.md",
+    "blog/1111.jpg",
     "blog/content/post/storage/2025/2025-04-27-what-is-BlueStore.md",
     "blog/content/post/storage/2025/2025-05-02-what-is-io.md",
-    "blog/content/post/book/2025/01_speak_english_week1.md",
-    "blog/content/post/book/ASK_README.md",
-    "blog/content/post/book/操作系统原理_book.md",
-    "blog/content/post/book/NO1_what_is.Paxos.md",
-    "blog/content/post/book/book_04_设计之禅.md",
-    "blog/content/post/book/man.md",
-    "blog/content/post/book/book5_重塑心灵.md",
-    "blog/content/post/book/2025/未命名.md",
-    "blog/content/post/storage/2025/2025-04-25-slow-disk.md",
-    "blog/content/post/liunx/2025/3fs-what-is-file-system.md",
-    "ppt/liunx/liunx.key.sb-75a314f1-XVA4Zb",
-    "ppt/liunx/liunx.key",
-    "liunx.key",
-    "ppt模板-只管去做配色.key",
-    "ppt/liunx",
-    "ppt",
-    "xmind/BlueStore 原理4.key",
-    "blog/content/post/storage/06-mds_sumbit_thread.md",
-    "blog/content/post/python/01_how_to_install_python.md",
-    "blog/content/post/c/2025-4-29-Interview_pointer.md",
-    "blog/content/post/c++/01_c++_new.md",
-    "blog/content/post/c++/02_master_c++_share_pointer.md",
-    "blog/content/post/c/2025-4-26_lock.md",
-    "blog/content/post/liunx/2025/07_Interview_C++_pointer.md",
-    "blog/content/post/liunx/2025/11：what_is_Ceph.md",
-    "blog/content/post/liunx/2025/11：what_is_Ceph_temp.md",
-    "blog/content/post/liunx/2025/10_Interview_pm_ehance_2.md",
-    "blog/content/post/liunx/docker/2025-2-28-对象存储服务性能调优.md",
+    "blog/content/post/habit/2025/20250501-小王同学-如何让自我激励提升40%.md",
+    "blog/public/post/storage/2025/2025-05-03-ext4/index.html",
+    "blog/public/post/storage/2025/2025-05-03-ext4",
+    "blog/public/post/未命名看板-1/index.html",
+    "blog/public/post/未命名看板-1",
+    "blog/public/post/未命名看板/index.html",
+    "blog/public/post/未命名看板",
+    "blog/public/post/storage/2025/2025-05-02-what-is-io-1/index.html",
+    "blog/public/post/storage/2025/2025-05-02-what-is-io-1",
+    "blog/public/post/habit/2025/20250501-小王同学-如何让自我激励提升40/index.html",
+    "blog/public/post/habit/2025/2025-habit-health-get-up-1/index.html",
+    "blog/content/post/liunx/2025/how_to_learn_3fs_4.md",
+    "blog/content/post/liunx/2025/3fs-what-is-file-system 3.md",
+    "blog/content/post/storage/2025/2025-05-03-ext4.md",
+    "blog/content/post/storage/2025/2025-05-02-what-is-io 1.md",
+    "blog/content/post/ai/2025/02_how_to_use_tea 1.md",
+    "blog/content/post/oceanbase/1-2023-05-28-add-fun.md",
+    "blog/content/post/ARTS/life_2021_arts.md",
+    "blog/content/post/ARTS/2022/1.md",
+    "blog/content/post/ARTS/2022/2022-8.md",
+    "blog/content/post/2020/FQA_Service_Mesh.md",
+    "blog/content/post/2020/FQA-每日一题.md",
+    "blog/content/post/leetcode/array/01_what_is_contextos 1.md",
+    "blog/content/post/oceanbase/2024/05_day5-network.md",
+    "blog/content/post/habit/2024/2024-8-14-how-to-use-wechat.md",
+    "blog/content/post/habit/2025-habit-health-get-up.md",
+    "blog/content/post/habit/2024/2024-08-05-speak.md",
+    "blog/content/post/habit/2024/2024-08-12-sleep.md",
     "未命名.canvas",
     "blog/public/post/Pasted image 20250323152954.png",
     "blog/public/post/Pasted image 20250315160756.png",
@@ -238,7 +239,6 @@
     "blog/content/post/Pasted image 20250315160756.png",
     "blog/content/post/01a54a8883cbf7b9c23401e4e6c7ffa.jpg",
     "Pasted image 20250403170928.png",
-    "Pasted image 20250403115735.png",
-    "Pasted image 20250403114035.png"
+    "Pasted image 20250403115735.png"
   ]
 }
