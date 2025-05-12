@@ -6,7 +6,52 @@
     <description>Recent content on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 27 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 09 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ai工具Cursor 无限续杯,亲测可用</title>
+      <link>https://wangcy6.github.io/post/ai/2025/04_how_to_push_goods/</link>
+      <pubDate>Fri, 09 May 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ai/2025/04_how_to_push_goods/</guid>
+      <description>各位老师好， 我是007 今天是 2025年5月10日，每天定投15分钟 实现百万梦想的第三天 今天主要任务 ：如何 使用Cursor +python 开发一个自动发帖推</description>
+    </item>
+    
+    <item>
+      <title>谷歌NotebookLM: 最聪明的AI笔记工具, 15分钟内学会全部功能！</title>
+      <link>https://wangcy6.github.io/post/ai/2025/03_how_to_use_notebooklkm/</link>
+      <pubDate>Fri, 09 May 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ai/2025/03_how_to_use_notebooklkm/</guid>
+      <description>playwright codegen https://www.nowcoder.com/?type=follow 各位老师好， 我是007， 目标： 1. 截止2028年通过Ai争取人生100万2. 然后毫无保留分享自己经验。方法： 不要说每天加班没时，不要说我</description>
+    </item>
+    
+    <item>
+      <title>ContextOS 模块开发与架构解析笔记</title>
+      <link>https://wangcy6.github.io/post/ContextOS/2025-05-03-contestos-window/</link>
+      <pubDate>Sat, 03 May 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ContextOS/2025-05-03-contestos-window/</guid>
+      <description>本文目标 ✅ 熟悉：ContextOS 应用平台 使用方法 1 https://web.shylinux.com/ ✅ 熟悉框架：后端冰山架( Golang)，前端火山架(JS+CSS)使用方法 ✅ 探索如何模</description>
+    </item>
+    
+    <item>
+      <title>2025-小王同学---写在白板上的2分钟：让自我激励提升40%</title>
+      <link>https://wangcy6.github.io/post/habit/2025/20250501-%E5%B0%8F%E7%8E%8B%E5%90%8C%E5%AD%A6-%E5%A6%82%E4%BD%95%E8%AE%A9%E8%87%AA%E6%88%91%E6%BF%80%E5%8A%B1%E6%8F%90%E5%8D%8740/</link>
+      <pubDate>Wed, 30 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/habit/2025/20250501-%E5%B0%8F%E7%8E%8B%E5%90%8C%E5%AD%A6-%E5%A6%82%E4%BD%95%E8%AE%A9%E8%87%AA%E6%88%91%E6%BF%80%E5%8A%B1%E6%8F%90%E5%8D%8740/</guid>
+      <description>大家好 我是小王同学，3年成长会成员 通过一句话描述这100天做的事情就是 早晨20分钟写公共号文章发展个人项目。 这里不分享任何关于写作任何技巧，</description>
+    </item>
+    
+    <item>
+      <title>IO的一生</title>
+      <link>https://wangcy6.github.io/post/storage/2025/2025-05-02-what-is-io-1/</link>
+      <pubDate>Sun, 27 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/storage/2025/2025-05-02-what-is-io-1/</guid>
+      <description>大家好我是小义同学，这是大厂面试拆解——项目实战系列的第6篇文章， ”走暗路、耕瘦田、进窄门、见微光” 告诉我 面试关键就 深入理解自己项目 这个才是</description>
+    </item>
+    
     <item>
       <title>IO的一生</title>
       <link>https://wangcy6.github.io/post/storage/2025/2025-05-02-what-is-io/</link>
@@ -14,6 +59,15 @@
       
       <guid>https://wangcy6.github.io/post/storage/2025/2025-05-02-what-is-io/</guid>
       <description>大家好我是小义同学，这是大厂面试拆解——项目实战系列的第6篇文章， ”走暗路、耕瘦田、进窄门、见微光” 告诉我 面试关键就 深入理解自己项目 这个才是</description>
+    </item>
+    
+    <item>
+      <title>从青铜到王者系列：跟着文件系统学数据结构</title>
+      <link>https://wangcy6.github.io/post/storage/2025/2025-05-03-ext4/</link>
+      <pubDate>Sun, 27 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/storage/2025/2025-05-03-ext4/</guid>
+      <description>老师好，小义同学，这是大厂面试拆解——项目实战系列的第8篇文章。 知识地图：深入理解计算机系统&amp;mdash;文件子系统 一次只讲清楚一个问题： 阅</description>
     </item>
     
     <item>
@@ -98,12 +152,30 @@
     </item>
     
     <item>
+      <title>Trae从青铜到王者</title>
+      <link>https://wangcy6.github.io/post/ai/02_how_to_use_tea/</link>
+      <pubDate>Sat, 12 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ai/02_how_to_use_tea/</guid>
+      <description>免费公开资料 ### 官方文档 https://github.com/Trae-AI/Trae/issues 小程序开发 校园二手仓库 https://lcnziv86vkx6.feishu.cn/wiki/DoBtwiinliUM60keIRcc35C3nbe?from=from_copylink 青铜：学会使用工具 Q1 如何 Remote-SSH 远程开发和部署 知识地图：AIP-开发环境搭建 原理： 配置： 基本资料：</description>
+    </item>
+    
+    <item>
       <title>用Obsidian打造自己的写作系统</title>
       <link>https://wangcy6.github.io/post/ai/02_how_to_use_Obsidian/</link>
       <pubDate>Sat, 12 Apr 2025 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/ai/02_how_to_use_Obsidian/</guid>
       <description>写作步骤哪些 选题&amp;ndash;素材&amp;mdash;整理 检查 Q1：经常有错别字，句子不通顺 怎么办？ Obsidian LanguageTool 插件是一个为 Obsidian 文本编辑器提供的高级语法和拼</description>
+    </item>
+    
+    <item>
+      <title>谷歌NotebookLM: 最聪明的AI笔记工具, 15分钟内学会全部功能！</title>
+      <link>https://wangcy6.github.io/post/ai/2025/02_how_to_use_notebooklkm/</link>
+      <pubDate>Sat, 12 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/ai/2025/02_how_to_use_notebooklkm/</guid>
+      <description>各位老师好， 我是007， 目标： 截止2028年通过Ai争取人生100万 然后毫无保留分享自己经验。 方法： 不要说每天加班没时，不要说我太菜， 说出来</description>
     </item>
     
     <item>
@@ -252,10 +324,10 @@
     
     <item>
       <title>微小到不可能失败的起床日记</title>
-      <link>https://wangcy6.github.io/post/habit/2025-habit-health-get-up/</link>
+      <link>https://wangcy6.github.io/post/habit/2025/2025-habit-health-get-up-1/</link>
       <pubDate>Fri, 07 Feb 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://wangcy6.github.io/post/habit/2025-habit-health-get-up/</guid>
+      <guid>https://wangcy6.github.io/post/habit/2025/2025-habit-health-get-up-1/</guid>
       <description>开始仿照&amp;laquo;只管去做&amp;raquo; &amp;laquo;小强升职记》动物对外方式 代替生活中真实故事 寒号鸟，人教版语文书二年级上册 寒号鸟重复</description>
     </item>
     
@@ -2178,11 +2250,21 @@
     
     <item>
       <title></title>
-      <link>https://wangcy6.github.io/post/plan/today/</link>
+      <link>https://wangcy6.github.io/post/%E6%9C%AA%E5%91%BD%E5%90%8D%E7%9C%8B%E6%9D%BF-1/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://wangcy6.github.io/post/plan/today/</guid>
-      <description>每天专注一个事情 文件系统 %% kanban:settings 1 {&amp;#34;kanban-plugin&amp;#34;:&amp;#34;board&amp;#34;,&amp;#34;list-collapse&amp;#34;:[false]} %%</description>
+      <guid>https://wangcy6.github.io/post/%E6%9C%AA%E5%91%BD%E5%90%8D%E7%9C%8B%E6%9D%BF-1/</guid>
+      <description>今日安排 每天划分10元，2025年程成长会深度参与 复盘定位 %% kanban:settings 1 {&amp;#34;kanban-plugin&amp;#34;:&amp;#34;board&amp;#34;,&amp;#34;list-collapse&amp;#34;:[false,false]} %%</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://wangcy6.github.io/post/%E6%9C%AA%E5%91%BD%E5%90%8D%E7%9C%8B%E6%9D%BF/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/%E6%9C%AA%E5%91%BD%E5%90%8D%E7%9C%8B%E6%9D%BF/</guid>
+      <description>%% kanban:settings
+1  {&amp;#34;kanban-plugin&amp;#34;:&amp;#34;board&amp;#34;,&amp;#34;list-collapse&amp;#34;:[false]}   %%</description>
     </item>
     
     <item>
