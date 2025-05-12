@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "blog/content/post/c/2025-4-26_lock.md",
+                "file": "blog/content/post/c/2025-4-26_ceph.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2025-4-26_lock"
+              "title": "2025-4-26_ceph"
             }
           }
         ]
@@ -139,10 +139,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "blog/content/post/c/2025-4-26_lock.md"
+                "file": "blog/content/post/c/2025-4-26_ceph.md"
               },
               "icon": "lucide-list",
-              "title": "2025-4-26_lock 的大纲"
+              "title": "2025-4-26_ceph 的大纲"
             }
           },
           {
@@ -195,7 +195,7 @@
   "lastOpenFiles": [
     "blog/content/post/c/2025-4-25-read.md",
     "blog/content/post/c/2025-4-25_tcp_close.md",
-    "blog/content/post/c/2025-4-26_lock.md",
+    "blog/content/post/c/2025-4-26_ceph.md",
     "blog/content/post/c/2025-4-29-Interview_pointer.md",
     "blog/public/tags/AIGC从青铜到王者/index.xml",
     "blog/public/page/52/index.html",
