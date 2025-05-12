@@ -6,4 +6,3 @@ draft: false
 tags: ["man"]
 categories: ["book"]
 ---
-d

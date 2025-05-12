@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ai/02_how_to_use_Kindle.md",
+                "file": "c/2025-4-26_lock.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "02_how_to_use_Kindle"
+              "title": "2025-4-26_lock"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "ai/02_how_to_use_Kindle.md",
+                "file": "c/2025-4-26_lock.md",
                 "followCursor": true,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "02_how_to_use_Kindle 的大纲"
+              "title": "2025-4-26_lock 的大纲"
             }
           },
           {
@@ -184,8 +184,10 @@
   },
   "active": "c4d63e6f95801cee",
   "lastOpenFiles": [
-    "ai/01_how_to_quickly_submit_resumes.md",
+    "c/2025-4-26_l.md",
+    "book/2025/book1-2025-5-cpu.md",
     "ai/02_how_to_use_Kindle.md",
+    "ai/01_how_to_quickly_submit_resumes.md",
     "ai/02_how_to_use_Copilot.md",
     "c/2025-4-29-Interview_pointer.md",
     "c/2025-4-26_lock.md",
@@ -193,7 +195,6 @@
     "未命名.canvas",
     "ContextOS/2025-05-03-contestos-window.md",
     "c/2025-4-25-read.md",
-    "c/2025-4-26_l.md",
     "book/2025/2025-do-12-book.md",
     "book/2025/未命名.md",
     "2021/01_Rocksdb.md",
