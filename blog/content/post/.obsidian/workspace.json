@@ -13,30 +13,29 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "liunx/2025/11：what_is_Ceph_temp.md",
+                "file": "storage/2025/2025-05-03-Crimson.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "11：what_is_Ceph_temp"
+              "title": "2025-05-03-Crimson"
             }
           },
           {
-            "id": "9ba263266a5afd18",
+            "id": "bbfdf9083a531e7b",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "webviewer",
               "state": {
-                "file": "habit/2025/3-zhish-shenjian.md",
-                "mode": "source",
-                "source": false
+                "url": "https://github.com/scylladb/seastar",
+                "title": "GitHub - scylladb/seastar: High performance server-side application framework",
+                "mode": "webview"
               },
-              "icon": "lucide-file",
-              "title": "3-zhish-shenjian"
+              "icon": "globe-2",
+              "title": "GitHub - scylladb/seastar: High performance server-side application framework"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -157,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "habit/2025/3-zhish-shenjian.md",
+                "file": "storage/2025/2025-05-03-Crimson.md",
                 "followCursor": true,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "3-zhish-shenjian 的大纲"
+              "title": "2025-05-03-Crimson 的大纲"
             }
           },
           {
@@ -197,11 +196,28 @@
       "edge-tts:Read note aloud": false
     }
   },
-  "active": "9ba263266a5afd18",
+  "active": "c4d63e6f95801cee",
   "lastOpenFiles": [
-    "habit/2025/2025-habit-health-get-up 1.md",
+    "storage/2025/2025-05-03-Crimson.md",
+    "storage/2025/2025-05-03-ext4.md",
+    "liunx/Rust/Rust_for_Liunx_2.md",
+    "money/P1_what_is_MCP.md",
+    "money/002_.md",
+    "money/002_xiao_ai.md",
+    "money/2025-03-23-code_OpenManus.md",
+    "python/01_how_to_install_python.md",
+    "liunx/2025/11：what_is_Ceph_temp.md",
+    "11.md",
+    "2025-04-03.md",
+    "未命名看板.md",
+    "未命名.canvas",
+    "2024-10-19.md",
+    "04_2021-10-10.2021.years.md",
     "habit/2025/3-zhish-shenjian.md",
+    "liunx/2025/12-how-to-liunx.md",
+    "habit/2025/2025-habit-health-get-up 1.md",
     "habit/2025/20250501-小王同学-如何让自我激励提升40%.md",
+    "c/2025-4-26_ceph.md",
     "storage/tidb/2025/rust_for_tikv_Contributor.md",
     "storage/tidb/2025/rust_for_tikv_days4_ 1.md",
     "storage/tidb/2024/rust_for_tikv_days4_.md",
@@ -210,24 +226,7 @@
     "storage/tidb/2025",
     "interviewSystemDesgin/2025-04-24-redis_slow 1.md",
     "interviewSystemDesgin/2025-04-24-redis_slow.md",
-    "liunx/2025/12-how-to-liunx.md",
-    "liunx/2025/07_Interview_C++_pointer.md",
-    "liunx/2025/10_interview_design_performance.md",
-    "liunx/2025/10_interview_design_performance.md 1.md",
-    "liunx/2025/10_Interview_pm_ehance_2.md",
-    "liunx/2025/11：what_is_Ceph.md",
-    "liunx/2025/11：what_is_Ceph_temp.md",
-    "liunx/2025/template.md",
-    "ai/04-net-web-.md",
-    "ai/template.md",
-    "ai/02_how_to_use_tea.md",
-    "ai/2025/未命名.md",
-    "c/2025-4-26_lock.md",
-    "storage/2025/2025-05-03-ext4.md",
-    "storage/2025/2025-05-02-what-is-io 1.md",
-    "ai/2025/04_how_to_push_goods.md",
     "ai/2025",
-    "未命名.canvas",
     "habit/2025",
     "01a54a8883cbf7b9c23401e4e6c7ffa.jpg",
     "python",
