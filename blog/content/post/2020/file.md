@@ -213,7 +213,7 @@ VFS （virtual File System）
 
 
 
- 每个inode保存了文件系统中的一个**文件系统对象**（包括[文件](https://zh.wikipedia.org/wiki/计算机文件)、[目录](https://zh.wikipedia.org/wiki/目录_(文件系统))、[设备文件](https://zh.wikipedia.org/wiki/设备文件)、[socket](https://zh.wikipedia.org/wiki/Unix域套接字)、[管道](https://zh.wikipedia.org/wiki/管道_(Unix)), 等等）的元信息数据，但不包括数据内容或者文件名[[1\]](https://zh.wikipedia.org/wiki/Inode#cite_note-1)。 
+ 每个inode保存了文件系统中的一个**文件系统对象**（包括[文件](https://zh.wikipedia.org/wiki/计算机文件)、[目录](https://zh.wikipedia.org/wiki/目录_(文件系统))、[设备文件](https://zh.wikipedia.org/wiki/设备文件)、[socket](https://zh.wikipedia.org/wiki/Unix域套接字)、[管道](https://zh.wikipedia.org/wiki/管道_(Unix)), 等等）的元信息数据，但不包括数据内容或者文件名[[blog/content/post/ARTS/2022/1]](https://zh.wikipedia.org/wiki/Inode#cite_note-1)。 
 
 
 

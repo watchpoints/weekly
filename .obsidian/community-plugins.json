@@ -12,5 +12,6 @@
   "obsidian-languagetool-plugin",
   "languagetool",
   "obsidian-textgenerator-plugin",
-  "copilot"
+  "copilot",
+  "workspaces-plus"
 ]

@@ -252,9 +252,13 @@ http://101.43.226.54:9020/?debug=true#project:studio:dream:tabview
 
 
 
+## 会议预约
+
+https://web.shylinux.com/s/20240903-operation/c/web.team.production.portal?debug=true#7d3880d3f70acec5337d5f832ef71103:web.team.production.date:
 
 
 
+![image.png](https://money-1256465252.cos.ap-beijing.myqcloud.com/mac/20250513193201.png)
 
 
 

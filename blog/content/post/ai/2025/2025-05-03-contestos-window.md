@@ -9,17 +9,16 @@ tags:
 categories:
 ---
 
+
 本文目标
 
-✅ 熟悉：ContextOS 应用平台 使用方法
-
-```
-https://web.shylinux.com/
-```
+✅ 阅读 ContextOS 云操作系统 提供云研发小程序
 
 ✅ 熟悉框架：后端冰山架( Golang)，前端火山架(JS+CSS)使用方法
 
 ✅ 探索如何模块化方式 从0到1快速开发一个小程序
+
+由于时间有限，如有误，恳请大家不吝指教，万分感激
 
 
 
@@ -43,11 +42,30 @@ https://web.shylinux.com/
 ```shell
 // 远程登陆的，需要授权
 cd /root/ContextOS
-./bin/ice.bin admin space login ce352f62e2473ca1bbb561accc878ce3
+./bin/ice.bin admin space login cd7e2636d99eb03f6d9f11f0c030923a
+
 登录地址：
 http://101.43.226.54:9020/
 ```
 
+### mac环境
+
+```
+/Users/wangchuanyi/code/20250205-web
+
+./bin/ice.bin
+
+http://localhost:9020?debug=true
+
+/Users/wangchuanyi/code/20250205-web/usr/local/work/20240903-operation
+
+```
+
+启动命令：
+
+./bin/ice.bin forever start port 9030 dev https://localhost:9020 nodename demo-test
+
+exit
 
 
 ## 代码阅读
@@ -91,5 +109,38 @@ Jupyter Notebook是指一种基于网页的交互式计算环境
 扩展阅读 方便解释一些概念
 -  Beego 是一个开源的 Golang Web 框架，以卓越的性能和遵循 MVC（模型-视图-控制器）设计模式为特点。它支持开发 Web 应用程序、API 和后端服务，并内置了路由、ORM、日志记录和 HTTP 处理工具。
 - Gin 是一个用 Go (Golang) 编写的 HTTP Web 框架。它具有类似 Martini 的 API，具有更好的性能——快 40 倍。如果您需要出色的性能。
+
+```go
+
+func main() { print(ice.Run()) }
+func init() {
+
+	ice.Info.CodeMain = "src/production/portal.go"
+	
+	ice.Info.NodeMain = "web.team.production.portal"
+
+}
+
+```
+
+
+小提示：
+1. 在 main 直接运行 结果如下 
+![这个不是小程序界面入口](https://s2.loli.net/2025/05/25/unTLYVtJ9IocHAw.png)
+### 第二天
+
+- [ ]  看 视频：ContextOS 模块开发与架构解析笔记  https://meeting.tencent.com/cw/NLkkokOnf0
+
+
+冰山框架（ice)--- Volcanos 是一个前端框架
+https://shylinux.com/c/portal/development/#frame/volcanos.shy
+
+没看懂
+
+## 第三天 云教育
+
+表格类型：
+
+
 
 
