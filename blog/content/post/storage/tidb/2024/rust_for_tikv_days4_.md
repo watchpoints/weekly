@@ -6,7 +6,7 @@ draft: false
 tags:
   - Tidb
 ---
-
+https://github.com/facebook/rocksdb/wiki/RocksDB-Contribution-Guide
 ## 前提条件：已经学会TIKV编译和环境搭建
 
 
