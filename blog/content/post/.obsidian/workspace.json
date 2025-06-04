@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "habit/2025/2025-habit-health-get-up 1.md",
+                "file": "habit/2025/20250514.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2025-habit-health-get-up 1"
+              "title": "20250514"
             }
           },
           {
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "habit/2025/2025-habit-health-get-up 1.md",
+                "file": "habit/2025/20250514.md",
                 "followCursor": true,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "2025-habit-health-get-up 1 的大纲"
+              "title": "20250514 的大纲"
             }
           },
           {
@@ -198,6 +198,8 @@
   },
   "active": "c4d63e6f95801cee",
   "lastOpenFiles": [
+    "habit/2025/20250501-小王同学-如何让自我激励提升40%.md",
+    "habit/2025/2025-habit-health-get-up 1.md",
     "interview/leetcode/array/01_what_is_contextos 1.md",
     "interview/leetcode/2025/day1-.md",
     "interview/leetcode/汽水瓶.md",
@@ -227,8 +229,6 @@
     "interview/leetcode",
     "interview/job",
     "interview/interviewSystemDesgin",
-    "interview/7_2025-5-22-spin_lock.md",
-    "interview/6-2025-14-spin_lock.md",
     "interview",
     "ai/draw",
     "未命名.canvas",
