@@ -20,20 +20,6 @@
               "icon": "lucide-file",
               "title": "20250514"
             }
-          },
-          {
-            "id": "bbfdf9083a531e7b",
-            "type": "leaf",
-            "state": {
-              "type": "webviewer",
-              "state": {
-                "url": "https://github.com/scylladb/seastar",
-                "title": "GitHub - scylladb/seastar: High performance server-side application framework",
-                "mode": "webview"
-              },
-              "icon": "globe-2",
-              "title": "GitHub - scylladb/seastar: High performance server-side application framework"
-            }
           }
         ]
       }
@@ -180,7 +166,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 360.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -198,18 +184,21 @@
   },
   "active": "c4d63e6f95801cee",
   "lastOpenFiles": [
+    "interview/leetcode/2025/day2-成为孩子榜样，为国争光.md",
+    "interview/job/1-2025-5- job.md",
+    "interview/leetcode/2025/template.md",
+    "interview/leetcode/2025/day1-.md",
+    "interview/leetcode/汽水瓶.md",
+    "interview/leetcode/leetcod_easy.md",
+    "interview/leetcode/leetcode_medium.md",
+    "interview/leetcode/leetcode_hard.md",
+    "interview/leetcode/leetcode_medium_mac.md",
+    "habit/2025/20250514.md",
     "habit/2025/20250501-小王同学-如何让自我激励提升40%.md",
     "habit/2025/2025-habit-health-get-up 1.md",
     "interview/leetcode/array/01_what_is_contextos 1.md",
-    "interview/leetcode/2025/day1-.md",
-    "interview/leetcode/汽水瓶.md",
     "interview/leetcode/template.md",
-    "interview/leetcode/leetcod_easy.md",
-    "interview/leetcode/leetcode_medium.md",
-    "interview/leetcode/leetcode_medium_mac.md",
-    "interview/leetcode/leetcode_hard.md",
     "interview/leetcode/array",
-    "interview/job/1-2025-5- job.md",
     "interview/leetcode/2025",
     "interview/interviewSystemDesgin/template 1.md",
     "interview/interviewSystemDesgin/2025-05-29_v1.0_parll.md",
@@ -222,10 +211,6 @@
     "interview/interviewSystemDesgin/2024-03-03-11-rust-ai.md",
     "interview/interviewSystemDesgin/2024-03-03-ask.md",
     "interview/interviewSystemDesgin/2024-02-09-git-two-account.md",
-    "interview/interviewSystemDesgin/2024-02-09-100-ways-add-funs.md",
-    "interview/interviewSystemDesgin/10-20250526-io-1.0.md",
-    "interview/interviewSystemDesgin/06-tools-base-user-git.md",
-    "interview/template.md",
     "interview/leetcode",
     "interview/job",
     "interview/interviewSystemDesgin",
