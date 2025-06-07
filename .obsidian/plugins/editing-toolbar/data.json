@@ -1,6 +1,6 @@
 {
   "lastVersion": "3.1.8",
-  "aestheticStyle": "default",
+  "aestheticStyle": "custom",
   "positionStyle": "top",
   "menuCommands": [
     {
@@ -298,8 +298,8 @@
   "cMenuNumRows": 12,
   "cMenuWidth": 610,
   "cMenuFontColor": "#ff0000",
-  "cMenuBackgroundColor": "rgba(5, 117, 197, 0.2)",
-  "autohide": false,
+  "cMenuBackgroundColor": "#40a9ff",
+  "autohide": true,
   "custom_bg1": "#FFB78B8C",
   "custom_bg2": "#CDF4698C",
   "custom_bg3": "#A0CCF68C",
@@ -309,14 +309,14 @@
   "custom_fc2": "#DE7802",
   "custom_fc3": "#245BDB",
   "custom_fc4": "#6425D0",
-  "custom_fc5": "#646A73",
+  "custom_fc5": "#73646B",
   "isLoadOnMobile": false,
   "horizontalPosition": 0,
   "verticalPosition": 0,
   "formatBrushes": {},
   "customCommands": [],
   "viewTypeSettings": {},
-  "toolbarBackgroundColor": "rgba(var(--background-secondary-rgb), 0.7)",
-  "toolbarIconColor": "var(--text-normal)",
+  "toolbarBackgroundColor": "#F5F8FA",
+  "toolbarIconColor": "#4A5568",
   "toolbarIconSize": 18
 }

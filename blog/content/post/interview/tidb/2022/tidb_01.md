@@ -95,7 +95,7 @@ show database;
 
 
 
-![image-20230517201440168](image-20230517201440168.png)
+![image-20230517201440168](blog/content/post/interview/tidb/2022/assets/image-20230517201440168.png)
 
 http://74.120.174.137:2379/dashboard/#/overview
 

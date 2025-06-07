@@ -9,28 +9,28 @@
     <lastBuildDate>Sat, 07 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/tags/man/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>c&#43;&#43;代码编程规范</title>
-      <link>https://wangcy6.github.io/post/c&#43;&#43;/02_master_c&#43;&#43;_class/</link>
+      <link>https://wangcy6.github.io/post/future_for_ai/c&#43;&#43;/02_master_c&#43;&#43;_class/</link>
       <pubDate>Sat, 07 Sep 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://wangcy6.github.io/post/c&#43;&#43;/02_master_c&#43;&#43;_class/</guid>
+      <guid>https://wangcy6.github.io/post/future_for_ai/c&#43;&#43;/02_master_c&#43;&#43;_class/</guid>
       <description>C++ string 成员函数 length() size() 和 C strlen() 的区别 当 string 中含有空字符’\0’，使用 strlen() 获取 string 的长度时会被截断，使用成员函数 length() 和 size() 可以返回 string 的真实长度。 // 构造时使用 string strTest(buf,</description>
     </item>
     
     <item>
       <title>c&#43;&#43;代码编程规范</title>
-      <link>https://wangcy6.github.io/post/c&#43;&#43;/02_master_c&#43;&#43;_share_pointer/</link>
+      <link>https://wangcy6.github.io/post/future_for_ai/c&#43;&#43;/02_master_c&#43;&#43;_share_pointer/</link>
       <pubDate>Sat, 07 Sep 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://wangcy6.github.io/post/c&#43;&#43;/02_master_c&#43;&#43;_share_pointer/</guid>
+      <guid>https://wangcy6.github.io/post/future_for_ai/c&#43;&#43;/02_master_c&#43;&#43;_share_pointer/</guid>
       <description>成为面试官 第一练 未了节省读者时间一句话解释 shared_ptr 的引用计数本身是安全且无锁的，但对象的读写则不是， 因为 shared_ptr 有两个数据成员，读写操作不能原子 一个 shared_ptr 对</description>
     </item>
     
     <item>
       <title>c&#43;&#43;入门指南</title>
-      <link>https://wangcy6.github.io/post/c&#43;&#43;/01_c&#43;&#43;_new/</link>
+      <link>https://wangcy6.github.io/post/future_for_ai/c&#43;&#43;/01_c&#43;&#43;_new/</link>
       <pubDate>Wed, 07 Aug 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://wangcy6.github.io/post/c&#43;&#43;/01_c&#43;&#43;_new/</guid>
+      <guid>https://wangcy6.github.io/post/future_for_ai/c&#43;&#43;/01_c&#43;&#43;_new/</guid>
       <description>内存管理 C++中通过new和delete两个关键字进行动态内存管理。 c语言通过 malloc 和free 两个关键字进行动态内存管理 函数支持重载，运算符同样</description>
     </item>
     

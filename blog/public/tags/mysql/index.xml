@@ -9,10 +9,10 @@
     <lastBuildDate>Sun, 18 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Tidb学习记录（1）</title>
-      <link>https://wangcy6.github.io/post/tidb/2022/parse/</link>
+      <link>https://wangcy6.github.io/post/storage/tidb/2022/parse/</link>
       <pubDate>Sun, 18 Jul 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://wangcy6.github.io/post/tidb/2022/parse/</guid>
+      <guid>https://wangcy6.github.io/post/storage/tidb/2022/parse/</guid>
       <description>说明： parser 模块 第一天：环境搭建 GO 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 https://www.digitalocean.com/community/tutorials/how-to-install-go-1-7-on-centos-7 Step 1 – Downloading Go wget https://studygolang.com/dl/golang/go1.19.1.linux-amd64.tar.gz Step 2 – Setting Paths for Go export GOROOT=/root/local/go export PATH=$PATH:$GOROOT/bin export GOPATH=/root/src Step 3 – Downloading lib go env -w GO111MODULE=on go env -w GOPROXY=https://goproxy.cn,direct go get -v golang.org/x/tools/cmd/goimports pingcap/parser 1</description>
     </item>
     

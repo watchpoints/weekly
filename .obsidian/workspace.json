@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "1cdb70e070ffbdfc",
+        "id": "4509724f8bf84da7",
         "type": "tabs",
         "children": [
           {
-            "id": "27fb81e0f46de6bf",
+            "id": "e7a7b303c61786dc",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "blog/content/post/interview/interviewSystemDesgin/2025-05-29_v1.0_parll.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "2025-05-29_v1.0_parll"
+              "title": "新标签页"
             }
           }
         ]
@@ -52,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "Luminous",
+                "query": "2. 这个技术的优势和劣势分别是什么",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -93,7 +89,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "900 其他/980 模板/主题笔记模板.md",
+                "file": "blog/content/post/future_for_ai/github/2025-06-03-v1.0-chatlog.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +99,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "主题笔记模板 的反向链接列表"
+              "title": "2025-06-03-v1.0-chatlog 的反向链接列表"
             }
           },
           {
@@ -112,12 +108,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "900 其他/980 模板/主题笔记模板.md",
+                "file": "blog/content/post/future_for_ai/2025/2025 年笔记本购买指南.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "主题笔记模板 的出链列表"
+              "title": "2025 年笔记本购买指南 的出链列表"
             }
           },
           {
@@ -138,11 +134,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "blog/content/post/interview/interviewSystemDesgin/2025-05-29_v1.0_parll.md"
-              },
+              "state": {},
               "icon": "lucide-list",
-              "title": "2025-05-29_v1.0_parll 的大纲"
+              "title": "大纲"
             }
           },
           {
@@ -193,44 +187,49 @@
       "audio-recorder:开始/结束录音": false
     }
   },
-  "active": "27fb81e0f46de6bf",
+  "active": "3c1b4102d81002f5",
   "lastOpenFiles": [
-    "blog/content/post/interview/interviewSystemDesgin/06-tools-base-user-git.md",
-    "blog/content/post/storage/2025/2025-04-27-what-is-BlueStore.md",
-    "blog/content/post/interview/interviewSystemDesgin/2025-05-29_v1.0_parll.md",
-    "blog/content/post/interview/interviewSystemDesgin/template 1.md",
+    "blog/content/post/oceanbase/2024/01-2024-06-18-ob_study1.md",
+    "blog/content/post/interview/08-thread local.md",
+    "blog/content/post/ARTS/2022/1.md",
+    "blog/content/post/liunx/2025/10_interview_design_performance.md",
+    "blog/content/post/ARTS/2_ARTS_2021_18_weekly.md",
+    "blog/content/post/interview/interviewSystemDesgin/2025-05-30-Crimson.md",
+    "blog/content/post/future_for_ai/01_how_to_quickly_submit_resumes.md",
+    "blog/content/post/future_for_ai/github/2025-06-03-v1.0-chatlog.md",
+    "blog/content/post/future_for_ai/ContextOS/02-ContextOS 运营销售群-营销推广小程序.md",
+    "blog/content/post/future_for_ai/ContextOS/01_what_is_contextos.md",
+    "blog/content/post/future_for_ai/template.md",
+    "blog/content/post/future_for_ai/github/template 1.md",
     "blog/content/post/interview/template.md",
-    "blog/content/post/interview/6-2025-14-spin_lock.md",
-    "blog/content/post/interview/interviewSystemDesgin/2025-04-24-redis_slow.md",
-    "blog/content/post/ai/2025/2025-05-03-contestos-window.md",
-    "blog/content/post/ai/2025/01.md",
-    "blog/content/post/ai/02_how_to_use_tea.md",
-    "blog/content/post/oceanbase/day3_ob.md",
-    "blog/content/post/oceanbase/1-2023-05-28-add-fun.md",
-    "blog/content/post/ai/2025/07-write-.md",
-    "blog/content/post/ai/2025/08-web-asp-.md",
-    "blog/content/post/ai/2025/09-tool-googlen.md",
-    "blog/content/post/ai/2025/template.md",
-    "blog/content/post/ContextOS/01_what_is_contextos.md",
+    "blog/content/post/future_for_ai/2025/05_draw_pic.md",
+    "blog/content/post/future_for_ai/github",
+    "blog/content/post/future_for_ai/2025/2025 年笔记本购买指南.md",
+    "blog/content/post/future_for_ai/2025/01.md",
+    "blog/content/post/future_for_ai/2025/未命名.md",
+    "blog/content/post/future_for_ai/2025/template.md",
+    "blog/content/post/future_for_ai/propmit/write.md",
+    "blog/content/post/interview/tidb/2025/成为leveldb 贡献者.md",
+    "blog/content/post/interview/tidb/2025/rust_for_tikv_days4_ 1.md",
+    "blog/content/post/interview/tidb/2025/rust_for_tikv_Contributor.md",
+    "blog/content/post/interview/tidb/2025/20230_05_05_tikv.md",
+    "blog/content/post/interview/tidb/2022/parse.md",
+    "blog/content/post/interview/c++/2025-4-29-Interview_pointer.md",
+    "blog/content/post/interview/c++",
     "blog/content/post/interview/leetcode/2025/day1-.md",
-    "blog/content/post/ai/draw/01-draw.md",
-    "blog/content/post/ai/draw",
-    "blog/content/post/ai/2025/10-health.md",
-    "blog/content/post/ai/2025/04_how_to_push_goods.md",
-    "blog/content/post/interview/job/1-2025-5- job.md",
-    "blog/content/post/interview/job",
-    "blog/content/post/interview/leetcode/leetcode_medium_mac.md",
-    "blog/content/post/interview/leetcode/leetcode_medium.md",
-    "blog/content/post/interview/leetcode/leetcode_hard.md",
-    "blog/content/post/interview/leetcode/leetcod_easy.md",
-    "blog/content/post/interview/leetcode/2025",
-    "xmind/ThreadLocal.xmind",
-    "blog/public/page/55/index.html",
-    "blog/public/page/55",
-    "blog/public/post/c/7_2025-5-22-spin_lock/index.html",
-    "blog/public/post/c/7_2025-5-22-spin_lock",
-    "blog/public/post/ai/2025/05-20250522-small-porject/index.html",
-    "blog/public/post/ai/2025/05-20250522-small-porject",
+    "blog/content/post/interview/RockDB",
+    "blog/public/tags/Cursor/index.xml",
+    "blog/public/categories/系统之美/index.xml",
+    "blog/public/page/57/index.html",
+    "blog/public/page/57",
+    "blog/public/page/56/index.html",
+    "blog/public/page/56",
+    "blog/public/post/interview/5-2025-05-14-3fs-ObjectPool/index.html",
+    "blog/public/post/storage/tidb/2022/assets/image-20230517201440168.png",
+    "blog/public/post/storage/tidb/2024/assets/image-20240716212941824.png",
+    "blog/public/post/storage/tidb/2024/assets/image-20240711143133472.png",
+    "blog/public/post/storage/tidb/2024/assets/fc085c98eab6512353e065778e3b4a8.png",
+    "blog/content/post/Pasted image 20250315160756.png",
     "blog/public/post/未命名.canvas",
     "blog/content/post/未命名.canvas",
     "blog/1111.jpg",
@@ -238,11 +237,6 @@
     "blog/public/post/Pasted image 20250323152954.png",
     "blog/public/post/Pasted image 20250315160756.png",
     "blog/public/post/01a54a8883cbf7b9c23401e4e6c7ffa.jpg",
-    "Pasted image 20250406155749.png",
-    "blog/content/post/Pasted image 20250323152954.png",
-    "blog/content/post/Pasted image 20250315160756.png",
-    "blog/content/post/01a54a8883cbf7b9c23401e4e6c7ffa.jpg",
-    "Pasted image 20250403170928.png",
-    "Pasted image 20250403115735.png"
+    "Pasted image 20250406155749.png"
   ]
 }
