@@ -51,15 +51,10 @@ window：
 1. 在应用商店（Ctrl+Shift+X打开）安装python插件
 2. 然后点ctrl+shift+p搜索python: Select Interpreter，选择解析器
 3.  运行自己写pyhton程序 
-![管理python的插件](https://money-1256465252.cos.ap-beijing.myqcloud.com/2025/20250424201507.png)
-
 
 Python解释器是一个可以理解和执行Python代码的程序
 
-![image.png](https://money-1256465252.cos.ap-beijing.myqcloud.com/2025/20250424201748.png)
 
-
-<<<<<<< HEAD
 
 ### 其他插件
 
@@ -67,7 +62,6 @@ Python解释器是一个可以理解和执行Python代码的程序
 ### markdown-preview-enhanced
 - https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/
 - https://github.com/Maserhe/VScode-Markdown-theme-Maserhe
-=======
 ### mac 环境： Cursor配置虚拟python环境
 
 
@@ -97,7 +91,14 @@ playwright install
 - 可用解释器列表，包括虚拟环境
 - 说明 在mac环境下，不允许执行 pip命令，必须设置虚拟环境，虚拟环境设置后，cursor 选择对应解释器为虚拟环境的解释器。
 
->>>>>>> cad182b1a9771821b591c02669f4fea9ef91428f
+
+/usr/local/bin/python3.12  ---已经被删除了怎么处理
+
+
+python3 -m playwright codegen https://www.cnblogs.com/
+
+
+
 
 ## 链接我 
 

@@ -48,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "2. 这个技术的优势和劣势分别是什么",
+                "query": "abcc",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -89,7 +89,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "blog/content/post/future_for_ai/github/2025-06-03-v1.0-chatlog.md",
+                "file": "900 其他/980 模板/主题笔记模板.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -99,7 +99,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "2025-06-03-v1.0-chatlog 的反向链接列表"
+              "title": "主题笔记模板 的反向链接列表"
             }
           },
           {
@@ -108,12 +108,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "blog/content/post/future_for_ai/2025/2025 年笔记本购买指南.md",
+                "file": "900 其他/980 模板/主题笔记模板.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "2025 年笔记本购买指南 的出链列表"
+              "title": "主题笔记模板 的出链列表"
             }
           },
           {
@@ -187,8 +187,20 @@
       "audio-recorder:开始/结束录音": false
     }
   },
-  "active": "3c1b4102d81002f5",
+  "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "blog/content/post/future_for_ai/2025/day5-100w.md",
+    "blog/content/post/habit/2025/只管去做周记(第四期）.md",
+    "blog/content/post/habit/2025/20250514.md",
+    "blog/content/post/habit/2025/只管去做周记（第3期）.md",
+    "blog/content/post/habit/2025/2025 年-6 月-起床目标.md",
+    "blog/content/post/habit/2025/2025-habit-health-get-up 1.md",
+    "blog/content/post/habit/2025/20250501-小王同学-如何让自我激励提升40%.md",
+    "blog/content/post/future_for_ai/2025/template.md",
+    "().md",
+    "blog/content/post/future_for_ai/python/01_how_to_install_python.md",
+    "blog/content/post/interview/leetcode/2025/template.md",
+    "blog/content/post/interview/leetcode/2025/day2-成为孩子榜样，为国争光.md",
     "blog/content/post/oceanbase/2024/01-2024-06-18-ob_study1.md",
     "blog/content/post/interview/08-thread local.md",
     "blog/content/post/ARTS/2022/1.md",
@@ -204,19 +216,7 @@
     "blog/content/post/interview/template.md",
     "blog/content/post/future_for_ai/2025/05_draw_pic.md",
     "blog/content/post/future_for_ai/github",
-    "blog/content/post/future_for_ai/2025/2025 年笔记本购买指南.md",
-    "blog/content/post/future_for_ai/2025/01.md",
-    "blog/content/post/future_for_ai/2025/未命名.md",
-    "blog/content/post/future_for_ai/2025/template.md",
-    "blog/content/post/future_for_ai/propmit/write.md",
-    "blog/content/post/interview/tidb/2025/成为leveldb 贡献者.md",
-    "blog/content/post/interview/tidb/2025/rust_for_tikv_days4_ 1.md",
-    "blog/content/post/interview/tidb/2025/rust_for_tikv_Contributor.md",
-    "blog/content/post/interview/tidb/2025/20230_05_05_tikv.md",
-    "blog/content/post/interview/tidb/2022/parse.md",
-    "blog/content/post/interview/c++/2025-4-29-Interview_pointer.md",
     "blog/content/post/interview/c++",
-    "blog/content/post/interview/leetcode/2025/day1-.md",
     "blog/content/post/interview/RockDB",
     "blog/public/tags/Cursor/index.xml",
     "blog/public/categories/系统之美/index.xml",
