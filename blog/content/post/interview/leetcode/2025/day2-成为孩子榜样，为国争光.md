@@ -1,5 +1,5 @@
 ---
-title: 冲刺2025年CSP-J/S和刷Leetcdoe找工作（1）：拓扑排序-课程表
+title: 冲刺2025年CSP-J/S和刷Leetcdoe找工作（1）：拓扑排序-课程表 v1.0
 date: 2025-04-07
 description: c++
 draft: false
@@ -27,6 +27,14 @@ categories:
 > 联系我 ，围绕数据结构与算法 这个事情一起努力
 
 
+
+本期涉及关键词：
+
+- 回溯
+- 递归
+
+
+✅ 不理解不关系，慢慢往下看，看看是怎么通过1个题目讲上面知识串联起来
 
 
 ![](https://s2.loli.net/2025/06/04/Ca5PuXSsIwdl62R.png)
@@ -219,14 +227,44 @@ void MST( GraphG )：
 
 
 ![遇到卡点了](https://s2.loli.net/2025/05/29/I1KwSoEeaixsVPc.png)
+ 
+ 
+ **漫画：深度优先遍历 和 广度优先遍历**
 
-
-回归：# 漫画：深度优先遍历 和 广度优先遍历
 https://cloud.tencent.com/developer/article/1618700?policyId=1003
 
+名字：图（Graph）
+
+数据对象集：G( V, E )由一个非空的有限顶点集合V和一个有限边集合E组成。
+
+操作集合：对于任意图G∈Graph，以及v∈V，e∈E 。
+
+Graph Create()：建立并返回空图；
+
+Graph InsertVertex(Graph G , Vertex v)：将v插入G;
+
+Graph InsertEdge（Graph G , Edge e）：将e挿入G;
+
+void DES( Graph G  , Vertex v )：从顶点v出发深度优先遍历图G;
+
+void BES( Graph G  , Vertex v )：从顶点v出发宽度优先遍历图G;
+
+void ShortestPath( Graph G, Vertex v ,int Dist [ ] ): 
+计算图G中顶点v到任意其他顶点的最短距离；
+
+void MST( GraphG )：
+计算图G的最小生成树
+
+回溯顾名思义，就是自后向前，追溯曾经走过的路径。
+
+口语表示：从节点8出发到节点 7，节点7无路可走，退回到节点8
+代码表示：入栈push，出栈pop
 
 
-![image.png](https://s2.loli.net/2025/05/29/ejD4aNWgEVAsGRw.png)
+如何定义 节点访问完毕： 增加访问过 或者 叶子节点
+
+
+
 
 
 
@@ -238,209 +276,131 @@ class Solution {
 
 private:
 
-map<int,vector<int>> graph;
+    std::map<int, vector<int>> graph; // 图的存储结构
 
-// 图的存储结构--邻居表 数组，链表，
+    std::vector<int> visited; // 0 no visit  1 visted may by cicre  2  visited
 
-//为了方面表示 用 map 代替数组，vecotr 代替 链表
-
-//1 <= numCourses <= 2000
-
-  
-
-//vector<bool> visited;
-
-// false 没有访问过 ，true访问过
-
-//解决​​：维护visited集合或数组，标记已访问节点。
-
-//如果有向无环图：每个节点只访问一次 ，不会重复遍历。
-
-//如果有向有环图：出现部分节点重复遍历，死循环情况，这个存在环，结束循环。
-
-// 踏平坎坷，成大道
-
-// 斗罢艰险，又出发，又出发
-
-//实际结果：
-
-//1. 首先了解课表提供基本概念和算法 2 动手写这些算法 ，这个基本测试用例，正常情况下。
-
-//3. 如果写更多测试用例 leetcode 提供了 写过程遇到bug 极端情况 更深入一步思考这个价值地方。【核心的地方 】
-
-//
-
-  
-
-vector<int> visited; //0没有访问 1 正在访问中，包括邻居节点访问 如果回到到存在环 2 没有环，访问完成。如果下次访问时候 不需要在遍历
+                              // ok
 
 public:
 
-bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
+    bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
 
-//其中 prerequisites[i] = [数据结构,C++],
+        // 1. 课程 和课程之间关系  用什么数据结构表示
 
-//表示如果要学习课程 数据结构则 必须 先学习课程 C++，是前置条件 ,
+        // 2. 是否学完课程 用什么算法实现
 
-//如果有多个前置条件呢？例如 [数据结构,c],1
+        // 3. 回溯时候 区分有环还是正常，项目经验 数据结构与算法这本书
 
-//1对多，就需要图这个结构
+        // 根本提到这样概念
 
-//疑问 1：tree 也是 1 对多为什么不用 tree 呢：tree 有严格层级关系 无法表示 一个节点和剩余 n-1 个节点直接关系。
+        // 为了了解图的基本概念和存储结构，
 
-// 图是 节点之间多对对复杂网络结构
+        // 我重新回顾了数据结构与算法这本书 ，
 
-// i:每个课程 编号 ，是不是 更抽象一层。疑问 2：最后发现可能跟课程名字没关系，为什么题目给出n 个课程 ，但是没有给出课程名字，
+        // 我很清楚知道熟悉基本操作，著名最短路径不考虑，
 
-//疑问3: 难后容易 ，还是先容易后难，课程安排 l0 l1，l2
+        // 可以了，开软件研究到这里
 
-// 节点 与节点之间关系是：i--->j 学完课程 i 之后 ，才可以学习课程 和输入好想法。数据结果中 有向图 <--- 这个方向不好表示
+        // 能手工创建一个图，并且完成查询，插入工作可以了，但是一定动手实践。把基本操作多执行10次，直接研究最短路径
 
-  
+        // 更合适，
 
-for(auto item:prerequisites)
-
-{
-
-int key = item[1]; //先完成课程，容易完成
-
-int value = item[0];//后完成课程 ，难完成的
-
-graph[key].push_back(value); // 图的存储结构--邻居表 数组+链表
-
-}
+        // 直观感受，直观感受，不抽象负载理论
 
   
 
-//输入：numCourses = 2, prerequisites = [[1,0],[0,1]]
-
-//输出：false
-
-//疑问4：图的深度有限遍历，进入死胡同 前面无路可走，和 存在环 前面有路 鬼打墙 区别？
-
-//只访问一遍原则：有向无环图（死胡同 前面无路可走） vs 有向有环图 （ 前面有路 鬼打墙）
-
-//回答：backtrace(栈回溯)保证 前方有路就走
-
-// 你挑着担，我牵着马
-
-// 迎来日出，送走晚霞
-
-// 踏平坎坷，成大道
-
-// 斗罢艰险，又出发，又出发
-
-// 啦啦…… ……
-
-// 一番番春秋、冬夏。
-
-// 一场场酸甜、苦辣。
-
-// 敢问路在何方 路在脚下。
-
-// 敢问路在何方 路在脚下。
-
-//这句词源于鲁迅《故乡》中的“其实地上本没有路，走的人多了，也便成了路”
-
-//解决​​：维护visited集合或数组，标记已访问节点。
+        // create graph
 
   
 
-//分配大小numCourses空间，初始化每个变量为 false 类似 避免频繁内存分配带来的性能损耗
+        for (auto& item : prerequisites) {
 
-visited.resize(numCourses,0);
+            int key = item[1];
 
-  
-  
+            int value = item[0];
 
-//疑问 5：从哪里开始，二叉树 只有一个root 节点很清楚 ，图 n 个节点？
+            graph[key].push_back(value);
 
-//为什么每个节点都遍历一遍？防止孤岛，不联通情况--- 这个课程和其他课程没有任何关系。
-
-for(int index = 0; index < visited.size(); index++)
-
-{
-
-if(visited[index] == 0) //no visited
-
-{
-
-if (false == dfs(index))
-
-{
-
-return false ;//# 终止“鬼打墙” a-->b-->a
-
-}
-
-}
-
-// }else {
-
-// cout<<"22222";
-
-// return false ;//# 终止“鬼打墙” 这个行代码 永远不会执行 dfs（index）访问一次 for 全部节点 访问 1次 正常2 次 访问。
-
-// }
-
-}
+        }
 
   
 
-return true;
+        visited.resize(numCourses, 0);
+
+        for (int i = 0; i < numCourses; i++) {
+
+            if (0 == visited[i]) {
+
+                if (false == dfs(i)) {
+
+                    return false;
+
+                }
+
+            }
+
+        }
 
   
 
-}
+        return true;
 
-//从节点 index 开始 深度优先搜索 访问相关节点
-
-bool dfs(int index)
-
-{
-
-if(visited[index] == 2) {
-
-return true;
-
-} //why?
-
-if(visited[index] == 1) {
-
-return false; //a--b--a
-
-}
+    }
 
   
 
-visited[index] = 1;
+    bool dfs(int i) {
 
-vector<int> &neight = graph[index];
+        if (2 == visited[i]) {
 
-//change dirction
+            return true;
 
-for(int i =0;i<neight.size();i++){
+        } else if (1 == visited[i]) {
 
-if (false == dfs(neight[i])) {
+            return false;
 
-return false;
+        } else {
 
-}
+            visited[i] = 1;
 
-}
-
-  
-
-visited[index] = 2;
+        }
 
   
 
-return true;
+        vector<int>& neight = graph[i];
 
-}
+  
+
+        for (auto index : neight)
+
+            if (false == dfs(index)) {
+
+                return false;
+
+            }
+
+  
+
+        visited[i] = 2; // 项目经验： ==与 =区别
+
+  
+
+        return true;
+
+    }
 
 };
 ```
+
+
+
+#### 单元测试
+
+-  赋值运算 = 与 比较运算符== 区别？
+
+
+
 
 
 ### 链接我
