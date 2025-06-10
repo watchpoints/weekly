@@ -33,13 +33,13 @@ LeetCode CSP,NOIP 一起搞
 
 
  
-   CSP、NOIP、NOI这三个比赛都是由中国计算机学会（CCF）举办的，
-   代表同学们在编程竞赛上的不同阶段：
-    1. CSP-J（入门级，Junior) 主要针对小学和初中生
-    2. CSP-S（提高级，Senior）CSP-S面向高中生
-    3. NOIP：NOIP是参加NOI的必要条件，只能使用C++语言
-    4.  省内选拔（省选),NOI省选是进入NOI活动的重要环境
-    5. NOI（国赛）
+	   CSP、NOIP、NOI这三个比赛都是由中国计算机学会（CCF）举办的，
+	   代表同学们在编程竞赛上的不同阶段：
+	    1. CSP-J（入门级，Junior) 主要针对小学和初中生
+	    2. CSP-S（提高级，Senior）CSP-S面向高中生
+	    3. NOIP：NOIP是参加NOI的必要条件，只能使用C++语言
+	    4.  省内选拔（省选),NOI省选是进入NOI活动的重要环境
+	    5. NOI（国赛）
 
 ![](https://s2.loli.net/2025/05/28/Wd8VDlEsw731nmp.png)
 

@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "1cdb70e070ffbdfc",
+        "id": "4509724f8bf84da7",
         "type": "tabs",
         "children": [
           {
-            "id": "27fb81e0f46de6bf",
+            "id": "e7a7b303c61786dc",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "blog/content/post/interview/interviewSystemDesgin/2025-05-29_v1.0_parll.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "2025-05-29_v1.0_parll"
+              "title": "新标签页"
             }
           }
         ]
@@ -52,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "Luminous",
+                "query": "abcc",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -138,11 +134,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "blog/content/post/interview/interviewSystemDesgin/2025-05-29_v1.0_parll.md"
-              },
+              "state": {},
               "icon": "lucide-list",
-              "title": "2025-05-29_v1.0_parll 的大纲"
+              "title": "大纲"
             }
           },
           {
@@ -193,44 +187,49 @@
       "audio-recorder:开始/结束录音": false
     }
   },
-  "active": "27fb81e0f46de6bf",
+  "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
-    "blog/content/post/interview/interviewSystemDesgin/06-tools-base-user-git.md",
-    "blog/content/post/storage/2025/2025-04-27-what-is-BlueStore.md",
-    "blog/content/post/interview/interviewSystemDesgin/2025-05-29_v1.0_parll.md",
-    "blog/content/post/interview/interviewSystemDesgin/template 1.md",
+    "blog/content/post/future_for_ai/2025/day5-100w.md",
+    "blog/content/post/habit/2025/只管去做周记(第四期）.md",
+    "blog/content/post/habit/2025/20250514.md",
+    "blog/content/post/habit/2025/只管去做周记（第3期）.md",
+    "blog/content/post/habit/2025/2025 年-6 月-起床目标.md",
+    "blog/content/post/habit/2025/2025-habit-health-get-up 1.md",
+    "blog/content/post/habit/2025/20250501-小王同学-如何让自我激励提升40%.md",
+    "blog/content/post/future_for_ai/2025/template.md",
+    "().md",
+    "blog/content/post/future_for_ai/python/01_how_to_install_python.md",
+    "blog/content/post/interview/leetcode/2025/template.md",
+    "blog/content/post/interview/leetcode/2025/day2-成为孩子榜样，为国争光.md",
+    "blog/content/post/oceanbase/2024/01-2024-06-18-ob_study1.md",
+    "blog/content/post/interview/08-thread local.md",
+    "blog/content/post/ARTS/2022/1.md",
+    "blog/content/post/liunx/2025/10_interview_design_performance.md",
+    "blog/content/post/ARTS/2_ARTS_2021_18_weekly.md",
+    "blog/content/post/interview/interviewSystemDesgin/2025-05-30-Crimson.md",
+    "blog/content/post/future_for_ai/01_how_to_quickly_submit_resumes.md",
+    "blog/content/post/future_for_ai/github/2025-06-03-v1.0-chatlog.md",
+    "blog/content/post/future_for_ai/ContextOS/02-ContextOS 运营销售群-营销推广小程序.md",
+    "blog/content/post/future_for_ai/ContextOS/01_what_is_contextos.md",
+    "blog/content/post/future_for_ai/template.md",
+    "blog/content/post/future_for_ai/github/template 1.md",
     "blog/content/post/interview/template.md",
-    "blog/content/post/interview/6-2025-14-spin_lock.md",
-    "blog/content/post/interview/interviewSystemDesgin/2025-04-24-redis_slow.md",
-    "blog/content/post/ai/2025/2025-05-03-contestos-window.md",
-    "blog/content/post/ai/2025/01.md",
-    "blog/content/post/ai/02_how_to_use_tea.md",
-    "blog/content/post/oceanbase/day3_ob.md",
-    "blog/content/post/oceanbase/1-2023-05-28-add-fun.md",
-    "blog/content/post/ai/2025/07-write-.md",
-    "blog/content/post/ai/2025/08-web-asp-.md",
-    "blog/content/post/ai/2025/09-tool-googlen.md",
-    "blog/content/post/ai/2025/template.md",
-    "blog/content/post/ContextOS/01_what_is_contextos.md",
-    "blog/content/post/interview/leetcode/2025/day1-.md",
-    "blog/content/post/ai/draw/01-draw.md",
-    "blog/content/post/ai/draw",
-    "blog/content/post/ai/2025/10-health.md",
-    "blog/content/post/ai/2025/04_how_to_push_goods.md",
-    "blog/content/post/interview/job/1-2025-5- job.md",
-    "blog/content/post/interview/job",
-    "blog/content/post/interview/leetcode/leetcode_medium_mac.md",
-    "blog/content/post/interview/leetcode/leetcode_medium.md",
-    "blog/content/post/interview/leetcode/leetcode_hard.md",
-    "blog/content/post/interview/leetcode/leetcod_easy.md",
-    "blog/content/post/interview/leetcode/2025",
-    "xmind/ThreadLocal.xmind",
-    "blog/public/page/55/index.html",
-    "blog/public/page/55",
-    "blog/public/post/c/7_2025-5-22-spin_lock/index.html",
-    "blog/public/post/c/7_2025-5-22-spin_lock",
-    "blog/public/post/ai/2025/05-20250522-small-porject/index.html",
-    "blog/public/post/ai/2025/05-20250522-small-porject",
+    "blog/content/post/future_for_ai/2025/05_draw_pic.md",
+    "blog/content/post/future_for_ai/github",
+    "blog/content/post/interview/c++",
+    "blog/content/post/interview/RockDB",
+    "blog/public/tags/Cursor/index.xml",
+    "blog/public/categories/系统之美/index.xml",
+    "blog/public/page/57/index.html",
+    "blog/public/page/57",
+    "blog/public/page/56/index.html",
+    "blog/public/page/56",
+    "blog/public/post/interview/5-2025-05-14-3fs-ObjectPool/index.html",
+    "blog/public/post/storage/tidb/2022/assets/image-20230517201440168.png",
+    "blog/public/post/storage/tidb/2024/assets/image-20240716212941824.png",
+    "blog/public/post/storage/tidb/2024/assets/image-20240711143133472.png",
+    "blog/public/post/storage/tidb/2024/assets/fc085c98eab6512353e065778e3b4a8.png",
+    "blog/content/post/Pasted image 20250315160756.png",
     "blog/public/post/未命名.canvas",
     "blog/content/post/未命名.canvas",
     "blog/1111.jpg",
@@ -238,11 +237,6 @@
     "blog/public/post/Pasted image 20250323152954.png",
     "blog/public/post/Pasted image 20250315160756.png",
     "blog/public/post/01a54a8883cbf7b9c23401e4e6c7ffa.jpg",
-    "Pasted image 20250406155749.png",
-    "blog/content/post/Pasted image 20250323152954.png",
-    "blog/content/post/Pasted image 20250315160756.png",
-    "blog/content/post/01a54a8883cbf7b9c23401e4e6c7ffa.jpg",
-    "Pasted image 20250403170928.png",
-    "Pasted image 20250403115735.png"
+    "Pasted image 20250406155749.png"
   ]
 }

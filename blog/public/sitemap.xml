@@ -3,7 +3,42 @@
   
   <url>
     <loc>https://wangcy6.github.io/post/</loc>
-    <lastmod>2025-05-13T00:00:00+00:00</lastmod>
+    <lastmod>2025-05-30T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangcy6.github.io/</loc>
+    <lastmod>2025-05-30T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangcy6.github.io/post/habit/2025/3-zhish-shenjian/</loc>
+    <lastmod>2025-05-30T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangcy6.github.io/categories/</loc>
+    <lastmod>2025-05-23T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangcy6.github.io/post/interview/08-thread-local/</loc>
+    <lastmod>2025-05-23T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangcy6.github.io/categories/%E7%B3%BB%E7%BB%9F%E4%B9%8B%E7%BE%8E/</loc>
+    <lastmod>2025-05-23T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -16,7 +51,7 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/</loc>
+    <loc>https://wangcy6.github.io/post/habit/2025/20250514/</loc>
     <lastmod>2025-05-13T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -24,13 +59,6 @@
   
   <url>
     <loc>https://wangcy6.github.io/tags/%E5%91%A8%E8%AE%B0/</loc>
-    <lastmod>2025-05-13T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangcy6.github.io/post/habit/2025/20250514/</loc>
     <lastmod>2025-05-13T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -51,35 +79,42 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/ai/2025/01/</loc>
+    <loc>https://wangcy6.github.io/post/future_for_ai/2025/01/</loc>
     <lastmod>2025-05-09T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/ai/2025/05-20250522-small-porject/</loc>
+    <loc>https://wangcy6.github.io/post/future_for_ai/2025/05-20250522-small-porject/</loc>
     <lastmod>2025-05-09T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/ai/2025/template/</loc>
+    <loc>https://wangcy6.github.io/post/future_for_ai/2025/09-tool-googlen/</loc>
     <lastmod>2025-05-09T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/ai/2025/06_how_to_use_Manus/</loc>
+    <loc>https://wangcy6.github.io/post/future_for_ai/2025/template/</loc>
     <lastmod>2025-05-09T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/ai/2025/08-web-asp-/</loc>
+    <loc>https://wangcy6.github.io/post/future_for_ai/2025/06_how_to_use_Manus/</loc>
+    <lastmod>2025-05-09T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangcy6.github.io/post/future_for_ai/2025/08-web-asp-/</loc>
     <lastmod>2025-05-09T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -93,21 +128,28 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/ai/2025/04_how_to_push_goods/</loc>
+    <loc>https://wangcy6.github.io/post/future_for_ai/2025/04_how_to_push_goods/</loc>
     <lastmod>2025-05-09T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/ai/2025/05_draw_pic/</loc>
+    <loc>https://wangcy6.github.io/post/future_for_ai/2025/05_draw_pic/</loc>
     <lastmod>2025-05-09T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/ai/2025/07-write-/</loc>
+    <loc>https://wangcy6.github.io/post/future_for_ai/2025/07-write-/</loc>
+    <lastmod>2025-05-09T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangcy6.github.io/post/future_for_ai/2025/10-health/</loc>
     <lastmod>2025-05-09T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -121,7 +163,7 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/ai/2025/03_how_to_use_notebooklkm/</loc>
+    <loc>https://wangcy6.github.io/post/future_for_ai/2025/03_how_to_use_notebooklkm/</loc>
     <lastmod>2025-05-09T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -135,7 +177,7 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/ContextOS/2025-05-03-contestos-window/</loc>
+    <loc>https://wangcy6.github.io/post/future_for_ai/2025/2025-05-03-contestos-window/</loc>
     <lastmod>2025-05-03T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -144,13 +186,6 @@
   <url>
     <loc>https://wangcy6.github.io/post/habit/2025/20250501-%E5%B0%8F%E7%8E%8B%E5%90%8C%E5%AD%A6-%E5%A6%82%E4%BD%95%E8%AE%A9%E8%87%AA%E6%88%91%E6%BF%80%E5%8A%B1%E6%8F%90%E5%8D%8740/</loc>
     <lastmod>2025-04-30T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangcy6.github.io/categories/</loc>
-    <lastmod>2025-04-27T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -184,6 +219,13 @@
   </url>
   
   <url>
+    <loc>https://wangcy6.github.io/post/interview/interviewSystemDesgin/2025-05-30-Crimson/</loc>
+    <lastmod>2025-04-27T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://wangcy6.github.io/post/storage/2025/2025-05-03-ext4/</loc>
     <lastmod>2025-04-27T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -198,7 +240,7 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/python/01_how_to_install_python/</loc>
+    <loc>https://wangcy6.github.io/post/future_for_ai/python/01_how_to_install_python/</loc>
     <lastmod>2025-04-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -226,7 +268,7 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/interviewSystemDesgin/2025-04-24-redis_slow/</loc>
+    <loc>https://wangcy6.github.io/post/interview/interviewSystemDesgin/2025-04-24-redis_slow/</loc>
     <lastmod>2025-04-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -296,6 +338,13 @@
   </url>
   
   <url>
+    <loc>https://wangcy6.github.io/tags/Cursor/</loc>
+    <lastmod>2025-04-12T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://wangcy6.github.io/categories/do-book/</loc>
     <lastmod>2025-04-12T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -303,49 +352,84 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/ai/02_how_to_use_tea/</loc>
+    <loc>https://wangcy6.github.io/post/future_for_ai/02_how_to_use_tea/</loc>
     <lastmod>2025-04-12T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/ai/02_how_to_use_Obsidian/</loc>
+    <loc>https://wangcy6.github.io/post/future_for_ai/04-net-web-/</loc>
     <lastmod>2025-04-12T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/ai/02_how_to_use_Kindle/</loc>
+    <loc>https://wangcy6.github.io/post/future_for_ai/template/</loc>
     <lastmod>2025-04-12T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/ai/2025/02_how_to_use_notebooklkm/</loc>
+    <loc>https://wangcy6.github.io/post/future_for_ai/draw/01-draw/</loc>
     <lastmod>2025-04-12T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/ContextOS/01_what_is_contextos/</loc>
+    <loc>https://wangcy6.github.io/post/future_for_ai/propmit/write/</loc>
+    <lastmod>2025-04-12T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangcy6.github.io/post/future_for_ai/02_how_to_use_Obsidian/</loc>
+    <lastmod>2025-04-12T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangcy6.github.io/post/future_for_ai/02_how_to_use_Kindle/</loc>
+    <lastmod>2025-04-12T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangcy6.github.io/post/future_for_ai/2025/02_how_to_use_notebooklkm/</loc>
+    <lastmod>2025-04-12T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangcy6.github.io/post/future_for_ai/ContextOS/01_what_is_contextos/</loc>
     <lastmod>2025-04-07T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/leetcode/template/</loc>
+    <loc>https://wangcy6.github.io/post/interview/leetcode/template/</loc>
     <lastmod>2025-04-07T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/leetcode/array/01_what_is_contextos-1/</loc>
+    <loc>https://wangcy6.github.io/post/interview/leetcode/array/01_what_is_contextos-1/</loc>
+    <lastmod>2025-04-07T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangcy6.github.io/post/interview/leetcode/2025/day1-/</loc>
     <lastmod>2025-04-07T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -366,14 +450,14 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/ai/01_how_to_quickly_submit_resumes/</loc>
+    <loc>https://wangcy6.github.io/post/future_for_ai/01_how_to_quickly_submit_resumes/</loc>
     <lastmod>2025-04-03T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/ai/02_how_to_use_Copilot/</loc>
+    <loc>https://wangcy6.github.io/post/future_for_ai/02_how_to_use_Copilot/</loc>
     <lastmod>2025-04-03T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -387,7 +471,7 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/c/2025-4-29-Interview_pointer/</loc>
+    <loc>https://wangcy6.github.io/post/interview/2025-4-29-Interview_pointer/</loc>
     <lastmod>2025-03-31T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -429,13 +513,6 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/tags/tools/</loc>
-    <lastmod>2025-03-23T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://wangcy6.github.io/post/liunx/2025/3fs-what-is-file-system-3/</loc>
     <lastmod>2025-03-23T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -445,20 +522,6 @@
   <url>
     <loc>https://wangcy6.github.io/post/liunx/2025/3fs-what-is-file-system/</loc>
     <lastmod>2025-03-23T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangcy6.github.io/post/money/P1_what_is_MCP/</loc>
-    <lastmod>2025-03-23T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangcy6.github.io/post/money/2025-03-23-code_OpenManus/</loc>
-    <lastmod>2025-03-22T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -555,7 +618,14 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/interviewSystemDesgin/2024-11-10-cppd-day1/</loc>
+    <loc>https://wangcy6.github.io/post/interview/interviewSystemDesgin/2024-11-10-cppd-day1/</loc>
+    <lastmod>2024-11-10T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangcy6.github.io/tags/tools/</loc>
     <lastmod>2024-11-10T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -576,7 +646,7 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/interviewSystemDesgin/2024-11-10-build-my-appley-p1/</loc>
+    <loc>https://wangcy6.github.io/post/interview/interviewSystemDesgin/2024-11-10-build-my-appley-p1/</loc>
     <lastmod>2024-11-10T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -590,7 +660,7 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/interviewSystemDesgin/2024-11-09-how-to-user-gdb/</loc>
+    <loc>https://wangcy6.github.io/post/interview/interviewSystemDesgin/2024-11-09-how-to-user-gdb/</loc>
     <lastmod>2024-11-09T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -611,7 +681,7 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/tidb/2024/make_tidb_day6-raft-rs/</loc>
+    <loc>https://wangcy6.github.io/post/storage/tidb/2024/make_tidb_day6-raft-rs/</loc>
     <lastmod>2024-10-25T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -653,21 +723,21 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/interviewSystemDesgin/06-tools-base-user-git/</loc>
+    <loc>https://wangcy6.github.io/post/interview/interviewSystemDesgin/06-tools-base-user-git/</loc>
     <lastmod>2024-09-20T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/c&#43;&#43;/02_master_c&#43;&#43;_class/</loc>
+    <loc>https://wangcy6.github.io/post/future_for_ai/c&#43;&#43;/02_master_c&#43;&#43;_class/</loc>
     <lastmod>2024-09-07T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/c&#43;&#43;/02_master_c&#43;&#43;_share_pointer/</loc>
+    <loc>https://wangcy6.github.io/post/future_for_ai/c&#43;&#43;/02_master_c&#43;&#43;_share_pointer/</loc>
     <lastmod>2024-09-07T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -695,14 +765,14 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/c&#43;&#43;/01_c&#43;&#43;_new/</loc>
+    <loc>https://wangcy6.github.io/post/future_for_ai/c&#43;&#43;/01_c&#43;&#43;_new/</loc>
     <lastmod>2024-08-07T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/c/2025-4-26_ceph/</loc>
+    <loc>https://wangcy6.github.io/post/interview/2025-4-26_ceph/</loc>
     <lastmod>2024-08-07T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -716,14 +786,21 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/c/5-2025-05-14-3fs-ObjectPool/</loc>
+    <loc>https://wangcy6.github.io/post/interview/5-2025-05-14-3fs-ObjectPool/</loc>
     <lastmod>2024-08-07T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/c/7_2025-5-22-spin_lock/</loc>
+    <loc>https://wangcy6.github.io/post/interview/job/1-2025-5-job/</loc>
+    <lastmod>2024-08-07T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangcy6.github.io/post/interview/7_2025-5-22-spin_lock/</loc>
     <lastmod>2024-08-07T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -737,49 +814,70 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/c/6-2025-14-spin_lock/</loc>
+    <loc>https://wangcy6.github.io/post/interview/6-2025-14-spin_lock/</loc>
     <lastmod>2024-08-07T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/c/template/</loc>
+    <loc>https://wangcy6.github.io/post/interview/interviewSystemDesgin/10-20250526-io-1.0/</loc>
     <lastmod>2024-08-07T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/c/2025-4-26_thread-local/</loc>
+    <loc>https://wangcy6.github.io/post/interview/interviewSystemDesgin/template-1/</loc>
     <lastmod>2024-08-07T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/c/2025-4-26_spin_lock_temp/</loc>
+    <loc>https://wangcy6.github.io/post/interview/template/</loc>
     <lastmod>2024-08-07T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/c/2025-4-25-read/</loc>
+    <loc>https://wangcy6.github.io/post/interview/2025-4-26_thread-local/</loc>
     <lastmod>2024-08-07T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/c/2025-4-25_tcp_close/</loc>
+    <loc>https://wangcy6.github.io/post/interview/2025-4-26_spin_lock_temp/</loc>
     <lastmod>2024-08-07T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days1_gdb/</loc>
+    <loc>https://wangcy6.github.io/post/interview/2025-4-25-read/</loc>
+    <lastmod>2024-08-07T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangcy6.github.io/post/interview/2025-4-25_tcp_close/</loc>
+    <lastmod>2024-08-07T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangcy6.github.io/post/interview/interviewSystemDesgin/2025-05-29_v1.0_parll/</loc>
+    <lastmod>2024-08-07T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangcy6.github.io/post/storage/tidb/2024/rust_for_tikv_days1_gdb/</loc>
     <lastmod>2024-07-08T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -814,14 +912,28 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days4_/</loc>
+    <loc>https://wangcy6.github.io/post/storage/tidb/2025/rust_for_tikv_Contributor/</loc>
     <lastmod>2024-05-29T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days100_1/</loc>
+    <loc>https://wangcy6.github.io/post/storage/tidb/2024/rust_for_tikv_days4_/</loc>
+    <lastmod>2024-05-29T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangcy6.github.io/post/storage/tidb/2025/rust_for_tikv_days4_-1/</loc>
+    <lastmod>2024-05-29T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangcy6.github.io/post/storage/tidb/2024/rust_for_tikv_days100_1/</loc>
     <lastmod>2024-05-29T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -877,7 +989,7 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/interviewSystemDesgin/2024-03-03-11-rust-ai/</loc>
+    <loc>https://wangcy6.github.io/post/interview/interviewSystemDesgin/2024-03-03-11-rust-ai/</loc>
     <lastmod>2024-03-12T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -919,14 +1031,7 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/interviewSystemDesgin/2024-03-03-04_rust_vivo/</loc>
-    <lastmod>2024-03-03T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangcy6.github.io/post/interviewSystemDesgin/2024-03-03-ask/</loc>
+    <loc>https://wangcy6.github.io/post/interview/interviewSystemDesgin/2024-03-03-ask/</loc>
     <lastmod>2024-03-03T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -940,7 +1045,7 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/interviewSystemDesgin/2024-03-06_readcode_ceph_threadpool/</loc>
+    <loc>https://wangcy6.github.io/post/interview/interviewSystemDesgin/2024-03-06_readcode_ceph_threadpool/</loc>
     <lastmod>2024-03-03T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -954,7 +1059,7 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/interviewSystemDesgin/2024-02-09-git-two-account/</loc>
+    <loc>https://wangcy6.github.io/post/interview/interviewSystemDesgin/2024-02-09-git-two-account/</loc>
     <lastmod>2024-02-09T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -968,7 +1073,7 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/interviewSystemDesgin/2024-02-09-100-ways-add-funs/</loc>
+    <loc>https://wangcy6.github.io/post/interview/interviewSystemDesgin/2024-02-09-100-ways-add-funs/</loc>
     <lastmod>2024-02-09T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -1136,6 +1241,20 @@
   </url>
   
   <url>
+    <loc>https://wangcy6.github.io/post/liunx/2025/12-how-to-liunx/</loc>
+    <lastmod>2023-08-11T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangcy6.github.io/post/liunx/2025/template/</loc>
+    <lastmod>2023-08-11T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://wangcy6.github.io/post/liunx/2025/2025-03-19/</loc>
     <lastmod>2023-08-11T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -1227,14 +1346,7 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/interviewSystemDesgin/2024_03_10_ai_weekly_01/</loc>
-    <lastmod>2023-05-13T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangcy6.github.io/post/money/002_/</loc>
+    <loc>https://wangcy6.github.io/post/interview/interviewSystemDesgin/2024_03_10_ai_weekly_01/</loc>
     <lastmod>2023-05-13T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -1255,14 +1367,7 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/money/002_xiao_ai/</loc>
-    <lastmod>2023-05-13T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangcy6.github.io/post/tidb/20230_05_05_tikv/</loc>
+    <loc>https://wangcy6.github.io/post/storage/tidb/20230_05_05_tikv/</loc>
     <lastmod>2023-05-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -1479,7 +1584,7 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/tidb/2022/01_2022_4_14_tiflsh_study/</loc>
+    <loc>https://wangcy6.github.io/post/storage/tidb/2022/01_2022_4_14_tiflsh_study/</loc>
     <lastmod>2022-04-14T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -1689,28 +1794,28 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/tidb/2022/mylabs/</loc>
+    <loc>https://wangcy6.github.io/post/storage/tidb/2022/mylabs/</loc>
     <lastmod>2022-01-12T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/tidb/2022/tikv_day1/</loc>
+    <loc>https://wangcy6.github.io/post/storage/tidb/2022/tikv_day1/</loc>
     <lastmod>2022-01-12T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/tidb/2022/2022-1-19-Project2/</loc>
+    <loc>https://wangcy6.github.io/post/storage/tidb/2022/2022-1-19-Project2/</loc>
     <lastmod>2022-01-11T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/tidb/2022/tidb_01/</loc>
+    <loc>https://wangcy6.github.io/post/storage/tidb/2022/tidb_01/</loc>
     <lastmod>2022-01-11T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -1738,14 +1843,14 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/leetcode/leetcode_medium/</loc>
+    <loc>https://wangcy6.github.io/post/interview/leetcode/leetcode_medium/</loc>
     <lastmod>2022-01-04T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/leetcode/leetcode_medium_mac/</loc>
+    <loc>https://wangcy6.github.io/post/interview/leetcode/leetcode_medium_mac/</loc>
     <lastmod>2022-01-04T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -1822,7 +1927,7 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/tidb/2022/parse/</loc>
+    <loc>https://wangcy6.github.io/post/storage/tidb/2022/parse/</loc>
     <lastmod>2021-07-18T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -1934,7 +2039,7 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/leetcode/leetcode_hard/</loc>
+    <loc>https://wangcy6.github.io/post/interview/leetcode/leetcode_hard/</loc>
     <lastmod>2020-06-10T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -2410,7 +2515,7 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/leetcode/%E6%B1%BD%E6%B0%B4%E7%93%B6/</loc>
+    <loc>https://wangcy6.github.io/post/interview/leetcode/%E6%B1%BD%E6%B0%B4%E7%93%B6/</loc>
     <lastmod>2019-10-10T17:02:43+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -2431,25 +2536,7 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/11/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://wangcy6.github.io/post/2020/file/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangcy6.github.io/post/2024-10-19/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangcy6.github.io/post/2025-04-03/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -2461,19 +2548,19 @@
   </url>
   
   <url>
+    <loc>https://wangcy6.github.io/post/future_for_ai/2025/%E6%9C%AA%E5%91%BD%E5%90%8D/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangcy6.github.io/post/interview/leetcode/leetcod_easy/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://wangcy6.github.io/post/%E6%9C%AA%E5%91%BD%E5%90%8D%E7%9C%8B%E6%9D%BF-1/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangcy6.github.io/post/%E6%9C%AA%E5%91%BD%E5%90%8D%E7%9C%8B%E6%9D%BF/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangcy6.github.io/post/leetcode/leetcod_easy/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -2485,13 +2572,13 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days2_query/</loc>
+    <loc>https://wangcy6.github.io/post/storage/tidb/2024/rust_for_tikv_days2_query/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/tidb/2024/rust_for_tikv_days3_read/</loc>
+    <loc>https://wangcy6.github.io/post/storage/tidb/2024/rust_for_tikv_days3_read/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
