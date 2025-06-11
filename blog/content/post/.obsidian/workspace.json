@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "habit/2025/20250514.md",
+                "file": "interview/interviewSystemDesgin/2025/day10-.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "20250514"
+              "title": "day10-"
             }
           }
         ]
@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "动力",
+                "query": "kind",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "habit/2025/20250514.md",
+                "file": "interview/interviewSystemDesgin/2025/day10-.md",
                 "followCursor": true,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "20250514 的大纲"
+              "title": "day10- 的大纲"
             }
           },
           {
@@ -179,47 +179,52 @@
       "audio-recorder:开始/结束录音": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
       "obsidian-kanban:创建新看板": false,
-      "edge-tts:Read note aloud": false
+      "edge-tts:Read note aloud": false,
+      "workspaces:管理工作区布局": false
     }
   },
   "active": "c4d63e6f95801cee",
   "lastOpenFiles": [
-    "interview/leetcode/2025/day2-成为孩子榜样，为国争光.md",
-    "interview/job/1-2025-5- job.md",
-    "interview/leetcode/2025/template.md",
-    "interview/leetcode/2025/day1-.md",
-    "interview/leetcode/汽水瓶.md",
-    "interview/leetcode/leetcod_easy.md",
-    "interview/leetcode/leetcode_medium.md",
-    "interview/leetcode/leetcode_hard.md",
-    "interview/leetcode/leetcode_medium_mac.md",
-    "habit/2025/20250514.md",
-    "habit/2025/20250501-小王同学-如何让自我激励提升40%.md",
-    "habit/2025/2025-habit-health-get-up 1.md",
-    "interview/leetcode/array/01_what_is_contextos 1.md",
-    "interview/leetcode/template.md",
-    "interview/leetcode/array",
-    "interview/leetcode/2025",
-    "interview/interviewSystemDesgin/template 1.md",
-    "interview/interviewSystemDesgin/2025-05-29_v1.0_parll.md",
-    "interview/interviewSystemDesgin/2024_03_10_ai_weekly_01.md",
-    "interview/interviewSystemDesgin/2025-04-24-redis_slow.md",
-    "interview/interviewSystemDesgin/2024-11-10-build-my-appley-p1.md",
-    "interview/interviewSystemDesgin/2024-11-10-cppd-day1.md",
-    "interview/interviewSystemDesgin/2024-11-09-how-to-user-gdb.md",
-    "interview/interviewSystemDesgin/2024-03-06_readcode_ceph_threadpool.md",
-    "interview/interviewSystemDesgin/2024-03-03-11-rust-ai.md",
-    "interview/interviewSystemDesgin/2024-03-03-ask.md",
-    "interview/interviewSystemDesgin/2024-02-09-git-two-account.md",
-    "interview/leetcode",
-    "interview/job",
-    "interview/interviewSystemDesgin",
-    "interview",
-    "ai/draw",
+    "interview/tidb/2024/assets/image-20240716212941824.png",
+    "interview/tidb/2024/assets/fc085c98eab6512353e065778e3b4a8.png",
+    "interview/tidb/2024/assets/image-20240711143133472.png",
+    "interview/tidb/2022/assets/image-20230517201440168.png",
+    "interview/tidb/2025/成为leveldb 贡献者.md",
+    "interview/tidb/2025/rust_for_tikv_days4_ 1.md",
+    "interview/tidb/2024/rust_for_tikv_days4_.md",
+    "interview/tidb/2025/rust_for_tikv_Contributor.md",
+    "interview/tidb/2024/rust_for_tikv_days3_read.md",
+    "interview/tidb/2025/20230_05_05_tikv.md",
+    "interview/tidb/2024/rust_for_tikv_days2_query.md",
+    "interview/tidb/2024/rust_for_tikv_days1_gdb.md",
+    "interview/tidb/2024/make_tidb_day6-raft-rs.md",
+    "interview/tidb/2024/rust_for_tikv_days100_1.md",
+    "interview/tidb/2024/assets",
+    "interview/tidb/2022/tikv_day1.md",
+    "interview/tidb/2022/tidb_01.md",
+    "interview/tidb/2022/parse.md",
+    "interview/tidb/2022/mylabs.md",
+    "interview/tidb/2022/assets",
+    "interview/tidb/2022/01_2022_4_14_tiflsh_study.md",
+    "interview/tidb/2022/2022-1-19-Project2.md",
+    "interview/tidb/2025",
+    "interview/tidb/2024",
+    "interview/tidb/2022",
+    "interview/tidb",
+    "habit/2025/2025 年-6 月-起床目标.md",
+    "future_for_ai/python/01_how_to_install_python.md",
+    "future_for_ai/propmit/write.md",
+    "future_for_ai/github/2025-06-03-v1.0-chatlog.md",
+    "future_for_ai/github/template 1.md",
+    "future_for_ai/ContextOS/01_what_is_contextos.md",
+    "future_for_ai/draw/01-draw.md",
+    "future_for_ai/ContextOS/02-ContextOS 运营销售群-营销推广小程序.md",
+    "future_for_ai/2025/template.md",
+    "future_for_ai/python",
+    "future_for_ai/propmit",
+    "future_for_ai/github",
+    "future_for_ai/draw",
     "未命名.canvas",
-    "storage/tidb/2025",
-    "ai/2025",
-    "habit/2025",
     "01a54a8883cbf7b9c23401e4e6c7ffa.jpg",
     "Pasted image 20250323152954.png",
     "未命名 1.canvas",
