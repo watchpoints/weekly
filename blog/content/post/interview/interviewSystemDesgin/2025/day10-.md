@@ -1,5 +1,5 @@
 ---
-title: 面试官:io_uring 相比Linux AIO性能提高5%,为什么成为革命性技术？
+title: 面试官:io_uring 相比Linux AIO性能提高5%,为什么成为革命性技术（v1.0）？
 date: 2024-08-07
 description: do book
 draft: false
@@ -116,6 +116,20 @@ categories:
 | ​**​QEMU​**​        | 虚拟化磁盘 I/O    | `virtio-blk` 后端驱动集成 `io_uring`，加速虚拟机磁盘访问                                                                   | 虚拟机 I/O 吞吐量提升，延迟降低<br>                |
 
 
+### 2.1  看一段代码
+
+```
+https://github.com/axboe/liburing/tree/master/examples
+
+io_uring-test 这个程序使用 4 个 SQE，从输入文件中读取最多 16KB 数据。
+
+https://blog.csdn.net/baidu_15952103/article/details/109888362
+struct iovec定义了一个向量元素
+https://blog.csdn.net/winux/article/details/117590294
+
+```
+
+
 
 #### 一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题
 
@@ -151,21 +165,14 @@ epoll回调通知的是数据可以读取或者写入了，
 首先只能在DIO下使用，用不了pagecache；
 其次用户的数据地址空间起始地址和大小必须页大小对齐 
 
+
+--
+
+io_uring是Linux内核提供的一种新型异步I/O框架，旨在大幅提升系统处理I/O请求的效率和性能。liburing简化了这个复杂过程，让开发者可以更方便地利用这一先进技术。
+
 ####  二、 这个技术适用的场景。任何技术都有其适用的场景
 
 
-
-
-#### 三、技术的组成部分和关键点
-
-
-
-
-### 五、对比其他怎么实现的？
-
-
-
-## 2.2 执行任务
 
 ### 翻译 How io_uring and eBPF Will Revolutionize Programming in Linux
 
@@ -185,6 +192,112 @@ But it’s a sure revolution, one that most people haven’t noticed yet. That�
 
 ![单线程处理 ，一个io阻塞影响全部io](https://cdn.thenewstack.io/media/2020/04/91ed6951-costachart1.png)
 - 1.3 线程池方式
+
+ 异步 IO（AIO）
+
+前面提到，随着存储设备越来越快，主线程和 worker 线性之间的上下文切换开销占比越来越高。 现在市场上的一些设备，例如 [Intel Optane](https://pcper.com/2018/12/intels-optane-dc-persistent-memory-dimms-push-latency-closer-to-dram) ，**==延迟已经低到和上下文切换一个量级==**（微秒 `us`）。换个方式描述， 更能让我们感受到这种开销： **==上下文每切换一次，我们就少一次 dispatch I/O 的机会==**。
+
+因此，Linux **==2.6==** 内核引入了异步 I/O（asynchronous I/O）接口， 方便起见，本文简写为 `linux-aio`。AIO **==原理==**是很简单的：
+
+- 用户通过 `io_submit()` 提交 I/O 请求，
+- 过一会再调用 `io_getevents()` 来检查哪些 events 已经 ready 了。
+- 使程序员**==能编写完全异步的代码==**。
+
+近期，[Linux AIO 甚至支持了](https://lwn.net/Articles/742978/) `epoll()`：也就是说 不仅能提交 storage I/O 请求，还能提交网络 I/O 请求。照这样发展下去，linux-aio **==似乎能成为一个王者==**。但由于它糟糕的演进之路，这个愿望几乎不可能实现了。 我们从 **==Linus 标志性的激烈言辞中就能略窥一斑==**：
+
+_So I think this is ridiculously ugly.  
+所以我认为这太丑陋了。_
+
+Linux AIO 确实存在问题和限制：
+
+- Linux-aio only works for O_DIRECT files, rendering it virtually useless for normal, non-database applications.  
+    Linux-aio 仅适用于 O_DIRECT 文件，因此它对普通的非数据库应用程序几乎毫无用处。
+- The interface is not designed to be extensible. Although it is possible — we did extend it — every new addition is complex.  
+    该接口不是为可扩展的而设计的。尽管有可能 — 我们确实扩展了它 — 但每个新添加的内容都很复杂。
+- Although the interface is technically non-blocking, [there are many reasons that can lead it to blocking](https://lwn.net/Articles/724198/), often in ways that are impossible to predict.  
+    尽管该接口在技术上是非阻塞的，但有许多[原因可能导致它阻塞](https://lwn.net/Articles/724198/) ，而且通常是以无法预测的方式
+
+ 
+####  **What Is io_uring?**
+
+
+io_uring 来自资深内核开发者 Jens Axboe 的想法，
+他在 Linux I/O stack 领域颇有研究。
+
+随着设备越来越快， 
+**中断驱动（interrupt-driven）模式效率已经低于轮询模式 （polling for completions**）
+这也是高性能领域最常见的主题之一。
+
+io_uring 的基本逻辑与 linux-aio 是类似的：
+提供两个接口，
+一个将 I/O 请求提交到内核，
+一个从内核接收完成事件。 
+
+但随着开发深入，它逐渐变成了一个完全不同的接口：
+**设计者开始从源头思考 如何支持完全异步的操作**
+
+What Is io_uring?
+io_uring is the brainchild of Jens Axboe, 
+
+a seasoned kernel developer who has been involved in the Linux I/O stack for a while. 
+
+Mailing list archaeology tells us that this work started with a simple motivation: as devices get extremely fast, 
+
+interrupt-driven work is no longer as efficient as polling for completions 
+
+— a common theme that underlies the architecture of performance-oriented I/O systems.
+
+But as the work evolved, it grew into a radically different interface, conceived from the ground up to allow fully asynchronous operation.
+
+It’s a basic theory of operation is close to linux-aio: there is an interface to push work into the kernel, and another interface to retrieve completed work.
+
+
+But there are some crucial differences:  
+但是也有一些关键的区别
+
+- By design, the interfaces are designed to be truly asynchronous. With the right set of flags, it will never initiate any work in the system call context itself and will just queue work. This guarantees that the application will never block.  
+    根据设计，接口设计为真正的异步。使用正确的标志集，它永远不会在系统调用上下文本身中启动任何工作，而只会对工作进行排队。这保证了应用程序永远不会阻塞。
+- It works with any kind of I/O: it doesn’t matter if they are cached files, direct-access files, or even blocking sockets. That is right: because of its async-by-design nature, there is no need for poll+read/write to deal with sockets. One submits a blocking read, and once it is ready it will show up in the completion ring.  
+    它适用于任何类型的 I/O：无论它们是缓存文件、直接访问文件，甚至是阻塞套接字，都无关紧要。没错：由于其 async-by-design 性质，因此不需要 poll+read/write 来处理套接字。一个提交一个阻塞读取，一旦准备好，它就会显示在完成环中。
+- It is flexible and extensible: new opcodes are being added at a rate that leads us to believe that indeed soon it will grow to re-implement every single Linux system call.  
+    它是灵活且可扩展的：新作码的添加速度使我们相信，它确实很快就会发展到重新实现每一个 Linux 系统调用。
+
+1. 由于设计上就是异步的（async-by-design nature），因无需 poll+read/write 来处理 sockets==**。 只需提交一个阻塞式读（blocking read），请求完成之后，就会出现在 completion ring。
+    
+2. **==灵活、可扩展==**：基于 `io_uring` 甚至能重写（re-implement）Linux 的每个系统调用。
+
+d. io_uring 代码由 Jens Axboe 和 nvme 驱动维护者 Christoph Helwig 合作完成， 可以说是从立案阶段就有意识的与nvme驱动层紧密联动；与nvme高度匹配。
+
+
+The application, whenever it wants to check whether work is ready or not, just looks at the cqe ring buffer and consumes entries if they are ready. There is no need to go to the kernel to consume those entries.
+
+
+面向未来的Linux异步IO引擎：io-uring
+Jens Axboe发布了一篇名为《Efficient IO with io_uring》文档，对io_uring进行了介绍。首先，他简述了Linux的IO发展历程，总结了当前Linux的原生异步IO接口（AIO）的局限，描述了io_uring易用、效率高等优势，并对io_uring的实现进行了概述。
+
+io_uring 实例可工作在三种模式：
+
+1. **==中断驱动模式==**（interrupt driven）
+2. **==轮询模式==**（polled）
+3. **==内核轮询模式==**（kernel polled）
+
+
+
+#### 三、技术的组成部分和关键点
+
+它从根本上改变了 Linux 应用程序的设计方式：它们不是在需要时发出系统调用的代码流，必须考虑文件是否准备就绪，而是自然而然地成为一个事件循环，不断向共享缓冲区添加内容，处理完成、冲洗、重复的先前条目。
+
+It fundamentally changes the way Linux applications are to be designed: Instead of a flow of code that issues syscalls when needed, that have to think about whether or not a file is ready, they naturally become an event-loop that constantly add things to a shared buffer, deals with the previous entries that completed, rinse, repeat.  
+
+
+
+### 五、对比其他怎么实现的？
+
+
+
+
+
+    
 ### 参考
 -  现代异步存储访问API探索：libaio、io_uring和SPDK
 - https://cloud.tencent.com/developer/article/1748032

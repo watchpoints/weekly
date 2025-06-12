@@ -13,12 +13,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "interview/interviewSystemDesgin/2025/day10-.md",
+                "file": "future_for_ai/2025/day5-100w 1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "day10-"
+              "title": "day5-100w 1"
+            }
+          },
+          {
+            "id": "10ab51fe1ee3a857",
+            "type": "leaf",
+            "state": {
+              "type": "webviewer",
+              "state": {
+                "url": "https://lwn.net/Articles/724198/",
+                "title": "Toward non-blocking asynchronous I/O [LWN.net]",
+                "mode": "webview"
+              },
+              "icon": "globe-2",
+              "title": "Toward non-blocking asynchronous I/O [LWN.net]"
             }
           }
         ]
@@ -142,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "interview/interviewSystemDesgin/2025/day10-.md",
+                "file": "future_for_ai/2025/day5-100w 1.md",
                 "followCursor": true,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "day10- 的大纲"
+              "title": "day5-100w 1 的大纲"
             }
           },
           {
@@ -185,6 +199,12 @@
   },
   "active": "c4d63e6f95801cee",
   "lastOpenFiles": [
+    "interview/interviewSystemDesgin/2025/day10-.md",
+    "future_for_ai/2025/day5-100w 1.md",
+    "interview/RockDB/template 1.md",
+    "interview/RockDB",
+    "interview/c++/2025-4-29-Interview_pointer.md",
+    "interview/c++",
     "interview/tidb/2024/assets/image-20240716212941824.png",
     "interview/tidb/2024/assets/fc085c98eab6512353e065778e3b4a8.png",
     "interview/tidb/2024/assets/image-20240711143133472.png",
@@ -217,13 +237,8 @@
     "future_for_ai/github/2025-06-03-v1.0-chatlog.md",
     "future_for_ai/github/template 1.md",
     "future_for_ai/ContextOS/01_what_is_contextos.md",
-    "future_for_ai/draw/01-draw.md",
-    "future_for_ai/ContextOS/02-ContextOS 运营销售群-营销推广小程序.md",
-    "future_for_ai/2025/template.md",
     "future_for_ai/python",
     "future_for_ai/propmit",
-    "future_for_ai/github",
-    "future_for_ai/draw",
     "未命名.canvas",
     "01a54a8883cbf7b9c23401e4e6c7ffa.jpg",
     "Pasted image 20250323152954.png",
