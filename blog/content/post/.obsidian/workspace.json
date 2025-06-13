@@ -13,26 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "future_for_ai/2025/day5-100w 1.md",
+                "file": "habit/2025/只管去做周记(第四期）.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "day5-100w 1"
-            }
-          },
-          {
-            "id": "10ab51fe1ee3a857",
-            "type": "leaf",
-            "state": {
-              "type": "webviewer",
-              "state": {
-                "url": "https://lwn.net/Articles/724198/",
-                "title": "Toward non-blocking asynchronous I/O [LWN.net]",
-                "mode": "webview"
-              },
-              "icon": "globe-2",
-              "title": "Toward non-blocking asynchronous I/O [LWN.net]"
+              "title": "只管去做周记(第四期）"
             }
           }
         ]
@@ -156,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "future_for_ai/2025/day5-100w 1.md",
+                "file": "habit/2025/只管去做周记(第四期）.md",
                 "followCursor": true,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "day5-100w 1 的大纲"
+              "title": "只管去做周记(第四期） 的大纲"
             }
           },
           {
@@ -199,8 +185,15 @@
   },
   "active": "c4d63e6f95801cee",
   "lastOpenFiles": [
+    "habit/2024/flomo卡片笔记.lnk",
+    "future_for_ai/2025/day5-100w-企培.md",
+    "future_for_ai/2025/day5-100w-编程.md",
+    "future_for_ai/2025/template.md",
+    "future_for_ai/2025/day5-100w-代写.md",
+    "interview/2025-4-25_tcp_close.md",
+    "interview/interviewSystemDesgin/经典面试题：从大目录中如何查询一个文件.md",
+    "interview/interviewSystemDesgin/template.md",
     "interview/interviewSystemDesgin/2025/day10-.md",
-    "future_for_ai/2025/day5-100w 1.md",
     "interview/RockDB/template 1.md",
     "interview/RockDB",
     "interview/c++/2025-4-29-Interview_pointer.md",
@@ -226,17 +219,10 @@
     "interview/tidb/2022/mylabs.md",
     "interview/tidb/2022/assets",
     "interview/tidb/2022/01_2022_4_14_tiflsh_study.md",
-    "interview/tidb/2022/2022-1-19-Project2.md",
     "interview/tidb/2025",
     "interview/tidb/2024",
     "interview/tidb/2022",
     "interview/tidb",
-    "habit/2025/2025 年-6 月-起床目标.md",
-    "future_for_ai/python/01_how_to_install_python.md",
-    "future_for_ai/propmit/write.md",
-    "future_for_ai/github/2025-06-03-v1.0-chatlog.md",
-    "future_for_ai/github/template 1.md",
-    "future_for_ai/ContextOS/01_what_is_contextos.md",
     "future_for_ai/python",
     "future_for_ai/propmit",
     "未命名.canvas",
