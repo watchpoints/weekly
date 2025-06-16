@@ -100,8 +100,8 @@ https://mp.weixin.qq.com/s/qIYXDoIqILMJlRewHDkeaA
 
 
 
-欢迎评论区留下你观点和看法
-您的鼓励 将是我最大的写作动力！
+### 最动人的作品，为自己而写，刚刚好打动别人
+
 
 
 我在寻找一位积极上进的小伙伴，
