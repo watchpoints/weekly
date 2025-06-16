@@ -11,10 +11,14 @@
             "id": "e7a7b303c61786dc",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "blog/content/post/habit/2025/只管去做周记(第四期）.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "只管去做周记(第四期）"
             }
           }
         ]
@@ -134,9 +138,11 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {},
+              "state": {
+                "file": "blog/content/post/habit/2025/只管去做周记(第四期）.md"
+              },
               "icon": "lucide-list",
-              "title": "大纲"
+              "title": "只管去做周记(第四期） 的大纲"
             }
           },
           {
