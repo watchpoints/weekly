@@ -348,3 +348,18 @@ It fundamentally changes the way Linux applications are to be designed: Instead 
 
 
 
+## 
+
+
+龙蜥白皮书精选：利用 io_uring 提升数据库系统性能
+https://developer.aliyun.com/article/1225797
+
+相比用户态框架SPDK，io_uring 可复用 Linux 内核的标准驱动，无需额外的用户态驱动开发，应用场景更通用，编程接口更友好
+
+传统的 IO 软件栈已经无法完全释放出高性能存储设备的性能，高性能 IO 栈是当前存储领域重点研究的课题之一，代表性的如用户态方案 SPDK，以及标准的内核态方案 io_uring。
+
+Linux 社区从零开始设计一种全新的异步 IO 框架 io_uring。io_uring 为了避免在提交和完成事件中的内存拷贝，设计了一对共享的 ring buffer 用于应用程序和内核之间的通信。该设计带来的好处有：
+
+- 提交、完成请求时无需应用和内核之间的内存拷贝。
+- 使用 SQPOLL 高级特性时，应用程序无需系统调用。
+- 无锁操作，用 Memory Ordering 实现同步等。
