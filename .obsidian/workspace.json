@@ -11,10 +11,14 @@
             "id": "e7a7b303c61786dc",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "blog/content/post/habit/2025/只管去做周记(第四期）.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "只管去做周记(第四期）"
             }
           }
         ]
@@ -134,9 +138,11 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {},
+              "state": {
+                "file": "blog/content/post/habit/2025/只管去做周记(第四期）.md"
+              },
               "icon": "lucide-list",
-              "title": "大纲"
+              "title": "只管去做周记(第四期） 的大纲"
             }
           },
           {
@@ -189,32 +195,34 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
-    "blog/content/post/future_for_ai/2025/day5-100w.md",
-    "blog/content/post/habit/2025/只管去做周记(第四期）.md",
-    "blog/content/post/habit/2025/20250514.md",
     "blog/content/post/habit/2025/只管去做周记（第3期）.md",
+    "blog/content/post/habit/2025/只管去做周记(第四期）.md",
+    "blog/content/post/future_for_ai/Task/template 1.md",
     "blog/content/post/habit/2025/2025 年-6 月-起床目标.md",
-    "blog/content/post/habit/2025/2025-habit-health-get-up 1.md",
-    "blog/content/post/habit/2025/20250501-小王同学-如何让自我激励提升40%.md",
-    "blog/content/post/future_for_ai/2025/template.md",
-    "().md",
-    "blog/content/post/future_for_ai/python/01_how_to_install_python.md",
-    "blog/content/post/interview/leetcode/2025/template.md",
-    "blog/content/post/interview/leetcode/2025/day2-成为孩子榜样，为国争光.md",
-    "blog/content/post/oceanbase/2024/01-2024-06-18-ob_study1.md",
-    "blog/content/post/interview/08-thread local.md",
-    "blog/content/post/ARTS/2022/1.md",
-    "blog/content/post/liunx/2025/10_interview_design_performance.md",
-    "blog/content/post/ARTS/2_ARTS_2021_18_weekly.md",
-    "blog/content/post/interview/interviewSystemDesgin/2025-05-30-Crimson.md",
-    "blog/content/post/future_for_ai/01_how_to_quickly_submit_resumes.md",
-    "blog/content/post/future_for_ai/github/2025-06-03-v1.0-chatlog.md",
-    "blog/content/post/future_for_ai/ContextOS/02-ContextOS 运营销售群-营销推广小程序.md",
-    "blog/content/post/future_for_ai/ContextOS/01_what_is_contextos.md",
     "blog/content/post/future_for_ai/template.md",
-    "blog/content/post/future_for_ai/github/template 1.md",
+    "blog/content/post/future_for_ai/04-net-web-.md",
+    "blog/content/post/future_for_ai/Task",
+    "blog/content/post/future_for_ai/2025/day5-100w-编程.md",
+    "blog/content/post/future_for_ai/2025/day5-100w-代写.md",
+    "blog/content/post/future_for_ai/2025/day5-100w-企培.md",
+    "blog/content/post/future_for_ai/2025/成为讲师 2025.md",
+    "blog/content/post/future_for_ai/2025/template.md",
+    "blog/content/post/interview/interviewSystemDesgin/2025/day10-第二次面试复盘（2).md",
+    "blog/content/post/interview/interviewSystemDesgin/2025/day10-第二次面试复盘（1).md",
+    "blog/content/post/future_for_ai/propmit/write.md",
+    "blog/content/post/interview/interviewSystemDesgin/template.md",
+    "blog/content/post/future_for_ai/github/2025-06-03-v1.0-chatlog.md",
+    "blog/content/post/future_for_ai/2025/2025-05-03-contestos-window.md",
+    "blog/content/post/book/2025/book1-2025-5-cpu.md",
+    "blog/content/post/2021/01_Rocksdb.md",
+    "blog/content/post/oceanbase/2024/day10_paxos_practise.md",
+    "blog/content/post/book/book_thingin_c++.md",
+    "blog/content/post/interview/interviewSystemDesgin/经典面试题：从大目录中如何查询一个文件.md",
+    "xmind/深入理解 Linux.xmind",
     "blog/content/post/interview/template.md",
-    "blog/content/post/future_for_ai/2025/05_draw_pic.md",
+    "blog/content/post/interview/5-2025-05-14-3fs-ObjectPool.md",
+    "blog/content/post/habit/2025/20250514.md",
+    "blog/content/post/habit/2025/2025-habit-health-get-up 1.md",
     "blog/content/post/future_for_ai/github",
     "blog/content/post/interview/c++",
     "blog/content/post/interview/RockDB",
@@ -223,8 +231,6 @@
     "blog/public/page/57/index.html",
     "blog/public/page/57",
     "blog/public/page/56/index.html",
-    "blog/public/page/56",
-    "blog/public/post/interview/5-2025-05-14-3fs-ObjectPool/index.html",
     "blog/public/post/storage/tidb/2022/assets/image-20230517201440168.png",
     "blog/public/post/storage/tidb/2024/assets/image-20240716212941824.png",
     "blog/public/post/storage/tidb/2024/assets/image-20240711143133472.png",
