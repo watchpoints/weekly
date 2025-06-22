@@ -16,7 +16,17 @@ https://mp.weixin.qq.com/s/qIYXDoIqILMJlRewHDkeaA
 ><font color="#c0504d">文末有福利，先到先得</font>
 
 
+title: 面试官：2分钟说出指针和引用的区别
 
+description: 从青铜到王者 大厂面试拆解--c++基础 第2篇。
+
+tags: 深入理解c++ 面试之美
+
+date: 2025-04-16
+
+image: https://cdn.pixabay.com/photo/2021/08/01/13/10/zakynthos-6514351_1280.jpg
+
+layout: separate
 
 
 
