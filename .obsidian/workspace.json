@@ -52,7 +52,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": " ",
+                "query": "boot",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -77,7 +77,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 342.51103591918945
+    "width": 426.51103591918945
   },
   "right": {
     "id": "cce87191b89a9608",
@@ -170,7 +170,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 453.5
+    "width": 395.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -195,6 +195,18 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "blog/content/post/2024/2024_03_10_ai_weekly_01.md",
+    "blog/content/post/interview/c++/c++_weekly_EP01_string_view.md",
+    "blog/content/post/future_for_ai/01-提示词/写作类.md",
+    "blog/content/post/future_for_ai/2025/day5-100w-编程.md",
+    "blog/content/post/future_for_ai/2025/day5-100w-代写.md",
+    "blog/content/post/future_for_ai/02-短视频/2025-6月一鱼多吃.md",
+    "blog/content/post/interview/template.md",
+    "blog/content/post/liunx/2025/template.md",
+    "Excalidraw/Drawing 2025-06-23 20.39.15.excalidraw.md",
+    "Excalidraw",
+    "blog/content/post/habit/2025/只管去做周记(第5期）.md",
+    "blog/content/post/habit/2025/2025 年-6 月-起床目标.md",
     "blog/public/page/64/index.html",
     "blog/public/page/64",
     "blog/public/post/interview/c++/c++_weekly_EP01_string_view/index.html",
@@ -204,21 +216,13 @@
     "blog/public/post/future_for_ai/01-提示词",
     "blog/public/post/future_for_ai/02-短视频/2025-6月/index.html",
     "blog/public/post/future_for_ai/02-短视频/2025-6月",
-    "blog/public/post/future_for_ai/02-短视频",
-    "xmind/知识地图--分布式存储.xmind",
-    "blog/content/post/interview/template.md",
     "blog/content/post/interview/写作流程拆分.md",
-    "blog/content/post/habit/2025/只管去做周记(第5期）.md",
     "blog/content/post/habit/2025/只管去做周记(第四期）.md",
-    "blog/content/post/interview/c++/c++_weekly_EP01_string_view.md",
     "blog/content/post/interview/c++/day3-google-cloud-crash.md",
     "blog/content/post/book/book_thingin_c++.md",
-    "blog/content/post/future_for_ai/02-短视频/2025-6月.md",
     "blog/content/post/future_for_ai/01-action-2025/template 1.md",
-    "blog/content/post/future_for_ai/01-提示词/写作类.md",
     "blog/content/post/2021/01_Rocksdb.md",
     "blog/content/post/future_for_ai/2025/05-20250522-small-porject.md",
-    "blog/content/post/future_for_ai/2025/day5-100w-编程.md",
     "blog/content/post/future_for_ai/01-action-2025/AI代写SOP--简历制作.md",
     "blog/content/post/future_for_ai/01-action-2025/微信公共号写作流程.md",
     "blog/content/post/future_for_ai/2025/day5-100w-企培.md",
@@ -228,11 +232,7 @@
     "blog/content/post/interview/job/1-2025-5- job.md",
     "blog/content/post/interview/c++/2025-4-29-Interview_pointer.md",
     "blog/content/post/interview/c++/day2-Interview_pointer 1.md",
-    "blog/content/post/interview/card/未命名.md",
-    "blog/content/post/interview/RockDB/day1-3fs-DeepSeek 3FS  io_uring.md",
     "blog/content/post/Pasted Image 20250613103540_367.svg",
-    "blog/content/post/Excalidraw/Drawing 2025-06-13 09.41.36.excalidraw.md",
-    "blog/content/post/Excalidraw/Drawing 2025-06-13 09.40.47.excalidraw.md",
     "blog/public/post/interview/tidb/2024/assets/image-20240716212941824.png",
     "blog/public/post/interview/tidb/2024/assets/image-20240711143133472.png",
     "blog/public/post/interview/tidb/2024/assets/fc085c98eab6512353e065778e3b4a8.png",
