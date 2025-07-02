@@ -1,5 +1,5 @@
 ---
-title: 一分钟讲透:面试官为什么爱问c++新特性之std::string_view
+title: 一道面试题关于malloc的面试题
 date: 2025-06-20
 description: do book
 draft: false
@@ -12,14 +12,14 @@ categories:
 https://docs.qq.com/aio/DY3htdHJNSXZPdmV3?AIGenerate=1&p=9mb09rdApYUe9rSddYKjV5
 
 #知识地图 #最佳实践 #CPP17
+https://docs.qq.com/aio/DY3htdHJNSXZPdmV3?AIGenerate=1&p=9mb09rdApYUe9rSddYKjV5
 
-
+https://moss.cs.iit.edu/cs351/slides/slides-malloc.pdf?utm_source=chatgpt.com
 👋 各位老师好（老师是山东对人的一个尊称，就像称呼帅哥美女一样）
 
  C++周刊 （c++ weekly）第一期 EP01 开始了
-
-
-
+https://www.elecfans.com/d/2284192.html
+malloc 的主要问题是：**如何复用空间、减少系统调用、管理碎片、保持性能。**
 ## 哪些功能
 
 ## 主要矛盾
@@ -47,7 +47,7 @@ https://docs.qq.com/aio/DY3htdHJNSXZPdmV3?AIGenerate=1&p=9mb09rdApYUe9rSddYKjV5
 
 一起参与**神奇早起 30 天改变人生计划**，发展个人事业，不妨 试试
 
-  
+	  
 
  1️⃣关注公众号:后端开发成长指南(回复"面经"获取）获取过去我**全部面试录音**和大厂面试复盘攻略
 
