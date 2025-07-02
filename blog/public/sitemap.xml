@@ -2,13 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://wangcy6.github.io/post/interview/c&#43;&#43;/c&#43;&#43;_weekly_EP01_string_view/</loc>
-    <lastmod>2025-06-20T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://wangcy6.github.io/categories/</loc>
     <lastmod>2025-06-20T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -31,6 +24,13 @@
   
   <url>
     <loc>https://wangcy6.github.io/</loc>
+    <lastmod>2025-06-20T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangcy6.github.io/post/interview/c&#43;&#43;/c&#43;&#43;_weekly_EP01_string_view/</loc>
     <lastmod>2025-06-20T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -520,7 +520,7 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/future_for_ai/02-%E7%9F%AD%E8%A7%86%E9%A2%91/2025-6%E6%9C%88/</loc>
+    <loc>https://wangcy6.github.io/post/future_for_ai/02-%E7%9F%AD%E8%A7%86%E9%A2%91/2025-6%E6%9C%88%E4%B8%80%E9%B1%BC%E5%A4%9A%E5%90%83/</loc>
     <lastmod>2025-04-12T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

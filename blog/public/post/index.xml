@@ -8,12 +8,12 @@
     <language>zh-cn</language>
     <lastBuildDate>Fri, 20 Jun 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>c&#43;&#43;周刊（c&#43;&#43; weekly):Ep01 - std::string_view</title>
+      <title>一分钟讲透:面试官为什么爱问c&#43;&#43;新特性之std::string_view</title>
       <link>https://wangcy6.github.io/post/interview/c&#43;&#43;/c&#43;&#43;_weekly_EP01_string_view/</link>
       <pubDate>Fri, 20 Jun 2025 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/interview/c&#43;&#43;/c&#43;&#43;_weekly_EP01_string_view/</guid>
-      <description>点击蓝色关注。 文末有福利，先到先得 #知识地图 #最佳实践 #CPP17 1. 什么是string_view？ std::string_view` is a C++17 library type that provides a lightweight, non-owning reference to a sequence of characters C++17中我们可</description>
+      <description>#知识地图 #最佳实践 #CPP17 👋 各位老师好（老师是山东对人的一个尊称，就像称呼帅哥美女一样） C++周刊 （c++ weekly）第一期 EP01 开始了 主题： 今天</description>
     </item>
     
     <item>
@@ -166,7 +166,7 @@
       <pubDate>Fri, 09 May 2025 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/future_for_ai/2025/day5-100w-%E7%BC%96%E7%A8%8B/</guid>
-      <description>各位老师好， 我是007 今天是 2025年6月12日 每天定投15分钟 实现百万梦想的第12天（2025 年 6 月 1 日） 课程表 Day6/21 AI编程行动营 回看昨天视</description>
+      <description>各位老师好， 我是007 今天是 2025年6月12日 每天定投15分钟 实现百万梦想的第12天（2025 年 6 月 1 日） AI 编程 https://breakout.findyiai.com/action https://breakout.findyiai.com/details/26d07f1b-acac-4f81-8daf-525922fbd461/3e6bca5e-e149-4fef-a3d4-06fc43c01306 课程表 Day6/21 AI编程行动营</description>
     </item>
     
     <item>
@@ -486,11 +486,11 @@
     
     <item>
       <title>成为讲师：通过短视频锻炼自己表达能力</title>
-      <link>https://wangcy6.github.io/post/future_for_ai/02-%E7%9F%AD%E8%A7%86%E9%A2%91/2025-6%E6%9C%88/</link>
+      <link>https://wangcy6.github.io/post/future_for_ai/02-%E7%9F%AD%E8%A7%86%E9%A2%91/2025-6%E6%9C%88%E4%B8%80%E9%B1%BC%E5%A4%9A%E5%90%83/</link>
       <pubDate>Sat, 12 Apr 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://wangcy6.github.io/post/future_for_ai/02-%E7%9F%AD%E8%A7%86%E9%A2%91/2025-6%E6%9C%88/</guid>
-      <description>功能1：youtube下载到模仿 步骤1.1 ： 1 2 3 4 yt-dlp -F &amp;#34;https://www.youtube.com/watch?v=E_AFbnsPBWk&amp;#34; yt-dlp -f 609+ 140 &amp;#34;https://www.youtube.com/watch?v=9VYKAv-43dc&amp;#34;</description>
+      <guid>https://wangcy6.github.io/post/future_for_ai/02-%E7%9F%AD%E8%A7%86%E9%A2%91/2025-6%E6%9C%88%E4%B8%80%E9%B1%BC%E5%A4%9A%E5%90%83/</guid>
+      <description>功能1：youtube下载到模仿 步骤1.1 ： 1 2 3 4 yt-dlp -F &amp;#34;https://www.youtube.com/watch?v=E_AFbnsPBWk&amp;#34; yt-dlp -f 609+ 140 &amp;#34;https://www.youtube.com/watch?v=9VYKAv-43dc&amp;#34; 电脑录制中视频 工具 蓝牙耳机 录制视频：QuickTime Player Au2025</description>
     </item>
     
     <item>
