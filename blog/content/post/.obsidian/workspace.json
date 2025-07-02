@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "interview/c++/c++_weekly_EP02_string_mallolc过程.md",
+                "file": "future_for_ai/01-提示词/写作类.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "c++_weekly_EP02_string_mallolc过程"
+              "title": "写作类"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "interview/c++/c++_weekly_EP02_string_mallolc过程.md",
+                "file": "future_for_ai/01-提示词/写作类.md",
                 "followCursor": true,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "c++_weekly_EP02_string_mallolc过程 的大纲"
+              "title": "写作类 的大纲"
             }
           },
           {
@@ -186,16 +186,18 @@
   },
   "active": "887e9a9094e31221",
   "lastOpenFiles": [
+    "interview/c++/day3-google-cloud-crash.md",
+    "interview/template.md",
+    "future_for_ai/template.md",
+    "future_for_ai/01-提示词/写作类.md",
     "interview/c++/c++_weekly_EP02_string_mallolc过程.md",
     "interview/c++/c++_weekly_EP01_string_view.md",
     "habit/2025/只管去做周记(第5期)_windos.md",
     "habit/2025/只管去做周记(第5期）.md",
     "interview/c++/c++_weekly_EP02_string_view 1.md",
-    "future_for_ai/01-提示词/写作类.md",
     "interview/c++/day2-Interview_pointer 1.md",
     "interview/c++/template 1.md",
     "interview/job/day2-company.md",
-    "interview/c++/day3-google-cloud-crash.md",
     "future_for_ai/02-短视频/2025-6月一鱼多吃.md",
     "future_for_ai/02-短视频",
     "future_for_ai/01-提示词",
@@ -212,10 +214,8 @@
     "interview/c++/2025-4-29-Interview_pointer.md",
     "interview/2025-4-26_spin_lock_temp.md",
     "future_for_ai/2025/day5-100w-代写.md",
-    "interview/template.md",
     "future_for_ai/01-action-2025/template 1.md",
     "habit/2025/只管去做周记(第四期）.md",
-    "future_for_ai/2025/04_how_to_push_goods.md",
     "future_for_ai/01-action-2025",
     "future_for_ai/未命名",
     "Pasted Image 20250613103540_367.svg",
