@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.83.1 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
 <link rel="canonical" href="https://wangcy6.github.io/post/2020/leveldb/" />
@@ -41,14 +41,17 @@
 <meta property="og:title" content="庖丁解牛之LevelDB" />
 <meta property="og:description" content="庖丁解牛之LevelDB" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://wangcy6.github.io/post/2020/leveldb/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-06-20T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2021-06-20T00:00:00&#43;00:00" />
-
+<meta property="og:url" content="https://wangcy6.github.io/post/2020/leveldb/" />
+<meta property="article:published_time" content="2021-06-20T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-06-20T00:00:00+00:00" />
 <meta itemprop="name" content="庖丁解牛之LevelDB">
-<meta itemprop="description" content="庖丁解牛之LevelDB"><meta itemprop="datePublished" content="2021-06-20T00:00:00&#43;00:00" />
+<meta itemprop="description" content="庖丁解牛之LevelDB">
+<meta itemprop="datePublished" content="2021-06-20T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2021-06-20T00:00:00&#43;00:00" />
 <meta itemprop="wordCount" content="937">
+
+
+
 <meta itemprop="keywords" content="庖丁解牛," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="庖丁解牛之LevelDB"/>
 <meta name="twitter:description" content="庖丁解牛之LevelDB"/>
@@ -141,20 +144,20 @@
   <ul>
     <li><a href="#leveldb">LevelDB</a>
       <ul>
-        <li><a href="#一这个技术出现的背景初衷和要达到什么样的目标或是要解决什么样的问题">一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题</a></li>
-        <li><a href="#二这个技术的优势和劣势分别是什么">二、这个技术的优势和劣势分别是什么</a></li>
-        <li><a href="#三这个技术适用的场景任何技术都有其适用的场景离开了这个场景">三、这个技术适用的场景。任何技术都有其适用的场景，离开了这个场景</a></li>
-        <li><a href="#四技术的组成部分和关键点">四、技术的组成部分和关键点。</a></li>
-        <li><a href="#五技术的底层原理和关键实现">五、技术的底层原理和关键实现</a></li>
-        <li><a href="#六已有的实现和它之间的对比">六、已有的实现和它之间的对比</a></li>
+        <li><a href="#heading">一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题</a></li>
+        <li><a href="#heading-1">二、这个技术的优势和劣势分别是什么</a></li>
+        <li><a href="#heading-2">三、这个技术适用的场景。任何技术都有其适用的场景，离开了这个场景</a></li>
+        <li><a href="#heading-3">四、技术的组成部分和关键点。</a></li>
+        <li><a href="#heading-4">五、技术的底层原理和关键实现</a></li>
+        <li><a href="#heading-5">六、已有的实现和它之间的对比</a></li>
       </ul>
     </li>
   </ul>
 
   <ul>
-    <li><a href="#设计思路"><strong>设计思路</strong></a>
+    <li><a href="#heading-6">设计思路</a>
       <ul>
-        <li><a href="#从看文档开始httpsgithubcomgoogleleveldbblobmasterdocindexmd">从看文档开始：https://github.com/google/leveldb/blob/master/doc/index.md</a></li>
+        <li><a href="#httpsgithubcomgoogleleveldbblobmasterdocindexmd">从看文档开始：https://github.com/google/leveldb/blob/master/doc/index.md</a></li>
       </ul>
     </li>
   </ul>
@@ -170,12 +173,12 @@
       <h2 id="leveldb">LevelDB</h2>
 <p>LevelDB是Google传奇工程师Jeff Dean和Sanjay Ghemawat开源的KV存储引擎</p>
 <p>无论从设计还是代码上都可以用精致优雅来形容，非常值得细细品味。</p>
-<h3 id="一这个技术出现的背景初衷和要达到什么样的目标或是要解决什么样的问题">一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题</h3>
-<h3 id="二这个技术的优势和劣势分别是什么">二、这个技术的优势和劣势分别是什么</h3>
-<h3 id="三这个技术适用的场景任何技术都有其适用的场景离开了这个场景">三、这个技术适用的场景。任何技术都有其适用的场景，离开了这个场景</h3>
-<h3 id="四技术的组成部分和关键点">四、技术的组成部分和关键点。</h3>
-<h3 id="五技术的底层原理和关键实现">五、技术的底层原理和关键实现</h3>
-<h3 id="六已有的实现和它之间的对比">六、已有的实现和它之间的对比</h3>
+<h3 id="heading">一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题</h3>
+<h3 id="heading-1">二、这个技术的优势和劣势分别是什么</h3>
+<h3 id="heading-2">三、这个技术适用的场景。任何技术都有其适用的场景，离开了这个场景</h3>
+<h3 id="heading-3">四、技术的组成部分和关键点。</h3>
+<h3 id="heading-4">五、技术的底层原理和关键实现</h3>
+<h3 id="heading-5">六、已有的实现和它之间的对比</h3>
 <table>
 <thead>
 <tr>
@@ -210,11 +213,11 @@
 </tr>
 </tbody>
 </table>
-<h1 id="庖丁解leveldb之概览-todo任务执行中">庖丁解LevelDB之概览 【todo任务执行中】</h1>
+<h1 id="leveldb-todo">庖丁解LevelDB之概览 【todo任务执行中】</h1>
 <p>来呀：http://catkang.github.io/2017/01/07/leveldb-summary.html</p>
 <p>接下来就将用几篇博客来由表及里的介绍LevelDB的设计和代码细节。</p>
 <p>本文将从设计思路、整体结构、读写流程、压缩流程几个方面来进行介绍，从而能够对LevelDB有一个整体的感知。</p>
-<h2 id="设计思路"><strong>设计思路</strong></h2>
+<h2 id="heading-6"><strong>设计思路</strong></h2>
 <p>LevelDB的数据是存储在磁盘上的，采用LSM-Tree的结构实现。</p>
 <p>LSM-Tree将磁盘的随机写转化为顺序写，从而大大提高了写速度。</p>
 <p>为了做到这一点LSM-Tree的思路是将索引树结构拆成一大一小两颗树，较小的一个常驻内存，较大的一个持久化到磁盘，他们共同维护一个有序的key空间。</p>
@@ -234,7 +237,7 @@
 <pre class="chroma"><code class="language-fallback" data-lang="fallback">git clone --recurse-submodules https://github.com/google/leveldb.git
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="从看文档开始httpsgithubcomgoogleleveldbblobmasterdocindexmd">从看文档开始：https://github.com/google/leveldb/blob/master/doc/index.md</h3>
+</div><h3 id="httpsgithubcomgoogleleveldbblobmasterdocindexmd">从看文档开始：https://github.com/google/leveldb/blob/master/doc/index.md</h3>
 <ul>
 <li>如何读写操作的！！！</li>
 </ul>

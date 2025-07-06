@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.83.1 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
 <link rel="canonical" href="https://wangcy6.github.io/post/oceanbase/2011/day1_issue_oceanbase/" />
@@ -41,14 +41,17 @@
 <meta property="og:title" content="OceanBase开发者手册" />
 <meta property="og:description" content="OceanBase开发者手册" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://wangcy6.github.io/post/oceanbase/2011/day1_issue_oceanbase/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2022-02-23T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2022-02-23T00:00:00&#43;00:00" />
-
+<meta property="og:url" content="https://wangcy6.github.io/post/oceanbase/2011/day1_issue_oceanbase/" />
+<meta property="article:published_time" content="2022-02-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-02-23T00:00:00+00:00" />
 <meta itemprop="name" content="OceanBase开发者手册">
-<meta itemprop="description" content="OceanBase开发者手册"><meta itemprop="datePublished" content="2022-02-23T00:00:00&#43;00:00" />
+<meta itemprop="description" content="OceanBase开发者手册">
+<meta itemprop="datePublished" content="2022-02-23T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2022-02-23T00:00:00&#43;00:00" />
 <meta itemprop="wordCount" content="4558">
+
+
+
 <meta itemprop="keywords" content="OceanBase," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="OceanBase开发者手册"/>
 <meta name="twitter:description" content="OceanBase开发者手册"/>
@@ -139,20 +142,20 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#day1-阅读oceanbase开发者手册httpsgithubcomoceanbaseoceanbasedeveloper-manual">day1: 阅读：<a href="https://github.com/oceanbase/oceanbase#developer-manual">OceanBase开发者手册</a></a>
+    <li><a href="#day1-oceanbasehttpsgithubcomoceanbaseoceanbasedeveloper-manual">day1: 阅读：OceanBase开发者手册</a>
       <ul>
-        <li><a href="#11-开发环境说明极简版">1.1 开发环境说明(极简版)</a></li>
-        <li><a href="#12-macos-下使用-docker-搭建-centos-开发环境">1.2 macOS 下使用 Docker 搭建 centos 开发环境</a></li>
-        <li><a href="#13oceanbase开发者手册之二-如何设置ide开发环境done">1.3《OceanBase开发者手册》之二 如何设置IDE开发环境（done）</a></li>
+        <li><a href="#11-">1.1 开发环境说明(极简版)</a></li>
+        <li><a href="#12-macos--docker--centos-">1.2 macOS 下使用 Docker 搭建 centos 开发环境</a></li>
+        <li><a href="#13oceanbase-idedone">1.3《OceanBase开发者手册》之二 如何设置IDE开发环境（done）</a></li>
       </ul>
     </li>
-    <li><a href="#14-vscode设置">1.4 vscode设置</a>
+    <li><a href="#14-vscode">1.4 vscode设置</a>
       <ul>
-        <li><a href="#15-oceanbase开发者手册之三-如何成为oceanbase-contributorhttpsgithubcomoceanbaseoceanbasewikihow_to_contribute">1.5 <a href="https://github.com/oceanbase/oceanbase/wiki/how_to_contribute">《OceanBase开发者手册》之三 如何成为OceanBase Contributor</a></a></li>
-        <li><a href="#16-oceanbase开发者手册之五-如何debug-oceanbasehttpsgithubcomoceanbaseoceanbasewikihow_to_debug">1.6 <a href="https://github.com/oceanbase/oceanbase/wiki/how_to_debug">《OceanBase开发者手册》之五 如何debug OceanBase</a></a></li>
+        <li><a href="#15-oceanbase-oceanbase-contributorhttpsgithubcomoceanbaseoceanbasewikihow-to-contribute">1.5 《OceanBase开发者手册》之三 如何成为OceanBase Contributor</a></li>
+        <li><a href="#16-oceanbase-debug-oceanbasehttpsgithubcomoceanbaseoceanbasewikihow-to-debug">1.6 《OceanBase开发者手册》之五 如何debug OceanBase</a></li>
       </ul>
     </li>
-    <li><a href="#day2-阅读-roadmap">day2: 阅读 Roadmap</a></li>
+    <li><a href="#day2--roadmap">day2: 阅读 Roadmap</a></li>
   </ul>
 </nav>
   </div>
@@ -193,7 +196,7 @@
 </tbody>
 </table>
 <p>blog地址：https://wangcy6.github.io/post/oceanbase/day1_issue_oceanbase/</p>
-<h2 id="day1-阅读oceanbase开发者手册httpsgithubcomoceanbaseoceanbasedeveloper-manual">day1: 阅读：<a href="https://github.com/oceanbase/oceanbase#developer-manual">OceanBase开发者手册</a></h2>
+<h2 id="day1-oceanbasehttpsgithubcomoceanbaseoceanbasedeveloper-manual">day1: 阅读：<a href="https://github.com/oceanbase/oceanbase#developer-manual">OceanBase开发者手册</a></h2>
 <p>使用VSCode 远程链接功能阅读OceanBase代码</p>
 <p><img src="https://s2.loli.net/2022/02/23/qgrFLh3ZSbD7zXv.png" alt="image.png"></p>
 <p><strong>我们经常遇到两个问题：</strong></p>
@@ -208,7 +211,7 @@
 <li>对于平台依赖，以前的实践是 windows 下编辑，然后用 scp 或者其他同步工具，把代码同步到另外一台 Linux 下去编译，很麻烦；</li>
 </ol>
 <p><strong>怎么才能彻底解决它？</strong></p>
-<h3 id="11-开发环境说明极简版">1.1 开发环境说明(极简版)</h3>
+<h3 id="11-">1.1 开发环境说明(极简版)</h3>
 <ul>
 <li>
 <p>因为公司没有合适机器 4C12G ,上次偷偷使用一次导致服务器cpu利用过高被邮件告警，必须采取个人mac作为开发。</p>
@@ -245,7 +248,7 @@ https://hub.docker.com/r/obpilot/oceanbase-ce
 <p>小贴士：可以直接使用官方提供docker进行开发。</p>
 </blockquote>
 <p><a href="https://www.mdnice.com/writing/fdb7307bd3d44275963567191b93c742">实践练习一（必选）：OceanBase Docker 体验</a></p>
-<h3 id="12-macos-下使用-docker-搭建-centos-开发环境">1.2 macOS 下使用 Docker 搭建 centos 开发环境</h3>
+<h3 id="12-macos--docker--centos-">1.2 macOS 下使用 Docker 搭建 centos 开发环境</h3>
 <ul>
 <li>参考： <a href="https://github.com/oceanbase/oceanbase/wiki/how_to_build">《OceanBase开发者手册》之一 如何编译OceanBase源码</a></li>
 </ul>
@@ -409,18 +412,18 @@ docker run -d -p 10022:22 herong/centos7-ssh:latest /usr/sbin/sshd -D
 <blockquote>
 <p>遗留问题：将服务器目录与容器目录进行共享 这个可以设置。</p>
 </blockquote>
-<h3 id="13oceanbase开发者手册之二-如何设置ide开发环境done">1.3《OceanBase开发者手册》之二 如何设置IDE开发环境（done）</h3>
+<h3 id="13oceanbase-idedone">1.3《OceanBase开发者手册》之二 如何设置IDE开发环境（done）</h3>
 <ul>
 <li>vscode &ndash;已经下载完毕</li>
 <li>clang-format是clang（一个面向C系语言的轻量级编译器）中一个工具，主要负责代码的格式化和排版工作 &ndash;已经设置完毕。</li>
 <li>/Users/wangchuanyi/code/src/oceanbase/<a href="https://raw.githubusercontent.com/oceanbase/oceanbase/master/.clang-format">.clang-format</a> 已经存在不需要处理</li>
 </ul>
-<h2 id="14-vscode设置">1.4 vscode设置</h2>
+<h2 id="14-vscode">1.4 vscode设置</h2>
 <ul>
 <li><strong>vscode 远程连接主机主要是依赖于微软提供的插件 Remote-SSH。</strong></li>
 </ul>
 <p><img src="https://mmbiz.qpic.cn/mmbiz_png/4UtmXsuLoNfrjwr6vCeRTaL3kQLG1CZczQcITn3lW8brVQQav8ujicZuq2XKkSEbfkOcdTlsPuzCPHxnicPYic5vw/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt=""></p>
-<h3 id="15-oceanbase开发者手册之三-如何成为oceanbase-contributorhttpsgithubcomoceanbaseoceanbasewikihow_to_contribute">1.5 <a href="https://github.com/oceanbase/oceanbase/wiki/how_to_contribute">《OceanBase开发者手册》之三 如何成为OceanBase Contributor</a></h3>
+<h3 id="15-oceanbase-oceanbase-contributorhttpsgithubcomoceanbaseoceanbasewikihow-to-contribute">1.5 <a href="https://github.com/oceanbase/oceanbase/wiki/how_to_contribute">《OceanBase开发者手册》之三 如何成为OceanBase Contributor</a></h3>
 <blockquote>
 <p>如何去参与一个开源库的开发 提交doc 修改为例子</p>
 </blockquote>
@@ -476,7 +479,7 @@ ssh root@10.2.131.60 -p <span class="m">22</span> （宿主机器IP）
 <span class="c1">## 关联远程仓库，保证代码可以和远程更新和提交</span>
 git remote add oceanbase https://github.com/oceanbase/oceanbase.git
 git remote -v
-<span class="c1">#把远程仓库最新的代码及分支拉取一下 </span>
+<span class="c1">#把远程仓库最新的代码及分支拉取一下</span> 
 git fetch oceanbase 
 git merge oceanbase/master
 <span class="c1"># git merge 远程仓库的别名/分支名 （一般不这样做）</span>
@@ -509,7 +512,7 @@ https://github.com/oceanbase/oceanbase/issues/646 为例子 提交pr
 
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="16-oceanbase开发者手册之五-如何debug-oceanbasehttpsgithubcomoceanbaseoceanbasewikihow_to_debug">1.6 <a href="https://github.com/oceanbase/oceanbase/wiki/how_to_debug">《OceanBase开发者手册》之五 如何debug OceanBase</a></h3>
+</div><h3 id="16-oceanbase-debug-oceanbasehttpsgithubcomoceanbaseoceanbasewikihow-to-debug">1.6 <a href="https://github.com/oceanbase/oceanbase/wiki/how_to_debug">《OceanBase开发者手册》之五 如何debug OceanBase</a></h3>
 <ul>
 <li>1.6.1 准备工作 【开始 50】</li>
 </ul>
@@ -622,11 +625,11 @@ https://github.com/oceanbase/obdeploy
 Your server has at least <span class="m">8</span> GB of memory.
 Your server has at least <span class="m">2</span> CPU cores.
 
-RUN sh build.sh debug --init <span class="se">\
-</span><span class="se"></span>    <span class="o">&amp;&amp;</span> sh build.sh --make -j4 <span class="se">\
-</span><span class="se"></span>    <span class="o">&amp;&amp;</span> <span class="nb">cd</span> build_debug <span class="se">\
-</span><span class="se"></span>    <span class="o">&amp;&amp;</span> make <span class="nv">DESTDIR</span><span class="o">=</span>. install <span class="se">\
-</span><span class="se"></span>    <span class="o">&amp;&amp;</span> obd mirror create -n oceanbase-ce -V 100.0.0 -p ./usr/local -t <span class="nb">test</span> -f
+RUN sh build.sh debug --init <span class="se">\</span>
+    <span class="o">&amp;&amp;</span> sh build.sh --make -j4 <span class="se">\</span>
+    <span class="o">&amp;&amp;</span> <span class="nb">cd</span> build_debug <span class="se">\</span>
+    <span class="o">&amp;&amp;</span> make <span class="nv">DESTDIR</span><span class="o">=</span>. install <span class="se">\</span>
+    <span class="o">&amp;&amp;</span> obd mirror create -n oceanbase-ce -V 100.0.0 -p ./usr/local -t <span class="nb">test</span> -f
     
     
 docker <span class="nb">exec</span> -it oceanbase-ce bash
@@ -651,7 +654,7 @@ obclient -uroot@sys -h127.0.0.1 -P2881 oceanbase
 
 //
 observer program health check x
-<span class="o">[</span>2022-02-25 02:30:19.076440<span class="o">]</span> WARN  <span class="o">[</span>SHARE<span class="o">]</span> add_extra_config <span class="o">(</span>ob_common_config.cpp:100<span class="o">)</span> <span class="o">[</span>1476<span class="o">][</span>0<span class="o">][</span>Y0-0000000000000000<span class="o">]</span> <span class="o">[</span><span class="nv">lt</span><span class="o">=</span>20<span class="o">]</span> Invalid config, value out of range<span class="o">(</span><span class="nv">name</span><span class="o">=</span><span class="s2">&#34;memory_limit&#34;</span>, <span class="nv">value</span><span class="o">=</span><span class="s2">&#34;6G&#34;</span>, <span class="nv">ret</span><span class="o">=</span>-4147<span class="o">)</span>
+<span class="o">[</span>2022-02-25 02:30:19.076440<span class="o">]</span> WARN  <span class="o">[</span>SHARE<span class="o">]</span> add_extra_config <span class="o">(</span>ob_common_config.cpp:100<span class="o">)</span> <span class="o">[</span>1476<span class="o">]</span><span class="o">[</span>0<span class="o">]</span><span class="o">[</span>Y0-0000000000000000<span class="o">]</span> <span class="o">[</span><span class="nv">lt</span><span class="o">=</span>20<span class="o">]</span> Invalid config, value out of range<span class="o">(</span><span class="nv">name</span><span class="o">=</span><span class="s2">&#34;memory_limit&#34;</span>, <span class="nv">value</span><span class="o">=</span><span class="s2">&#34;6G&#34;</span>, <span class="nv">ret</span><span class="o">=</span>-4147<span class="o">)</span>
 
 const int64_t ObRunningModeConfig::MINI_MEM_LOWER <span class="o">=</span> 8L <span class="s">&lt;&lt; 30;
 </span><span class="s">const int64_t ObRunningModeConfig::MINI_MEM_UPPER = 16L &lt;&lt; 30</span><span class="p">;</span>
@@ -1122,7 +1125,7 @@ create table sex (sex bit(60) primary key,name bit(60)) partition by hash(sex) p
 <span class="n">make</span> <span class="o">-</span><span class="n">j</span> <span class="mi">4</span>
 <span class="p">.</span><span class="o">/</span><span class="n">run_tests</span><span class="p">.</span><span class="n">sh</span>
   
-<span class="err">整个过程</span><span class="p">,</span> <span class="err">需要</span><span class="mi">1</span><span class="err">个小时</span> <span class="err">太慢了。又优化吗？（</span><span class="n">mac不舍得</span> <span class="err">编译太慢，用其他</span><span class="n">liunx机器代替</span><span class="err">）</span>
+<span class="err">整</span><span class="err">个</span><span class="err">过</span><span class="err">程</span><span class="p">,</span> <span class="err">需</span><span class="err">要</span><span class="mi">1</span><span class="err">个</span><span class="err">小</span><span class="err">时</span> <span class="err">太</span><span class="err">慢</span><span class="err">了</span><span class="err">。</span><span class="err">又</span><span class="err">优</span><span class="err">化</span><span class="err">吗</span><span class="err">？</span><span class="err">（</span><span class="n">mac不舍得</span> <span class="err">编</span><span class="err">译</span><span class="err">太</span><span class="err">慢</span><span class="err">，</span><span class="err">用</span><span class="err">其</span><span class="err">他</span><span class="n">liunx机器代替</span><span class="err">）</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>三 、 结论</p>
@@ -1135,7 +1138,7 @@ create table sex (sex bit(60) primary key,name bit(60)) partition by hash(sex) p
 <p>更好的调试工具 clion 和gdb（界面） 这个做课下作业 没有尝试。后于遇到问题在尝试。</p>
 </li>
 </ul>
-<h2 id="day2-阅读-roadmap">day2: 阅读 Roadmap</h2>
+<h2 id="day2--roadmap">day2: 阅读 Roadmap</h2>
 <p><img src="https://github.com/oceanbase/oceanbase/wiki/images/roadmap.jpg" alt=""></p>
 <p>gdb 调试 observer</p>
 <p><img src="day1_issue_oceanbase.assets/ojGQeLh83bymEr9.png" alt="image.png"></p>

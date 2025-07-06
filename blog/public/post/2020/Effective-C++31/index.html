@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.83.1 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
 <link rel="canonical" href="https://wangcy6.github.io/post/2020/Effective-C&#43;&#43;31/" />
@@ -41,14 +41,17 @@
 <meta property="og:title" content="Item 31: Minimize compilation dependencies between files" />
 <meta property="og:description" content="Effective C&#43;&#43; 31：最小化文件之间的编译依赖 分享最实用的经验 ， 希望每一位来访的朋友都能有所收获！ Item 31: Minimize compilation dependencies between files. 曾听老师讲过，每天上班的第一件事就是下载" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://wangcy6.github.io/post/2020/Effective-C&#43;&#43;31/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2019-10-10T17:02:43&#43;08:00" />
-<meta property="article:modified_time" content="2019-10-10T17:02:43&#43;08:00" />
-
+<meta property="og:url" content="https://wangcy6.github.io/post/2020/Effective-C&#43;&#43;31/" />
+<meta property="article:published_time" content="2019-10-10T17:02:43+08:00" />
+<meta property="article:modified_time" content="2019-10-10T17:02:43+08:00" />
 <meta itemprop="name" content="Item 31: Minimize compilation dependencies between files">
-<meta itemprop="description" content="Effective C&#43;&#43; 31：最小化文件之间的编译依赖 分享最实用的经验 ， 希望每一位来访的朋友都能有所收获！ Item 31: Minimize compilation dependencies between files. 曾听老师讲过，每天上班的第一件事就是下载"><meta itemprop="datePublished" content="2019-10-10T17:02:43&#43;08:00" />
+<meta itemprop="description" content="Effective C&#43;&#43; 31：最小化文件之间的编译依赖 分享最实用的经验 ， 希望每一位来访的朋友都能有所收获！ Item 31: Minimize compilation dependencies between files. 曾听老师讲过，每天上班的第一件事就是下载">
+<meta itemprop="datePublished" content="2019-10-10T17:02:43&#43;08:00" />
 <meta itemprop="dateModified" content="2019-10-10T17:02:43&#43;08:00" />
 <meta itemprop="wordCount" content="2480">
+
+
+
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Item 31: Minimize compilation dependencies between files"/>
 <meta name="twitter:description" content="Effective C&#43;&#43; 31：最小化文件之间的编译依赖 分享最实用的经验 ， 希望每一位来访的朋友都能有所收获！ Item 31: Minimize compilation dependencies between files. 曾听老师讲过，每天上班的第一件事就是下载"/>
@@ -144,13 +147,13 @@
     <li>
       <ul>
         <li><a href="#item-31-minimize-compilation-dependencies-between-files">Item 31: Minimize compilation dependencies between files.</a></li>
-        <li><a href="#使用指针代替对象">使用指针代替对象</a></li>
-        <li><a href="#单独地提供声明">单独地提供声明</a></li>
-        <li><a href="#使用句柄类">使用句柄类</a></li>
-        <li><a href="#使用接口类">使用接口类</a></li>
-        <li><a href="#总结">总结</a></li>
-        <li><a href="#补充">补充</a></li>
-        <li><a href="#参考">参考</a></li>
+        <li><a href="#heading">使用指针代替对象</a></li>
+        <li><a href="#heading-1">单独地提供声明</a></li>
+        <li><a href="#heading-2">使用句柄类</a></li>
+        <li><a href="#heading-3">使用接口类</a></li>
+        <li><a href="#heading-4">总结</a></li>
+        <li><a href="#heading-5">补充</a></li>
+        <li><a href="#heading-6">参考</a></li>
       </ul>
     </li>
   </ul>
@@ -163,7 +166,7 @@
     </div>
   </div>
     <div class="post-content">
-      <h1 id="effective-c-31最小化文件之间的编译依赖">Effective C++ 31：最小化文件之间的编译依赖</h1>
+      <h1 id="effective-c-31">Effective C++ 31：最小化文件之间的编译依赖</h1>
 <blockquote>
 <p>分享最实用的经验 ， 希望每一位来访的朋友都能有所收获！</p>
 </blockquote>
@@ -188,13 +191,13 @@
 <pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">class</span> <span class="nc">Person</span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
     <span class="c1">// 外部接口
-</span><span class="c1"></span>    <span class="n">Person</span><span class="p">(</span><span class="k">const</span> <span class="n">string</span><span class="o">&amp;</span> <span class="n">name</span><span class="p">);</span>
-    <span class="n">string</span> <span class="nf">name</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+</span><span class="c1"></span>    <span class="n">Person</span><span class="p">(</span><span class="k">const</span> <span class="n">string</span><span class="o">&amp;</span> <span class="n">name</span><span class="p">)</span><span class="p">;</span>
+    <span class="n">string</span> <span class="nf">name</span><span class="p">(</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 <span class="k">private</span><span class="o">:</span>
     <span class="c1">// 内部实现
 </span><span class="c1"></span>    <span class="n">string</span> <span class="n">_name</span><span class="p">;</span>
     <span class="n">Date</span> <span class="n">_birthday</span><span class="p">;</span>
-<span class="p">};</span>
+<span class="p">}</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>基于Person的内部实现，它的类定义文件中应该包含这样的代码：</p>
@@ -218,15 +221,15 @@
 <pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">class</span> <span class="nc">string</span><span class="p">;</span>
 <span class="k">class</span> <span class="nc">Date</span><span class="p">;</span>
 <span class="k">class</span> <span class="nc">Person</span><span class="p">{</span>
-    <span class="p">...</span>
-<span class="p">};</span>
+    <span class="p">.</span><span class="p">.</span><span class="p">.</span>
+<span class="p">}</span><span class="p">;</span>
 <span class="n">Person</span> <span class="n">p</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>编译通过不了！首先string是一个typedef：basic_string<!-- raw HTML omitted -->，你需要声明更多的东西才能合法地声明这样一个string。</p>
 <p>另外当<strong>编译器</strong>运行到Person p;时要为Person分配空间，需要知道Person的<strong>大小</strong>，而Person的大小依赖于Date的大小。</p>
 <p>所以编译器需要知道Date的内部实现！只声明Date是不够的。</p>
-<h3 id="使用指针代替对象">使用指针代替对象</h3>
+<h3 id="heading">使用指针代替对象</h3>
 <p>一个去除编译依赖的办法是：依赖项使用指针而不是对象，同时依赖于类的声明而非定义。</p>
 <p>比如我们把_birthday改成指针，并声明class Date;：</p>
 <div class="highlight"><div class="chroma">
@@ -242,7 +245,7 @@
 <td class="lntd">
 <pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">class</span> <span class="nc">Date</span><span class="p">;</span>
 <span class="k">class</span> <span class="nc">Person</span><span class="p">{</span>
-    <span class="p">...</span>
+    <span class="p">.</span><span class="p">.</span><span class="p">.</span>
 <span class="k">private</span><span class="o">:</span>
     <span class="n">Date</span><span class="o">*</span> <span class="n">_birthday</span><span class="p">;</span>
 <span class="p">}</span>
@@ -259,7 +262,7 @@
 Date d;
 void func(Date d);
 虽说对象作为函数参数还是传递引用比较好（见Item 20：传递常量引用比传值更好），但即使你传递的是对象，也不需要给出它的内部实现。</p>
-<h3 id="单独地提供声明">单独地提供声明</h3>
+<h3 id="heading-1">单独地提供声明</h3>
 <p>既然我们希望依赖于声明而非定义，那么我们需要为每个类单独地提供声明文件，和定义文件。</p>
 <p>比如date.h便需要分为两个文件，一个是声明class Date;，一个是定义class Date{}。</p>
 <div class="highlight"><div class="chroma">
@@ -278,12 +281,12 @@ void func(Date d);
 
 <span class="c1">// file: date.h
 </span><span class="c1"></span><span class="k">class</span> <span class="nc">Date</span><span class="p">{</span>
-    <span class="p">...</span>
-<span class="p">};</span>
+    <span class="p">.</span><span class="p">.</span><span class="p">.</span>
+<span class="p">}</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>我们在Person中include&quot;datefwd.h&quot;即可，这样解除Person和Date内部实现（定义在date.h中）之间的编译依赖。</p>
-<h3 id="使用句柄类">使用句柄类</h3>
+<h3 id="heading-2">使用句柄类</h3>
 <p>C++中接口声明和内部实现必须同时引入， 但在Java等语言中便不存在这个问题。因为所有对象都是引用，比如Person中的Date只是一个引用，Person的大小与Date的实现无关， 只需要为Date分配一个引用大小的空间即可。在C++中，我们也可以使用&quot;pImpl idiom&quot;来实现这个策略：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -302,19 +305,19 @@ void func(Date d);
 <td class="lntd">
 <pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">class</span> <span class="nc">Person</span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-    <span class="n">Person</span><span class="p">(</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">name</span><span class="p">);</span>
-    <span class="n">string</span> <span class="nf">name</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+    <span class="n">Person</span><span class="p">(</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">name</span><span class="p">)</span><span class="p">;</span>
+    <span class="n">string</span> <span class="nf">name</span><span class="p">(</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 <span class="k">private</span><span class="o">:</span>
     <span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">PersonImpl</span><span class="o">&gt;</span> <span class="n">pImpl</span><span class="p">;</span>
-<span class="p">};</span>
-<span class="n">Person</span><span class="o">::</span><span class="n">Person</span><span class="p">(</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">name</span><span class="p">)</span><span class="o">:</span> <span class="n">pImpl</span><span class="p">(</span><span class="k">new</span> <span class="n">PersonImpl</span><span class="p">(</span><span class="n">name</span><span class="p">)){}</span>
-<span class="n">string</span> <span class="n">Person</span><span class="o">::</span><span class="n">name</span><span class="p">(){</span>
-    <span class="k">return</span> <span class="n">pImpl</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">();</span>
+<span class="p">}</span><span class="p">;</span>
+<span class="n">Person</span><span class="o">:</span><span class="o">:</span><span class="n">Person</span><span class="p">(</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">name</span><span class="p">)</span><span class="o">:</span> <span class="n">pImpl</span><span class="p">(</span><span class="k">new</span> <span class="n">PersonImpl</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="p">)</span><span class="p">{</span><span class="p">}</span>
+<span class="n">string</span> <span class="n">Person</span><span class="o">:</span><span class="o">:</span><span class="n">name</span><span class="p">(</span><span class="p">)</span><span class="p">{</span>
+    <span class="k">return</span> <span class="n">pImpl</span><span class="o">-</span><span class="o">&gt;</span><span class="n">name</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>相当于把实现放到了另外一个类中PersonImpl，这样的Person类称为句柄类（Handle class）。 这样，当PersonImpl的内部实现发生改变时，依赖于Person的代码不再需要重新编译了。</p>
-<h3 id="使用接口类">使用接口类</h3>
+<h3 id="heading-3">使用接口类</h3>
 <p>还记得虚函数吗？除了句柄类，还有另外一个方式来移除编译依赖：接口类。</p>
 <p>在Java或C#中有接口的概念， 一个类可以实现若干个接口。</p>
 <p>但在C++中只有类的概念，但我们可以用只包含虚函数的类来定义一个接口：</p>
@@ -330,10 +333,10 @@ void func(Date d);
 <td class="lntd">
 <pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">class</span> <span class="nc">Person</span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-    <span class="k">virtual</span> <span class="o">~</span><span class="n">Person</span><span class="p">();</span>
-    <span class="k">virtual</span> <span class="n">string</span> <span class="nf">name</span><span class="p">()</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="k">virtual</span> <span class="n">string</span> <span class="nf">birthday</span><span class="p">()</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">};</span>
+    <span class="k">virtual</span> <span class="o">~</span><span class="n">Person</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+    <span class="k">virtual</span> <span class="n">string</span> <span class="nf">name</span><span class="p">(</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">virtual</span> <span class="n">string</span> <span class="nf">birthday</span><span class="p">(</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>接口类中的成员函数定义为纯虚函数即可，因为接口类中我们当然不打算放一个方法的实现进去。</p>
@@ -357,16 +360,16 @@ void func(Date d);
 <td class="lntd">
 <pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">class</span> <span class="nc">Person</span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-    <span class="k">static</span> <span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;</span> <span class="n">create</span><span class="p">(</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">name</span><span class="p">);</span>
-<span class="p">};</span>
-<span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;</span> <span class="n">Person</span><span class="o">::</span><span class="n">create</span><span class="p">(</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">name</span><span class="p">){</span>
-    <span class="k">return</span> <span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;</span><span class="p">(</span><span class="k">new</span> <span class="n">RealPerson</span><span class="p">(</span><span class="n">name</span><span class="p">));</span>
+    <span class="k">static</span> <span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;</span> <span class="n">create</span><span class="p">(</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">name</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span><span class="p">;</span>
+<span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;</span> <span class="n">Person</span><span class="o">:</span><span class="o">:</span><span class="n">create</span><span class="p">(</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">name</span><span class="p">)</span><span class="p">{</span>
+    <span class="k">return</span> <span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;</span><span class="p">(</span><span class="k">new</span> <span class="n">RealPerson</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
 <span class="p">}</span>
-<span class="p">...</span>
-<span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;</span> <span class="n">p</span><span class="p">(</span><span class="n">Person</span><span class="o">::</span><span class="n">create</span><span class="p">(</span><span class="s">&#34;alice&#34;</span><span class="p">));</span>
+<span class="p">.</span><span class="p">.</span><span class="p">.</span>
+<span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;</span> <span class="n">p</span><span class="p">(</span><span class="n">Person</span><span class="o">:</span><span class="o">:</span><span class="n">create</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">alice</span><span class="s">&#34;</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="总结">总结</h3>
+</div><h3 id="heading-4">总结</h3>
 <p>最小化编译依赖的一般做法是依赖于声明而非定义，这个想法可以通过句柄类或接口类来实现。</p>
 <p>库的声明应当包括“完整的”和“只有声明的”两种形式。</p>
 <p>接口类和句柄类的设计隐藏了类的实现细节，减小了实现细节的改动对客户的影响。 但无论是接口类还是句柄类，都会造成一些代价：</p>
@@ -374,7 +377,7 @@ void func(Date d);
 <p>确实有人会因为这些代价而拒绝使用这些先进的技术，你会发现很难说服他们。</p>
 <p>这一点即便是Scott Meyers也没有办法：</p>
 <p>If so, you’re reading the wrong book.</p>
-<h3 id="补充">补充</h3>
+<h3 id="heading-5">补充</h3>
 <p><img src="../images/201909/1571905846221.png" alt="1571905846221"></p>
 <p>类和函数设计指导原则</p>
 <p>C++是典型的面向对象编程语言，软件工程界已经有很多OOP原则来指导我们编写大规模的，高可扩展的，可维护性的代码：</p>
@@ -395,7 +398,7 @@ void func(Date d);
 <p>组合/聚合复用原则</p>
 </li>
 </ul>
-<h3 id="参考">参考</h3>
+<h3 id="heading-6">参考</h3>
 <ul>
 <li>
 <p><a href="https://mp.weixin.qq.com/s/pAoIe9m2Oat7d8c_ZW5Qyg">本周阅读：深度探索C++对象模型</a> [多态是接口编程基础]</p>
@@ -407,7 +410,7 @@ void func(Date d);
 <p><a href="http://www.ruanyifeng.com/blog/2014/11/compiler.html">http://www.ruanyifeng.com/blog/2014/11/compiler.html</a></p>
 </li>
 <li>
-<p><a href="https://zhaoyan.website/blog/">https://zhaoyan.website/blog/</a></p>
+<p>https://zhaoyan.website/blog/</p>
 </li>
 <li>
 <p><a href="https://www.zhihu.com/question/20630104">https://www.zhihu.com/question/20630104</a></p>
