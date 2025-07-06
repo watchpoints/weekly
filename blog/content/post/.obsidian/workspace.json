@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "future_for_ai/01-提示词/写作类.md",
+                "file": "interview/interviewSystemDesgin/2025/day12-what-is-paxos-v2.0.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "写作类"
+              "title": "day12-what-is-paxos-v2.0"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "future_for_ai/01-提示词/写作类.md",
+                "file": "interview/interviewSystemDesgin/2025/day12-what-is-paxos-v2.0.md",
                 "followCursor": true,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "写作类 的大纲"
+              "title": "day12-what-is-paxos-v2.0 的大纲"
             }
           },
           {
@@ -186,10 +186,17 @@
   },
   "active": "887e9a9094e31221",
   "lastOpenFiles": [
+    "interview/interviewSystemDesgin/2025/day11-what-is-paxos-v1.0.md",
+    "interview/interviewSystemDesgin/2025/day12-what-is-paxos-v2.0.md",
+    "future_for_ai/01-提示词/写作类.md",
+    "interview/job/day2-company 1.md",
+    "interview/interviewSystemDesgin/2025/ceph-blockdevice.md",
+    "future_for_ai/01-提示词/微信公共号选题利 流程.md",
+    "future_for_ai/01-提示词/template 1.md",
+    "future_for_ai/01-action-2025/day1-eat.md",
     "interview/c++/day3-google-cloud-crash.md",
     "interview/template.md",
     "future_for_ai/template.md",
-    "future_for_ai/01-提示词/写作类.md",
     "interview/c++/c++_weekly_EP02_string_mallolc过程.md",
     "interview/c++/c++_weekly_EP01_string_view.md",
     "habit/2025/只管去做周记(第5期)_windos.md",
@@ -209,13 +216,6 @@
     "future_for_ai/Task",
     "future_for_ai/2025/成为讲师 2025.md",
     "future_for_ai/c++/02_master_c++_share_pointer.md",
-    "future_for_ai/01-action-2025/AI代写SOP--简历制作.md",
-    "future_for_ai/01-action-2025/微信公共号写作流程.md",
-    "interview/c++/2025-4-29-Interview_pointer.md",
-    "interview/2025-4-26_spin_lock_temp.md",
-    "future_for_ai/2025/day5-100w-代写.md",
-    "future_for_ai/01-action-2025/template 1.md",
-    "habit/2025/只管去做周记(第四期）.md",
     "future_for_ai/01-action-2025",
     "future_for_ai/未命名",
     "Pasted Image 20250613103540_367.svg",
