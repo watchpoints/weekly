@@ -42,7 +42,7 @@ https://web.shylinux.com/
 ```shell
 // 远程登陆的，需要授权
 cd /root/ContextOS
-./bin/ice.bin admin space login cd7e2636d99eb03f6d9f11f0c030923a
+./bin/ice.bin admin space login d72259f59b5fc390a71cb4be4aa953bb
 
 登录地址：
 http://101.43.226.54:9020/
