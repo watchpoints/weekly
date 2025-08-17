@@ -110,7 +110,9 @@ https://mp.weixin.qq.com/s/qIYXDoIqILMJlRewHDkeaA
 ![](https://s2.loli.net/2025/06/01/6qkOut3xrDHen8J.png)
 2️⃣ 关注公众号:后端开发成长指南(回复“面经”获取）获取过去我**全部面试录音**和大厂面试复盘攻略
 ![](https://s2.loli.net/2025/05/31/GRgOTiQHI456VWD.png)
-3️⃣ **感兴趣的读者可以通过公众号获取老王的联系方式。**
+3️⃣  回复 面经 获取全部电子书 或者购买正版书籍
+
+[分布式必读经典书籍](https://mp.weixin.qq.com/s/y94rXLoJCllCXkhfL7d7Hg)
 
 ----------------我是黄金分割线-----------------------------
 

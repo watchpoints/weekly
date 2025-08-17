@@ -110,7 +110,6 @@ public:
 - `optional` 主要用于轻量可选值场景（如 RPC payload、临时配置），而缓存处理更偏向容器管理或引用语义，不使用 `optional<T>`。
 ## 最动人的作品，为自己而写，刚刚好打动别人
 
-  A tutorial on how to use std::optional in C++. | Video: C++ Weekly With Jason Turner
 
 我在寻找一位积极上进的小伙伴，
 
