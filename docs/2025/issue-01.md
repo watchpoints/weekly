@@ -1,5 +1,5 @@
 ---
-title: AI 周刊（第一期）写代码普通人的杠杆
+title: AI 周刊（第一期) 写代码普通人的杠杆
 date: 2025-08-18
 description: c++
 draft: false
