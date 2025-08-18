@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.83.1 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
 <link rel="canonical" href="https://wangcy6.github.io/post/2022/2-2022-1-25-os/" />
@@ -41,14 +41,17 @@
 <meta property="og:title" content="操作系统入门知识" />
 <meta property="og:description" content="疑问" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://wangcy6.github.io/post/2022/2-2022-1-25-os/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2022-01-25T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2022-01-25T00:00:00&#43;00:00" />
-
+<meta property="og:url" content="https://wangcy6.github.io/post/2022/2-2022-1-25-os/" />
+<meta property="article:published_time" content="2022-01-25T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-01-25T00:00:00+00:00" />
 <meta itemprop="name" content="操作系统入门知识">
-<meta itemprop="description" content="疑问"><meta itemprop="datePublished" content="2022-01-25T00:00:00&#43;00:00" />
+<meta itemprop="description" content="疑问">
+<meta itemprop="datePublished" content="2022-01-25T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2022-01-25T00:00:00&#43;00:00" />
 <meta itemprop="wordCount" content="2730">
+
+
+
 <meta itemprop="keywords" content="book," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="操作系统入门知识"/>
 <meta name="twitter:description" content="疑问"/>
@@ -141,26 +144,26 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#疑问1--what-is-numa">疑问1  What is NUMA?</a></li>
-        <li><a href="#疑问2网卡软中断都集中在了一个cpu上导致cpu负载升高多余网络包被丢弃httpszhuanlanzhihucomp80619249">疑问2:<a href="https://zhuanlan.zhihu.com/p/80619249">网卡软中断都集中在了一个cpu上，导致cpu负载升高，多余网络包被丢弃？</a></a></li>
+        <li><a href="#1--what-is-numa">疑问1  What is NUMA?</a></li>
+        <li><a href="#2cpucpuhttpszhuanlanzhihucomp80619249">疑问2:网卡软中断都集中在了一个cpu上，导致cpu负载升高，多余网络包被丢弃？</a></li>
       </ul>
     </li>
     <li><a href="#net">net</a></li>
     <li><a href="#file">file</a>
       <ul>
-        <li><a href="#一手资料">一手资料</a></li>
+        <li><a href="#heading">一手资料</a></li>
       </ul>
     </li>
-    <li><a href="#-方法">## 方法</a>
+    <li><a href="#-">## 方法</a>
       <ul>
-        <li><a href="#1-沟通步骤">1. 沟通步骤：</a></li>
-        <li><a href="#2-知识点">2. 知识点</a></li>
-        <li><a href="#一这个技术出现的背景初衷和要达到什么样的目标或是要解决什么样的问题">一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题</a></li>
-        <li><a href="#二这个技术的优势和劣势分别是什么">二、这个技术的优势和劣势分别是什么</a></li>
-        <li><a href="#三这技术适用的场景任何技术都有其适用的场景离开了这个场景">三、这技术适用的场景。任何技术都有其适用的场景，离开了这个场景</a></li>
-        <li><a href="#四技术的组成部分和关键点">四、技术的组成部分和关键点。</a></li>
-        <li><a href="#五技术的底层原理和关键实现">五、技术的底层原理和关键实现</a></li>
-        <li><a href="#六已有的实现和它之间的对比">六、已有的实现和它之间的对比</a></li>
+        <li><a href="#1-">1. 沟通步骤：</a></li>
+        <li><a href="#2-">2. 知识点</a></li>
+        <li><a href="#heading-1">一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题</a></li>
+        <li><a href="#heading-2">二、这个技术的优势和劣势分别是什么</a></li>
+        <li><a href="#heading-3">三、这技术适用的场景。任何技术都有其适用的场景，离开了这个场景</a></li>
+        <li><a href="#heading-4">四、技术的组成部分和关键点。</a></li>
+        <li><a href="#heading-5">五、技术的底层原理和关键实现</a></li>
+        <li><a href="#heading-6">六、已有的实现和它之间的对比</a></li>
       </ul>
     </li>
   </ul>
@@ -173,7 +176,7 @@
     </div>
   </div>
     <div class="post-content">
-      <h1 id="how-sched_setaffinity-works-inside-of-linux-kernel">How sched_setaffinity works inside of Linux Kernel</h1>
+      <h1 id="how-sched-setaffinity-works-inside-of-linux-kernel">How sched_setaffinity works inside of Linux Kernel</h1>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -222,10 +225,10 @@
 [    1.200504] pci_bus 0000:ff: on NUMA node 1
 [root@h12-storage03 ~]#</p>
 <h1 id="cpu">cpu</h1>
-<h3 id="疑问1--what-is-numa">疑问1  What is NUMA?</h3>
+<h3 id="1--what-is-numa">疑问1  What is NUMA?</h3>
 <p>dmesg|grep -i numa</p>
 <p>[  0.000000] No NUMA configuration found</p>
-<h3 id="疑问2网卡软中断都集中在了一个cpu上导致cpu负载升高多余网络包被丢弃httpszhuanlanzhihucomp80619249">疑问2:<a href="https://zhuanlan.zhihu.com/p/80619249">网卡软中断都集中在了一个cpu上，导致cpu负载升高，多余网络包被丢弃？</a></h3>
+<h3 id="2cpucpuhttpszhuanlanzhihucomp80619249">疑问2:<a href="https://zhuanlan.zhihu.com/p/80619249">网卡软中断都集中在了一个cpu上，导致cpu负载升高，多余网络包被丢弃？</a></h3>
 <p>X86系统采用中断机制协同处理CPU与其他设备工作。长久以来网卡的中断默认由cpu0处理，在大量小包的网络环境下可能出现cpu0负载高，而其他cpu空闲。后来出现网卡多队列技术解决这个问题。</p>
 <ul>
 <li>
@@ -257,11 +260,11 @@
 <p>/etc/sysctl.conf</p>
 <p>## 修改内核异步 I/O 限制</p>
 <p>fs.aio-max-nr=1048576</p>
-<h3 id="一手资料">一手资料</h3>
+<h3 id="heading">一手资料</h3>
 <ul>
-<li><input checked="" disabled="" type="checkbox"> <a href="https://open.oceanbase.com/ask/detail?id=20400568&amp;pageNo=1&amp;query=NUMA#all">https://open.oceanbase.com/ask/detail?id=20400568&amp;pageNo=1&amp;query=NUMA#all</a></li>
-<li><input checked="" disabled="" type="checkbox"> <a href="https://zhuanlan.zhihu.com/p/336365600">每个程序员都应该知道的 CPU 知识：NUMA</a></li>
-<li><input checked="" disabled="" type="checkbox"> <a href="">以蚂蚁集团不同使用场景为例，分析如何调整和优化高性能 OceanBase</a></li>
+<li><input checked="" disabled="" type="checkbox"><a href="https://open.oceanbase.com/ask/detail?id=20400568&amp;pageNo=1&amp;query=NUMA#all">https://open.oceanbase.com/ask/detail?id=20400568&amp;pageNo=1&amp;query=NUMA#all</a></li>
+<li><input checked="" disabled="" type="checkbox"><a href="https://zhuanlan.zhihu.com/p/336365600">每个程序员都应该知道的 CPU 知识：NUMA</a></li>
+<li><input checked="" disabled="" type="checkbox"><a href="">以蚂蚁集团不同使用场景为例，分析如何调整和优化高性能 OceanBase</a></li>
 </ul>
 <p><img src="https://gw.alipayobjects.com/zos/oceanbase/cab256f1-ad0f-4a74-a434-07c2ad995948/image/2022-03-29/8d66c655-e16a-4a7f-859b-fc0a9cbf4047.png" alt=""></p>
 <ul>
@@ -390,7 +393,7 @@ root       231  0.0  0.0      0     0 ?        S     2021   0:00 [ksoftirqd/44]
 root       236  0.0  0.0      0     0 ?        S     2021   0:00 [ksoftirqd/45]
 root       241  0.0  0.0      0     0 ?        S     2021   0:00 [ksoftirqd/46]
 root       246  0.0  0.0      0     0 ?        S     2021   0:00 [ksoftirqd/47]
-
+  
 [ ~]# cat /proc/irq/24/smp_affinity
 0001
 [ ~]# cat /proc/irq/24/smp_affinity_list 
@@ -400,7 +403,7 @@ root       246  0.0  0.0      0     0 ?        S     2021   0:00 [ksoftirqd/47]
 [ ~]# cat /proc/irq/24/smp_affinity_list 
 2
 #此时中断号24对应的处理CPU为cpu2
-
+  
 mpstat -P ALL 1 1
 watch -d cat /proc/softirqs
 cat /proc/interrupts  
@@ -409,9 +412,9 @@ cat /proc/interrupts
 </div><p>watch -d cat /proc/softirqs</p>
 <p>ET_RX（网络接收）、SCHED（内核调度）、RCU（RCU 锁）</p>
 <ul>
-<li><input checked="" disabled="" type="checkbox"> 10 | 案例篇：系统的软中断CPU使用率升高，我该怎么办？</li>
-<li><input checked="" disabled="" type="checkbox"> <a href="https://linuxhint.com/understanding_numa_architecture/">https://linuxhint.com/understanding_numa_architecture/</a></li>
-<li><input checked="" disabled="" type="checkbox"> <a href="https://www.jianshu.com/p/6dfde8331380">https://www.jianshu.com/p/6dfde8331380</a></li>
+<li><input checked="" disabled="" type="checkbox">10 | 案例篇：系统的软中断CPU使用率升高，我该怎么办？</li>
+<li><input checked="" disabled="" type="checkbox"><a href="https://linuxhint.com/understanding_numa_architecture/">https://linuxhint.com/understanding_numa_architecture/</a></li>
+<li><input checked="" disabled="" type="checkbox"><a href="https://www.jianshu.com/p/6dfde8331380">https://www.jianshu.com/p/6dfde8331380</a></li>
 </ul>
 </li>
 <li>
@@ -468,8 +471,8 @@ cat /proc/interrupts
 </ul>
 </li>
 </ul>
-<h2 id="-方法">## 方法</h2>
-<h3 id="1-沟通步骤">1. 沟通步骤：</h3>
+<h2 id="-">## 方法</h2>
+<h3 id="1-">1. 沟通步骤：</h3>
 <ol>
 <li>准备好一个ppt，在写代码之前演示最终目标 和架构设计 就是如何去实现的</li>
 </ol>
@@ -487,13 +490,13 @@ cat /proc/interrupts
 <p>我的回答</p>
 <p>xx点评：</p>
 <p>完善流程：</p>
-<h3 id="2-知识点">2. 知识点</h3>
-<h3 id="一这个技术出现的背景初衷和要达到什么样的目标或是要解决什么样的问题">一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题</h3>
-<h3 id="二这个技术的优势和劣势分别是什么">二、这个技术的优势和劣势分别是什么</h3>
-<h3 id="三这技术适用的场景任何技术都有其适用的场景离开了这个场景">三、这技术适用的场景。任何技术都有其适用的场景，离开了这个场景</h3>
-<h3 id="四技术的组成部分和关键点">四、技术的组成部分和关键点。</h3>
-<h3 id="五技术的底层原理和关键实现">五、技术的底层原理和关键实现</h3>
-<h3 id="六已有的实现和它之间的对比">六、已有的实现和它之间的对比</h3>
+<h3 id="2-">2. 知识点</h3>
+<h3 id="heading-1">一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题</h3>
+<h3 id="heading-2">二、这个技术的优势和劣势分别是什么</h3>
+<h3 id="heading-3">三、这技术适用的场景。任何技术都有其适用的场景，离开了这个场景</h3>
+<h3 id="heading-4">四、技术的组成部分和关键点。</h3>
+<h3 id="heading-5">五、技术的底层原理和关键实现</h3>
+<h3 id="heading-6">六、已有的实现和它之间的对比</h3>
 
     </div>
 

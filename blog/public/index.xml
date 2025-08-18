@@ -6,7 +6,20 @@
     <description>Recent content on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 20 Jun 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 06 Jul 2025 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://wangcy6.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>什么是顺序一致性，什么是分布式协议</title>
+      <link>https://wangcy6.github.io/post/interview/interviewSystemDesgin/2025/day12-what-is-paxos-v2.0/</link>
+      <pubDate>Sun, 06 Jul 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/interview/interviewSystemDesgin/2025/day12-what-is-paxos-v2.0/</guid>
+      <description>写作步骤：大纲 ✅ 阅读论文：Linearizability: A Correctness Condition for Concurrent Objects 回答是线程一致性 ✅ 跟着etcd学习如何使用etcd-raft实现线性化</description>
+    </item>
+    
     <item>
       <title>一分钟讲透:面试官为什么爱问c&#43;&#43;新特性之std::string_view</title>
       <link>https://wangcy6.github.io/post/interview/c&#43;&#43;/c&#43;&#43;_weekly_EP01_string_view/</link>
@@ -14,6 +27,24 @@
       
       <guid>https://wangcy6.github.io/post/interview/c&#43;&#43;/c&#43;&#43;_weekly_EP01_string_view/</guid>
       <description>#知识地图 #最佳实践 #CPP17 👋 各位老师好（老师是山东对人的一个尊称，就像称呼帅哥美女一样） C++周刊 （c++ weekly）第一期 EP01 开始了 主题： 今天</description>
+    </item>
+    
+    <item>
+      <title>一分钟讲透:面试官为什么爱问c&#43;&#43;新特性之std::string_view</title>
+      <link>https://wangcy6.github.io/post/interview/c&#43;&#43;/c&#43;&#43;_weekly_EP02_string_view-1/</link>
+      <pubDate>Fri, 20 Jun 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/interview/c&#43;&#43;/c&#43;&#43;_weekly_EP02_string_view-1/</guid>
+      <description>#知识地图 #最佳实践 #CPP17 👋 各位老师好（老师是山东对人的一个尊称，就像称呼帅哥美女一样） C++周刊 （c++ weekly）第一期 EP01 开始了 主题： 今天</description>
+    </item>
+    
+    <item>
+      <title>一道面试题关于malloc的面试题</title>
+      <link>https://wangcy6.github.io/post/interview/c&#43;&#43;/c&#43;&#43;_weekly_EP02_string_mallolc%E8%BF%87%E7%A8%8B/</link>
+      <pubDate>Fri, 20 Jun 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/interview/c&#43;&#43;/c&#43;&#43;_weekly_EP02_string_mallolc%E8%BF%87%E7%A8%8B/</guid>
+      <description>https://docs.qq.com/aio/DY3htdHJNSXZPdmV3?AIGenerate=1&amp;amp;p=9mb09rdApYUe9rSddYKjV5 #知识地图 #最佳实践 #CPP17 https://docs.qq.com/aio/DY3htdHJNSXZPdmV3?AIGenerate=1&amp;amp;p=9mb09rdApYUe9rSddYKjV5 https://moss.cs.iit.edu/cs351/slides/slides-malloc.pdf?utm_source=chatgpt.com 👋 各位老师好（老师是山东对人的一个尊称，就像称呼帅哥美女一样） C++周刊 （c++ weekly）第一期 EP01 开始了 https://www.elecfans.com/d/2284192.html malloc</description>
     </item>
     
     <item>
@@ -32,6 +63,15 @@
       
       <guid>https://wangcy6.github.io/post/future_for_ai/book/datawhale_learn_ai_class/</guid>
       <description>学习目标是什么 一、课程安排速览 👇 清晰学习阶段 + 内容，跟着节奏走准没错！ 《深度学习基础与概念》 想要电子书联系我 《深度学习》 由全球知名的三位专家</description>
+    </item>
+    
+    <item>
+      <title>只管去做周记（第5期）：我要开发一个小而美产品</title>
+      <link>https://wangcy6.github.io/post/habit/2025/%E5%8F%AA%E7%AE%A1%E5%8E%BB%E5%81%9A%E5%91%A8%E8%AE%B0%E7%AC%AC5%E6%9C%9F_windos/</link>
+      <pubDate>Fri, 13 Jun 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/habit/2025/%E5%8F%AA%E7%AE%A1%E5%8E%BB%E5%81%9A%E5%91%A8%E8%AE%B0%E7%AC%AC5%E6%9C%9F_windos/</guid>
+      <description>一、 如何周复盘 Getting Things Done (GTD） 第一部分：日常生活，参考 ：只管去做 方法 步骤1：第一章 写给五年后自己的一封信 先写一封给五年后的自己的信，描述我期</description>
     </item>
     
     <item>
@@ -112,7 +152,7 @@
       <pubDate>Fri, 09 May 2025 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/future_for_ai/2025/05-20250522-small-porject/</guid>
-      <description>https://www.fiverr.com/ https://www.upwork.com 是比较大的单子 https://zhuanlan.zhihu.com/p/580183643 https://www.adspower.net/blog/upwork-beginners-guide day1：Upwork自由职业防骗指南 1 注册Upwork I&amp;rsquo;m a freelancer, looking for work 我是一名自由职业者，正在寻找工作 Hey Troy. Ready for your next big op</description>
+      <description>https://www.fiverr.com/ https://www.upwork.com 是比较大的单子 https://zhuanlan.zhihu.com/p/580183643 https://www.adspower.net/blog/upwork-beginners-guide day1：Upwork自由职业防骗指南 1 注册Upwork I&#39;m a freelancer, looking for work 我是一名自由职业者，正在寻找工作 Hey Troy. Ready for your next big op</description>
     </item>
     
     <item>
@@ -243,6 +283,18 @@
     
     <item>
       <title>早餐吃点啥</title>
+<<<<<<< HEAD
+=======
+      <link>https://wangcy6.github.io/post/future_for_ai/01-action-2025/day1-eat-1/</link>
+      <pubDate>Fri, 09 May 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/future_for_ai/01-action-2025/day1-eat-1/</guid>
+      <description>2025-7-6 今天的任务是什么 话术： 1 2 3 4 5 6 7 8 👏欢迎参加Datawhale夏令营，可以看一下群公告哦，【零基础】跑通一站式baseline！ 我们的</description>
+    </item>
+    
+    <item>
+      <title>早餐吃点啥</title>
+>>>>>>> 997b2afada26e8cba441316dd4588e810e40ba32
       <link>https://wangcy6.github.io/post/future_for_ai/01-action-2025/day1-eat/</link>
       <pubDate>Fri, 09 May 2025 00:00:00 +0000</pubDate>
       
@@ -409,7 +461,7 @@
       <pubDate>Sat, 12 Apr 2025 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/future_for_ai/01-%E6%8F%90%E7%A4%BA%E8%AF%8D/%E5%86%99%E4%BD%9C%E7%B1%BB/</guid>
-      <description>提示词： https://vxc3hj17dym.feishu.cn/wiki/YObBw7PjuiZiMmkeOG5cYIAanCe https://waytoagi.feishu.cn/wiki/QPe5w5g7UisbEkkow8XcDmOpn8e https://g10npwhy4nv.feishu.cn/docx/U1Iqduc3mox5F8xmbUzcCC6qnof https://langgptai.feishu.cn/wiki/TWg2wkDSki8Tqxk0E5scxTwunbd 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62</description>
+      <description>提示词： https://vxc3hj17dym.feishu.cn/wiki/YObBw7PjuiZiMmkeOG5cYIAanCe https://waytoagi.feishu.cn/wiki/QPe5w5g7UisbEkkow8XcDmOpn8e https://g10npwhy4nv.feishu.cn/docx/U1Iqduc3mox5F8xmbUzcCC6qnof https://langgptai.feishu.cn/wiki/TWg2wkDSki8Tqxk0E5scxTwunbd 快速写一篇文章 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 假设你是一名大厂架构师， 以这个为标题（c++新特性 std::optiona 为大厂争先用它），</description>
     </item>
     
     <item>
@@ -954,10 +1006,17 @@
     
     <item>
       <title>什么是顺序一致性，什么是分布式协议</title>
+<<<<<<< HEAD
       <link>https://wangcy6.github.io/post/interview/interviewSystemDesgin/2025/day11-what-is-paxos/</link>
       <pubDate>Wed, 07 Aug 2024 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/interview/interviewSystemDesgin/2025/day11-what-is-paxos/</guid>
+=======
+      <link>https://wangcy6.github.io/post/interview/interviewSystemDesgin/2025/day11-what-is-paxos-v1.0/</link>
+      <pubDate>Wed, 07 Aug 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/interview/interviewSystemDesgin/2025/day11-what-is-paxos-v1.0/</guid>
+>>>>>>> 997b2afada26e8cba441316dd4588e810e40ba32
       <description>一、大纲 ✅ 阅读论文：Linearizability: A Correctness Condition for Concurrent Objects 回答是线程一致性 ✅ 跟着etcd学习如何使用etcd-raft实现线性化读 ✅ 读</description>
     </item>
     
@@ -1237,7 +1296,7 @@
       <pubDate>Thu, 28 Mar 2024 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/storage/05-2024-3-08-ceph-read/</guid>
-      <description>entity_id 这个能改变吗？ 通过S3FS调用icfs_setxattr接口。 参数client_type=&amp;ldquo;S3&amp;rdquo; Entity_id 是 /var/run/icfs-client.XXXX 其中xxx</description>
+      <description>entity_id 这个能改变吗？ 通过S3FS调用icfs_setxattr接口。 参数client_type=&amp;quot;S3&amp;rdquo; Entity_id 是 /var/run/icfs-client.XXXX 其中xxx是</description>
     </item>
     
     <item>
@@ -2785,7 +2844,18 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/2020/file/</guid>
-      <description>文件系统-知识地图 知识卡 https://github.com/wangcy6/weekly/blob/master/KM/01%E7%B3%BB%E7%BB%9F%E7%9F%A5%E8%AF%86/file.md 阅读相关书籍 Linux 0.11内核完全注释 Linux内核设计与实现(第三版中文高清带目录) Linux设备驱动程序. Understanding the Linux Kernel,</description>
+      <description>文件系统-知识地图 知识卡 https://github.com/wangcy6/weekly/blob/master/KM/01%E7%B3%BB%E7%BB%9F%E7%9F%A5%E8%AF%86/file.md
+阅读相关书籍  Linux 0.11内核完全注释 Linux内核设计与实现(第三版中文高清带目录) Linux设备驱动程序. Understanding the Linux Kernel, 3rd Editio Linux.Kernel.Cache MySQL技术内幕(InnoDB存储引擎)第2版. 性能之巅 洞悉系统、企业与云计算(完整版)  找不到电子版book
+第一性原理   mysql 有b+作为索引，为什么liunx文件系统不用b+索引结构，采用inode下面一个固定大小数组来表示？
+  为什么需要进行“格式化”呢
+  ls -i 显示inode 就是 long 类型的编号 还有什么呀？
+  文件存储在哪里呀？内存还是磁盘
+  什么是缓存呀
+  cache和buffer dentry objects and inode object 都在内存里有啥 区别？
+  概念理解  缓存  文件系统 在 Linux 中一切皆文件。不仅普通的文件和目录，就连块设备、套接字、管道等，也都要通过统一的文件系统来管理。
+Linux 下的文件系统主要可分为三大块：
+一是上层的文件系统的系统调用，
+二是虚拟文件系统 VFS(Virtual Filesystem Switch)，</description>
     </item>
     
     <item>
@@ -2794,7 +2864,17 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/ARTS/2023/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C%E7%AC%AC%E5%9B%9B%E6%9C%9F/</guid>
-      <description>本文分为三个部分 产品应用，行业应用 和基础知识 从完成到完美，别想太多，只管去做。 这一期没有什么内容，我依然发出来了，只为重启，上一阶段解释。 马</description>
+      <description>本文分为三个部分 产品应用，行业应用 和基础知识
+ 从完成到完美，别想太多，只管去做。
+这一期没有什么内容，我依然发出来了，只为重启，上一阶段解释。 马上开启下一阶段。
+开始时间：2023-07-01 结束时间： 一. 行业 从石器时代到黄金时代 一. 基础知识：从青铜到白银经历问题
+ 一 、站在巨人肩膀上 二. 从石器时代到黄金时代 一、公开课[资料]   数据库/存储学习路径推荐
+https://mp.weixin.qq.com/s/fl-R_ZMQwy0aNQbsXZeQ3Q 必读！！！数据库开发学习资料.pdf 进展：0
+  - 阅读书籍：leveldb 精通 https://github.com/watchpoints/leveldb https://leveldb-handbook.readthedocs.io/zh/latest/basic.html 进展：1
+ Go 开放课程：MIT 经典课程 《分布式系统》  https://learnku.com/go/wikis/41239
+ MIT 6.84: Distributed Systems  官方地址：https://pdos.csail.mit.edu/6.824/ 进展：0
+二. TIdb :::warning 为什么要看tidb，自己一个担心，前面无数人在 做，自己先做晚来了？ 然后等待3年 5年什么都不事情？然后看看手机电影， 为纠这个态度，从消息态度变成积极态度， 一个社区无数文档，无数参与 着说明有价值的。 你认为正确行业，你认为正确社区，你认为正确的， 为什么行动呢？着就是最大问题？ 有正确，有价值的不去做，反而去做没有用 事情。破冰 :::
+如何成为 TiFlash Contributor？ https://asktug.com/t/topic/693824</description>
     </item>
     
     <item>
@@ -2822,7 +2902,14 @@ Drawing 1  N4IgLgngDgpiBcIYA8DGBDANgSwCYCd0B3EAGhADcZ8BnbAewDsEAmcm+gV31TkQAswYK
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://wangcy6.github.io/post/interview/leetcode/leetcod_easy/</guid>
-      <description>CSP-JS+NOI+ title: &amp;ldquo;leetcode_easy_200-300&amp;rdquo; date: 2020-6-17 description: &amp;quot;&amp;quot; draft: false tags: [&amp;ldquo;Interview Question&amp;rdquo;] categories: [&amp;ldquo;Leetcode&amp;rdquo;] 开始日期 更新日期 备注 2020-6-17 2020-6-17 leetcode_easy_200-300 绘图工具 https://app.diagrams.net/#Hwatchpoints%2Fdaily-interview%2Fmain%2Fleetcode%2Fppt%2F%E6%9C%AA%E5%91%BD%E5%90%8D%E7%BB%98%E5%9B%BE.drawio http://127.0.0.1:1313/post/leetcode/leetcod_easy/ 题目汇总 最后一个单词的长度 796. 旋转字符串 151. 翻转字符串里的单词 感觉理解 1 。之翻</description>
+      <description>CSP-JS+NOI+ title: &amp;ldquo;leetcode_easy_200-300&amp;rdquo; date: 2020-6-17 description: &amp;quot;&amp;rdquo; draft: false tags: [&amp;ldquo;Interview Question&amp;rdquo;]
+categories: [&amp;ldquo;Leetcode&amp;rdquo;]    开始日期 更新日期 备注     2020-6-17 2020-6-17 leetcode_easy_200-300    绘图工具
+  https://app.diagrams.net/#Hwatchpoints%2Fdaily-interview%2Fmain%2Fleetcode%2Fppt%2F%E6%9C%AA%E5%91%BD%E5%90%8D%E7%BB%98%E5%9B%BE.drawio
+  http://127.0.0.1:1313/post/leetcode/leetcod_easy/
+  题目汇总      最后一个单词的长度
+  796. 旋转字符串   151. 翻转字符串里的单词 感觉理解
+1 。之翻转 blue eulb &amp;mdash;&amp;gt;在在翻转&amp;mdash;每个单词位置。
+  5. 最长回文子串         使用循坏输出等腰三角形    1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  https://www.</description>
     </item>
     
     <item>

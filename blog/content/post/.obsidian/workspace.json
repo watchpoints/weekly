@@ -4,35 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "b46a5bc891c4b451",
+        "id": "9e1d5a1690218cbc",
         "type": "tabs",
         "children": [
           {
-            "id": "32bb4beefcbb5e64",
+            "id": "ef02b1bc27c37917",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "interview/c++/template 1.md",
+                "file": "interview/c++/day5-port 1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "template 1"
-            }
-          },
-          {
-            "id": "ebcb3f60e854176d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "interview/c++/day2-Interview_pointer 1.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "day2-Interview_pointer 1"
+              "title": "day5-port 1"
             }
           }
         ]
@@ -67,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "背景",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -92,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 412.5
+    "width": 266.5
   },
   "right": {
     "id": "2ed2996f33458575",
@@ -156,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "interview/c++/template 1.md",
+                "file": "interview/c++/day5-port 1.md",
                 "followCursor": true,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "template 1 的大纲"
+              "title": "day5-port 1 的大纲"
             }
           },
           {
@@ -180,7 +166,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 360.5
+    "width": 211.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -198,50 +184,50 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "32bb4beefcbb5e64",
+  "active": "ef02b1bc27c37917",
   "lastOpenFiles": [
-    "future_for_ai/book/datawhale_learn_ai_class.md",
-    "future_for_ai/book",
-    "interview/interviewSystemDesgin/2025/day10-第二次面试复盘（2).md",
-    "interview/interviewSystemDesgin/2025/day10-第二次面试复盘（1).md",
-    "future_for_ai/Task/template 1.md",
-    "future_for_ai/Task",
-    "future_for_ai/2025/成为讲师 2025.md",
-    "interview/c++/day2-Interview_pointer 1.md",
-    "future_for_ai/c++/02_master_c++_share_pointer.md",
-    "future_for_ai/01-action-2025/AI代写SOP--简历制作.md",
-    "future_for_ai/01-action-2025/微信公共号写作流程.md",
-    "interview/c++/2025-4-29-Interview_pointer.md",
-    "interview/c++/template 1.md",
-    "interview/2025-4-26_spin_lock_temp.md",
-    "future_for_ai/2025/day5-100w-代写.md",
     "interview/template.md",
-    "future_for_ai/01-action-2025/template 1.md",
-    "habit/2025/只管去做周记(第5期）.md",
-    "habit/2025/只管去做周记(第四期）.md",
-    "future_for_ai/2025/04_how_to_push_goods.md",
-    "future_for_ai/template.md",
-    "future_for_ai/01-action-2025",
-    "future_for_ai/未命名",
-    "future_for_ai/2025/day5-100w-企培.md",
-    "future_for_ai/02_how_to_use_Copilot.md",
-    "future_for_ai/propmit/write.md",
-    "interview/interviewSystemDesgin/2025/day10-.md",
-    "future_for_ai/ContextOS/01_what_is_contextos.md",
-    "future_for_ai/ContextOS/02-ContextOS 运营销售群-营销推广小程序.md",
-    "interview/写作流程拆分.md",
+    "interview/c++/day5-port 1.md",
+    "book/2025/2025-do-12-book.md",
+    "book/2025/NO1-topic-sleep.md",
+    "future_for_ai/02-短视频/2025-6月一鱼多吃.md",
+    "book/book_thingin_c++.md",
+    "interview/c++/day3-google-cloud-crash.md",
+    "interview/c++/2025-4-29-Interview_pointer.md",
+    "book/2025/book2-202507-sleep.md",
+    "interview/c++/c++_weekly_EP02_string_view 1.md",
+    "interview/c++/c++_weekly_EP02_string_mallolc过程.md",
+    "Excalidraw/Drawing 2025-06-13 09.41.36.excalidraw.md",
+    "habit/01-me/day1-actin-手机.md",
+    "habit/01-me/day2-actin-how-to-sleep.md",
+    "habit/01-me/day3-action-run.md",
+    "habit/01-me/day5-action-getup-1.0.md",
+    "habit/01-me/day4-action-sleep.md",
+    "interview/c++/day4-port.md",
+    "未命名.canvas",
+    "habit/02-周复盘/只管去做周记2025年8月.md",
+    "future_for_ai/02-短视频/2025-08-06-ohter.md",
+    "future_for_ai/07-code-study/python/02-.md",
+    "future_for_ai/07-code-study/python/01_how_to_install_python.md",
+    "future_for_ai/02_how_to_use_tea.md",
+    "future_for_ai/07-code-study",
+    "future_for_ai/04-net-web-.md",
+    "future_for_ai/02_how_to_use_Kindle.md",
+    "future_for_ai/01_how_to_quickly_submit_resumes.md",
+    "habit/work",
+    "book/未命名",
+    "habit/01-me",
+    "future_for_ai/08-",
+    "future_for_ai/05-智能体",
+    "future_for_ai/04-微信小程序",
+    "future_for_ai/03-rust",
+    "future_for_ai/02-短视频",
+    "future_for_ai/01-提示词",
     "Pasted Image 20250613103540_367.svg",
-    "pic",
-    "Excalidraw",
-    "habit/2024/flomo卡片笔记.lnk",
-    "interview/RockDB",
-    "interview/c++",
     "interview/tidb/2024/assets/image-20240716212941824.png",
     "interview/tidb/2024/assets/fc085c98eab6512353e065778e3b4a8.png",
     "interview/tidb/2024/assets/image-20240711143133472.png",
     "interview/tidb/2022/assets/image-20230517201440168.png",
-    "interview/tidb/2024/assets",
-    "未命名.canvas",
     "01a54a8883cbf7b9c23401e4e6c7ffa.jpg",
     "Pasted image 20250323152954.png",
     "未命名 1.canvas",

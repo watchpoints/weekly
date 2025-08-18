@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.83.1 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
 <link rel="canonical" href="https://wangcy6.github.io/post/2022/07_2022_4_17_kvcore/" />
@@ -41,14 +41,17 @@
 <meta property="og:title" content="早起120小时写代码第一期：kvcore" />
 <meta property="og:description" content="早睡：21点准备 22点上床，早起 6点准备 ，8点-10点 120分钟" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://wangcy6.github.io/post/2022/07_2022_4_17_kvcore/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2022-04-17T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2022-04-17T00:00:00&#43;00:00" />
-
+<meta property="og:url" content="https://wangcy6.github.io/post/2022/07_2022_4_17_kvcore/" />
+<meta property="article:published_time" content="2022-04-17T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-04-17T00:00:00+00:00" />
 <meta itemprop="name" content="早起120小时写代码第一期：kvcore">
-<meta itemprop="description" content="早睡：21点准备 22点上床，早起 6点准备 ，8点-10点 120分钟"><meta itemprop="datePublished" content="2022-04-17T00:00:00&#43;00:00" />
+<meta itemprop="description" content="早睡：21点准备 22点上床，早起 6点准备 ，8点-10点 120分钟">
+<meta itemprop="datePublished" content="2022-04-17T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2022-04-17T00:00:00&#43;00:00" />
 <meta itemprop="wordCount" content="2244">
+
+
+
 <meta itemprop="keywords" content="60秒问答," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="早起120小时写代码第一期：kvcore"/>
 <meta name="twitter:description" content="早睡：21点准备 22点上床，早起 6点准备 ，8点-10点 120分钟"/>
@@ -146,7 +149,7 @@
     </li>
     <li><a href="#day2--memory">day2:  memory</a>
       <ul>
-        <li><a href="#阅读资料">阅读资料</a></li>
+        <li><a href="#heading">阅读资料</a></li>
         <li><a href="#day3">day3</a></li>
       </ul>
     </li>
@@ -160,7 +163,7 @@
     </div>
   </div>
     <div class="post-content">
-      <h4 id="day1-2022-4-17-看斗鱼-看手机-晚上6点22点-时间规划和紧急措施陷入时间黑洞-象与骑象人httpsbookdoubancomsubject20260640根本控制不大象强制无效">day1： 2022-4-17 看斗鱼 看手机 晚上6点22点 时间规划和紧急措施陷入时间黑洞 #<a href="https://book.douban.com/subject/20260640//">象与骑象人</a>，根本控制不大象，强制无效</h4>
+      <h4 id="day1-2022-4-17---622--httpsbookdoubancomsubject20260640">day1： 2022-4-17 看斗鱼 看手机 晚上6点22点 时间规划和紧急措施陷入时间黑洞 #<a href="https://book.douban.com/subject/20260640//">象与骑象人</a>，根本控制不大象，强制无效</h4>
 <p><a href="https://hardcore.feishu.cn/mindnotes/bmncnnOV8YnRi9CU04RZwhYGqte">手写KV引擎(第一部分)-实现单机kv引擎</a></p>
 <p><a href="https://hardcore.feishu.cn/mindnotes/bmncnzpUmXNQruVGOwRwisHyxoh">【硬核课堂】LevelDB 源码分析</a></p>
 <p>git clone <a href="mailto:git@github.com">git@github.com</a>:wangcy6/coreKV-CPP.git</p>
@@ -211,7 +214,7 @@
 <li><a href="https://programmerclick.com/article/70581257539/">https://programmerclick.com/article/70581257539/</a></li>
 </ul>
 <ol>
-<li>To illustrate, let&rsquo;s consider two common data structures: linked lists and balanced trees.</li>
+<li>To illustrate, let's consider two common data structures: linked lists and balanced trees.</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -238,10 +241,10 @@ The tree performs extra internal housekeeping writes. This increases the amount 
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="day2--memory">day2:  memory</h2>
-<h3 id="阅读资料">阅读资料</h3>
+<h3 id="heading">阅读资料</h3>
 <ul>
 <li>
-<p><input disabled="" type="checkbox"> <a href="https://hardcore.feishu.cn/docs/doccngOEJpWCod99boj8LHbt43c">https://hardcore.feishu.cn/docs/doccngOEJpWCod99boj8LHbt43c</a></p>
+<p><input disabled="" type="checkbox"><a href="https://hardcore.feishu.cn/docs/doccngOEJpWCod99boj8LHbt43c">https://hardcore.feishu.cn/docs/doccngOEJpWCod99boj8LHbt43c</a></p>
 <p>开始日期：4-27 20:11    &mdash;结束日期：</p>
 <ul>
 <li>记free 多次引发的内存踩踏事件</li>
@@ -253,7 +256,7 @@ The tree performs extra internal housekeeping writes. This increases the amount 
 </ul>
 </li>
 <li>
-<p><input disabled="" type="checkbox"> 问题来源：</p>
+<p><input disabled="" type="checkbox">问题来源：</p>
 <p>章节：corekv-cpp之内存池</p>
 <p>函数：void* SimpleFreeListAlloc::Allocate(int32_t n)</p>
 </li>
@@ -291,7 +294,7 @@ The tree performs extra internal housekeeping writes. This increases the amount 
 <p>happens-before relationship</p>
 <ul>
 <li>
-<p><input disabled="" type="checkbox"> </p>
+<p><input disabled="" type="checkbox"></p>
 <p>章节：corekv-cpp之内存池</p>
 <p>函数：void* SimpleFreeListAlloc::Allocate(int32_t n)</p>
 <p>select_free_list = freelist_ + M_FreelistIndex(n);</p>
@@ -303,7 +306,7 @@ The tree performs extra internal housekeeping writes. This increases the amount 
 <p>atomic类
 多线程通过fetch__xx函数 一个变量进行 加减没有问题。</p>
 <p>多线程 对不同变量进行 做同步 load,store 使用条件是什么？</p>
-<p>例如
+<p>例如 
 x y 写操作必须在同一个线程内完成，才满足 happens-before and synchronizes-with。
 2个线程分别 x 和y写 肯定不满足</p>
 <p>The happens-before relationship</p>
@@ -324,10 +327,10 @@ x y 写操作必须在同一个线程内完成，才满足 happens-before and sy
 memory_order_consume：</p>
 <p>atomic_compare_exchange_strong</p>
 <p>知道c++提供原子操作类atomic<!-- raw HTML omitted --> 提供的接口有哪几个？</p>
-<p>4个
-atomic_fetch_add
-atomic_load
-atomic_store
+<p>4个 
+atomic_fetch_add 
+atomic_load 
+atomic_store 
 atomic_compare_exchange_strong</p>
 <p>memory_order_release:（可以理解为 mutex 的 unlock 操作）</p>
 <ol>
@@ -335,7 +338,7 @@ atomic_compare_exchange_strong</p>
 <p>对写入施加 release 语义（store），
 在代码中这条语句前面的所有读写操作都无法被重排到这个操作之后
 ，即 store-store 不能重排为 store
-load-store
+load-store 
 也无法重排为 store-load</p>
 </li>
 <li>
