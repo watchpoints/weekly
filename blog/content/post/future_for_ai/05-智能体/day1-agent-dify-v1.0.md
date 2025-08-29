@@ -906,7 +906,8 @@ D:\tool\mysql-8.0.31-winx64\bin
 
 
 # 参考
-- https://z0yrmerhgi8.feishu.cn/wiki/O4qFwwWfnipjcgkHwLocYIvHnAbDify应用操作和源码剖析
+- https://z0yrmerhgi8.feishu.cn/wiki/O4qFwwWfnipjcgkHwLocYIvHnAb
+- 应用操作和源码剖析
 
 定位：实现Dify上下游生态系统闭环，围绕工作流和知识库，高效进行AIGC内容创作。
 服务：Dify源码剖析及答疑

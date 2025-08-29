@@ -1,15 +1,47 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Book on Troy的网络博客</title>
-    <link>https://wangcy6.github.io/categories/Book/</link>
-    <description>Recent content in Book on Troy的网络博客</description>
+    <title>book on Troy的网络博客</title>
+    <link>https://wangcy6.github.io/categories/book/</link>
+    <description>Recent content in book on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 11 Oct 2019 17:02:43 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 25 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/categories/book/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>我们为什么要睡觉</title>
+      <link>https://wangcy6.github.io/post/book/2025/book2-202507-sleep/</link>
+      <pubDate>Fri, 25 Jul 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/book/2025/book2-202507-sleep/</guid>
+      <description>https://wnso49yyot.feishu.cn/base/O4xIbFVkgawmScsu60ScYcgQnBb?table=tblfmh0NiaU6WCZY&amp;amp;view=vewNNrlwIF #一年践行12本书 第2本 我们为什么要睡觉（让比尔•盖茨决定放下工作，好好睡觉！《纽约时报》畅销书排行榜NO.1，全球公认殿堂级睡眠百科全书</description>
+    </item>
     
-	<atom:link href="https://wangcy6.github.io/categories/Book/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>我们为什么要睡觉</title>
+      <link>https://wangcy6.github.io/post/book/2025/NO1-topic-sleep/</link>
+      <pubDate>Fri, 25 Jul 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/book/2025/NO1-topic-sleep/</guid>
+      <description>选题 习惯培养卡片&amp;ndash;变成短视频 sleep 百度网盘资料 制作口播内容 写一篇短视频口播脚本120秒内，关于针对20-35上班族 目标：怎么才能提高</description>
+    </item>
     
+    <item>
+      <title>what is Paxos</title>
+      <link>https://wangcy6.github.io/post/book/NO1_what_is.Paxos/</link>
+      <pubDate>Fri, 01 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/book/NO1_what_is.Paxos/</guid>
+      <description>一句话读书摘要很难吗？ 难， 当我打卡浏览器，短视频app时候 第一眼 或者 总有一次无意间 看到 系统推荐各种新闻，电影解说各种炫耀。 这样方式重置我操作</description>
+    </item>
+    
+    <item>
+      <title>强哥答疑</title>
+      <link>https://wangcy6.github.io/post/book/ASK_README/</link>
+      <pubDate>Sat, 12 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/book/ASK_README/</guid>
+      <description>📝 提问规则： 1.周五到周六中午12点可提问 2.每位伙伴每周限提交1个问题； 3.提问请描述清楚问题背景、尝试、想要得到的帮助 ——【提问必读】—</description>
+    </item>
     
     <item>
       <title>算法导论</title>
@@ -18,6 +50,15 @@
       
       <guid>https://wangcy6.github.io/post/2020/book_Algorithms-JeffE-BW/</guid>
       <description>这里没有告诉答案是什么？问题就这些 可以j 回溯法 题目1 把皇后问题 &amp;ndash;已经解决 题目 2 Subset Sum &amp;ndash;正在解决 Let’s consider a more complicated problem, called SubsetSum:</description>
+    </item>
+    
+    <item>
+      <title>[每周阅读一本书]被讨厌的勇气</title>
+      <link>https://wangcy6.github.io/post/2020/2019-10-10-%E8%A2%AB%E8%AE%A8%E5%8E%8C%E7%9A%84%E5%8B%87%E6%B0%94/</link>
+      <pubDate>Thu, 10 Oct 2019 17:02:43 +0800</pubDate>
+      
+      <guid>https://wangcy6.github.io/post/2020/2019-10-10-%E8%A2%AB%E8%AE%A8%E5%8E%8C%E7%9A%84%E5%8B%87%E6%B0%94/</guid>
+      <description>阅读推荐 &amp;mdash;被讨厌的勇气 书封 被讨厌的勇气 豆瓣 评分 8.6 万维钢 专栏 解读 本书以“青年”和“哲人”对话的形式，将阿德勒的哲学逐渐渗透于话语之</description>
     </item>
     
     <item>

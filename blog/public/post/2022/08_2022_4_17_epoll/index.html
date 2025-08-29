@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.83.1 with theme even" />
 
 
 <link rel="canonical" href="https://wangcy6.github.io/post/2022/08_2022_4_17_epoll/" />
@@ -41,17 +41,14 @@
 <meta property="og:title" content="操作系统入门知识--网络" />
 <meta property="og:description" content="day1 :请一定要有自信。你就是一道风景，没必要在别人风景里面仰视。 问题：直觉 为了快速掌握本文所要表达的思想，我们可以带着以下问题阅读。 Busy loop when poll/epoll is" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://wangcy6.github.io/post/2022/08_2022_4_17_epoll/" />
-<meta property="article:published_time" content="2022-04-23T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-04-23T00:00:00+00:00" />
+<meta property="og:url" content="https://wangcy6.github.io/post/2022/08_2022_4_17_epoll/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-04-23T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2022-04-23T00:00:00&#43;00:00" />
+
 <meta itemprop="name" content="操作系统入门知识--网络">
-<meta itemprop="description" content="day1 :请一定要有自信。你就是一道风景，没必要在别人风景里面仰视。 问题：直觉 为了快速掌握本文所要表达的思想，我们可以带着以下问题阅读。 Busy loop when poll/epoll is">
-<meta itemprop="datePublished" content="2022-04-23T00:00:00&#43;00:00" />
+<meta itemprop="description" content="day1 :请一定要有自信。你就是一道风景，没必要在别人风景里面仰视。 问题：直觉 为了快速掌握本文所要表达的思想，我们可以带着以下问题阅读。 Busy loop when poll/epoll is"><meta itemprop="datePublished" content="2022-04-23T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2022-04-23T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="4599">
-
-
-
+<meta itemprop="wordCount" content="4598">
 <meta itemprop="keywords" content="book," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="操作系统入门知识--网络"/>
 <meta name="twitter:description" content="day1 :请一定要有自信。你就是一道风景，没必要在别人风景里面仰视。 问题：直觉 为了快速掌握本文所要表达的思想，我们可以带着以下问题阅读。 Busy loop when poll/epoll is"/>
@@ -131,7 +128,7 @@
       <div class="post-meta">
         <span class="post-time"> 2022-04-23 00:00 </span>
         
-          <span class="more-meta"> 约 4599 字 </span>
+          <span class="more-meta"> 约 4598 字 </span>
           <span class="more-meta"> 预计阅读 10 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -142,23 +139,23 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">问题：直觉</a></li>
-    <li><a href="#heading-1">资料：第一手资料</a>
+    <li><a href="#问题直觉">问题：直觉</a></li>
+    <li><a href="#资料第一手资料">资料：第一手资料</a>
       <ul>
-        <li><a href="#v---httpswwwtaohuitechcategoriese9ab98e5b9b6e58f91">大v&mdash;陶辉</a></li>
-        <li><a href="#v--torvalds">大v&ndash;Torvalds</a></li>
+        <li><a href="#大v---陶辉httpswwwtaohuitechcategoriese9ab98e5b9b6e58f91">大v&mdash;<a href="https://www.taohui.tech/categories/%E9%AB%98%E5%B9%B6%E5%8F%91/">陶辉</a></a></li>
+        <li><a href="#大v--torvalds">大v&ndash;Torvalds</a></li>
       </ul>
     </li>
-    <li><a href="#heading-2">代码：</a></li>
-    <li><a href="#heading-3">理解</a></li>
-    <li><a href="#-">## 方法</a>
+    <li><a href="#代码">代码：</a></li>
+    <li><a href="#理解">理解</a></li>
+    <li><a href="#-方法">## 方法</a>
       <ul>
-        <li><a href="#heading-4">一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题</a></li>
-        <li><a href="#heading-5">二、这个技术的优势和劣势分别是什么</a></li>
-        <li><a href="#heading-6">三、这个技术适用的场景。任何技术都有其适用的场景，离开了这个场景</a></li>
-        <li><a href="#heading-7">四、技术的组成部分和关键点。</a></li>
-        <li><a href="#heading-8">五、技术的底层原理和关键实现</a></li>
-        <li><a href="#heading-9">六、已有的实现和它之间的对比</a></li>
+        <li><a href="#一这个技术出现的背景初衷和要达到什么样的目标或是要解决什么样的问题">一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题</a></li>
+        <li><a href="#二这个技术的优势和劣势分别是什么">二、这个技术的优势和劣势分别是什么</a></li>
+        <li><a href="#三这个技术适用的场景任何技术都有其适用的场景离开了这个场景">三、这个技术适用的场景。任何技术都有其适用的场景，离开了这个场景</a></li>
+        <li><a href="#四技术的组成部分和关键点">四、技术的组成部分和关键点。</a></li>
+        <li><a href="#五技术的底层原理和关键实现">五、技术的底层原理和关键实现</a></li>
+        <li><a href="#六已有的实现和它之间的对比">六、已有的实现和它之间的对比</a></li>
       </ul>
     </li>
   </ul>
@@ -175,7 +172,7 @@
 <blockquote>
 <p>:请一定要有自信。你就是一道风景，没必要在别人风景里面仰视。</p>
 </blockquote>
-<h2 id="heading">问题：直觉</h2>
+<h2 id="问题直觉">问题：直觉</h2>
 <blockquote>
 <p>为了快速掌握本文所要表达的思想，我们可以带着以下问题阅读。</p>
 </blockquote>
@@ -201,13 +198,13 @@
 </ol>
 </li>
 </ul>
-<h2 id="heading-1">资料：第一手资料</h2>
+<h2 id="资料第一手资料">资料：第一手资料</h2>
 <blockquote>
 <p>同样看资料，你为什么不去看成功人怎么走的</p>
 <p>因为看他们文章你离开舒适区 难。</p>
 <p>看八股文 跟不没理解人写文章 简单 迷糊</p>
 </blockquote>
-<h3 id="v---httpswwwtaohuitechcategoriese9ab98e5b9b6e58f91">大v&mdash;<a href="https://www.taohui.tech/categories/%E9%AB%98%E5%B9%B6%E5%8F%91/">陶辉</a></h3>
+<h3 id="大v---陶辉httpswwwtaohuitechcategoriese9ab98e5b9b6e58f91">大v&mdash;<a href="https://www.taohui.tech/categories/%E9%AB%98%E5%B9%B6%E5%8F%91/">陶辉</a></h3>
 <p><a href="https://www.taohui.tech/2020/12/14/nginx/%E9%83%BD%E6%98%AF%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88nginx%E7%9A%84%E6%80%A7%E8%83%BD%E8%BF%9C%E9%AB%98%E4%BA%8Eredis%EF%BC%9F/">都是事件驱动，为什么Nginx的性能远高于Redis？</a></p>
 <p><a href="https://www.taohui.tech/2016/01/27/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/%E9%AB%98%E6%80%A7%E8%83%BD%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B7-tcp%E8%BF%9E%E6%8E%A5%E7%9A%84%E5%86%85%E5%AD%98%E4%BD%BF%E7%94%A8/">高性能网络编程7&ndash;tcp连接的内存使用</a></p>
 <p><a href="https://www.taohui.tech/2016/01/27/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/%E9%AB%98%E6%80%A7%E8%83%BD%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B6-reactor%E5%8F%8D%E5%BA%94%E5%A0%86%E4%B8%8E%E5%AE%9A%E6%97%B6%E5%99%A8%E7%AE%A1%E7%90%86/">高性能网络编程6&ndash;reactor反应堆与定时器管理</a></p>
@@ -216,7 +213,7 @@
 <p><a href="https://www.taohui.tech/2016/01/26/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/%E9%AB%98%E6%80%A7%E8%83%BD%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B3-tcp%E6%B6%88%E6%81%AF%E7%9A%84%E6%8E%A5%E6%94%B6/">高性能网络编程3&mdash;-TCP消息的接收</a></p>
 <p><a href="https://www.taohui.tech/2016/01/25/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/%E9%AB%98%E6%80%A7%E8%83%BD%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B2-tcp%E6%B6%88%E6%81%AF%E7%9A%84%E5%8F%91%E9%80%81/">高性能网络编程2&mdash;-TCP消息的发送</a></p>
 <p><a href="https://www.taohui.tech/2016/01/25/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/%E9%AB%98%E6%80%A7%E8%83%BD%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%80%EF%BC%89-accept%E5%BB%BA%E7%AB%8B%E8%BF%9E%E6%8E%A5/">高性能网络编程（一）&mdash;-accept建立连接</a></p>
-<h3 id="v--torvalds">大v&ndash;Torvalds</h3>
+<h3 id="大v--torvalds">大v&ndash;Torvalds</h3>
 <ol>
 <li>2017年Torvalds 提交 epoll: Add busy poll support to epoll with socket fds. commit</li>
 </ol>
@@ -238,9 +235,9 @@
 </li>
 </ol>
 <ul>
-<li><input checked="" disabled="" type="checkbox"><a href="https://courses.engr.illinois.edu/cs423/sp2014/Lectures/LinuxDriver.pdf">https://courses.engr.illinois.edu/cs423/sp2014/Lectures/LinuxDriver.pdf</a></li>
+<li><input checked="" disabled="" type="checkbox"> <a href="https://courses.engr.illinois.edu/cs423/sp2014/Lectures/LinuxDriver.pdf">https://courses.engr.illinois.edu/cs423/sp2014/Lectures/LinuxDriver.pdf</a></li>
 </ul>
-<h2 id="heading-2">代码：</h2>
+<h2 id="代码">代码：</h2>
 <ul>
 <li>
 <p><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/diff/fs/eventpoll.c?id=bf3b9f6372c45b0fbf24d86b8794910d20170017">https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/diff/fs/eventpoll.c?id=bf3b9f6372c45b0fbf24d86b8794910d20170017</a></p>
@@ -252,7 +249,7 @@
 <p><a href="https://elixir.bootlin.com/linux/v5.10.60/source/fs/select.c#L588">https://elixir.bootlin.com/linux/v5.10.60/source/fs/select.c#L588</a></p>
 </li>
 </ul>
-<h2 id="heading-3">理解</h2>
+<h2 id="理解">理解</h2>
 <p><a href="https://legacy.netdevconf.info/2.1/slides/apr6/dumazet-BUSY-POLLING-Netdev-2.1.pdf">https://legacy.netdevconf.info/2.1/slides/apr6/dumazet-BUSY-POLLING-Netdev-2.1.pdf</a></p>
 <p>句子5；</p>
 <p>SO_BUSY_POLL is a socket option, that allows precise enabling of busy polling,</p>
@@ -461,7 +458,7 @@ SO_INCOMING_NAPI_ID 作为新的套接字选项添加到
 <ol start="3">
 <li>Once the ready list goes empty the NAPI ID is reset and busy polling is disabled until a new socket is added to the ready list</li>
 </ol>
-<p>.4.  In addition when we insert a new socket into the epoll we record the NAPI ID and assume we are going to receive events on it.  If that doesn't occur it will be evicted as the active NAPI ID and we will resume normal behavior. An application can use SO_INCOMING_CPU or SO_REUSEPORT_ATTACH_C/EBPF socket options to spread the incoming connections to specific worker threads based on the incoming queue. This enables epoll for each worker thread to have only sockets that receive packets from a single queue.</p>
+<p>.4.  In addition when we insert a new socket into the epoll we record the NAPI ID and assume we are going to receive events on it.  If that doesn&rsquo;t occur it will be evicted as the active NAPI ID and we will resume normal behavior. An application can use SO_INCOMING_CPU or SO_REUSEPORT_ATTACH_C/EBPF socket options to spread the incoming connections to specific worker threads based on the incoming queue. This enables epoll for each worker thread to have only sockets that receive packets from a single queue.</p>
 <ol start="5">
 <li>So when an application calls epoll_wait() and there are no events available to report, busy polling is done on the associated queue to pull the packets.</li>
 </ol>
@@ -478,7 +475,9 @@ system calls : recv() and friends , poll() and select()</p>
 <p>若有就绪则直接将
 事件和fd返回给用户空间，没有就绪的话先把自己调度出去，然后等待socket那边有事件后通过
 回调 ep_poll_callback()来唤醒。</p>
-<p>4.</p>
+<ol start="4">
+<li></li>
+</ol>
 <p>the incoming connections</p>
 <p>New API (also referred to as NAPI) is an interface to use interrupt mitigation techniques for networking devices in the Linux kernel. Such an approach is intended to reduce the overhead of packet receiving. T</p>
 <p>he idea is to defer incoming message</p>
@@ -548,7 +547,7 @@ system calls : recv() and friends , poll() and select()</p>
 <p>等待内核态准备数据结束之后，会自动回通知用户态的线程进行读取信息数据，此时之前用户态的线程不需要等待，可以去做其他操作。</p>
 <ul>
 <li>
-<p><input checked="" disabled="" type="checkbox"><a href="https://blog.51cto.com/alex4dream/2774960">非阻塞和异步的区别</a></p>
+<p><input checked="" disabled="" type="checkbox"> <a href="https://blog.51cto.com/alex4dream/2774960">非阻塞和异步的区别</a></p>
 </li>
 <li>
 <p>在non-blocking IO中，虽然进程大部分时间都不会被block，但是它仍然要求进程去主动的check，并且当数据准备完成以后，也需要进程主动的再次调用recvfrom来将数据拷贝到用户内存。</p>
@@ -590,7 +589,7 @@ D是个有钱人，干脆雇了一个人帮他钓鱼，一旦那个人把鱼钓�
 </div>
 </div><ul>
 <li>
-<p><input checked="" disabled="" type="checkbox"><strong>Java 中的 IO 模型 vs IO 模型</strong></p>
+<p><input checked="" disabled="" type="checkbox"> <strong>Java 中的 IO 模型 vs IO 模型</strong></p>
 </li>
 <li>
 <p>BIO、NIO、AIO</p>
@@ -602,22 +601,22 @@ D是个有钱人，干脆雇了一个人帮他钓鱼，一旦那个人把鱼钓�
 <p>Nginx通过Master/Worker多进程架构，可以充分使用服务器上百个CPU核心，实现C10M。</p>
 </li>
 <li>
-<p><input checked="" disabled="" type="checkbox">sysctl_tcp_low_latency 哪里体现低延迟了。原来怎么解决延迟的。【队列作用 不完全处理完毕 尽快结束 ，下次子处理】</p>
+<p><input checked="" disabled="" type="checkbox"> sysctl_tcp_low_latency 哪里体现低延迟了。原来怎么解决延迟的。【队列作用 不完全处理完毕 尽快结束 ，下次子处理】</p>
 <p>如果 sysctl_tcp_low_latency 设置为 1，也即没有 prequeue 队列，或者 prequeue 队列为空，则需要处理 backlog 队列，在 release_sock 函数中处理。</p>
 <ul>
-<li><input disabled="" type="checkbox"><a href="https://www.taohui.tech/2016/01/26/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/%E9%AB%98%E6%80%A7%E8%83%BD%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B3-tcp%E6%B6%88%E6%81%AF%E7%9A%84%E6%8E%A5%E6%94%B6/">第一幅图描述的场景是</a></li>
+<li><input disabled="" type="checkbox"> <a href="https://www.taohui.tech/2016/01/26/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/%E9%AB%98%E6%80%A7%E8%83%BD%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B3-tcp%E6%B6%88%E6%81%AF%E7%9A%84%E6%8E%A5%E6%94%B6/">第一幅图描述的场景是</a></li>
 </ul>
 </li>
 </ul>
 <p>解决问题：</p>
 <p>流程图：</p>
-<h2 id="-">## 方法</h2>
-<h3 id="heading-4">一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题</h3>
-<h3 id="heading-5">二、这个技术的优势和劣势分别是什么</h3>
-<h3 id="heading-6">三、这个技术适用的场景。任何技术都有其适用的场景，离开了这个场景</h3>
-<h3 id="heading-7">四、技术的组成部分和关键点。</h3>
-<h3 id="heading-8">五、技术的底层原理和关键实现</h3>
-<h3 id="heading-9">六、已有的实现和它之间的对比</h3>
+<h2 id="-方法">## 方法</h2>
+<h3 id="一这个技术出现的背景初衷和要达到什么样的目标或是要解决什么样的问题">一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题</h3>
+<h3 id="二这个技术的优势和劣势分别是什么">二、这个技术的优势和劣势分别是什么</h3>
+<h3 id="三这个技术适用的场景任何技术都有其适用的场景离开了这个场景">三、这个技术适用的场景。任何技术都有其适用的场景，离开了这个场景</h3>
+<h3 id="四技术的组成部分和关键点">四、技术的组成部分和关键点。</h3>
+<h3 id="五技术的底层原理和关键实现">五、技术的底层原理和关键实现</h3>
+<h3 id="六已有的实现和它之间的对比">六、已有的实现和它之间的对比</h3>
 
     </div>
 

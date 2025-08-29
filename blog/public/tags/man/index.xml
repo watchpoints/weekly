@@ -6,45 +6,23 @@
     <description>Recent content in man on Troy的网络博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 07 Sep 2024 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://wangcy6.github.io/tags/man/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 25 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://wangcy6.github.io/tags/man/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>c&#43;&#43;代码编程规范</title>
-      <link>https://wangcy6.github.io/post/future_for_ai/c&#43;&#43;/02_master_c&#43;&#43;_class/</link>
-      <pubDate>Sat, 07 Sep 2024 00:00:00 +0000</pubDate>
+      <title>我们为什么要睡觉</title>
+      <link>https://wangcy6.github.io/post/book/2025/book2-202507-sleep/</link>
+      <pubDate>Fri, 25 Jul 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://wangcy6.github.io/post/future_for_ai/c&#43;&#43;/02_master_c&#43;&#43;_class/</guid>
-      <description>C++ string 成员函数 length() size() 和 C strlen() 的区别 当 string 中含有空字符’\0’，使用 strlen() 获取 string 的长度时会被截断，使用成员函数 length() 和 size() 可以返回 string 的真实长度。 // 构造时使用 string strTest(buf,</description>
+      <guid>https://wangcy6.github.io/post/book/2025/book2-202507-sleep/</guid>
+      <description>https://wnso49yyot.feishu.cn/base/O4xIbFVkgawmScsu60ScYcgQnBb?table=tblfmh0NiaU6WCZY&amp;amp;view=vewNNrlwIF #一年践行12本书 第2本 我们为什么要睡觉（让比尔•盖茨决定放下工作，好好睡觉！《纽约时报》畅销书排行榜NO.1，全球公认殿堂级睡眠百科全书</description>
     </item>
     
     <item>
-      <title>c&#43;&#43;代码编程规范</title>
-      <link>https://wangcy6.github.io/post/future_for_ai/c&#43;&#43;/02_master_c&#43;&#43;_share_pointer/</link>
-      <pubDate>Sat, 07 Sep 2024 00:00:00 +0000</pubDate>
+      <title>我们为什么要睡觉</title>
+      <link>https://wangcy6.github.io/post/book/2025/NO1-topic-sleep/</link>
+      <pubDate>Fri, 25 Jul 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://wangcy6.github.io/post/future_for_ai/c&#43;&#43;/02_master_c&#43;&#43;_share_pointer/</guid>
-      <description>成为面试官 第一练 未了节省读者时间一句话解释 shared_ptr 的引用计数本身是安全且无锁的，但对象的读写则不是， 因为 shared_ptr 有两个数据成员，读写操作不能原子 一个 shared_ptr 对</description>
-    </item>
-    
-    <item>
-      <title>c&#43;&#43;入门指南</title>
-      <link>https://wangcy6.github.io/post/future_for_ai/c&#43;&#43;/01_c&#43;&#43;_new/</link>
-      <pubDate>Wed, 07 Aug 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/future_for_ai/c&#43;&#43;/01_c&#43;&#43;_new/</guid>
-      <description>内存管理 C++中通过new和delete两个关键字进行动态内存管理。 c语言通过 malloc 和free 两个关键字进行动态内存管理 函数支持重载，运算符同样</description>
-    </item>
-    
-    <item>
-      <title>2021-读书清单</title>
-      <link>https://wangcy6.github.io/post/book/2025/book1-2025-5-cpu/</link>
-      <pubDate>Sat, 10 Jul 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wangcy6.github.io/post/book/2025/book1-2025-5-cpu/</guid>
-      <description></description>
+      <guid>https://wangcy6.github.io/post/book/2025/NO1-topic-sleep/</guid>
+      <description>选题 习惯培养卡片&amp;ndash;变成短视频 sleep 百度网盘资料 制作口播内容 写一篇短视频口播脚本120秒内，关于针对20-35上班族 目标：怎么才能提高</description>
     </item>
     
   </channel>

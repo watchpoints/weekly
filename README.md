@@ -16,9 +16,10 @@
 ![一起交流](https://s2.loli.net/2025/08/18/dK2SVFlCATWoiGN.jpg)
 # 2025
 
-
-- 8 月 18:[AI 周刊（第一期) 写代码普通人的杠杆](./docs/2025/wmyskxz/weekly)
-
+#### 第一期 8 月 18
+- 微信: [AI 周刊（第一期) 写代码普通人的杠杆](docs/2025/issue-01.md)  
+-  blog:[AI 周刊（第一期) 写代码普通人的杠杆](https://wangcy6.github.io/post/future_for_ai/ai_weekly/issue-01/)  
+- github :[AI 周刊（第一期) 写代码普通人的杠杆](docs/2025/issue-01.md)  
 
 
 # 2023年
