@@ -7,11 +7,10 @@ tags:
 categories:
   - do book
 ---
- https://wnso49yyot.feishu.cn/base/Wi37bwBTiaCpEZsFxavckkV5nbb?table=tblPUqR3ZoqKKLNW&view=vew40mV0G2
+
 
 书接上回：
 
-  
 
 [从零实现分布式文件系统(二) 如何在不升级硬件的前提下,小文件并发读写性能提升十倍](https://mp.weixin.qq.com/s/Zr-8CHOxMSl67FsKihsoTQ)
 
