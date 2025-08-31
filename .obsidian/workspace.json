@@ -11,14 +11,10 @@
             "id": "e7a7b303c61786dc",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "blog/content/post/future_for_ai/01-提示词/微信公共号选题利 流程.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "微信公共号选题利 流程"
+              "title": "新标签页"
             }
           }
         ]
@@ -52,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "互动",
+                "query": "云主机",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -73,7 +69,8 @@
               "title": "书签"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -138,11 +135,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "blog/content/post/future_for_ai/01-提示词/微信公共号选题利 流程.md"
-              },
+              "state": {},
               "icon": "lucide-list",
-              "title": "微信公共号选题利 流程 的大纲"
+              "title": "大纲"
             }
           },
           {
@@ -195,10 +190,26 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
-    "blog/content/post/future_for_ai/05-智能体/day2-dify-v1.md",
-    "blog/content/post/interview/interviewSystemDesgin/2025/day22-system-desgin-1.0.md",
-    "blog/content/post/interview/c++/day12_c++_weely_9.md",
     "blog/content/post/interview/interviewSystemDesgin/template.md",
+    "blog/content/post/future_for_ai/05-智能体/day2-dify-v1.md",
+    "blog/content/post/future_for_ai/01-提示词/写作类.md",
+    "blog/content/post/interview/c++/day13_c++_weely.md",
+    "blog/content/post/interview/c++/day12_c++_weely_9.md",
+    "blog/content/post/future_for_ai/ai_weekly/issue-02.md",
+    "blog/content/post/future_for_ai/ai_weekly/template 1.md",
+    "blog/content/post/future_for_ai/08-blog/day5-100w-企培.md",
+    "blog/content/post/future_for_ai/01-提示词/微信公共号选题利 流程.md",
+    "blog/public/page/78/index.html",
+    "blog/public/page/78",
+    "blog/public/post/interview/interviewSystemDesgin/2025/day22-system-desgin-1.0/index.html",
+    "blog/public/post/interview/interviewSystemDesgin/2025/day22-system-desgin-1.0",
+    "blog/public/post/interview/c++/day9_c++_weely_6/index.html",
+    "blog/public/post/interview/c++/day9_c++_weely_6",
+    "blog/public/post/interview/c++/day9_c++_weely_5/index.html",
+    "blog/public/post/interview/c++/day9_c++_weely_5",
+    "blog/public/post/interview/c++/day11_c++_weely_7/index.html",
+    "blog/public/post/interview/c++/day11_c++_weely_7",
+    "blog/content/post/interview/interviewSystemDesgin/2025/day22-system-desgin-1.0.md",
     "blog/content/post/interview/interviewSystemDesgin/2025/day18-system-desgin.md",
     "blog/content/post/interview/interviewSystemDesgin/2025/day21-system-desgin-small_1.md",
     "blog/content/post/interview/c++/day8_c++_weely_4.md",
@@ -206,7 +217,6 @@
     "blog/content/post/interview/c++/day9_c++_weely_5.md",
     "blog/content/post/interview/c++/day11_c++_weely_7.md",
     "blog/content/post/interview/interviewSystemDesgin/06-tools-base-user-git.md",
-    "blog/content/post/future_for_ai/01-提示词/微信公共号选题利 流程.md",
     "blog/content/post/interview/c++/2025-4-29-Interview_pointer.md",
     "blog/content/post/interview/c++/day9_c++_weely_6.md",
     "blog/content/post/future_for_ai/08-blog/01-english--openai.md",
@@ -216,21 +226,6 @@
     "blog/content/post/future_for_ai/01-提示词/template 1.md",
     "blog/content/post/future_for_ai/04-AI-读书/template.md",
     "blog/content/post/future_for_ai/08-blog/02_how_to_use_notebooklkm.md",
-    "blog/content/post/future_for_ai/08-blog/day5-100w-企培.md",
-    "blog/content/post/future_for_ai/01-提示词/写作类.md",
-    "blog/public/post/interview/c++/day8_c++_weely_4/index.html",
-    "blog/public/post/interview/c++/day8_c++_weely_4",
-    "blog/content/post/future_for_ai/02-短视频/2025-6月一鱼多吃.md",
-    "blog/content/post/future_for_ai/02-短视频/2025-08-06-ohter.md",
-    "blog/content/post/future_for_ai/02-短视频/day3-Charles.md",
-    "blog/public/page/77/index.html",
-    "blog/public/page/77",
-    "blog/public/post/interview/job/day9-false/index.html",
-    "blog/public/post/interview/job/day9-false",
-    "blog/public/post/interview/c++/day6_c++_weely_2/index.html",
-    "blog/public/post/interview/c++/day6_c++_weely_2",
-    "blog/public/post/interview/c++/day7_c++_weely_3/index.html",
-    "blog/public/post/interview/c++/day7_c++_weely_3",
     "blog/content/post/未命名.canvas",
     "Pasted Image 20250627184407_007.png",
     "blog/public/post/Pasted Image 20250613103540_367.svg",

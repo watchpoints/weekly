@@ -2,29 +2,57 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wangcy6.github.io/post/interview/c&#43;&#43;/day9_c&#43;&#43;_weely_5/</loc>
+    <lastmod>2025-08-26T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangcy6.github.io/post/interview/c&#43;&#43;/day11_c&#43;&#43;_weely_7/</loc>
+    <lastmod>2025-08-26T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangcy6.github.io/post/interview/c&#43;&#43;/day9_c&#43;&#43;_weely_6/</loc>
+    <lastmod>2025-08-26T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangcy6.github.io/post/interview/c&#43;&#43;/day12_c&#43;&#43;_weely_9/</loc>
+    <lastmod>2025-08-26T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://wangcy6.github.io/categories/</loc>
-    <lastmod>2025-08-25T00:00:00+00:00</lastmod>
+    <lastmod>2025-08-26T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://wangcy6.github.io/categories/do-book/</loc>
-    <lastmod>2025-08-25T00:00:00+00:00</lastmod>
+    <lastmod>2025-08-26T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://wangcy6.github.io/post/</loc>
-    <lastmod>2025-08-25T00:00:00+00:00</lastmod>
+    <lastmod>2025-08-26T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://wangcy6.github.io/</loc>
-    <lastmod>2025-08-25T00:00:00+00:00</lastmod>
+    <lastmod>2025-08-26T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -345,77 +373,77 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/future_for_ai/2025/01/</loc>
+    <loc>https://wangcy6.github.io/post/future_for_ai/08-blog/01-english-openai/</loc>
     <lastmod>2025-05-09T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/future_for_ai/2025/05-20250522-small-porject/</loc>
+    <loc>https://wangcy6.github.io/post/future_for_ai/08-blog/05-20250522-small-porject/</loc>
     <lastmod>2025-05-09T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/future_for_ai/2025/09-tool-googlen/</loc>
+    <loc>https://wangcy6.github.io/post/future_for_ai/08-blog/09-tool-googlen/</loc>
     <lastmod>2025-05-09T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/future_for_ai/2025/2025-%E5%B9%B4%E7%AC%94%E8%AE%B0%E6%9C%AC%E8%B4%AD%E4%B9%B0%E6%8C%87%E5%8D%97/</loc>
+    <loc>https://wangcy6.github.io/post/future_for_ai/08-blog/2025-%E5%B9%B4%E7%AC%94%E8%AE%B0%E6%9C%AC%E8%B4%AD%E4%B9%B0%E6%8C%87%E5%8D%97/</loc>
     <lastmod>2025-05-09T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/future_for_ai/2025/day5-100w-%E4%BB%A3%E5%86%99/</loc>
+    <loc>https://wangcy6.github.io/post/future_for_ai/08-blog/day5-100w-%E4%BB%A3%E5%86%99/</loc>
     <lastmod>2025-05-09T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/future_for_ai/2025/day5-100w-%E4%BC%81%E5%9F%B9/</loc>
+    <loc>https://wangcy6.github.io/post/future_for_ai/08-blog/day5-100w-%E4%BC%81%E5%9F%B9/</loc>
     <lastmod>2025-05-09T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/future_for_ai/2025/day5-100w-%E7%BC%96%E7%A8%8B/</loc>
+    <loc>https://wangcy6.github.io/post/future_for_ai/08-blog/day5-100w-%E7%BC%96%E7%A8%8B/</loc>
     <lastmod>2025-05-09T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/future_for_ai/2025/template/</loc>
+    <loc>https://wangcy6.github.io/post/future_for_ai/08-blog/template/</loc>
     <lastmod>2025-05-09T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/future_for_ai/2025/%E6%88%90%E4%B8%BA%E8%AE%B2%E5%B8%88-2025/</loc>
+    <loc>https://wangcy6.github.io/post/future_for_ai/08-blog/%E6%88%90%E4%B8%BA%E8%AE%B2%E5%B8%88-2025/</loc>
     <lastmod>2025-05-09T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/future_for_ai/2025/06_how_to_use_Manus/</loc>
+    <loc>https://wangcy6.github.io/post/future_for_ai/08-blog/06_how_to_use_Manus/</loc>
     <lastmod>2025-05-09T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/future_for_ai/2025/08-web-asp-/</loc>
+    <loc>https://wangcy6.github.io/post/future_for_ai/08-blog/08-web-asp-/</loc>
     <lastmod>2025-05-09T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -429,14 +457,14 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/future_for_ai/2025/04_how_to_push_goods/</loc>
+    <loc>https://wangcy6.github.io/post/future_for_ai/08-blog/04_how_to_push_goods/</loc>
     <lastmod>2025-05-09T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/future_for_ai/2025/05_draw_pic/</loc>
+    <loc>https://wangcy6.github.io/post/future_for_ai/08-blog/05_draw_pic/</loc>
     <lastmod>2025-05-09T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -450,14 +478,14 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/future_for_ai/2025/07-write-/</loc>
+    <loc>https://wangcy6.github.io/post/future_for_ai/08-blog/07-write-/</loc>
     <lastmod>2025-05-09T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/future_for_ai/2025/10-health/</loc>
+    <loc>https://wangcy6.github.io/post/future_for_ai/08-blog/10-health/</loc>
     <lastmod>2025-05-09T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -485,7 +513,7 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/future_for_ai/2025/03_how_to_use_notebooklkm/</loc>
+    <loc>https://wangcy6.github.io/post/future_for_ai/08-blog/03_how_to_use_notebooklkm/</loc>
     <lastmod>2025-05-09T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -499,7 +527,7 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/future_for_ai/2025/2025-05-03-contestos-window/</loc>
+    <loc>https://wangcy6.github.io/post/future_for_ai/08-blog/2025-05-03-contestos-window/</loc>
     <lastmod>2025-05-03T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -891,7 +919,7 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/future_for_ai/2025/02_how_to_use_notebooklkm/</loc>
+    <loc>https://wangcy6.github.io/post/future_for_ai/08-blog/02_how_to_use_notebooklkm/</loc>
     <lastmod>2025-04-12T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -1325,7 +1353,7 @@
   </url>
   
   <url>
-    <loc>https://wangcy6.github.io/post/interview/interviewSystemDesgin/2025/day20-system-desgin-small_1.0/</loc>
+    <loc>https://wangcy6.github.io/post/interview/interviewSystemDesgin/2025/day22-system-desgin-1.0/</loc>
     <lastmod>2024-08-07T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
