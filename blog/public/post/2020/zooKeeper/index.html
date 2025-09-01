@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.83.1 with theme even" />
 
 
 <link rel="canonical" href="https://wangcy6.github.io/post/2020/zooKeeper/" />
@@ -41,17 +41,14 @@
 <meta property="og:title" content="zooKeeper" />
 <meta property="og:description" content="协调者ZooKeeper 一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题 从集中式部署业务架构到 分布式部署，Master" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://wangcy6.github.io/post/2020/zooKeeper/" />
-<meta property="article:published_time" content="2020-04-20T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-04-20T00:00:00+00:00" />
+<meta property="og:url" content="https://wangcy6.github.io/post/2020/zooKeeper/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2020-04-20T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2020-04-20T00:00:00&#43;00:00" />
+
 <meta itemprop="name" content="zooKeeper">
-<meta itemprop="description" content="协调者ZooKeeper 一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题 从集中式部署业务架构到 分布式部署，Master">
-<meta itemprop="datePublished" content="2020-04-20T00:00:00&#43;00:00" />
+<meta itemprop="description" content="协调者ZooKeeper 一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题 从集中式部署业务架构到 分布式部署，Master"><meta itemprop="datePublished" content="2020-04-20T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2020-04-20T00:00:00&#43;00:00" />
 <meta itemprop="wordCount" content="953">
-
-
-
 <meta itemprop="keywords" content="中间件," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="zooKeeper"/>
 <meta name="twitter:description" content="协调者ZooKeeper 一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题 从集中式部署业务架构到 分布式部署，Master"/>
@@ -142,15 +139,15 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#zookeeper">协调者ZooKeeper</a>
+    <li><a href="#协调者zookeeper">协调者ZooKeeper</a>
       <ul>
-        <li><a href="#heading">一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题</a></li>
-        <li><a href="#heading-1">二、这个技术的优势和劣势分别是什么</a></li>
-        <li><a href="#heading-3">服务缺乏可扩展性</a></li>
-        <li><a href="#heading-4">三、这个技术适用的场景。任何技术都有其适用的场景，离开了这个场景</a></li>
-        <li><a href="#heading-5">四、技术的组成部分和关键点。</a></li>
-        <li><a href="#heading-6">五、技术的底层原理和关键实现</a></li>
-        <li><a href="#heading-7">六、已有的实现和它之间的对比</a></li>
+        <li><a href="#一这个技术出现的背景初衷和要达到什么样的目标或是要解决什么样的问题">一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题</a></li>
+        <li><a href="#二这个技术的优势和劣势分别是什么">二、这个技术的优势和劣势分别是什么</a></li>
+        <li><a href="#服务缺乏可扩展性">服务缺乏可扩展性</a></li>
+        <li><a href="#三这个技术适用的场景任何技术都有其适用的场景离开了这个场景">三、这个技术适用的场景。任何技术都有其适用的场景，离开了这个场景</a></li>
+        <li><a href="#四技术的组成部分和关键点">四、技术的组成部分和关键点。</a></li>
+        <li><a href="#五技术的底层原理和关键实现">五、技术的底层原理和关键实现</a></li>
+        <li><a href="#六已有的实现和它之间的对比">六、已有的实现和它之间的对比</a></li>
       </ul>
     </li>
   </ul>
@@ -163,8 +160,8 @@
     </div>
   </div>
     <div class="post-content">
-      <h2 id="zookeeper">协调者ZooKeeper</h2>
-<h3 id="heading">一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题</h3>
+      <h2 id="协调者zookeeper">协调者ZooKeeper</h2>
+<h3 id="一这个技术出现的背景初衷和要达到什么样的目标或是要解决什么样的问题">一、这个技术出现的背景、初衷和要达到什么样的目标或是要解决什么样的问题</h3>
 <p>从集中式部署业务架构到 分布式部署，Master-Worker架构 改造过程中，必然涉及数据一致性问题</p>
 <p>2pc，3pc都没很好解决这个问题，ZooKeeper 站出来解决这个问题。</p>
 <ul>
@@ -183,11 +180,11 @@
 <p>ZooKeeper is  coordination service for distributed applications.</p>
 </blockquote>
 <p>ZooKeeper 是伴随Hadoop产生的， 而Hadoop生态系统中，很多项目都是以动物来命名，如Pig，Hive等， 似乎像一个动物园，这样就得到动物园管家的名称”ZooKeeper”</p>
-<h3 id="heading-1">二、这个技术的优势和劣势分别是什么</h3>
-<h4 id="heading-2">劣势</h4>
+<h3 id="二这个技术的优势和劣势分别是什么">二、这个技术的优势和劣势分别是什么</h3>
+<h4 id="劣势">劣势</h4>
 <ul>
 <li>
-<h3 id="heading-3">服务缺乏可扩展性</h3>
+<h3 id="服务缺乏可扩展性">服务缺乏可扩展性</h3>
 </li>
 </ul>
 <p>微服务相关的项目都纷纷抛弃ZK转投etcd，可见其确实有可取之处，也可以看出一个项目的易用的重要性有时候甚至高于稳定性和功能</p>
@@ -200,7 +197,7 @@
 </blockquote>
 </li>
 </ul>
-<h3 id="heading-4">三、这个技术适用的场景。任何技术都有其适用的场景，离开了这个场景</h3>
+<h3 id="三这个技术适用的场景任何技术都有其适用的场景离开了这个场景">三、这个技术适用的场景。任何技术都有其适用的场景，离开了这个场景</h3>
 <p>　<strong>Zookeeper</strong> 是一个基于 <a href="https://static.googleusercontent.com/media/research.google.com/zh-CN//archive/chubby-osdi06.pdf">Google Chubby</a> 论文实现的一款解决分布式数据一致性问题的开源实现，方便了依赖 Zookeeper 的应用实现</p>
 <ul>
 <li>
@@ -228,7 +225,7 @@
 <p>分布式锁和队列</p>
 </li>
 </ul>
-<h3 id="heading-5">四、技术的组成部分和关键点。</h3>
+<h3 id="四技术的组成部分和关键点">四、技术的组成部分和关键点。</h3>
 <ul>
 <li>
 <p>ZAB 协议是为分布式协调服务 Zookeeper 专门设计的一种支持崩溃恢复的原子广播协议.专为ZK设计的</p>
@@ -239,8 +236,8 @@
 </blockquote>
 </li>
 </ul>
-<h3 id="heading-6">五、技术的底层原理和关键实现</h3>
-<h3 id="heading-7">六、已有的实现和它之间的对比</h3>
+<h3 id="五技术的底层原理和关键实现">五、技术的底层原理和关键实现</h3>
+<h3 id="六已有的实现和它之间的对比">六、已有的实现和它之间的对比</h3>
 <table>
 <thead>
 <tr>

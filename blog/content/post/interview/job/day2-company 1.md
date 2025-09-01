@@ -20,6 +20,31 @@ categories:
 
 知识地图：分布式存储---小而美公司
 
+
+## 星辰天合
+
+https://xskydata.jobs.feishu.cn/career/position/list
+## 宏杉科技
+
+
+## 红山
+
+https://www.szsandstone.com/
+
+深圳市杉岩数据技术有限公司（简称“杉岩数据”）成立于2014年，是一家提供海量数据存储与管理解决方案的国家高新技术企业、国家级专精特新“小巨人”企业，制造行业产线检测数据存储和管理领导企业，现已服务于1800+制造、金融等行业领先企业，杉岩数据致力于让海量数据存得下、管得好、用得爽，持续创造客户价值。目前，杉岩数据已累计获得顺为资本、达晨财智、国科投资等10余家投资机构数亿元融资。
+
+https://www.szsandstone.com/join-us
+
+## # TaoCloud
+
+![image.png](https://s2.loli.net/2025/07/03/9LBmqZc68xnjH7R.png)
+
+
+https://www.zhipin.com/gongsi/b264b15c76c3f8551HZ42t61.html
+
+北京大道云行科技有限公司（简称：大道云行/TaoCloud）成立于2015年1月，是专注于软件定义智能存储产品研发及技术服务的专业厂商， 拥有完整的软件定义存储产品系列，包括FASS（分布式块存储）、XDFS（分布式文件存储）和高性能NAS，HCI超融合系统，TaoCloud致力于为企业级客户提供高效智能的软件定义存储产品和解决方案。
+https://www.taocloudx.com/#/Abouts
+
 ## 1. SmartX
 
 ### 1. 1企业愿景
