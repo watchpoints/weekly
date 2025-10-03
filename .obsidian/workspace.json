@@ -11,14 +11,10 @@
             "id": "e7a7b303c61786dc",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "blog/content/post/interview/interviewSystemDesgin/2025/EP04-system-desgin-file-system-dep 1.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "EP04-system-desgin-file-system-dep 1"
+              "title": "新标签页"
             }
           }
         ]
@@ -138,11 +134,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "blog/content/post/interview/interviewSystemDesgin/2025/EP04-system-desgin-file-system-dep 1.md"
-              },
+              "state": {},
               "icon": "lucide-list",
-              "title": "EP04-system-desgin-file-system-dep 1 的大纲"
+              "title": "大纲"
             }
           },
           {
@@ -195,8 +189,8 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
-    "blog/content/post/interview/interviewSystemDesgin/2025/EP03-system-desgin-file-system-dep.md",
     "blog/content/post/interview/interviewSystemDesgin/2025/EP04-system-desgin-file-system-dep 1.md",
+    "blog/content/post/interview/interviewSystemDesgin/2025/EP03-system-desgin-file-system-dep.md",
     "blog/content/post/interview/c++/day9_c++_weely_5.md",
     "blog/content/post/interview/c++/day11_c++_weely_7.md",
     "blog/content/post/interview/c++/day12_c++_weely_9.md",
